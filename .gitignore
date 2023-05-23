@@ -1,1 +1,16 @@
 /.metadata/
+/target/
+.classpath
+/test/
+test
+target
+
+
+
+Servers
+
+**/back/Giboo&Take/.settings/
+**/back/Giboo&Take/.vscode/
+**/back/Giboo&Take/*.classpath
+
+**/back/Giboo&Take/*.project
