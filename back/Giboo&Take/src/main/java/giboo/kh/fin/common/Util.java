@@ -3,12 +3,12 @@ package giboo.kh.fin.common;
 import java.text.SimpleDateFormat;
 
 public class Util {
-	   // ?ŒŒ?¼ëª? ë³?ê²? ë©”ì†Œ?“œ
+	   // íŒŒì¼ëª… ë³€ê²½ ë©”ì†Œë“œ
 	   public static String fileRename(String originFileName) {
 	      SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 	      String date = sdf.format(new java.util.Date(System.currentTimeMillis()));
 
-	      int ranNum = (int) (Math.random() * 100000); // 5?ë¦? ?œ?¤ ?ˆ«? ?ƒ?„±
+	      int ranNum = (int) (Math.random() * 100000); // 5ìë¦¬ ëœë¤ ìˆ«ì ìƒì„±
 
 	      String str = "_" + String.format("%05d", ranNum);
 
@@ -17,7 +17,7 @@ public class Util {
 	      return date + str + ext;
 	   }
 	   
-	   // ?¬ë¡œìŠ¤ ?‚¬?´?Š¸ ?Š¤?Š¸ë¦½íŠ¸ ê³µê²©?„ ë°©ì? ?•˜ê¸? ?œ„?•œ ë©”ì†Œ?“œ
+	   // í¬ë¡œìŠ¤ ì‚¬ì´íŠ¸ ìŠ¤íŠ¸ë¦½íŠ¸ ê³µê²©ì„ ë°©ì§€ í•˜ê¸° ìœ„í•œ ë©”ì†Œë“œ
 	   public static String XSSHandling(String content) {
 	      if(content != null) {
 	         content = content.replaceAll("&", "&amp;");
@@ -29,7 +29,7 @@ public class Util {
 	   }
 
 	   
-	   // ?¬ë¡œìŠ¤ ?‚¬?´?Š¸ ?Š¤?Š¸ë¦½íŠ¸ ?•´? œ
+	   // í¬ë¡œìŠ¤ ì‚¬ì´íŠ¸ ìŠ¤íŠ¸ë¦½íŠ¸ í•´ì œ
 	   public static String XSSClear(String content) {
 	      if(content != null) {
 	         content = content.replaceAll("&amp;", "&");
@@ -46,7 +46,7 @@ public class Util {
 	      return content.replaceAll("(\r\n|\r|\n|\n\r)", "<br>");
 	   }
 	   
-	   // ê°œí–‰ë¬¸ì ?•´? œ
+	   // ê°œí–‰ë¬¸ì í•´ì œ
 	   public static String newLineClear(String content) {
 	      return content.replaceAll("<br>", "\n");
 	   }

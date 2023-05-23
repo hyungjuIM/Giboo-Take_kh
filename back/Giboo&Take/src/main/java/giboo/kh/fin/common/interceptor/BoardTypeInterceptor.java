@@ -1,6 +1,4 @@
 package giboo.kh.fin.common.interceptor;
-//package edu.kh.comm.common.interceptor;
-//
 //import java.util.List;
 //
 //import javax.servlet.ServletContext;
@@ -18,64 +16,72 @@ package giboo.kh.fin.common.interceptor;
 //
 //public class BoardTypeInterceptor implements HandlerInterceptor{
 //
-//	/* ?¸?„°?…‰?„°ê°? ?š”ì²??„ ê°?ë¡œì±„?Š” ?‹œê¸?
-//	 *
-//	 * 1. preHandle (? „ì²˜ë¦¬) : ì»¨íŠ¸ë¡¤ëŸ¬ ?ˆ˜?–‰ ? „
-//	 *
-//	 * 2. postHandle (?›„ì²˜ë¦¬) : ì»¨íŠ¸ë¡¤ëŸ¬ ?ˆ˜?–‰ ?›„ (ì»¨íŠ¸ë¡¤ëŸ¬ ?ˆ˜?–‰ ê²°ê³¼ ì°¸ì¡° ê°??Š¥)
-//	 *
-//	 * 3. afterCompletion (View?‹¨ ì²˜ë¦¬ ?›„) : ë³´í†µ ??› ë°˜í™˜( close() )?„ ?ˆ˜?–‰
-//	 *
-//	 * ** ?‹¨, ë¹„ë™ê¸? ?š”ì²?(?ë°? ?‚´ë¶??˜ ë³„ë„ ?“°? ˆ?“œ ?š”ì²?)?? ê°?ë¡œì±„ì§? ?•Š?Œ
-//	 *
+//	/* ì¸í„°ì…‰í„°ê°€ ìš”ì²­ì„ ê°€ë¡œì±„ëŠ” ì‹œê¸°
+//	 * 
+//	 * 1. preHandle  (ì „ì²˜ë¦¬) : ì»¨íŠ¸ë¡¤ëŸ¬ ìˆ˜í–‰ ì „ 
+//	 * 
+//	 * 2. postHandle (í›„ì²˜ë¦¬) : ì»¨íŠ¸ë¡¤ëŸ¬ ìˆ˜í–‰ í›„ (ì»¨íŠ¸ë¡¤ëŸ¬ ìˆ˜í–‰ ê²°ê³¼ ì°¸ì¡° ê°€ëŠ¥)
+//	 * 
+//	 * 3. afterCompletion (Viewë‹¨ ì²˜ë¦¬ í›„) : ë³´í†µ ìì› ë°˜í™˜( close() )ì„ ìˆ˜í–‰
+//	 * 
+//	 * ** ë‹¨, ë¹„ë™ê¸° ìš”ì²­(ìë°” ë‚´ë¶€ì˜ ë³„ë„ ì“°ë ˆë“œ ìš”ì²­) ì€ ê°€ë¡œì±„ì§€ ì•ŠìŒ
 //	 * */
-//
+//	
+//	
 //	private Logger logger = LoggerFactory.getLogger(BoardTypeInterceptor.class);
-//
+//	
+//	// BoardService ì˜ì¡´ì„± ì£¼ì… ë°›ê¸°(DI)
 //	@Autowired
 //	private BoardService boardService;
-//
-//
+//	
+//	
+//	
 //	@Override
 //	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 //			throws Exception {
-//
-//		//logger.info("? „ì²˜ë¦¬ ?ˆ˜?–‰");
-//
-//		// application scope?— "boardTypeList"ê°? ?—†?„ ê²½ìš°
-//		// ?´ë¥? ì¡°íšŒ?•˜?Š” Service ?˜¸ì¶? ?›„ ê²°ê³¼ë¥? ?„¸?Œ…
-//
-//		// application scope ê°ì²´ ?–»?–´?˜¤ê¸?
+//		
+//		// application scopeì— "boardTypeList" ê°€ ì—†ì„ ê²½ìš° 
+//		// ì´ë¥¼ ì¡°íšŒí•˜ëŠ” Service í˜¸ì¶œ í›„ ê²°ê³¼ë¥¼ ì„¸íŒ…
+//		
+//		// application scope ê°ì²´ ì–»ì–´ì˜¤ê¸°
 //		ServletContext application = request.getServletContext();
-//
+//		
+//		
+//		// application scopeì— "boardTypeList" ê°€ ì—†ì„ ê²½ìš° 
 //		if( application.getAttribute("boardTypeList") == null ) {
-//
+//			
 //			List<BoardType> boardTypeList = boardService.selectBoardType();
-//
+//			
 //			application.setAttribute("boardTypeList", boardTypeList);
 //		}
-//
-//
+//			
+//			
+//		
+//		
+//		//logger.info("ì „ì²˜ë¦¬ ìˆ˜í–‰");
+//		
 //		return HandlerInterceptor.super.preHandle(request, response, handler);
 //	}
 //
+//	
 //	@Override
 //	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 //			ModelAndView modelAndView) throws Exception {
-//
-//		logger.info("?›„ì²˜ë¦¬ ?ˆ˜?–‰");
-//
+//		
+//		//logger.info("í›„ì²˜ë¦¬ ìˆ˜í–‰");
+//		
 //		HandlerInterceptor.super.postHandle(request, response, handler, modelAndView);
 //	}
 //
+//	
 //	@Override
 //	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 //			throws Exception {
-//
-//		logger.info("View ì²˜ë¦¬ ?™„ë£? ?›„ ?ˆ˜?–‰");
-//
+//		
+//		//logger.info("View ì²˜ë¦¬ ì™„ë£Œ í›„ ìˆ˜í–‰");
+//		
 //		HandlerInterceptor.super.afterCompletion(request, response, handler, ex);
 //	}
-//
-//
+//	
+//	
 //}

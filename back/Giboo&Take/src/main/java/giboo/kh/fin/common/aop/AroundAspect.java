@@ -1,43 +1,46 @@
 package giboo.kh.fin.common.aop;
-//package com.kh.fin.common.aop;
-//
-//import org.springframework.core.annotation.Order;
-//import org.aspectj.lang.ProceedingJoinPoint;
-//import org.aspectj.lang.annotation.Around;
-//import org.aspectj.lang.annotation.Aspect;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.stereotype.Component;
-//
-//@Component
-//@Aspect
-//@Order(3)
-//public class AroundAspect {
-//	private Logger logger = LoggerFactory.getLogger(AroundAspect.class);
-//
-//	// @Around : ? „ì²˜ë¦¬(@Before)?? ?›„ì²˜ë¦¬(@After)ë¥? ?•œ ë²ˆì— ?‘?„± ê°??Š¥?•œ advice
-//
-//	@Around("CommonPointcut.implPointcut()")
-//	public Object runningTime(ProceedingJoinPoint jp) throws Throwable{
-//
-//		// ProceedingJoinPoint ?¸?„°?˜?´?Š¤ : ? „/?›„ ì²˜ë¦¬ ê´?? ¨ ê¸°ëŠ¥, ê°’ì„ ?–»?–´?˜¬ ?ˆ˜ ?ˆ?Š” ë©”ì„œ?“œ ? œê³?
-//
-//		// proceed() ë©”ì†Œ?“œ ?˜¸ì¶? ? „  : @Before advice ?‘?„±
-//		// proceed() ë©”ì†Œ?“œ ?˜¸ì¶? ?›„  : @After advice ?‘?„±
-//		// ë©”ì†Œ?“œ ë§ˆì?ë§‰ì— proceed()?˜ ë°˜í™˜ê°’ì„ ë¦¬í„´?•´?•¼?•¨.
-//
-//		// System.currentTimeMillis() :
-//		//	1970/01/01 ?˜¤? „ 9?‹œ(?•œêµ? OS ê¸°ì?) ë¶??„°
-//		//  ì§?ê¸ˆê¹Œì§? ì§??‚œ ?‹œê°„ì„ ms?‹¨?œ„ë¡? ?‚˜???‚¸ ê°?
-//
-//		long startMs = System.currentTimeMillis();
-//
-//		Object obj = jp.proceed(); // ? „/?›„ ì²˜ë¦¬ë¥? ?‚˜?ˆ„?Š” ê¸°ì?
-//
-//		long endMs = System.currentTimeMillis();
-//
-//		logger.info("Running Time : " + (endMs - startMs) + "ms");
-//
-//		return obj;
-//	}
-//}
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+@Component
+@Aspect
+@Order(4)
+public class AroundAspect {
+
+	private Logger logger = LoggerFactory.getLogger(AroundAspect.class);
+	
+	
+	// @Around : ì „ì²˜ë¦¬(@Before)ì™€ í›„ì²˜ë¦¬(@After)ë¥¼ í•œ ë²ˆì— ì‘ì„± ê°€ëŠ¥í•œ advice
+	
+	
+	
+	@Around("CommonPointcut.implPointcut()")
+	public Object runningTime(ProceedingJoinPoint jp) throws Throwable{
+		
+		// ProceedingJoinPoint ì¸í„°í˜ì´ìŠ¤ : ì „/í›„ ì²˜ë¦¬ ê´€ë ¨ ê¸°ëŠ¥, ê°’ì„ ì–»ì–´ì˜¬ ìˆ˜ ìˆëŠ” ë©”ì„œë“œ ì œê³µ
+		
+		// proceed() ë©”ì†Œë“œ í˜¸ì¶œ ì „  : @Before advice ì‘ì„±
+		// proceed() ë©”ì†Œë“œ í˜¸ì¶œ í›„  : @After advice ì‘ì„±
+		// ë©”ì†Œë“œ ë§ˆì§€ë§‰ì— proceed()ì˜ ë°˜í™˜ê°’ì„ ë¦¬í„´í•´ì•¼í•¨. 
+		
+		// System.currentTimeMillis() : 
+		//	1970/01/01 ì˜¤ì „ 9ì‹œ(í•œêµ­ OS ê¸°ì¤€) ë¶€í„° 
+		//  ì§€ê¸ˆê¹Œì§€ ì§€ë‚œ ì‹œê°„ì„ msë‹¨ìœ„ë¡œ ë‚˜íƒ€ë‚¸ ê°’
+		
+		long startMs = System.currentTimeMillis();
+		
+		Object obj = jp.proceed(); // ì „/í›„ ì²˜ë¦¬ë¥¼ ë‚˜ëˆ„ëŠ” ê¸°ì¤€
+		
+		long endMs = System.currentTimeMillis();
+		
+		logger.info("Running Time : " + (endMs - startMs) + "ms" );
+
+		return obj;
+	}
+	
+}
