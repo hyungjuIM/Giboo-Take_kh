@@ -1,41 +1,46 @@
 package giboo.kh.fin.common.aop;
-//package com.kh.fin.common.aop;
-//
-//import java.util.Arrays;
-//
-//import org.springframework.core.annotation.Order;
-//import org.aspectj.lang.JoinPoint;
-//import org.aspectj.lang.annotation.After;
-//import org.aspectj.lang.annotation.Aspect;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.stereotype.Component;
-//
-//@Component
-//@Aspect
-//@Order(1)
-//public class AfterAspect {
-//
-//	private Logger logger = LoggerFactory.getLogger(AfterAspect.class);
-//
-//
-//	@After("CommonPointcut.implPointcut()")
-//	public void serviceEnd(JoinPoint jp) {
-//
-//
-//		// jp.getTarget() : aopê°? ? ?š©?œ ê°ì²´(ê°ì¢… ServiceImpl)
-//		String className = jp.getTarget().getClass().getSimpleName(); // ê°„ë‹¨?•œ ?´?˜?Š¤ëª?(?Œ¨?‚¤ì§?ëª? ? œ?™¸)
-//
-//		// jp.getSignature() : ?ˆ˜?–‰?˜?Š” ë©”ì„œ?“œ ? •ë³?
-//		String methodName = jp.getSignature().getName();
-//
-//
-//		String str = "End : " + className + " - " + methodName + "\n";
-//		// End :  : MemberServiceImpl - login
-//
-//
-//		str += "--------------------------------------\n";
-//
-//		logger.info(str);
-//	}
-//}
+import java.util.Arrays;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+@Component
+@Aspect
+@Order(1)
+public class AfterAspect {
+
+	private Logger logger = LoggerFactory.getLogger(AfterAspect.class);
+	
+	
+	@After("CommonPointcut.implPointcut()")
+	public void serviceEnd(JoinPoint jp) {
+		
+		// jp.getTarget() : aopê°€ ì ìš©ëœ ê°ì²´(ê°ì¢… ServiceImpl)
+		String className = jp.getTarget().getClass().getSimpleName(); // ê°„ë‹¨í•œ í´ë˜ìŠ¤ëª…(íŒ¨í‚¤ì§€ëª… ì œì™¸)
+		
+		// jp.getSignature() : ìˆ˜í–‰ë˜ëŠ” ë©”ì„œë“œ ì •ë³´
+		String methodName = jp.getSignature().getName();
+		
+
+		String str = "End : " + className + " - " + methodName + "\n";
+		// End : MemberServiceImpl - login
+		
+		str += "-------------------------------------------------------------\n";
+		
+		logger.info(str);
+	}
+	
+	
+	
+	
+	
+	
+	
+}
+
+

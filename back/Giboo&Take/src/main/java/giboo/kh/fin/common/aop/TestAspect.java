@@ -1,55 +1,73 @@
 package giboo.kh.fin.common.aop;
-//package com.kh.fin.common.aop;
-//
-//import org.aspectj.lang.annotation.After;
-//import org.aspectj.lang.annotation.Aspect;
-//import org.aspectj.lang.annotation.Before;
-//import org.aspectj.lang.annotation.Pointcut;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.stereotype.Component;
-//
-//@Component // ?Ÿ°???„?‹œ ?•„?š”?•œ ?œ„ì¹˜ì— ì½”ë“œë¥? ?•Œ?•„?„œ ì°¸ì—¬?‹œ?‚¬ ?ˆ˜ ?ˆ?„ë¡? bean ?“±ë¡?
-//@Aspect // ê³µí†µ ê´??‹¬?‚¬(?Š¹? • ?ë¦? ?‚¬?´?— ?¼?—¬?„œ ?ˆ˜?–‰?•  ì½”ë“œ)ê°? ?‘?„±?œ ?´?˜?Š¤?„?„ ëª…ì‹œ
-//		// -> ?•´?‹¹ ?–´?…¸?…Œ?´?…˜?´ ?‘?„±?œ ?´?˜?Š¤?—?Š”
-//		// advice (?¼?—¬?“¤?–´?„œ ?ˆ˜?–‰?•  ë©”ì„œ?“œ)
-//		// pointcut (adviceê°? ?¼?—¬?“¤?–´?„œ ?ˆ˜?–‰?  ë¶?ë¶?) ?´ ?‘?„±?˜?–´ ?ˆ?–´?•¼ ?•œ?‹¤.
-//public class TestAspect {
-//
-//	private Logger logger = LoggerFactory.getLogger(TestAspect.class);
-//
-//	// ** Pointcut ?‘?„± ë°©ë²• **
-//
-//	// @Pointcut("execution([? ‘ê·¼ì œ?•œ?] ë°˜í™˜?˜• ?Œ¨?‚¤ì§?+?´?˜?Š¤ëª?.ë©”ì„œ?“œëª?([ë§¤ê°œë³??ˆ˜]))")
-//
-//	// * : ëª¨ë“  | ?•„ë¬? ê°?
-//	// .. : ?•˜?œ„ | ?•„?˜  (?•˜?œ„ ?Œ¨?‚¤ì§?)  | 0ê°? ?´?ƒ?˜ ë§¤ê°œë³??ˆ˜
-//
-//
-//	// @Before : Pointcut?— ì§?? •?œ ë©”ì„œ?“œê°? ?ˆ˜?–‰?˜ê¸? ? „ advice ?ˆ˜?–‰?„ ëª…ì‹œ?•˜?Š” ?–´?…¸?…Œ?´?…˜
-//	// edu.kh.comm.member ?Œ¨?‚¤ì§? ?•„?˜?— Implë¡? ??‚˜?Š” ?´?˜?Š¤?˜ ëª¨ë“  ë©”ì„œ?“œ(ë§¤ê°œë³??ˆ˜ ê´?ê³„ì—†?Œ)
-//	//@Before("execution(* edu.kh.comm.member..*Impl.*(..))")
-//	//@Before("memberPointcut()")
-//	@Before("CommonPointcut.implPointcut()")
-//	public void start() { // ?„œë¹„ìŠ¤ ì½”ë“œ ?ˆ˜?–‰? „?— ?ˆ˜?–‰?˜?Š” ë©”ì„œ?“œ(advice)
-//		logger.info("--------------Service Start---------------");
-//	}
-//
-//
-//	// @After : Pointcut?— ì§?? •?œ ë©”ì„œ?“œê°? ?ˆ˜?–‰?œ ?›„ advice ?ˆ˜?–‰?„ ëª…ì‹œ?•˜?Š” ?–´?…¸?…Œ?´?…˜
-//	//@After("execution(* edu.kh.comm.member..*Impl.*(..))")
-//	//@After("memberPointcut()")
-//	@After("CommonPointcut.implPointcut()")
-//	public void end() { // ?„œë¹„ìŠ¤ ì½”ë“œ ?ˆ˜?–‰?›„?— ?ˆ˜?–‰?˜?Š” ë©”ì„œ?“œ(advice)
-//		logger.info("--------------Service End---------------");
-//	}
-//
-//
-//	// Pointcut?„ ?‘?„±?•´?†“?? ë©”ì„œ?“œ
-//	// -> Pointcut?˜ ?Œ¨?„´?´ ?‘?„±?˜?Š” ë¶?ë¶„ì— memberPointcutë©”ì„œ?“œ ?´ë¦„ì„ ?‘?„±?•˜ë©?
-//	// @Pointcut?— ?‘?„±?œ ?Œ¨?„´?´ ? ?š©?œ?‹¤
-//	@Pointcut("execution(* com.kh.fin.member..*Impl.*(..))")
-//	public void memberPointcut() {} // ?‚´?š© ?‘?„± X
-//
-//
-//}
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+@Component // ëŸ°íƒ€ì„ ì‹œ í•„ìš”í•œ ìœ„ì¹˜ì— ì½”ë“œë¥¼ ì•Œì•„ì„œ ë™ì  ì°¸ì—¬ ì‹œí‚¬ ìˆ˜ ìˆë„ë¡ bean ë“±ë¡ 
+@Aspect // ê³µí†µ ê´€ì‹¬ì‚¬(íŠ¹ì • íë¦„ ì‚¬ì´ì— ë¼ì—¬ì„œ ìˆ˜í–‰í•  ì½”ë“œ)ê°€ ì‘ì„±ëœ í´ë˜ìŠ¤ì„ì„ ëª…ì‹œ
+		// -> í•´ë‹¹ ì–´ë…¸í…Œì´ì…˜ì´ ì‘ì„±ëœ í´ë˜ìŠ¤ì—ëŠ” 
+		//	advice (ë¼ì—¬ ë“¤ì–´ì„œ ìˆ˜í–‰í•  ë©”ì„œë“œ)
+		//  pointcut (adviceê°€ ë¼ì—¬ë“¤ì–´ì„œ ìˆ˜í–‰ë“¤ë  ë¶€ë¶„) ì´ ì‘ì„±ë˜ì–´ ìˆì–´ì•¼ í•œë‹¤.
+public class TestAspect {
+
+	private Logger logger = LoggerFactory.getLogger(TestAspect.class);
+	
+	// joinpoint : adviceê°€ ì ìš©ë  ìˆ˜ ìˆëŠ” ì§€ì (í›„ë³´)
+	// Pointcut  : joinpoint ì¤‘ì—ì„œ ì‹¤ì œë¡œ adviceë¥¼ ì ìš©í•  ì§€ì  ì„ íƒ 
+	
+	// ** Pointcut ì‘ì„± ë°©ë²• **
+	
+	// @Pointcut("execution([ì ‘ê·¼ì œí•œì] ë°˜í™˜í˜• íŒ¨í‚¤ì§€+í´ë˜ìŠ¤ëª….ë©”ì„œë“œëª…([ë§¤ê°œë³€ìˆ˜]))")
+	
+	// * : ëª¨ë“  | ì•„ë¬´ ê°’
+	// .. : í•˜ìœ„ | ì•„ë˜  (í•˜ìœ„ íŒ¨í‚¤ì§€)  | 0ê°œ ì´ìƒì˜ ë§¤ê°œë³€ìˆ˜
+	
+	// @Before : Pointcutì— ì§€ì •ëœ ë©”ì„œë“œê°€ ìˆ˜í–‰ë˜ê¸° ì „ advice ìˆ˜í–‰ì„ ëª…ì‹œí•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
+	
+	// edu.kh.comm.member íŒ¨í‚¤ì§€ ì•„ë˜ì— Implë¡œ ëë‚˜ëŠ” í´ë˜ìŠ¤ì˜ ëª¨ë“  ë©”ì„œë“œ(ë§¤ê°œë³€ìˆ˜ ê´€ê³„ì—†ìŒ)
+	//@Before("execution(* edu.kh.comm.member..*Impl.*(..))")
+	//@Before("memberPointcut()")
+	
+	//@Before("CommonPointcut.implPointcut()") // CommonPointcut í´ë˜ìŠ¤ì˜ implPointcut() ë©”ì„œë“œì˜ íŒ¨í„´
+	public void start() { // ì„œë¹„ìŠ¤ ì½”ë“œ ìˆ˜í–‰ ì „ì— ìˆ˜í–‰ë˜ëŠ” ë©”ì„œë“œ(advice)
+		logger.info("-------------------- Service Start --------------------");
+	}
+	
+	
+	// @After : Pointcutì— ì§€ì •ëœ ë©”ì„œë“œê°€ ìˆ˜í–‰ëœ í›„ advice ìˆ˜í–‰ì„ ëª…ì‹œí•˜ëŠ” ì–´ë…¸í…Œì´ì…˜
+	//@After("execution(* edu.kh.comm.member..*Impl.*(..))")
+	//@After("memberPointcut()")
+	
+	//@After("CommonPointcut.implPointcut()") 
+	public void end() { // ì„œë¹„ìŠ¤ ì½”ë“œ ìˆ˜í–‰ ì „ì— ìˆ˜í–‰ë˜ëŠ” ë©”ì„œë“œ(advice)
+		logger.info("-------------------- Service End --------------------");
+	}
+	
+	
+	
+	// Pointcutì„ ì‘ì„± í•´ë†“ì€ ë©”ì„œë“œ 
+	// -> Pointcutì˜ íŒ¨í„´ì´ ì‘ì„±ë˜ëŠ” ë¶€ë¶„ì— memberPointcut ë©”ì„œë“œ ì´ë¦„ì„ ì‘ì„±í•˜ë©´
+	//    @Pointcutì— ì‘ì„±ëœ íŒ¨í„´ì´ ì ìš©ëœë‹¤.
+	@Pointcut("execution(* edu.kh.comm.member..*Impl.*(..))")
+	public void memberPointcut() {} // ë‚´ìš© ì‘ì„± X
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

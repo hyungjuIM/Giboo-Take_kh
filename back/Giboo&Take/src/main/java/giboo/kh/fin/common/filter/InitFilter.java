@@ -1,6 +1,7 @@
 package giboo.kh.fin.common.filter;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -15,47 +16,47 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 @WebFilter(filterName = "initFilter", urlPatterns = "/*")
 public class InitFilter extends HttpFilter implements Filter {
+		
 	
-	// Logger / Debug Mode ?‚¬?š©
-	
-	// Logger ê°ì²´ ?ƒ?„± (?•´?‹¹ ?´?˜?Š¤?— ???•œ logë¥? ì¶œë ¥?•˜?Š” ê°ì²´)
+	// print êµ¬ë¬¸ ì‚¬ìš©í•˜ë‹¤ ê±¸ë¦¬ë©´ ì•Œì•„ì„œ í•˜ì„¸ìš”
+	// -> Logger / Debug Mode ì‚¬ìš©
+       
+	// Logger ê°ì²´ ìƒì„± (í•´ë‹¹ í´ë˜ìŠ¤ì— ëŒ€í•œ logë¥¼ ì¶œë ¥í•˜ëŠ” ê°ì²´)
 	private Logger logger = LoggerFactory.getLogger(InitFilter.class);
 	
-	// ?•„?„°ê°? ?ƒ?„±?  ?•Œ ?‹¤?–‰
+	// í•„í„°ê°€ ìƒì„±ë  ë•Œ ì‹¤í–‰
 	public void init(FilterConfig fConfig) throws ServletException {
-		// loggerë¥? ?´?š©?•´?„œ ì¶œë ¥?•˜?Š” ë°©ë²•
+		// loggerë¥¼ ì´ìš©í•´ì„œ ì¶œë ¥í•˜ëŠ” ë°©ë²•
 		// trace - debug - info - warn - error
-		// debug info error ì£¼ë¡œ ?‚¬?š©
 		
-		// debug : ê°œë°œ?˜ ?ë¦? ?ŒŒ?•…?• ?•Œ ( ?•´?‹¹ ì½”ë“œê°? ?‹¤?–‰?´ ?˜?—ˆ?Š”ì§? , ?ŒŒ?¼ë¯¸í„°ê°? ?˜„?¬ ë¬´ìŠ¨ ê°’ì¸ì§? ?™•?¸?•  ?•Œ )
-		// info : ë©”ì†Œ?“œ ?‹¤?–‰ ?ŒŒ?•…
+		// debug : ê°œë°œì˜ íë¦„ íŒŒì•…
+		// info : ë©”ì†Œë“œ ì‹¤í–‰
 		
-		logger.info("ì´ˆê¸°?™” ?•„?„° ?ƒ?„±");
+		logger.info("ì´ˆê¸°í™” í•„í„° ìƒì„±");
 	}
 
-	// ?•„?„°ê°? ?ŒŒê´´ë  ?•Œ ?‹¤?–‰(?„œë²„ëŠ” ì¼œì ¸?ˆ?Š”?° ë°±ì—”?“œ ì½”ë“œ ?ˆ˜? •?˜?—ˆ?„ ?•Œ)
+	// í•„í„°ê°€ íŒŒê´´ë  ë•Œ ì‹¤í–‰
 	public void destroy() {
-		logger.info("ì´ˆê¸°?™” ?•„?„° ?ŒŒê´?");
+		logger.info("ì´ˆê¸°í™” í•„í„° íŒŒê´´");
 	}
 
-
+	
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		// application ?‚´?¥ ê°ì²´ ?–»?–´?˜¤ê¸?
+		
+		// application ë‚´ì¥ ê°ì²´ ì–»ì–´ì˜¤ê¸°
 		ServletContext application = request.getServletContext();
 		
-		// ìµœìƒ?œ„ ì£¼ì†Œ ?–»?–´?˜¤ê¸?
+		// ìµœìƒìœ„ ì£¼ì†Œ ì–»ì–´ì˜¤ê¸°
 		String contextPath =  ( (HttpServletRequest)request ).getContextPath();
-									// ?‹¤?š´ìºìŠ¤?Œ…
-		// ?„¸?Œ…
+									// ë‹¤ìš´ìºìŠ¤íŒ…
+		// ì„¸íŒ…
 		application.setAttribute("contextPath", contextPath);
-
+		
 		
 		chain.doFilter(request, response);
 	}
 
-	
 
 }
