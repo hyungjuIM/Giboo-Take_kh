@@ -4,8 +4,9 @@
 /test/
 test
 target
-
-
+target/
+pom.properties
+MANIFEST.MF
 
 Servers/
 Servers
