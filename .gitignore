@@ -7,7 +7,7 @@ target
 target/
 pom.properties
 MANIFEST.MF
-
+/MANIFEST.MF
 
 .metadata
 .metadata/

@@ -3134,3 +3134,54 @@ Java Model Exception: Java Model Status [BoardTypeInterceptor [in BoardTypeInter
 
 !ENTRY org.eclipse.m2e.logback.appender 2 0 2023-05-23 19:16:27.976
 !MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-05-23 20:02:21.942
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2023-05-23 20:02:21.947
+!MESSAGE Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.springframework.ide.eclipse.beans.core 4 0 2023-05-23 20:02:24.166
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Java Model Status [BoardTypeInterceptor [in BoardTypeInterceptor.java [in giboo.kh.fin.common.interceptor [in src/main/java [in Giboo&Take]]]] does not exist]
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:574)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:617)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:328)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:314)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildren(JavaElement.java:269)
+	at org.eclipse.jdt.internal.core.JavaElement.getChildrenOfType(JavaElement.java:283)
+	at org.eclipse.jdt.internal.core.SourceType.getMethods(SourceType.java:496)
+	at org.springframework.ide.eclipse.core.java.Introspector.getMethods(Introspector.java:648)
+	at org.springframework.ide.eclipse.core.java.Introspector.hasConstructor(Introspector.java:541)
+	at org.springframework.ide.eclipse.beans.core.internal.model.validation.rules.BeanConstructorArgumentRule.validateConstructorArguments(BeanConstructorArgumentRule.java:97)
+	at org.springframework.ide.eclipse.beans.core.internal.model.validation.rules.BeanConstructorArgumentRule.validate(BeanConstructorArgumentRule.java:76)
+	at org.springframework.ide.eclipse.beans.core.model.validation.AbstractBeanValidationRule.validate(AbstractBeanValidationRule.java:1)
+	at org.springframework.ide.eclipse.core.model.validation.AbstractValidator$ValidationVisitor.visit(AbstractValidator.java:280)
+	at org.springframework.ide.eclipse.beans.core.internal.model.Bean.accept(Bean.java:139)
+	at org.springframework.ide.eclipse.beans.core.internal.model.AbstractBeansValueHolder.accept(AbstractBeansValueHolder.java:56)
+	at org.springframework.ide.eclipse.beans.core.internal.model.Bean.accept(Bean.java:143)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansComponent.accept(BeansComponent.java:132)
+	at org.springframework.ide.eclipse.beans.core.internal.model.BeansComponent.accept(BeansComponent.java:125)
+	at org.springframework.ide.eclipse.beans.core.internal.model.AbstractBeansConfig.accept(AbstractBeansConfig.java:139)
+	at org.springframework.ide.eclipse.core.model.validation.AbstractValidator.validate(AbstractValidator.java:142)
+	at org.springframework.ide.eclipse.core.model.validation.AbstractValidator.validate(AbstractValidator.java:104)
+	at org.springframework.ide.eclipse.core.internal.project.SpringProjectContributionManager$7.execute(SpringProjectContributionManager.java:260)
+	at org.springframework.ide.eclipse.core.internal.project.SpringProjectContributionManager$9.run(SpringProjectContributionManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.springframework.ide.eclipse.core.internal.project.SpringProjectContributionManager.execute(SpringProjectContributionManager.java:294)
+	at org.springframework.ide.eclipse.core.internal.project.SpringProjectContributionManager.runValidator(SpringProjectContributionManager.java:257)
+	at org.springframework.ide.eclipse.core.internal.project.SpringProjectContributionManager.build(SpringProjectContributionManager.java:131)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:853)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:232)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:361)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:490)
+	at org.eclipse.core.internal.resources.Project$1.run(Project.java:565)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2313)
+	at org.eclipse.core.internal.resources.Project.internalBuild(Project.java:603)
+	at org.eclipse.core.internal.resources.Project.build(Project.java:124)
+	at org.springframework.ide.eclipse.core.SpringCoreUtils$1.run(SpringCoreUtils.java:757)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2023-05-23 20:02:24.167
+!MESSAGE BoardTypeInterceptor [in BoardTypeInterceptor.java [in giboo.kh.fin.common.interceptor [in src/main/java [in Giboo&Take]]]] does not exist
