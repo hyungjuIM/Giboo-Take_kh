@@ -1,1 +1,16 @@
 /.metadata/
+/target/
+.classpath
+/META-INF/
+
+target
+pom.properties
+
+MANIFEST.MF
+Servers
+
+**/back/Giboo&Take/.settings/
+**/back/Giboo&Take/.vscode/
+**/back/Giboo&Take/*.classpath
+**/back/Giboo&Take/src/test/
+**/back/Giboo&Take/*.project
