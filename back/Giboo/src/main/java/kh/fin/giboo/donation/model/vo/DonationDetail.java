@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Donation {
+public class DonationDetail {
     private int donationNo;
     private String dAgencyName;
     private String dAgencyTel;

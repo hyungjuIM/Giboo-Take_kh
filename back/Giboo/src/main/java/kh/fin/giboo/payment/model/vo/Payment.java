@@ -12,4 +12,6 @@ public class Payment {
     private String paymentType;
     private String paymentDate;
     private int paymentPrice;
+    private int memberNo;
+    private int donationNo;
 }
