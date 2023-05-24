@@ -24,4 +24,13 @@ a{
 .mainContainer{
     border: 1px solid pink;
     height: 80vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+.mainContent{
+    width: 1200px;
+    background-color: lightgreen;
+
 }
