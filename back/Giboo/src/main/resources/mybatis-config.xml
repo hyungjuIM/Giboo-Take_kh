@@ -16,7 +16,8 @@
 <typeAliases>
 		
 		<typeAlias type="kh.fin.giboo.member.model.vo.Member" alias="member"/>
-		<typeAlias type="kh.fin.giboo.member.model.vo.EmailCertification" alias="member"/>
+		<typeAlias type="kh.fin.giboo.member.model.vo.EmailCertification" alias="emailCertification"/>
+		<typeAlias type="kh.fin.giboo.member.model.vo.Alarm" alias="alarm"/>
 
 		
 		
