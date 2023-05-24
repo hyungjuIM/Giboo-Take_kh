@@ -268,7 +268,3 @@ fabric.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij
 back/Giboo/.idea/
-back/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.markers.snap
-back/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.markers.snap
-back/.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location
-back/.metadata/.log
