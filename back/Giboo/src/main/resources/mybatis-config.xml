@@ -15,6 +15,9 @@
 <!-- resultMap을 생성했다면 반드시 typeAlias 만들기!!!!!!!!!!-->
 <typeAliases>
 		
+		<typeAlias type="kh.fin.giboo.member.model.vo.Member" alias="member"/>
+		<typeAlias type="kh.fin.giboo.member.model.vo.EmailCertification" alias="emailCertification"/>
+		<typeAlias type="kh.fin.giboo.member.model.vo.Alarm" alias="alarm"/>
 
 		
 		
@@ -22,7 +25,7 @@
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 <mappers>
-
+<mapper resource="/mappers/member-mapper.xml"/>
 </mappers>
 
 </configuration>
