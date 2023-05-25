@@ -48,9 +48,6 @@ margin-left: 20px;
 }
 
 .write-btn{
-  display: flex;
-  flex-wrap: wrap-reverse;
-  align-content: end;
   border-radius: 5px;
 
 }
