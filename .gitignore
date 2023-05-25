@@ -18,12 +18,12 @@ back/.metadata/
 back/Giboo/.settings/
 back/Giboo/src/target
 back/Giboo/src/test
-back/vscode/
+
 back/.classpath
 back/.project
 
 back/Servers
-back/Giboo/src/test
+
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/java,eclipse,windows
@@ -148,7 +148,7 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse,windows
 
-root-context.xml
+# root-context.xml
 
 # Created by https://www.toptal.com/developers/gitignore/api/intellij
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij

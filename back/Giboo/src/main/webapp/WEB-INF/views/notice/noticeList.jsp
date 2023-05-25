@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +45,12 @@
                       </form>
                     </div>
                   </div>
-                  <button class="write-btn" type="submit">글쓰기</button>
+
+                  <c:if test="${!empty loginManager}">
+                    
+                    <button id="insertBtn" class="insertBtn" onclick="location.href='../noticeWrite/?mode=insert&cp=${pagination.currentPage}'">글쓰기</button>                     
+                </c:if>
+                  
                 </div>
           
                 <!-- board list area -->
@@ -57,25 +66,33 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>3</td>
-                          <th><a href="#!">Giboo&Take공지사항입니다3</a></th>
-                          <td>2023.05.24</td>
-                          <td>임형주</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <th><a href="#!">Giboo&Take공지사항입니다2</a></th>
-                            <td>2023.05.13</td>
-                            <td>임형주</td>
-                          </tr>
+                      <c:choose>
+                        <c:when test="${empty noticeList}">
                           <tr>
-                            <td>1</td>
-                            <th><a href="#!">Giboo&Take공지사항입니다1</a></th>
-                            <td>2023.05.03</td>
-                            <td>임형주</td>
+                            <th colspan="5">공지사항이 없습니다.</th>
                           </tr>
-                        <!-- 여러 개의 게시글 추가 -->
+                        </c:when>
+    
+                        <c:otherwise>
+                      
+                        <c:forEach var="notice" items="${noticeList}">
+                          <tr>
+                            <td>${notice.noticeNo}</td>
+                            <td>
+    
+    
+                              <a
+                                href="../noticeDetail/${notice.noticeNo}?cp=${pagination.currentPage}${sURL}">${notice.noticeTitle}</a>
+    
+                            </td>                        
+                            <td>${notice.ncreateDT}</td>
+                            <td>${notice.noticeCount}</td>
+                          </tr>
+                        </c:forEach>
+    
+                        </c:otherwise>
+                      
+                        </c:choose>
                       </tbody>
                     </table>
           
