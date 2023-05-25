@@ -1,4 +1,4 @@
-package kh.fin.giboo.member.model.vo;
+package kh.fin.giboo.event.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
