@@ -1,0 +1,111 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+.alarmPopup{
+    display: none;
+    position: fixed;
+
+    background-color: rgb(254, 254, 254);
+    width: 300px;
+    height: 650px;
+    border-radius: 15px;
+    /* margin-top: 20px; */
+    /* margin-left: 20px; */
+    overflow: hidden;
+    box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
+}
+
+.alarm{
+    background-color: rgb(231, 231, 231);
+    height: 30px;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 12px;
+    border-bottom: 1px solid rgb(186, 186, 186);
+    font-weight: bold;
+}
+
+.alarmBox:hover{
+    cursor: pointer;
+}
+
+.alarmBoxBox:hover{
+    transform: scale(1.03);
+    background-color: rgb(237, 237, 237);
+    border-radius: 10px;
+}
+
+.alarmBoxBox{
+    display: flex;
+    background-color: rgba(239, 239, 239, 0.395);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    height: 90px;
+    border-radius: 10px;
+    /* border-bottom: 1px solid rgb(176, 176, 176); */
+}
+
+.alarmTitle{
+    display: flex;
+    /* background-color: rgb(225, 192, 255); */
+    margin-left: 10px;
+    margin-top: 4px;
+    width: 220px;
+}
+
+.alarmName_a{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.alarmPeriod{
+    /* background-color: aquamarine; */
+    margin-left: 110px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alarmImg > img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.alarmStory{
+    /* background-color: yellow; */
+    margin-top: 15px;
+    margin-right: 40px;
+    font-size: 13px;
+    max-height: 50px;
+    min-height: 50px;
+    max-width: 220px;
+    min-width: 220px;
+    overflow: hidden;
+    color: rgb(84, 84, 84);
+}
+
+.moreBtn{
+    width: 100px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 90px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(104, 104, 104);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.moreBtn:hover{
+    cursor: pointer;
+    transform: scale(1.03);
+}
