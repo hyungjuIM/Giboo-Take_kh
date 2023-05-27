@@ -7,8 +7,19 @@
     <title>eventList 페이지</title>
 
     <link rel="stylesheet" href="/css/event/eventList.css">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/01.header.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
+    <header>
+        <div data-include1="header" id="header"></div>
+    </header>
+
     <div class="eventContent">
         <div class="eventBody">
             <div class="eventList_main">
@@ -112,11 +123,40 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a class="link_official">
+                                <span class="area_thumb">
+                                    <img src="/images/thumnailImg.jpg" alt="썸네일 이미지">
+                                </span>
+                                <span class="txt_official">
+                                    <span class="subject_official">2023 이벤트 이벤트 뭘까?</span>
+                                    <span class="tit_official">이벤트</span>
+                                    <span class="date_official">
+                                        <span class="screen_out">2023.05.23 ~ 2023.07.24</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
             </div>
 
         </div>
     </div>
+
+
+         <!-- jQuery 라이브러리 추가 -->
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            $(function () {
+                var include1 = $('[data-include1="header"]');
+                jQuery.each(include1, function () {
+                    $(this).load('/html/01.header.html');
+                });
+            });
+        </script>
+
 </body>
 </html>
