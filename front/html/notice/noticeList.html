@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>notice</title>
-    <link rel="stylesheet" href="/css/notice/notice.css">
-    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/notice/noticeList.css">
+   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <script src="https://kit.fontawesome.com/d9d84cdb34.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -17,31 +19,40 @@
     </header>
     
     <main>
+      <div class="page-title">
+        <span>공지사항</span>
+      </div>
         <section class="mainContainer">
             <div class="mainContent">
               <section class="notice">
-                <div class="page-title">
-                  <img src="로고가 들어가면딱" alt="">
-                </div>
           
                 <!-- notice seach area -->
                 <div class="notice">
                   <div class="container1">
-                    <h3>공지사항</h3>
+                    <span style="color: #767676;">Giboo&Take 서비스의</span><span style="color: #8071FC;"> 신규</span><span style="color: #767676;"> 및</span> <span style="color: #8071FC;"> 업데이트 소식</span><span style="color: #767676;">을 알려드립니다 😇</span>
                   </div>
                   <div class="nothing"></div>
           
                   <div class="container2">
                     <div class="search-area">
+                      <div class="search-filter">
+                        
+                        <select id="filter" name="filter">
+                          <option value="title">제목</option>
+                          <option value="author">작성자</option>
+                          <option value="views">조회수</option>
+                          <option value="date">등록일</option>
+                        </select>
+                      </div>
+                      
                       <form action="">
                         <fieldset>
+                          <input type="text" id="query" name="query" placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''" onblur="this.placeholder = '검색어를 입력해주세요'" >
                           <button type="submit" id="search-btn" class="fa-solid fa-magnifying-glass"></button>
-                          <input type="text" id="query" name="query" placeholder="검색어를 입력해주세요">
                         </fieldset>
                       </form>
                     </div>
                   </div>
-                  <button class="insertBtn" type="submit">글쓰기</button>
                 </div>
           
                 <!-- notice list area -->
@@ -54,6 +65,7 @@
                           <th scope="col" class="th-title">제목</th>
                           <th scope="col" class="th-date">등록일</th>
                           <th scope="col" class="th-name">작성자</th>
+                          <th scope="col" class="th-count">조회수</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -64,25 +76,29 @@
                           <th><a href="#!">Giboo&Take공지사항입니다3</a></th>
                           <td>2023.05.24</td>
                           <td>임형주</td>
+                          <td>50</td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <th><a href="#!">Giboo&Take공지사항입니다2</a></th>
                             <td>2023.05.13</td>
                             <td>임형주</td>
+                            <td>30</td>
                           </tr>
                           <tr>
                             <td>1</td>
                             <th><a href="#!">Giboo&Take공지사항입니다1</a></th>
                             <td>2023.05.03</td>
                             <td>임형주</td>
+                            <td>30</td>
                           </tr>
                         <!-- 여러 개의 게시글 추가 -->
 
                       
                       </tbody>
                     </table>
-          
+                  </div>
+                  <div class="container4">
                     <nav class="page-nav">
                       <ul class="pagination">
                         <li><a href="">&lt;</a></li>
@@ -95,6 +111,8 @@
                         <li><a href="">&gt;</a></li>
                       </ul>
                     </nav>
+
+                    <button type="button" class="writeBtn"><i class="fa-light fa-pen"></i>글쓰기</button>
                   </div>
                 </div>
               </section>
