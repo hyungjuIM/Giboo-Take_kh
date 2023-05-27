@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+
+.footerContainer{
+    background-color: #F6F6F6;
+    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+    height: 244px;
+    position : relative;
+    transform : translateY(-100%);
+
+    display: flex;
+    justify-content: center;
+}
+
+.footerContent{
+    width: 1200px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
