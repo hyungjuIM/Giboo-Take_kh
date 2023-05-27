@@ -125,4 +125,5 @@ a{
 .myPage .tooltip:hover:before,
 .myPage .tooltip:hover:after{
     display: block;
+   
 }
