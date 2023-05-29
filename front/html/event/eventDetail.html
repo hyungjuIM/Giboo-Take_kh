@@ -10,16 +10,27 @@
     <link rel="stylesheet" href="/css/01.header.css">
 </head>
 <body>   
-
+    <header>
+        <div data-include1="header" id="header"></div>
+    </header>
     <div class="eventDContent">
         <div class="eventDBody">
             <div class="eventDWrap">
                 <div class="p_head">
                     <div class="inner_content">
                         <div class="ir_pm">
-                            <h4>봉사활동 이벤트를 참여해보세요!</h4>
-                            <p>mmm...</p>
-                            <a href="" class="link_reg">참여하기</a>
+                            <div class="innerTi">
+                                <div class="innerTitle">
+                                    <h4>봉사활동 이벤트를 <br> 참여해보세요!</h4>
+                                    <p>봉사활동 이벤트봉사활동 이벤트봉사활동 이벤트봉사활동 
+                                        이벤트봉사활동 이벤트봉사활동 이벤트봉사활동 이벤트봉사활동 이벤트봉사활동 이벤트봉사활동 이벤트봉사활동 이벤트봉사활동 이벤트봉사활동 
+                                        이벤트봉사활동 이벤트봉사활동 이벤트</p>
+                                    <a href="" class="link_reg">참여하기</a>
+                                </div>
+                                <div class="innerImg">
+                                    <img src="/images/profile.jpeg" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -29,18 +40,98 @@
                         <div class="innerDetail">
                             <div class="first">
                                 <span class="first_content">
-                                    봉사활동 이벤트를 통해 다른 사람들의 <br>
-                                    마음과 내 마음의 안녕을 확인할 수 있어요. <br> 
-                                    설명설명설명설명설명설명설명설명설명설명설명설명<br>
-                                    설명설명설명설명설명설명설명설명설명설명설명설명<br>
+                                    봉사활동 이벤트를 통해 다른 사람들의
+                                    마음과 내 마음의 안녕을 확인할 수 있어요.  
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
+                                    설명설명설명설명설명설명설명설명설명설명설명설명
                                     설명설명설명설명설명설명설명설명설명설명설명설명
                                 </span>
+                            <a href="" class="link_reg2">참여하기</a>
                             </div>
                         </div>
                     </section>
                 </div>
             </div>
+            <!--공유하기 버튼 api 사용 (카카오톡, 트위터, 주소복사)-->
+            <div class="shareBtn">
+                <button>👻</button>
+                <button>😽</button>
+                <button>👽</button>
+            </div>
+        </div>
+        <div class="recommend">
+            <h4 class="moreReco">참여해요</h4>
+            <div class="innerReco">
+                <ul class="listReco">
+                    <li>
+                        <a href="" class="imgReco">
+                            <span class="imgUrl"><img src="/images/profile.jpeg" alt=""></span>
+                        </a>
+                        <div class="titleReco">
+                            <a href="" class="titleReco">
+                                <span>2023 뭘까뭘가 이벤트nnn 이벤트!!!</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="imgReco">
+                            <span class="imgUrl"><img src="/images/profile.jpeg" alt=""></span>
+                        </a>
+                        <div class="titleReco">
+                            <a href="" class="titleReco">
+                                <span>2023 뭘까뭘가 이벤트</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="imgReco">
+                            <span class="imgUrl"><img src="/images/profile.jpeg" alt=""></span>
+                        </a>
+                        <div class="titleReco">
+                            <a href="" class="titleReco">
+                                <span>2023 뭘까뭘가 이벤트</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="" class="imgReco">
+                            <span class="imgUrl"><img src="/images/profile.jpeg" alt=""></span>
+                        </a>
+                        <div class="titleReco">
+                            <a href="" class="titleReco">
+                                <span>2023 뭘까뭘가 이벤트</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="recoMore">
+                <a href="" class="recoMoreBtn">더보기</a>
+            </div>
         </div>
     </div>
+
+
+         <!-- jQuery 라이브러리 추가 -->
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script>
+            $(function () {
+                var include1 = $('[data-include1="header"]');
+                jQuery.each(include1, function () {
+                    $(this).load('/html/01.header.html');
+                });
+            });
+    
+        </script>
 </body>
 </html>
