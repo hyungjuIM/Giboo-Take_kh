@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    padding : 0px;
+    margin : 0px;
+}
+
+.mypage-container{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+}
+
+/*body-nav*/
+.mypage_nav_area{
+    width : 20%;
+    height: 970px;
+    background-color: #e1e1e1;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+/*왼쪽 네비바*/
+.mypage_summary_container{
+    width: 90%;
+    height: 780px;
+}
+
+/*왼쪽 네비바 봉사자님 글자영역*/
+.mypage_hiuser{
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    margin: 20px;
+
+    /*font */
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333333;
+    /*안녕하세요 * 님 폰트 크기, 행간 조절*/
+    letter-spacing: -0.5px;
+    line-height: 37px;
+}
+
+/*가명: 000 봉사자(후원자)님*/
+.userName {
+    color: #fe6936;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+/*왼쪽 네비바 메뉴*/
+.mypage_content_container{
+    width : 100%;
+    margin : 10px;
+}
+
+.mypage_content_container ul{
+    width: 100%;
+    
+    background-color: #333333;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    color : white;
+
+    margin : 5px;
+    align-items: center;
+    
+    list-style: none;
+}
+
+.mypage_content_container li{
+    display: flex;
+    width: 97%;
+    justify-content: space-between;
+    text-decoration: none;
+    font-weight: 500;
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.mypage_content_container a{
+    height: 100%;
+    font-size: 15px;
+    border-radius: 10px;
+    
+    color: white;
+    font-family: 'Noto Sans KR', sans-serif;
+
+    
+    width : 100%;
+    
+    padding: 10px;
+    margin : 5px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+
+    text-decoration: none;
+    flex: none;
+}
+
+.mypage_content_container a:hover{
+    background-color: #fe6936;
+    font-weight: bolder;
+
+    box-shadow: 0px 0px 8px #9f9f9f;
+    transition-duration: 0.2s;
+}
+
+/* 로그아웃버튼 */
+.logout_btn a{
+    color: #fe6936;
+    background-color: transparent;
+    border: 0 none;
+    margin-left: 20px;
+    font-size: 17px;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-top: 10px;
+    font-weight: 550;
+    text-decoration: none;
+}
+
+/*------------------body-content------------------*/
+/*오른쪽 본문*/
+.myask_content_area{
+    width: 70%;
+    height: 100%;
+    background-color: white;
+
+    /* flex */
+    display: flex;
+    flex-direction: column;
+}
+/*나의 문의내역 container*/
+.myask_content_container{
+    padding : 30px 40px;
+}
+
+/*나의 문의내역*/
+.myask_menu_title{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top : 30px;
+    padding: 40px;
+    font-size: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 500;
+}
+
+/* 게시글 목록 영역 */
+.list-wrapper{
+    width: 100%;
+    min-height: 670px;
+}
+
+/* 목록 출력 테이블 */
+.list_table{
+    width: 100%;
+    padding: 20px;
+
+    /* 테두리 상쇄 여부 지정 
+        -> 고유 테두리를 지닌 요소와 겹치는 경우
+           테두리를 분리할지 상쇄(덮어쓰기) 할지 지정
+    */
+    border-collapse: collapse;
+}
+
+.list_table > thead{
+    background-color: #333333;
+    color : white;
+   
+}
+
+.list_table tr{
+    height: 60px;
+}
+
+.list_table > tbody > tr{
+    border-bottom : 1px solid gray;
+}
+
+.list_table tr > *{
+    text-align: center;
+}
+
+.list_table tr > *:nth-of-type(1){ width: 10%;}
+.list_table tr > td:nth-of-type(2){ 
+    width: 50%;
+    text-align: left;
+    padding-left : 50px;
+}
+
+.list_table tr > *:nth-of-type(3){ width: 15%;}
+.list_table tr > *:nth-of-type(4){ width: 15%;}
+
+
+
