@@ -5,28 +5,38 @@
     list-style: none;
 }
 
+
+
+.alarmPopup.show {
+    display: block !important;
+  }
+
 .alarmPopup{
     display: none;
-    position: fixed;
+    position: absolute;
 
     background-color: rgb(254, 254, 254);
     width: 300px;
-    height: 650px;
+    height: 590px;
     border-radius: 15px;
-    /* margin-top: 20px; */
-    /* margin-left: 20px; */
+    right: 10%;
     overflow: hidden;
     box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
+
+    z-index: 99;
 }
 
 .alarm{
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(66, 66, 66);
     height: 30px;
     font-size: 13px;
     text-align: center;
-    padding-top: 12px;
     border-bottom: 1px solid rgb(186, 186, 186);
     font-weight: bold;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .alarmBox:hover{
