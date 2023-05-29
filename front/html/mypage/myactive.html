@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myactive</title>
+
+     <!-- fontawesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <link rel="stylesheet" href="/css/mypage/myactive.css">
+
+</head>
+<body>
+    
+    <main>
+        <div class="mypage-container">
+          <!--왼쪽 네비바 틀-->
+          <nav class="mypage_nav_area">
+              <div class="mypage_summary_container">
+                  <!--안녕하세요 *** 봉사자님-->
+                  <div class="mypage_hiuser">안녕하세요 <br>
+                      <span class="userName">000</span>봉사자(후원자)님
+                  </div>
+  
+                  <!--왼쪽 네비바 메뉴 -->
+                  
+
+                  <nav class="mypage_content_container">
+                    <ul >
+                      <li><a href="#">회원정보수정</a></li>
+                      <li><a href="#">결제수단 관리</a></li>
+                      <li><a href="#">즐겨찾기</a></li>
+                      <li><a href="#">사용내역</a></li>
+                      <li><a href="#">활동리뷰</a></li>
+                      <li><a href="#">나의 알림</a></li>
+                      <li><a href="#">고객센터</a></li>
+                      <li><a href="#">회원탈퇴</a></li>
+                      <li><a href="../myPage/myactive.html">나의 활동</a></li>
+                      <li><a href="../myPage/myask.html">나의 문의내역</a></li>
+                      <li><a href="../myPage/myrate.html">나의 등급</a></li>
+                      <li><a href="../myPage/mypoint.html">나의 적립금</a></li>
+
+                    </ul>
+                </nav>
+                   <!-- 로그아웃 -->
+                   <div class="logout_btn">
+                     <a href="#">로그아웃</a>
+                   </div>
+              </div>
+          </nav>
+
+<!-- ==============================================================================-->
+
+          <!--오른쪽 나의 활동 본문-->
+          <div class="myactive_content_area">
+             <!--나의 활동 container-->
+             <div class="myactive_content_container">
+            <!--나의 활동 제목-->
+            <div class="myactive_menu_title">
+                <span>나의 활동</span>
+            </div>
+
+            <!--나의활동 메뉴 3개 버튼(기부,봉사,이벤트)-->
+            <nav class="myactive_btn_menu">
+                <ul>
+                    <li><a href="#">기부 실적조회</a></li>
+                    <li><a href="#">봉사 실적조회</a></li>
+                    <li><a href="#">참여한 이벤트</a></li>
+                </ul>
+
+
+            </nav>
+
+
+
+
+            <!--나의 활동 list-->
+            <div class="list_wrapper">
+                <table class="list_table">
+
+                    <thead>
+                        <tr>
+                            <th>글번호</th>
+                            <th>내역</th>
+                            <th>인증서 출력</th>
+                        </tr>
+                    </thead>
+
+                     <!--
+                        <tbody>
+                        <c:choose>
+                            
+                            <c:when test="${empty myactiveList}">
+                                <tr>
+                                    <th colspan="3">게시글이 존재하지 않습니다</th>
+                                </tr>
+                            </c:when>
+
+                            <c:otherwise>
+                                <c:forEach var="myactive" items="${myactiveList}">
+                                    <tr>
+                                        <td>${myactive.myactiveNo}</td>
+                                        <td>${myactive.myactiveTitle}</td>
+                                        <td>발급</td>  
+                                    </tr>
+                             </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                    </tbody>
+                    -->
+
+          </div>
+          </div>
+        </div>  
+    </main>    
+
+</body>
+</html>
