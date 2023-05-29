@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+
+.headerContainer{
+    background-color: #F6F6F6;
+    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+    /* position: fixed; */
+    width: 100%;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+}
+
+.headerContent{
+    width: 1200px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerContent > div{
+    flex: 1 1 0;
+}
+.headerContent .gnb{
+    flex: 2 1 0;
+}
+.gnb{
+    display: flex;
+    justify-content: center;
+    color: #767676;
+
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+.gnb > a {
+   margin: 5%;
+   color: #767676;
+}
+
+.myPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #767676;
+    width: 100%;
+    text-align: center;
+}
+
+.myPage > a{
+    margin-right: 1.5rem;
+}
+
+.myPage i{
+    font-size: 1.7rem;
+}
+
+.loginBtn a{
+    font-size: 16px;
+    font-weight: 400;
+    color: #767676;
+}
+
+
+.myPage a{
+    color: #767676;
+    margin: 5px;
+    position: relative;
+}
+
+
+
+.myPage .tooltip:before{
+    content: attr(data-text);
+    position: absolute;
+    background-color: #8071fc;
+    width: 80px;
+    /* height: 10px; */
+    color: #F6F6F6;
+    font-size: 15px;
+    padding: 10px;
+
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    border-radius: 50px;
+}
+.myPage .tooltip:after{
+    content: '';
+    background: #8071fc;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+
+}
+
+
+/* hover function */
+.myPage .tooltip:before,
+.myPage .tooltip:after{
+    display: none;
+}
+
+.myPage .tooltip:hover:before,
+.myPage .tooltip:hover:after{
+    display: block;
+}
