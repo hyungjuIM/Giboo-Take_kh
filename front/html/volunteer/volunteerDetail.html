@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/volunteer/volunteerDetail.css">
+</head>
+<body>
+    <header>
+        <div data-include1="header" id="header"></div>
+    </header>
+
+    <section class="mainContainer">
+        <div class="mainContent">
+
+            <div class="volunteerInfoArea">
+                <img class="volunteerDetailThumbnail" src="../../images/thumnailImg.jpg">
+
+                <div class="volunteerInfo">
+                    <div class="mainTitle">메인 타이틀</div>
+                    <div class="subTitle">서브 타이틀</div>
+                    <div class="volunteerProgress">50%</div>
+                    <div class="volunteerProgressBar">
+                        <div class="volunteerProgressBarValue"></div>
+                    </div>
+                    <div class="volunteerDate">2099.01.01 ~ 2099.12.31 까지</div>
+                    <div class="volunteerD-day">D - 99</div>
+                </div>
+            </div>
+
+            <div class="volunteerContent">
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+                <h1>테스트</h1>
+            </div>
+
+            <div class="vAgencyInfo">
+                <div>기관명 : 봉사재단</div>
+                <div>대표 : 김김김</div>
+                <span>기관 주소 : 서울특별시 강남구 테헤란로 1, 포스코타워 238</span>
+                <span><button>지도보기</button></span>
+                <div>연락처 : 02-0000-0000</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- jQuery 라이브러리 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var include1 = $('[data-include1="header"]');
+            jQuery.each(include1, function () {
+                $(this).load('/html/01.header.html');
+            });
+        });
+    </script>
+</body>
+</html>
