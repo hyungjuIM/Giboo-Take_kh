@@ -38,9 +38,9 @@ main section:nth-child(1){
 }
 section:nth-child(1) div[class=mainBanner]{
     background-color: aqua;
-    height: 657px;
-    width: 95%;
-    margin: 48px 0px ;
+    height: 400px;
+    width: 1200px;
+    margin: 24px 0px ;
 }
 
 main section:nth-child(2){
@@ -91,11 +91,12 @@ main section:nth-child(2){
 }
 .showGoal_content div:nth-child(1) span{
     color: #8071fc;
-    margin: 5px;
+    display: inline-block;
+    margin: 10px;
 }
 .showGoal_content div:nth-child(2){
-    height: 250px;
-    width: 29px;
+    height: 29px;
+    width: 100%;
     border: 1px solid pink;
 }
 
