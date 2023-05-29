@@ -120,4 +120,9 @@ main section:nth-child(2){
 .mainContent article:nth-child(3){
     border: 1px solid orange;
     height: 811px;
+
+}
+
+
+
 }
