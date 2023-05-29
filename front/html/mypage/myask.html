@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myask</title>
+
+     <!-- fontawesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+     <link rel="stylesheet" href="/css/mypage/myask.css">
+
+</head>
+<body>
+    
+    <main>
+        <div class="mypage-container">
+            <!--왼쪽 네비바 틀-->
+            <nav class="mypage_nav_area">
+                <div class="mypage_summary_container">
+                    <!--안녕하세요 *** 봉사자님-->
+                    <div class="mypage_hiuser">안녕하세요 <br>
+                        <span class="userName">000</span>봉사자(후원자)님
+                    </div>
+    
+                    <!--왼쪽 네비바 메뉴 -->
+                    
+  
+                    <nav class="mypage_content_container">
+                      <ul >
+                        <li><a href="#">회원정보수정</a></li>
+                        <li><a href="#">결제수단 관리</a></li>
+                        <li><a href="#">즐겨찾기</a></li>
+                        <li><a href="#">사용내역</a></li>
+                        <li><a href="#">활동리뷰</a></li>
+                        <li><a href="#">나의 알림</a></li>
+                        <li><a href="#">고객센터</a></li>
+                        <li><a href="#">회원탈퇴</a></li>
+                        <li><a href="../myPage/myactive.html">나의 활동</a></li>
+                        <li><a href="../myPage/myask.html">나의 문의내역</a></li>
+                        <li><a href="../myPage/myrate.html">나의 등급</a></li>
+                        <li><a href="../myPage/mypoint.html">나의 적립금</a></li>
+  
+                      </ul>
+                  </nav>
+                     <!-- 로그아웃 -->
+                     <div class="logout_btn">
+                       <a href="#">로그아웃</a>
+                     </div>
+                </div>
+            </nav>
+  
+  <!-- ==============================================================================-->
+
+          <!--오른쪽 나의 문의내역 본문-->
+          <div class="myask_content_area">
+            <!--나의 문의내역 container-->
+            <div class="myask_content_container">
+            <!--나의 문의내역 제목-->
+            <div class="myask_menu_title">
+                <span>나의 문의내역</span>
+            </div>
+
+            <!--나의 문의내역 list-->
+            <div class="list_wrapper">
+                <table class="list_table">
+
+                    <thead>
+                        <tr>
+                            <th>글번호</th>
+                            <th>제목</th>
+                            <th>작성일</th>
+                            <th>진행상태</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>5</td>
+                            <td>봉사활동은 언제부터 진행하나요?</td>
+                            <td>2023.05.28</td>
+                            <td>미답변</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>봉사활동 증명서 출력은 어떻게 하나요?</td>
+                            <td>2023.05.28</td>
+                            <td>답변완료</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>기부활동후 사용내역을 알 수 있나요?</td>
+                            <td>2023.05.28</td>
+                            <td>답변완료</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>유기견 봉사활동의 자격요건이 있나요?</td>
+                            <td>2023.05.28</td>
+                            <td>답변완료</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>집합장소는 어디인가요?</td>
+                            <td>2023.05.28</td>
+                            <td>답변완료</td>
+                        </tr>
+                    </tbody>
+                    <!--
+                        <tbody>
+                        <c:choose>
+                            
+                            <c:when test="${empty askList}">
+                                <tr>
+                                    <th colspan="4">게시글이 존재하지 않습니다</th>
+                                </tr>
+                            </c:when>
+
+                            <c:otherwise>
+                                <c:forEach var="ask" items="${askList}">
+                                    <tr>
+                                        <td>${ask.askNo}</td>
+                                        <td>${ask.askTitle}</td>
+                                        <td>${ask.aenrollDate}</td>
+                                        <td>${ask.askStatus}</td>  
+                                    </tr>
+                             </c:forEach>
+                            </c:otherwise>
+                        </c:choose>
+                    </tbody>
+                    -->
+                    
+                </table>
+            </div>
+
+          </div>
+        </div>
+        </div>  
+    </main>    
+
+</body>
+</html>
