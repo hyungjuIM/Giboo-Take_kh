@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
-/* Fontawesome 4.7 */
-@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 
 
 *{
@@ -13,6 +12,9 @@
 }
 a{
     text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 .headerContainer{
@@ -39,6 +41,15 @@ a{
 .headerContent > div{
     flex: 1 1 0;
 }
+/* logo 영역 */
+.logo{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* gnb 영역 */
 .headerContent .gnb{
     flex: 2 1 0;
 }
@@ -50,12 +61,48 @@ a{
     font-size: 16px;
     font-weight: 500;
     text-align: center;
-}
-.gnb > a {
-   margin: 5%;
-   color: #767676;
+
+    list-style-type: none;
+    scroll-behavior: smooth;
 }
 
+
+
+.gnb a{
+   margin: 3%;
+   color: #767676;
+   position: relative;
+   
+}
+
+/* gnb a 태그 밑 선 */
+.gnb a:after{
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: #8071fc;
+    border-radius: 50px;
+
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    bottom: -155%;
+    transition: 0.3s;
+    
+}
+
+.gnb a:hover:after{
+    opacity: 1;
+}
+.gnb a:hover{
+    color: #8071fc;
+    font-weight: 600;
+}
+
+
+
+/* 로그인, 버튼 영역 */
 .myPage{
     display: flex;
     justify-content: center;
@@ -66,28 +113,45 @@ a{
     text-align: center;
 }
 
+/* 로그인 버튼 */
 .myPage > a{
-    margin-right: 1.5rem;
+    margin-right: 0.7rem;
 }
-
-.myPage i{
-    font-size: 1.7rem;
-}
-
-.loginBtn a{
+.loginBtn{
     font-size: 16px;
     font-weight: 400;
     color: #767676;
 }
 
-
-.myPage a{
-    color: #767676;
-    margin: 5px;
-    position: relative;
+.loginBtn:hover{
+    color: #8071fc;
+    font-weight: 600;
 }
 
 
+
+/* myPage, alarm toggle event */
+.toggle{
+    width: 44px;
+}
+.toggle.active a i{
+
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #efefef;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 50px;
+}
+.myPage i{
+    font-size: 1.5rem;
+}
+
+.myPage a{
+    color: #767676;
+    position: relative;
+}
 
 .myPage .tooltip:before{
     content: attr(data-text);
@@ -116,6 +180,8 @@ a{
     transform: translateX(-50%) rotate(45deg);
 
 }
+
+
 
 
 /* hover function */
