@@ -152,6 +152,7 @@ color: #BDBDBD;
     font-family: 'Noto Sans KR', sans-serif;
     justify-content: center;
     margin-left: 12px;
+    cursor: pointer;
 }
 .alarmCheck{
     display: flex;
