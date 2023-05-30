@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>봉사 상세 페이지</title>
     <link rel="stylesheet" href="../../css/volunteer/volunteerDetail.css">
 </head>
 <body>
@@ -13,21 +13,40 @@
         <div data-include1="header" id="header"></div>
     </header>
 
+    <div class="mainCategoryArea">
+        <div class="mainCategoryInner">
+            <a href="/volunteer/volunteerHome" class="mainCategoryItem mainCategoryChecked" id="volunteerHome">봉사 진행중</a>
+            <a href="/volunteer/volunteerStory" class="mainCategoryItem" id="volunteerStory">봉사이야기</a>
+            <a href="/volunteer/volunteerReview" class="mainCategoryItem" id="volunteerReview">봉사자 후기</a>
+        </div>
+    </div>
+
     <section class="mainContainer">
         <div class="mainContent">
 
             <div class="volunteerInfoArea">
                 <img class="volunteerDetailThumbnail" src="../../images/thumnailImg.jpg">
+                <button class="volunteerDetailThumbnailPrevious">
+                    <img src="../../images/chevron-left-solid.svg" class="volunteerDetailThumbnailButton">
+                </button>
+                <button class="volunteerDetailThumbnailNext">
+                    <img src="../../images/chevron-right-solid.svg" class="volunteerDetailThumbnailButton">
+                </button>
 
                 <div class="volunteerInfo">
-                    <div class="mainTitle">메인 타이틀</div>
-                    <div class="subTitle">서브 타이틀</div>
                     <div class="volunteerProgress">50%</div>
                     <div class="volunteerProgressBar">
                         <div class="volunteerProgressBarValue"></div>
                     </div>
-                    <div class="volunteerDate">2099.01.01 ~ 2099.12.31 까지</div>
-                    <div class="volunteerD-day">D - 99</div>
+
+                    <div class="volunteerDateArea">
+                        <span class="volunteerDate">2099.01.01 ~ 2099.12.31 까지</span>
+                        <span class="volunteerD-day">D - 99</span>
+                    </div>
+
+                    <div class="volunteerGoal">
+                        2,000,000원
+                    </div>
                 </div>
             </div>
 
