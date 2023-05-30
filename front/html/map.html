@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>키워드로 장소검색하고 목록으로 표출하기</title>
+
+    <script src="https://kit.fontawesome.com/a06d7ad725.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/map.css">
+
+</head>
+<body>
+
+<div class="map_wrap">
+    <div id="map" style="width:100%;height:100vh;position:relative;overflow:hidden;"></div>
+
+    <div id="menu_wrap" class="bg_white">
+        <div class="option">
+            <div class="MsearchBar">
+                <form onsubmit="searchPlaces(); return false;">
+                    <input type="text" value="" id="keyword" placeholder="검색어를 입력하세요"> 
+                    <button type="submit" class="MsearchBtn">🔍</button> 
+                </form>
+            </div>
+        </div>
+
+        <div class="myLoca">
+            <div class="myLoDe">
+                <a href="" class="myLoDetail">
+                    🖐️ 강남구 역삼1동
+                </a>
+                <button>위치수정</button>
+            </div>
+        </div>
+
+        <ul id="placesList"></ul>
+        <div id="pagination"></div>
+    </div>
+
+     <!-- 지도타입 컨트롤 div 입니다 -->
+     <div class="custom_typecontrol radius_border">
+        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+    </div>
+    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+    <div class="custom_zoomcontrol radius_border"> 
+        <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+        <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a57d546fefaefbc7ac5bde8a6eb90ec&libraries=services"></script>
+<script src="/JS/map.js"></script>
+</body>
+</html>
