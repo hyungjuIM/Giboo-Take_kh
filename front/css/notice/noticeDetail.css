@@ -1,107 +1,135 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-*{
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+.mainContainer {
+  
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-body{
-    margin: 0;
-    background-color: white;
-    color: #000;
-    line-height: 1.6em;
+.mainContent {
+  width: 1080px;
+ 
+}
 
+.page-title {
+    margin-bottom: 100px;
+  
+    background-color: #8071FC ;
+  
+   
+    width: 100%;
+    height: 80px;
+  
     display: flex;
-    flex-direction: column;
-}
-
-a{
-    text-decoration: none;
-    color: #000;
-}
-
-
-/* section mainContainer */
-.mainContainer{
-    border: 1px solid pink;
-    height: 80vh;
-
-    display: flex;
+    align-items: center;
     justify-content: center;
-}
-
-.mainContent{
-    width: 1200px;
-    
-
-}
-
-.notice-container1{
-    align-content: center;
+  }
+  
+  .page-title span {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .container1{
+    padding-bottom: 20px;
+    border-bottom: 2px solid #767676;
+    }
     
-}
-.notice-container2{
-   
-    flex-direction: column;
-    align-content: center;
-
-   
-}
-.notice-container3{
+    .container1 span {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .notice {
+        margin-bottom: 40px;
+      }
+.title-date-container{
     display: flex;
-    flex-direction: row;
-    margin: auto;
-    padding: 10px;
+    justify-content: space-between;
+    border-bottom: 2px solid #767676;
+}
+.title-date-container div{
+   margin: 40px 7px;
+    text-align: center;
+    font-size: 22px;
+      font-weight: bold;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #767676;
+}
+.detailContent{
+    margin: 20px 7px;
+    
+    font-size: 18px;
+      font-weight: bold;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #767676;
+
+      padding-bottom: 40px;
+      border-bottom: #767676 1px solid;
 }
 
-/* 작성자 */
-.board-writer{
-
+.nextContentContainer{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #767676 ;
+        
 }
-
-/* 작성일 */
-.board-info{
-    margin-left: 750px;
-}
-
-/* 조회수 */
-.readCount{
-    margin-left: 90px;
-}
-span{
+.next{
+    margin: 0 30px;
+   margin-right: 100px;
+    font-size: 18px;
     font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: black;
 }
-
-/* 본문 */
-.notice-container4{
-    padding: 30px 0;
-    margin: 30px 0;
-    border: 1px solid black;
-}
-
-/* 수정 삭제 버튼 */
-.notice-container5{
-    text-align: right;
-}
-
-.notice-container5 button{
-    width: 80px;
-    height: 30px;
-
+.nextDate{
+    margin-left: auto;
+    font-size: 18px;
     font-weight: bold;
-    border: 0;
-    border-radius: 5px;
-    background-color: aquamarine;
-    color: azure;
-    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
 }
-.notice-container5 button:hover{
-    background-color:  azure;
-    color: aquamarine;
+
+a{text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
+}
+
+
+
+.submitContainer{
+   
+  margin-top: 20px;
+  padding-top: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.listBack{
+  margin-right: auto;
+  
+}
+
+.submitContainer button{
+  width: 98px;
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid #BDBDBD;
+  color: #767676;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  justify-content: center;
+  margin-left: 12px;
+
+  cursor: pointer;
 }
