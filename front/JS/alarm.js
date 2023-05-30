@@ -2,3 +2,4 @@
 $('.tooltip[data-text="알림"]').on('click', function() {
   $('.alarmPopup').toggleClass('show');
 });
+
