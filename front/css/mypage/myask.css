@@ -190,21 +190,10 @@
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);   
 }
 
-/*나의 문의내역 container*/
-/*  .myask_content_container{
-  
-  width: 90%;
-  height: 100vh;
-  margin : 20px;
-  background: #FFFFFF;
-  border: 0.5px solid #BDBDBD;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
- 
-}   */
+
 
 .mainContainer {
-  width: 857px;;
+  width: 857px;
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -218,12 +207,6 @@
 
 .mainContent {
   width: 1080px;
- 
-}
-
-*{
-  box-sizing: border-box;
-  
  
 }
 
@@ -372,27 +355,12 @@ text-align: left;
 
 .container1{
 padding-bottom: 20px;
-border-bottom: 2px solid #767676;
+
 }
 
-.container1 h3 {
-  font-size: 24px;
-  font-weight: bold;
-  font-family: 'Noto Sans KR', sans-serif;
-}
 span{
   font-family: 'Noto Sans KR', sans-serif;
 }
-
-.notice {
-  margin-bottom: 40px;
-}
-
-
-
-
-
-
 
 #notice-list {
   margin-top: 40px;
@@ -411,50 +379,58 @@ span{
 .notice-table a{
     text-decoration: none;
     color: black;
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .notice-table thead th,
 .notice-table thead td{
-  padding: 10px;
+  padding: 20px 10px;
+  font-size: 16px;
+  font-weight: 600;
   
 }
 
 
-.notice-table tbody th,
+
 .notice-table tbody td {
-  padding: 10px;
+  padding: 20px 10px;
   border-right: 0;
   border-left: 0;
   border-bottom: 1px solid #ccc ;
   border-top: 1px solid #ccc ;
   text-align: center;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+.th-num{
+  width: 50px;
+  text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-
-
-.th-num,
+.th-name,
 .th-date,
-.th-count {
+.th-status {
   width: 100px;
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 .th-title {
-  width: 700px;
+  width: 500px;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
 
 .container4{
   width: 850px;
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  
- 
+  justify-content: flex-end; 
 }
 
 
@@ -487,16 +463,20 @@ span{
   text-decoration: none;
   transition: background-color 0.3s;
   transition: color 0.3s;
+  font-weight: 400;
 }
 
 .pagination li a:hover {
-  background-color: #f2f2f2;
-  color: #8071FC;
+  background-color: #8071FC;
+  color: #f2f2f2;
   border-radius: 50%;
 }
+
+.writeBtn-container{
+  margin-left: 120px;
+}
+
 .writeBtn{
-  margin-left: auto;
-  
   border :solid 1px #bdbdbd;
   border-radius: 5px;
 
