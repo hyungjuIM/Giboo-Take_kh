@@ -41,7 +41,7 @@
               <!--왼쪽 네비바 메뉴 -->
               <nav class="mypage_content_container">
                 <ul>
-                  <li><a href="#">회원정보수정👻</a></li>
+                  <li><a href="#">회원정보수정</a></li>
                   <li><a href="#">결제수단 관리</a></li>
                   <li><a href="#">나의 즐겨찾기</a></li>
                 </ul>
@@ -79,29 +79,32 @@
                   <!-- notice seach area -->
                   <div class="notice">
                     <div class="container1">
-                      <span style="color: #767676;">Giboo&Take 서비스의</span><span style="color: #8071FC;"> 신규</span><span style="color: #767676;"> 및</span> <span style="color: #8071FC;"> 업데이트 소식</span><span style="color: #767676;">을 알려드립니다 😇</span>
-                    </div>
-                    <div class="nothing"></div>
-            
-                    <div class="container2">
-                      <div class="search-area">
-                        <div class="search-filter">
+                      <span style="color: #767676;">Giboo&Take에</span><span style="color: #8071FC;"> 문의한 내역</span><span style="color: #767676;">을 알려드립니다 😇</span>
+                      
+                      <div class="container2">
+                        <div class="search-area">
+                          <div class="search-filter">
+                            
+                            <select id="filter" name="filter">
+                              <option value="title">제목</option>
+                              <option value="author">작성자</option>
+                              <option value="views">조회수</option>
+                              <option value="date">등록일</option>
+                            </select>
+                          </div>
                           
-                          <select id="filter" name="filter">
-                            <option value="title">제목</option>
-                            <option value="author">작성자</option>
-                            <option value="views">조회수</option>
-                            <option value="date">등록일</option>
-                          </select>
+                          <form action="">
+                            <fieldset>
+                              <input type="text" id="query" name="query" placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''" onblur="this.placeholder = '검색어를 입력해주세요'" >
+                              <button type="submit" id="search-btn" class="fa-solid fa-magnifying-glass"></button>
+                            </fieldset>
+                          </form>
                         </div>
-                        
-                        <form action="">
-                          <fieldset>
-                            <input type="text" id="query" name="query" placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''" onblur="this.placeholder = '검색어를 입력해주세요'" >
-                            <button type="submit" id="search-btn" class="fa-solid fa-magnifying-glass"></button>
-                          </fieldset>
-                        </form>
-                      </div>
+                    
+                    </div>
+                    
+            
+                    
                     </div>
                   </div>
             
@@ -112,39 +115,55 @@
                         <thead>
                           <tr>
                             <th scope="col" class="th-num">번호</th>
+                            <th scope="col" class="th-name">분류</th>
                             <th scope="col" class="th-title">제목</th>
-                            <th scope="col" class="th-date">등록일</th>
-                            <th scope="col" class="th-name">작성자</th>
-                            <th scope="col" class="th-count">조회수</th>
+                            <th scope="col" class="th-date">작성일</th>
+                            <th scope="col" class="th-status">진행상태</th>
                           </tr>
                         </thead>
                         <tbody>
-                         
-                        
                           <tr>
-                            <td>3</td>
-                            <th><a href="#!">Giboo&Take공지사항입니다3</a></th>
-                            <td>2023.05.24</td>
-                            <td>임형주</td>
-                            <td>50</td>
+                            <td>6</td>
+                            <td>기부>어르신</td>
+                            <td><a href="#!">기부를 했을 때 연말정산에 반영되나요?</a></td>
+                            <td>2023.05.24</td> 
+                            <td><span style="color: #8071FC;">미답변</span></td>
                           </tr>
                           <tr>
-                              <td>2</td>
-                              <th><a href="#!">Giboo&Take공지사항입니다2</a></th>
-                              <td>2023.05.13</td>
-                              <td>임형주</td>
-                              <td>30</td>
-                            </tr>
-                            <tr>
-                              <td>1</td>
-                              <th><a href="#!">Giboo&Take공지사항입니다1</a></th>
-                              <td>2023.05.03</td>
-                              <td>임형주</td>
-                              <td>30</td>
-                            </tr>
+                            <td>5</td>
+                            <td>기부>어린이</td>
+                            <td><a href="#!">어린이 기부를 할 때 소아암 환우에게 하고 싶은데 방법이 있나요?</a></td>
+                            <td>2023.05.05</td> 
+                            <td>답변완료</td>
+                          </tr>
+                          <td>4</td>
+                            <td>기부>장애인</td>
+                            <td><a href="#!">기부할 때 최대금액 정해져 있나요?</a></td>
+                            <td>2023.05.05</td> 
+                            <td>답변완료</td>
+                          </tr>
+                          <td>3</td>
+                            <td>기부>장애인</td>
+                            <td><a href="#!">장애인 봉사활동이 처음인데 가능한가요?</a></td>
+                            <td>2023.05.01</td> 
+                            <td>답변완료</td>
+                          </tr>
+                          <td>2</td>
+                            <td>봉사>어르신</td>
+                            <td><a href="#!">독거노인 봉사활동을 하고 싶은데, </a></td>
+                            <td>2023.04.01</td> 
+                            <td>답변완료</td>
+                          </tr>
+                          <td>1</td>
+                            <td>봉사>어르신</td>
+                            <td><a href="#!">연탄봉사 활동은 겨울에만 가능한가요?</a></td>
+                            <td>2023.001.01</td> 
+                            <td>답변완료</td>
+                          </tr>
+
+
                           <!-- 여러 개의 게시글 추가 -->
-  
-                        
+
                         </tbody>
                       </table>
                     </div>
@@ -157,6 +176,8 @@
                           <li><a href="">3</a></li>
                           <li><a href="">4</a></li>
                           <li><a href="">5</a></li>
+                          <li><a href="">6</a></li>
+                          <li><a href="">7</a></li>
                           <!-- 페이지 번호 추가 -->
                           <li><a href="">&gt;</a></li>
                         </ul>
