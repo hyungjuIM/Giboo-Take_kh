@@ -152,11 +152,7 @@
 }
 
 
-.mypage_content_third ul{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
+
 
 .mypage_content_third button{
   color: #bdbdbd;
