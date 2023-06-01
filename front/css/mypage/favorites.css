@@ -114,7 +114,7 @@
     /* background-color: aqua; */
     margin-left: 15px;
     height: 110px;
-    width: 260px;
+    width: 270px;
 }
 
 .fdeTitle{
@@ -124,19 +124,19 @@
 }
 
 .fdeTitleDe > a > p{
-    font-size: 16px;
+    font-size: 18px;
     color: black;
     margin-bottom: 10px;
 }
 
 .fdeTitleDeDe > p{
-    font-size: 14px;
+    font-size: 16px;
     color: black;
     margin-bottom: 8px;
 }
 
 .fdeTitleDeDe > div > span{
-    font-size: 12px;
+    font-size: 14px;
     color: rgb(106, 106, 106);
 }
 
