@@ -1,97 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>즐겨찾기</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>즐겨찾기</title>
 
-     <!-- fontawesome -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-     <link rel="stylesheet" href="/css/mypage/favorites.css">
-     <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/01.header.css">
-
+  <link rel="stylesheet" href="/css/mypage/favorites.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/01.header.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
-    <header>
-        <div data-include1="header" id="header"></div>
-    </header>
+  <header>
+    <div data-include1="header" id="header"></div>
+  </header>
 
-    <main>
-      <div class="page-title">
-        <span>즐겨찾기</span>
-      </div>
-    
-      <div class="mypage-container">
-        <div class="mypage_wrapper"> <!-- 1200*800 -->
-          
-          <!--왼쪽 네비바 틀-->
-          <nav class="mypage_nav_area">
-            <div class="mypage_summary_container">
+  <main>
+    <div class="page-title">
+      <span>즐겨찾기</span>
+    </div>
 
-              <div class="mypage_profileEmojiContainer"><div class="mypage_profileEmojiTheme ">🥳</div></div>             
-              <div class="mypage_hiuser">고마운분</div>
-              <div class="userName">000님, 안녕하세요🥳 </div>
-              
-    
-              <!--왼쪽 네비바 메뉴 -->
-              <nav class="mypage_content_container">
-                <ul class="mypage_content_first">
-                  <li><a href="#">회원정보수정</a></li>
-                  <li><a href="#">결제수단 관리</a></li>
-                  <li><a href="#">나의 즐겨찾기</a></li>
+    <div class="mypage-container">
+      <div class="mypage_wrapper"> <!-- 1200*800 -->
+
+        <!--왼쪽 네비바 틀-->
+        <nav class="mypage_nav_area">
+          <div class="mypage_summary_container">
+
+            <div class="mypage_profileEmojiContainer">
+              <div class="mypage_profileEmojiTheme ">🥳</div>
+            </div>
+            <div class="mypage_hiuser">고마운분</div>
+            <div class="userName">000님, 안녕하세요🥳 </div>
+
+
+            <!--왼쪽 네비바 메뉴 -->
+            <nav class="mypage_content_container">
+              <ul class="mypage_content_first">
+                <li><a href="#">회원정보수정</a></li>
+                
+                <li><a href="#">즐겨찾기</a></li>
+                <li><a href="#">적립금</a></li>
+              </ul>
+              <hr>
+              <div class="mypage_content_second">
+                <ul>
+                  <li><a href="../myPage/myactive.html">나의 활동</a></li>
+                  <li><a href="../myPage/myask.html">나의 문의</a></li>
                 </ul>
-                <hr>
-                <div class="mypage_content_second">
-                  <ul>
-                    <li><a href="../myPage/myactive.html">나의 활동(봉사,기부,리뷰)</a></li>
-                    <li><a href="../myPage/myask.html">나의 문의</a></li>
-                    <li><a href="../myPage/mypoint.html">나의 적립금</a></li>
-                    <li><a href="#">나의 알림</a></li>
-                    <li><a href="#">나의 이벤트</a></li>
+              </div>
+              <hr>
+              <div class="mypage_content_third">
+                <button>로그아웃</button>
+              </div>
+            </nav> <!--mypage_content_container-->
+          </div> <!-- mypage_summary_container-->
+        </nav> <!--mypage_nav_area-->
 
-                  </ul>
-                </div>
-                <hr>
-                <div class="mypage_content_third">
-                  <ul>
-                    <li><a href="#">로그아웃</a></li>
-                    <hr>
-                    <li><a href="#">회원탈퇴</a></li>
-                              
-                  </ul>
-                </div>
-              </nav> <!--mypage_content_container-->
-            </div> <!-- mypage_summary_container-->
-          </nav> <!--mypage_nav_area--> 
-          
-          <!--오른쪽 본문-->
-          
-                    
-                 
-            
-          </div> <!-- myask_content_area -->
+        <!--오른쪽 본문-->
+        <div class="myfav_content_Area">
+          <!-- 전체, 기부, 봉사 -->
+          <div class="fav_category_container">
+            <div class="favcategory"><button class="favcategoryBtn">전체</button></div>
+            <div class="favcategory"><button class="favcategoryBtn">기부</button></div>
+            <div class="favcategory"><button class="favcategoryBtn">봉사</button></div>
+
+          </div>
+
+          <!-- 즐겨찾기 카드부분 -->
+          <div class="myfavcard_contaner">
+            <!-- 이모티콘 -->
+            <div class="categoryImgContainer">
+              <div class="categoryImg"><i class="fa-solid fa-person-cane"></i></div>
+              <!-- 점선 -->
+              <div class="hrpart"><div class="hrpart2"></div></div>
+            </div>
+
+            <!-- 메인내용 -->
+            <div class="favMaincontainer">
+              <!-- 카테고리, 마감일, 메인 -->
+              <div class="categoryUpdateContainer">
+                <div class="detailCategory"><div style="color: #8071fc;">기부</div>&nbsp;어르신</div>
+                <div class="updateDate">2023.05.30</div>
+              </div>
+
+              <!-- 제목, 작성자, 달성률, 총기부금액 -->
+              <div class="titleContainer">
+                <div class="favTitle">강릉 산불 피해 주민분들을 위한 모금</div>
+                <div class="favWriter">밀알 복지 재단</div>
+                <div class="achieveFav">달성률 60% | 총 기부 금액 1,358,000원</div>
+              </div>
+            </div>
+
+            <!-- 별표모양 -->
+            <div class="favmarkContainer">
+              <div class="favMark"><i class="fa-regular fa-star"></i></div>
+              
+            </div>
+
+  
+          </div>
+           <!-- 즐겨찾기 카드부분 -->
+           <div class="myfavcard_contaner">
+            <!-- 이모티콘 -->
+            <div class="categoryImgContainer">
+              <div class="categoryImg"><i class="fa-solid fa-person-cane"></i></div>
+              <!-- 점선 -->
+              <div class="hrpart"><div class="hrpart2"></div></div>
+            </div>
+
+            <!-- 메인내용 -->
+            <div class="favMaincontainer">
+              <!-- 카테고리, 마감일, 메인 -->
+              <div class="categoryUpdateContainer">
+                <div class="detailCategory"><div style="color: #8071fc;">기부</div>&nbsp;어르신</div>
+                <div class="updateDate">2023.05.30</div>
+              </div>
+
+              <!-- 제목, 작성자, 달성률, 총기부금액 -->
+              <div class="titleContainer">
+                <div class="favTitle">강릉 산불 피해 주민분들을 위한 모금</div>
+                <div class="favWriter">밀알 복지 재단</div>
+                <div class="achieveFav">달성률 60% | 총 기부 금액 1,358,000원</div>
+              </div>
+            </div>
+
+            <!-- 별표모양 -->
+            <div class="favmarkContainer">
+              <div class="favMark"><i class="fa-regular fa-star"></i></div>
+              
+            </div>
+
+  
+          </div>
+
+        </div>
+
+
         
-        </div> <!-- mypage_wrapper -->
-      </div> <!-- mypage-container -->
-    </main>
- 
- 
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-   <script>
-       $(function () {
-           var include1 = $('[data-include1="header"]');
-           jQuery.each(include1, function () {
-               $(this).load('/html/01.header.html');
-           });
-       });
+      </div> <!-- mypage_wrapper -->
+    </div> <!-- mypage-container -->
+  </main>
 
-   </script>
+
+  <!-- jQuery 라이브러리 추가 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      var include1 = $('[data-include1="header"]');
+      jQuery.each(include1, function () {
+        $(this).load('/html/01.header.html');
+      });
+    });
+
+  </script>
 </body>
+
 </html>
