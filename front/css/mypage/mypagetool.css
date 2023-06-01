@@ -42,7 +42,7 @@
 /* 왼쪽 네비바 */
 .mypage_nav_area{
     width : 20%;
-    height: 800px;
+  
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -152,24 +152,15 @@
 }
 
 
-.mypage_content_third ul{
-  display: flex;
-  flex-direction: row;
-}
-.mypage_content_third li{
-  margin-left: 5px;
-}
-.mypage_content_third a{
-  color: #828282;
-  font-size: 14px;
-  padding: 3px;
-  margin-top: 10px; 
-}
-
-.mypage_content_third hr {
-  height: 20px;
-  margin-top: 10px;
-}
+.mypage_content_third button{
+    color: #bdbdbd;
+    font-size: 14px;
+    padding: 3px;
+    margin-top: 10px; 
+    border: none;
+    background-color: transparent;
+    margin-left: 5px;
+  }
 
 .mypage_content_container a:hover{   
     color: #8071FC;
@@ -185,7 +176,7 @@
 
 .mainContainer {
     width: 857px;
-    height: 80vh;
+    
     display: flex;
     justify-content: center;
     font-family: 'Noto Sans KR', sans-serif;
@@ -208,7 +199,7 @@
   }
   
   .page-title {
-    margin-bottom: 100px;
+   
   
     background-color: #8071FC ;
   
