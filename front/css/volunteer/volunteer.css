@@ -47,10 +47,6 @@ a{
     align-items: center;
 }
 
-.mainCategoryInner {
-    display: flex;
-}
-
 .mainCategoryItem {
     padding: 4px 12px;
     margin-inline: 8px;
