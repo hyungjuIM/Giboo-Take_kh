@@ -28,7 +28,7 @@ body {
 
 
 /* <!-- 즐겨찾기 카드부분 --> */
-.myfavcard_contaner {
+.alert_myfavcard_contaner {
     display: flex;
     margin: 15px;
 
@@ -46,7 +46,7 @@ body {
 }
 
 
-.categoryImgContainer {
+.alert_categoryImgContainer {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -55,7 +55,7 @@ body {
 }
 
 /* <!-- 이모티콘 --> */
-.categoryImg {
+.alert_categoryImg {
     width: 30px;
     height: 30px;
     background-color: #D9D9D9;
@@ -66,19 +66,19 @@ body {
 }
 
 /* <!-- 점선 --> */
-.hrpart {
+.alert_hrpart {
     width: 35px;
 
 }
 
-.hrpart2 {
+.alert_hrpart2 {
     width: 14px;
     height: 80px;
     border-right: 1px dotted #D9D9D9;
 }
 
 /* <!-- 메인내용 --> */
-.favMaincontainer {
+.alert_favMaincontainer {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -87,12 +87,12 @@ body {
 
 
 
-.categoryUpdateContainer {
+.alert_categoryUpdateContainer {
     display: flex;
     flex-direction: row;
 }
 
-.detailCategory {
+.alert_detailCategory {
     width: 61px;
     height: 24px;
     border: 1px solid #8071fc;
@@ -106,13 +106,13 @@ body {
 
 }
 
-.detailCategory div {
+.alert_detailCategory div {
     display: flex;
     align-items: center;
 }
 
 
-.updateDate {
+.alert_updateDate {
     margin-left: 8px;
     display: flex;
     align-items: center;
@@ -123,16 +123,16 @@ body {
     align-items: center;
 }
 
-.titleContainerA {
+.alert_titleContainerA {
     margin-top: 20px;
 }
 
-.titleContainer {
+.alert_titleContainer {
     display: flex;
     flex-direction: column;
 }
 
-.favTitle {
+.alertTitle {
     color: #111111;
     font-weight: 600;
     font-size: 16px;
@@ -140,7 +140,7 @@ body {
     margin-left: -10px;
 }
 
-.favTitle a {
+.alertTitle a {
     color: #111111;
     font-weight: 600;
     font-size: 16px;
@@ -148,7 +148,7 @@ body {
 }
 
 
-.favWriter {
+.alertWriter {
     color: #767676;
     font-weight: 500;
     padding-bottom: 16px;
@@ -156,7 +156,7 @@ body {
     margin-left: -10px;
 }
 
-.achieveFav {
+.achieveAlert {
     color: #9d9d9d;
 
     font-size: 12px;
@@ -212,7 +212,7 @@ body {
 }
 
 
-.favTitle_after {
+.alertTitle_after {
     color: #767676;
     font-weight: 600;
     font-size: 16px;
@@ -220,7 +220,7 @@ body {
     margin-left: -10px;
 }
 
-.favTitle_after a {
+.alertTitle_after a {
     color: #767676;
     font-weight: 600;
     font-size: 16px;
