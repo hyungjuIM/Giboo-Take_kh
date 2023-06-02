@@ -17,11 +17,6 @@ body{
     flex-direction: column;
 }
 
-a{
-    text-decoration: none;
-   
-}
-
 .page-title {
     margin-bottom: 100px;
   
@@ -45,7 +40,7 @@ a{
   }
 
 /* section mainContainer */
- .mainContainer{
+ .ask_write_mainContainer{
     
     height: 100vh;
 
@@ -53,7 +48,7 @@ a{
     justify-content: center;
 }
 
-.mainContent{
+.ask_write_mainContent{
     width: 1080px;
     height: 110vh;
     
@@ -63,7 +58,7 @@ a{
 
 
 /* Rectangle 176 */
-.TitleBox{
+.ask_write_TitleBox{
 
 
 width: 1080px;
@@ -75,7 +70,7 @@ height: 48px;
 
 }
 /* 제목을 입력해 주세요. */
-.title input{
+.ask_write_title input{
 width: 1000px;
 height: 22px;
 
@@ -97,11 +92,11 @@ margin-left: 12px;
 color: #767676;
 }
 
-.title input::placeholder{
+.ask_write_title input::placeholder{
     font-family: 'Noto Sans KR', sans-serif;
     color: #BDBDBD;
 }
-.title{
+.ask_write_title{
    
     margin-bottom: 12px;
 width: 1080px;
@@ -123,7 +118,7 @@ align-items: center;
 color: #BDBDBD;
 }
 
-.search-filter {
+.ask_write_search-filter {
     display: flex;
     align-items: center;
     margin-right: 10px;
@@ -133,12 +128,12 @@ color: #BDBDBD;
     height: 38px;
   }
   
-  .search-filter label {
+  .ask_write_search-filter label {
     margin-right: 5px;
     font-family: 'Noto Sans KR', sans-serif;
   }
   
-  .search-filter select {
+  .ask_write_search-filter select {
     padding: 8px;
     font-size: 14px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -146,7 +141,7 @@ color: #BDBDBD;
     border: none;
   }
 
-  .search-area {
+  .ask_write_search-area {
     display: flex;
     justify-content: left;
     align-items: center;
@@ -191,7 +186,7 @@ color: #BDBDBD;
     
 }
 
-.submitContainer{
+.ask_write_submitContainer{
    
     margin-top: 20px;
     padding-top: 20px;
@@ -205,7 +200,7 @@ color: #BDBDBD;
     
 }
 
-.submitContainer button{
+.ask_write_submitContainer button{
     width: 98px;
     height: 38px;
     border-radius: 5px;
@@ -217,6 +212,17 @@ color: #BDBDBD;
     margin-left: 12px;
     cursor: pointer;
 }
+
+.ask_write_submitContainer button:hover{
+    color : #8071fc;
+    border-radius: 5px;
+    border: 1px solid #8071fc;
+    font-weight: 600;
+
+}
+
+
+
 .alarmCheck{
     display: flex;
     text-align: center;
