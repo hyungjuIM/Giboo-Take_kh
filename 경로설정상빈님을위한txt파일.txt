@@ -1,0 +1,21 @@
+순번	페이지명		페이지 경로				비고
+1	메인페이지 	/Giboo&Take				메인페이지
+2	로그인 		/Giboo&Take / main / login		로그인 페이지
+3	회원가입		/Giboo&Take / main /signUp		회원가입 페이지
+4	게시판		/Giboo&Take / board / notice		공지사항
+5	게시글 작성	/Giboo&Take / board / notice / write	공지사항 작성
+6	게시글 수정	/Giboo&Take / board / notice / edit?[공지NO]	공지사항 수정
+7	마이페이지	/Giboo&Take/myPage/	
+	즐겨찾기		/Giboo&Take/myPage/favoirtes	
+	회원정보수정	/Giboo&Take/myPage/updateInfo	
+	나의문의		/Giboo&Take/myPage/myInquiry	
+	나의활동		/Giboo&Take/myPage/myActive	
+	나의적립금	/Giboo&Take/myPage/myPoint	
+	회원탈퇴		/Giboo&Take/myPage/withdrawal	
+	등급혜택		/Giboo&Take/myPage/rate	
+9			
+10			
+11			
+12			
+13			
+14			
