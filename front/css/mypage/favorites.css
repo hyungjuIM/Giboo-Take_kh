@@ -162,8 +162,15 @@
   border: none;
   background-color: transparent;
   margin-left: 5px;
+  cursor: pointer;
 }
 
+.mypage_content_third button:hover{
+  color: #8071FC;
+    
+  font-weight: 600;
+  transition-duration: 0.2s;
+}
 
 .mypage_content_container a:hover{   
     color: #8071FC;
