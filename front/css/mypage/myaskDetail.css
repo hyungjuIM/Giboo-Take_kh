@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*상단 나의 문의내역 상세페이지 제목 */
+.page-title {
+    background-color: #8071FC;
+
+    width: 100%;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page-title span {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/*title 아래 전체 container*/
+.mypage-container {
+    display: flex;
+    justify-content: center;
+}
+
+/*title 아래 전체 container 중 width 1200px*/
+.mypage_wrapper {
+    width: 1200px;
+    display: flex;
+    flex-direction: row;
+}
+
+/*===========================================*/
+/* 왼쪽 네비바 */
+.mypage_nav_area{
+    width : 20%;
+    height: 800px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    border: 0.5px solid #BDBDBD;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
+
+      
+}
+
+/*왼쪽 네비바 상단 사진+이름*/
+.mypage_summary_container{
+    width: 100%;
+}
+.mypage_profileEmojiContainer{
+  display: flex;
+    
+  justify-content: center;
+  align-items: center;
+}
+.mypage_profileEmojiTheme {
+  width: 100px;
+  height: 100px;
+  background-color: #D9D9D9;
+  border-radius: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  margin : 50px;
+  font-size: 70px;
+}
+
+
+/*왼쪽 네비바 고마운분 */
+.mypage_hiuser{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    /*font */
+    font-size: 18px;
+    font-weight: 400;
+    color: #BDBDBD;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+}
+
+/*가명: 000 님, 안녕하세요*/
+.userName {
+    font-weight: 600;
+    font-size: 14px;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    color: #767676;
+}
+
+/*왼쪽 네비바 메뉴*/
+.mypage_content_container{
+  margin : 70px 10px 10px 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.mypage_content_container ul{
+  width: 100%;
+  color : #767676;
+
+  margin : 5px;    
+  list-style: none;
+}
+
+.mypage_content_container li{
+  display: flex;
+
+  text-decoration: none;
+  font-weight: 500;
+  color: #767676;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-bottom : 10px;
+}
+
+.mypage_content_container a{
+  font-size: 18px;    
+  color: #828282;
+  
+  padding: 5px;
+  margin : 5px;  
+  margin-left: 0px;  
+}
+
+.mypage_content_container hr{
+border: 1px solid #BDBDBD;
+}
+
+.mypage_content_second{
+padding-top: 30px;
+}
+
+.mypage_content_second a{
+font-weight: 600;
+font-size: 14px;
+color: #BDBDBD;
+}
+
+
+.mypage_content_third button{
+  color: #bdbdbd;
+  font-size: 14px;
+  padding: 3px;
+  margin-top: 10px; 
+  border: none;
+  background-color: transparent;
+  margin-left: 5px;
+}
+
+.mypage_content_container a:hover{   
+  color: #8071FC;
+  
+  font-weight: 600;
+  transition-duration: 0.2s;
+}
+.mypage_content_first a:hover{
+border-bottom: #8071FC 1px solid;
+transition-duration: 0.2s;
+}
+
+.mypage_content_third button:hover{
+  color: #8071FC;
+  
+  font-weight: 600;
+  transition-duration: 0.2s;
+  cursor: pointer;
+}
+
+
+
+/*------------------body-content-----------------------------------------*/
+/* 오른쪽 문의한 내역*/
+.myaskdetail_content_area {
+    width: 80%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 0.5px solid #BDBDBD;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
+}
+
+.myaskdetail_mainContainer {
+    width: 900px;
+    height: 628px;
+
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans KR', sans-serif;
+
+    background: #FFFFFF;
+    border: 0.5px solid #BDBDBD;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding : 20px;
+}
+
+
+.myaskdetail_notice {
+    width: 850px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+
+.myaskdetail_container1 {
+    margin-bottom: 30px;
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+span {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.myaskdetail_title-date-container {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #767676;
+    border-bottom: 1px solid #D9D9D9;
+}
+
+
+.myaskdetail_title-date-container_2{
+    display: flex;
+    flex-direction: row;
+
+    margin: 20px 7px;
+    text-align: center;  
+}
+
+.myaskdetail_1_detailTitle{
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
+
+    margin: 20px 7px;
+    text-align: center;  
+}
+
+.myaskdetail_1_nupdateN{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
+    margin-right: 20px;
+}
+
+.myaskdetail_1_nupdateDT{
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
+}
+
+.myaskdetail_detailContent {
+    padding : 30px 7px;
+}
+
+.myask_detailContent_title {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
+
+    width: 113px;
+    height: 35px;
+    border-radius: 50px;
+    border: 1px solid #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.myask_detailContent_content{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
+    line-height: 19px;
+
+}
+
+.replyContent {
+    padding: 30px 7px;
+    border-top: #D9D9D9 1px solid;
+    border-bottom: #767676 1px solid;
+
+    background-color: #f6f6f6;
+}
+
+.myask_replyContent{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+
+
+.myask_detailContent_title_2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 20px;
+
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
+}
+
+.myask_detailContent_content2{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #767676;
+    line-height: 19px;
+}
+
+
+.myaskdetail_submitContainer {
+
+    padding: 24px 8px 32px 16px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.myask_otherhelp {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 16px;
+    font-weight: 600px;
+    color: #9d9d9d;
+    justify-content: center;
+    align-items: center;
+}
+
+.myaskdetail_submitContainer button {
+    width: 113px;
+    height: 35px;
+    border-radius: 50px;
+    border: 1px solid #BDBDBD;
+    color: #767676;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    justify-content: center;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+
+
+.myaskdetail_submitContainer button a {
+    color: #767676;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+
+
+.myaskdetail_submitContainer button:hover {
+    color: #8071FC;
+    font-weight: 400;
+    border-radius: 50px;
+    border: 1px solid #8071FC;
+}

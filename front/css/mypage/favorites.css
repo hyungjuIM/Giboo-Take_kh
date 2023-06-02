@@ -42,15 +42,16 @@
 /* 왼쪽 네비바 */
 .mypage_nav_area{
     width : 20%;
-    height: 800px;
+    /* height: 85vh; */
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    border: 0.5px solid #BDBDBD;
+    border-left: 0.5px solid #dcdcdc;
     box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
 
       
 }
+
 
 /*왼쪽 네비바 상단 사진+이름*/
 .mypage_summary_container{
@@ -152,23 +153,24 @@
 }
 
 
-.mypage_content_third ul{
-  display: flex;
-  flex-direction: row;
-}
-.mypage_content_third li{
-  margin-left: 5px;
-}
-.mypage_content_third a{
-  color: #828282;
+
+
+.mypage_content_third button{
+  color: #bdbdbd;
   font-size: 14px;
   padding: 3px;
   margin-top: 10px; 
+  border: none;
+  background-color: transparent;
+  margin-left: 5px;
+  cursor: pointer;
 }
 
-.mypage_content_third hr {
-  height: 20px;
-  margin-top: 10px;
+.mypage_content_third button:hover{
+  color: #8071FC;
+    
+  font-weight: 600;
+  transition-duration: 0.2s;
 }
 
 .mypage_content_container a:hover{   
@@ -181,3 +183,222 @@
   border-bottom: #8071FC 1px solid;
   transition-duration: 0.2s;
 }
+
+
+
+  
+  body{
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+  
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .page-title {
+   
+  
+    background-color: #8071FC ;
+  
+   
+    width: 100%;
+    height: 80px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page-title span {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
+  .myfav_content_Area{
+    width : 940px;
+    
+    background-color: #f6f6f6;
+    display: flex;
+    
+    align-items: center;
+    flex-direction: column;
+    /* border-right: 0.5px solid #BDBDBD; */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);   
+  }
+
+
+  /*  <!-- 전체, 기부, 봉사 --> */
+
+  .fav_category_container{
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 66px;
+
+    width: 707px;
+    height: 72px;
+
+    background-color: #FFFFFF;
+    /* border: #BDBDBD 1px solid; */
+    border-radius: 20px;
+    justify-content: flex-start;
+    align-items: center;
+
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  }
+  .fav_category_container :nth-child(1){
+    margin-left: 8px;
+  }
+ 
+  .favcategoryBtn{
+    width: 61px;
+    height: 35px;
+    border-radius: 100px;
+    border: 1px solid #D9D9D9;
+
+    background-color: #FFFFFF;
+    color: #767676;
+    margin: 8px;
+  }
+
+  /* <!-- 즐겨찾기 카드부분 --> */
+  .myfavcard_contaner{
+    display: flex;
+    margin-top: 20px;
+
+    width: 707px;
+    height: 201px;
+
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+  }
+  .categoryImgContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 22px;
+    margin-left: 14px;
+
+ 
+   
+  }
+  /* <!-- 이모티콘 --> */
+  .categoryImg{
+    width: 35px;
+    height: 35px;
+    background-color: #D9D9D9;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* <!-- 점선 --> */
+  .hrpart {
+    width: 35px;
+    
+  }
+  .hrpart2{
+    width: 17.5px;
+    height:120px ;
+    border-right: 1px dotted #D9D9D9;
+  }
+
+  /* <!-- 메인내용 --> */
+  .favMaincontainer{
+    margin-top: 22px;
+    margin-left: 14px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  .categoryUpdateContainer{
+    display: flex;
+    flex-direction: row;
+    height: 35px;
+    width: 595px;
+
+    
+  }
+  .detailCategory{
+    width: 113px;
+    height: 35px;
+    border: 1px solid #D9D9D9;
+    font-size: 14px;
+
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .detailCategory div{
+    display: flex;
+    align-items: center;
+  }
+  .detailCategory div:after{
+    content: '|';
+    font-size: 8px;
+    margin-right: 5px;
+    padding-left: 8px;
+    color: #767676;
+  }
+
+  .updateDate{
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    
+    font-size: 14px;
+    color: #D9D9D9;
+  }
+  .titleContainer{
+    margin-top: 22px;
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+  .favTitle{
+    color: #242424;
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 16px;
+    padding-left: 8px;
+  }
+  .favWriter{
+    color: #767676;
+    padding-left: 8px;
+    padding-bottom: 16px;
+    font-size: 16px;
+  }
+
+  .achieveFav{
+    color: #9d9d9d;
+    padding-left: 8px;
+   
+    font-size: 14px;
+  }
+ 
+ .favmarkContainer{
+  display: flex;
+  flex-direction: column;
+  margin-top: 22px;
+  margin-right: 14px;
+  
+ }
+ .favMark{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+    height: 35px;
+ }
+
+ .heartIcon{
+  cursor: pointer;
+ }
