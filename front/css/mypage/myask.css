@@ -6,12 +6,24 @@
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Open Sans', sans-serif;
 }
+
+
+body{
+  margin: 0;
+  background-color: white;
+  color: #000;
+  line-height: 1.6em;
+
+  display: flex;
+  flex-direction: column;
+}
+
 /*상단 나의 문의내역 */
 .page-title {
   background-color: #8071FC ;
  
   width: 100%;
-  height: 80px;
+  height: 90px;
 
   display: flex;
   align-items: center;
@@ -23,6 +35,7 @@
   font-size: 24px;
   color: white;
   text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 /*title 아래 전체 container*/
@@ -37,6 +50,8 @@
     display: flex;
     flex-direction: row;   
 }
+
+
 
 /*===========================================*/
 /* 왼쪽 네비바 */
@@ -104,83 +119,83 @@
 
 /*왼쪽 네비바 메뉴*/
 .mypage_content_container{
-    margin : 70px 10px 10px 10px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  margin : 70px 10px 10px 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .mypage_content_container ul{
-    width: 100%;
-    color : #767676;
+  width: 100%;
+  color : #767676;
 
-    margin : 5px;    
-    list-style: none;
+  margin : 5px;    
+  list-style: none;
 }
 
 .mypage_content_container li{
-    display: flex;
+  display: flex;
 
-    text-decoration: none;
-    font-weight: 500;
-    color: #767676;
-    font-family: 'Noto Sans KR', sans-serif;
-    margin-bottom : 10px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #767676;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-bottom : 10px;
 }
 
 .mypage_content_container a{
-    font-size: 18px;    
-    color: #828282;
-    
-    padding: 5px;
-    margin : 5px;  
-    margin-left: 0px;  
+  font-size: 18px;    
+  color: #828282;
+  
+  padding: 5px;
+  margin : 5px;  
+  margin-left: 0px;  
 }
 
 .mypage_content_container hr{
-  border: 1px solid #BDBDBD;
+border: 1px solid #BDBDBD;
 }
 
 .mypage_content_second{
-  padding-top: 30px;
+padding-top: 30px;
 }
 
 .mypage_content_second a{
-  font-weight: 600;
-  font-size: 14px;
-  color: #BDBDBD;
+font-weight: 600;
+font-size: 14px;
+color: #BDBDBD;
 }
 
 
-.mypage_content_third ul{
-  display: flex;
-  flex-direction: row;
-}
-.mypage_content_third li{
-  margin-left: 5px;
-}
-.mypage_content_third a{
-  color: #828282;
+.mypage_content_third button{
+  color: #bdbdbd;
   font-size: 14px;
   padding: 3px;
   margin-top: 10px; 
-}
-
-.mypage_content_third hr {
-  height: 20px;
-  margin-top: 10px;
+  border: none;
+  background-color: transparent;
+  margin-left: 5px;
+  cursor:pointer;
 }
 
 .mypage_content_container a:hover{   
-    color: #8071FC;
-    
-    font-weight: 600;
-    transition-duration: 0.2s;
-}
-.mypage_content_first a:hover{
-  border-bottom: #8071FC 1px solid;
+  color: #8071FC;
+  
+  font-weight: 600;
   transition-duration: 0.2s;
 }
+.mypage_content_first a:hover{
+border-bottom: #8071FC 1px solid;
+transition-duration: 0.2s;
+}
+
+.mypage_content_third button:hover{
+  color: #8071FC; 
+  font-weight: 600;
+  transition-duration: 0.2s;
+
+}
+
 
 
 /*------------------body-content------------------*/
@@ -198,63 +213,52 @@
 
 
 
-.mainContainer {
-  width: 857px;
+.myask_mainContainer {
+  width: 900px;
+    height: 628px;
 
   display: flex;
   justify-content: center;
   font-family: 'Noto Sans KR', sans-serif;
+
+  background: #FFFFFF;
+    border: 0.5px solid #BDBDBD;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding : 20px;
 }
-.notice{
+.myask_notice{
   width: 850px;
   display: flex;
   flex-direction: column;
 }
 
-.mainContent {
+.myask_mainContent {
   width: 1080px;
  
 }
 
-body{
-  margin: 0;
-  background-color: white;
-  color: #000;
-  line-height: 1.6em;
+.myask_container1{
+  margin-bottom: 30px;
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+  
+  }
+  
+  span{
+    font-family: 'Noto Sans KR', sans-serif;
+  }
 
-  display: flex;
-  flex-direction: column;
-}
-
-.page-title {
 
 
-  background-color: #8071FC ;
-
- 
-  width: 100%;
-  height: 90px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.page-title span {
-  font-weight: bold;
-  font-size: 24px;
-  color: white;
-  text-align: center;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-.container2 {
+.myask_container2 {
   display: flex;
   justify-content: flex-end;
 
 }
 
-.search-filter {
+.myask_search-filter {
   display: flex;
   align-items: center;
   margin-right: 10px;
@@ -264,33 +268,36 @@ body{
   height: 38px;
 }
 
-.search-filter label {
+.myask_search-filter label {
   margin-right: 5px;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-.search-filter select {
+.myask_search-filter select,
+.myask_search-filter option {
   padding: 8px;
   font-size: 14px;
   font-family: 'Noto Sans KR', sans-serif;
   outline: none;
   border: none;
-  
+  color : #767676;  
 }
 
 
 
 
 
-.search-area {
+
+
+
+.myask_search-area {
   display: flex;
   justify-content: right;
   width: 100%;
   height: 40px;
-  margin-top: 20px;
 }
 
-.search-area fieldset{
+.myask_search-area fieldset{
   padding: 0;
   margin : auto;
   border : 1px solid #e0e0e0;
@@ -306,15 +313,15 @@ body{
   display: flex;
   transition : background-color 2s ease-out;
 }
-.search-area fieldset:hover{
+.myask_search-area fieldset:hover{
 border-color: #8071FC;
 }
 
-.search-area fieldset:hover #search-btn {
+.myask_search-area fieldset:hover #search-btn {
 color:#8071FC;
 }
 
-#query{
+#myask_query{
   padding: 10px;
   font-size: 14px;
   font-family: 'Noto Sans KR', sans-serif;
@@ -326,20 +333,20 @@ color:#8071FC;
  margin: 0;
  background-color: transparent;
 }
-#query::placeholder{
+#myask_query::placeholder{
 font-family: 'Noto Sans KR', sans-serif;
 font-size: 14px;
 color: #767676;
 text-align: left;
 }
 
-.search-area form {
+.myask_search-area form {
   display: flex;
   align-items: center;
   height: 40px;
 }
 
-.search-area input[type="text"] {
+.myask_search-area input[type="text"] {
   padding: 8px;
   font-size: 14px;
   outline: none;
@@ -349,7 +356,7 @@ text-align: left;
   
 }
 
-.search-area fieldset button{
+.myask_search-area fieldset button{
   border: none;
   background-color: transparent;
   color: #767676;
@@ -359,57 +366,50 @@ text-align: left;
  
 }
 
-.container1{
-padding-bottom: 20px;
 
-}
-
-span{
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-#notice-list {
-  margin-top: 40px;
-}
-
-.container3 {
+.myask_container3 {
   border-top: 2px solid #767676;
 }
 
-.notice-table {
+.myask_notice-table {
   width: 100%;
   border-collapse : collapse;
 
 }
 
-.notice-table a{
+.myask_notice-table a{
     text-decoration: none;
-    color: black;
-    font-weight: 400;
+    color: #767676;
+    font-weight: 500;
     font-size: 14px;
 }
 
-.notice-table thead th,
-.notice-table thead td{
+.myask_notice-table thead th{
   padding: 20px 10px;
-  font-size: 16px;
+
   font-weight: 600;
-  
+font-size: 16px;
+line-height: 22px;
+color : #767676;
+
+  border-bottom: 1px solid #D9D9D9;
+  border-top: 1px solid #767676; 
 }
 
-
-
-.notice-table tbody td {
+.myask_notice-table tbody td{
   padding: 20px 10px;
   border-right: 0;
   border-left: 0;
-  border-bottom: 1px solid #ccc ;
-  border-top: 1px solid #ccc ;
+
+  border-bottom: 1px solid #D9D9D9;
+  
   text-align: center;
   font-size: 14px;
+  font-weight: 500;
   font-family: 'Noto Sans KR', sans-serif;
-
+  color : #767676;
 }
+
 
 .th-num{
   width: 50px;
@@ -431,17 +431,19 @@ span{
 }
 
 
-.container4{
+.myask_container4{
   width: 850px;
-  margin-top: 50px;
+  padding-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end; 
+
+  border-top: 1px solid #767676;
 }
 
 
 
-.page-nav {
+.myask_page-nav {
  
  justify-content: center;
   text-align: center;
@@ -449,7 +451,7 @@ span{
   align-items: center;
 }
 
-.pagination {
+.myask_pagination {
   display: inline-block;
   list-style-type: none;
   padding: 0;
@@ -457,12 +459,12 @@ span{
   
 }
 
-.pagination li {
+.myask_pagination li {
   display: inline;
  
 }
 
-.pagination li a {
+.myask_pagination li a {
   color: #767676;
   padding: 5px 10px;
   margin-left: 20px;
@@ -472,17 +474,17 @@ span{
   font-weight: 400;
 }
 
-.pagination li a:hover {
+.myask_pagination li a:hover {
   background-color: #8071FC;
   color: #f2f2f2;
   border-radius: 50%;
 }
 
-.writeBtn-container{
+.myask_writeBtn-container{
   margin-left: 120px;
 }
 
-.writeBtn{
+.myask_writeBtn{
   border :solid 1px #bdbdbd;
   border-radius: 5px;
 
@@ -494,4 +496,17 @@ span{
 
   width: 98px;
   height: 38px;
+}
+
+.myask_writeBtn-container:hover{
+  color : #8071FC;
+  font-weight: 600;
+  border :solid 1px #8071FC;
+  border-radius: 5px;
+
+}
+
+.myask_writeBtn:hover{
+  color : #8071FC;
+  font-weight: 600;
 }
