@@ -61,21 +61,89 @@
 /* ------------------------- */
 
 .elist_official > li{
-    background-color:#F6F6F6;;
+    background-color:#F6F6F6;
     width: 284px;
     height: 380px;
     border-radius: 20px;
 }
 
 /* 두번째 상자 다른 스타일로 - 시작 */
-.elist_official > li:nth-child(2){
-    background-color:#ffffff;;
+.eother{
+    background-color:#ffffff !important;
     width: 284px;
     height: 380px;
     border-radius: 20px;
     border: 1px solid #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.elink_official_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.earea_thumb_2 > img{
+    width: 90px;
+    height: 90px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+}
+
+.etxt_official_2{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: -0.05em;
+
+    color: #4D4D4D;
+    margin-bottom: 4px;
+}
+
+.ereg_2{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #9D9D9D;
+    margin-bottom: 20px;
+}
+
+.edetail > a > span{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #8071FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edetail{
+    width: 107px;        
+    height: 27px;
+
+    border: 1px solid #8071FC;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 /* 두번째 상자 다른 스타일로 - 끝 */
 
@@ -86,6 +154,7 @@
     flex-direction: column;
 }
 
+/* 종료임박 */
 .earea_thumb_period{
     background-color: #FC71A3;
     border-radius: 50%;
@@ -99,6 +168,7 @@
     bottom: 233px;
 }
 
+/* 종료 */
 .earea_thumb_period_end{
     background-color: #767676;
     border-radius: 50%;
@@ -112,6 +182,7 @@
     bottom: 233px;
 }
 
+/* 진행중 */
 .earea_thumb_period_go{
     background-color: #8071FC;
     border-radius: 50%;
@@ -248,6 +319,10 @@
     justify-content: center;
 }
 
+
+
+/* 페이지네이션 */
+
 .epnation{
     display: flex;
     justify-content: center;
@@ -258,7 +333,7 @@
 }
 
 .epnation_wrap{
-    display: flex;
+    display: flex;      
     align-items: center;
     justify-content: center;
 }

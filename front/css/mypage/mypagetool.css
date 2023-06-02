@@ -52,98 +52,8 @@
       
 }
 
-<<<<<<< HEAD
-.fbarDe > ul > li > a{
-    text-align: center;
-    color: rgb(100, 100, 100);
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.fbody{
-    /* background-color: tomato; */
-    margin-left: 15px;
-    margin-top: 25px;
-}
-
-/* input[type="checkbox"]{
-    width: 15px;   
-    height: 15px;
-    border: 1px solid rgb(151, 151, 151);
-    appearance: none;
-    cursor: pointer;
-    background-color: rgba(247, 247, 247, 0);
-}; */
-
-.fbody_ul{
-    margin-top: 10px;
-}
-
-.fbody_li{
-    display: flex;
-    /* background-color: chartreuse; */
-    height: 150px;
-    margin-bottom: 30px;
-}
-
-.fbody_check{
-    /* background-color: aquamarine; */
-    display: flex;
-}
-
-.fproImg > img{
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 1px solid rgb(225, 225, 225);
-}
-
-.fbodyDe{
-    display: flex;
-    align-items: center;
-}
-
-.fbodyDeDe{
-    display: flex;
-    align-items: center;
-    /* background-color: aqua; */
-    margin-left: 15px;
-    height: 110px;
-    width: 270px;
-}
-
-.fdeTitle{
-    /* background-color: antiquewhite; */
-    margin-left: 15px;
-    height: 80px;
-}
-
-.fdeTitleDe > a > p{
-    font-size: 18px;
-    color: black;
-    margin-bottom: 10px;
-}
-
-.fdeTitleDeDe > p{
-    font-size: 16px;
-    color: black;
-    margin-bottom: 8px;
-}
-
-.fdeTitleDeDe > div > span{
-    font-size: 14px;
-    color: rgb(106, 106, 106);
-}
-
-.favBtn{
-    display: flex;
-    align-items: center;
-    justify-content: end;
-=======
 /*왼쪽 네비바 상단 사진+이름*/
 .mypage_summary_container{
->>>>>>> 5750bb6c469a46e8966ad476dd5b328ee19f821c
     width: 100%;
 }
 .mypage_profileEmojiContainer{
@@ -271,3 +181,51 @@
   border-bottom: #8071FC 1px solid;
   transition-duration: 0.2s;
 }
+
+
+.mainContainer {
+    width: 857px;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+ 
+  
+  .mainContent {
+    width: 1080px;
+   
+  }
+  
+  body{
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+  
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .page-title {
+    margin-bottom: 100px;
+  
+    background-color: #8071FC ;
+  
+   
+    width: 100%;
+    height: 80px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page-title span {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
