@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+body {
+    margin: 0;
+    background-color: white;
+    color: #000;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.alert_container {
+
+    width: 360px;
+    height: 791px;
+    background-color: #f6f6f6;
+}
+
+
+/* <!-- 즐겨찾기 카드부분 --> */
+.alert_myfavcard_contaner {
+    display: flex;
+    margin: 15px;
+
+    width: 327px;
+    height: 151px;
+
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.myalert_container {
+    display: flex;
+    margin: 10px 10px 10px 5px;
+}
+
+
+.alert_categoryImgContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 5px;
+
+}
+
+/* <!-- 이모티콘 --> */
+.alert_categoryImg {
+    width: 30px;
+    height: 30px;
+    background-color: #D9D9D9;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* <!-- 점선 --> */
+.alert_hrpart {
+    width: 35px;
+
+}
+
+.alert_hrpart2 {
+    width: 14px;
+    height: 80px;
+    border-right: 1px dotted #D9D9D9;
+}
+
+/* <!-- 메인내용 --> */
+.alert_favMaincontainer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+.alert_categoryUpdateContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.alert_detailCategory {
+    width: 61px;
+    height: 24px;
+    border: 1px solid #8071fc;
+    font-size: 12px;
+
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+
+}
+
+.alert_detailCategory div {
+    display: flex;
+    align-items: center;
+}
+
+
+.alert_updateDate {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #9d9d9d;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.alert_titleContainerA {
+    margin-top: 20px;
+}
+
+.alert_titleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.alertTitle {
+    color: #111111;
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-left: -10px;
+}
+
+.alertTitle a {
+    color: #111111;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+.alertWriter {
+    color: #767676;
+    font-weight: 500;
+    padding-bottom: 16px;
+    font-size: 12px;
+    margin-left: -10px;
+}
+
+.achieveAlert {
+    color: #9d9d9d;
+
+    font-size: 12px;
+    margin-left: -10px;
+}
+
+/*작은 동그라미모양*/
+.smallC_Container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 19px;
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+}
+
+.smallC {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #6c5fd5;
+    background-color: #6c5fd5;
+}
+
+
+
+/*알림카드 부분 클릭시 바뀌는 부분*/
+/*작은 동그라미모양*/
+.smallC_Container_after {
+    display: flex;
+    flex-direction: row;
+    margin-top: 19px;
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+}
+
+.detailCategory_after {
+    width: 61px;
+    height: 24px;
+    border: 1px solid #767676;
+    font-size: 12px;
+
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+
+}
+
+
+.alertTitle_after {
+    color: #767676;
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-left: -10px;
+}
+
+.alertTitle_after a {
+    color: #767676;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* 더보기 탭  */
+
+.alert_addTab {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 115px;
+
+    margin: 15px;
+
+
+    width: 328px;
+    height: 33px;
+
+    background: #8071FC;
+    border-radius: 500px;
+
+    cursor:pointer;
+}
+
+.alert_addTab_text {
+
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+
+    letter-spacing: -0.05em;
+
+    color: #FFFFFF;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
