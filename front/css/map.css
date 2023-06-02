@@ -1,7 +1,9 @@
-.MsearchBar{
-    background-color: #cc9f9f00;
-    height:60px;
+.option{
+    width: 358px;
+    height:42px;
+
 }
+
 
 .MsearchBar > form{
     /* background-color: wheat; */
@@ -10,45 +12,73 @@
 }
 
 .MsearchBar > form > input {
-    border: 2px solid #8071FC;
-    width: 335px;
-    height: 40px;
+    border: 1px solid #D9D9D9;    
+    width: 358px;
+    height: 42px;
     border-radius: 10px;
-    padding-left: 30px;
+    color: #FFFFFF; 
+    border-radius: 100px;
+    margin-top: 17px;
+    margin-left: 10px;
+}
+
+.MsearchBar > form > input::placeholder{
+    color: #D9D9D9;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 44px;
 }
 
 .MsearchBtn{
     position: relative;
-    right: 370px;
-    width: 30px;
-    height: 30px;
     font-size: 16px;
     background-color: #634d4d00;
     border: none;
+    cursor: pointer;
+    right: 350px;
 }
 
 .myLoca{
-    /* background-color: #b7d2ff; */
-    padding-top: 10px;
+    border-bottom: 1px solid #D9D9D9;
     height: 40px;
-    border-bottom: 1px solid rgb(117, 117, 117);
+    width: 355px;
+    top: 35px;
+    left: 12px;
+    position: relative;
 }
 
 
+
+
 .myLoDetail{
-    font-size: 17px;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 18px;
+    color: #767667;
 }
 
 .myLoDe > button{
     border-radius: 20px;
-    border: 0.5px solid #b9b9b9;
-    width: 60px;
-    height: 20px;
+    border: 1px solid #D9D9D9;
+    position: absolute;
+    width: 61px;
+    height: 23px;
     font-size: 12px;
-    color: #909090;
-    font-weight: bold;
-    margin-left: 155px;
+    background: #FFFFFF;
+    font-weight: 500;
+    font-size: 12px;
+    color: #767667;
+    margin-left: 137px;
+    cursor: pointer;
+}
+
+.mmyloca > span{
+    margin-top: 50px;
+    margin-left: 13px;
+    position: absolute;
+    font-weight: 500;
+    font-size: 18px;
+    color: #252525;
 }
 
 
@@ -94,22 +124,20 @@
     top:0;
     left:0;
     bottom:0;
-    width:380px;
-    padding-top:10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
+    width:390px;
+    height: 867px;
+
     overflow-y: scroll;
     overflow-x: hidden;
-    background:rgb(255, 255, 255);
+    background: #F6F6F6;
     z-index: 1;
     font-size:12px;
     box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.306);
 
     border-radius: 25px;
-    margin-bottom: 100px;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-bottom: 24px;
+    margin-left: 23px;
+    margin-top: 24px;
 }
 
 
@@ -120,18 +148,35 @@
 }
 
 #menu_wrap .option{text-align: center;}
-#menu_wrap .option p {margin:10px 0;}  
+/* #menu_wrap .option p {margin:10px 0;}   */
 /* #menu_wrap .option button {margin-left:5px;} */
+#placesList{
+    margin-top: 80px;
+}
 #placesList li {list-style: none;}
 #placesList .item {
     position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;
 }
 #placesList .item span {display: block;margin-top:4px;}
 #placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+
+#placesList .item h5{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.mplaces{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #767676;
+}
+
 #placesList .item .info{padding:10px 0 10px 55px;}
 #placesList .info .gray {color:#8a8a8a;}
 #placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
-#placesList .info .tel {color:#009900;}
 #placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
 #placesList .item .marker_1 {background-position: 0 -10px;}
 #placesList .item .marker_2 {background-position: 0 -56px;}
@@ -148,6 +193,8 @@
 #placesList .item .marker_13 {background-position: 0 -562px;}
 #placesList .item .marker_14 {background-position: 0 -608px;}
 #placesList .item .marker_15 {background-position: 0 -654px;}
+
+/* 페이지네이션 */
 #pagination {margin:10px auto;text-align: center;}
 #pagination a {display:inline-block;margin-right:10px;}
 #pagination .on {font-weight: bold; cursor: default;color:#777;}
@@ -163,3 +210,13 @@
 .custom_zoomcontrol span {display:block;width:36px;height:40px;text-align:center;cursor:pointer;}     
 .custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}             
 .custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}   
+
+
+
+
+
+
+
+
+
+/*  */

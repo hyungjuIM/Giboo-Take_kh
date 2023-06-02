@@ -17,8 +17,8 @@
         <div class="option">
             <div class="MsearchBar">
                 <form onsubmit="searchPlaces(); return false;">
-                    <input type="text" value="" id="keyword" placeholder="검색어를 입력하세요"> 
-                    <button type="submit" class="MsearchBtn">🔍</button> 
+                    <input type="text" value="" id="keyword" placeholder="봉사, 기부 장소 검색">
+                    <button type="submit" class="MsearchBtn">🔍</button>  
                 </form>
             </div>
         </div>
@@ -26,12 +26,16 @@
         <div class="myLoca">
             <div class="myLoDe">
                 <a href="" class="myLoDetail">
-                    🖐️ 강남구 역삼1동
+                    <span>🖐️</span>
+                    <span>강남구 역삼1동</span> 
                 </a>
                 <button>위치수정</button>
             </div>
         </div>
 
+        <div class="mmyloca">
+            <span>현재 위치 주변 봉사 가능한 곳</span>
+        </div>
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
