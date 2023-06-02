@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>03.main</title>
-    <link rel="stylesheet" href="../../css/volunteer/volunteer.css">
+    <link rel="stylesheet" href="/css/volunteer/volunteer.css">
 </head>
 <body>
     <header>
@@ -13,9 +13,11 @@
     </header>
     
     <div class="mainCategoryArea">
+        <div class="mainCategoryInner">
             <a href="/volunteer/volunteerHome" class="mainCategoryItem mainCategoryChecked" id="volunteerHome">봉사 진행중</a>
             <a href="/volunteer/volunteerStory" class="mainCategoryItem" id="volunteerStory">봉사이야기</a>
             <a href="/volunteer/volunteerReview" class="mainCategoryItem" id="volunteerReview">봉사자 후기</a>
+        </div>
     </div>
 
     <section class="mainContainer">
@@ -98,15 +100,28 @@
 
                 <div class="sortingSection">
                     <div id="sortingArea" class="sortingArea">
-                        <select class="sortingButton" id="sortingButton">
+                        <button class="sortingButton" id="sortingButton">
                             종료임박 순
-                            <img src="../../images/chevron-down-solid.svg">
-                            <option value="expired">종료임박 순</option>
-                            <option value="">추천 순</option>
-                            <option value="recommended">최신 순</option>
-                            <option value="participantsDesc">참여자 많은 순</option>
-                            <option value="participantsAsc">참여자 적은 순</option>
-                        </select>
+                            <img src="/images/chevron-down-solid.svg">
+                        </button>
+
+                        <ul id="sortingListBox" class="sortingListBoxTheme" aria-hidden="true">
+                            <li class="sortingItem">
+                                <span class="text">종료임박 순</span>
+                            </li>
+                            <li class="sortingItem">
+                                <span class="text">추천 순</span>
+                            </li>
+                            <li class="sortingItem">
+                                <span class="text">최신 순</span>
+                            </li>
+                            <li class="sortingItem">
+                                <span class="text">참여자 많은 순</span>
+                            </li>
+                            <li class="sortingItem">
+                                <span class="text">참여자 적은 순</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
@@ -115,150 +130,96 @@
                     <div class="volunteerItem">
                         <div class="volunteerButtonSection">
                             <a href="" class="volunteerButton">🍀 기부하기
-                                <img src="../../images/chevron-down-solid.svg" class="volunteerButtonImage"></a>
+                                <img src="/images/chevron-right-solid.svg" class="volunteerButtonImage"></a>
                             <div class="volunteerButton">💖</div>
                         </div>
                         
                         <a href="">
-                            <img src="../../images/logo.jpg" class="volunteerImg">
+                            <img src="/images/logo.jpg" class="volunteerImg">
                             <div class="subTitle">타이틀</div>
                             <div class="mainTitle">타이틀2</div>
                         </a>
-                        <div class="volunteerProgressBar">
-                            <div class="volunteerProgressBarValue"></div>
-                        </div>
-
-                        <div class="volunteerInfo">
-                            <div class="volunteerD-day">D-180</div>
-                            <div>달성률
-                                <span class="volunteerProgress">50%</span>
-                            </div>
-                        </div>
+                        <div class="progressSection">달성률</div>
                     </div>
 
                     <div class="volunteerItem">
                         <div class="volunteerButtonSection">
                             <a href="" class="volunteerButton">🍀 기부하기
-                                <img src="../../images/chevron-down-solid.svg" class="volunteerButtonImage"></a>
+                                <img src="/images/chevron-right-solid.svg" class="volunteerButtonImage"></a>
                             </a>
                             <div class="volunteerButton">🤍</div>
                         </div>
 
                         <a href="">
-                            <img src="../../images/logo.jpg" class="volunteerImg">
+                            <img src="/images/logo.jpg" class="volunteerImg">
                             <div class="subTitle">타이틀</div>
                             <div class="mainTitle">타이틀2</div>
                         </a>
-                        <div class="volunteerProgressBar">
-                            <div class="volunteerProgressBarValue"></div>
-                        </div>
-
-                        <div class="volunteerInfo">
-                            <div class="volunteerD-day">D-180</div>
-                            <div>달성률
-                                <span class="volunteerProgress">50%</span>
-                            </div>
-                        </div>
+                        <div class="progressSection">달성률</div>
                     </div>
 
                     <div class="volunteerItem">
                         <div class="volunteerButtonSection">
                             <a href="" class="volunteerButton">🍀 기부하기
-                                <img src="../../images/chevron-down-solid.svg" class="volunteerButtonImage"></a>
+                                <img src="/images/chevron-right-solid.svg" class="volunteerButtonImage"></a>
                             </a>
                             <div class="volunteerButton">🤍</div>
                         </div>
 
                         <a href="">
-                            <img src="../../images/logo.jpg" class="volunteerImg">
+                            <img src="/images/logo.jpg" class="volunteerImg">
                             <div class="subTitle">타이틀</div>
                             <div class="mainTitle">타이틀2</div>
                         </a>
-                        <div class="volunteerProgressBar">
-                            <div class="volunteerProgressBarValue"></div>
-                        </div>
-
-                        <div class="volunteerInfo">
-                            <div class="volunteerD-day">D-180</div>
-                            <div>달성률
-                                <span class="volunteerProgress">50%</span>
-                            </div>
-                        </div>
+                        <div class="progressSection">달성률</div>
                     </div>
 
                     <div class="volunteerItem">
                         <div class="volunteerButtonSection">
                             <a href="" class="volunteerButton">🍀 기부하기
-                                <img src="../../images/chevron-down-solid.svg" class="volunteerButtonImage"></a>
+                                <img src="/images/chevron-right-solid.svg" class="volunteerButtonImage"></a>
                             </a>
                             <div class="volunteerButton">🤍</div>
                         </div>
 
                         <a href="">
-                            <img src="../../images/logo.jpg" class="volunteerImg">
+                            <img src="/images/logo.jpg" class="volunteerImg">
                             <div class="subTitle">타이틀</div>
                             <div class="mainTitle">타이틀2</div>
                         </a>
-                        <div class="volunteerProgressBar">
-                            <div class="volunteerProgressBarValue"></div>
-                        </div>
-
-                        <div class="volunteerInfo">
-                            <div class="volunteerD-day">D-180</div>
-                            <div>달성률
-                                <span class="volunteerProgress">50%</span>
-                            </div>
-                        </div>
+                        <div class="progressSection">달성률</div>
                     </div>
 
                     <div class="volunteerItem">
                         <div class="volunteerButtonSection">
                             <a href="" class="volunteerButton">🍀 기부하기
-                                <img src="../../images/chevron-down-solid.svg" class="volunteerButtonImage"></a>
+                                <img src="/images/chevron-right-solid.svg" class="volunteerButtonImage"></a>
                             </a>
                             <div class="volunteerButton">🤍</div>
                         </div>
 
                         <a href="">
-                            <img src="../../images/logo.jpg" class="volunteerImg">
+                            <img src="/images/logo.jpg" class="volunteerImg">
                             <div class="subTitle">타이틀</div>
                             <div class="mainTitle">타이틀2</div>
                         </a>
-                        <div class="volunteerProgressBar">
-                            <div class="volunteerProgressBarValue"></div>
-                        </div>
-
-                        <div class="volunteerInfo">
-                            <div class="volunteerD-day">D-180</div>
-                            <div>달성률
-                                <span class="volunteerProgress">50%</span>
-                            </div>
-                        </div>
+                        <div class="progressSection">달성률</div>
                     </div>
 
                     <div class="volunteerItem">
                         <div class="volunteerButtonSection">
                             <a href="" class="volunteerButton">🍀 기부하기
-                                <img src="../../images/chevron-down-solid.svg" class="volunteerButtonImage"></a>
+                                <img src="/images/chevron-right-solid.svg" class="volunteerButtonImage"></a>
                             </a>
                             <div class="volunteerButton">🤍</div>
                         </div>
 
                         <a href="">
-                            <img src="../../images/logo.jpg" class="volunteerImg">
+                            <img src="/images/logo.jpg" class="volunteerImg">
                             <div class="subTitle">타이틀</div>
                             <div class="mainTitle">타이틀2</div>
                         </a>
-                        <div class="volunteerProgressBar">
-                            <div class="volunteerProgressBarValue"></div>
-
-                            <div class="volunteerInfo">
-                                <div class="volunteerD-day">D-180</div>
-                                <div>달성률
-                                    <span class="volunteerProgress">50%</span>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="progressSection">달성률</div>
                     </div>
 
                 </div>
@@ -278,12 +239,12 @@
         $(function () {
             var include1 = $('[data-include1="header"]');
             jQuery.each(include1, function () {
-                $(this).load('../../html/01.header.html');
+                $(this).load('/html/01.header.html');
             });
         });
 
     </script>
 
-    <script src="../../JS/volunteer/volunteer.js"></script>
+    <script src="/JS/volunteer/volunteer.js"></script>
 </body>
 </html>
