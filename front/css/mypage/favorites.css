@@ -370,6 +370,12 @@
     padding-bottom: 16px;
     padding-left: 8px;
   }
+  .favTitle a{
+    text-decoration: none;
+    color: #242424;
+    font-weight: bold;
+    font-size: 18px;
+  }
   .favWriter{
     color: #767676;
     padding-left: 8px;
