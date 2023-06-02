@@ -29,6 +29,7 @@ a{
 /* section mainContainer */
 .mainContainer{
     border: 1px solid pink;
+    height: 80vh;
 
     display: flex;
     justify-content: center;
@@ -45,6 +46,10 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.mainCategoryInner {
+    display: flex;
 }
 
 .mainCategoryItem {
@@ -179,7 +184,7 @@ a{
 }
 
 .volunteerItemFocus {
-    box-shadow: 3px 3px 14px 4px #0000002B;
+    box-shadow: 7px 7px 7px #0000001e;
     transition-duration: 250ms;
 }
 
@@ -270,38 +275,6 @@ a{
     color: #4D4D4D;
     font-size: 20px;
     text-align: center;
-    margin-bottom: 6px;
-}
-
-.volunteerProgressBar {
-    width: 233px;
-    height: 8px;
-    border-radius: 30px;
-    background-color: #F0F0F0;
-}
-
-.volunteerProgressBarValue {
-    background: linear-gradient(to top, #8071FC 50%, #574da1);
-    border-radius: 30px;
-
-    width: 50%;
-    height: 100%;
-}
-
-.volunteerInfo {
-    width: 233px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    color: #7A7A7A;
-}
-
-.volunteerInfo * {
-    font-size: 12px;
-}
-
-.volunteerProgress {
-    font-weight: bold;
 }
 
 [aria-hidden="true"] {
