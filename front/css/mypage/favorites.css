@@ -9,7 +9,7 @@
 /*상단 나의 문의내역 */
 .page-title {
   background-color: #8071FC ;
-       
+ 
   width: 100%;
   height: 80px;
 
@@ -51,7 +51,6 @@
 
       
 }
-
 
 /*왼쪽 네비바 상단 사진+이름*/
 .mypage_summary_container{
@@ -163,15 +162,8 @@
   border: none;
   background-color: transparent;
   margin-left: 5px;
-  cursor: pointer;
 }
 
-.mypage_content_third button:hover{
-  color: #8071FC;
-    
-  font-weight: 600;
-  transition-duration: 0.2s;
-}
 
 .mypage_content_container a:hover{   
     color: #8071FC;
@@ -397,8 +389,4 @@
   justify-content: center;
   width: 35px;
     height: 35px;
- }
-
- .heartIcon{
-  cursor: pointer;
  }

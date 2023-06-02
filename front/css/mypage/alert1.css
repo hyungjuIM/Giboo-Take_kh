@@ -78,7 +78,7 @@ body {
 }
 
 /* <!-- 메인내용 --> */
-.alert_favMaincontainer {
+.alert_Maincontainer {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -197,7 +197,7 @@ body {
     height: 10px;
 }
 
-.detailCategory_after {
+.alert_detailCategory_after {
     width: 61px;
     height: 24px;
     border: 1px solid #767676;
