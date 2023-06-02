@@ -7,507 +7,517 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.mypage-container{
-    
-    height: 80vh;
+
+body{
+  margin: 0;
+  background-color: white;
+  color: #000;
+  line-height: 1.6em;
+
   display: flex;
+  flex-direction: column;
+}
+
+
+/*상단 나의 문의내역 */
+.page-title {
+  background-color: #8071FC ;
+ 
+  width: 100%;
+  height: 90px;
+
+  display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.page-title span {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+/*title 아래 전체 container*/
+.mypage-container{    
+  display: flex;
+  justify-content: center;
+}
+
+/*title 아래 전체 container 중 width 1200px*/
 .mypage_wrapper{
     width: 1200px;
     display: flex;
-    flex-direction: row;
+    flex-direction: row;   
 }
 
-.page-title {
-    margin-bottom: 100px;
-  
-    background-color: #8071FC ;
-  
-   
-    width: 100%;
-    height: 80px;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .page-title span {
-    font-weight: bold;
-    font-size: 24px;
-    color: white;
-    text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-
 /*===========================================*/
-/*body-nav*/
+/* 왼쪽 네비바 */
 .mypage_nav_area{
     width : 20%;
     height: 800px;
-    background-color: #F6F6F6;
+    background-color: #FFFFFF;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    border: 0.5px solid #BDBDBD;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
+
+      
 }
 
-/*왼쪽 네비바*/
+/*왼쪽 네비바 상단 사진+이름*/
 .mypage_summary_container{
-    width: 90%;
-}
-
-/*왼쪽 네비바 봉사자님 글자영역*/
-.mypage_hiuser{
     width: 100%;
-    padding-top: 70px;
-    padding-bottom: 30px;
-    margin: 20px;
-
-    /*font */
-    font-size: 20px;
-    font-weight: 600;
-    color: #333333;
-    /*안녕하세요 * 님 폰트 크기, 행간 조절*/
-    letter-spacing: -0.5px;
-    line-height: 37px;
+}
+.mypage_profileEmojiContainer{
+  display: flex;
+    
+  justify-content: center;
+  align-items: center;
+}
+.mypage_profileEmojiTheme {
+  width: 100px;
+  height: 100px;
+  background-color: #D9D9D9;
+  border-radius: 100%;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  margin : 50px;
+  font-size: 70px;
 }
 
-/*가명: 000 봉사자(후원자)님*/
+
+/*왼쪽 네비바 고마운분 */
+.mypage_hiuser{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    /*font */
+    font-size: 18px;
+    font-weight: 400;
+    color: #BDBDBD;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-align: center;
+}
+
+/*가명: 000 님, 안녕하세요*/
 .userName {
-    color: #8071fc;
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    
+    font-family: 'Noto Sans KR', sans-serif;
+
+    display: flex;
+    justify-content: center;
+    color: #767676;
 }
 
 /*왼쪽 네비바 메뉴*/
 .mypage_content_container{
-    width : 100%;
-    margin : 10px;
+    margin : 70px 10px 10px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .mypage_content_container ul{
     width: 100%;
-    
-    
-    margin-bottom: 5px;
-    border-radius: 10px;
     color : #767676;
 
-    margin : 5px;
-    align-items: center;
-    
+    margin : 5px;    
     list-style: none;
 }
 
 .mypage_content_container li{
     display: flex;
-    width: 97%;
-    justify-content: space-between;
+
     text-decoration: none;
     font-weight: 500;
     color: #767676;
     font-family: 'Noto Sans KR', sans-serif;
+    margin-bottom : 10px;
 }
 
 .mypage_content_container a{
-    height: 100%;
-    font-size: 15px;
-    border-radius: 10px;
+    font-size: 18px;    
+    color: #828282;
     
-    color: #767676;
-
-    width : 100%;
-    
-    padding: 10px;
-    margin : 5px;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-
-    text-decoration: none;
-    flex: none;
+    padding: 5px;
+    margin : 5px;  
+    margin-left: 0px;  
 }
 
-.mypage_content_container a:hover{
+.mypage_content_container hr{
+  border: 1px solid #BDBDBD;
+}
+
+.mypage_content_second{
+  padding-top: 30px;
+}
+
+.mypage_content_second a{
+  font-weight: 600;
+  font-size: 14px;
+  color: #BDBDBD;
+}
+
+
+.mypage_content_third ul{
+  display: flex;
+  flex-direction: row;
+}
+.mypage_content_third li{
+  margin-left: 5px;
+}
+.mypage_content_third a{
+  color: #828282;
+  font-size: 14px;
+  padding: 3px;
+  margin-top: 10px; 
+}
+
+.mypage_content_third hr {
+  height: 20px;
+  margin-top: 10px;
+}
+
+.mypage_content_container a:hover{   
+    color: #8071FC;
     
-    color: #8071fc;
     font-weight: 600;
     transition-duration: 0.2s;
+}
+.mypage_content_first a:hover{
+  border-bottom: #8071FC 1px solid;
+  transition-duration: 0.2s;
 }
 
 
 /*------------------body-content------------------*/
-/*오른쪽 본문*/
-.myactive_content_area{
-    width: 80%;
-    height: 100%;
-    background-color: white;
-
-    /* flex */
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
-}
-
-/*나의 활동 container*/
-.myactive_content_container{
-    padding: 10px 40px;
+/* 오른쪽 문의한 내역*/
+.myask_content_area{
+  width : 80%;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 0.5px solid #BDBDBD;
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);   
 }
 
 
-/*나의 활동
-.myactive_menu_title{
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin-top : 30px;
-    padding: 40px;
-    font-size: 30px;
-    font-family: 'Noto Sans KR', sans-serif;
+
+.mainContainer {
+  width: 900px;
+    height: 628px;
+
+  display: flex;
+  justify-content: center;
+  font-family: 'Noto Sans KR', sans-serif;
+
+  background: #FFFFFF;
+    border: 0.5px solid #BDBDBD;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding : 20px;
+
+
+
+
+}
+.notice{
+  width: 850px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainContent {
+  width: 1080px;
+}
+
+
+.container1{
+  margin-bottom: 30px;
+    padding-top: 20px;
+    font-size: 20px;
     font-weight: 500;
-}
-*/
 
-
-/*나의활동 메뉴 3개 버튼(기부,봉사,이벤트)*/
-.myactive_btn_menu{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
 }
 
-.myactive_btn_menu ul{
-    list-style: none;
-    display : flex;
+span{
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.myactive_btn_menu a{
-    height: 100%;
-    font-size: 17px;
-    border-radius: 10px;
-    color: #767676;
-    font-family: 'Noto Sans KR', sans-serif;
-
-    margin-right: 9px;
-    padding: 15px;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-
-    text-decoration: none;
-    flex: none;
-}
-
-.myactive_btn_menu a:hover {
-    color: #8071fc;
-    font-weight: 600;
-    transition-duration: 0.2s;
-    box-shadow: 0px 0px 8px #9f9f9f;
-    transition-duration: 0.2s;   
-}
-
-
-/*===========================================*/
 
 .container2 {
-    display: flex;
-    justify-content: flex-end;
-  
-  }
-  
-  .search-filter {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    border : 1px solid #e0e0e0;
-    border-radius: 5px ;
-    font-family: 'Noto Sans KR', sans-serif;
-    height: 38px;
-  }
-  
-  .search-filter label {
-    margin-right: 5px;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  
-  .search-filter select {
-    padding: 8px;
-    font-size: 14px;
-    font-family: 'Noto Sans KR', sans-serif;
-    outline: none;
-    border: none;
-    
-  }
-  
-  
-  
-  
-  
-  .search-area {
-    display: flex;
-    justify-content: right;
-    width: 100%;
-    height: 40px;
-    margin-top: 20px;
-  }
-  
-  .search-area fieldset{
-    padding: 0;
-    margin : auto;
-    border : 1px solid #e0e0e0;
-    border-radius: 5px ;
-    background-color: white;
-  
-    justify-content: center; /* 수평 가운데 정렬 */
-    align-items: center;
-  
-  
-    height: 38px;
-    width: 248px;
-    display: flex;
-    transition : background-color 2s ease-out;
-  }
-  .search-area fieldset:hover{
-  border-color: #8071FC;
-  }
-  
-  .search-area fieldset:hover #search-btn {
-  color:#8071FC;
-  }
-  
-  #query{
-    padding: 10px;
-    font-size: 14px;
-    font-family: 'Noto Sans KR', sans-serif;
-    border: none;
-    border-radius: 50px ;
-    outline: 0;
-    width: 91%;
-    height: 20px;
-   margin: 0;
-   background-color: transparent;
-  }
-  #query::placeholder{
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+
+.container2_title{
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+  align-items: center;
+
+  color : #767676;
+  font-size: 18px;
+  font-weight: 500;
   font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+.myactive_donation,
+.myactive_volunteer,
+.myactive_review{
+  width : 40px;
+
+}
+.myactive_event{
+  width : 120px;
+
+}
+
+.active_title_right{
+  padding : 0px 5px;
+}
+
+
+
+
+
+
+
+
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  border : 1px solid #e0e0e0;
+  border-radius: 5px ;
+  font-family: 'Noto Sans KR', sans-serif;
+  height: 38px;
+}
+
+.search-filter label {
+  margin-right: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.search-filter select {
+  padding: 8px;
   font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  outline: none;
+  border: none;
+  
+}
+
+
+
+
+
+.search-area {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  height: 40px;
+
+}
+
+.search-area fieldset{
+  padding: 0;
+  margin : auto;
+  border : 1px solid #e0e0e0;
+  border-radius: 5px ;
+  background-color: white;
+
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center;
+
+
+  height: 38px;
+  width: 248px;
+  display: flex;
+  transition : background-color 2s ease-out;
+}
+.search-area fieldset:hover{
+border-color: #8071FC;
+}
+
+.search-area fieldset:hover #search-btn {
+color:#8071FC;
+}
+
+#query{
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  border: none;
+  border-radius: 50px ;
+  outline: 0;
+  width: 91%;
+  height: 20px;
+ margin: 0;
+ background-color: transparent;
+}
+#query::placeholder{
+font-family: 'Noto Sans KR', sans-serif;
+font-size: 14px;
+color: #767676;
+text-align: left;
+}
+
+.search-area form {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.search-area input[type="text"] {
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+ border: none;
+  width: 200px;
+  height: 38px;
+  
+}
+
+.search-area fieldset button{
+  border: none;
+  background-color: transparent;
   color: #767676;
-  text-align: left;
-  }
+  height: 38px;
+  width: 38px;
   
-  .search-area form {
-    display: flex;
-    align-items: center;
-    height: 40px;
-  }
-  
-  .search-area input[type="text"] {
-    padding: 8px;
-    font-size: 14px;
-    outline: none;
-   border: none;
-    width: 200px;
-    height: 38px;
-    
-  }
-  
-  .search-area fieldset button{
-    border: none;
-    background-color: transparent;
-    color: #767676;
-    height: 38px;
-    width: 38px;
-    
-   
-  }
-  
-  .container1{
-  padding-bottom: 20px;
-  border-bottom: 2px solid #767676;
-  }
-  
-  .container1 h3 {
-    font-size: 24px;
-    font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  span{
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  
-  .notice {
-    margin-bottom: 40px;
-  }
-  
-  
-  
-  
-  
-  
-  
-  #notice-list {
-    margin-top: 40px;
-  }
-  
-  .container3 {
-    border-top: 2px solid #767676;
-  }
-  
-  .notice-table {
-    width: 100%;
-    border-collapse : collapse;
-  
-  }
-  
-  .notice-table a{
-      text-decoration: none;
-      color: black;
-  }
-  
-  .notice-table thead th,
-  .notice-table thead td{
-    padding: 10px;
-    
-  }
-  
-  
-  .notice-table tbody th,
-  .notice-table tbody td {
-    padding: 10px;
-    border-right: 0;
-    border-left: 0;
-    border-bottom: 1px solid #ccc ;
-    border-top: 1px solid #ccc ;
-    text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  
-  
-  
-  .th-num,
-  .th-date,
-  .th-count {
-    width: 100px;
-    text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  
-  .th-title {
-    width: 700px;
-    font-family: 'Noto Sans KR', sans-serif;
-  }
-  
-  
-  .container4{
-    width: 1080px;
-    margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-  
-  
-  
-  .page-nav {
-    justify-content: center;
-    text-align: center;
-    display: flex;
-    align-items: center;
-  }
-  
-  .pagination {
-    display: inline-block;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    
-  }
-  
-  .pagination li {
-    display: inline;
-   
-  }
-  
-  .pagination li a {
-    color: #767676;
-    padding: 5px 10px;
-    margin-left: 20px;
+ 
+}
+
+
+
+
+
+
+
+
+.container3 {
+  border-top: 2px solid #767676;
+}
+
+.notice-table {
+  width: 100%;
+  border-collapse : collapse;
+
+}
+
+.notice-table a{
     text-decoration: none;
-    transition: background-color 0.3s;
-    transition: color 0.3s;
-  }
-  
-  .pagination li a:hover {
-    background-color: #f2f2f2;
-    color: #8071FC;
-    border-radius: 50%;
-  }
-  .writeBtn{
-    margin-left: 300px;
-    
-    border :solid 1px #bdbdbd;
-    border-radius: 5px;
-  
     color: #767676;
-    font-family: 'Noto Sans KR', sans-serif;
-    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.notice-table thead th{
+  padding: 20px 10px;
+
+  font-weight: 600;
+font-size: 16px;
+line-height: 22px;
+color : #767676;
+
+  border-bottom: 1px solid #D9D9D9;
+  border-top: 1px solid #767676; 
   
-    background-color: transparent;
+}
+
+
+
+.notice-table tbody td {
+  padding: 20px 10px;
+  border-right: 0;
+  border-left: 0;
+
+  border-bottom: 1px solid #D9D9D9;
   
-    width: 98px;
-    height: 38px;
-  }
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
+  color : #767676;
+}
 
+.th-num{
+  width: 50px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
 
+.th-name,
+.th-date,
+.th-status {
+  width: 100px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
 
-
-
-
-
-/* 나의 활동 게시글 목록 영역 
-
-.list-wrapper{
-    width: 100%;
-    min-height: 670px;
+.th-title {
+  width: 500px;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 
-.list_table{
-    width: 100%;
-    padding: 20px;
+.container4{
+  width: 850px;
+  padding-top: 30px;
+  flex-direction: row;
 
-    
-    border-collapse: collapse;
+  border-top: 1px solid #767676;
 }
 
-.list_table > thead{
-    background-color: #F6F6F6;
-    color : #767676;
-   
+
+
+.page-nav {
+ 
+ justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 
-.list_table tr{
-    height: 60px;
+.pagination {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  
 }
 
-.list_table > tbody > tr{
-    border-bottom : 1px solid gray;
+.pagination li {
+  display: inline;
+ 
 }
 
-.list_table tr > *{
-    text-align: center;
+.pagination li a {
+  color: #767676;
+  padding: 5px 10px;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  transition: color 0.3s;
+  font-weight: 400;
 }
 
-.list_table tr > *:nth-of-type(1){ width: 10%;}
-.list_table tr > td:nth-of-type(2){ 
-    width: 50%;
-    text-align: left;
-    padding-left : 50px;
+.pagination li a:hover {
+  background-color: #8071FC;
+  color: #f2f2f2;
+  border-radius: 50%;
 }
-
-.list_table tr > *:nth-of-type(3){ width: 15%;}
-.list_table tr > *:nth-of-type(4){ width: 15%;}
-
-
-*/
