@@ -1,9 +1,7 @@
 .option{
     width: 358px;
     height:42px;
-
 }
-
 
 .MsearchBar > form{
     /* background-color: wheat; */
@@ -12,11 +10,11 @@
 }
 
 .MsearchBar > form > input {
-    border: 1px solid #D9D9D9;    
+    border: 1px solid #8071FC;
     width: 358px;
     height: 42px;
     border-radius: 10px;
-    color: #FFFFFF; 
+    color: #000; 
     border-radius: 100px;
     margin-top: 17px;
     margin-left: 10px;
@@ -31,12 +29,13 @@
 }
 
 .MsearchBtn{
-    position: relative;
+    position: absolute;
     font-size: 16px;
     background-color: #634d4d00;
     border: none;
     cursor: pointer;
-    right: 350px;
+    right: 340px;
+    top: 28px;
 }
 
 .myLoca{
@@ -49,12 +48,10 @@
 }
 
 
-
-
 .myLoDetail{
     font-weight: 600;
     font-size: 18px;
-    color: #767667;
+    color: #252525;
 }
 
 .myLoDe > button{
@@ -129,7 +126,7 @@
 
     overflow-y: scroll;
     overflow-x: hidden;
-    background: #F6F6F6;
+    background: #FFFFFF;    
     z-index: 1;
     font-size:12px;
     box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.306);
@@ -141,13 +138,179 @@
 }
 
 
+.mlistbox{
+    display: flex;
+    margin-top: 95px;
+    margin-left: 12px;
 
-
-.bg_white {
-    background:#fff;
 }
 
-#menu_wrap .option{text-align: center;}
+.mlistUl{
+    list-style: none;
+}
+
+.mlistTi{
+    display: flex;
+    margin-top: 16px;
+}
+
+.mlistCa{
+    border: 1px solid #8071FC;
+    width: 63px;
+    height: 29px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mlistCa > span{
+    color: #8071FC;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    
+}
+
+.mlistHe{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 260px;
+}
+
+.mlistHe > span:nth-child(1){
+    margin-right: 4px;
+}
+
+.mlistHe > span{
+    font-weight: 400;
+    font-size: 12px;
+    color: #8071FC;
+}
+
+.mlistLi > a > img{
+    width: 358px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mlistName{
+    margin-top: 8px;
+}
+
+.mlistName > span{
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.mlistAdd{
+    margin-top: 8px;
+}
+
+.mlistAdd > span{
+    color: #767676; 
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px
+}
+
+.mlistDo{
+    margin-top: 4px;
+}
+
+.mlistDo > span{
+    color: #767676;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.mDe{
+    color: #767676;
+    font-weight: 600 !important;
+    font-size: 14px;
+}
+
+.mlistDo > span:nth-child(3){
+    color: #D9D9D9;
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.mproDe > img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-top: 8px;
+}
+
+.mreProUl{
+    margin-top: 20px;
+    display: flex;
+    list-style: none;
+    /* background-color: yellow; */
+    padding-bottom: 10px;
+}
+
+.mreProBox{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 203px;
+    height: 80px;
+    border-radius: 12px;
+	position: relative;
+}
+
+.mreProBox::after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-bottom-color: #ffffff;
+	border-top: 0;
+	border-left: 0;
+	margin-left: -60px;
+	margin-top: -10px;
+}
+
+.mproDe{
+    margin-left: 9px;
+    display: flex;
+    align-items: center;
+}
+
+
+.mproDe > span{
+    font-weight: 600;
+    font-size: 14px;
+    color: #767676;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+.mreDe{
+    margin-left: 41px;
+    margin-right: 14px;
+    margin-bottom: 8px;
+    margin-top: 4px;
+}
+
+.mbox{
+    height: 8px;
+    background: #F5F7F8;
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 16px;
+}
+
+.bg_white {
+    background: #FFFFFF;    
+}
+
 /* #menu_wrap .option p {margin:10px 0;}   */
 /* #menu_wrap .option button {margin-left:5px;} */
 #placesList{
