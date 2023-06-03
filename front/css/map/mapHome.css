@@ -168,8 +168,12 @@
 .custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}   
 
 
-
 /*  */
+*{
+    list-style: none;
+    text-decoration: none;
+}
+
 .mhBoxImg > a > img{
     width: 358px;
     height: 180px;
@@ -227,9 +231,18 @@
 
 .mhTiRe > span{
     font-weight: 400;
-    font-size: 14px;
+    font-size: 10px;
+    color: #767676;
+    display: flex;
+    align-items: center;
+}
+
+.mhTiReDe > span{
+    font-weight: 400;
+    font-size: 10px;
     color: #767676;
 }
+
 
 .mhTiHe{
     margin-right: 8px;
@@ -237,20 +250,46 @@
 
 .mhTiReDe{
     margin-left: 8px;
+    display: flex;
+    /* background-color: yellowgreen; */
+    justify-content: space-between;
+    width: 190px;
+    align-items: center;
+}
+
+.mhTiReDe > a > span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
 }
 
 .mhRe{
-    font-weight: 600;
+    font-weight: 600 !important;
     font-size: 14px;
+    color: #767676;
+}
+
+.mhBtnWrap{
+    display: flex;
+    /* background-color: yellowgreen; */
+    width: 360px;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 23px;
+    border-top: 1px solid rgba(217, 217, 217, 0.85098);
 }
 
 .mhBtn{
     display: flex;
-    /* background-color: yellowgreen; */
     width: 300px;
-    height: 80px;
     align-items: center;
     justify-content: space-between;
+    /* background-color: wheat; */
+}
+
+.mhBtn > span{
+    color: #D9D9D9;
 }
 
 .mhBtnHe > a{
@@ -264,6 +303,7 @@
 .mhBtnHe > a > span{
     font-weight: 400;
     font-size: 12px;
+    color: #767676;
 }
 
 .mhBtnHe_1{
@@ -277,3 +317,120 @@
     margin-bottom: 4px;
 }
 
+.mhLine{
+    background: #F5F7F8;
+    height: 8px;
+    border-top: 1px solid rgba(217, 217, 217, 0.866667);
+    border-bottom: 1px solid rgba(217, 217, 217, 0.866667);
+}
+
+.mhCaWrap{
+    margin-top: 7px;
+    width: 370px;
+    height: 40px;
+    /* background-color: yellowgreen; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.85098);
+}
+
+.mhCa{
+   /* background-color: yellow; */
+   width: 304px;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.mhCa > a{
+    font-weight: 500;
+    font-size: 14px;
+    color: #767676;
+    /* background-color: wheat; */
+    height: 40px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mhCa > a:nth-child(1){
+    color: #8071FC;
+    font-weight: 600;
+    border-bottom: 1px solid  #8071FC;
+}
+
+.mhDe{
+    /* background-color: yellowgreen; */
+    margin-top: 14px;
+}
+
+.mhDeAdd{
+    /* background-color: wheat; */
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    font-weight: 400;
+    font-size: 16px;
+    color: #252525;
+    margin-bottom: 13px;
+    height: 36px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.85098);
+}
+
+.mhDeAddIc{
+    /* background-color: wheat; */
+    margin-right: 25px;
+}
+
+.mhDeAddLink{
+    font-weight: 400;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mhDeAddLink > a{
+    color: #8071FC;
+}
+
+.mhDeAddLink_2{
+    /* background-color: yellowgreen; */
+    margin-top: 4px;
+}
+
+.mhDeAddLink_2 > a{
+    color: #8071FC;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.mhDeAdd:nth-child(3){
+    /* background-color: violet; */
+    height: 55px;
+}
+
+.mhDeAdd:nth-child(4){
+    /* background-color: turquoise; */
+    height: 100px;
+    width: 340px;
+    font-weight: 400;
+    font-size: 14px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.85098);
+    line-height: 22px;
+    letter-spacing: -0.025em;
+    color: #252525;
+}
+
+.mhDeAdd_4 > button{
+    width: 50px;
+    height: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
