@@ -15,4 +15,4 @@ for (let i = 0; i < heartIcons.length; i++) {
         this.style.color = "#8071fc";
       }
     });
-  }
+  }      
