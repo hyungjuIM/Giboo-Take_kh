@@ -52,7 +52,6 @@
       
 }
 
-
 /*왼쪽 네비바 상단 사진+이름*/
 .mypage_summary_container{
     width: 100%;
@@ -163,15 +162,8 @@
   border: none;
   background-color: transparent;
   margin-left: 5px;
-  cursor: pointer;
 }
 
-.mypage_content_third button:hover{
-  color: #8071FC;
-    
-  font-weight: 600;
-  transition-duration: 0.2s;
-}
 
 .mypage_content_container a:hover{   
     color: #8071FC;
@@ -369,6 +361,12 @@
     font-size: 18px;
     padding-bottom: 16px;
     padding-left: 8px;
+  }
+  .favTitle a{
+    text-decoration: none;
+    color: #242424;
+    font-weight: bold;
+    font-size: 18px;
   }
   .favWriter{
     color: #767676;
