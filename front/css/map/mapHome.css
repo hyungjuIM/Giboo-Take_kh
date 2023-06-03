@@ -38,45 +38,6 @@
     top: 28px;
 }
 
-.myLoca{
-    border-bottom: 1px solid #D9D9D9;
-    height: 40px;
-    width: 355px;
-    top: 35px;
-    left: 12px;
-    position: relative;
-}
-
-
-.myLoDetail{
-    font-weight: 600;
-    font-size: 18px;
-    color: #252525;
-}
-
-.myLoDe > button{
-    border-radius: 20px;
-    border: 1px solid #D9D9D9;
-    position: absolute;
-    width: 61px;
-    height: 23px;
-    font-size: 12px;
-    background: #FFFFFF;
-    font-weight: 500;
-    font-size: 12px;
-    color: #767667;
-    margin-left: 137px;
-    cursor: pointer;
-}
-
-.mmyloca > span{
-    margin-top: 50px;
-    margin-left: 13px;
-    position: absolute;
-    font-weight: 500;
-    font-size: 18px;
-    color: #252525;
-}
 
 
 /* 아래의 모든 코드는 영역::코드로 사용 */
@@ -138,174 +99,6 @@
 }
 
 
-.mlistbox{
-    display: flex;
-    margin-top: 95px;
-    margin-left: 12px;
-
-}
-
-.mlistUl{
-    list-style: none;
-}
-
-.mlistTi{
-    display: flex;
-    margin-top: 16px;
-}
-
-.mlistCa{
-    border: 1px solid #8071FC;
-    width: 63px;
-    height: 29px;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.mlistCa > span{
-    color: #8071FC;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    
-}
-
-.mlistHe{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 260px;
-}
-
-.mlistHe > span:nth-child(1){
-    margin-right: 4px;
-}
-
-.mlistHe > span{
-    font-weight: 400;
-    font-size: 12px;
-    color: #8071FC;
-}
-
-.mlistLi > a > img{
-    width: 358px;
-    height: 180px;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.mlistName{
-    margin-top: 8px;
-}
-
-.mlistName > span{
-    font-weight: 400;
-    font-size: 18px;
-    color: #000000;
-}
-
-.mlistAdd{
-    margin-top: 8px;
-}
-
-.mlistAdd > span{
-    color: #767676; 
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px
-}
-
-.mlistDo{
-    margin-top: 4px;
-}
-
-.mlistDo > span{
-    color: #767676;
-    font-weight: 400;
-    font-size: 14px;
-}
-
-.mDe{
-    color: #767676;
-    font-weight: 600 !important;
-    font-size: 14px;
-}
-
-.mlistDo > span:nth-child(3){
-    color: #D9D9D9;
-    font-weight: 400;
-    font-size: 10px;
-}
-
-.mproDe > img{
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    margin-top: 8px;
-}
-
-.mreProUl{
-    margin-top: 20px;
-    display: flex;
-    list-style: none;
-    /* background-color: yellow; */
-    padding-bottom: 10px;
-}
-
-.mreProBox{
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 203px;
-    height: 80px;
-    border-radius: 12px;
-	position: relative;
-}
-
-.mreProBox::after{
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 15px solid transparent;
-	border-bottom-color: #ffffff;
-	border-top: 0;
-	border-left: 0;
-	margin-left: -60px;
-	margin-top: -10px;
-}
-
-.mproDe{
-    margin-left: 9px;
-    display: flex;
-    align-items: center;
-}
-
-
-.mproDe > span{
-    font-weight: 600;
-    font-size: 14px;
-    color: #767676;
-    margin-left: 8px;
-    margin-top: 8px;
-}
-
-.mreDe{
-    margin-left: 41px;
-    margin-right: 14px;
-    margin-bottom: 8px;
-    margin-top: 4px;
-}
-
-.mbox{
-    height: 8px;
-    background: #F5F7F8;
-    border-top: 1px solid #D9D9D9;
-    border-bottom: 1px solid #D9D9D9;
-    margin-bottom: 16px;
-}
 
 .bg_white {
     background: #FFFFFF;    
@@ -376,10 +169,111 @@
 
 
 
-
-
-
-
-
-
 /*  */
+.mhBoxImg > a > img{
+    width: 358px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mhwrapBox{
+    /* background-color: yellow; */
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-left: 10px;
+}
+
+.mhTiDe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+    /* background-color: yellowgreen; */
+}
+
+.mhTiName{
+    display: flex;
+}
+
+.mhTiName > span:nth-child(1){
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.mhTiCa{
+    width: 59px;
+    height: 27px;
+    background: #F6F6F6;
+    border: 1px solid #8071FC;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.mhTiCa > span{
+    color: #8071FC;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.mhTiRe{
+    display: flex;
+    margin-top: 14px;
+}
+
+.mhTiRe > span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
+}
+
+.mhTiHe{
+    margin-right: 8px;
+}
+
+.mhTiReDe{
+    margin-left: 8px;
+}
+
+.mhRe{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.mhBtn{
+    display: flex;
+    /* background-color: yellowgreen; */
+    width: 300px;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mhBtnHe > a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: violet; */
+}
+
+.mhBtnHe > a > span{
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.mhBtnHe_1{
+    width: 28px;
+    height: 28px;
+    border: 1px solid #CFCFCF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+}
+

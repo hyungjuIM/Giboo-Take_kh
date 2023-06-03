@@ -252,3 +252,11 @@ function zoomIn() {
 function zoomOut() {
     map.setLevel(map.getLevel() + 1);
 }
+
+
+
+// 리뷰 마우스 오버시 나타나는 슬라이드 버튼
+$('.mreProBox').on('mouseover', function() {
+    $('.mslideBtn').toggleClass('show');
+  });
+  
