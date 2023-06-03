@@ -358,81 +358,66 @@
     justify-content: center;
 }
 
-.mhCa > a:nth-child(1){
+/* 카테고리별로 색 변경 */
+.mhCa > a:nth-child(2){
     color: #8071FC;
     font-weight: 600;
     border-bottom: 1px solid  #8071FC;
 }
 
-.mhDe{
-    /* background-color: yellowgreen; */
-    margin-top: 14px;
-}
 
-.mhDeAdd{
-    /* background-color: wheat; */
-    margin-left: 10px;
-    margin-right: 10px;
-    display: flex;
-    font-weight: 400;
-    font-size: 16px;
-    color: #252525;
-    margin-bottom: 13px;
-    height: 36px;
-    border-bottom: 1px solid rgba(217, 217, 217, 0.85098);
-}
+/* 여기서부터 지우고 만들면 됨 */
 
-.mhDeAddIc{
-    /* background-color: wheat; */
-    margin-right: 25px;
-}
 
-.mhDeAddLink{
-    font-weight: 400;
-    font-size: 14px;
+.msWrapSo{
     display: flex;
     flex-direction: column;
+    margin-top: 17px;
 }
 
-.mhDeAddLink > a{
-    color: #8071FC;
-}
-
-.mhDeAddLink_2{
+.msBoxSo{
+    display: flex;
     /* background-color: yellowgreen; */
-    margin-top: 4px;
+    margin-bottom: 12px;
 }
 
-.mhDeAddLink_2 > a{
+.msAlarmBtn{
+    border: 1px solid #8071FC;
+    border-radius: 100px;
+    /* width: 50px; */
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.msAlarmBtn > span{
     color: #8071FC;
     font-weight: 400;
     font-size: 14px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
-.mhDeAdd:nth-child(3){
-    /* background-color: violet; */
-    height: 55px;
-}
-
-.mhDeAdd:nth-child(4){
-    /* background-color: turquoise; */
-    height: 100px;
-    width: 340px;
+.msAlarmDe{
     font-weight: 400;
+    color: #767676;
     font-size: 14px;
-    padding-bottom: 35px;
-    border-bottom: 1px solid rgba(217, 217, 217, 0.85098);
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    /* background-color: yellowgreen; */
+    max-width: 270px;
+}
+
+.msAlarmSpan{
+    font-weight: 500;
+    font-size: 14px;
     line-height: 22px;
     letter-spacing: -0.025em;
     color: #252525;
-}
-
-.mhDeAdd_4 > button{
-    width: 50px;
-    height: 24px;
-    font-weight: 600;
-    font-size: 14px;
-    background-color: white;
-    border: none;
-    cursor: pointer;
+    /* background-color: wheat; */
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.85098);
+    margin-right: 8px;
 }
