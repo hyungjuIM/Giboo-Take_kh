@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+    
+   
+}
+
+body{
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    margin-bottom: 100px;
+  
+    background-color: #8071FC ;
+  
+   
+    width: 100%;
+    height: 80px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .page-title span {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+/* section mainContainer */
+ .ask_write_mainContainer{
+    
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+.ask_write_mainContent{
+    width: 1080px;
+    height: 110vh;
+    
+
+}
+
+
+
+/* Rectangle 176 */
+.ask_write_TitleBox{
+
+
+width: 1080px;
+height: 48px;
+
+
+
+
+
+}
+/* 제목을 입력해 주세요. */
+.ask_write_title input{
+width: 1000px;
+height: 22px;
+
+border: transparent;
+
+outline: none;
+
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height */
+font-family: 'Noto Sans KR', sans-serif;
+display: flex;
+align-items: center;
+margin-left: 12px;
+
+color: #767676;
+}
+
+.ask_write_title input::placeholder{
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #BDBDBD;
+}
+.ask_write_title{
+   
+    margin-bottom: 12px;
+width: 1080px;
+height: 48px;
+
+border: 1px solid #d9d9d9;
+border-radius: 4px;
+
+font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 22px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+
+color: #BDBDBD;
+}
+
+.ask_write_search-filter {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    border : 1px solid #e0e0e0;
+    border-radius: 5px ;
+    font-family: 'Noto Sans KR', sans-serif;
+    height: 38px;
+  }
+  
+  .ask_write_search-filter label {
+    margin-right: 5px;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+  
+  .ask_write_search-filter select {
+    padding: 8px;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    outline: none;
+    border: none;
+  }
+
+  .ask_write_search-area {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    margin-top: 20px;
+
+    margin-bottom: 12px;
+    width: 1080px;
+    height: 48px;
+    
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+  }
+
+.myask_radio{
+    margin-left: 20px;
+}  
+
+.myask_radio_group{
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+.myask_radio_group label{
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+
+
+
+
+.contentContiner{
+    margin-top: 12px;
+    
+}
+
+.ask_write_submitContainer{
+   
+    margin-top: 20px;
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.listBack{
+    margin-right: auto;
+    
+}
+
+.ask_write_submitContainer button{
+    width: 98px;
+    height: 38px;
+    border-radius: 5px;
+    border: 1px solid #BDBDBD;
+    color: #767676;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    justify-content: center;
+    margin-left: 12px;
+    cursor: pointer;
+}
+
+.ask_write_submitContainer button:hover{
+    color : #8071fc;
+    border-radius: 5px;
+    border: 1px solid #8071fc;
+    font-weight: 600;
+
+}
+
+
+
+.alarmCheck{
+    display: flex;
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    align-items: center;
+    color: #767676;
+}

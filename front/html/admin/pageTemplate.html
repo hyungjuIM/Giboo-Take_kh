@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pageTemplate</title>
+    <link rel="stylesheet" href="/css/admin/pageTemplate.css">
+</head>
+<body>
+    <header>
+        <div data-include1="header" id="header"></div>
+    </header>
+
+
+    <section class="mainContainer">
+        <div class="menuName">대쉬보드</div>
+
+        <div class="mainContent">
+            <div class="sideMenuArea">
+                    <div class="profileImageArea">
+                        <img class="profileImage" src="/images/dog_emoji.png">
+                    </div>
+                    <div class="memberNickname">관리자</div>
+                    <div class="welcomeMessage">관리자님, 안녕하세요</div>
+
+                <ul class="sideMenu">
+                    <li class="sideMenuItem"><a href="">대쉬보드</a></li>
+                    <li class="sideMenuItem"><a href="">회원 관리</a></li>
+                    <li class="sideMenuItem"><a href="">공지사항 관리</a></li>
+                    <li class="sideMenuItem"><a href="">고객센터 관리</a></li>
+                    <li class="sideMenuItem"><a href="">1 대 1 채팅 상담</a></li>
+                    <li class="sideMenuItem"><a href="">기부 관리</a></li>
+                    <li class="sideMenuItem"><a href="">봉사 관리</a></li>
+                    <li class="sideMenuItem"><a href="">이벤트 관리</a></li>
+                    <li class="sideMenuItem"><a href="">관리자 관리</a></li>
+                </ul>
+
+                <div class="optionArea">
+                    <button class="logout">로그아웃</button>
+                </div>
+            </div>
+
+            <div class="contentContainer">
+                <div class="contentArea">
+
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- jQuery 라이브러리 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var include1 = $('[data-include1="header"]');
+            jQuery.each(include1, function () {
+                $(this).load('/html/01.header.html');
+            });
+        });
+
+    </script>
+
+    <script src="/JS/admin/pageTemplate.js"></script>
+</body>
+</html>
