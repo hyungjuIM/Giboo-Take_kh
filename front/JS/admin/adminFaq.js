@@ -1,9 +1,7 @@
 const sideMenu = document.getElementsByClassName("sideMenuItem");
 const resetSearch = document.getElementById("resetSearch");
-const crateManager = document.getElementById("crateManager");
+const crateFaq = document.getElementById("crateFaq");
 const detail = document.getElementsByClassName("detail");
-const confirm = document.getElementsByClassName("confirm");
-const reject = document.getElementsByClassName("reject");
 
 for (const i of sideMenu) {
     i.addEventListener("mouseover", () => {
@@ -23,11 +21,11 @@ resetSearch.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("focus");
 });
 
-crateManager.addEventListener("mouseover", (e) => {
+crateFaq.addEventListener("mouseover", (e) => {
     e.target.classList.add("focus");
 });
 
-crateManager.addEventListener("mouseleave", (e) => {
+crateFaq.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("focus");
 });
 
