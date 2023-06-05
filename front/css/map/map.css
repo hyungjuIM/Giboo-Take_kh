@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+.option{
+    width: 358px;
+    height:42px;
+}
+
+.MsearchBar > form{
+    /* background-color: wheat; */
+    /* padding-left: 22px; */
+    white-space: nowrap;
+}
+
+.MsearchBar > form > input {
+    border: 1px solid #8071FC;
+    width: 358px;
+    height: 42px;
+    border-radius: 10px;
+    color: #000; 
+    border-radius: 100px;
+    margin-top: 17px;
+    margin-left: 10px;
+}
+
+.MsearchBar > form > input::placeholder{
+    color: #D9D9D9;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 44px;
+}
+
+.MsearchBtn{
+    position: absolute;
+    font-size: 16px;
+    background-color: #634d4d00;
+    border: none;
+    cursor: pointer;
+    right: 340px;
+    top: 28px;
+}
+
+.myLoca{
+    border-bottom: 1px solid #D9D9D9;
+    height: 40px;
+    width: 355px;
+    top: 35px;
+    left: 12px;
+    position: relative;
+}
+
+
+.myLoDetail{
+    font-weight: 600;
+    font-size: 18px;
+    color: #252525;
+}
+
+.myLoDe > button{
+    border-radius: 20px;
+    border: 1px solid #D9D9D9;
+    position: absolute;
+    width: 61px;
+    height: 23px;
+    font-size: 12px;
+    background: #FFFFFF;
+    font-weight: 500;
+    font-size: 12px;
+    color: #767667;
+    margin-left: 137px;
+    cursor: pointer;
+}
+
+.mmyloca > span{
+    margin-top: 50px;
+    margin-left: 13px;
+    position: absolute;
+    font-weight: 500;
+    font-size: 18px;
+    color: #252525;
+}
+
+
+/* 아래의 모든 코드는 영역::코드로 사용 */
+#menu_wrap::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+#menu_wrap::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #d4cfff; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#menu_wrap::-webkit-scrollbar-track {
+    background: rgba(227, 227, 227, 0);  /*스크롤바 뒷 배경 색상*/
+}
+
+
+
+/*원래 카카오맵 css에서 수정 좀 함*/
+.map_wrap, .map_wrap * {
+    margin:0;
+    padding:0;
+}
+
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{
+    color:#000;
+    text-decoration: none;
+}
+
+.map_wrap {
+    position:relative;
+    width:100%;
+    height:100vh; 
+    overflow: hidden;
+}
+
+#menu_wrap {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:390px;
+    height: 867px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #FFFFFF;    
+    z-index: 1;
+    font-size:12px;
+    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.306);
+
+    border-radius: 25px;
+    margin-bottom: 24px;
+    margin-left: 23px;
+    margin-top: 24px;
+}
+
+
+.mlistbox{
+    display: flex;
+    margin-top: 95px;
+    margin-left: 12px;
+
+}
+
+.mlistUl{
+    list-style: none;
+}
+
+.mlistTi{
+    display: flex;
+    margin-top: 16px;
+}
+
+.mlistCa{
+    border: 1px solid #8071FC;
+    /* width: 63px; */
+    height: 29px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mlistCa > span{
+    color: #8071FC;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.mlistHe{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 260px;
+}
+
+.mlistHe > span:nth-child(1){
+    margin-right: 4px;
+}
+
+.mlistHe > span{
+    font-weight: 400;
+    font-size: 12px;
+    color: #8071FC;
+}
+
+.mlistLi > a > img{
+    width: 358px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mlistName{
+    margin-top: 8px;
+}
+
+.mlistName > span{
+    font-weight: 600;
+    font-size: 18px;
+    color: #000000;
+}
+
+.mlistAdd{
+    margin-top: 8px;
+}
+
+.mlistAdd > span{
+    color: #767676; 
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px
+}
+
+.mlistDo{
+    margin-top: 4px;
+}
+
+.mlistDo > span{
+    color: #767676;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.mDe{
+    color: #767676;
+    font-weight: 600 !important;
+    font-size: 14px;
+}
+
+.mlistDo > span:nth-child(3){
+    color: #D9D9D9;
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.mproDe > img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-top: 8px;
+}
+
+.mreProUl{
+    margin-top: 20px;
+    display: flex;
+    list-style: none;
+    /* background-color: yellow; */
+    padding-bottom: 10px;
+}
+
+
+.mreProBox{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 203px;
+    height: 90px;
+    border-radius: 12px;
+	position: relative;
+    margin-right: 16px;
+}
+
+.mreProBox::after{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 15px solid transparent;
+	border-bottom-color: #ffffff;
+	border-top: 0;
+	border-left: 0;
+	margin-left: -60px;
+	margin-top: -10px;
+}
+
+.mproDe{
+    margin-left: 9px;
+    display: flex;
+    align-items: center;
+}
+
+
+.mproDe > span{
+    font-weight: 600;
+    font-size: 14px;
+    color: #767676;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+.mreDe{
+    /* background-color: yellowgreen; */
+    width: 160px;
+    height: 50px;
+    margin-left: 40px;
+    overflow: hidden;
+    /* margin-top: 4px; */
+}
+
+.mreDe > span{
+    color: #767676;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.mbox{
+    height: 8px;
+    background: #F5F7F8;
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+    margin-bottom: 16px;
+}
+
+.bg_white {
+    background: #FFFFFF;    
+}
+
+/* #menu_wrap .option p {margin:10px 0;}   */
+/* #menu_wrap .option button {margin-left:5px;} */
+#placesList{
+    margin-top: 80px;
+}
+#placesList li {list-style: none;}
+#placesList .item {
+    position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;
+}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+
+#placesList .item h5{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.mplaces{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #767676;
+}
+
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+
+/* 페이지네이션 */
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}
+.radius_border{border:1px solid #919191;border-radius:5px;}     
+.custom_typecontrol {position:absolute;top:10px;right:10px;overflow:hidden;width:130px;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
+.custom_typecontrol span {display:block;width:65px;height:30px;float:left;text-align:center;line-height:30px;cursor:pointer;}
+.custom_typecontrol .btn {background:#fff;background:linear-gradient(#fff,  #e6e6e6);}       
+.custom_typecontrol .btn:hover {background:#f5f5f5;background:linear-gradient(#f5f5f5,#e3e3e3);}
+.custom_typecontrol .btn:active {background:#e6e6e6;background:linear-gradient(#e6e6e6, #fff);}    
+.custom_typecontrol .selected_btn {color:#fff;background:#425470;background:linear-gradient(#425470, #5b6d8a);}
+.custom_typecontrol .selected_btn:hover {color:#fff;}   
+.custom_zoomcontrol {position:absolute;top:50px;right:10px;width:36px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;} 
+.custom_zoomcontrol span {display:block;width:36px;height:40px;text-align:center;cursor:pointer;}     
+.custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}             
+.custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}   
+
+
+
+
+
+
+
+/*  */
+.mslideBtn.show {
+    display: block !important;
+  }
+
+
+.mslideBtn{
+    display: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    left: 280px;
+    bottom: 300px;
+    z-index: 999;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid #b6b6b6;
+}
+
+.mslideBtn:hover{
+    background-color: #cfc9ff;
+}
