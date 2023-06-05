@@ -18,12 +18,41 @@ body {
     flex-direction: column;
 }
 
+/*말풍선부분*/
+.alert_container.show {
+    display: block !important;
+  }
 
 .alert_container {
 
+    margin-top: 50px;
     width: 360px;
     height: 791px;
+    right: 10%;
+    margin-top: 80px;
+
     background-color: #f6f6f6;
+    display: none;
+    position: absolute;
+    overflow: hidden;
+    box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
+
+    z-index: 99;
+    border-radius: .4em;
+}
+
+.alert_container:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 28px solid transparent;
+	border-bottom-color: #f6f6f6;
+	border-top: 0;
+	margin-left: -28px;
+	margin-top: -28px;
 }
 
 
@@ -265,3 +294,5 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+

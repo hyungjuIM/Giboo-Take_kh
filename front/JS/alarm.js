@@ -3,3 +3,7 @@ $('.tooltip[data-text="알림"]').on('click', function() {
   $('.alarmPopup').toggleClass('show');
 });
 
+$('.tooltip[data-text="알림2"]').on('click', function() {
+  $('.alert_container').toggleClass('show');
+});
+
