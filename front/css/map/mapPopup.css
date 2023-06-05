@@ -1,0 +1,286 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.mpopBox{
+    margin-left: 100px;
+    margin-top: 100px;
+}
+
+.mpopImg > img{
+    width: 306px;
+    height: 116px;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+.mpopup{
+    position: relative;
+	background: #a0f7ff;
+    border-radius: 12px;    
+    width: 338px;
+    /* height: 233px; */
+    box-shadow: 3px 3px 10px 5px rgba(117, 117, 117, 0.306);
+}
+
+.mpopup:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-top-color: #a0f7ff;
+	border-bottom: 0;
+	margin-left: -12px;
+	margin-bottom: -12px;
+}
+
+.mpopImg{
+    display: flex;
+    justify-content: center;
+}
+
+.mpopup{
+    display: flex;
+    flex-direction: column;
+}
+
+.mpopContent{
+    margin-left: 14px;
+    margin-top: 10px;
+}
+
+.mpopTi{
+    display: flex;
+}
+
+.mpopTitle > span{
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+
+.mpopTitle{
+    /* background-color: yellowgreen; */
+    max-width: 207px;
+    height: auto;
+}
+
+.mpopCa{
+    /* width: 66px; */
+    height: 24px;
+    border: 1px solid #8071FC;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    margin-left: 28px;
+}
+
+.mpopCa > span{
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #8071FC;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.mpopAd{
+    font-weight: 400;
+    font-size: 12px;
+    color: #767676;
+    margin-top: 5px;
+}
+
+.mpopFoot{
+    margin-top: 13px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.mpopBtn{
+    display: flex;
+}
+
+.mpopBtn > a > div{
+    border: 1px solid #CFCFCF;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mpopV{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mpopV > span{
+    font-size: 10px;
+}
+
+.mpopVr > span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
+}
+
+.mpopVr{
+    margin-right: 4px;
+}
+
+.mpopVr > span:nth-child(2){
+    font-weight: 600 !important;
+}
+
+.mpopVn > span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
+}
+
+.mpopVn > span:nth-child(2){
+    font-weight: 600 !important;
+}
+
+.mpopVn{
+    margin-left: 4px;
+}
+
+
+/* ---------------공유팝업-------------------- */
+.mpWrap{
+    margin-left: 10px;
+}
+
+.mpWrap{
+    position: relative;
+	background: #9b9800;
+	border-radius: .4em;
+    width: 157px;
+    height: 65px;
+    box-shadow: 3px 3px 10px 5px rgba(117, 117, 117, 0.306);
+}
+
+.mpWrap:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 70%;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom-color: #9b9800;
+	border-top: 0;
+	margin-left: -10px;
+	margin-top: -10px;
+}
+
+
+.mpBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+}
+
+.mpBtnWrap{
+    display: flex;
+    justify-content: space-between;
+    width: 84px;
+    /* background-color: yellow; */
+    margin-top: 15px;
+}
+
+.mpBtnWrap > div{
+    width: 20px;
+    height: 20px;
+    background: #ffffff;
+    border: 1px solid rgba(217, 217, 217, 0.866667);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mpUrlWrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: violet; */
+    height: 20px;
+    margin-top: 18px;
+}
+
+.mpUrlBox{
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 141px;
+    height: 20px;
+}
+
+.mpUrlInput > input{
+    width: 98px;
+    border: none;
+    border-right:1px solid rgba(217, 217, 217, 0.866667);
+}
+
+
+.mpUrlP{
+    /* background-color: wheat; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+.mpUrlP > span{
+    font-weight: 500;
+    font-size: 10px;
+    color: #767676;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+/* 임시마커 */
+.MarkerMarker > img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.MarkerMarker{
+    margin-left: 250px;
+    position: absolute;
+}
+
+.Marker{cursor: pointer;}
+
+.mpopWrap {
+    display: none;
+  }
+
+.mpopWrap.show {
+display: block;
+}
+
