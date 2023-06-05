@@ -199,7 +199,7 @@ transition-duration: 0.2s;
 
 /*------------------body-content------------------*/
 /* 오른쪽 문의한 내역*/
-.myask_content_area{
+.withdrawal_content_area{
   width : 80%;
   background-color: #FFFFFF;
   display: flex;
@@ -212,7 +212,7 @@ transition-duration: 0.2s;
 
 
 
-.mainContainer {
+.withdrawal_mainContainer {
   width: 900px;
     height: 628px;
 
@@ -230,18 +230,18 @@ transition-duration: 0.2s;
 
 
 }
-.notice{
+.withdrawal_notice{
   width: 850px;
   display: flex;
   flex-direction: column;
 }
 
-.mainContent {
+.withdrawal_mainContent {
   width: 1080px;
 }
 
 
-.container1{
+.withdrawal_container1{
   margin-bottom: 30px;
     padding-top: 20px;
     font-size: 20px;
@@ -253,291 +253,67 @@ span{
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-
-.container2 {
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-}
-
-.container2_title{
-  display: flex;
-  flex-direction: row;
-
-  justify-content: center;
-  align-items: center;
-
-  color : #767676;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'Noto Sans KR', sans-serif;
-
-}
-
-
-.active_title_name{
-  padding : 0px 5px;
-  width : 50px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.active_title_name2{
-  padding : 0px 5px;
-  width : 120px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-
-}
-.active_title_right{
-  padding : 0px 5px;
-}
-
-.myactive_donation:hover,
-.myactive_volunteer:hover,
-.myactive_review:hover,
-.myactive_event:hover{
-  color : #8071FC;
-  font-weight: 700;  
-}
-
-
-
-
-
-
-
-
-
-
-
-.search-filter {
-  display: flex;
-  align-items: center;
-  margin-right: 10px;
-  border : 1px solid #e0e0e0;
-  border-radius: 5px ;
-  font-family: 'Noto Sans KR', sans-serif;
-  height: 38px;
-}
-
-.search-filter label {
-  margin-right: 5px;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-.search-filter select {
-  padding: 8px;
-  font-size: 14px;
-  font-family: 'Noto Sans KR', sans-serif;
-  outline: none;
-  border: none;
-  
-}
-
-
-
-
-
-.search-area {
-  display: flex;
-  justify-content: right;
-  width: 100%;
-  height: 40px;
-
-}
-
-.search-area fieldset{
-  padding: 0;
-  margin : auto;
-  border : 1px solid #e0e0e0;
-  border-radius: 5px ;
-  background-color: white;
-
-  justify-content: center; /* 수평 가운데 정렬 */
-  align-items: center;
-
-
-  height: 38px;
-  width: 248px;
-  display: flex;
-  transition : background-color 2s ease-out;
-}
-.search-area fieldset:hover{
-border-color: #8071FC;
-}
-
-.search-area fieldset:hover #search-btn {
-color:#8071FC;
-}
-
-#query{
-  padding: 10px;
-  font-size: 14px;
-  font-family: 'Noto Sans KR', sans-serif;
-  border: none;
-  border-radius: 50px ;
-  outline: 0;
-  width: 91%;
-  height: 20px;
- margin: 0;
- background-color: transparent;
-}
-#query::placeholder{
-font-family: 'Noto Sans KR', sans-serif;
-font-size: 14px;
-color: #767676;
-text-align: left;
-}
-
-.search-area form {
-  display: flex;
-  align-items: center;
-  height: 40px;
-}
-
-.search-area input[type="text"] {
-  padding: 8px;
-  font-size: 14px;
-  outline: none;
- border: none;
-  width: 200px;
-  height: 38px;
-  
-}
-
-.search-area fieldset button{
-  border: none;
-  background-color: transparent;
-  color: #767676;
-  height: 38px;
-  width: 38px;
-  
- 
-}
-
-
-.myactive_container3 {
-  border-top: 2px solid #767676;
-}
-
-.myactive_notice-table {
-  width: 100%;
-  border-collapse : collapse;
-
-}
-
-.myactive_notice-table a{
-    text-decoration: none;
-    color: #767676;
+.withdrawal_title1{
+  font-size: 26px;
+  color : #828282;
     font-weight: 500;
-    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+
 }
 
-.myactive_notice-table thead th{
-  padding: 15px 10px;
-
-  font-weight: 600;
-font-size: 16px;
-line-height: 22px;
-color : #767676;
-
-  border-bottom: 1px solid #D9D9D9;
-  border-top: 1px solid #767676; 
-  
+.withdrawal_content1{
+  font-size: 18px;
+  color : #828282;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-
-
-.myactive_notice-table tbody td {
-  padding: 10px 10px;
-  border-right: 0;
-  border-left: 0;
-
-  border-bottom: 1px solid #D9D9D9;
-  
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 500;
-  font-family: 'Noto Sans KR', sans-serif;
-  color : #767676;
+.withdrawal_hr{
+  border: none;
+  border-top: 1px solid black;
+  margin: 10px 0;
 }
 
-.myactive_print{
-  border: 1px solid #D9D9D9;
-  border-radius: 50px;
-  Width : 58px;
-  Height : 35px;
-  margin-left: 20px ;
+.withdrawal_title2{
+  font-size: 20px;
+  color : #828282;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
 
+.withdrawal_content2{
+  font-size: 15px;
+  color : #828282;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.withdrawal_title3{
+  font-size: 20px;
+  color : #828282;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.withdrawal_content3{
+  font-size: 18px;
+  color : #828282;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.withdrawal_content4{
   display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-
-}
-
-.myactive_print:hover {
-  color : #8071FC;
-  border: 1px solid #8071FC;
-  border-radius: 50px;
-}
-
-
-
-
-
-.container4{
-  width: 850px;
-  padding-top: 30px;
   flex-direction: row;
-
-  border-top: 1px solid #767676;
 }
 
+.withdrawal_content4_button{
+background-color:#978AFF;
+color : #FFFFFF;
+width : 84px;
+height: 35px;
+border : none;
+border-radius: 50px;
+cursor: pointer;
 
-
-.page-nav {
- 
- justify-content: center;
-  text-align: center;
-  display: flex;
-  align-items: center;
-}
-
-.pagination {
-  display: inline-block;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  
-}
-
-.pagination li {
-  display: inline;
- 
-}
-
-.pagination li a {
-  color: #767676;
-  padding: 5px 10px;
-  margin-left: 20px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  transition: color 0.3s;
-  font-weight: 400;
-}
-
-.pagination li a:hover {
-  background-color: #8071FC;
-  color: #f2f2f2;
-  border-radius: 50%;
 }
