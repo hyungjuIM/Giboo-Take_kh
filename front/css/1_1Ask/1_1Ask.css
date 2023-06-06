@@ -27,7 +27,7 @@
 }
 
 .AWrap::-webkit-scrollbar-track {
-    background: rgba(227, 227, 227, 0);  /*스크롤바 뒷 배경 색상*/
+    background: rgba(227, 227, 227, 0.418);  /*스크롤바 뒷 배경 색상*/
 }
 
 

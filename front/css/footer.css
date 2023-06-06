@@ -10,13 +10,15 @@
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Open Sans', sans-serif;
     margin: 0;
-}
-a{
+    padding: 0;
     text-decoration: none;
 }
+/* a{
+    text-decoration: none;
+} */
 
-.footerContainer{
-    background-color: #F6F6F6;
+/* .footerContainer{
+    background-color: #975656;
     box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
     height: 244px;
     position : relative;
@@ -32,4 +34,90 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+} */
+
+.fLogoImg > img{
+    width: 154px;
+    height: 33px;
 }
+
+.fsocialBox > img{
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+}
+
+.footerContainer{
+    height: 280px;
+    background-color: rgb(255, 255, 255);
+}
+
+.footerContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fLogoContainer{
+    margin-top: 25px;
+}
+
+.fnoticeContainer{
+    display: flex;
+    width: 505px;
+    height: 22px;
+    /* background-color: yellow; */
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 33px;
+}
+
+.fnoticeDe > a > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+
+.fnoticeDe:nth-child(3) > a > span{
+    color: #8071FC;
+}
+
+.fsocialContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 139px;
+    height: 39px;
+    margin-bottom: 34px;
+    /* background-color: yellow; */
+}
+
+.fsocialBox{
+    width: 39px;
+    height: 39px;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.finfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.finfoDetail > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #828282;
+}
+
