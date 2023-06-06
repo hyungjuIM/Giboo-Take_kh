@@ -32,9 +32,9 @@
 
 
 .AWrap{
-    background-color: rgb(255, 102, 102);
-    margin-left: 50px;
-    margin-top: 50px;
+    background-color: rgb(255, 255, 255);
+    margin-left: 150px;
+    margin-top: 60px;
     width: 370px;
     height: 680px;
     border-radius: 20px;
@@ -42,14 +42,25 @@
     overflow-x: hidden;
 }
 
+/* 헤더 스티키 */
+.ABox{
+    height: 55px;
+    position: absolute;
+    overflow: hidden;
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    top: 50px;
+}
+
 .ATitle{
+    position: sticky;
+    /* bottom: 625px; */
     background: #D9D9D9;    
     width: 370px;
     height: 55px;
     display: flex;   
     align-items: center;
-
-    z-index: 99;
+    z-index: 999;
 }
 
 
@@ -84,8 +95,8 @@
 .AchatWrap{
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 65px;
+    margin-bottom: 80px;
     /* background-color: tomato; */
 }
 
@@ -257,19 +268,38 @@
 /* ---------------------------- */
 
 .AInputWrap{
+    height: 70px;
+    overflow: hidden;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    position: absolute;
+    background-color: yellowgreen;
+    top: 680px;
+}
+
+.AInputSticky{
+    height: 70px;
+    width: 370px;
     background: #D9D9D9;    
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 370px;
-    height: 70px;
+
+    position: sticky;
+    z-index: 999;
 }
+
 
 .AInputBox{
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
+
+
+
+
 
 #AInputArea{
     width: 249px;
