@@ -10,9 +10,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
-    <link rel="stylesheet" href="/css/01.header.css">
-
-    <link rel="stylesheet" href="/css/mypage/alert1.css">
+    
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/header.css" />
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/alarm.css" />
+    
+  
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 
@@ -68,7 +70,7 @@
     </section>
 
 
-    <script src="/JS/01.header.js"></script>
+    
 
 
 
@@ -253,7 +255,8 @@
 
 
     
-    <script src="/JS/mypage/alert1.js"></script>
+     <script src="${pageContext.request.contextPath}/resources/js/main/header.js"></script>
+     <script src="${pageContext.request.contextPath}/resources/js/main/alarm.js"></script>
 
 
 </body>
