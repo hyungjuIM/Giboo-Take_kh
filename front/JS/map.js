@@ -255,8 +255,48 @@ function zoomOut() {
 
 
 
-// 리뷰 마우스 오버시 나타나는 슬라이드 버튼
-$('.mreProBox').on('mouseover', function() {
-    $('.mslideBtn').toggleClass('show');
-  });
+//--------------------리뷰 슬라이드---------------------
+$(document).ready(function() {
+    var slideIndex = 0;
+    var $mreProUl = $('.mrePro .mreProUl > .mreProLi');
+    var slideCount = $mreProUl.length;
+
+    function showSlide() {
+        $mreProUl.removeClass('active');
+        $mreProUl.eq(slideIndex).addClass('active');
+    }
+
+    function nextSlide() {
+        slideIndex++;
+        if (slideIndex >= slideCount) {
+            slideIndex = 0;
+        }
+        showSlide();
+    }
+
+    function previousSlide() {
+        slideIndex--;
+        if (slideIndex < 0) {
+            slideIndex = slideCount - 1;
+        }
+        showSlide();
+    }
+
+    $('.mrePro .mslideBtn div:last-child').click(function() {
+        nextSlide();
+    });
+
+    $('.mrePro .mslideBtn div:first-child').click(function() {
+        previousSlide();
+    });
+
+     // 추가된 코드: 처음 슬라이드로 돌아가는 함수
+     function goToFirstSlide() {
+        slideIndex = 0;
+        showSlide();
+    }
+
   
+    // 추가된 코드: 첫 번째 슬라이드 보여주기
+    showSlide();
+});
