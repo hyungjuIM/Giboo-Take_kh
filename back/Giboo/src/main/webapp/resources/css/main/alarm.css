@@ -1,121 +1,303 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 
+body {
+    margin: 0;
+    background-color: white;
+    color: #000;
 
-.alarmPopup.show {
+    display: flex;
+    flex-direction: column;
+}
+
+/*말풍선부분*/
+
+.alert_container.show {
     display: block !important;
   }
 
-.alarmPopup{
-    display: none;
-    position: absolute;
-
-    background-color: rgb(254, 254, 254);
-    width: 300px;
-    height: 590px;
-    border-radius: 15px;
-    right: 10%;
-    overflow: hidden;
-    box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
-
+.alert_container {
+    display: none; 
     z-index: 99;
+    right: 10%;
+    
+    width: 360px;
+    height: 791px;
+    
+    margin-top: 20px;
+
+    position: absolute;
+	background: #f6f6f6;
+	border-radius: .4em;
+    box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
+    
+    border-radius: .4em;
+
+    /* overflow: auto;   */ 
 }
 
-.alarm{
-    background-color: rgb(66, 66, 66);
+.alert_container:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: #f6f6f6;
+	border-top: 0;
+	margin-left: +54px;
+	margin-top: -20px;
+}
+
+
+
+
+/* <!-- 즐겨찾기 카드부분 --> */
+.alert_myfavcard_contaner {
+    display: flex;
+    margin: 15px;
+
+    width: 327px;
+    height: 151px;
+
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.myalert_container {
+    display: flex;
+    margin: 10px 10px 10px 5px;
+}
+
+
+.alert_categoryImgContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 5px;
+
+}
+
+/* <!-- 이모티콘 --> */
+.alert_categoryImg {
+    width: 30px;
     height: 30px;
-    font-size: 13px;
-    text-align: center;
-    border-bottom: 1px solid rgb(186, 186, 186);
-    font-weight: bold;
-    color: white;
+    background-color: #D9D9D9;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* <!-- 점선 --> */
+.alert_hrpart {
+    width: 35px;
+
+}
+
+.alert_hrpart2 {
+    width: 14px;
+    height: 80px;
+    border-right: 1px dotted #D9D9D9;
+}
+
+/* <!-- 메인내용 --> */
+.alert_Maincontainer {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+.alert_categoryUpdateContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.alert_detailCategory {
+    width: 61px;
+    height: 24px;
+    border: 1px solid #8071fc;
+    font-size: 12px;
+
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+
+}
+
+.alert_detailCategory div {
+    display: flex;
+    align-items: center;
+}
+
+
+.alert_updateDate {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #9d9d9d;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.alert_titleContainerA {
+    margin-top: 20px;
+}
+
+.alert_titleContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.alertTitle {
+    color: #111111;
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-left: -10px;
+}
+
+.alertTitle a {
+    color: #111111;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+
+.alertWriter {
+    color: #767676;
+    font-weight: 500;
+    padding-bottom: 16px;
+    font-size: 12px;
+    margin-left: -10px;
+}
+
+.achieveAlert {
+    color: #9d9d9d;
+
+    font-size: 12px;
+    margin-left: -10px;
+}
+
+/*작은 동그라미모양*/
+.smallC_Container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 19px;
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+}
+
+.smallC {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #6c5fd5;
+    background-color: #6c5fd5;
+}
+
+
+
+/*알림카드 부분 클릭시 바뀌는 부분*/
+/*작은 동그라미모양*/
+.smallC_Container_after {
+    display: flex;
+    flex-direction: row;
+    margin-top: 19px;
+    margin-left: 5px;
+    width: 10px;
+    height: 10px;
+}
+
+.alert_detailCategory_after {
+    width: 61px;
+    height: 24px;
+    border: 1px solid #767676;
+    font-size: 12px;
+
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+
+}
+
+
+.alertTitle_after {
+    color: #767676;
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 10px;
+    margin-left: -10px;
+}
+
+.alertTitle_after a {
+    color: #767676;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+/* 더보기 탭  */
+
+.alert_addTab {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 115px;
+
+    margin: 15px;
+
+
+    width: 328px;
+    height: 33px;
+
+    background: #8071FC;
+    border-radius: 500px;
+
+    cursor:pointer;
+}
+
+.alert_addTab_text {
+
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 25px;
+
+    letter-spacing: -0.05em;
+
+    color: #FFFFFF;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.alarmBox:hover{
-    cursor: pointer;
-}
 
-.alarmBoxBox:hover{
-    transform: scale(1.03);
-    background-color: rgb(237, 237, 237);
-    border-radius: 10px;
-}
-
-.alarmBoxBox{
-    display: flex;
-    background-color: rgba(239, 239, 239, 0.395);
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
-    height: 90px;
-    border-radius: 10px;
-    /* border-bottom: 1px solid rgb(176, 176, 176); */
-}
-
-.alarmTitle{
-    display: flex;
-    /* background-color: rgb(225, 192, 255); */
-    margin-left: 10px;
-    margin-top: 4px;
-    width: 220px;
-}
-
-.alarmName_a{
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.alarmPeriod{
-    /* background-color: aquamarine; */
-    margin-left: 110px;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.alarmImg > img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
-    overflow: hidden;
-}
-
-.alarmStory{
-    /* background-color: yellow; */
-    margin-top: 15px;
-    margin-right: 40px;
-    font-size: 13px;
-    max-height: 50px;
-    min-height: 50px;
-    max-width: 220px;
-    min-width: 220px;
-    overflow: hidden;
-    color: rgb(84, 84, 84);
-}
-
-.moreBtn{
-    width: 100px;
-    height: 30px;
-    margin-top: 15px;
-    margin-left: 90px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgb(104, 104, 104);
-    color: white;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-.moreBtn:hover{
-    cursor: pointer;
-    transform: scale(1.03);
-}
