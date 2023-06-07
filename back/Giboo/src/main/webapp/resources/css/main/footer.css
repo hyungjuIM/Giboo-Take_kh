@@ -41,7 +41,7 @@
     height: 33px;
 }
 
-.fsocialBox > img{
+.fsocialBox > a > img{
     width: 21px;
     height: 21px;
     border-radius: 50%;
@@ -49,7 +49,7 @@
 
 .footerContainer{
     height: 280px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255, 218, 218);
 }
 
 .footerContent{
@@ -59,9 +59,15 @@
     align-items: center;
 }
 
+
+/* 로고 영역 */
+
 .fLogoContainer{
     margin-top: 25px;
 }
+
+
+/*공지사항, 개인정보처리방침, 이용약관, about us, 명예의 전당 */
 
 .fnoticeContainer{
     display: flex;
@@ -86,6 +92,8 @@
     color: #8071FC;
 }
 
+
+/* 소셜사이트연동 영역 */
 .fsocialContainer{
     display: flex;
     align-items: center;
@@ -105,6 +113,9 @@
     justify-content: center;
     border-radius: 50%;
 }
+
+
+/* 회사정보영역 */
 
 .finfoContainer{
     display: flex;
