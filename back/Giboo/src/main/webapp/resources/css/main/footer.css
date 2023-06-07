@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+/* a{
+    text-decoration: none;
+} */
+
+/* .footerContainer{
+    background-color: #975656;
+    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+    height: 244px;
+    position : relative;
+    transform : translateY(-100%);
+
+    display: flex;
+    justify-content: center;
+}
+
+.footerContent{
+    width: 1200px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.fLogoImg > img{
+    width: 154px;
+    height: 33px;
+}
+
+.fsocialBox > img{
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+}
+
+.footerContainer{
+    height: 280px;
+    background-color: rgb(255, 255, 255);
+}
+
+.footerContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fLogoContainer{
+    margin-top: 25px;
+}
+
+.fnoticeContainer{
+    display: flex;
+    width: 505px;
+    height: 22px;
+    /* background-color: yellow; */
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 33px;
+}
+
+.fnoticeDe > a > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000000;
+}
+
+.fnoticeDe:nth-child(3) > a > span{
+    color: #8071FC;
+}
+
+.fsocialContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 139px;
+    height: 39px;
+    margin-bottom: 34px;
+    /* background-color: yellow; */
+}
+
+.fsocialBox{
+    width: 39px;
+    height: 39px;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.finfoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.finfoDetail > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    color: #828282;
+}
+
