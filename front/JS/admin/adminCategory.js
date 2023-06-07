@@ -1,9 +1,9 @@
 const sideMenu = document.getElementsByClassName("sideMenuItem");
 const resetSearch = document.getElementById("resetSearch");
-const crateManager = document.getElementById("crateManager");
-const detail = document.getElementsByClassName("detail");
-const confirm = document.getElementsByClassName("confirm");
-const reject = document.getElementsByClassName("reject");
+const selectDelete = document.getElementById("selectDelete");
+const crateCategory = document.getElementById("crateCategory");
+const modify = document.getElementsByClassName("modify");
+const deleteCategory = document.getElementsByClassName("deleteCategory");
 
 for (const i of sideMenu) {
     i.addEventListener("mouseover", () => {
@@ -23,15 +23,23 @@ resetSearch.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("focus");
 });
 
-crateManager.addEventListener("mouseover", (e) => {
+selectDelete.addEventListener("mouseover", (e) => {
     e.target.classList.add("focus");
 });
 
-crateManager.addEventListener("mouseleave", (e) => {
+selectDelete.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("focus");
 });
 
-for (const i of detail) {
+crateCategory.addEventListener("mouseleave", (e) => {
+    e.target.classList.remove("focus");
+});
+
+crateCategory.addEventListener("mouseover", (e) => {
+    e.target.classList.add("focus");
+});
+
+for (const i of modify) {
     i.addEventListener("mouseover", () => {
         i.classList.add("focus");
     });
@@ -41,17 +49,7 @@ for (const i of detail) {
     });
 }
 
-for (const i of confirm) {
-    i.addEventListener("mouseover", () => {
-        i.classList.add("focus");
-    });
-
-    i.addEventListener("mouseleave", () => {
-        i.classList.remove("focus");
-    });
-}
-
-for (const i of reject) {
+for (const i of deleteCategory) {
     i.addEventListener("mouseover", () => {
         i.classList.add("focus");
     });

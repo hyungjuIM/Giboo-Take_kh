@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>adminManager</title>
-    <link rel="stylesheet" href="/css/admin/adminManager.css">
+    <title>adminFaq</title>
+    <link rel="stylesheet" href="/css/admin/adminFaq.css">
 </head>
 <body>
     <header>
@@ -15,7 +15,7 @@
 
 
     <section class="mainContainer">
-        <div class="menuName">관리자 관리</div>
+        <div class="menuName">자주 찾는 질문 관리</div>
 
         <div class="mainContent">
             <div class="sideMenuArea">
@@ -71,7 +71,7 @@
                             </tbody>
                         </table>
 
-                        <button id="crateManager" class="crateManager">관리자 신규 등록</button>
+                        <button id="crateFaq" class="crateFaq">자주 찾는 질문 등록</button>
                     </div>
 
                     <table class="listTable">
@@ -79,26 +79,19 @@
                             <tr class="sortingOptionArea">
                                 <td><button id="selectAll">선택</button></td>
                                 <td><button id="sortByNo">번호</button></td>
-                                <td><button id="sortByPermission">권한</button></td>
                                 <td><button id="sortById">아이디</button></td>
-                                <td><button id="sortByEmail">이메일</button></td>
-                                <td><button id="sortByName">이름</button></td>
-                                <td><button id="sortByTel">전화번호</button></td>
-                                <td><button id="sortByApprovalReason">사유</button></td>
-                                <td colspan="2"><button id="sortByApprovalStatus">결재</button></td>
+                                <td><button id="sortByTitle">제목</button></td>
+                                <td><button id="sortByEnrollDate">작성일</button></td>
+                                <td><button id="sortByApprovalStatus">결재 여부</button></td>
                             </tr>
 
                             <tr class="listArea">
                                 <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
                                 <td>1</td>
-                                <td>마스터</td>
                                 <td>123451234512</td>
-                                <td>video0w@icloud.com</td>
-                                <td>김김김김</td>
-                                <td>010-0000-0000</td>
-                                <td>신규 등록</td>
-                                <td><button id="confirm1" class="confirm">승인</button></td>
-                                <td><button id="reject1" class="reject">반려</button></td>
+                                <td>테스트 테스트 테스트 테스트</td>
+                                <td>2023. 01. 01</td>
+                                <td>미결재</td>
                                 <td><button id="detail1" class="detail">상세 정보</button></td>
                             </tr>
                         </tbody>
@@ -122,6 +115,6 @@
 
     </script>
 
-    <script src="/JS/admin/adminManager.js"></script>
+    <script src="/JS/admin/adminFaq.js"></script>
 </body>
 </html>
