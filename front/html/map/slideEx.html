@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 연습</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .slider{
+        height: 400px;
+        position: relative;
+    }
+
+    .slider .slides > div{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
+        background-repeat:no-repeat;
+        opacity:0;
+    }
+
+    .slider .slides > div.active{
+        opacity: 1;
+    }
+
+    .active > img{
+        width: 400px;
+        height: 400px;
+    }
+
+    @media (max-width:400px){
+        .slider{
+            height: 300px;
+        }
+    }
+
+    .slideBtn > div{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        z-index: 10;
+        background-color: yellowgreen;
+    }
+
+    .slideBtn > div:last-child{
+        left: auto;
+        right: 0;
+    }
+</style>
+
+</head>
+<body>
+    
+    <div class="slider">
+        <div class="slideBtn">
+            <div>
+                <span>❤️</span>
+            </div>
+            <div>
+                <span>😋</span>
+            </div>
+        </div>
+
+        <div class="slides">
+            <div class="active">
+                <img src="/images/doCenter.jpg" alt="">
+            </div>
+            <div class="active">
+                <img src="/images/profile.jpeg" alt="">
+            </div>
+            <div class="active">
+                <img src="/images/thumnailImg.jpg" alt="">
+            </div>
+            <div class="active">
+                <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+// 이 $(document).ready()함수는 문서 로드가 완료된 후 JavaScript 코드가 
+// 실행되도록 하는 데 사용됩니다.
+$(document).ready(function() {
+    // 변수 slideIndex는 표시되는 현재 슬라이드를 추적하고 $slides모든 슬라이드 요소를 저장합니다.
+        var slideIndex = 0;
+        var $slides = $('.slider .slides > div');
+        var slideCount = $slides.length;
+
+        // Function to show the current slide
+        // 이 showSlide()기능은 현재 슬라이드에 
+        // "활성" 클래스를 추가하여 다른 슬라이드는 숨기고 표시되도록 합니다
+        function showSlide() {
+            $slides.removeClass('active');
+            $slides.eq(slideIndex).addClass('active');
+        }
+
+        // Function to move to the next slide
+        // 이 함수는 및 호출을 nextSlide()증가시켜 다음 슬라이드를 표시합니다. 
+        // 인덱스가 슬라이드 수를 초과하면 첫 번째 슬라이드로 넘어갑니다.
+        // 'slideIndex' 'showSlide()'
+        function nextSlide() {
+            slideIndex++;
+            if (slideIndex >= slideCount) {
+                slideIndex = 0;
+            }
+            showSlide();
+        }
+
+        // Function to move to the previous slide
+        // 이 함수는 및 호출을 previousSlide()감소시켜 
+        // 이전 슬라이드를 표시합니다. 
+        // 인덱스가 음수가 되면 마지막 슬라이드로 돌아갑니다.
+        function previousSlide() {
+            slideIndex--;
+            if (slideIndex < 0) {
+                slideIndex = slideCount - 1;
+            }
+            showSlide();
+        }
+
+        // Event handler for the next button
+        // 이벤트 핸들러는 함수를 사용하여 다음 및 이전 버튼에 추가됩니다 
+        // .click(). 버튼을 클릭하면 해당 슬라이드 기능이 호출됩니다.
+        $('.slider > .slideBtn > div:last-child').click(function() {
+            nextSlide();
+        });
+
+        // Event handler for the previous button
+        $('.slider > .slideBtn > div:first-child').click(function() {
+            previousSlide();
+        });
+    });
+    </script>
+</body>
+</html>
