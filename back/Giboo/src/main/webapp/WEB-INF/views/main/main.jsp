@@ -9,20 +9,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>03.main</title>
-    <link rel="stylesheet" href="/css/03.main.css">
-    <link rel="stylesheet" href="/css/reset.css">
+    <title>main</title>
+    <!-- jQuery 라이브러리 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-     <!-- jQuery 라이브러리 추가 -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/main.css" />
+            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
+
 
 </head>
 
 <body>
-    <header>
-        <div data-include1="header" id="header"></div>
-    </header>
+      <!-- 헤더 영역 -->
+            <header>
+                <jsp:include page="/WEB-INF/views/main/header.jsp" />
+            </header>
 
 
 
@@ -70,20 +72,12 @@
         </section>
 
     </main>
+    <!-- 푸터 영역 -->
+    <header>
+        <jsp:include page="/WEB-INF/views/main/footer.jsp" />
+    </header>
 
-
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-        });
-
-    </script>
+ 
 </body>
 
 </html>
