@@ -260,58 +260,6 @@ span{
   margin-top: 20px;
 }
 
-.container2_title{
-  display: flex;
-  flex-direction: row;
-
-  justify-content: center;
-  align-items: center;
-
-  color : #767676;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'Noto Sans KR', sans-serif;
-
-}
-
-
-.active_title_name{
-  padding : 0px 5px;
-  width : 50px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.active_title_name2{
-  padding : 0px 5px;
-  width : 120px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-
-}
-.active_title_right{
-  padding : 0px 5px;
-}
-
-.myactive_donation:hover,
-.myactive_volunteer:hover,
-.myactive_review:hover,
-.myactive_event:hover{
-  color : #8071FC;
-  font-weight: 700;  
-}
-
-
-
-
-
-
-
-
 
 
 

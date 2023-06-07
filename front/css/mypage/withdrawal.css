@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
-*{
-    box-sizing: border-box;
-    padding : 0px;
-    margin : 0px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 
-body{
+body {
   margin: 0;
   background-color: white;
   color: #000;
@@ -20,8 +21,8 @@ body{
 
 /*상단 나의 문의내역 */
 .page-title {
-  background-color: #8071FC ;
- 
+  background-color: #8071FC;
+
   width: 100%;
   height: 90px;
 
@@ -39,158 +40,161 @@ body{
 }
 
 /*title 아래 전체 container*/
-.mypage-container{    
+.mypage-container {
   display: flex;
   justify-content: center;
 }
 
 /*title 아래 전체 container 중 width 1200px*/
-.mypage_wrapper{
-    width: 1200px;
-    display: flex;
-    flex-direction: row;   
+.mypage_wrapper {
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
 }
 
 
 
 /*===========================================*/
 /* 왼쪽 네비바 */
-.mypage_nav_area{
-    width : 20%;
-    height: 800px;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    border: 0.5px solid #BDBDBD;
-    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
+.mypage_nav_area {
+  width: 20%;
+  height: 800px;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  border: 0.5px solid #BDBDBD;
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
 
-      
+
 }
 
 /*왼쪽 네비바 상단 사진+이름*/
-.mypage_summary_container{
-    width: 100%;
+.mypage_summary_container {
+  width: 100%;
 }
-.mypage_profileEmojiContainer{
+
+.mypage_profileEmojiContainer {
   display: flex;
-    
+
   justify-content: center;
   align-items: center;
 }
+
 .mypage_profileEmojiTheme {
   width: 100px;
   height: 100px;
   background-color: #D9D9D9;
   border-radius: 100%;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
- 
-  margin : 50px;
+
+  margin: 50px;
   font-size: 70px;
 }
 
 
 /*왼쪽 네비바 고마운분 */
-.mypage_hiuser{
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    /*font */
-    font-size: 18px;
-    font-weight: 400;
-    color: #BDBDBD;
-    font-family: 'Noto Sans KR', sans-serif;
-    text-align: center;
+.mypage_hiuser {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  /*font */
+  font-size: 18px;
+  font-weight: 400;
+  color: #BDBDBD;
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
 }
 
 /*가명: 000 님, 안녕하세요*/
 .userName {
-    font-weight: 600;
-    font-size: 14px;
-    
-    font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
 
-    display: flex;
-    justify-content: center;
-    color: #767676;
+  font-family: 'Noto Sans KR', sans-serif;
+
+  display: flex;
+  justify-content: center;
+  color: #767676;
 }
 
 /*왼쪽 네비바 메뉴*/
-.mypage_content_container{
-  margin : 70px 10px 10px 10px;
+.mypage_content_container {
+  margin: 70px 10px 10px 10px;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.mypage_content_container ul{
+.mypage_content_container ul {
   width: 100%;
-  color : #767676;
+  color: #767676;
 
-  margin : 5px;    
+  margin: 5px;
   list-style: none;
 }
 
-.mypage_content_container li{
+.mypage_content_container li {
   display: flex;
 
   text-decoration: none;
   font-weight: 500;
   color: #767676;
   font-family: 'Noto Sans KR', sans-serif;
-  margin-bottom : 10px;
+  margin-bottom: 10px;
 }
 
-.mypage_content_container a{
-  font-size: 18px;    
+.mypage_content_container a {
+  font-size: 18px;
   color: #828282;
-  
+
   padding: 5px;
-  margin : 5px;  
-  margin-left: 0px;  
+  margin: 5px;
+  margin-left: 0px;
 }
 
-.mypage_content_container hr{
-border: 1px solid #BDBDBD;
+.mypage_content_container hr {
+  border: 1px solid #BDBDBD;
 }
 
-.mypage_content_second{
-padding-top: 30px;
+.mypage_content_second {
+  padding-top: 30px;
 }
 
-.mypage_content_second a{
-font-weight: 600;
-font-size: 14px;
-color: #BDBDBD;
+.mypage_content_second a {
+  font-weight: 600;
+  font-size: 14px;
+  color: #BDBDBD;
 }
 
 
-.mypage_content_third button{
+.mypage_content_third button {
   color: #bdbdbd;
   font-size: 14px;
   padding: 3px;
-  margin-top: 10px; 
+  margin-top: 10px;
   border: none;
   background-color: transparent;
   margin-left: 5px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.mypage_content_container a:hover{   
+.mypage_content_container a:hover {
   color: #8071FC;
-  
+
   font-weight: 600;
   transition-duration: 0.2s;
 }
-.mypage_content_first a:hover{
-border-bottom: #8071FC 1px solid;
-transition-duration: 0.2s;
+
+.mypage_content_first a:hover {
+  border-bottom: #8071FC 1px solid;
+  transition-duration: 0.2s;
 }
 
-.mypage_content_third button:hover{
-  color: #8071FC; 
+.mypage_content_third button:hover {
+  color: #8071FC;
   font-weight: 600;
   transition-duration: 0.2s;
 
@@ -199,38 +203,39 @@ transition-duration: 0.2s;
 
 /*------------------body-content------------------*/
 /* 오른쪽 문의한 내역*/
-.withdrawal_content_area{
-  width : 80%;
+.withdrawal_content_area {
+  width: 80%;
   background-color: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   border: 0.5px solid #BDBDBD;
-  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);   
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
 }
 
 
 
 .withdrawal_mainContainer {
   width: 900px;
-    height: 628px;
+  height: 628px;
 
   display: flex;
   justify-content: center;
   font-family: 'Noto Sans KR', sans-serif;
 
   background: #FFFFFF;
-    border: 0.5px solid #BDBDBD;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    padding : 20px;
+  border: 0.5px solid #BDBDBD;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 20px;
 
 
 
 
 }
-.withdrawal_notice{
+
+.withdrawal_notice {
   width: 850px;
   display: flex;
   flex-direction: column;
@@ -241,79 +246,213 @@ transition-duration: 0.2s;
 }
 
 
-.withdrawal_container1{
-  margin-bottom: 30px;
-    padding-top: 20px;
-    font-size: 20px;
-    font-weight: 500;
+.withdrawal_container1 {
+  margin-bottom: 10px;
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 500;
 
 }
 
-span{
+span {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-.withdrawal_title1{
-  font-size: 26px;
-  color : #828282;
-    font-weight: 500;
-    font-family: 'Noto Sans KR', sans-serif;
+.withdrawal_title1 {
+
+  margin: 20px 10px;
+
+  font-weight: 700;
+  font-size: 24px;
+  color: #000000;
+
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.withdrawal_content1 {
+  font-size: 14px;
+  color: #828282;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
+
+  margin-left: 10px;
+  margin-bottom: 30px;
+
+  line-height: 25px;
+  letter-spacing: -0.05em;
 
 }
 
-.withdrawal_content1{
-  font-size: 18px;
-  color : #828282;
-    font-weight: 500;
-    font-family: 'Noto Sans KR', sans-serif;
-}
-
-.withdrawal_hr{
+.withdrawal_hr {
   border: none;
   border-top: 1px solid black;
   margin: 10px 0;
 }
 
-.withdrawal_title2{
-  font-size: 20px;
-  color : #828282;
-    font-weight: 500;
-    font-family: 'Noto Sans KR', sans-serif;
-}
+.withdrawal_title2 {
 
-.withdrawal_content2{
+  margin: 20px 30px;
+
   font-size: 15px;
-  color : #828282;
-    font-weight: 500;
-    font-family: 'Noto Sans KR', sans-serif;
+  color: #000000;
+  font-weight: 600;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.withdrawal_title3{
+.withdrawal_content2 {
+
+  margin: 20px 30px;
+
+  font-size: 14px;
+  color: #000000;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
+
+
+  line-height: 25px;
+  letter-spacing: -0.05em;
+}
+
+.withdrawal_title3_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.withdrawal_title3 {
   font-size: 20px;
-  color : #828282;
-    font-weight: 500;
-    font-family: 'Noto Sans KR', sans-serif;
+  color: #828282;
+  font-weight: 500;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-.withdrawal_content3{
-  font-size: 18px;
-  color : #828282;
-    font-weight: 500;
-    font-family: 'Noto Sans KR', sans-serif;
+.withdrawal_content3 {
+  font-size: 15px;
+  color: #000000;
+  font-weight: 400;
+  font-family: 'Noto Sans KR', sans-serif;
+
+  line-height: 20px;
+  letter-spacing: -0.05em;
 }
 
-.withdrawal_content4{
+.withdrawal_content4 {
   display: flex;
   flex-direction: row;
 }
 
-.withdrawal_content4_button{
-background-color:#978AFF;
-color : #FFFFFF;
-width : 84px;
-height: 35px;
-border : none;
-border-radius: 50px;
-cursor: pointer;
+.withdrawal_content4_button {
+  background-color: #978AFF;
+  color: #FFFFFF;
+  font-weight: 500;
 
+  margin: 10px 30px;
+  width: 84px;
+  height: 35px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+
+}
+
+.withdrawal_content4_button:hover {
+  font-weight: 600;
+}
+
+
+
+/*회원탈퇴 팝업-------------------------------------------*/
+.popup_wrap {
+  width: 560px;
+  height: 290px;
+  background: #fff;
+  border: solid 1px #666666;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -250px 0 0 -250px;
+  z-index: 9999;
+  display: none;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7) repeat;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+}
+
+.popup-cont01 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+align-items: center;
+  
+  width: 478px;
+  
+  margin: 40px;
+
+
+  font-family: 'Noto Sans KR', sans-serif;
+font-weight: 500;
+font-size: 16px;
+line-height: 35px;
+letter-spacing: -0.05em;
+}
+
+.popupMark{
+border: 1px solid #8071FC;
+border-radius: 100px;
+margin-bottom: 20px;
+}
+
+.popupMark i{
+  font-size: 60px;
+  font-family: 'Noto Sans KR', sans-serif;
+font-weight: 100;
+
+text-align: center;
+
+box-sizing: border-box;
+color: #8071FC;
+
+width: 80px;
+height: 80px;
+}
+
+
+.popup_cont02{
+  margin-top:10px;
+}
+
+
+
+.popup_cont02 button{
+  width: 108px;
+  height: 36px;
+  
+  margin-right: 20px;
+  line-height: 36px;
+  background: #ffffff;
+  color: #000000;
+  text-align: center;
+  border: 1px solid #AFAFAF ;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;  
+}
+
+
+
+
+.popup_cont02 button:hover{
+  border: 1px solid #8071FC;
+  color : #8071FC;
+  cursor: pointer;
 }

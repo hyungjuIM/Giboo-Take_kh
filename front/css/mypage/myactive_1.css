@@ -299,19 +299,15 @@ span{
 
 .myactive_donation:hover,
 .myactive_volunteer:hover,
-.myactive_review:hover,
 .myactive_event:hover{
   color : #8071FC;
   font-weight: 700;  
 }
 
-
-
-
-
-
-
-
+.myactive_donation{
+  color : #8071FC;
+  font-weight: 700; 
+}
 
 
 
@@ -452,6 +448,23 @@ color : #767676;
 }
 
 
+.th_num{
+  width: 100px;
+}
+
+.th_name{
+  width: 300px;
+}
+
+.th_date{
+  width: 150px;
+}
+
+.th_print{
+  width: 150px;
+}
+
+
 
 .myactive_notice-table tbody td {
   padding: 10px 10px;
@@ -474,7 +487,7 @@ color : #767676;
   border-radius: 50px;
   Width : 58px;
   Height : 35px;
-  margin-left: 20px ;
+  margin-left: 50px ;
 
   display: flex;
   text-align: center;
