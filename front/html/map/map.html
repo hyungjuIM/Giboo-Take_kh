@@ -22,6 +22,8 @@
     <div id="map" style="width: 100%; height: 100vh; overflow: hidden;"></div>
 
     <div id="menu_wrap" class="bg_white">
+
+        <!-- 검색하는 영역 -->
         <div class="option">
             <div class="MsearchBar">
                 <form onsubmit="searchPlaces(); return false;">
@@ -31,6 +33,7 @@
             </div>
         </div>
 
+        <!-- 내 위치 나오는 영역 -->
         <div class="myLoca">
             <div class="myLoDe">
                 <a href="" class="myLoDetail">
@@ -41,12 +44,15 @@
             </div>
         </div>
 
+        <!-- 내 위치 주변 봉사 가능한 곳 -->
         <div class="mmyloca">
             <span>현재 위치 주변 봉사 가능한 곳</span>
         </div>
 
         <!-- <ul id="placesList"></ul>
         <div id="pagination"></div> -->
+
+        <!-- 검색했을 때 & 내 주변 위치 나오는 기본 리스트 영역 -->
         <div class="mlistwrap">
             <div class="mlistbox">
                 <div class="mlist">
@@ -55,6 +61,7 @@
                             <a href="">
                                 <img src="/images/doCenter.jpg" alt="">
                                 <div class="mlistDetail">
+                                    <!-- 카테고리와 즐겨찾기 숫자 나오는 영역 -->
                                     <div class="mlistTi">
                                         <div class="mlistCa">
                                             <span>장애인</span>
@@ -64,12 +71,15 @@
                                             <span><i class="fa-regular fa-heart"></i></span>
                                         </div>
                                     </div>
+                                    <!-- 봉사센터 이름 영역 -->
                                     <div class="mlistName">
                                         <span>서울시림장애인행복플러스센터</span>
                                     </div>
+                                    <!-- 봉사센터 주소 영역 -->
                                     <div class="mlistAdd">
                                         <span>서울 강남구 도곡로 416</span>
                                     </div>
+                                    <!-- 봉사자 리뷰 & 봉사자 숫자 영역 -->
                                     <div class="mlistDo">
                                         <span>봉사자 리뷰</span>
                                         <span class="mDe">135</span>
@@ -77,51 +87,94 @@
                                         <span>봉사자</span>
                                         <span class="mDe">432</span>
                                     </div>
-                                    <div class="mlistRe">
-                                        <div class="mrePro">
-                                            <ul class="mreProUl">
-                                                <li class="mreProLi">
-                                                    <div class="mslide">
-                                                        <div class="mslideRe">
-                                                            <button class="mslideBtn">></button>
-                                                        </div>
-                                                    </div>
-                                                    <a href="">
-                                                        <div class="mreProBox">
-                                                            <div class="mreProli">
-                                                                <div class="mproDe">
-                                                                    <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
-                                                                    <span>지구용사썬가드</span>
-                                                                </div>
-                                                                <div class="mreDe">
-                                                                        <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                            정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                        </span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                                <li class="mreProLi">
-                                                    <a href="">
-                                                        <div class="mreProBox">
-                                                            <div class="mreProli">
-                                                                <div class="mproDe">
-                                                                    <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
-                                                                    <span>지구용사썬가드</span>
-                                                                </div>
-                                                                <div class="mreDe">
-                                                                        <span>정말 뜻깊은 시간이었습니다. 추천해용!!!</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
                             </a>
+                            <!-- 봉사자 리뷰 리스트 영역 -->
+                            <div class="mlistRe">
+                                <div class="mrePro">
+                                    <!-- 리뷰 슬라이드 버튼 -->
+                                    <div class="mslideBtn">
+                                        <div>
+                                            <span>❤️</span>
+                                        </div>
+                                        <div>
+                                            <span>😋</span>
+                                        </div>
+                                    </div>
+                                    <ul class="mreProUl">
+                                        <li class="mreProLi">
+                                            <div class="mreProBox">
+                                                <a href="" class="mactive">
+                                                    <div class="mreProli">
+                                                        <div class="mproDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>지구용사썬가드</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                            <span>
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="mreProLi">
+                                            <div class="mreProBox">
+                                                <a href="" class="mactive">
+                                                    <div class="mreProli">
+                                                        <div class="mproDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>야야얍!!</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                            <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="mreProLi">
+                                            <div class="mreProBox">
+                                                <a href="" class="mactive">
+                                                    <div class="mreProli">
+                                                        <div class="mproDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>아아아~~~</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                            <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="mreProLi">
+                                            <div class="mreProBox">
+                                                <a href="" class="mactive">
+                                                    <div class="mreProli">
+                                                        <div class="mproDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>라라라라라랄라랄</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                            <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                             <div class="mbox"></div>
                         </li>
                         
@@ -129,6 +182,7 @@
                             <a href="">
                                 <img src="/images/doCenter.jpg" alt="">
                                 <div class="mlistDetail">
+                                    <!-- 카테고리와 즐겨찾기 숫자 나오는 영역 -->
                                     <div class="mlistTi">
                                         <div class="mlistCa">
                                             <span>장애인</span>
@@ -138,12 +192,15 @@
                                             <span><i class="fa-regular fa-heart"></i></span>
                                         </div>
                                     </div>
+                                    <!-- 봉사센터 이름 영역 -->
                                     <div class="mlistName">
                                         <span>서울시림장애인행복플러스센터</span>
                                     </div>
+                                    <!-- 봉사센터 주소 영역 -->
                                     <div class="mlistAdd">
                                         <span>서울 강남구 도곡로 416</span>
                                     </div>
+                                    <!-- 봉사자 리뷰 & 봉사자 숫자 영역 -->
                                     <div class="mlistDo">
                                         <span>봉사자 리뷰</span>
                                         <span class="mDe">135</span>
@@ -152,43 +209,94 @@
                                         <span class="mDe">432</span>
                                     </div>
                                 </div>
-                                <div class="mlistRe">
-                                    <div class="mrePro">
-                                        <ul class="mreProUl">
-                                            <li class="mreProLi">
-                                                <a href="">
-                                                    <div class="mreProBox">
-                                                        <div class="mreProli">
-                                                            <div class="mproDe">
-                                                                <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
-                                                                <span>지구용사썬가드</span>
-                                                            </div>
-                                                            <div class="mreDe">
-                                                                    <span>정말 뜻깊은 시간이었습니다. 추천해용!!!</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                            <li class="mreProLi">
-                                                <a href="">
-                                                    <div class="mreProBox">
-                                                        <div class="mreProli">
-                                                            <div class="mproDe">
-                                                                <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
-                                                                <span>지구용사썬가드</span>
-                                                            </div>
-                                                            <div class="mreDe">
-                                                                    <span>정말 뜻깊은 시간이었습니다. 추천해용!!!</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </a>
+                            <!-- 봉사자 리뷰 리스트 영역 -->
+                            <div class="mlistRe">
+                                <div class="mrePro">
+                                    <!-- 리뷰 슬라이드 버튼 -->
+                                    <div class="mslideBtn">
+                                        <div>
+                                            <span>❤️</span>
+                                        </div>
+                                        <div>
+                                            <span>😋</span>
+                                        </div>
+                                    </div>
+                                    <ul class="mreProUl">
+                                        <li class="mreProLi">
+                                            <div class="mreProBox">
+                                                <a href="" class="mactive">
+                                                    <div class="mreProli">
+                                                        <div class="mproDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>지구용사썬가드</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                            <span>
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="mreProLi">
+                                            <div class="mreProBox">
+                                                <a href="" class="mactive">
+                                                    <div class="mreProli">
+                                                        <div class="mproDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>야야얍!!</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                            <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="mreProLi">
+                                            <div class="mreProBox">
+                                                <a href="" class="mactive">
+                                                    <div class="mreProli">
+                                                        <div class="mproDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>아아아~~~</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                            <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="mreProLi">
+                                            <div class="mreProBox">
+                                                <a href="" class="mactive">
+                                                    <div class="mreProli">
+                                                        <div class="mproDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>라라라라라랄라랄</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                            <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="mbox"></div>
                         </li>
                     </ul>
                 </div>
@@ -217,10 +325,13 @@
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a57d546fefaefbc7ac5bde8a6eb90ec&libraries=services"></script>
-<script src="/JS/map.js"></script>
+
 <!-- jQuery 라이브러리 추가 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="/JS/map.js"></script>
 <script>
     $(function () {
         var include1 = $('[data-include1="header"]');
@@ -228,7 +339,6 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
             $(this).load('/html/01.header.html');
         });
     });
-
 </script>
 
 </body>
