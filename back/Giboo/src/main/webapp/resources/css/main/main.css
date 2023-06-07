@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+main section:nth-child(1){
+    border: 3px solid paleturquoise;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+section:nth-child(1) div[class=mainBanner]{
+    background-color: aqua;
+    height: 400px;
+    width: 1200px;
+    margin: 24px 0px ;
+}
+
+main section:nth-child(2){
+    width: 1080px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.mainContent article:nth-child(1){
+    border: 1px solid blue;
+    height: 173px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mainContent article:nth-child(1) .showGoal{
+    border: 1px solid red;
+    width: 380px;
+    height: 130px;
+
+    display: flex;
+    align-items: center;
+}
+
+.showGoal div[class=userPhoto]{
+    width: 90px;
+    height: 90px;
+    background-color: #d9d9d9;
+    border-radius: 20px;
+    margin: 12px;
+    
+}
+
+.showGoal div[class=showGoal_content]{
+    border: 2px solid greenyellow;
+    width: 70%;
+    height: 100%;
+    padding: 13px;
+}
+
+.showGoal_content div:nth-child(1){
+    font-size: 18px;
+    font-weight: 600;
+    color: #4d4d4d;
+}
+.showGoal_content div:nth-child(1) span{
+    color: #8071fc;
+    display: inline-block;
+    margin: 10px;
+}
+.showGoal_content div:nth-child(2){
+    height: 29px;
+    width: 100%;
+    border: 1px solid pink;
+}
+
+.mainContent article:nth-child(1) .showStroyBtn{
+    border: 1px solid red;
+    width: 130px;
+    height: 130px; 
+    
+}
+
+.goalBtn{
+    border-radius: 20px;
+    background-color: #f6f6f6;
+}
+
+.mainContent article:nth-child(2){
+    border: 1px solid red;
+    height: 173px;
+}
+
+.mainContent article:nth-child(3){
+    border: 1px solid orange;
+    height: 811px;
+
+}
+
+
+

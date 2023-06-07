@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>adminCustomerService</title>
-    <link rel="stylesheet" href="/css/admin/adminCustomerService.css">
+    <title>adminCategory</title>
+    <link rel="stylesheet" href="/css/admin/adminCategory.css">
 </head>
 <body>
     <header>
@@ -15,26 +15,26 @@
 
 
     <section class="mainContainer">
-        <div class="menuName">고객센터 관리</div>
+        <div class="menuName">카테고리 관리</div>
 
         <div class="mainContent">
             <div class="sideMenuArea">
                     <div class="profileImageArea">
                         <img class="profileImage" src="/images/dog_emoji.png">
                     </div>
-                    <div class="memberNickname">관리자</div>
+                    <div class="managerNickname">관리자</div>
                     <div class="welcomeMessage">관리자님, 안녕하세요</div>
 
                 <ul class="sideMenu">
                     <li class="sideMenuItem"><a href="">대쉬보드</a></li>
                     <li class="sideMenuItem"><a href="">회원 관리</a></li>
-                    <li class="sideMenuItem"><a href="">공지사항 관리</a></li>
-                    <li class="sideMenuItem"><a href="">고객센터 관리</a></li>
-                    <li class="sideMenuItem"><a href="">1 대 1 채팅 상담</a></li>
-                    <li class="sideMenuItem"><a href="">기부 관리</a></li>
-                    <li class="sideMenuItem"><a href="">봉사 관리</a></li>
-                    <li class="sideMenuItem"><a href="">이벤트 관리</a></li>
                     <li class="sideMenuItem"><a href="">관리자 관리</a></li>
+                    <li class="sideMenuItem"><a href="">공지사항 관리</a></li>
+                    <li class="sideMenuItem"><a href="">1 대 1 채팅 상담</a></li>
+                    <li class="sideMenuItem"><a href="">기부 / 봉사 관리</a></li>
+                    <li class="sideMenuItem"><a href="">이벤트 관리</a></li>
+                    <li class="sideMenuItem"><a href="">카테고리 관리</a></li>
+                    <li class="sideMenuItem"><a href="">자주 찾는 질문 관리</a></li>
                 </ul>
 
                 <div class="optionArea">
@@ -48,21 +48,20 @@
                         <table class="menuBox">
                             <tbody>
                                 <tr class="menuTitle">
-                                    <td>전체</td>
                                     <td>검색</td>
                                     <td></td>
                                 </tr>
 
                                 <tr class="menuItem">
-                                    <td class="selectAllArea"><input type="checkbox" id="selectAll"></td>
                                     <td class="searchOptionArea">
                                         <select id="searchOption">
-                                            <option value="memberNo">번호</option>
-                                            <option value="memberId">아이디</option>
-                                            <option value="memberEmail">이메일</option>
-                                            <option value="memberName">이름</option>
-                                            <option value="memberNickname">닉네임</option>
-                                            <option value="memberAddr">주소</option>
+                                            <option value="no">번호</option>
+                                            <option value="permission">권한</option>
+                                            <option value="id">아이디</option>
+                                            <option value="email">이메일</option>
+                                            <option value="name">이름</option>
+                                            <option value="nickname">닉네임</option>
+                                            <option value="tel">전화번호</option>
                                         </select>
                                         <input type="text" id="inputSearch">
                                         <button id="searchButton">🔎</button>
@@ -71,29 +70,30 @@
                                 </tr>
                             </tbody>
                         </table>
+
+                        <button id="selectDelete" class="selectDelete">선택한 항목 삭제</button>
+                        <button id="crateCategory" class="crateCategory">카테고리 추가</button>
                     </div>
 
-                    <table class="memberListTable">
+                    <table class="listTable">
                         <tbody>
                             <tr class="sortingOptionArea">
-                                <td><button id="sortBySelect">선택</button></td>
-                                <td><button id="sortByCustomerServiceNo">번호</button></td>
-                                <td><button id="sortByDaType">회원 구분</button></td>
-                                <td><button id="sortByMemberId">아이디</button></td>
-                                <td><button id="sortByCustomerServiceTitle">제목</button></td>
-                                <td><button id="sortByCustomerServiceEnrollDate">작성일</button></td>
-                                <td><button id="sortByCustomerServiceAnswer">답변 여부</button></td>
+                                <td><button id="selectAll">선택</button></td>
+                                <td><button id="sortByNo">번호</button></td>
+                                <td><button id="sortById">중분류</button></td>
+                                <td><button id="sortByTitle">소분류</button></td>
+                                <td><button id="sortByEnrollDate">작성일</button></td>
+                                <td colspan="2"></td>
                             </tr>
 
-                            <tr class="customerServiceListArea">
+                            <tr class="listArea">
                                 <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
                                 <td>1</td>
-                                <td>기부자</td>
-                                <td>123451234512</td>
-                                <td>테스트 테스트 테스트 테스트 테스트</td>
+                                <td>동물</td>
+                                <td>고양이</td>
                                 <td>2023. 01. 01</td>
-                                <td class="unanswered">미답변</td>
-                                <td><button id="customerServiceDetail1" class="customerServiceDetail">상세 정보</button></td>
+                                <td><button id="modify1" class="modify">수정</button></td>
+                                <td><button id="deleteCategory1" class="deleteCategory">삭제</button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -116,6 +116,6 @@
 
     </script>
 
-    <script src="/JS/admin/adminCustomerService.js"></script>
+    <script src="/JS/admin/adminCategory.js"></script>
 </body>
 </html>

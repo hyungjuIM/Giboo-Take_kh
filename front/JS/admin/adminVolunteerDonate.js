@@ -1,6 +1,6 @@
 const sideMenu = document.getElementsByClassName("sideMenuItem");
 const resetSearch = document.getElementById("resetSearch");
-const volunteerDetail = document.getElementsByClassName("volunteerDetail");
+const detail = document.getElementsByClassName("detail");
 
 for (const i of sideMenu) {
     i.addEventListener("mouseover", () => {
@@ -20,7 +20,7 @@ resetSearch.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("focus");
 });
 
-for (const i of volunteerDetail) {
+for (const i of detail) {
     i.addEventListener("mouseover", () => {
         i.classList.add("focus");
     });

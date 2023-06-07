@@ -77,7 +77,7 @@ a{
     height: 100%;
 }
 
-.memberNickname {
+.managerNickname {
     color: #BDBDBD;
     font-size: 18px;
 }
@@ -140,9 +140,131 @@ a{
     padding: 20px;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     background-color: white;
     border-radius: 20px;
     box-shadow: 2px 2px 10px #0000002A;
+}
+
+.menuArea {
+    display: flex;
+}
+
+.menuBox {
+    border: 1px solid #BDBDBD;
+    border-radius: 20px;
+    padding: 10px;
+    border-spacing: 8px 0;
+    margin-right: 20px;
+    box-shadow: 2px 2px 10px #0000002A;
+}
+
+.menuTitle {
+    text-align: center;
+    height: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menuItem {
+    height: 35px;
+}
+
+.searchOptionArea {
+    text-align: center;
+    border: 1px solid #BDBDBD;
+    border-radius: 20px;
+    padding: 4px 8px;
+    box-shadow: 2px 2px 10px #0000002A;
+}
+
+#searchOption {
+    border: 0;
+    outline: none;
+}
+
+#inputSearch {
+    border: 0;
+    outline: none;
+}
+
+#searchButton {
+    background-color: unset;
+    border: 0;
+    cursor: pointer;
+}
+
+.resetSearch {
+    background-color: unset;
+    border: 1px solid #BDBDBD;
+    border-radius: 20px;
+    height: 35px;
+    padding: 4px 10px;
+    font-size: 14px;
+    box-shadow: 2px 2px 10px #0000002A;
+    transition-duration: 250ms;
+}
+
+.sendNotification {
+    background-color: unset;
+    border: 1px solid #BDBDBD;
+    border-radius: 20px;
+    padding-inline: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px #0000002A;
+}
+
+.listTable {
+    border-spacing: 8px;
+}
+
+.sortingOptionArea > td {
+    text-align: center;
+}
+
+.sortingOptionArea > td > button {
+    background-color: unset;
+    border: 0;
+    font-weight: bold;
+}
+
+.listArea {
+    text-align: center;
+}
+
+.listArea > td:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35px;
+}
+
+.listCheck {
+    width: 16px;
+    height: 16px;
+}
+
+.detail {
+    border: 1px solid #BDBDBD;
+    border-radius: 20px;
+    background-color: unset;
+    padding: 4px 8px;
+    box-shadow: 2px 2px 10px #0000002A;
+    transition-duration: 250ms;
+}
+
+.confirm {
+    color: #25C62C;
+}
+
+.reject {
+    color: #EF0101;
+}
+
+.focus {
+    background-color: #8071FC;
+    color: white;
 }
 
 /* footer */
