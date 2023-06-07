@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.mainContainer {
+  
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.mainContent {
+  width: 1080px;
+ 
+}
+
+*{
+  box-sizing: border-box;
+  
+ 
+}
+
+body{
+  margin: 0;
+  background-color: white;
+  color: #000;
+  line-height: 1.6em;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.page-title {
+  margin-bottom: 100px;
+
+  background-color: #8071FC ;
+
+ 
+  width: 100%;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-title span {
+  font-weight: bold;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.container2 {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  border : 1px solid #e0e0e0;
+  border-radius: 5px ;
+  font-family: 'Noto Sans KR', sans-serif;
+  height: 38px;
+}
+
+.search-filter label {
+  margin-right: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.search-filter select {
+  padding: 8px;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  outline: none;
+  border: none;
+  
+}
+
+
+
+
+
+.search-area {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+}
+
+.search-area fieldset{
+  padding: 0;
+  margin : auto;
+  border : 1px solid #e0e0e0;
+  border-radius: 5px ;
+  background-color: white;
+
+  justify-content: center; /* 수평 가운데 정렬 */
+  align-items: center;
+
+
+  height: 38px;
+  width: 248px;
+  display: flex;
+  transition : background-color 2s ease-out;
+}
+.search-area fieldset:hover{
+border-color: #8071FC;
+}
+
+.search-area fieldset:hover #search-btn {
+color:#8071FC;
+}
+
+#query{
+  padding: 10px;
+  font-size: 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  border: none;
+  border-radius: 50px ;
+  outline: 0;
+  width: 91%;
+  height: 20px;
+ margin: 0;
+ background-color: transparent;
+}
+#query::placeholder{
+font-family: 'Noto Sans KR', sans-serif;
+font-size: 14px;
+color: #767676;
+text-align: left;
+}
+
+.search-area form {
+  display: flex;
+  align-items: center;
+  height: 40px;
+}
+
+.search-area input[type="text"] {
+  padding: 8px;
+  font-size: 14px;
+  outline: none;
+ border: none;
+  width: 200px;
+  height: 38px;
+  
+}
+
+.search-area fieldset button{
+  border: none;
+  background-color: transparent;
+  color: #767676;
+  height: 38px;
+  width: 38px;
+  
+ 
+}
+
+.container1{
+padding-bottom: 20px;
+border-bottom: 2px solid #767676;
+}
+
+.container1 h3 {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+span{
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.notice {
+  margin-bottom: 40px;
+}
+
+
+
+
+
+
+
+#notice-list {
+  margin-top: 40px;
+}
+
+.container3 {
+  border-top: 2px solid #767676;
+}
+
+.notice-table {
+  width: 100%;
+  border-collapse : collapse;
+
+}
+
+.notice-table a{
+    text-decoration: none;
+    color: black;
+}
+
+.notice-table thead th,
+.notice-table thead td{
+  padding: 10px;
+  
+}
+
+
+.notice-table tbody th,
+.notice-table tbody td {
+  padding: 10px;
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 1px solid #ccc ;
+  border-top: 1px solid #ccc ;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+
+.th-num,
+.th-date,
+.th-count {
+  width: 100px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.th-title {
+  width: 700px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+.container4{
+  width: 1080px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+
+
+.page-nav {
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.pagination {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.pagination li {
+  display: inline;
+ 
+}
+
+.pagination li a {
+  color: #767676;
+  padding: 5px 10px;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  transition: color 0.3s;
+}
+
+.pagination li a:hover {
+  background-color: #f2f2f2;
+  color: #8071FC;
+  border-radius: 50%;
+}
+.writeBtn{
+  margin-left: 300px;
+  
+  border :solid 1px #bdbdbd;
+  border-radius: 5px;
+
+  color: #767676;
+  font-family: 'Noto Sans KR', sans-serif;
+  cursor: pointer;
+
+  background-color: transparent;
+
+  width: 98px;
+  height: 38px;
+}
+
