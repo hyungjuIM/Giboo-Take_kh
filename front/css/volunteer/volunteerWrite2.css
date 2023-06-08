@@ -135,6 +135,10 @@ a{
     height: 42px;
 }
 
+.imgSelectButton {
+    height: 46px;
+}
+
 .imgInputInner {
     display: flex;
     position: relative;
@@ -145,7 +149,6 @@ a{
     border-radius: 10px;
     padding: 10px 15px;
     width: 390px;
-    height: 42px;
     display: flex;
     align-items: center;
 }
@@ -154,7 +157,7 @@ a{
     display: none;
 }
 
-.imgInputPlaceholder {
+#imgInputPlaceholder {
     width: 380px;
     height: 27px;
     background-color: white;
