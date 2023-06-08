@@ -270,7 +270,7 @@ $(document).ready(function() {
         slideIndex++;
         if (slideIndex >= slideCount) {
             slideIndex = 0;
-        }
+        }cs
         showSlide();
     }
 
