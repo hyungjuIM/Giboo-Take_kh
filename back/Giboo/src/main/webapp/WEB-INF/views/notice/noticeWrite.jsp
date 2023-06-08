@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>noticeWrite</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/noticeWrite.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice/noticeWrite.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
     <!-- jQuery 라이브러리 추가(CDN) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -90,20 +91,8 @@
     </section> 
 </main>
 
-     <!-- jQuery 라이브러리 추가 -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-        });
 
-    </script>
-
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     jQuery(document).ready(function() {
     
         $('#summernote').summernote({
@@ -126,7 +115,7 @@
         });
     
     });
-</script>
+</script> -->
 <!-- 푸터 영역 -->
 <header>
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />

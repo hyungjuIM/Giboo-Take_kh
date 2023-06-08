@@ -19,82 +19,41 @@
     <footer>
         <section class="footerContainer">
            <div class="footerContent">
-               <!-- 로고 영역 -->
-               <div class="fLogoContainer">
-                   <div class="fLogoImg">
-                       <img
-										src="${pageContext.request.contextPath}/resources/images/doCenter.jpg"
-										/>
-                   </div>
+           <div class="footerContent1">
+               <!-- 로고 -->
+              <div class="footerLogoContainer">로고 자리</div>
+              <!-- 우리이야기, 개인정보 etc -->
+              <div class="footerMainContainer">
+               <div class="footerMain"><a href="">우리 이야기</a></div>
+               <div class="footerMain"><a href="">개인정보취급방침</a></div>
+               <div class="footerMain"><a href="">이용약관</a></div>
+               <div class="footerMain"><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></div>
+               <div class="footerMain"><a href="">고객센터</a></div>
+              </div>
+              <!-- 주소 -->
+              <div class="faddress"><span style="font-weight: bold;">기부엔테이크</span>
+               <span>서울특별시 강남구 테헤란로 14길 6 남도빌딩 2층</span>
                </div>
+              <!-- 대표, 이메일, 문의 -->
+              <div class="finfoContainer">
+               <div class="ceo">조장 : 임형주</div><div class="emp">조원 : 박상빈 심찬영 이슬기 이유정 정서윤</div>
+               <div class="femail">이메일 : gibootake@gmail.com</div>
+               <div class="ftel">문의 : 02-123-1234</div>
+              </div>
+           </div>
    
-               <!-- 공지사항, 개인정보처리방침, 이용약관, about us, 명예의 전당 -->
-               <div class="fnoticeContainer">
-                   <div class="fnoticeDe">
-                       <a href="">
-                           <span>about us</span>
-                       </a>
-                   </div>
-                   <div class="fnoticeDe">
-                       <a href="">
-                           <span>개인정보취급방침</span>
-                       </a>
-                   </div>
-                   <div class="fnoticeDe">
-                       <a href="">
-                           <span>공지사항</span>
-                       </a>
-                   </div>
-                   <div class="fnoticeDe">
-                       <a href="">
-                           <span>고객센터</span>
-                       </a>
-                   </div>
-                   <div class="fnoticeDe">
-                       <a href="">
-                           <span>이용약관</span>
-                       </a>
-                   </div>
-               </div>
-   
-               <!-- 소셜사이트연동 영역 -->
-               <div class="fsocialContainer">
-                   <div class="fsocialBox">
-                       <a href="">
-                           <img
-										src="${pageContext.request.contextPath}/resources/images/profile.jpeg"
-										/>
-                       </a>
-                   </div>
-                   <div class="fsocialBox">
-                       <a href="">
-                           <img
-										src="${pageContext.request.contextPath}/resources/images/profile.jpeg"
-										/>
-                       </a>                </div>
-                   <div class="fsocialBox">
-                       <a href="">
-                           <img
-										src="${pageContext.request.contextPath}/resources/images/profile.jpeg"
-										/>
-                       </a>                
-                   </div>
-               </div>
-   
-               <!-- 회사정보영역 -->
-               <div class="finfoContainer">
-                   <div class="finfoDetail">
-                       <span>재단 법인 : 기부앤테이크</span>
-                       <span>|</span>
-                       <span>대표자 : 기부앤테이크</span>
-                       <span>|</span>
-                       <span>주소 : 서울특별시 강남구 테헤란로14길 6 남도빌딩</span>
-                   </div>
-                   <div class="finfoDetail">
-                       <span>이메일 : gibootake@gmail.com</span>
-                   </div>
+           <div class="footerContent2">
+               <div class="snsLogo">
+                   <!-- 카톡 -->
+                  <a class="kakaoContainer"><img class="kakaoImg" src="${pageContext.request.contextPath}/resources/images/kakao.jpg"alt="#"></a>
+                  <!-- 페북 -->
+                  <a class="fbookContainer"><img class="fbookImg" src="${pageContext.request.contextPath}/resources//images/facebook.jpg" alt="#"></a>
+                  <!-- 유튭 -->
+                  <a class="youtubeContainer"><img class="youtubeImg" src="${pageContext.request.contextPath}/resources//images/youtube.png" alt="#"></a>
                </div>
            </div>
+   
+       </div>
         </section>
        </footer>
 </body>
