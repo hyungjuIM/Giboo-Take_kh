@@ -49,14 +49,10 @@
                 <div class="myPage">
                     <a href="#none" class="loginBtn">로그인</a>
 
-                    <div class="toggle"><a href="#none" class="tooltip" data-text="마이페이지">
+                    <div class="toggle"><a href="${pageContext.request.contextPath}/mypage/myask" class="tooltip" data-text="마이페이지">
                             <i class="far fa-user-circle"></i>
                         </a>
-                    </div>
-                    <!-- <div class="toggle"><a href="#none" class="tooltip" data-text="알림">
-                            <i class="far fa-bell"></i>
-                        </a>
-                    </div> -->
+                    </div>                
                     <div class="toggle"><a href="#none" class="tooltip" data-text="알림">
                         <i class="far fa-bell"></i>
                     </a>
