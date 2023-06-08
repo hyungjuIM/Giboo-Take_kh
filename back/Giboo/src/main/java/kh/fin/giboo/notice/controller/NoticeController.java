@@ -11,9 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class NoticeController {
 	private Logger logger = LoggerFactory.getLogger(NoticeController.class);
 	
+	
+	// 공지사항 리스트
 	@GetMapping(value="/noticeList")
 	public String noticeList() {
 		logger.info("공지사항");
 		return "notice/noticeList";
+	}
+	
+	
+	// 공지사항 작성
+	@GetMapping("/noticeWrite")
+	public String noticeWrite() {
+		logger.info("공지사항 작성");
+		return "notice/noticeWrite";
 	}
 }
