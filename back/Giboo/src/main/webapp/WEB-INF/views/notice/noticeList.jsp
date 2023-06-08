@@ -122,7 +122,7 @@
                       </ul>
                     </nav>
                     <div class="writeBtn-container">
-                    <button type="button" class="writeBtn"><i class="fa-solid fa-pen"></i>_글쓰기</button>
+                    <button class="writeBtn" onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite'"><i class="fa-solid fa-pen"></i>_글쓰기</button>
                     </div>
                   </div>
                 </div>
