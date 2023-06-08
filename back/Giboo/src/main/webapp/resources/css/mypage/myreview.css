@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 *{
     box-sizing: border-box;
     padding : 0px;
@@ -260,54 +262,6 @@ span{
   margin-top: 20px;
 }
 
-.container2_title{
-  display: flex;
-  flex-direction: row;
-
-  justify-content: center;
-  align-items: center;
-
-  color : #767676;
-  font-size: 18px;
-  font-weight: 500;
-  font-family: 'Noto Sans KR', sans-serif;
-
-}
-
-
-.active_title_name{
-  padding : 0px 5px;
-  width : 50px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.active_title_name2{
-  padding : 0px 5px;
-  width : 120px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-
-}
-.active_title_right{
-  padding : 0px 5px;
-}
-
-.myactive_donation:hover,
-.myactive_volunteer:hover,
-.myactive_event:hover{
-  color : #8071FC;
-  font-weight: 700;  
-}
-
-.myactive_donation{
-  color : #8071FC;
-  font-weight: 700; 
-}
 
 
 
@@ -417,24 +371,30 @@ text-align: left;
 }
 
 
-.myactive_container3 {
+
+
+
+
+
+
+.myactive2_container3 {
   border-top: 2px solid #767676;
 }
 
-.myactive_notice-table {
+.myactive2_notice-table {
   width: 100%;
   border-collapse : collapse;
 
 }
 
-.myactive_notice-table a{
+.myactive2_notice-table a{
     text-decoration: none;
     color: #767676;
     font-weight: 500;
     font-size: 14px;
 }
 
-.myactive_notice-table thead th{
+.myactive2_notice-table thead th{
   padding: 15px 10px;
 
   font-weight: 600;
@@ -448,26 +408,9 @@ color : #767676;
 }
 
 
-.th_num{
-  width: 100px;
-}
 
-.th_name{
-  width: 300px;
-}
-
-.th_date{
-  width: 150px;
-}
-
-.th_print{
-  width: 150px;
-}
-
-
-
-.myactive_notice-table tbody td {
-  padding: 10px 10px;
+.myactive2_notice-table tbody td {
+  padding: 20px 10px;
   border-right: 0;
   border-left: 0;
 
@@ -481,42 +424,6 @@ color : #767676;
   font-family: 'Noto Sans KR', sans-serif;
   color : #767676;
 }
-
-
-
-.myactive_print a{
-  border: 1px solid #D9D9D9;
-  border-radius: 50px;
-  Width : 58px;
-  Height : 35px;
-  margin-left: 50px ;
-
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.myactive_print a:hover {
-  
-  color : #8071FC;
-  border: 1px solid #8071FC;
-  border-radius: 50px;
-
-   Width : 58px;
-  Height : 35px;
-  margin-left: 50px ;
-
-  
-  display: flex;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-
-
 
 
 .container4{

@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,11 +10,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>나의 활동목록(기부)</title>
+  <title>나의 리뷰목록</title>
 
-  <link rel="stylesheet" href="/css/mypage/myactive_1.css">
-  <link rel="stylesheet" href="/css/reset.css">
-  <link rel="stylesheet" href="/css/01.header.css">
+  <!-- jQuery 라이브러리 추가 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/myreview.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -18,13 +26,14 @@
 </head>
 
 <body>
+  <!-- 헤더 영역 -->
   <header>
-    <div data-include1="header" id="header"></div>
-  </header>
+    <jsp:include page="/WEB-INF/views/main/header.jsp" />
+</header>
 
   <main>
     <div class="page-title">
-      <span>나의 활동목록</span>
+      <span>나의 리뷰목록</span>
     </div>
 
     <div class="mypage-container">
@@ -74,22 +83,10 @@
                 <div class="notice">
                   <div class="container1">
                     <span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span style="color: #8071FC;">
-                      활동목록</span><span style="color: #767676;">를 알려드립니다 😇</span>
+                      리뷰목록</span><span style="color: #767676;">를 알려드립니다 😇</span>
 
                     <div class="container2">
-                      <div class="container2_title">
-                        <div class="active_title_name">
-                          <div class="myactive_donation">기부</div>
-                        </div>
-                        <div class="active_title_right">|</div>
-                        <div class="active_title_name">
-                          <div class="myactive_volunteer">봉사</div>
-                        </div>                    
-                        <div class="active_title_right">|</div>
-                        <div class="active_title_name2">
-                          <div class="myactive_event">참여한 이벤트</div>
-                        </div>
-                      </div>
+                      
 
                       <div class="search-area">
                         <div class="search-filter"> 
@@ -119,78 +116,54 @@
                 </div>
 
                 <!-- notice list area -->
-                <div id="myactive_notice-list">
-                  <div class="myactive_container3">
-                    <table class="myactive_notice-table">
+                <div id="myactive2_notice-list">
+                  <div class="myactive2_container3">
+                    <table class="myactive2_notice-table">
                       <thead>
                         <tr>
-                          <th scope="col" class="th_num">번호</th>
-                          <th scope="col" class="th_name">기부내역</th> 
-                          <th scope="col" class="th_date">기부일자</th>
-                          <th scope="col" class="th_print">인증서 출력</th>
+                          <th scope="col" class="th-num">번호</th>
+                          <th scope="col" class="th-name">내역</th>
+                          <th scope="col" class="th-date">일자</th>
+                          <th scope="col" class="th-review">리뷰내용</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td>50</td>
-                          <td>위기가정지원</td>
+                          <td><a href="#">치매안심센터-기억력 검진 봉사활동</a></td>
                           <td>2023.05.24</td>
-                     
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
+                          <td>처음으로 봉사활동 해봤는데 너무 뿌듯해요!....</td>
                         </tr>
                         <tr>
                           <td>49</td>
-                          <td>주거지원</td>
+                          <td><a href="#">치매안심센터-기억력 검진 봉사활동</a></td>
                           <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
+                          <td>처음으로 봉사활동 해봤는데 너무 뿌듯해요!....</td>
                         </tr>
                         <tr>
                           <td>48</td>
-                          <td>생계지원</td>
+                          <td><a href="#">치매안심센터-기억력 검진 봉사활동</a></td>
                           <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
+                          <td>처음으로 봉사활동 해봤는데 너무 뿌듯해요!....</td>
                         </tr>
                         <tr>
                           <td>47</td>
-                          <td>의료지원</td>
+                          <td><a href="#">치매안심센터-기억력 검진 봉사활동</a></td>
                           <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
+                          <td>처음으로 봉사활동 해봤는데 너무 뿌듯해요!....</td>
                         </tr>
                         <tr>
                           <td>46</td>
-                          <td>위기가정지원</td>
+                          <td><a href="#">치매안심센터-기억력 검진 봉사활동</a></td>
                           <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
+                          <td>처음으로 봉사활동 해봤는데 너무 뿌듯해요!....</td>
                         </tr>
                         <tr>
                           <td>45</td>
-                          <td>주거지원</td>
+                          <td><a href="#">치매안심센터-기억력 검진 봉사활동</a></td>
                           <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
+                          <td>처음으로 봉사활동 해봤는데 너무 뿌듯해요!....</td>
+                        </tr>
 
 
 
@@ -227,19 +200,12 @@
     </div> <!-- mypage-container -->
   </main>
 
+  <!-- 푸터 영역 -->
+  <header>
+    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
+</header>
 
-  <!-- jQuery 라이브러리 추가 -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <script>
-    $(function () {
-      var include1 = $('[data-include1="header"]');
-      jQuery.each(include1, function () {
-        $(this).load('/html/01.header.html');
-      });
-    });
 
-  </script>
 </body>
 
 </html>
