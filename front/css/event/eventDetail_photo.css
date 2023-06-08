@@ -30,6 +30,7 @@ body{
     border-radius: 20px;
     width: 1200px;
     overflow: hidden;
+    margin-top: 30px;
 }
 
 .edWrapDetail{
@@ -289,7 +290,7 @@ color: #111111;
 
 /* ------------카테고리 변경 시마다 색 변경하기----------- */
 .edEventintro:nth-child(1){
-    border-bottom: 1px solid #8071FC;
+    border-bottom: 2px solid #8071FC;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -308,6 +309,8 @@ color: #111111;
     color: #4D4D4D;
 }
 
+
+/* ----------본문---------- */
 .edDetailWrap{
     margin-top: 20px;
     width: 100%;
