@@ -66,7 +66,7 @@
                         <ul class="mlistUl">
                             <li class="mlistLi">
                                 <a href="">
-                                    <img src="/images/doCenter.jpg" alt="">
+                                    <img src="${pageContext.request.contextPath}/resources/images/doCenter.jpg" alt="">
                                     <div class="mlistDetail">
                                         <!-- 카테고리와 즐겨찾기 숫자 나오는 영역 -->
                                         <div class="mlistTi">
@@ -150,7 +150,7 @@
                                                     <a href="" class="mactive">
                                                         <div class="mreProli">
                                                             <div class="mproDe">
-                                                                <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                                <img src="${pageContext.request.contextPath}/images/news_1486098867_610387_m_1.jpg" alt="">
                                                                 <span>아아아~~~</span>
                                                             </div>
                                                             <div class="mreDe">
@@ -187,7 +187,7 @@
                             
                             <li class="mlistLi">
                                 <a href="">
-                                    <img src="/images/doCenter.jpg" alt="">
+                                    <img src="${pageContext.request.contextPath}/resources/images/doCenter.jpg" alt="">
                                     <div class="mlistDetail">
                                         <!-- 카테고리와 즐겨찾기 숫자 나오는 영역 -->
                                         <div class="mlistTi">
