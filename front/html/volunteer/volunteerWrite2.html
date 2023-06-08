@@ -60,8 +60,8 @@
             <li>
                 <div>
                     <div class="listTitle">봉사 지역</div>
-                    <span id="address">주소를 입력해 주세요.</span>
-                    <button id="searchAddress">주소검색</button>
+                    <input type="text" id="address" placeholder="주소를 입력해 주세요.">
+                    <button id="searchAddress" onclick="sample5_execDaumPostcode()">주소검색</button>
                 </div>
 
             </li>
@@ -114,8 +114,8 @@
         <div class="optionArea">
             <a href="" class="list">목록으로</a>
             <div>
-                <a href="" class="edit">수정</a>
-                <button class="delete">삭제</button>
+                <button type="submit" class="edit">등록</button>
+                <button class="delete">취소</button>
             </div>
         </div>
 
@@ -162,5 +162,21 @@
 
     });
 </script>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script>
+    function sample5_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("address").value = addr;
+            }
+        }).open();
+    }
+</script>
+
 </body>
 </html>
