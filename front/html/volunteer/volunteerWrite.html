@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>봉사등록 작성 폼</title>
+    <link rel="stylesheet" href="/css/volunteer/volunteerWrite.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div data-include1="header" id="header"></div>
+    </header>
+    <main>
+        <div class="page-title">
+            <span>봉사등록</span>
+        </div>
+
+
+        <section class="volunteer_write_mainContainer">
+            <div class="volunteer_write_mainContent">
+                
+                    <div class="volunteer_title1">
+                        <div class="volunteer_cont1"><i class="fa-solid fa-circle"></i>타이틀</div>
+                        <div class="volunteer_cont2"><input type="text" placeholder="제목"></div>
+                    </div>
+                    <div class="volunteer_title2">
+                        <div>모집일</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="volunteer_title2">
+                        <div>진행일</div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="volunteer_title3">
+                        <div>봉사지역</div>
+                        <div></div>
+                        <div>검색</div>
+                    </div>
+                    <div class="volunteer_title4">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="volunteer_title5">
+                        <div>첨부파일</div>
+                        <div></div>
+                        <div>찾아보기</div>
+                    </div>
+                    <hr>
+                    <div class="volunteer_title6">
+                        <div>목록으로</div>
+                        <div>
+                            <div>등록</div>
+                            <div>취소</div>
+                        </div>
+                    </div>
+                
+            </div>
+
+        </section>
+    </main>
+
+    <!-- jQuery 라이브러리 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var include1 = $('[data-include1="header"]');
+            jQuery.each(include1, function () {
+                $(this).load('/html/01.header.html');
+            });
+        });
+
+    </script>
+
+
+
+
+</body>
+
+</html>
