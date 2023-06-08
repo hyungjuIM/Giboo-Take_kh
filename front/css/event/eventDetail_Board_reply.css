@@ -388,7 +388,7 @@ color: #111111;
 }
 
 
-/* ------------인증 fixed 된 바(사진)------------ */
+/* ------------인증 fixed 된 바(댓굴)------------ */
 .edInBar{
     /* background-color: yellow; */
     position: sticky;
@@ -424,38 +424,167 @@ color: #111111;
     font-size: 16px;
     color: #000000;
 }
-
-.edInPhotoBarUl{
-    display: flex;
-    width: 320px;
-    max-height: 280px;
-    background-color: rgb(238, 238, 238);
-    flex-wrap: wrap;
-    overflow: hidden;
-    border-radius: 12px;
+/* 여기서부터 지우고 만들기 */
+.edInReplyBox {
+	position: relative;
+	background: #D9D9D9;
+	border-radius: 12px;
+    width: 280px;
+    margin-left: 15px;
 }
 
-.edInPhotoBarLi{
-    margin-right: 5px;
+.edInReplyBox:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: #D9D9D9;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -10px;
+	margin-left: -20px;
 }
 
-.edInPhotoImg > img{
-    width: 75px;
-    height: 75px;
+.edReplyName{
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+.edReplyName > span{
+    font-size: 16px;
+    font-weight: 600;
+    color: #8071FC;
+}
+
+.edReplyDetail{
+    margin-top: 5px;
+    margin-left: 20px;
+    /* background-color: yellow; */
+    width: 240px;
+    padding-bottom: 10px;
+}
+
+.edReplyDetail > span{
+    font-size: 15px;
+    font-weight: 500;
+    color: #4b4b4b;
+    font-family: 'Noto Sans';
+    font-style: normal;
 }
 
 .edInBarBox > a > .edBtnDe{
     margin-top: 12px;
 }
 
-
-/* -----------참여보드(사진)------------ */
-.ebpPhotoImg > img{
-    width: 100%;
-    border-radius: 15px;
+.edInReplyBarUl{
+    /* background-color: yellowgreen; */
+    max-height: 290px;
     overflow: hidden;
 }
 
+.edInReplyBarLi{
+    margin-bottom: 5px;
+}
+
+
+
+/* -----------참여보드(댓글)------------ */
+
+.ebpPhotoWrap{
+    margin-top: 40px;
+}
+
+.eReplyPro > img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.eReplyBox{
+    display: flex;
+    margin-left: 10px;
+}
+
+.eReplyDetail{
+    /* background-color: yellowgreen; */
+    margin-left: 30px;
+    display: flex;
+}
+
+.eReplyNick > span{
+    font-size: 16px;
+    font-weight: 600;
+    color: #8071FC;
+    font-family: 'Noto Sans';
+    font-style: normal;
+}
+
+.eReplychatBox {
+	position: relative;
+	background: #00aabb;
+	border-radius: 12px;
+    margin-top: 8px;
+    width: 600px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eReplychatBox:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 40%;
+	width: 0;
+	height: 0;
+	border: 21px solid transparent;
+	border-right-color: #00aabb;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -10px;
+	margin-left: -20px;
+}
+
+.eReplychatBoxDe{
+    width: 550px;
+    /* background-color: yellow; */
+    height: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.eReplychatBoxDe > span{
+    font-size: 15px;
+    font-weight: 500;
+    color: #4b4b4b;
+    font-family: 'Noto Sans';
+    font-style: normal;
+}
+
+.eReplyTime{
+    /* background-color: yellow; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-left: 20px;
+}
+
+.eReplyTimeSpan > span{
+    font-size: 14px;
+    font-weight: 500;
+    color: #767676;
+    font-family: 'Noto Sans';
+    font-style: normal;
+}
+
+.ebpReplyWrapLi{
+    margin-bottom: 20px;
+}
 
 .ebpTitle > span{
     font-size: 16px;
@@ -467,43 +596,6 @@ color: #111111;
     color: #767676;
     font-weight: 600;
 }
-
-.ebpPhotoWrap{
-    margin-top: 20px;
-}
-
-.ebpPhotoWrapUl{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.ebpPhotoPro{
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: yellow; */
-}
-
-.ebpPhotoPro > span{
-    font-size: 15px;
-    font-weight: 500;
-    color: #8071FC;
-}
-
-
-.ebpPhotoProTime{
-    color: #767676;
-    font-size: 14px;
-}
-
-.ebpPhotoWrapLi{
-    /* background-color: yellowgreen; */
-    width: 45%;
-    margin-right: 40px;
-    margin-bottom: 70px;
-}
-
 
 
 /* --------------더보기-------------- */

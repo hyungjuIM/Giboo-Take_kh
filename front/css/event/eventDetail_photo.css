@@ -1,11 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
 *{
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
-body{
+main{
     display: flex;
     justify-content: center;
 }
@@ -386,7 +392,7 @@ color: #111111;
 .edInBar{
     /* background-color: yellow; */
     position: sticky;
-    height: 400px;
+    height: 420px;
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -440,4 +446,187 @@ color: #111111;
 
 .edInBarBox > a > .edBtnDe{
     margin-top: 12px;
+}
+
+
+
+/* --------------더보기-------------- */
+.eMoreWrap{
+    margin-top: 200px;
+}
+
+.eMoreTitle > span{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.eMoreTitle{
+    margin-bottom: 20px;
+}
+
+.elist_official > li{
+    background-color:#F6F6F6;
+    width: 224px;
+    height: 270px;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+.elist_official{
+    /* background-color: yellowgreen; */
+    overflow: hidden;
+    display: flex;
+    width: 71%;
+}
+
+.earea_thumb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 진행중 */
+.earea_thumb_period_go{
+    background-color: #8071FC;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 75px;
+    bottom: 173px;
+}
+
+.earea_thumb_period > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb_period_end > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb_period_go > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb > img{
+    width: 170.57px;
+    height: 176.43px;
+    border-radius: 20px;
+    margin-top: 16px;
+}
+
+.etxt_official{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: rgb(95, 119, 47); */
+    width: 200px;
+    position: relative;
+    bottom: 30px;
+}
+
+.etxt_officialTi{
+    width: 200px;
+    max-height: 45px;
+    /* background-color: yellow; */
+    display: flex;
+    overflow: hidden;
+}
+
+.etxt_officialTi > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height */
+    
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #4D4D4D;
+}
+
+.escrean_out{
+    color: #9D9D9D;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.ereg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellowgreen; */
+    width: 224px;
+    height: 43px;
+    position: relative;
+    bottom: 15px;
+    border-top: 1px solid #D9D9D9;
+}
+
+.elink_official{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 더보기 버튼 */
+.eMoreBtnBox{
+    background-color: #8071FC;
+    width: 180px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.eMoreBtnBox > span:nth-child(1){
+    margin-right: 8px;
+}
+
+.eMoreBtnBox > span{
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+}
+
+.eMoreBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 71%;
+    margin-top: 20px;
 }
