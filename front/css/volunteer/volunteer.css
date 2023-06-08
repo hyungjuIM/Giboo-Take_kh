@@ -254,8 +254,9 @@ a{
 }
 
 .volunteerButtonImage {
-    height: 15px;
+    height: 10px;
     margin-left: 10px;
+    transition-duration: 250ms;
 }
 
 .volunteerButtonFocus {
