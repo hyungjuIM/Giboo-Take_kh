@@ -9,7 +9,7 @@
     list-style: none;
     text-decoration: none;
     font-family: 'Noto Sans KR', sans-serif;
-}
+    font-family: 'Open Sans', sans-serif;}
 
 .ewrap_tab{
     background-color: #978AFF;
@@ -246,7 +246,17 @@
     bottom: 30px;
 }
 
-.etxt_official > span:nth-child(1){
+.etxt_officialTi{
+    width: 250px;
+    max-height: 45px;
+    /* background-color: yellow; */
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.etxt_officialTi > span{
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
