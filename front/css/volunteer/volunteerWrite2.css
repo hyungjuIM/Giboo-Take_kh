@@ -85,6 +85,7 @@ a{
 #startDate, #dueDate, #beginDate, #endDate {
     width: 250px;
     text-align: center;
+    color: black;
 }
 
 #startDate[data-placeholder],#dueDate[data-placeholder],
@@ -121,6 +122,9 @@ a{
     padding: 10px 15px;
     display: flex;
     align-items: center;
+}
+
+#address::placeholder {
     color: #D6D3F4;
 }
 
