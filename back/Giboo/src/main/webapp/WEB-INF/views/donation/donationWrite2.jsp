@@ -1,11 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>donateWrite</title>
-    <link rel="stylesheet" href="../../css/donate/donateWrite2.css">
+    <title>donationWrite</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/donationWrite2.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -18,7 +21,7 @@
 </head>
 <body>
 <header>
-    <div data-include1="header" id="header"></div>
+    <jsp:include page="/WEB-INF/views/main/header.jsp" />
 </header>
 
 <div class="mainTitleArea">
@@ -122,6 +125,9 @@
     </div>
 </section>
 
+<footer>
+    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
+</footer>
 
 <!-- jQuery 라이브러리 추가 -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -136,7 +142,7 @@
 
 </script>
 
-<script src="../../JS/donate/donateWrite2.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/donation/donationWrite2.js"></script>
 
 <script type="text/javascript">
     jQuery(document).ready(function() {

@@ -142,7 +142,7 @@
 
 </script>
 
-<script src="../../JS/volunteer/volunteerWrite2.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteerWrite2.js"></script>
 
 <script type="text/javascript">
     jQuery(document).ready(function() {
