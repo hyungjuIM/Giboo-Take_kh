@@ -373,14 +373,22 @@ input::placeholder {
 
 .memberChange_w{
   border: none; 
+
   background-color: #BDBDBD; 
   border-radius: 10px;
   width: 75px;
   height: 25px;
-
-  color : #FFFFFF;
+  
   border-radius: 50px;
   cursor: pointer;
+}
+
+.memberChange_w a {
+  outline : none;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color : #FFFFFF;
 }
 
 
