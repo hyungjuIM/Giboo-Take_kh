@@ -31,8 +31,8 @@ body {
     border: solid 1px #666666;
     border-radius: 10px;
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 60%;
+    left: 55%;
     margin: -250px 0 0 -250px;
     z-index: 9999;
     display: none;
@@ -186,7 +186,6 @@ body {
     height : 50px;
     display: flex;
     align-items: center;
-    justify-content: center;
 
     cursor: pointer;
 
@@ -200,6 +199,55 @@ body {
 .E_popup_cont05 i {
     margin-right: 10px;
 }
+
+.E_imgInputInner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    position: relative;
+    margin : 10px;
+}
+
+#E_imgInput {
+    padding: 10px 15px;
+    width: 230px;
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+#E_imgInput::file-selector-button {
+    display: none;
+}
+
+#E_imgInputPlaceholder {
+    width: 200px;
+    height: 27px;
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    opacity: 1;
+}
+
+.E_imgSelectButton{
+    font-size: 12px;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+
+    color : #bdbdbd;
+    font-weight: 500px;
+    
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    cursor: pointer;
+    
+    
+}
+
 
 
 

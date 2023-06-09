@@ -31,7 +31,7 @@
         <jsp:include page="/WEB-INF/views/main/header.jsp" />
     </header>
 
-    <main>
+     <main>
         <div class="page-title">
             <span>회원탈퇴</span>
         </div>
@@ -42,36 +42,38 @@
                 <!--왼쪽 네비바 틀-->
                 <nav class="mypage_nav_area">
                     <div class="mypage_summary_container">
-
-                        <div class="mypage_profileEmojiContainer">
-                            <div class="mypage_profileEmojiTheme ">🥳</div>
+          
+                      <div class="mypage_profileEmojiContainer">
+                        <div class="mypage_profileEmojiTheme ">🥳</div>
+                      </div>
+                      <div class="mypage_hiuser">고마운분</div>
+                      <div class="userName">000님, 안녕하세요🥳 </div>
+          
+          
+                      <!--왼쪽 네비바 메뉴 -->
+                      <nav class="mypage_content_container">
+                        <ul class="mypage_content_first">
+                          <li><a href="#">회원정보수정</a></li>
+                          
+                          <li><a href="#">즐겨찾기</a></li>
+                          
+                        </ul>
+                        <hr>
+                        <div class="mypage_content_second">
+                          <ul>
+                            <li><a href="../myPage/myactive.html">나의 활동</a></li>
+                            <li><a href="../myPage/myactive.html">나의 문의</a></li>
+                            <li><a href="../myPage/myask.html">나의 리뷰</a></li>
+          
+                          </ul>
                         </div>
-                        <div class="mypage_hiuser">고마운분</div>
-                        <div class="userName">000님, 안녕하세요🥳 </div>
-
-
-                        <!--왼쪽 네비바 메뉴 -->
-                        <nav class="mypage_content_container">
-                            <ul class="mypage_content_first">
-                                <li><a href="#">회원정보수정</a></li>
-
-                                <li><a href="#">즐겨찾기</a></li>
-                                <li><a href="#">적립금</a></li>
-                            </ul>
-                            <hr>
-                            <div class="mypage_content_second">
-                                <ul>
-                                    <li><a href="../myPage/myactive.html">나의 활동</a></li>
-                                    <li><a href="../myPage/myask.html">나의 문의</a></li>
-                                </ul>
-                            </div>
-                            <hr>
-                            <div class="mypage_content_third">
-                                <button>로그아웃</button>
-                            </div>
-                        </nav> <!--mypage_content_container-->
+                        <hr>
+                        <div class="mypage_content_third">
+                          <button>로그아웃</button>
+                        </div>
+                      </nav> <!--mypage_content_container-->
                     </div> <!-- mypage_summary_container-->
-                </nav> <!--mypage_nav_area-->
+                  </nav> <!--mypage_nav_area-->
 
                 <!--오른쪽 회원탈퇴 본문-->
                 <div class="withdrawal_content_area">
@@ -80,7 +82,7 @@
                             <section class="withdrawal_notice">
 
                                 <!-- notice seach area -->
-                                <div class="withdrawal_notice">
+                                <div class="withdrawal_notice1">
                                     <div class="withdrawal_container1">
                                         <span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
                                             style="color: #8071FC;">

@@ -64,6 +64,14 @@ $(document).ready(function () {
 }); 
 
 
+const imgInput = document.getElementById("E_imgInput");
+const imgInputPlaceholder = document.getElementById("E_imgInputPlaceholder");
+
+E_imgInput.addEventListener("change", () => {
+    E_imgInputPlaceholder.style.opacity = "0";
+});
+
+
 
 
 
