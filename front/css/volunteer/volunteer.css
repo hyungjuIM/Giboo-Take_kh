@@ -54,10 +54,7 @@ a{
 .mainCategoryItem {
     padding: 4px 12px;
     margin-inline: 8px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
     color: #D6D3F4;
 }
 
@@ -161,13 +158,13 @@ a{
     border-radius: 6px;
 }
 
-.volunteerList {
+.list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.volunteerItem {
+.item {
     width: 378px;
     height: 486px;
     border-radius: 30px;
@@ -187,7 +184,7 @@ a{
     transition-duration: 250ms;
 }
 
-.volunteerImg {
+.thumbnail {
     border-radius: 30px;
     width: 330px;
     height: 330px;
@@ -199,7 +196,7 @@ a{
     box-shadow: 7px 7px 7px #0000001e;
 }
 
-.volunteerButtonSection {
+.buttonSection {
     width: 300px;
     height: 40px;
 
@@ -213,7 +210,7 @@ a{
     align-items: center;
 }
 
-.volunteerButtonSection > .volunteerButton:first-child {
+.buttonSection > .button:first-child {
     width: 123px;
     height: 40px;
     background-color: #EFEFEF;
@@ -232,7 +229,7 @@ a{
     transition-duration: 250ms;
 }
 
-.volunteerButtonSection > .volunteerButton:last-child {
+.buttonSection > .button:last-child {
     width: 40px;
     height: 40px;
     background-color: #EFEFEF;
@@ -253,13 +250,13 @@ a{
     transition-duration: 250ms;
 }
 
-.volunteerButtonImage {
+.buttonImage {
     height: 10px;
     margin-left: 10px;
     transition-duration: 250ms;
 }
 
-.volunteerButtonFocus {
+.buttonFocus {
     color: #FFFFFF !important;
     background-color: #8071FC !important;
     transition-duration: 250ms;
@@ -278,14 +275,14 @@ a{
     margin-bottom: 6px;
 }
 
-.volunteerProgressBar {
+.progressBar {
     width: 233px;
     height: 8px;
     border-radius: 30px;
     background-color: #F0F0F0;
 }
 
-.volunteerProgressBarValue {
+.progressBarValue {
     background: linear-gradient(to top, #8071FC 50%, #574da1);
     border-radius: 30px;
 
@@ -293,7 +290,7 @@ a{
     height: 100%;
 }
 
-.volunteerInfo {
+.info {
     width: 233px;
     display: flex;
     flex-direction: row;
@@ -305,7 +302,7 @@ a{
     font-size: 12px;
 }
 
-.volunteerProgress {
+.progressPercentage {
     font-weight: bold;
 }
 
