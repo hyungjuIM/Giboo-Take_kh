@@ -104,7 +104,7 @@
                 <div id="sortingArea" class="sortingArea">
                     <select class="sortingButton" id="sortingButton">
                         종료임박 순
-                        <img src="../../images/chevron-down-solid.svg">
+                        <img src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
                         <option value="expired">종료임박 순</option>
                         <option value="recommended">추천 순</option>
                         <option value="new">최신 순</option>
@@ -119,12 +119,12 @@
                 <div class="item">
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
+                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                         <div class="button">💖</div>
                     </div>
 
                     <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
+                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                         <div class="subTitle">타이틀</div>
                         <div class="mainTitle">타이틀2</div>
                     </a>
@@ -143,12 +143,12 @@
                 <div class="item">
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
+                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                         <div class="button">💖</div>
                     </div>
 
                     <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
+                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                         <div class="subTitle">타이틀</div>
                         <div class="mainTitle">타이틀2</div>
                     </a>
@@ -167,12 +167,12 @@
                 <div class="item">
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
+                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                         <div class="button">💖</div>
                     </div>
 
                     <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
+                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                         <div class="subTitle">타이틀</div>
                         <div class="mainTitle">타이틀2</div>
                     </a>
@@ -191,12 +191,12 @@
                 <div class="item">
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
+                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                         <div class="button">💖</div>
                     </div>
 
                     <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
+                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                         <div class="subTitle">타이틀</div>
                         <div class="mainTitle">타이틀2</div>
                     </a>
@@ -215,12 +215,12 @@
                 <div class="item">
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
+                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                         <div class="button">💖</div>
                     </div>
 
                     <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
+                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                         <div class="subTitle">타이틀</div>
                         <div class="mainTitle">타이틀2</div>
                     </a>
@@ -239,12 +239,12 @@
                 <div class="item">
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
+                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                         <div class="button">💖</div>
                     </div>
 
                     <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
+                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                         <div class="subTitle">타이틀</div>
                         <div class="mainTitle">타이틀2</div>
                     </a>
@@ -286,6 +286,6 @@
 
 </script>
 
-<script src="../../JS/volunteer/volunteer.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteer.js"></script>
 </body>
 </html>

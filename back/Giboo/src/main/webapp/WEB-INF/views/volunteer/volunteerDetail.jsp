@@ -28,7 +28,7 @@
         <div class="mainContent">
 
             <div class="infoArea">
-                <img class="thumbnail" src="../../images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
+                <img class="thumbnail" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
 
                 <div class="info">
                     <div>
@@ -52,10 +52,10 @@
 
                         <div class="progressStatus">
                             <span>
-                                <img src="/images/comment-regular.svg">
+                                <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                                 <span id="volunteerCount">1,030</span>명 참여중</span>
                             <span>
-                                <img src="/images/heart-regular.svg">
+                                <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                                 <span id="recommendedCount">102</span>명 추천</span>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                     It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,<br>
                     and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<br>
                     <br>
-                    <img src="/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
+                    <img src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
                     <br>
                     <div class="imageDescription">테스트</div>
                     <h4>Why do we use it?</h4><br>
@@ -94,7 +94,7 @@
                     and a search for 'lorem ipsum' will uncover many web sites still in their infancy.<br>
                     Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).<br>
                     <br>
-                    <img src="/images/1E3A3E62-B3CA-434A-8C3B3ED0C982FB69_source.webp" alt="">
+                    <img src="${pageContext.request.contextPath}/resources/images/1E3A3E62-B3CA-434A-8C3B3ED0C982FB69_source.webp" alt="">
                     <br>
                     <div class="imageDescription">테스트</div>
                     <h4>Where does it come from?</h4><br>
@@ -113,7 +113,7 @@
                     Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form,<br>
                     accompanied by English versions from the 1914 translation by H. Rackham.<br>
                     <br>
-                    <img src="/images/Cat_August_2010-4.jpg" alt="">
+                    <img src="${pageContext.request.contextPath}/resources/images/Cat_August_2010-4.jpg" alt="">
                     <br>
                     <div class="imageDescription">테스트</div>
                     <h4>Where can I get some?</h4><br>
@@ -129,7 +129,7 @@
                     to generate Lorem Ipsum which looks reasonable.<br>
                     The generated Lorem Ipsum is therefore always free from repetition,<br>
                     injected humour, or non-characteristic words etc.<br>
-                    <img src="/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp" alt="">
+                    <img src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp" alt="">
                     <br>
                     <div class="imageDescription">테스트</div>
                 </div>
@@ -137,7 +137,7 @@
                 <div class="nav">
                     <div class="agencyInfoArea">
                         <div class="agencyInfo">
-                            <img class="agencyImg" src="/images/dog_emoji.png">
+                            <img class="agencyImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
                             <div class="agencyInfoInner">
                                 <div class="division">모금단체</div>
                                 <div class="agencyName">동물권행동 카라</div>
@@ -147,16 +147,16 @@
                         <div class="agencyDescription">존엄한 생명으로서 그들의 본연의 삶을 영위하고,<br>
                             모든 생명의균형과 조화 속에 공존하는 세상을 지향합니다.</div>
                         <a class="agencyLink" href="">사이트 방문하기
-                            <img class="agencyLinkImg" src="/images/chevron-right-solid.svg"></a>
+                            <img class="agencyLinkImg" src="${pageContext.request.contextPath}/resources/images/chevron-right-solid.svg"></a>
                     </div>
 
                     <div class="commentArea">
                         <div>
-                            <img class="commentTitleImg" src="/images/comment-regular.svg">
+                            <img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="name">마리</span>에게 응원의 메시지를 남겨주세요</div>
                         <div class="commentItem">
                             <div class="memberImgArea">
-                                <img id="memberImg1" class="memberImg" src="/images/dog_emoji.png">
+                                <img id="memberImg1" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
                             </div>
 
                             <div class="commentInner">
@@ -167,7 +167,7 @@
 
                         <div class="commentItem">
                             <div class="memberImgArea">
-                                <img id="memberImg2" class="memberImg" src="/images/dog_emoji.png">
+                                <img id="memberImg2" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
                             </div>
 
                             <div class="commentInner">
@@ -178,7 +178,7 @@
 
                         <div class="commentItem">
                             <div class="memberImgArea">
-                                <img id="memberImg3" class="memberImg" src="/images/dog_emoji.png">
+                                <img id="memberImg3" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
                             </div>
 
                             <div class="commentInner">
@@ -189,10 +189,10 @@
 
                         <button class="commentSubmit">응원하기</button>
                         <div class="commentInfo">
-                            <img src="/images/comment-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="commentCount">1,030</span>
                             <span>명 응원중｜</span>
-                            <img src="/images/share-from-square-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/share-from-square-regular.svg">
                             <span id="shareCount">508</span>
                             <span>명 공유</span>
                         </div>
@@ -206,93 +206,93 @@
 
                 <div class="relatedAreaInner">
                     <div class="relatedItemListButtonArea">
-                        <button id="prev"><img src="/images/arrow-left-long-solid.svg"></button>
+                        <button id="prev"><img src="${pageContext.request.contextPath}/resources/images/arrow-left-long-solid.svg"></button>
                     </div>
                     <div class="relatedItemList">
 
                         <div class="relatedItem">
                             <a href="">
-                                <img id="relatedImg1" class="relatedImg" src="/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
+                                <img id="relatedImg1" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
                                 <div class="relatedItemTitle">타이틀</div>
                             </a>
                             <div class="relatedItemStatus">
                             <span>
-                            <img src="/images/comment-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="relatedVolunteerCount1">1,030</span>명 참여중</span>
 
                                 <span>
-                            <img src="/images/heart-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                             <span id="relatedRecommendedCount1">102</span>명 추천</span>
                             </div>
                         </div>
 
                         <div class="relatedItem">
                             <a href="">
-                                <img id="relatedImg2" class="relatedImg" src="/images/news_1486098867_610387_m_1.jpg">
+                                <img id="relatedImg2" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/news_1486098867_610387_m_1.jpg">
                                 <div class="relatedItemTitle">타이틀</div>
                             </a>
                             <div class="relatedItemStatus">
                             <span>
-                            <img src="/images/comment-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="relatedVolunteerCount2">1,030</span>명 참여중</span>
 
                                 <span>
-                            <img src="/images/heart-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                             <span id="relatedRecommendedCount2">102</span>명 추천</span>
                             </div>
                         </div>
 
                         <div class="relatedItem">
                             <a href="">
-                                <img id="relatedImg3" class="relatedImg" src="/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
+                                <img id="relatedImg3" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
                                 <div class="relatedItemTitle">타이틀</div>
                             </a>
                             <div class="relatedItemStatus">
                             <span>
-                            <img src="/images/comment-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="relatedVolunteerCount3">1,030</span>명 참여중</span>
 
                                 <span>
-                            <img src="/images/heart-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                             <span id="relatedRecommendedCount3">102</span>명 추천</span>
                             </div>
                         </div>
 
                         <div class="relatedItem">
                             <a href="">
-                                <img id="relatedImg4" class="relatedImg" src="/images/1E3A3E62-B3CA-434A-8C3B3ED0C982FB69_source.webp">
+                                <img id="relatedImg4" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/1E3A3E62-B3CA-434A-8C3B3ED0C982FB69_source.webp">
                                 <div class="relatedItemTitle">타이틀</div>
                             </a>
                             <div class="relatedItemStatus">
                             <span>
-                            <img src="/images/comment-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="relatedVolunteerCount4">1,030</span>명 참여중</span>
 
                                 <span>
-                            <img src="/images/heart-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                             <span id="relatedRecommendedCount4">102</span>명 추천</span>
                             </div>
                         </div>
 
                         <div class="relatedItem">
                             <a href="">
-                                <img id="relatedImg5" class="relatedImg" src="/images/Cat_August_2010-4.jpg">
+                                <img id="relatedImg5" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/Cat_August_2010-4.jpg">
                                 <div class="relatedItemTitle">타이틀</div>
                             </a>
                             <div class="relatedItemStatus">
                             <span>
-                            <img src="/images/comment-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="relatedVolunteerCount5">1,030</span>명 참여중</span>
 
                                 <span>
-                            <img src="/images/heart-regular.svg">
+                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                             <span id="relatedRecommendedCount5">102</span>명 추천</span>
                             </div>
                         </div>
 
                     </div>
                     <div class="relatedItemListButtonArea">
-                        <button id="next"><img src="/images/arrow-right-long-solid.svg"></button>
+                        <button id="next"><img src="${pageContext.request.contextPath}/resources/images/arrow-right-long-solid.svg"></button>
                     </div>
                 </div>
 
@@ -318,8 +318,8 @@
 
     </script>
 
-    <script src="/JS/slick/slick.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
 
-    <script src="/JS/volunteer/volunteerDetail.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteerDetail.js"></script>
 </body>
 </html>

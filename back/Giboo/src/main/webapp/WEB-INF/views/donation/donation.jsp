@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>donate</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donate/donate.css">
+    <title>donation</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/donation.css">
 </head>
 <body>
 <header>
@@ -17,8 +17,8 @@
 
 <div class="mainCategoryArea">
     <div class="mainCategoryInner">
-        <a href="/donate/donateHome" class="mainCategoryItem mainCategoryChecked" id="donateHome">기부 진행중</a>
-        <a href="/donate/donateStory" class="mainCategoryItem" id="donateStory">기부이야기</a>
+        <a href="/donation" class="mainCategoryItem mainCategoryChecked" id="donation">기부 진행중</a>
+        <a href="/donation/donationStory" class="mainCategoryItem" id="donationStory">기부이야기</a>
     </div>
 </div>
 
@@ -286,6 +286,6 @@
 
 </script>
 
-<script src="${pageContext.request.contextPath}/resources/js/donate/donate.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/donation/donation.js"></script>
 </body>
 </html>

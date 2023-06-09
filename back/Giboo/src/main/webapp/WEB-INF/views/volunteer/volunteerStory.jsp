@@ -28,7 +28,7 @@
 
         <div class="categoryArea">
             <span class="type">봉사</span>
-            <img src="/images/minus-solid.svg">
+            <img src="${pageContext.request.contextPath}/resources/images/minus-solid.svg">
             <span class="category">동물</span>
         </div>
 
@@ -38,7 +38,7 @@
         </div>
 
         <div class="contentArea">
-            <img class="contentImg" src="/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
+            <img class="contentImg" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
             <div class="content">
                 <h4>What is Lorem Ipsum?</h4><br>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
@@ -121,6 +121,6 @@
 
 </script>
 
-<script src="../../JS/volunteer/volunteerStory.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteerStory.js"></script>
 </body>
 </html>
