@@ -1,8 +1,6 @@
 const SubCategoryLabelTheme = document.getElementsByClassName("SubCategoryLabelTheme");
-const sortingArea = document.getElementById("sortingArea");
-const sortingListBox = document.getElementById("sortingListBox");
-const volunteerItem = document.getElementsByClassName("volunteerItem");
-const volunteerButton = document.getElementsByClassName("volunteerButton");
+const item = document.getElementsByClassName("item");
+const button = document.getElementsByClassName("button");
 
 for (let i of SubCategoryLabelTheme) {
     i.addEventListener("click", () => {
@@ -13,32 +11,24 @@ for (let i of SubCategoryLabelTheme) {
     });
 }
 
-sortingArea.addEventListener("click", () => {
-    if (sortingListBox.getAttribute("aria-hidden") == "true") {
-        sortingListBox.setAttribute("aria-hidden", "false");
-    } else {
-        sortingListBox.setAttribute("aria-hidden", "true");
-    }
-})
-
-for (let i of volunteerItem) {
+for (let i of item) {
     i.addEventListener("mouseenter", () => {
-        i.classList.add("volunteerItemFocus");
+        i.classList.add("itemFocus");
     });
 
     i.addEventListener("mouseleave", () => {
-        i.classList.remove("volunteerItemFocus");
+        i.classList.remove("itemFocus");
     });
 }
 
-for (let i of volunteerButton) {
+for (let i of button) {
     i.addEventListener("mouseenter", () => {
-        i.classList.add("volunteerButtonFocus");
+        i.classList.add("buttonFocus");
         i.firstElementChild.src = "/images/chevron-right-solid-white.svg";
     });
 
     i.addEventListener("mouseleave", () => {
-        i.classList.remove("volunteerButtonFocus");
+        i.classList.remove("buttonFocus");
         i.firstElementChild.src = "/images/chevron-right-solid-gray.svg";
     });
 }
