@@ -5,6 +5,7 @@
 .option{
     width: 358px;
     height:42px;
+    /* background-color: yellowgreen; */
 }
 
 .MsearchBar > form{
@@ -250,22 +251,77 @@
     margin-top: 8px;
 }
 
+/* ---------슬라이드 버튼--------- */
+.mrePro{
+    position: relative;
+}
+
+.mslideBtn > div{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(197, 197, 197);
+    z-index: 99;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    top: 30px;
+}
+
+.mslideBtn > div:last-child{
+    left: 330px;
+    right: auto;
+}
+
+
+.mrePro .mreProLi{
+    opacity: 0;
+    background-repeat:no-repeat;
+    position: absolute;
+}
+
+.mrePro .mreProLi.active{
+    opacity: 1;
+}
+
+.mreProBox.active {
+    transform: translateX(0);
+}
+
+.mreProBox.next {
+    transform: translateX(100%);
+}
+
+.mreProBox.previous {
+    transform: translateX(-100%);
+}
+/* 
+.mrePro .mreProLi:first-child {
+    opacity: 1;
+} */
+
+/* ----------------------------- */
+
 .mreProUl{
     margin-top: 20px;
     display: flex;
     list-style: none;
     /* background-color: yellow; */
     padding-bottom: 10px;
+    height: 110px;
 }
 
-
+/* 말풍선 */
 .mreProBox{
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 203px;
+    width: 250px;
     height: 90px;
     border-radius: 12px;
 	position: relative;
-    margin-right: 16px;
+    /* margin-right: 16px; */
+    margin-left: 55px;
 }
 
 .mreProBox::after{
@@ -300,7 +356,7 @@
 
 .mreDe{
     /* background-color: yellowgreen; */
-    width: 160px;
+    max-width: 190px;
     height: 50px;
     margin-left: 40px;
     overflow: hidden;
@@ -394,26 +450,3 @@
 
 
 
-/*  */
-.mslideBtn.show {
-    display: block !important;
-  }
-
-
-.mslideBtn{
-    display: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    position: absolute;
-    left: 280px;
-    bottom: 300px;
-    z-index: 999;
-    background-color: white;
-    cursor: pointer;
-    border: 1px solid #b6b6b6;
-}
-
-.mslideBtn:hover{
-    background-color: #cfc9ff;
-}

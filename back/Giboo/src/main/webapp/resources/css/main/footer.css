@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+/* Fontawesome 4.7 */
+@import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+   
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+
+.footerContainer{
+    height: 244px;
+    /* background-color: rgb(255, 218, 218); */
+
+    display: flex;
+    justify-content: center;
+}
+
+.footerContent{
+    width: 1200px;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+
+    background-color: white;
+    
+}
+
+.footerContent1{
+    margin-top: 42px;
+    margin-bottom: 39.66px;
+    width: 493.24px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 로고 */
+.footerLogoContainer{
+    margin-bottom: 24px;
+}
+.footerMainContainer{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25.14px;
+}
+
+.footerMain a{
+    white-space:nowrap;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #252525;
+    margin-right: 33px;
+}
+.footerMain a:hover{
+    color: #8071fc;
+    font-weight: 600;
+}
+.faddress span{
+    font-size: 14px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+.faddress{
+    margin-bottom: 10px;
+}
+
+.finfoContainer{
+    display: flex;
+    white-space:nowrap;
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 14px;
+    
+}
+.ceo{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    /* margin-bottom: 5px; */
+}
+.emp{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.finfoContainer :nth-child(1):after{
+    
+  
+    content: '|';
+    font-size: 8px;
+    margin-right: 5px;
+    padding-left: 5px;
+    color: #767676;
+   
+  }
+  .finfoContainer :nth-child(3):after{
+        
+    content: '|';
+    font-size: 8px;
+    margin-right: 5px;
+    padding-left: 5px;
+    color: #767676;
+    
+  }
+  .femail{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  .ftel{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+
+
+  .kakaoImg{
+    width: 22px;
+    height: 20px;
+  }
+  .fbookImg{
+    width: 22px;
+    height: 20px;
+  }
+  .youtubeImg{
+    width: 10px;
+    height: 10px;
+  }
+.snsLogo{
+    width: 204.17px;
+    display: flex;
+    flex-direction: row;
+    margin: 119px 0 85px 495.32px;
+}
+.kakaoContainer{
+    margin-right: 40.84px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    border: solid 1px #d9d9d9;
+    width: 40.83px;
+    height: 40.83px;
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+.fbookContainer{
+    margin-right: 40.84px;
+ display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    border: solid 1px #d9d9d9;
+    width: 40.83px;
+    height: 40.83px;
+    background-color: #d9d9d9;
+    cursor: pointer;
+}
+.youtubeImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    border: solid 1px #d9d9d9;
+    width: 40.83px;
+    height: 40.83px;
+    background-color: #d9d9d9;
+    cursor: pointer;
+}

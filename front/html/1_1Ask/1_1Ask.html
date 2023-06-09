@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1대1상담</title>
+    <link rel="stylesheet" href="/css/1_1Ask/1_1Ask.css">
+</head>
+<body>
+
+    <div class="AWrap">
+        <div class="ABox">
+            <div class="ATitle">
+                <div class="ATitlDe">
+                    <span>기부 앤 테이크</span>
+                    <div class="ALogo">
+                        <img src="/images/doCenter.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="AchatWrap">
+                <div class="AchatBox">
+                    <ul class="AchatUl">
+                        <!-- 상담자 -->
+                        <li class="AAichatLi">
+                            <div class="AProfile">
+                                <div class="AProImg">
+                                    <img src="/images/profile.jpeg" alt="">
+                                </div>
+                            </div>
+                            <div class="AchatWrapBox">
+                                <div class="AAiLiBox">
+                                    <div class="AAiSpan">
+                                        <span>
+                                            안녕하세요🥰
+                                            Giboo&take입니다.
+                                            문의 사항을 아래에서 선택해주세요.
+                                            안녕하세요🥰
+                                            Giboo&take입니다.
+                                            문의 사항을 아래에서 선택해주세요.
+                                            대표전화 알려줘
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="AAiWrap">
+                                    <div class="AAiBox">
+                                        <div class="AAiBox_1">
+                                            <span>봉사 신청 바로가기😆</span>
+                                        </div>
+                                        <div class="AAiBox_1">
+                                            <span>기부 신청 바로가기😋</span>
+                                        </div>
+                                        <div class="AAiBox_1">
+                                            <span>이벤트❤️</span>
+                                        </div>
+                                        <div class="AAiBox_1">
+                                            <span>대표전화📞</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 나 -->
+                        <li class="AMeWrap">
+                            <div class="AMechatWrapBox">
+                                <div class="ALiMeSpan">
+                                    <span>
+                                        ALiMeBoxALiMeBoxALiMeBoxALiMeBoxALiMeBoxALiMeBoxALiMeBoxALiMeBoxALiMeBoxALiMeBox
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="AMeProfile">
+                                <div class="AProImg">
+                                    <img src="/images/doCenter.jpg" alt="">
+                                </div>
+                            </div>
+                        </li>
+                        <!-- 상담자 -->
+                        <li class="AAichatLi">
+                            <div class="AProfile">
+                                <div class="AProImg">
+                                    <img src="/images/profile.jpeg" alt="">
+                                </div>
+                            </div>
+                            <div class="AchatWrapBox">
+                                <div class="AAiLiBox">
+                                    <div class="AAiSpan">
+                                        <span>
+                                            문의하신 대표전화는 02-8282-8282 입니다.
+                                            문의하신 대표전화는 02-8282-8282 입니다.
+                                            문의하신 대표전화는 02-8282-8282 입니다.
+                                            문의하신 대표전화는 02-8282-8282 입니다.
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="AAiLiBox">
+                                    <div class="AAiSpan">
+                                        <span>
+                                            더 문의 사항 있으신가요?
+                                            더 문의 사항 있으신가요?
+                                            더 문의 사항 있으신가요?
+                                            더 문의 사항 있으신가요?
+                                            더 문의 사항 있으신가요?
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="AAiWrap">
+                                    <div class="AAiBox">
+                                        <div class="AAiBox_1">
+                                            <span>예</span>
+                                        </div>
+                                        <div class="AAiBox_1">
+                                            <span>아니요</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="AInputWrap">
+                <div class="AInputSticky">
+                    <div class="AInputBox">
+                        <textarea id="AInputArea" placeholder="여기에 문의사항을 적어주세요."></textarea>
+                        <button class="AsendBtn">보내기</button>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+
+    <script>
+        //줄 바꿈 처리 되는가..?
+
+        //enter => <br>
+        var text = document.getElementById("AInputArea").value;
+        text = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+        //<br> => enter
+        var text = document.getElementById("AInputArea").value;
+        text = text.replaceAll("<br>", "\r\n");
+    </script>
+    
+</body>
+</html>

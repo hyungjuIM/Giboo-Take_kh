@@ -25,19 +25,19 @@
 	
 	<!-- itnerceptor 작성 -->
 	<!-- 모아두는 큰 덩어리를 만들어서 interceptor를 보관하기. -->
-	<interceptors>
+	<!--<interceptors>-->
 		<!-- interceptor -->
-		<interceptor> <!-- 요청이 dispatcher Servlet에서 controller에 도달하기 전 || 후에 -->
+		<!--<interceptor>--> <!-- 요청이 dispatcher Servlet에서 controller에 도달하기 전 || 후에 -->
 			<!-- 요청 응답객체 REQ/RESP 를 가로채서 사용할 수 있는 객체이다. -->
 			
 			<!--  가로챌 요청의 패턴을 지정 -->
-			<mapping path="/**" /> <!-- /**==모든요청 -->
+			<!--<mapping path="/**" />--> <!-- /**==모든요청 -->
 			
 			<!-- 인터넵터 역할을 수행 할 클래스를 찾아서 bean으로 등록 -->
-			<beans:bean id="BoardTypeInterceptor" class="kh.fin.giboo.common.interceptor.BoardTypeInterceptor" />
-
-		</interceptor>
-	</interceptors>
+			<!--<beans:bean id="BoardTypeInterceptor" class="kh.fin.giboo.common.interceptor.BoardTypeInterceptor" />-->
+ 
+		<!--</interceptor>-->
+	<!--</interceptors>-->
 	
 	
 </beans:beans>

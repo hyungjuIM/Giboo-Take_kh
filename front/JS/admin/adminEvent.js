@@ -1,7 +1,7 @@
 const sideMenu = document.getElementsByClassName("sideMenuItem");
 const resetSearch = document.getElementById("resetSearch");
-const sendNotification = document.getElementById("sendNotification");
-const memberDetail = document.getElementById("memberDetail");
+const createEvent = document.getElementById("createEvent");
+const detail = document.getElementsByClassName("detail");
 
 for (const i of sideMenu) {
     i.addEventListener("mouseover", () => {
@@ -21,18 +21,20 @@ resetSearch.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("focus");
 });
 
-sendNotification.addEventListener("mouseover", (e) => {
+createEvent.addEventListener("mouseover", (e) => {
     e.target.classList.add("focus");
 });
 
-sendNotification.addEventListener("mouseleave", (e) => {
+createEvent.addEventListener("mouseleave", (e) => {
     e.target.classList.remove("focus");
 });
 
-memberDetail.addEventListener("mouseover", (e) => {
-    e.target.classList.add("focus");
-});
+for (const i of detail) {
+    i.addEventListener("mouseover", () => {
+        i.classList.add("focus");
+    });
 
-memberDetail.addEventListener("mouseleave", (e) => {
-    e.target.classList.remove("focus");
-});
+    i.addEventListener("mouseleave", () => {
+        i.classList.remove("focus");
+    });
+}

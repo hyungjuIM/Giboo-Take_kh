@@ -29,7 +29,6 @@ a{
 /* section mainContainer */
 .mainContainer{
     border: 1px solid pink;
-    height: 80vh;
 
     display: flex;
     justify-content: center;
@@ -55,10 +54,7 @@ a{
 .mainCategoryItem {
     padding: 4px 12px;
     margin-inline: 8px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 20px;
     color: #D6D3F4;
 }
 
@@ -162,13 +158,13 @@ a{
     border-radius: 6px;
 }
 
-.volunteerList {
+.list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.volunteerItem {
+.item {
     width: 378px;
     height: 486px;
     border-radius: 30px;
@@ -184,11 +180,11 @@ a{
 }
 
 .volunteerItemFocus {
-    box-shadow: 7px 7px 7px #0000001e;
+    box-shadow: 3px 3px 14px 4px #0000002B;
     transition-duration: 250ms;
 }
 
-.volunteerImg {
+.thumbnail {
     border-radius: 30px;
     width: 330px;
     height: 330px;
@@ -200,21 +196,21 @@ a{
     box-shadow: 7px 7px 7px #0000001e;
 }
 
-.volunteerButtonSection {
+.buttonSection {
     width: 300px;
     height: 40px;
 
     position: absolute;
     transform: translate(0%, 680%);
-    
+
     z-index: 1;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.volunteerButtonSection > .volunteerButton:first-child {
+.buttonSection > .button:first-child {
     width: 123px;
     height: 40px;
     background-color: #EFEFEF;
@@ -233,7 +229,7 @@ a{
     transition-duration: 250ms;
 }
 
-.volunteerButtonSection > .volunteerButton:last-child {
+.buttonSection > .button:last-child {
     width: 40px;
     height: 40px;
     background-color: #EFEFEF;
@@ -254,12 +250,13 @@ a{
     transition-duration: 250ms;
 }
 
-.volunteerButtonImage {
-    height: 15px;
+.buttonImage {
+    height: 10px;
     margin-left: 10px;
+    transition-duration: 250ms;
 }
 
-.volunteerButtonFocus {
+.buttonFocus {
     color: #FFFFFF !important;
     background-color: #8071FC !important;
     transition-duration: 250ms;
@@ -275,6 +272,38 @@ a{
     color: #4D4D4D;
     font-size: 20px;
     text-align: center;
+    margin-bottom: 6px;
+}
+
+.progressBar {
+    width: 233px;
+    height: 8px;
+    border-radius: 30px;
+    background-color: #F0F0F0;
+}
+
+.progressBarValue {
+    background: linear-gradient(to top, #8071FC 50%, #574da1);
+    border-radius: 30px;
+
+    width: 50%;
+    height: 100%;
+}
+
+.info {
+    width: 233px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #7A7A7A;
+}
+
+.volunteerInfo * {
+    font-size: 12px;
+}
+
+.progressPercentage {
+    font-weight: bold;
 }
 
 [aria-hidden="true"] {
