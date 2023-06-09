@@ -42,36 +42,38 @@
                 <!--왼쪽 네비바 틀-->
                 <nav class="mypage_nav_area">
                     <div class="mypage_summary_container">
-
-                        <div class="mypage_profileEmojiContainer">
-                            <div class="mypage_profileEmojiTheme ">🥳</div>
+          
+                      <div class="mypage_profileEmojiContainer">
+                        <div class="mypage_profileEmojiTheme ">🥳</div>
+                      </div>
+                      <div class="mypage_hiuser">고마운분</div>
+                      <div class="userName">000님, 안녕하세요🥳 </div>
+          
+          
+                      <!--왼쪽 네비바 메뉴 -->
+                      <nav class="mypage_content_container">
+                        <ul class="mypage_content_first">
+                          <li><a href="#">회원정보수정</a></li>
+                          
+                          <li><a href="#">즐겨찾기</a></li>
+                          
+                        </ul>
+                        <hr>
+                        <div class="mypage_content_second">
+                          <ul>
+                            <li><a href="../myPage/myactive.html">나의 활동</a></li>
+                            <li><a href="../myPage/myactive.html">나의 문의</a></li>
+                            <li><a href="../myPage/myask.html">나의 리뷰</a></li>
+          
+                          </ul>
                         </div>
-                        <div class="mypage_hiuser">고마운분</div>
-                        <div class="userName">000님, 안녕하세요🥳 </div>
-
-
-                        <!--왼쪽 네비바 메뉴 -->
-                        <nav class="mypage_content_container">
-                            <ul class="mypage_content_first">
-                                <li><a href="#">회원정보수정</a></li>
-
-                                <li><a href="#">즐겨찾기</a></li>
-                                <li><a href="#">적립금</a></li>
-                            </ul>
-                            <hr>
-                            <div class="mypage_content_second">
-                                <ul>
-                                    <li><a href="../myPage/myactive.html">나의 활동</a></li>
-                                    <li><a href="../myPage/myask.html">나의 문의</a></li>
-                                </ul>
-                            </div>
-                            <hr>
-                            <div class="mypage_content_third">
-                                <button>로그아웃</button>
-                            </div>
-                        </nav> <!--mypage_content_container-->
+                        <hr>
+                        <div class="mypage_content_third">
+                          <button>로그아웃</button>
+                        </div>
+                      </nav> <!--mypage_content_container-->
                     </div> <!-- mypage_summary_container-->
-                </nav> <!--mypage_nav_area-->
+                  </nav> <!--mypage_nav_area-->
 
                 <!--오른쪽 회원탈퇴 본문-->
                 <div class="memberChange_content_area">
@@ -89,7 +91,9 @@
 
                                     <div class="memberChange_title">
                                         <span class="memberChange_con1">아이디</span>
-                                        <span class="memberChange_con2">로그인아이디</span>
+                                        <span class="memberChange_con2">
+                                            <div>로그인아이디</div>
+                                        </span>
                                     </div>
                                     <div class="memberChange_title">
                                         <span class="memberChange_con1">이름</span>
@@ -164,7 +168,7 @@
                                     <button class="memberChange_b">수정완료</button>
                                     <button class="memberChange_b">이전으로</button>
                                     <span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>
-                                    <button class="memberChange_w">회원탈퇴</button> </span>
+                                    <button class="memberChange_w"><a href="#none">회원탈퇴</a></button> </span>
                                 </div>
                         </div>
                 </div>

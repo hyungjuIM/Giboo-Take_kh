@@ -55,28 +55,28 @@ body {
 /*===========================================*/
 /* 왼쪽 네비바 */
 .mypage_nav_area{
-    width : 20%;
-    height: 800px;
+    width : 285px;
+    /* height: 85vh; */
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    border: 0.5px solid #BDBDBD;
+    border-left: 0.5px solid #dcdcdc;
     box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
-
+  
       
-}
-
-/*왼쪽 네비바 상단 사진+이름*/
-.mypage_summary_container{
+  }
+  
+  /*왼쪽 네비바 상단 사진+이름*/
+  .mypage_summary_container{
     width: 100%;
-}
-.mypage_profileEmojiContainer{
+  }
+  .mypage_profileEmojiContainer{
   display: flex;
     
   justify-content: center;
   align-items: center;
-}
-.mypage_profileEmojiTheme {
+  }
+  .mypage_profileEmojiTheme {
   width: 100px;
   height: 100px;
   background-color: #D9D9D9;
@@ -85,15 +85,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
- 
-  margin : 50px;
+  
+  margin : 96px 90px 16px 79px;
   font-size: 70px;
-}
-
-
-/*왼쪽 네비바 고마운분 */
-.mypage_hiuser{
+  }
+  
+  
+  /*왼쪽 네비바 고마운분 */
+  .mypage_hiuser{
     margin: 10px;
+    margin-top: 0;
     display: flex;
     justify-content: center;
     /*font */
@@ -102,117 +103,125 @@ body {
     color: #BDBDBD;
     font-family: 'Noto Sans KR', sans-serif;
     text-align: center;
-}
-
-/*가명: 000 님, 안녕하세요*/
-.userName {
+  }
+  
+  /*가명: 000 님, 안녕하세요*/
+  .userName {
     font-weight: 600;
     font-size: 14px;
     
     font-family: 'Noto Sans KR', sans-serif;
-
+  
     display: flex;
     justify-content: center;
     color: #767676;
-}
-
-/*왼쪽 네비바 메뉴*/
-.mypage_content_container{
-  margin : 70px 10px 10px 10px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.mypage_content_container ul{
-  width: 100%;
-  color : #767676;
-
-  margin : 5px;    
-  list-style: none;
-}
-
-.mypage_content_container li{
-  display: flex;
-
-  text-decoration: none;
-  font-weight: 500;
-  color: #767676;
-  font-family: 'Noto Sans KR', sans-serif;
-  margin-bottom : 10px;
-}
-
-.mypage_content_container a{
-  font-size: 18px;    
-  color: #828282;
+  }
   
-  padding: 5px;
-  margin : 5px;  
-  margin-left: 0px;  
-}
-
-.mypage_content_container hr{
-border: 1px solid #BDBDBD;
-}
-
-.mypage_content_second{
-padding-top: 30px;
-}
-
-.mypage_content_second a{
-font-weight: 600;
-font-size: 14px;
-color: #BDBDBD;
-}
-
-
-.mypage_content_third button{
-  color: #bdbdbd;
+  /*왼쪽 네비바 메뉴*/
+  .mypage_content_container{
+    margin : 80px 137px 526px 46px;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+    flex-direction: column;
+  }
+  
+  .mypage_content_container ul{
+    width: 100%;
+    color : #767676;
+  
+      
+    list-style: none;
+  }
+  
+  .mypage_content_container li{
+    display: flex;
+  
+    text-decoration: none;
+    /* font-weight: 500; */
+    color: #767676;
+    font-family: 'Noto Sans KR', sans-serif;
+    /* margin-bottom : 0px; */
+  }
+  
+  .mypage_content_container a{
+    font-size: 16px;    
+    color: #767676;
+    
+    padding: 5px;
+    margin : 5px;  
+    margin-left: 0px;  
+  }
+  .mypage_content_first {
+  margin-bottom: 21px;
+  }
+  
+  .mypage_content_container hr{
+  border: 1px solid #D9D9D9;
+  width: 190px;
+  margin-right: 40px;
+  }
+  
+  .mypage_content_second{
+  margin-top: 24px;
+  margin-bottom: 24px;
+  }
+  
+  .mypage_content_second a{
+  font-weight: 400;
   font-size: 14px;
-  padding: 3px;
-  margin-top: 10px; 
+  color: #767676;
+  }
+  
+  
+  
+  
+  .mypage_content_third button{
+  color: #767676;
+  font-size: 14px;
+  /* padding: 3px; */
+  margin-top: 27px; 
   border: none;
   background-color: transparent;
   margin-left: 5px;
-}
-
-.mypage_content_container a:hover{   
-  color: #8071FC;
-  
-  font-weight: 600;
-  transition-duration: 0.2s;
-}
-.mypage_content_first a:hover{
-border-bottom: #8071FC 1px solid;
-transition-duration: 0.2s;
-}
-
-.mypage_content_third button:hover{
-  color: #8071FC;
-  
-  font-weight: 600;
-  transition-duration: 0.2s;
+  font-weight:bold;
   cursor: pointer;
-}
+  }
+  .mypage_content_third button:hover{
+  
+  color: #8071FC;
+    
+  font-weight: 600;
+  transition-duration: 0.2s;
+  }
+  
+  
+  .mypage_content_container a:hover{   
+    color: #8071FC;
+    
+    font-weight: 600;
+    transition-duration: 0.2s;
+  }
 
 
 
 /*------------------body-content-----------------------------------------*/
 /* 오른쪽 문의한 내역*/
 .myaskdetail_content_area {
-    width: 80%;
-    background-color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 0.5px solid #BDBDBD;
-    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
+    width : 940px;
+  background-color: #f6f6f6;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .myaskdetail_mainContainer {
-    width: 900px;
-    height: 628px;
+    margin-top : 66px;   
+    width: 860px;   
+    height: 720px;
 
     display: flex;
     justify-content: center;
@@ -222,15 +231,17 @@ transition-duration: 0.2s;
     border: 0.5px solid #BDBDBD;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
-    padding : 20px;
+}
+
+.myaskdetail_mainContent{
+    width: 1080px;
 }
 
 
 .myaskdetail_notice {
-    width: 850px;
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin : 20px;
 }
 
 
