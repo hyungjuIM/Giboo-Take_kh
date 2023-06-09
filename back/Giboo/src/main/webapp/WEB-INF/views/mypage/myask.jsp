@@ -46,37 +46,39 @@
         
           <!--왼쪽 네비바 틀-->
           <nav class="mypage_nav_area">
-              <div class="mypage_summary_container">
-    
-                <div class="mypage_profileEmojiContainer">
-                  <div class="mypage_profileEmojiTheme ">🥳</div>
-                </div>
-                <div class="mypage_hiuser">고마운분</div>
-                <div class="userName">000님, 안녕하세요🥳 </div>
-    
-    
-                <!--왼쪽 네비바 메뉴 -->
-                <nav class="mypage_content_container">
-                  <ul class="mypage_content_first">
-                    <li><a href="#">회원정보수정</a></li>
-                    
-                    <li><a href="#">즐겨찾기</a></li>
-                    <li><a href="#">적립금</a></li>
+            <div class="mypage_summary_container">
+  
+              <div class="mypage_profileEmojiContainer">
+                <div class="mypage_profileEmojiTheme ">🥳</div>
+              </div>
+              <div class="mypage_hiuser">고마운분</div>
+              <div class="userName">000님, 안녕하세요🥳 </div>
+  
+  
+              <!--왼쪽 네비바 메뉴 -->
+              <nav class="mypage_content_container">
+                <ul class="mypage_content_first">
+                  <li><a href="#">회원정보수정</a></li>
+                  
+                  <li><a href="#">즐겨찾기</a></li>
+                  
+                </ul>
+                <hr>
+                <div class="mypage_content_second">
+                  <ul>
+                    <li><a href="../myPage/myactive.html">나의 활동</a></li>
+                    <li><a href="../myPage/myactive.html">나의 문의</a></li>
+                    <li><a href="${pageContext.request.contextPath}/mypage/myreview">나의 리뷰</a></li>
+  
                   </ul>
-                  <hr>
-                  <div class="mypage_content_second">
-                    <ul>
-                      <li><a href="../myPage/myactive.html">나의 활동</a></li>
-                      <li><a href="../myPage/myask.html">나의 문의</a></li>
-                    </ul>
-                  </div>
-                  <hr>
-                  <div class="mypage_content_third">
-                    <button>로그아웃</button>
-                  </div>
-                </nav> <!--mypage_content_container-->
-              </div> <!-- mypage_summary_container-->
-            </nav> <!--mypage_nav_area-->
+                </div>
+                <hr>
+                <div class="mypage_content_third">
+                  <button>로그아웃</button>
+                </div>
+              </nav> <!--mypage_content_container-->
+            </div> <!-- mypage_summary_container-->
+          </nav> <!--mypage_nav_area-->
     
 
         <!--오른쪽 나의 문의내역 본문-->
@@ -86,7 +88,7 @@
               <section class="myask_notice">
 
                 <!-- notice seach area -->
-                <div class="myask_notice">
+                <div class="myask_notice1">
                   <div class="myask_container1">
                     <span style="color: #767676;">Giboo&Take에</span><span style="color: #8071FC;"> 문의한 내역</span><span
                       style="color: #767676;">을 알려드립니다 😇</span>
@@ -193,10 +195,9 @@
                         <li><a href="">&gt;</a></li>
                       </ul>
                     </nav>
-                    <div class="myask_writeBtn-container">
-                      <button type="button" class="myask_writeBtn"><i class="fa-solid fa-pen"></i>_글쓰기</button>
-                    </div>
+                    
                   </div>
+                  
                 </div>
               </section>
             </div>
@@ -214,7 +215,6 @@
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />
 </header>
 
-  </script>
 </body>
 
 </html>

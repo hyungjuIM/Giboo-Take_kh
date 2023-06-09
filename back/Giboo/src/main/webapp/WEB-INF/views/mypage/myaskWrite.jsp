@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page session="false"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,21 +12,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>문의내역 작성</title>
 
-     <!-- jQuery 라이브러리 추가 -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    
      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/myaskWrite.css">
      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
 
-    <!-- 서머노트를 위해 추가해야할 부분 -->
-    <script src="/JS/summernote/summernote-lite.js"></script>
-    <script src="/JS/summernote/lang/summernote-ko-KR.js"></script>
-    <link rel="stylesheet" href="/css/summernote/summernote-lite.css">
+    
     <!--  -->
 
 </head>
@@ -39,6 +32,12 @@
         <div class="page-title">
             <span>문의내역</span>
           </div>
+          
+          <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          
 
         
      <section class="ask_write_mainContainer">
@@ -80,30 +79,7 @@
         <form action="#" method="post" class="contentContiner">
             <textarea class="summernote" name="editordata"></textarea>
            </form>  
-          <script>
-          $('.summernote').summernote({
-            placeholder : '내용을 입력해 주세요',
-            width:1080,
-                height: 500,
-                minHeight:null,
-                maxHeight: null,             // 최대 높이
-		        focus: true,
-                lang: "ko-KR", toolbar: [
-                ['fontname', ['fontname']],
-			    ['fontsize', ['fontsize']],
-                ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['forecolor','color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['height', ['height']],
-          ['table', ['table']],
-          ['insert', ['link', 'picture', 'video']],
-          
-          ],
-          fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋움체','바탕체'],
-			fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
-              });
-          </script>
+
 
           <!-- 목록 알림 등록 취소 영역 -->
           <div class="ask_write_submitContainer">
@@ -119,6 +95,7 @@
         </div>
     </section> 
 </main>
+
 
 <!-- 푸터 영역 -->
     <header>

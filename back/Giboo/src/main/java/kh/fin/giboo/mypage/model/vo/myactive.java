@@ -1,4 +1,4 @@
-package kh.fin.giboo.myactive.model.vo;
+package kh.fin.giboo.mypage.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

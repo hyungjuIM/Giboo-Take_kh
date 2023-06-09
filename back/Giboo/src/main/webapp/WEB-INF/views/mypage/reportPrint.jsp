@@ -24,57 +24,57 @@
     
     
     
-   <main>
+    <main>
     
-    <div class="reportContainer">
-        <div class="reportPrint">
-            <button class="print" onclick="printPage()"><b>증명서 출력</b></button> 
+        <div class="reportContainer">
+            <div class="reportPrint">
+                <button class="print" onclick="printPage()"><b>증명서 출력</b></button> 
+            </div>
+            <div class="reportContent">
+                    
+                <div class="reportTitle1">봉사(기부금) 인증서</div>
+                <div class="reportCont1">
+                    <span class="reportCont2">성명  </span>
+                    <span class="reportCont3"> : 홍길동</span>
+                </div> 
+                <div class="reportCont1">
+                    <span class="reportCont2">주소  </span>
+                    <span class="reportCont3"> : 경기도 용인시 수지구 용구대로 </span>
+                </div>
+                <div class="reportTitle2_container">
+                    <span class="reportTitle2"><자원봉사(기부금) 실적></span>
+                </div>  
+                <div class="reportCont1">
+                    <span class="reportCont2">기간  </span>
+                    <span class="reportCont3"> : 2023.06.06</span>
+                </div>
+                <div class="reportCont1">
+                    <span class="reportCont2">시간(금액) </span>
+                    <span class="reportCont3"> : 6시간</span>
+                </div>
+                <div class="reportCont1">
+                    <span class="reportCont2">봉사활동(기부금) 내용</span>
+                    <span class="reportCont3"> : 치매안심센터-기억력 검진 봉사활동</span>
+                </div>
+    
+                <div class="reportCont1">
+                    <span class="reportCont2">장소</span>
+                    <span class="reportCont3"> : 노인복지회관</span>
+                </div>
+    
+                <div class="reportCont4">
+                    「소득세법」 제34조, 「조세특례제한법」 제75조ㆍ제88조의4 및 「법인세법」 제24조에 따른 기부금을 위와 같이 
+                    <br>기부하였음을 증명하여 주시기 바랍니다.<br>   
+                    사회복지자원봉사 인증관리규정 제9조 제3항에 따라 위와 같이 자원봉사 활동실적이 있음을 인증합니다
+                </div>
+                <div class="reportDate">2023년 06월 07일</div>
+    
+                <div class="reportName">Giboo&take</div>
+            </div>
         </div>
-        <div class="reportContent">
-                
-            <div class="reportTitle1">봉사(기부금) 인증서</div>
-            <div class="reportCont1">
-                <span class="reportCont2">성명  </span>
-                <span class="reportCont3"> : 홍길동</span>
-            </div> 
-            <div class="reportCont1">
-                <span class="reportCont2">주소  </span>
-                <span class="reportCont3"> : 경기도 용인시 수지구 용구대로 </span>
-            </div>
-            <div class="reportTitle2_container">
-                <span class="reportTitle2"><자원봉사(기부금) 실적></span>
-            </div>  
-            <div class="reportCont1">
-                <span class="reportCont2">기간  </span>
-                <span class="reportCont3"> : 2023.06.06</span>
-            </div>
-            <div class="reportCont1">
-                <span class="reportCont2">시간(금액) </span>
-                <span class="reportCont3"> : 6시간</span>
-            </div>
-            <div class="reportCont1">
-                <span class="reportCont2">봉사활동(기부금) 내용</span>
-                <span class="reportCont3"> : 치매안심센터-기억력 검진 봉사활동</span>
-            </div>
-
-            <div class="reportCont1">
-                <span class="reportCont2">장소</span>
-                <span class="reportCont3"> : 노인복지회관</span>
-            </div>
-
-            <div class="reportCont4">
-                「소득세법」 제34조, 「조세특례제한법」 제75조ㆍ제88조의4 및 「법인세법」 제24조에 따른 기부금을 위와 같이 
-                <br>기부하였음을 증명하여 주시기 바랍니다.<br>   
-                사회복지자원봉사 인증관리규정 제9조 제3항에 따라 위와 같이 자원봉사 활동실적이 있음을 인증합니다
-            </div>
-            <div class="reportDate">2023년 06월 07일</div>
-
-            <div class="reportName">Giboo&take</div>
-        </div>
-    </div>
-
-
-   </main>
+    
+    
+       </main>
 
 
 
