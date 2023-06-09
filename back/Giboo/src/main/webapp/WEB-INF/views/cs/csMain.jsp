@@ -366,9 +366,9 @@
         </script>
         
         <!-- 푸터 영역 -->
-<header>
+<footer>
   <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-</header>
+</footer>
         
     </body>
 </html>

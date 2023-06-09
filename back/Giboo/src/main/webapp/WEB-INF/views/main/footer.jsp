@@ -28,7 +28,7 @@
                <div class="footerMain"><a href="">개인정보취급방침</a></div>
                <div class="footerMain"><a href="">이용약관</a></div>
                <div class="footerMain"><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></div>
-               <div class="footerMain"><a href="">고객센터</a></div>
+               <div class="footerMain"><a href="${pageContext.request.contextPath}/cs/csMain">고객센터</a></div>
               </div>
               <!-- 주소 -->
               <div class="faddress"><span style="font-weight: bold;">기부엔테이크</span>
