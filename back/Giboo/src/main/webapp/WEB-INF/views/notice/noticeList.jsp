@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>notice</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/noticeList.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice/noticeList.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -121,7 +122,7 @@
                       </ul>
                     </nav>
                     <div class="writeBtn-container">
-                    <button type="button" class="writeBtn"><i class="fa-solid fa-pen"></i>_글쓰기</button>
+                    <button class="writeBtn" onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite'"><i class="fa-solid fa-pen"></i>_글쓰기</button>
                     </div>
                   </div>
                 </div>
