@@ -5,7 +5,7 @@
     padding: 0px;
     margin: 0px;
     font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+   
 }
 
 
@@ -18,13 +18,47 @@ body {
     flex-direction: column;
 }
 
+/*말풍선부분*/
+
+.alert_container.show {
+    display: block !important;
+  }
 
 .alert_container {
-
+    display: none; 
+    z-index: 99;
+    right: 10%;
+    
     width: 360px;
     height: 791px;
-    background-color: #f6f6f6;
+    
+    margin-top: 20px;
+
+    position: absolute;
+	background: #f6f6f6;
+	border-radius: .4em;
+    box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
+    
+    border-radius: .4em;
+
+    /* overflow: auto;   */ 
 }
+
+.alert_container:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-bottom-color: #f6f6f6;
+	border-top: 0;
+	margin-left: +54px;
+	margin-top: -20px;
+}
+
+
 
 
 /* <!-- 즐겨찾기 카드부분 --> */
@@ -78,7 +112,7 @@ body {
 }
 
 /* <!-- 메인내용 --> */
-.alert_favMaincontainer {
+.alert_Maincontainer {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -197,7 +231,7 @@ body {
     height: 10px;
 }
 
-.detailCategory_after {
+.alert_detailCategory_after {
     width: 61px;
     height: 24px;
     border: 1px solid #767676;
@@ -265,3 +299,5 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+

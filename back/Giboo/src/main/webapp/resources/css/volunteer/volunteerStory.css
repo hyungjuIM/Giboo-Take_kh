@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+body{
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* section mainContainer */
+.mainContainer{
+    border: 1px solid pink;
+
+    display: flex;
+    justify-content: center;
+}
+
+.mainContent{
+    width: 1200px;
+    height: fit-content;
+}
+
+.mainCategoryArea {
+    background-color: #978AFF;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainCategoryInner {
+    display: flex;
+}
+
+.mainCategoryItem {
+    padding: 4px 12px;
+    margin-inline: 8px;
+    border-radius: 20px;
+    color: #D6D3F4;
+}
+
+.mainCategoryChecked {
+    background-color: #fff;
+    color: #978AFF;
+    font-weight: bold;
+}
+
+.storyTitle {
+    margin-top: 94px;
+    margin-bottom: 14px;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.categoryArea {
+    border: 2px solid #D9D9D9;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 6px 10px;
+    margin-bottom: 14px;
+}
+
+.categoryArea > span {
+    color: #767676;
+    font-size: 20px;
+}
+
+.categoryArea > img {
+    height: 16px;
+    transform: rotate(90deg);
+}
+
+.infoArea {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid black;
+    padding-bottom: 26px;
+    margin-bottom: 35px;
+}
+
+.infoArea span {
+    color: #767676;
+    font-size: 16px;
+}
+
+.contentArea {
+    margin-bottom: 30px;
+}
+
+.contentImg {
+    width: 100%;
+    height: 510px;
+    object-fit: cover;
+    box-shadow: 5px 5px 5px #0000001e;
+}
+
+.optionArea {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    border-top: 2px solid black;
+}
+
+.optionArea > div {
+    display: flex;
+}
+
+.list, .edit, .delete {
+    height: 38px;
+    background-color: unset;
+    font-weight: normal;
+    font-size: 14px;
+    color: #767676;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit {
+    margin-right: 32px;
+}
+

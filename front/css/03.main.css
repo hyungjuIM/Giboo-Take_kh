@@ -21,14 +21,13 @@ a{
     text-decoration: none;
     color: #000;
 }
-
-
 main{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
 }
+/* 1. 배너 */
 main section:nth-child(1){
     border: 3px solid paleturquoise;
     width: 100%;
@@ -42,7 +41,7 @@ section:nth-child(1) div[class=mainBanner]{
     width: 1200px;
     margin: 24px 0px ;
 }
-
+/* 목표 btn */
 main section:nth-child(2){
     width: 1080px;
     display: flex;
@@ -55,73 +54,88 @@ main section:nth-child(2){
     height: 173px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 .mainContent article:nth-child(1) .showGoal{
     border: 1px solid red;
-    width: 380px;
-    height: 130px;
+    width: 382px;
+    height: 128px;
 
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
+/* 회원사진 */
 .showGoal div[class=userPhoto]{
-    width: 90px;
-    height: 90px;
+    width: 96px;
+    height: 96px;
     background-color: #d9d9d9;
     border-radius: 20px;
-    margin: 12px;
+    margin: 16px
     
 }
-
+/* 내역 */
 .showGoal div[class=showGoal_content]{
     border: 2px solid greenyellow;
     width: 70%;
     height: 100%;
-    padding: 13px;
-}
-
-.showGoal_content div:nth-child(1){
-    font-size: 18px;
-    font-weight: 600;
-    color: #4d4d4d;
-}
-.showGoal_content div:nth-child(1) span{
-    color: #8071fc;
-    display: inline-block;
-    margin: 10px;
-}
-.showGoal_content div:nth-child(2){
-    height: 29px;
-    width: 100%;
-    border: 1px solid pink;
-}
-
-.mainContent article:nth-child(1) .showStroyBtn{
-    border: 1px solid red;
-    width: 130px;
-    height: 130px; 
-    
-}
-
-.goalBtn{
-    border-radius: 20px;
+    padding:8px 8px 8px 0;
     background-color: #f6f6f6;
 }
 
+.showGoal_content h3{
+    font-size: 16px;
+    font-weight: 600;
+    color: #4d4d4d;
+
+    margin-bottom: 0.4694rem;
+}
+.showGoal_content span{
+    color: #8071fc;
+    display: inline-block;
+    margin: 5px;
+}
+.showGoal_content .userMessage{
+    height: 32px;
+    width: 100%;
+    border-radius: 5px;
+    /* border: 1px solid red; */
+
+    background-color: #fff;
+    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+}
+
+.userMessage span:nth-child(1){
+    font-weight: 500;
+    font-style: 12px;
+    line-height: 15px;
+    letter-spacing: -0.05em;
+    color: #7a7a7a;
+}
+.userMessage span:nth-child(2){
+    font-weight: 400;
+    font-style: 12px;
+    line-height: 15px;
+    line-height: 15px;
+}
+
+/* ********** 다른영역이란다 *************** */
 .mainContent article:nth-child(2){
-    border: 1px solid red;
+    border: 2px solid rgb(23, 79, 128);
     height: 173px;
 }
 
 .mainContent article:nth-child(3){
-    border: 1px solid orange;
+    border: 4px solid blue;
     height: 811px;
-
 }
+
+
 
 
 

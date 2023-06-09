@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+body{
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* section mainContainer */
+.mainContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.mainContent{
+    width: 1200px;
+    height: fit-content;
+}
+
+.mainTitleArea {
+    background-color: #5D55FA;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 44px;
+}
+
+.mainTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.writeArea > li {
+    color: #5D55FA;
+    margin-bottom: 16px;
+}
+
+.writeArea > li > div > input {
+    border: 2px solid #5D55FA;
+    border-radius: 10px;
+    padding: 10px 15px;
+    outline: none;
+}
+
+.writeArea > li > div {
+    display: flex;
+    align-items: center;
+}
+
+#titleInput::placeholder {
+    color: #D6D3F4;
+}
+
+.listTitle {
+    width: 100px;
+    font-weight: bold;
+}
+
+#titleInput {
+    width: 90%;
+}
+
+#startDate, #dueDate, #beginDate, #endDate {
+    width: 250px;
+    text-align: center;
+    color: black;
+}
+
+#startDate[data-placeholder],#dueDate[data-placeholder],
+#beginDate[data-placeholder],#endDate[data-placeholder] {
+    color: #D6D3F4;
+}
+
+#startDate:before, #dueDate:before, #beginDate:before ,#endDate:before {
+    content: attr(data-placeholder);
+    width: 100%;
+}
+
+#startDate:focus:before, #startDate:valid:before,
+#dueDate:focus:before, #dueDate:valid:before,
+#beginDate:focus:before, #beginDate:valid:before,
+#endDate:focus:before, #endDate:valid:before
+{
+    display: none;
+}
+
+.margin {
+    margin-inline: 22px;
+}
+
+.contentArea {
+    align-items: start !important;
+}
+
+#address {
+    width: 828px;
+    height: 42px;
+    border: 2px solid #5D55FA;
+    border-radius: 10px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+}
+
+#address::placeholder {
+    color: #D6D3F4;
+}
+
+#searchAddress, .imgSelectButton {
+    font-size: 18px;
+    font-weight: bolder;
+    color: white;
+    background-color: #5D55FA;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-left: 10px;
+    height: 42px;
+}
+
+.imgSelectButton {
+    height: 46px;
+}
+
+.imgInputInner {
+    display: flex;
+    position: relative;
+}
+
+#imgInput {
+    border: 2px solid #5D55FA;
+    border-radius: 10px;
+    padding: 10px 15px;
+    width: 390px;
+    display: flex;
+    align-items: center;
+}
+
+#imgInput::file-selector-button {
+    display: none;
+}
+
+#imgInputPlaceholder {
+    width: 380px;
+    height: 27px;
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    opacity: 1;
+}
+
+.optionArea {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    border-top: 2px solid #D9D9D9;
+}
+
+.optionArea > div {
+    display: flex;
+}
+
+.list, .edit, .delete {
+    height: 38px;
+    background-color: unset;
+    font-weight: normal;
+    font-size: 14px;
+    color: #767676;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit {
+    margin-right: 32px;
+}
+
