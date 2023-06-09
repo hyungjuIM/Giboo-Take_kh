@@ -17,15 +17,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
         
-        <!-- jQuery 라이브러리 추가(CDN) -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+     
     </head>
     <body>
         <header>
             <jsp:include page="/WEB-INF/views/main/header.jsp" />
         </header>
-    
+    <main>
         <div class="eventContent">
             <div class="eventBody">
                 <div class="eventList_main">
@@ -263,7 +261,7 @@
                 </div>
             </div>
         </div>
-    
+    </main>
     
     <!-- 푸터 영역 -->
     <header>
