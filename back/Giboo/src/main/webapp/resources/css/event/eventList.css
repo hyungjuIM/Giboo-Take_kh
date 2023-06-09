@@ -59,6 +59,19 @@
 
 
 /* ------------------------- */
+.eventList_main{
+    /* background-color: rgb(151, 130, 89); */
+    height: 100%;
+}
+
+.epnation{
+    /* background-color: violet; */
+}
+
+.elist_official{
+    /* background-color: yellowgreen; */
+    height: auto;
+}
 
 .elist_official > li{
     background-color:#F6F6F6;
@@ -317,7 +330,6 @@
     justify-content: space-between;
     width: 1199px;
     height: 780px;
-    position: absolute;
     /* background-color: yellowgreen; */
 }
 
@@ -327,6 +339,7 @@
     margin-top: 48px;
     display: flex;
     justify-content: center;
+    /* background-color: yellowgreen; */
 }
 
 

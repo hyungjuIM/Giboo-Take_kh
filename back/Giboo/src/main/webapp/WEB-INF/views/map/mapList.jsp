@@ -97,18 +97,18 @@
                                     </div>
                                 </a>
                                 <!-- 봉사자 리뷰 리스트 영역 -->
-                                <div class="mlistRe">
-                                    <div class="mrePro">
+                                <!-- <div class="mlistRe">
+                                    <div class="mrePro"> -->
                                         <!-- 리뷰 슬라이드 버튼 -->
-                                        <div class="mslideBtn">
+                                        <!-- <div class="mslideBtn">
                                             <div>
                                                 <span>❤️</span>
                                             </div>
                                             <div>
                                                 <span>😋</span>
                                             </div>
-                                        </div>
-                                        <ul class="mreProUl">
+                                        </div> -->
+                                        <!-- <ul class="mreProUl">
                                             <li class="mreProLi">
                                                 <div class="mreProBox">
                                                     <a href="" class="mactive">
@@ -179,9 +179,9 @@
                                                     </a>
                                                 </div>
                                             </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                        </ul> -->
+                                    <!-- </div>
+                                </div> -->
                                 <div class="mbox"></div>
                             </li>
                             
@@ -217,92 +217,6 @@
                                         </div>
                                     </div>
                                 </a>
-                                <!-- 봉사자 리뷰 리스트 영역 -->
-                                <div class="mlistRe">
-                                    <div class="mrePro">
-                                        <!-- 리뷰 슬라이드 버튼 -->
-                                        <div class="mslideBtn">
-                                            <div>
-                                                <span>❤️</span>
-                                            </div>
-                                            <div>
-                                                <span>😋</span>
-                                            </div>
-                                        </div>
-                                        <ul class="mreProUl">
-                                            <li class="mreProLi">
-                                                <div class="mreProBox">
-                                                    <a href="" class="mactive">
-                                                        <div class="mreProli">
-                                                            <div class="mproDe">
-                                                                <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
-                                                                <span>지구용사썬가드</span>
-                                                            </div>
-                                                            <div class="mreDe">
-                                                                <span>
-                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li class="mreProLi">
-                                                <div class="mreProBox">
-                                                    <a href="" class="mactive">
-                                                        <div class="mreProli">
-                                                            <div class="mproDe">
-                                                                <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
-                                                                <span>야야얍!!</span>
-                                                            </div>
-                                                            <div class="mreDe">
-                                                                <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li class="mreProLi">
-                                                <div class="mreProBox">
-                                                    <a href="" class="mactive">
-                                                        <div class="mreProli">
-                                                            <div class="mproDe">
-                                                                <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
-                                                                <span>아아아~~~</span>
-                                                            </div>
-                                                            <div class="mreDe">
-                                                                <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </li>
-                                            <li class="mreProLi">
-                                                <div class="mreProBox">
-                                                    <a href="" class="mactive">
-                                                        <div class="mreProli">
-                                                            <div class="mproDe">
-                                                                <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
-                                                                <span>라라라라라랄라랄</span>
-                                                            </div>
-                                                            <div class="mreDe">
-                                                                <span>정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
                                 <div class="mbox"></div>
                             </li>
                         </ul>
