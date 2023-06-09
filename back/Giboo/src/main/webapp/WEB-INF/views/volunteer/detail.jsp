@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>donationDetail</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/donationDetail.css">
+    <title>03.main</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/volunteer/volunteerDetail.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick-theme.css">
 </head>
@@ -19,8 +19,8 @@
     
     <div class="mainCategoryArea">
         <div class="mainCategoryInner">
-            <a href="/donation" class="mainCategoryItem mainCategoryChecked" id="donation">기부 진행중</a>
-            <a href="/donation/donationStory" class="mainCategoryItem" id="donationStory">기부이야기</a>
+            <a href="${pageContext.request.contextPath}/volunteer/home" class="mainCategoryItem mainCategoryChecked" id="home">봉사 진행중</a>
+            <a href="${pageContext.request.contextPath}/volunteer/story" class="mainCategoryItem" id="story">봉사이야기</a>
         </div>
     </div>
 
@@ -53,7 +53,7 @@
                         <div class="progressStatus">
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                                <span id="donationCount">1,030</span>명 참여중</span>
+                                <span id="volunteerCount">1,030</span>명 참여중</span>
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                                 <span id="recommendedCount">102</span>명 추천</span>
@@ -64,7 +64,7 @@
                         기부금 전액 올무에 패인 상처가 평생 낫지 않는 길고양이 1마리의 3개월 치료비와 1년 사료비를 지원합니다.
                     </div>
 
-                    <button class="donationButton">모금함 기부하기</button>
+                    <button class="volunteerButton">봉사 참여하기</button>
                 </div>
             </div>
 
@@ -202,7 +202,7 @@
             </section>
 
             <section class="relatedArea">
-                <div>관련된 동물 기부</div>
+                <div>관련된 동물 봉사</div>
 
                 <div class="relatedAreaInner">
                     <div class="relatedItemListButtonArea">
@@ -218,7 +218,7 @@
                             <div class="relatedItemStatus">
                             <span>
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount1">1,030</span>명 참여중</span>
+                            <span id="relatedVolunteerCount1">1,030</span>명 참여중</span>
 
                                 <span>
                             <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
@@ -234,7 +234,7 @@
                             <div class="relatedItemStatus">
                             <span>
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount2">1,030</span>명 참여중</span>
+                            <span id="relatedVolunteerCount2">1,030</span>명 참여중</span>
 
                                 <span>
                             <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
@@ -250,7 +250,7 @@
                             <div class="relatedItemStatus">
                             <span>
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount3">1,030</span>명 참여중</span>
+                            <span id="relatedVolunteerCount3">1,030</span>명 참여중</span>
 
                                 <span>
                             <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
@@ -266,7 +266,7 @@
                             <div class="relatedItemStatus">
                             <span>
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount4">1,030</span>명 참여중</span>
+                            <span id="relatedVolunteerCount4">1,030</span>명 참여중</span>
 
                                 <span>
                             <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
@@ -282,7 +282,7 @@
                             <div class="relatedItemStatus">
                             <span>
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount5">1,030</span>명 참여중</span>
+                            <span id="relatedVolunteerCount5">1,030</span>명 참여중</span>
 
                                 <span>
                             <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
@@ -320,6 +320,6 @@
 
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
 
-    <script src="${pageContext.request.contextPath}/resources/js/donation/donationDetail.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteerDetail.js"></script>
 </body>
 </html>

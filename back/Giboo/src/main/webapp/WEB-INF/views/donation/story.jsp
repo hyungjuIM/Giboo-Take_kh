@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>volunteerStory</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/volunteer/volunteerStory.css">
+    <title>donationStory</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/donationStory.css">
 </head>
 <body>
 <header>
@@ -17,8 +17,8 @@
 
 <div class="mainCategoryArea">
     <div class="mainCategoryInner">
-        <a href="/volunteer/volunteer" class="mainCategoryItem mainCategoryChecked" id="volunteer">봉사 진행중</a>
-        <a href="/volunteer/volunteerStory" class="mainCategoryItem" id="volunteerStory">봉사이야기</a>
+        <a href="${pageContext.request.contextPath}/donation/home" class="mainCategoryItem mainCategoryChecked" id="home">기부 진행중</a>
+        <a href="${pageContext.request.contextPath}/donation/story" class="mainCategoryItem" id="story">기부이야기</a>
     </div>
 </div>
 
@@ -27,7 +27,7 @@
         <div class="storyTitle">Story Title</div>
 
         <div class="categoryArea">
-            <span class="type">봉사</span>
+            <span class="type">기부</span>
             <img src="${pageContext.request.contextPath}/resources/images/minus-solid.svg">
             <span class="category">동물</span>
         </div>
@@ -121,6 +121,6 @@
 
 </script>
 
-<script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteerStory.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/donation/donationStory.js"></script>
 </body>
 </html>
