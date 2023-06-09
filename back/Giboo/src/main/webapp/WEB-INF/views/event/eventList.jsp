@@ -23,7 +23,10 @@
         <header>
             <jsp:include page="/WEB-INF/views/main/header.jsp" />
         </header>
-    <main>
+
+    
+        <main>
+
         <div class="eventContent">
             <div class="eventBody">
                 <div class="eventList_main">
@@ -51,7 +54,7 @@
                             <li>  
                                 <a href="" class="elink_official">
                                     <span class="earea_thumb">
-                                        <img src="/images/dog.jpeg" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
                                         <div class="earea_thumb_period">
                                             <span>종료<br>임박</span>
                                         </div>
@@ -76,7 +79,7 @@
                             <li class="eother"><!--두번째는 다른 스타일-->
                                 <a href="" class="elink_official_2">
                                     <span class="earea_thumb_2">
-                                        <img src="/images/dogil.png" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}/resources/images/dogil.png" alt="썸네일이미지">
                                     </span>
                                     <span class="etxt_official_2">
                                         <span>강아지의 날! 이벤트</span>
@@ -94,7 +97,7 @@
                             <li>  
                                 <a href="" class="elink_official">
                                     <span class="earea_thumb">
-                                        <img src="/images/dog.jpeg" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
                                         <div class="earea_thumb_period">
                                             <span>종료<br>임박</span>
                                         </div>
@@ -119,7 +122,7 @@
                             <li>  
                                 <a href="" class="elink_official">
                                     <span class="earea_thumb">
-                                        <img src="/images/dog.jpeg" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
                                         <div class="earea_thumb_period">
                                             <span>종료<br>임박</span>
                                         </div>
@@ -144,7 +147,7 @@
                             <li>  
                                 <a href="" class="elink_official">
                                     <span class="earea_thumb">
-                                        <img src="/images/dog.jpeg" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
                                         <div class="earea_thumb_period">
                                             <span>종료<br>임박</span>
                                         </div>
@@ -169,7 +172,7 @@
                             <li>  
                                 <a href="" class="elink_official">
                                     <span class="earea_thumb">
-                                        <img src="/images/dog.jpeg" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
                                         <div class="earea_thumb_period">
                                             <span>종료<br>임박</span>
                                         </div>
@@ -194,7 +197,7 @@
                             <li>  
                                 <a href="" class="elink_official">
                                     <span class="earea_thumb">
-                                        <img src="/images/dog.jpeg" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
                                         <div class="earea_thumb_period">
                                             <span>종료<br>임박</span>
                                         </div>
@@ -219,7 +222,7 @@
                             <li>  
                                 <a href="" class="elink_official">
                                     <span class="earea_thumb">
-                                        <img src="/images/dog.jpeg" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
                                         <div class="earea_thumb_period">
                                             <span>종료<br>임박</span>
                                         </div>
@@ -264,9 +267,9 @@
     </main>
     
     <!-- 푸터 영역 -->
-    <header>
+    <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-    </header>
+    </footer>
 
     </body>
     </html>
