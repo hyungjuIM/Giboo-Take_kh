@@ -29,15 +29,15 @@
                     <div class="welcomeMessage">관리자님, 안녕하세요</div>
 
                 <ul class="sideMenu">
-                    <li class="sideMenuItem"><a href="">대쉬보드</a></li>
-                    <li class="sideMenuItem"><a href="">회원 관리</a></li>
-                    <li class="sideMenuItem"><a href="">관리자 관리</a></li>
-                    <li class="sideMenuItem"><a href="">공지사항 관리</a></li>
-                    <li class="sideMenuItem"><a href="">1 대 1 채팅 상담</a></li>
-                    <li class="sideMenuItem"><a href="">기부 / 봉사 관리</a></li>
-                    <li class="sideMenuItem"><a href="">이벤트 관리</a></li>
-                    <li class="sideMenuItem"><a href="">카테고리 관리</a></li>
-                    <li class="sideMenuItem"><a href="">자주 찾는 질문 관리</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/home">대쉬보드</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/member">회원 관리</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/manager">관리자 관리</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/notice/">공지사항 관리</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/chat">1 대 1 채팅 상담</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/volunteerDonation">기부 / 봉사 관리</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/event">이벤트 관리</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/category">카테고리 관리</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/faq">자주 찾는 질문 관리</a></li>
                 </ul>
 
                 <div class="optionArea">

@@ -20,10 +20,13 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
+
+	<!-- 지정된 패키지 이하에 존재하는
+		@Component, @Controller, @Service, @Repository를 찾아서 bean으로 생성
+	-->
 	<context:component-scan base-package="kh.fin.giboo" />
 	
-	<!-- itnerceptor 작성 -->
+	<!-- intnerceptor 작성 -->
 	<!-- 모아두는 큰 덩어리를 만들어서 interceptor를 보관하기. -->
 	<!--<interceptors>-->
 		<!-- interceptor -->
