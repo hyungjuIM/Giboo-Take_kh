@@ -269,3 +269,4 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/intellij
 back/Giboo/.idea/
 front/.idea/
+back/Giboo/src/main/webapp/.idea/

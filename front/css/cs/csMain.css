@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+*{
+    box-sizing: border-box;
+    padding : 0px;
+    margin : 0px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.page-title {
+    background-color: #8071FC ;
+   
+    width: 100%;
+    height: 80px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .page-title span {
+    font-weight: bold;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+  }
+
+  .cs-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+  }
+
+  .cs-wrapper {
+    display: flex;
+    
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+  }
+
+  .cs-inquryBtnWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px;
+    font-size:20px;
+
+
+  }
+  .cs-inquryBtn{
+    border: solid 1px;
+    border-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 100px;
+    
+
+  }
+
+  .cs-inquryBtn span {
+    border: solid 1px;
+    border-radius: 100px;
+    border-color:#8071FC;
+    color: #8071FC;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 30px;
+    display: flex;
+    
+  }
+  
+  #Btn2 {
+    margin-top: 10px;
+  }
+
+.cs-faqArea {
+  width : 60%;
+  height: 80%;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #BDBDBD;
+  margin: auto;
+  border: 0;
+
+}
+.faqContent{
+  display:flex;
+  flex-direction: column;
+}
+
+  .faqNotice{
+    width: 850px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #BDBDBD;
+    border-style: none;
+    margin: 0 0 20px 0;
+  
+    
+    
+
+  }
+
+  .faqNotice span{
+    display: flex;
+    
+  }
+  
+
+
+ 
+  
+.que{
+  position: relative;
+  padding: 17px 0px;
+  cursor: pointer;
+  font-size: 22px;
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  flex-direction: row;
+  color: #767676;
+  
+}
+
+.queCategory{
+  display: flex;
+  padding: 0 47px 0 0;
+  color: #767676;
+  font-size: 22px;
+  
+}
+
+.que::before{
+  display: flex;
+  content: 'Q';
+  font-size: 18px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  width:20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #8071FC;
+  margin-right: 10px;
+}
+
+.que.on>span{
+  font-weight: bold;
+  color: #767676; 
+}
+
+
+.anw {
+  display: flex;
+    overflow: hidden;
+  font-size: 14px;
+  background-color: #E3E2F5;
+  padding: 27px 0;
+  position: relative;
+  flex-direction: row;
+  display: none;
+  
+}
+  
+.anw::before {
+  display: flex;
+  content: 'A';
+  font-size: 18px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  /* width:20px;
+  height: 20px; */
+  width: fit-content;
+  height: fit-content;
+  padding-inline: 6.5px;
+  border-radius: 100%;
+  background-color: #fa5555;
+  margin: 0 0 0 40px;
+  
+  
+}
+
+#anw-content {
+  margin: 0 67px 0 16px;
+  font-size: 18px;
+
+}
+
+
+.anw2{
+  display: flex;
+  flex-direction: column;
+}
+
+.dontAnw{
+  margin: 24px 0;
+}
+
+#dontAnw-span {
+  color: #767676;
+  font-size: 18px;
+}
+
+#dontAnw-span2 {
+  border: solid 1px;
+  border-radius: 100px;
+  border-color:#8071FC;
+  color: #8071FC;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.arrow-wrap {
+  position: absolute;
+  top:50%; right: 10px;
+  transform: translate(0, -50%);
+}
+
+.que .arrow-top {
+  display: none;
+  transform: rotate(270deg);
+}
+.que .arrow-bottom {
+  display: block;
+  transform: rotate(90deg);
+}
+.que.on .arrow-bottom {
+  display: none;
+}
+.que.on .arrow-top {
+  display: block; 
+}
+
+
+
+.container4{
+  width: 850px;
+  padding-top: 30px;
+  flex-direction: row;
+  display:flex;
+  border-top: 1px solid #767676;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.page-nav {
+ 
+ justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.pagination {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  
+}
+
+.pagination li {
+  display: inline;
+ 
+}
+
+.pagination li a {
+  color: #767676;
+  padding: 5px 10px;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+
+.pagination li a:hover {
+  background-color: #8071FC;
+  color: #f2f2f2;
+  border-radius: 50%;
+}
+
+/* 아래의 모든 코드는 영역::코드로 사용 */
+.cs-container::-webkit-scrollbar {
+  width: 10px;  /* 스크롤바의 너비 */
+}
+
+.cs-container::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #d4cfff; /* 스크롤바의 색상 */
+  
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.cs-container::-webkit-scrollbar-track {
+  background: rgba(227, 227, 227, 0);  /*스크롤바 뒷 배경 색상*/
+}

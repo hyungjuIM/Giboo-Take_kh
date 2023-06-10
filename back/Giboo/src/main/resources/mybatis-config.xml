@@ -14,13 +14,13 @@
 <!-- VO클래스의 패키지명 + 클래스명 작성하는 것이 불편하기 때문에 짧은 별칭 부여 -->
 <!-- resultMap을 생성했다면 반드시 typeAlias 만들기!!!!!!!!!!-->
 <typeAliases>
-		
-		<typeAlias type="kh.fin.giboo.member.model.vo.Member" alias="member"/>
-		<typeAlias type="kh.fin.giboo.member.model.vo.EmailCertification" alias="emailCertification"/>
-		<typeAlias type="kh.fin.giboo.alarm.model.vo.Alarm" alias="alarm"/>
-
-		
-		
+	<typeAlias type="kh.fin.giboo.member.model.vo.Member" alias="member"/>
+	<typeAlias type="kh.fin.giboo.member.model.vo.EmailCertification" alias="emailCertification"/>
+	<typeAlias type="kh.fin.giboo.alarm.model.vo.Alarm" alias="alarm"/>
+	<typeAlias type="kh.fin.giboo.donation.model.vo.Donation" alias="donation"/>
+	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationDetail" alias="donationDetail"/>
+	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Volunteer" alias="volunteer"/>
+	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerDetail" alias="volunteerDetail"/>
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
