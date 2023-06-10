@@ -19,11 +19,9 @@ public class MainController {
 	public String mainForward() {
 		logger.info("main페이지");
 		return "main/main";
-		
-		
-		
-		
+				
 	
 }
+
 
 }

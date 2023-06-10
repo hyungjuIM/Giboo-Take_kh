@@ -9,10 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>footer</title>
-        <!-- jQuery 라이브러리 추가(CDN) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/footer.css" /> 
+      
        
 </head>
 <body>
@@ -26,7 +23,7 @@
               <div class="footerMainContainer">
                <div class="footerMain"><a href="">우리 이야기</a></div>
                <div class="footerMain"><a href="">개인정보취급방침</a></div>
-               <div class="footerMain"><a href="">이용약관</a></div>
+               <div class="footerMain"><a href="${pageContext.request.contextPath}/termsOfService/termsOfService">이용약관</a></div>
                <div class="footerMain"><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></div>
                <div class="footerMain"><a href="">고객센터</a></div>
               </div>
