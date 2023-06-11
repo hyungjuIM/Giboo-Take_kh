@@ -13,6 +13,7 @@ public class Map {
 	private int mapNo;
 	private int volunteerNo;
 	private int categoryNo;
-	
+	private double latitude; //위도
+	private double longtiude; //경도
 	
 }
