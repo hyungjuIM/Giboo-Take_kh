@@ -51,7 +51,7 @@
                 <div class="myPage">
                     <a href="#none" class="loginBtn">로그인</a>
 
-                    <div class="toggle"><a href="${pageContext.request.contextPath}/mypage/myask" class="tooltip" data-text="마이페이지">
+                    <div class="toggle"><a href="${pageContext.request.contextPath}/mypage/mypageMain" class="tooltip" data-text="마이페이지">
                             <i class="far fa-user-circle"></i>
                         </a>
                     </div>                
