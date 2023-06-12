@@ -11,11 +11,11 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="realDataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<!-- <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />-->
 		<!-- <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />  --> 
-		<property name="url" value="jdbc:oracle:thin:@112.220.137.37:1521:xe"/>
+		<!-- <property name="url" value="jdbc:oracle:thin:@112.220.137.37:1521:xe"/>-->
 		<!--<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		&lt;!&ndash; <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />   &ndash;&gt;
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" /> 
 		<property name="url" value="jdbc:oracle:thin:@112.220.137.37:1521:xe"/>
 		
 		<property name="username" value="giboo" />
