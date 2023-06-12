@@ -1,5 +1,11 @@
 package kh.fin.giboo.map.model.dao;
 
-public interface MapDAO {
+import java.util.List;
 
+import kh.fin.giboo.map.model.vo.Map;
+
+public interface MapDAO{
+
+//	List<Map> mapList(int mapNo);
+	
 }
