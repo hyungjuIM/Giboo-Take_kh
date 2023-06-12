@@ -19,7 +19,7 @@
 		<property name="password" value="take1234" />-->
 
 	 	<!--오라클 클라우드 db-->
-		<property name="url" value="jdbc:oracle:thin:@workspace_high?TNS_ADMIN=c:\\tool\\Wallet_workspace"/>
+		<property name="url" value="jdbc:oracle:thin:@(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1521)(host=adb.ap-chuncheon-1.oraclecloud.com))(connect_data=(service_name=ga9b6f22479b664_workspace_high.adb.oraclecloud.com))(security=(ssl_server_dn_match=yes)))"/>
 		<property name="username" value="giboo"/>
 		<property name="password" value="Take1234"/>
 		
