@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="myPageMapper">
+	<resultMap type="myPage" id="myPage_rm">
+		<id property="memberNo" column="MEMBER_NO"/>
+		
+		<result property="memberId" column="MEMBER_ID"/>
+		<result property="memberPw" column="MEMBER_PW"/>
+		<result property="memberName" column="MEMBER_NAME"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+		<result property="memberTel" column="MEMBER_TEL"/>
+		<result property="memberAddr" column="MEMBER_ADDR"/>
+		<result property="signupType" column="SIGNUP_TYPE"/>
+		<result property="memberEnrollDT" column="MEMBER_ENROLLDT"/>
+		<result property="memberSecessionFlag" column="MEMBER_SECESSIONFLAG"/>
+		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="daType" column="DA_TYPE"/>
+		<result property="savedMoney" column="SAVED_MONEY"/> 
+		
+	</resultMap>
+  
+  <!-- 회원정보 수정 -->
+  <!-- result 값이 _int 형인경우, 안써줘도 됨! 
+  #{''}  ${ ''없음}  -->
+  <update id="updateInfo">
+  	UPDATE MEMBER_S SET
+	MEMBER_NICK = #{updateNickname},
+	MEMBER_TEL = #{updateTel},
+	MEMBER_ADDR = #{memberAddress}
+	MEMBER_PW  = #{newPw}
+	WHERE MEMBER_NO = #{memberNo}
+  </update>
+  
+  <!-- 로그인한 회원의 DB에 저장된 암호화된 비밀번호 조회 -->
+  <!-- 
+   <select id="selectEncPw" resultType="String">
+  	SELECT MEMBER_PW
+	FROM MEMBER_S
+	WHERE MEMBER_NO = #{memberNo}
+ 
+  </select>
+   -->
+ 
+  
+  <!-- 비밀번호 변경 -->
+  <!--
+  <update id="changePw" >
+  	UPDATE MEMBER_S SET
+	MEMBER_PW  = #{newPw}
+	WHERE MEMBER_NO =#{memberNo}  
+  </update>
+    -->
+  
+  
+
+  
+
+  
+  
+</mapper>

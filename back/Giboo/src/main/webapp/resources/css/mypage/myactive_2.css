@@ -275,7 +275,8 @@ span{
   margin-top: 20px;
 }
 
-.container2_title{
+.container2_title,
+.container2_title a{
   display: flex;
   flex-direction: row;
 
@@ -312,14 +313,14 @@ span{
   padding : 0px 5px;
 }
 
-.myactive_donation:hover,
-.myactive_volunteer:hover,
-.myactive_event:hover{
+.myactive_donation a:hover,
+.myactive_volunteer a:hover,
+.myactive_event a:hover{
   color : #8071FC;
   font-weight: 700;  
 }
 
-.myactive_volunteer{
+.myactive_volunteer a{
   color : #8071FC;
   font-weight: 700; 
 }
