@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>마이페이지_사이드바</title>
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="/css/mypage/mypage_side.css">
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/01.header.css">
+
+</head>
+
+
+<body>
+    <!-- <header>
+      <div data-include1="header" id="header"></div>
+    </header> -->
+  
+    <main>
+      <!-- <div class="page-title">
+        <span>나의 문의내역</span>
+      </div> -->
+  
+      <div class="mypage-container">
+        <div class="mypage_wrapper"> <!-- 1200*800 -->
+          
+          
+            <!--왼쪽 네비바 틀-->
+            <nav class="mypage_nav_area">
+              <div class="mypage_summary_container">
+    
+                <div class="mypage_profileEmojiContainer">
+                  <div class="mypage_profileEmojiTheme ">🥳</div>
+                </div>
+                <div class="mypage_hiuser">고마운분</div>
+                <div class="userName">000님, 안녕하세요🥳 </div>
+    
+    
+                <!--왼쪽 네비바 메뉴 -->
+                <nav class="mypage_content_container">
+                  <ul class="mypage_content_first">
+                    <li><a href="#">회원정보수정</a></li>
+                    
+                    <li><a href="#">즐겨찾기</a></li>
+                    
+                  </ul>
+                  <hr>
+                  <div class="mypage_content_second">
+                    <ul>
+                      <li><a href="../myPage/myactive.html">나의 활동</a></li>
+                      <li><a href="../myPage/myactive.html">나의 문의</a></li>
+                      <li><a href="../myPage/myask.html">나의 리뷰</a></li>
+    
+                    </ul>
+                  </div>
+                  <hr>
+                  <div class="mypage_content_third">
+                    <button>로그아웃</button>
+                  </div>
+                </nav> <!--mypage_content_container-->
+              </div> <!-- mypage_summary_container-->
+            </nav> <!--mypage_nav_area-->
+
+        </div> <!-- mypage_wrapper -->
+    </div> <!-- mypage-container -->
+  </main>
+
+  <!-- jQuery 라이브러리 추가 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      var include1 = $('[data-include1="header"]');
+      jQuery.each(include1, function () {
+        $(this).load('/html/01.header.html');
+      });
+    });
+
+  </script>
+</body>
+
+</html>
