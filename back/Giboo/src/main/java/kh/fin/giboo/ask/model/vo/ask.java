@@ -1,4 +1,4 @@
-package kh.fin.giboo.mypage.model.vo;
+package kh.fin.giboo.ask.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

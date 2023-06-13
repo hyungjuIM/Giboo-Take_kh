@@ -1,4 +1,4 @@
-package kh.fin.giboo.mypage.model.dao;
+package kh.fin.giboo.member.model.dao;
 
 import java.util.Map;
 
