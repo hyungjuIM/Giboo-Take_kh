@@ -136,7 +136,11 @@
 													<td>4시간</td>
 													<td>금정구 종합사회복지관</td>
 													<td>2023.05.24</td>
-													<td><div class="myactive_print">발급</div></td>
+													<td>
+														<div class="myactive_print">
+															<a href="${pageContext.request.contextPath}/mypage/reportPrint">발급</a>
+														</div>
+													</td>
 												</tr>
 												<tr>
 													<td>49</td>
@@ -219,14 +223,10 @@
 
 
 	<!-- 푸터 영역 -->
-	<header>
+	<footer>
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
-	</header>
+	</footer>
 
-	<!-- jQuery 라이브러리 추가 -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		crossorigin="anonymous"></script>
 
 </body>
 
