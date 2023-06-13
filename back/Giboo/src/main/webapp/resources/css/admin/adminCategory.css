@@ -264,24 +264,3 @@ a{
     background-color: #8071FC;
     color: white;
 }
-
-/* footer */
-.footerContainer{
-    background-color: #F6F6F6;
-    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
-    height: 244px;
-    display: flex;
-
-    justify-content: center;
-}
-
-.footerContent{
-    width: 1200px;
-    height: 65px;
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
-}
