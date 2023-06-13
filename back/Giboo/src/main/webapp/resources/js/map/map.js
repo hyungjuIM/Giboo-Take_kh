@@ -255,48 +255,110 @@ function zoomOut() {
 
 
 
-//--------------------리뷰 슬라이드---------------------
-$(document).ready(function() {
-    var slideIndex = 0;
-    var $mreProUl = $('.mrePro .mreProUl > .mreProLi');
-    var slideCount = $mreProUl.length;
 
-    function showSlide() {
-        $mreProUl.removeClass('active');
-        $mreProUl.eq(slideIndex).addClass('active');
-    }
+//-------------------------------------------------------------------------------
+// function mapList() {
+//     // contextPath, boardNo, memberNo 전역 변수 사용
+//     $.ajax({
+//         url: contextPath + "/map/mapList",
+//         data: { "mapNo": mapNo },
+//         type: "GET",
+//         dataType: "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
+//         success: function (mapList) {
+//             console.log(mapList);
 
-    function nextSlide() {
-        slideIndex++;
-        if (slideIndex >= slideCount) {
-            slideIndex = 0;
-        }cs
-        showSlide();
-    }
+//             mapList.forEach(function (map) {
+//                 const li = document.createElement('li');
+//                 li.classList.add('mlistLi');
 
-    function previousSlide() {
-        slideIndex--;
-        if (slideIndex < 0) {
-            slideIndex = slideCount - 1;
-        }
-        showSlide();
-    }
+//                 const a = document.createElement('a');
+//                 a.href = '';
 
-    $('.mrePro .mslideBtn div:last-child').click(function() {
-        nextSlide();
-    });
+//                 const img = document.createElement('img');
+//                 img.src = "${pageContext.request.contextPath}/resources/images/doCenter.jpg";
+//                 img.alt = '';
 
-    $('.mrePro .mslideBtn div:first-child').click(function() {
-        previousSlide();
-    });
+//                 const divDetail = document.createElement('div');
+//                 divDetail.classList.add('mlistDetail');
 
-     // 추가된 코드: 처음 슬라이드로 돌아가는 함수
-     function goToFirstSlide() {
-        slideIndex = 0;
-        showSlide();
-    }
+//                 const divTi = document.createElement('div');
+//                 divTi.classList.add('mlistTi');
 
-  
-    // 추가된 코드: 첫 번째 슬라이드 보여주기
-    showSlide();
-});
+//                 const divCa = document.createElement('div');
+//                 divCa.classList.add('mlistCa');
+
+//                 const spanCategoryName = document.createElement('span');
+//                 spanCategoryName.innerText = map.categoryName;
+
+//                 const divHe = document.createElement('div');
+//                 divHe.classList.add('mlistHe');
+
+//                 const span14 = document.createElement('span');
+//                 span14.innerText = '14';
+
+//                 const spanHeart = document.createElement('span');
+//                 spanHeart.innerHTML = '<i class="fa-regular fa-heart"></i>';
+
+//                 const divName = document.createElement('div');
+//                 divName.classList.add('mlistName');
+
+//                 const spanVagencyName = document.createElement('span');
+//                 spanVagencyName.innerText = map.vagencyName;
+
+//                 const divAdd = document.createElement('div');
+//                 divAdd.classList.add('mlistAdd');
+
+//                 const spanVolunteerPlace = document.createElement('span');
+//                 spanVolunteerPlace.innerText = map.volunteerPlace;
+
+//                 const divDo = document.createElement('div');
+//                 divDo.classList.add('mlistDo');
+
+//                 const spanReview = document.createElement('span');
+//                 spanReview.innerText = '봉사자 리뷰';
+
+//                 const spanReviewCount = document.createElement('span');
+//                 spanReviewCount.classList.add('mDe');
+//                 spanReviewCount.innerText = '135';
+
+//                 const spanSeparator = document.createElement('span');
+//                 spanSeparator.innerText = '|';
+
+//                 const spanVolunteerCount = document.createElement('span');
+//                 spanVolunteerCount.classList.add('mDe');
+//                 spanVolunteerCount.innerText = '432';
+
+//                 divCa.appendChild(spanCategoryName);
+//                 divHe.appendChild(span14);
+//                 divHe.appendChild(spanHeart);
+//                 divTi.appendChild(divCa);
+//                 divTi.appendChild(divHe);
+//                 divName.appendChild(spanVagencyName);
+//                 divAdd.appendChild(spanVolunteerPlace);
+//                 divDo.appendChild(spanReview);
+//                 divDo.appendChild(spanReviewCount);
+//                 divDo.appendChild(spanSeparator);
+//                 divDo.appendChild(spanVolunteerCount);
+//                 divDetail.appendChild(divTi);
+//                 divDetail.appendChild(divName);
+//                 divDetail.appendChild(divAdd);
+//                 divDetail.appendChild(divDo);
+//                 a.appendChild(img);
+//                 a.appendChild(divDetail);
+//                 li.appendChild(a);
+
+//                 const mbox = document.createElement('div');
+//                 mbox.classList.add('mbox');
+//                 li.appendChild(mbox);
+
+//                 const ul = document.querySelector('.mlistUl');
+//                 ul.appendChild(li);
+//             });
+
+//         },
+//         error: function (req, status, error) {
+//             console.log("에러 발생");
+//             console.log(req.responseText);
+//         }
+//     });
+// }

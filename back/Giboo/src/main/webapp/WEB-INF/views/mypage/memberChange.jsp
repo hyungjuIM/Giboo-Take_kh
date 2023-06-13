@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%-- 문자열 관련 함수(메서드) 제공 JSTL (EL형식으로 작성) --%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -51,8 +54,7 @@
 					<section class="memberChange_mainContainer">
 						<div class="memberChange_mainContent">
 							<section class="notice">
-								<form action="info" method="POST" name="myPage-form"
-									onsubmit="return infoValidate()">
+								<form action="info" method="POST" name="myPage-form" onsubmit="return infoValidate()">
 									<!-- notice seach area -->
 									<div class="memberChange_notice">
 										<div class="memberChange_container1">
@@ -62,7 +64,7 @@
 										</div>
 
 
-
+								
 										<div class="memberChange_title">
 											<span class="memberChange_con1">아이디</span> <span
 												class="memberChange_con2">
@@ -84,13 +86,6 @@
 										</div>
 										<div class="memberChange_title">
 											<span class="memberChange_con1">비밀번호변경</span> <span
-												class="memberChange_con2"> <input type="text"
-												name="updateName" id="MemberName"
-												placeholder="현재 비밀번호를 입력해주세요">
-											</span>
-										</div>
-										<div class="memberChange_title">
-											<span class="memberChange_con1"></span> <span
 												class="memberChange_con2"> <input type="text"
 												name="updateName" id="MemberName"
 												placeholder="변경할 비밀번호를 입력해주세요">
@@ -117,6 +112,9 @@
 												placeholder="변경할 휴대폰번호를 입력해주세요">
 											</span>
 										</div>
+										<!-- 주소 -->			<!--  fn:split(문자열, '구분자')  -->
+										<c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  />
+										
 										<div class="memberChange_title">
 											<span class="memberChange_con1">주소</span> <span
 												class="memberChange_con3"> <input type="text"
@@ -174,14 +172,11 @@
 
 
 	<!-- 푸터 영역 -->
-	<header>
-		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
-	</header>
+<footer>
+    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
+</footer>
 
-	<!-- jQuery 라이브러리 추가 -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		crossorigin="anonymous"></script>
+
 
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
