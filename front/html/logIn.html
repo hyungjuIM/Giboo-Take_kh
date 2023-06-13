@@ -14,15 +14,41 @@
     
     <main>
         <section class="loginSection">
-            <div class="logInContainer">
-                <div class="login"></div>
-                <div class="memberId"></div>
-                <div class="memberPw"></div>
-                <div class="checkContainer">
-                    <input type="checkbox"><span>아이디 저장</span>
-                    <div class="signUp"><a>회원가입 하기</a></div>
+            <div class="loginContainer">
+                <div class="loginTitle">
+                    <span>로그인</span>
                 </div>
-                <div class="logIn"><button class="loginBtn"></button></div>
+                <form action="" id="loginForm">
+                    <div class="memberId">
+                        <span><i class="fa-regular fa-user"></i></span>
+                        <input type="text" id="loginId" placeholder="아이디">
+                    </div>
+                    <div class="memberPw">
+                        <span><i class="fa-solid fa-fingerprint"></i></span>
+                        <input type="text" name="" id="loginPw" placeholder="비밀번호(8자 이상)">
+                    </div>
+                    <div class="checkContainer">
+                        <div class="checkboxBox">
+                            <input type="checkbox">
+                            <span>아이디 저장</span>
+                        </div>
+                        <div class="signUp"><a>회원가입 하기</a></div>
+                    </div>
+                    <div class="loginBtnnBox">
+                        <button class="loginBtnn">로그인</button>
+                    </div>
+                </form>
+                <div class="loginSocial">
+                    <span>3초만에 시작하기</span>
+                    <a href="" class="loginKakaoLink">
+                        <div class="loginKakao">
+                            <img src="/images/kakao.jpg" alt="">
+                        </div>
+                        <div class="loginKakao">
+                            <span>🥰</span>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 

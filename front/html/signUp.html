@@ -1,0 +1,115 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="/css/signUp.css">
+    <link rel="stylesheet" href="/css/reset.css">
+  </head>
+  <body>
+    <header>
+        <div data-include1="header" id="header"></div>
+    </header>
+
+
+    <main>
+        <section class="signUpSection">
+            <div class="signUpContainer">
+                <div class="signUpTitle">
+                    <span>회원가입</span>
+                </div>
+                <form action="" id="signUpForm">
+                    <div class="signUpName">
+                        <span><i class="fa-regular fa-user"></i></span>
+                        <input type="text" id="signUpName" placeholder="사용자 이름">
+                    </div>
+                    <div class="signUpId">
+                        <span><i class="fa-regular fa-user"></i></span>
+                        <input type="text" id="signUpId" placeholder="사용자 아이디">
+                    </div>
+                    <div class="signUpEmail">
+                        <span><i class="fa-regular fa-user"></i></span>
+                        <input type="text" id="signUpEmail" placeholder="이메일">
+                        <button id="cBtn">인증받기</button>
+                    </div>
+                    <div class="signUpMessageBox">
+                        <div class="signUpMessageBoxC">
+                            <span><i class="fa-regular fa-user"></i></span>
+                            <input type="text" id="cNumber" placeholder="인증번호 확인">
+                            <button id="McBtn">인증하기</button>
+                        </div>
+                        <span class="signUpMessage" id="emailCfMessage">인증번호를 입력해주세요.</span>
+                    </div>
+                    <div class="signUpPw1">
+                        <div class="signUpPw1Box">
+                            <span><i class="fa-regular fa-user"></i></span>
+                            <input type="text" id="signUpw1" placeholder="비밀번호">
+                        </div>
+                        <span class="signUpw1Message" id="signUpw1Message">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로 작성해주세요.</span>
+                    </div>
+                    <div class="signUpPw2">
+                        <div class="signUpPw2Box">
+                            <span><i class="fa-regular fa-user"></i></span>
+                            <input type="text" id="signUpw2" placeholder="비밀번호 확인">
+                        </div>
+                        <span class="signUpw2Message" id="signUpw2Message">비밀번호가 일치하지 않습니다.</span>
+                    </div>
+                    <div class="signUpNickname">
+                        <div class="signUpNicknameBox">
+                            <span><i class="fa-regular fa-user"></i></span>
+                            <input type="text" id="signUpNickname" placeholder="닉네임 확인">
+                        </div>
+                        <span class="signUpNicknameMessage" id="signUpNicknameMessage">영어/숫자/한글 2~10글자 사이로 작성해주세요.</span>
+                    </div>
+                    <div class="signUpTel">
+                        <span><i class="fa-regular fa-user"></i></span>
+                        <input type="text" id="signUpTel" placeholder="전화번호(-없이 숫자만 입력)">
+                    </div>
+                    <div class="signUpAdd">
+                        <span><i class="fa-regular fa-user"></i></span>
+                        <input type="text" id="signUpAdd" placeholder="주소">
+                        <button id="signUpAdBtn" onclick="sample5_execDaumPostcode()">주소찾기</button>
+                    </div>
+
+                    <div class="singUpBtnnBox">
+                        <button class="singUpBtnn">회원가입</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var include1 = $('[data-include1="header"]');
+            jQuery.each(include1, function () {
+                $(this).load('/html/01.header.html');
+            });
+        });
+    </script>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script>
+    function sample5_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("address").value = addr;
+            }
+        }).open();
+    }
+</script>
+
+  </body>
+  </html>
