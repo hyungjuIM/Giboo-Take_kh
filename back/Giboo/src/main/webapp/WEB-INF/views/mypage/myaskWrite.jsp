@@ -16,27 +16,21 @@
      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/myaskWrite.css">
      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 
-  
-
-    
-    <!--  -->
 
 </head>
 
 <body>
     <!-- 헤더 영역 -->
     <header>
-        <jsp:include page="/WEB-INF/views/main/header.jsp" />
-    </header>
+		<jsp:include page="/WEB-INF/views/main/header.jsp" />
+	</header>
+	
     <main>
         <div class="page-title">
             <span>문의내역</span>
           </div>
           
-          <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          
           
 
         
@@ -98,40 +92,15 @@
 
 
 <!-- 푸터 영역 -->
-    <header>
+    <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-    </header>
+    </footer>
     
-    <!-- jQuery 라이브러리 추가 -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-	crossorigin="anonymous"></script>
-
-
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-    
-        $('#summernote').summernote({
-            lang : 'ko-KR',              // default: 'en-US'
-            height: 300,                 // set editor height
-            minHeight: null,             // set minimum height of editor
-            maxHeight: null,             // set maximum height of editor
-            focus: true,                 // set focus to editable area after initializing summernote
-            toolbar: [
-                ['fontname', ['fontname']],
-                ['fontsize', ['fontsize']],
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['paragraph']],
-                ['insert', ['picture', 'link', 'video']],
-                ['view', ['codeview']]
-            ],
-            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica neue', 'Helvetica', 'Impact', 'Lucida Grande', 'Tahoma', 'Times New Roman', 'Verdana', 'Tahoma', 'Courier New', '맑은 고딕', '굴림', '돋움'],
-            fontNamesIgnoreCheck: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica neue', 'Helvetica', 'Impact', 'Lucida Grande', 'Tahoma', 'Times New Roman', 'Verdana', 'Tahoma', 'Courier New',  '맑은 고딕', '굴림', '돋움'],
-        });
-    
-    });
-</script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <script src="${pageContext.request.contextPath}/resources/js/summernote/noticeWrite.js" ></script>
 
 
 </body>

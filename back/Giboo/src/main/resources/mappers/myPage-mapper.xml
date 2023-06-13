@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="myPageMapper">
-	<resultMap type="myPage" id="myPage_rm">
+	<resultMap type="member" id="myPage_rm">
 		<id property="memberNo" column="MEMBER_NO"/>
 		
 		<result property="memberId" column="MEMBER_ID"/>
@@ -25,36 +25,11 @@
   <update id="updateInfo">
   	UPDATE MEMBER_S SET
 	MEMBER_NICK = #{updateNickname},
+	MEMBER_NAME = #{updateName},
 	MEMBER_TEL = #{updateTel},
 	MEMBER_ADDR = #{memberAddress}
 	MEMBER_PW  = #{newPw}
 	WHERE MEMBER_NO = #{memberNo}
   </update>
-  
-  <!-- 로그인한 회원의 DB에 저장된 암호화된 비밀번호 조회 -->
-  <!-- 
-   <select id="selectEncPw" resultType="String">
-  	SELECT MEMBER_PW
-	FROM MEMBER_S
-	WHERE MEMBER_NO = #{memberNo}
  
-  </select>
-   -->
- 
-  
-  <!-- 비밀번호 변경 -->
-  <!--
-  <update id="changePw" >
-  	UPDATE MEMBER_S SET
-	MEMBER_PW  = #{newPw}
-	WHERE MEMBER_NO =#{memberNo}  
-  </update>
-    -->
-  
-  
-
-  
-
-  
-  
 </mapper>

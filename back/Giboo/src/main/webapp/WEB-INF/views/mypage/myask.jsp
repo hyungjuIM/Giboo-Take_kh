@@ -116,7 +116,7 @@
 												<tr>
 													<td>6</td>
 													<td>기부>어르신</td>
-													<td><a href="#!">기부를 했을 때 연말정산에 반영되나요?</a></td>
+													<td><a href="${pageContext.request.contextPath}/mypage/myaskDetail">기부를 했을 때 연말정산에 반영되나요?</a></td>
 													<td>2023.05.24</td>
 													<td><span style="color: #8071FC;">미답변</span></td>
 												</tr>
@@ -175,9 +175,7 @@
 											</ul>
 										</nav>
 										<div>
-											<button type="button" class="myask_writeBtn">
-												<i class="fa-solid fa-pen"></i>_글쓰기
-											</button>
+											<a href="${pageContext.request.contextPath}/mypage/myaskWrite" class="myask_writeBtn"> <i class="fa-solid fa-pen"></i>_글쓰기</a>
 										</div>
 									</div>
 

@@ -322,6 +322,7 @@ padding : 3px;
 border : 1px solid #5D55FA; 
 border-radius: 5px;
 
+
 font-weight: 400;
 font-size: 14px;
 line-height: 19px;
@@ -360,7 +361,11 @@ hr{
   width: 104px;
 height: 22px;
 
+white-space:nowrap;
+
 margin-top: 25px;
+
+white-space:nowrap;
 
 font-weight: 600;
 font-size: 16px;

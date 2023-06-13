@@ -14,10 +14,8 @@
 
 
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/mypage/memberChange.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/main/reset.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/memberChange.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 
 <!-- fontawesome -->
 <link rel="stylesheet"
