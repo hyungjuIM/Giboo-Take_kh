@@ -20,6 +20,7 @@ a{
     color: #000;
 }
 
+
 :root{
     --mainColor: #00CA61;
     --titleColor: #252525;
@@ -33,6 +34,7 @@ a{
     height: 100vh;
     padding: 50px;
 }
+
 /* 홀수 section에만 배경색 */
 section:nth-child(odd){
     background-color: #f8f8f8;
@@ -41,9 +43,26 @@ section:nth-child(odd){
 /* 1번째 section */
 section .inner{
     width: 1150px;
+
 }
 
 /* 3번째 section */
+.volContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+
+}
+.volContainer .vol_title p{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 45px;
+    font-weight: 500;
+
+
+    margin-bottom : 24px;
+}
+
 
 /* content */
 .vol_box{
