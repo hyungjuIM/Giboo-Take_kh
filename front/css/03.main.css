@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
 
 *{
     box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'NanumSquare', sans-serif;
 }
 
 body{
@@ -21,121 +19,156 @@ a{
     text-decoration: none;
     color: #000;
 }
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center;
-}
-/* 1. 배너 */
-main section:nth-child(1){
-    border: 3px solid paleturquoise;
-    width: 100%;
 
-    display: flex;
-    justify-content: center;
-}
-section:nth-child(1) div[class=mainBanner]{
-    background-color: aqua;
-    height: 400px;
-    width: 1200px;
-    margin: 24px 0px ;
-}
-/* 목표 btn */
-main section:nth-child(2){
-    width: 1080px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
 }
 
-.mainContent article:nth-child(1){
-    border: 1px solid blue;
-    height: 173px;
-
-    display: flex;
-    align-items: center;
+/* Common CSS */
+.container section{
+    height: 100vh;
+    padding: 50px;
+}
+/* 홀수 section에만 배경색 */
+section:nth-child(odd){
+    background-color: #f8f8f8;
 }
 
-.mainContent article:nth-child(1) .showGoal{
-    border: 1px solid red;
-    width: 382px;
-    height: 128px;
-
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
+/* 1번째 section */
+section .inner{
+    width: 1150px;
 }
 
-/* 회원사진 */
-.showGoal div[class=userPhoto]{
-    width: 96px;
-    height: 96px;
-    background-color: #d9d9d9;
+/* 3번째 section */
+
+/* content */
+.vol_box{
+    width: 421px;
+    height: 500px;
+    background-color: #fff;
     border-radius: 20px;
-    margin: 16px
-    
+    border: 1px solid var(--etcColor);
+}  
+
+.vol_box div:nth-child(1) img{
+    width: 420px;
+    height: 313px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: var(--etcColor);
 }
-/* 내역 */
-.showGoal div[class=showGoal_content]{
-    border: 2px solid greenyellow;
+
+/* vol_box 내용 부분 */
+.vol_content_part{
+    padding-top: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* vol_box percent bar */
+.vol_content_part .vol_con_bar{
+    width: 318px;
+    height: 12px;
+    background-color: #f0f0f0;
+    box-shadow: insert 1px 1px 2px rgba(0, 0, 0.15);
+    border-radius: 50px;
+}
+.vol_con_bar .vol_con_bar_per{
+    position:relative;
+    display: block;
     width: 70%;
     height: 100%;
-    padding:8px 8px 8px 0;
-    background-color: #f6f6f6;
+
+    background-color: var(--mainColor);
+    box-shadow:  insert 0px 2px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    animation: progress 0.4s ease-in-out forwards;
 }
 
-.showGoal_content h3{
-    font-size: 16px;
+@keyframes progress{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.vol_con_bar_per .tooltip{
+    position: absolute;
+    top: -8px;
+    left: 330px;
+
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--etcColor);
+}
+
+.vol_con_bar_per .tooltip span{
     font-weight: 600;
-    color: #4d4d4d;
-
-    margin-bottom: 0.4694rem;
+    color: var(--mainColor);
 }
-.showGoal_content span{
-    color: #8071fc;
-    display: inline-block;
-    margin: 5px;
-}
-.showGoal_content .userMessage{
-    height: 32px;
-    width: 100%;
-    border-radius: 5px;
-    /* border: 1px solid red; */
 
-    background-color: #fff;
-    box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.1);
+/* vol_content title */
+.vol_content{
+    padding-top: 14px;
+    padding-bottom: 20px;
+}
+.vol_content h3{
+    padding-bottom: 8px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -2.5%;
+    color: var(--titleColor);
+}
+.vol_content div{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--contentColor);
+    gap: 4px;
+    
     display: flex;
     align-items: center;
-    padding-left: 8px;
+}
+.vol_content div i{
+    font-size: 24px;
 }
 
-.userMessage span:nth-child(1){
+/* vol_content tag */
+.vol_tag{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+ 
+.vol_tag span{
     font-weight: 500;
-    font-style: 12px;
-    line-height: 15px;
-    letter-spacing: -0.05em;
-    color: #7a7a7a;
-}
-.userMessage span:nth-child(2){
-    font-weight: 400;
-    font-style: 12px;
-    line-height: 15px;
-    line-height: 15px;
-}
+    font-size: 17px;
 
-/* ********** 다른영역이란다 *************** */
-.mainContent article:nth-child(2){
-    border: 2px solid rgb(23, 79, 128);
-    height: 173px;
+    color: var(--mainColor);
+
+    display: inline-block;
+    border: 1.5px solid var(--mainColor);
+    padding: 5px 14px;
+    margin-right:4px;
+    border-radius: 50px;
+
 }
 
-.mainContent article:nth-child(3){
-    border: 4px solid blue;
-    height: 811px;
+.vol_tag .vol_like{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--contentColor);
+    
+    display: flex;
+    align-items: center;
+   
 }
-
-
-
-
-

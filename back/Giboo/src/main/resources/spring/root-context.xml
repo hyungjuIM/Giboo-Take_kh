@@ -14,6 +14,7 @@
 		<!--<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		&lt;!&ndash; <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />   &ndash;&gt;
 		<property name="url" value="jdbc:oracle:thin:@112.220.137.37:1521:xe"/>
+		
 		<property name="username" value="giboo" />
 		<property name="password" value="take1234" />-->
 
