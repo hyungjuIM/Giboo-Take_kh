@@ -75,6 +75,7 @@ public class MypageController {
 		logger.info("나의문의");
 		return "mypage/myask";
 	}
+
 	
 	//나의 문의내역 글쓰기
 	@GetMapping(value = "/myaskWrite")
@@ -107,6 +108,21 @@ public class MypageController {
 		return "mypage/withdrawal";
 	}
 	
+
+	// 나의 문의 글쓰기
+		@GetMapping(value = "/myaskWrite")
+		public String myaskWrite() {
+			logger.info("나의 문의 글쓰기");
+			return "mypage/myaskWrite";
+		}
+		
+		// 나의 문의 상세내역
+				@GetMapping(value = "/myaskDetail")
+				public String myaskDetail() {
+					logger.info("나의 문의 상세내역");
+					return "mypage/myaskDetail";
+				}
+
 	// 인증서 출력
 		@GetMapping(value = "/reportPrint")
 		public String reportPrint() {
@@ -115,6 +131,7 @@ public class MypageController {
 		}
 	
 	
+
 	//===================================================
 
 	@PostMapping("/info")
@@ -140,6 +157,7 @@ public class MypageController {
 		if(result > 0) {
 			message = "회원정보가 수정되었습니다";
 			//DA와 Session 의 정보를 일치시켜주기==동기화
+
 			loginMember.setMemberName( (String)paramMap.get("updateName"));
 			loginMember.setMemberNick( (String)paramMap.get("updateNickname"));
 			loginMember.setMemberTel( (int)paramMap.get("updateTel"));

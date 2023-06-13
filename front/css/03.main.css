@@ -1,4 +1,6 @@
 @import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
+
 
 *{
     box-sizing: border-box;
@@ -29,13 +31,42 @@ a{
 }
 
 /* Common CSS */
+
 .container section{
     height: 100vh;
-    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 /* 홀수 section에만 배경색 */
 section:nth-child(odd){
     background-color: #f8f8f8;
+}
+/* 메인 서브 타이틀 공통 속성 */
+.main_sub_title{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin-bottom: 60px;
+}
+.main_sub_title p{
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--mainColor);
+
+    padding-bottom: 30px;
+}
+
+
+.main_sub_title h3{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 48px;
+    font-weight: 500;
+
+    color: var(--titleColor)
 }
 
 /* 1번째 section */
@@ -43,23 +74,72 @@ section .inner{
     width: 1150px;
 }
 
+
 /* 3번째 section */
+.container .volContainer{
+    position:relative;
+}
+
+
 
 /* content */
-.vol_box{
+.vol_box_container{
+    display: flex;
+    gap: 24px;
+}
+.volContainer .vol_box{
     width: 421px;
     height: 500px;
     background-color: #fff;
     border-radius: 20px;
     border: 1px solid var(--etcColor);
-}  
 
-.vol_box div:nth-child(1) img{
+    position: relative;
+}  
+/* d-day 박스 */
+.vol_box .vol_day{
+    position: absolute;
+    top: 24px;
+    left: 24px;
+
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background-color: #fff;  
+    box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.1);  
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--contentColor);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 15px;
+
+    z-index: 100;
+
+}
+.vol_box .vol_day span{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+
+    color: var(--redColor);
+}
+
+.vol_box div:nth-child(2) img{
     width: 420px;
     height: 313px;
     border-radius: 20px 20px 0px 0px;
     background-color: var(--etcColor);
+
+    object-fit: cover;
 }
+
+
 
 /* vol_box 내용 부분 */
 .vol_content_part{
@@ -103,34 +183,36 @@ section .inner{
     top: -8px;
     left: 330px;
 
-    font-family: 'NanumSquare', sans-serif;
-    font-size: 18px;
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
     font-weight: 400;
     color: var(--etcColor);
 }
 
 .vol_con_bar_per .tooltip span{
-    font-weight: 600;
+    font-family: 'NanumSquareNeo';
+
+    font-weight: 700;
     color: var(--mainColor);
 }
 
-/* vol_content title */
+/* vol_content 내용 */
 .vol_content{
     padding-top: 14px;
-    padding-bottom: 20px;
+    padding-bottom: 18px;
 }
 .vol_content h3{
-    padding-bottom: 8px;
-    font-size: 20px;
-    font-weight: 600;
+    padding-bottom: 6px;
+    font-size: 22px;
+    font-weight: 500;
     line-height: 24px;
     letter-spacing: -2.5%;
     color: var(--titleColor);
 }
 .vol_content div{
-    font-family: 'NanumSquare', sans-serif;
-    font-size: 18px;
-    font-weight: 500;
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 600;
     color: var(--contentColor);
     gap: 4px;
     
@@ -138,7 +220,7 @@ section .inner{
     align-items: center;
 }
 .vol_content div i{
-    font-size: 24px;
+    font-size: 20px;
 }
 
 /* vol_content tag */
@@ -146,29 +228,157 @@ section .inner{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    gap: 10px;
 }
  
 .vol_tag span{
-    font-weight: 500;
-    font-size: 17px;
+    font-family: 'NanumSquareNeo';
+    font-weight: 600;
+    font-size: 16px;
 
     color: var(--mainColor);
 
     display: inline-block;
     border: 1.5px solid var(--mainColor);
-    padding: 5px 14px;
+    padding: 5px 12px;
     margin-right:4px;
     border-radius: 50px;
 
 }
 
 .vol_tag .vol_like{
-    font-family: 'NanumSquare', sans-serif;
-    font-size: 19px;
-    font-weight: 500;
+    font-family: 'NanumSquareNeo';
+    font-size: 18px;
+    font-weight: 600;
     color: var(--contentColor);
     
     display: flex;
     align-items: center;
+    gap: 4px;
    
+}
+
+.vol_tag .vol_like i{
+    font-size: 24px;
+}
+
+/* ////////////////////// 후기 section //////////////////////*/
+.re_box_container .re_box{
+    width: 419px;
+    height: 326px;
+    border: 1px solid var(--etcColor);
+    border-radius: 12px;
+    background-color: #fff;
+
+    position: relative;
+}
+
+.re_box:after{
+    content: '';
+    padding: 10px 6.5px;
+
+    position: absolute;
+    left: -14px;
+    top: 63px;
+    border-radius: 0px 5px;
+    background-color: var(--mainColor);
+    
+}
+/* 리뷰 태그 */
+.re_box{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.re_box_container .re_tag_sticky{
+    position: absolute;
+    top: 16px;
+    left: -14px;
+
+    width: 151px;
+    height: 63px;
+    background-color: var(--mainColor);
+    border-radius: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 100;
+}
+
+.re_tag_sticky span{
+    padding: 6px 25px;
+    border: 1.5px solid #fff;
+    border-radius: 50px;
+    font-family: 'NanumSquareNeo';
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+.re_tag_sticky span i{
+    font-size: 22px;
+}
+.re_box div:nth-child(2){
+    margin: 20px;
+    height: 80%;
+}
+.re_box div .re_content{
+    font-family: 'NanumSquare', sans-serif;
+    height: 90%;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: var(--titleColor);
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding-top: 80px;
+
+}
+
+.re_user_name{
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    color: var(--contentColor);
+
+    margin-bottom: 10px;
+}
+
+.re_active_info{
+    font-family: 'NanumSquare', sans-serif;
+
+    height: 65px;
+    border-radius: 0px 0px 12px 12px;
+    background-color: var(--etcColor);
+
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 4px;
+    
+}
+.re-active_info span:nth-child(1){
+    font-family: 'NanumSquare', sans-serif;
+
+}
+.re_active_info span:nth-child(2){
+    display: inline-block;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    width: 300px;
+    white-space: nowrap;
+    overflow: hidden;
+
 }

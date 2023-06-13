@@ -175,8 +175,10 @@
 											</ul>
 										</nav>
 										<div>
+
 											<a href="${pageContext.request.contextPath}/mypage/myaskWrite" class="myask_writeBtn">
 											<i class="fa-solid fa-pen"></i>_글쓰기</a>
+
 										</div>
 									</div>
 

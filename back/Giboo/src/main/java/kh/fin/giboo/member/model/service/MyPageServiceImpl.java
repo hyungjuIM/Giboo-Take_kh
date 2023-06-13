@@ -23,6 +23,8 @@ public class MyPageServiceImpl implements MyPageService {
 		
 		return dao.updateInfo(paramMap);
 	}
+
 	
 	//비번변경시, 새비번을 암호화해서 update 구문 수행 
+
 }
