@@ -16,24 +16,21 @@
      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/myaskWrite.css">
      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 
-  
-
-    
-    <!--  -->
 
 </head>
 
 <body>
     <!-- 헤더 영역 -->
     <header>
-        <jsp:include page="/WEB-INF/views/main/header.jsp" />
-    </header>
+		<jsp:include page="/WEB-INF/views/main/header.jsp" />
+	</header>
+	
     <main>
         <div class="page-title">
             <span>문의내역 작성</span>
           </div>
           
-         
+
           
 
         
@@ -95,19 +92,17 @@
 
 
 <!-- 푸터 영역 -->
- <footer>
-    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-</footer>
 
- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
+    <footer>
+        <jsp:include page="/WEB-INF/views/main/footer.jsp" />
+    </footer>
+    
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
+
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  <script src="${pageContext.request.contextPath}/resources/js/summernote/noticeWrite.js" ></script>
-    
-    
-
-
 
 
 
