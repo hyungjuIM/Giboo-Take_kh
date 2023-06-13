@@ -1,4 +1,4 @@
-package kh.fin.giboo.mypage.model.service;
+package kh.fin.giboo.member.model.service;
 
 import java.util.Map;
 
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import kh.fin.giboo.mypage.model.dao.MyPageDAO;
+import kh.fin.giboo.member.model.dao.MyPageDAO;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
@@ -23,4 +23,6 @@ public class MyPageServiceImpl implements MyPageService {
 		
 		return dao.updateInfo(paramMap);
 	}
+	
+	//비번변경시, 새비번을 암호화해서 update 구문 수행 
 }

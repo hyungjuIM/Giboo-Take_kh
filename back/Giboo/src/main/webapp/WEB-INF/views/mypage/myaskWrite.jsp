@@ -30,13 +30,10 @@
     </header>
     <main>
         <div class="page-title">
-            <span>문의내역</span>
+            <span>문의내역 작성</span>
           </div>
           
-          <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+         
           
 
         
@@ -76,18 +73,18 @@
             </div>
         
             <!-- 본문 -->
-        <form action="#" method="post" class="contentContiner">
-            <textarea class="summernote" name="editordata"></textarea>
-           </form>  
+        <form method="post" class="contentContiner" action="#">
+                    <textarea id="summernote" name="editordata"></textarea>
+                </form>
 
 
           <!-- 목록 알림 등록 취소 영역 -->
           <div class="ask_write_submitContainer">
-            <button class="listBack">목록으로</button>
-            <div class="alarmCheck"><input type="checkbox"> 알림 보내기</div>
-            <button class="save">등록</button>
-            <button class="cancel">취소</button>
-          </div>
+                    <button class="listBack">목록으로</button>
+                    <div class="alarmCheck"><input type="checkbox"> 알림 보내기</div>
+                    <button class="save">등록</button>
+                    <button class="cancel">취소</button>
+                </div>
 
          
      
@@ -98,40 +95,20 @@
 
 
 <!-- 푸터 영역 -->
-    <header>
-        <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-    </header>
+ <footer>
+    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
+</footer>
+
+ <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <script src="${pageContext.request.contextPath}/resources/js/summernote/noticeWrite.js" ></script>
     
-    <!-- jQuery 라이브러리 추가 -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-	crossorigin="anonymous"></script>
+    
 
 
-<script type="text/javascript">
-    jQuery(document).ready(function() {
-    
-        $('#summernote').summernote({
-            lang : 'ko-KR',              // default: 'en-US'
-            height: 300,                 // set editor height
-            minHeight: null,             // set minimum height of editor
-            maxHeight: null,             // set maximum height of editor
-            focus: true,                 // set focus to editable area after initializing summernote
-            toolbar: [
-                ['fontname', ['fontname']],
-                ['fontsize', ['fontsize']],
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['paragraph']],
-                ['insert', ['picture', 'link', 'video']],
-                ['view', ['codeview']]
-            ],
-            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica neue', 'Helvetica', 'Impact', 'Lucida Grande', 'Tahoma', 'Times New Roman', 'Verdana', 'Tahoma', 'Courier New', '맑은 고딕', '굴림', '돋움'],
-            fontNamesIgnoreCheck: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Helvetica neue', 'Helvetica', 'Impact', 'Lucida Grande', 'Tahoma', 'Times New Roman', 'Verdana', 'Tahoma', 'Courier New',  '맑은 고딕', '굴림', '돋움'],
-        });
-    
-    });
-</script>
+
 
 
 </body>

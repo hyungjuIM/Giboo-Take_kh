@@ -120,6 +120,8 @@ align-items: center;
 color: #BDBDBD;
 }
 
+
+
 .ask_write_search-filter {
     display: flex;
     align-items: center;
@@ -191,7 +193,6 @@ color: #BDBDBD;
 .ask_write_submitContainer{
    
     margin-top: 20px;
-    padding-top: 20px;
 
     display: flex;
     flex-direction: row;
