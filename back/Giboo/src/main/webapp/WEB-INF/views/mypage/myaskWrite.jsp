@@ -27,10 +27,10 @@
 	
     <main>
         <div class="page-title">
-            <span>문의내역</span>
+            <span>문의내역 작성</span>
           </div>
           
-          
+
           
 
         
@@ -70,18 +70,18 @@
             </div>
         
             <!-- 본문 -->
-        <form action="#" method="post" class="contentContiner">
-            <textarea class="summernote" name="editordata"></textarea>
-           </form>  
+        <form method="post" class="contentContiner" action="#">
+                    <textarea id="summernote" name="editordata"></textarea>
+                </form>
 
 
           <!-- 목록 알림 등록 취소 영역 -->
           <div class="ask_write_submitContainer">
-            <button class="listBack">목록으로</button>
-            <div class="alarmCheck"><input type="checkbox"> 알림 보내기</div>
-            <button class="save">등록</button>
-            <button class="cancel">취소</button>
-          </div>
+                    <button class="listBack">목록으로</button>
+                    <div class="alarmCheck"><input type="checkbox"> 알림 보내기</div>
+                    <button class="save">등록</button>
+                    <button class="cancel">취소</button>
+                </div>
 
          
      
@@ -92,15 +92,18 @@
 
 
 <!-- 푸터 영역 -->
+
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
     
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
+
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
  <script src="${pageContext.request.contextPath}/resources/js/summernote/noticeWrite.js" ></script>
+
 
 
 </body>

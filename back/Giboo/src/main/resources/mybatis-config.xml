@@ -25,12 +25,14 @@
 	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationDetail" alias="donationDetail"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Volunteer" alias="volunteer"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerDetail" alias="volunteerDetail"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.Map" alias="mapList"/>
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 <mappers>
 <mapper resource="/mappers/member-mapper.xml"/>
-<mapper resource="/mappers/myPage-mapper.xml"/>
+<mapper resource="/mappers/map-mapper.xml"/>
+<mapper resource="/mappers/myPage-mapper.xml" />
 </mappers>
 
 </configuration>

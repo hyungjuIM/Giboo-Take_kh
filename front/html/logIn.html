@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/css/logIn.css">
+    <link rel="stylesheet" href="/css/reset.css">
+</head>
+<body>
+    <header>
+        <div data-include1="header" id="header"></div>
+    </header>
+    
+    <main>
+        <section class="loginSection">
+            <div class="logInContainer">
+                <div class="login"></div>
+                <div class="memberId"></div>
+                <div class="memberPw"></div>
+                <div class="checkContainer">
+                    <input type="checkbox"><span>아이디 저장</span>
+                    <div class="signUp"><a>회원가입 하기</a></div>
+                </div>
+                <div class="logIn"><button class="loginBtn"></button></div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+    $(function () {
+        var include1 = $('[data-include1="header"]');
+        jQuery.each(include1, function () {
+            $(this).load('/html/01.header.html');
+        });
+    });
+
+</script>
+</body>
+</html>
