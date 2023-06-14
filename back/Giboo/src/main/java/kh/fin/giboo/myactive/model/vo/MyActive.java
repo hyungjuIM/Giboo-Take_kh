@@ -9,11 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 
-public class myactive {
+public class MyActive {
 
+	
 	//나의 활동
-	private int myactNo;
-	private String volcomStatus;
+	private int myactiveNo;
+	private String volunteerCompleteStatus;
 	private int donationNo;
 	private int volunteerNo;
 	private int memberNo;
