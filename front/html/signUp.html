@@ -25,17 +25,17 @@
                         <input type="text" id="signUpName" placeholder="사용자 이름">
                     </div>
                     <div class="signUpId">
-                        <span><i class="fa-regular fa-user"></i></span>
+                        <span><i class="fa-regular fa-circle-user"></i></span>
                         <input type="text" id="signUpId" placeholder="사용자 아이디">
                     </div>
                     <div class="signUpEmail">
-                        <span><i class="fa-regular fa-user"></i></span>
+                        <span><i class="fa-solid fa-at"></i></span>
                         <input type="text" id="signUpEmail" placeholder="이메일">
                         <button id="cBtn">인증받기</button>
                     </div>
                     <div class="signUpMessageBox">
                         <div class="signUpMessageBoxC">
-                            <span><i class="fa-regular fa-user"></i></span>
+                            <span><i class="fa-regular fa-envelope"></i></span>
                             <input type="text" id="cNumber" placeholder="인증번호 확인">
                             <button id="McBtn">인증하기</button>
                         </div>
@@ -43,31 +43,31 @@
                     </div>
                     <div class="signUpPw1">
                         <div class="signUpPw1Box">
-                            <span><i class="fa-regular fa-user"></i></span>
+                            <span><i class="fa-solid fa-fingerprint"></i></span>
                             <input type="text" id="signUpw1" placeholder="비밀번호">
                         </div>
                         <span class="signUpw1Message" id="signUpw1Message">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로 작성해주세요.</span>
                     </div>
                     <div class="signUpPw2">
                         <div class="signUpPw2Box">
-                            <span><i class="fa-regular fa-user"></i></span>
+                            <span><i class="fa-solid fa-lock"></i></span>
                             <input type="text" id="signUpw2" placeholder="비밀번호 확인">
                         </div>
                         <span class="signUpw2Message" id="signUpw2Message">비밀번호가 일치하지 않습니다.</span>
                     </div>
                     <div class="signUpNickname">
                         <div class="signUpNicknameBox">
-                            <span><i class="fa-regular fa-user"></i></span>
+                            <span><i class="fa-regular fa-face-kiss-wink-heart"></i></span>
                             <input type="text" id="signUpNickname" placeholder="닉네임 확인">
                         </div>
                         <span class="signUpNicknameMessage" id="signUpNicknameMessage">영어/숫자/한글 2~10글자 사이로 작성해주세요.</span>
                     </div>
                     <div class="signUpTel">
-                        <span><i class="fa-regular fa-user"></i></span>
+                        <span><i class="fa-solid fa-phone"></i></span>
                         <input type="text" id="signUpTel" placeholder="전화번호(-없이 숫자만 입력)">
                     </div>
                     <div class="signUpAdd">
-                        <span><i class="fa-regular fa-user"></i></span>
+                        <span><i class="fa-solid fa-house"></i></span>
                         <input type="text" id="signUpAdd" placeholder="주소">
                         <button id="signUpAdBtn" onclick="sample5_execDaumPostcode()">주소찾기</button>
                     </div>
@@ -105,7 +105,7 @@
                 var addr = data.address; // 최종 주소 변수
 
                 // 주소 정보를 해당 필드에 넣는다.
-                document.getElementById("address").value = addr;
+                document.getElementById("signUpAdd").value = addr;
             }
         }).open();
     }
