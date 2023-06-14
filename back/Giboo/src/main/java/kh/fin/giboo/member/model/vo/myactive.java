@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 
-public class myactive {
+public class Myactive {
 
 	//나의 활동
 	private int myactNo;

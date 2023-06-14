@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class ask {
+public class Ask {
 
 	//나의 문의내역
 	private int askNo;
