@@ -21,8 +21,8 @@
 
     
     <!--  -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice/noticeWrite.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice/noticeWrite.css" />
 </head>
 
 <body>
