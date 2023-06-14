@@ -1,4 +1,4 @@
-package kh.fin.giboo.myactive.model.vo;
+package kh.fin.giboo.member.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 
-public class MyActive {
+public class Myactive {
 
 	
 	//나의 활동
-	private int myactiveNo;
-	private String volunteerCompleteStatus;
+	private int myactNo;
+	private String volcomStatus;
 	private int donationNo;
 	private int volunteerNo;
 	private int memberNo;
