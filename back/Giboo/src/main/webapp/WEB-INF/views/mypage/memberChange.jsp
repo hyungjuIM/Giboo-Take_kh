@@ -110,35 +110,16 @@
 												placeholder="변경할 휴대폰번호를 입력해주세요">
 											</span>
 										</div>
-										<!-- 주소 -->			<!--  fn:split(문자열, '구분자')  -->
-										<c:set var="addr"  value="${fn:split(loginMember.memberAddress, ',,')}"  />
+										
 										
 										<div class="memberChange_title">
-											<span class="memberChange_con1">주소</span> <span
-												class="memberChange_con3"> <input type="text"
-												id="zip-code" placeholder="우편번호" readonly>
-											</span> <input type="button" onclick="execDaumPostcode()" value="검색">
+											<span class="memberChange_con1">주소</span> 
+											<span class="memberChange_con3"> 
+											<input type="text" id="address" placeholder="주소를 입력해 주세요"> 
+											</span> 
+											<input type="button" onclick="sample5_execDaumPostcode()" value="검색">
 										</div>
-										<div class="memberChange_title">
-											<span class="memberChange_con1"></span> <span
-												class="memberChange_con3"> <input type="text"
-												id="address-1" placeholder="도로명주소" style="width: 400px"
-												readonly>
-											</span>
-										</div>
-										<div class="memberChange_title">
-											<span class="memberChange_con1"></span> <span
-												class="memberChange_con3"> <input type="text"
-												id="address-1-1" placeholder="지번주소" style="width: 400px"
-												readonly>
-											</span>
-										</div>
-										<div class="memberChange_title">
-											<span class="memberChange_con1"></span> <span
-												class="memberChange_con3"> <input type="text"
-												id="address-2" placeholder="상세주소" style="width: 400px">
-											</span>
-										</div>
+										
 									</div>
 									<div class="memberChange_bottom">
 										<button class="memberChange_b">수정완료</button>
@@ -174,13 +155,24 @@
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />
 </footer>
 
-
-
-	<script
-		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
 	<script
 		src="${pageContext.request.contextPath}/resources/js/mypage/memberChange.js"></script>
+
+	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<script>
+    function sample5_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var addr = data.address; // 최종 주소 변수
+
+                // 주소 정보를 해당 필드에 넣는다.
+                document.getElementById("address").value = addr;
+            }
+        }).open();
+    }
+</script>
+
 </body>
 
 </html>
