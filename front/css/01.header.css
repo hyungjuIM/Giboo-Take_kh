@@ -14,7 +14,6 @@
 }
 a{
     text-decoration: none;
-    font-size: 18px;
     font-weight: 500;
     font-family: 'NanumSquare', sans-serif;
 }
@@ -97,7 +96,7 @@ a{
     left: 50%;
     transform: translateX(-50%);
     opacity: 0;
-    bottom: -130%;
+    bottom: -160%;
     transition: 0.3s;
     
 }
