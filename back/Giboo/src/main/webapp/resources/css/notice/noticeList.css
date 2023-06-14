@@ -33,6 +33,7 @@ body{
 }
 
 .page-title {
+  margin-top: 3px;
   margin-bottom: 100px;
 
   background-color: #8071FC ;
