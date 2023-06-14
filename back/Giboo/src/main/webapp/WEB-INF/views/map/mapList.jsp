@@ -118,10 +118,8 @@
     
     
     
-    <!-- 푸터 영역 -->
-    <header>
-        <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-    </header>
+    
+    
     
     
     
