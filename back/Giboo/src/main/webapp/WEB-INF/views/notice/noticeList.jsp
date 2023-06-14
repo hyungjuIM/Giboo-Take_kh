@@ -12,18 +12,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice/noticeList.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- jQuery 라이브러리 추가(CDN) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-
-    
-    <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
       <jsp:include page="/WEB-INF/views/main/header.jsp" />
     </header>
@@ -135,6 +125,14 @@
      <!-- 푸터 영역 -->
     <footer>
       <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-  </footer>
-</body>
+    </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    
+    <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
+    </body>
 </html>
