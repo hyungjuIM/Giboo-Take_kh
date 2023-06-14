@@ -18,5 +18,4 @@ public class Map {
 	private String categoryName; // 카테고리이름
 	private int categoryNo;
 	private int volunteerNo;
-	
 }

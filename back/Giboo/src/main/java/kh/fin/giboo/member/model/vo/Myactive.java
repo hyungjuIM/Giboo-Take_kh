@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 public class Myactive {
 
+	
 	//나의 활동
 	private int myactNo;
 	private String volcomStatus;
