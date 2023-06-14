@@ -13,6 +13,7 @@
   <title>마이페이지_사이드바</title>
 
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/mypage_side.css" />
+  <link rel="stylesheet"href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
