@@ -23,6 +23,7 @@
     border-radius: 100px;
     margin-top: 17px;
     margin-left: 10px;
+    padding-left: 50px;
 }
 
 .MsearchBar > form > input::placeholder{

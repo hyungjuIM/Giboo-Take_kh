@@ -134,8 +134,11 @@
     <script src="${pageContext.request.contextPath}/resources/js/map/map.js"></script>
 
     <script>
-        // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-if (navigator.geolocation) {
+        
+// --------------현재위치 js----------------
+
+ // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+ if (navigator.geolocation) {
     
     // GeoLocation을 이용해서 접속 위치를 얻어옵니다
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -184,6 +187,5 @@ function displayMarker(locPosition, message) {
     map.setCenter(locPosition);      
 }  
     </script>
-
     </body>
     </html>
