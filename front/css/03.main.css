@@ -72,7 +72,16 @@ section:nth-child(odd){
 /* ***************** 1번째 section ***************** */
 
 
+
 /* ***************** 2번째 section ***************** */
+
+.inner h3:nth-child(1){
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 52px;
+    /* line-height: 72px; */
+    letter-spacing: -1.4px;
+    font-weight: 500;
+}
 
 .inner .count_box1{
     background-color: var(--mainColor);
@@ -83,13 +92,13 @@ section:nth-child(odd){
     border-radius: 20px;
 
     position: relative;
-    margin-bottom: 34px;
+    margin-bottom: 20px;
 }
 .inner .count_box1 img{
-    width: 250px;
+    width: 220px;
     position: absolute;
-    top: -80px;
-    left: 30px;
+    top: -50px;
+    left: 90px;
 }
 .count_box1 .count_box1_container{
     color: #fff;
@@ -98,16 +107,16 @@ section:nth-child(odd){
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    gap: 20px;
 
-    padding: 50px 0px;
-    margin-right: 100px;
+    padding: 30px 0px;
+    margin-right: 150px;
     margin-left: 300px;
 
 }
-.count_box1_container h3{
+.count_box1_container h3:nth-child(1){
     font-family: 'NanumSquare', sans-serif;
-    font-size: 42px;
+    font-size: 38px;
     line-height: 54px;
     font-weight: 500;
     text-align: center;
@@ -134,10 +143,10 @@ section:nth-child(odd){
 }
 
 .count_box2 div{
-    gap: 24px;
+    gap: 12px;
     border: 1px solid var(--etcColor);
     background-color: #fff;
-    padding: 60px 80px;
+    padding: 30px 80px;
     border-radius: 20px;
 }
 
@@ -145,7 +154,7 @@ section:nth-child(odd){
     font-family: 'NanumSquare', sans-serif;
     font-size: 48px;
     font-weight: 600;
-    color: var(--titleColor);
+    color: var(--mainColor);
 
     padding-bottom: 24px;;
 }
@@ -161,21 +170,54 @@ section:nth-child(odd){
     position:relative;
 }
 
+.right_btn{
+    width: 80px;
+    height: 80px;
+    background-color: var(--contentColor);
+    border-radius: 50%;
+    display: inline-block;
+
+    position: absolute;
+    left: 1781px;
+    top: 1500px;
+}
 
 
 /* content */
 .vol_box_container{
     display: flex;
     gap: 24px;
+    
 }
-.volContainer .vol_box{
+.vol_box{
     /* height: 500p x; */
     background-color: #fff;
     border-radius: 20px;
     border: 1px solid var(--etcColor);
 
-    position: relative;
+    width: 350px;
+    opacity: 0;
+    /* animation: slide 6s ease-in-out forwards; */
+    transition: opacity 0.5s ease-in-out;
+    
 }  
+
+
+@keyframes slide{
+    0%{
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+    33%{
+        transform: translate(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
 /* d-day 박스 */
 .vol_box .vol_day{
     position: absolute;
@@ -209,11 +251,11 @@ section:nth-child(odd){
 
     color: var(--redColor);
 }
-.vol_box{
-    width: 350px;
-}
+
+
+
 .vol_box div img{
-    width: 350px;
+    width: 348px;
     /* height: 313px; */
     border-radius: 20px 20px 0px 0px;
     background-color: var(--etcColor);
@@ -399,6 +441,12 @@ section:nth-child(odd){
 
     left: 180px;
     top: -45px;
+}
+
+.re_box img[class="main_book"]{
+    width: 140px;
+    position: absolute;
+    top: -65px;
 }
 /* 리뷰 태그 */
 .re_box_container .re_tag_sticky{
