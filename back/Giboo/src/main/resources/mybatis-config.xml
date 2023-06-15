@@ -15,18 +15,21 @@
 <!-- resultMap을 생성했다면 반드시 typeAlias 만들기!!!!!!!!!!-->
 <typeAliases>
 	<typeAlias type="kh.fin.giboo.member.model.vo.Member" alias="member"/>	
+
 	<typeAlias type="kh.fin.giboo.member.model.vo.EmailCertification" alias="emailCertification"/>
-	<!--  
-	<typeAlias type="kh.fin.giboo.member.model.vo.Ask" alias="ask"/>
-	<typeAlias type="kh.fin.giboo.member.model.vo.Myactive" alias="myactive"/>
-	    -->
+
 		
 	
+	<typeAlias type="kh.fin.giboo.notice.model.vo.NoticeImage" alias="noticeImage"/>
+	<typeAlias type="kh.fin.giboo.notice.model.vo.NoticeDetail" alias="noticeDetail"/>
+	<typeAlias type="kh.fin.giboo.notice.model.vo.Notice" alias="notice"/>
+
 	<typeAlias type="kh.fin.giboo.alarm.model.vo.Alarm" alias="alarm"/>
 	<typeAlias type="kh.fin.giboo.donation.model.vo.Donation" alias="donation"/>
 	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationDetail" alias="donationDetail"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Volunteer" alias="volunteer"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerDetail" alias="volunteerDetail"/>
+<<<<<<< HEAD
 	
 	<!-- 맵 -->
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapList" alias="mapList"/>
@@ -45,6 +48,10 @@
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventPopup" alias="eventPopup"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventMore" alias="eventMore"/>
 	
+=======
+	<typeAlias type="kh.fin.giboo.map.model.vo.Map" alias="mapList"/>
+	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActive" alias="myactive"/>
+>>>>>>> 49205b2240e95cf7421c15d586a38a0c578141b5
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -52,7 +59,15 @@
 <mapper resource="/mappers/member-mapper.xml"/>
 <mapper resource="/mappers/map-mapper.xml"/>
 <mapper resource="/mappers/myPage-mapper.xml" />
+<<<<<<< HEAD
 <mapper resource="/mappers/event-mapper.xml" />
+=======
+
+<mapper resource="/mappers/myActive-mapper.xml" />
+
+<mapper resource="/mappers/notice-mapper.xml" />
+
+>>>>>>> 49205b2240e95cf7421c15d586a38a0c578141b5
 </mappers>
 
 </configuration>
