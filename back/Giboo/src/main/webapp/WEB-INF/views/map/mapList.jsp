@@ -47,7 +47,6 @@
                         <span>🖐️</span>
                         <span>강남구 역삼1동</span> 
                     </a>
-                    <button>위치수정</button>
                 </div>
             </div>
     

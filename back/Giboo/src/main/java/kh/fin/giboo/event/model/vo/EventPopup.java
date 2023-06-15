@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Favorites {
-	
-	private int favNo;
-	private String favStatus;
-	private int memberNo;
-	private int donationNo;
-	private int volunteerNo;
+// 이벤트 참여하기 팝업
+public class EventPopup {
+	private String attachment; // 첨부파일
+	private String eventTitle; // 이벤트 제목
+
 }

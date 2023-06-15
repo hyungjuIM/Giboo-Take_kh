@@ -60,20 +60,6 @@
     color: #252525;
 }
 
-.myLoDe > button{
-    border-radius: 20px;
-    border: 1px solid #D9D9D9;
-    position: absolute;
-    width: 61px;
-    height: 23px;
-    font-size: 12px;
-    background: #FFFFFF;
-    font-weight: 500;
-    font-size: 12px;
-    color: #767667;
-    margin-left: 137px;
-    cursor: pointer;
-}
 
 .mmyloca > span{
     margin-top: 50px;
