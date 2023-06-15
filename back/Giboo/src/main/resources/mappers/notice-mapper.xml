@@ -8,6 +8,7 @@
 	  <result property="noticeTitle" column="NOTICE_TITLE"/>
 	  <result property="enrollDt" column="ENROLL_DT"/>
 	  <result property="viewCount" column="VIEW_COUNT"/>
+	  <result property="mgrNickname" column="MGR_NICKNAME"/>
 	  
 	  <result property="mgrNo" column="MGR_NO"/>
   </resultMap>
@@ -20,5 +21,8 @@
 	  <result property="viewCount" column="VIEW_COUNT"/>
 	  <result property="enrollDt" column="ENROLL_DT"/>
 	  <result property="mgrNo" column="MGR_NO"/>
+	  
+	  	<collection property="imageList" column="Notice_NO" 
+			javaType="java.util.ArrayList" ofType="boardImage" select="selectImageList"/>
   </resultMap>
 </mapper>
