@@ -12,10 +12,9 @@ public class Notice {
 	private int noticeNo;
 	private String noticeTitle;
 	private String noticeContent;
-	private String ncreateDT;
-	private String nupdateDT;
-	private int noticeCount;
-	private String ndeleteStatus;
+	private String enrollDt;
+	private int viewCount;
+	private String deleteStatus;
 	
 	private int mgrNo;
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="noticeMapper">
+
+  <!-- 공지사항 -->
+  <resultMap type="notice" id="notice_rm">
+	  <id property="noticeNo" column="NOTICE_NO"/>
+	  <result property="noticeTitle" column="NOTICE_TITLE"/>
+	  <result property="enrollDt" column="ENROLL_DT"/>
+	  <result property="viewCount" column="VIEW_COUNT"/>
+	  
+	  <result property="mgrNo" column="MGR_NO"/>
+  </resultMap>
+  
+  <!-- 공지사항 상세 -->
+  <resultMap type="noticeDetail" id="noticeDetail_rm">
+  	<id property="noticeNo" column="NOTICE_NO"/>
+  	<result property="noticeTitle" column="NOTICE_TITLE"/>
+	  <result property="noticeContent" column="NOTICE_CONTENT"/>
+	  <result property="viewCount" column="VIEW_COUNT"/>
+	  <result property="enrollDt" column="ENROLL_DT"/>
+	  <result property="mgrNo" column="MGR_NO"/>
+  </resultMap>
+</mapper>
