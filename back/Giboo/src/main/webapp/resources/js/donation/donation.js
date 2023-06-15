@@ -24,11 +24,11 @@ for (let i of item) {
 for (let i of button) {
     i.addEventListener("mouseenter", () => {
         i.classList.add("buttonFocus");
-        i.firstElementChild.src = "/images/chevron-right-solid-white.svg";
+        i.firstElementChild.src = "${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg";
     });
 
     i.addEventListener("mouseleave", () => {
         i.classList.remove("buttonFocus");
-        i.firstElementChild.src = "/images/chevron-right-solid-gray.svg";
+        i.firstElementChild.src = "${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg";
     });
 }
