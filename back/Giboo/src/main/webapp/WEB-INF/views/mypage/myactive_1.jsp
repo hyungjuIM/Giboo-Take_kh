@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 <!DOCTYPE html>
@@ -126,8 +127,37 @@
 													<th scope="col" class="th_print">인증서 출력</th>
 												</tr>
 											</thead>
+
 											<tbody>
-												<tr>
+
+
+
+												<c:choose>
+													<c:when test="${empty activeDonationList}">
+														<!-- 게시글 목록 조회 결과가 비어있다면 -->
+														<tr>
+															<th colspan="4">게시글이 존재하지 않습니다.</th>
+														</tr>
+													</c:when>
+
+													<c:otherwise>
+														<!-- 게시글 목록 조회 결과가 비어있지 않다면 -->
+
+														<!-- 향상된 for문처럼 사용 -->
+														<c:forEach var="activeDonation" items="${activeDonationList}">
+															<tr>
+																<td>${activeDonation.boardNo}</td>
+																<td><a href="../detail/${boardCode}/${activeDonation.boardNo}?cp=${pagination.currentPage}${sURL}">${activeDonation.donationTitle}</a></td>
+																<td>${activeDonation.donationTitle}</td>
+																<td>${activeDonation.boardNo}</td>
+															</tr>
+														</c:forEach>
+
+													</c:otherwise>
+												</c:choose>
+
+												<!-- 
+											<tr>
 													<td>50</td>
 													<td>위기가정지원</td>
 													<td>2023.05.24</td>
@@ -187,13 +217,55 @@
 															<a href="/html/mypage/reportPrint.html">발급</a>
 														</div>
 													</td>
-
-
-
-													<!-- 여러 개의 게시글 추가 -->
+											   -->
 											</tbody>
 										</table>
 									</div>
+
+									<!-- 페이지 네비게이션------------------------- -->
+									<div class="container4">
+
+										<!-- 페이지네이션 a태그에 사용될 공통 주소를 저장한 변수 선언 -->
+										<c:set var="url" value="${boardCode}?cp=" />
+
+
+										<ul class="pagination">
+											<!-- 첫 페이지로 이동 -->
+											<li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+
+											<!-- 이전 목록 마지막 번호로 이동 -->
+											<li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+
+											<!-- 범위가 정해진 일반 for문 사용 -->
+											<c:forEach var="i" begin="${pagination.startPage}"
+												end="${pagination.endPage}" step="1">
+
+												<c:choose>
+													<c:when test="${i == pagination.currentPage}">
+														<li><a class="current">${i}</a></li>
+													</c:when>
+
+													<c:otherwise>
+														<li><a href="${url}${i}${sURL}">${i}</a></li>
+													</c:otherwise>
+												</c:choose>
+
+											</c:forEach>
+
+											<!-- 다음 목록 시작 번호로 이동 -->
+											<li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+
+											<!-- 끝 페이지로 이동 -->
+											<li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+
+										</ul>
+									</div>
+
+
+									<!-- ------------------------- -->
+
+									<!-- 
+									
 									<div class="container4">
 										<nav class="page-nav">
 											<ul class="pagination">
@@ -203,15 +275,19 @@
 												<li><a href="">3</a></li>
 												<li><a href="">4</a></li>
 												<li><a href="">5</a></li>
-												<li><a href="">6</a></li>
-												<li><a href="">7</a></li>
-												<!-- 페이지 번호 추가 -->
+												 페이지 번호 추가 
 												<li><a href="">&gt;</a></li>
 											</ul>
 										</nav>
-
 									</div>
+									
+									 -->
+									<!-- ------------------------- -->
+
+
+
 								</div>
+
 							</section>
 						</div>
 					</section>
@@ -226,9 +302,9 @@
 	</main>
 
 	<!-- 푸터 영역 -->
-<footer>
-    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-</footer>
+	<footer>
+		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
+	</footer>
 
 
 
