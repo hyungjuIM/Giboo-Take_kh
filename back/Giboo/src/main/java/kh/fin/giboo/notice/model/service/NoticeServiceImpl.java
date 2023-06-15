@@ -1,4 +1,4 @@
-package kh.fin.giboo.notice.service;
+package kh.fin.giboo.notice.model.service;
 
 import org.springframework.stereotype.Service;
 

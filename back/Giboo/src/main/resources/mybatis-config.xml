@@ -22,6 +22,9 @@
 	    -->
 		
 	
+	<typeAlias type="kh.fin.giboo.notice.model.vo.NoticeImage" alias="noticeImage"/>
+	<typeAlias type="kh.fin.giboo.notice.model.vo.NoticeDetail" alias="noticeDetail"/>
+	<typeAlias type="kh.fin.giboo.notice.model.vo.Notice" alias="notice"/>
 	<typeAlias type="kh.fin.giboo.alarm.model.vo.Alarm" alias="alarm"/>
 	<typeAlias type="kh.fin.giboo.donation.model.vo.Donation" alias="donation"/>
 	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationDetail" alias="donationDetail"/>
@@ -35,6 +38,7 @@
 <mapper resource="/mappers/member-mapper.xml"/>
 <mapper resource="/mappers/map-mapper.xml"/>
 <mapper resource="/mappers/myPage-mapper.xml" />
+<mapper resource="/mappers/notice-mapper.xml" />
 </mappers>
 
 </configuration>
