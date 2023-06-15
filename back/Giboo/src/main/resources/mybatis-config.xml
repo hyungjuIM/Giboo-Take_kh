@@ -27,7 +27,24 @@
 	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationDetail" alias="donationDetail"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Volunteer" alias="volunteer"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerDetail" alias="volunteerDetail"/>
-	<typeAlias type="kh.fin.giboo.map.model.vo.Map" alias="mapList"/>
+	
+	<!-- 맵 -->
+	<typeAlias type="kh.fin.giboo.map.model.vo.MapList" alias="mapList"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailTop" alias="mapDetailTop"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailHome" alias="mapDetailHome"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailReviewReply" alias="mapDetailReviewReply"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailReviewStory" alias="mapDetailReviewStory"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailImg" alias="mapDetailImg"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.MapPopup" alias="mapPopup"/>
+	<!-- 이벤트 -->
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventList" alias="eventList"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailTop" alias="eventDetailTop"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailContent" alias="eventDetailContent"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailBoard" alias="eventDetailBoard"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventStickerBar" alias="eventStickerBar"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventPopup" alias="eventPopup"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventMore" alias="eventMore"/>
+	
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -35,6 +52,7 @@
 <mapper resource="/mappers/member-mapper.xml"/>
 <mapper resource="/mappers/map-mapper.xml"/>
 <mapper resource="/mappers/myPage-mapper.xml" />
+<mapper resource="/mappers/event-mapper.xml" />
 </mappers>
 
 </configuration>

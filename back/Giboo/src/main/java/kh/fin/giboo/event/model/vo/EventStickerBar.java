@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventReg {
-	private int eventRegNo;
-	private int memberNo;
-	private int eventNo;
+// 이벤트 스티커 바
+public class EventStickerBar {
+	private String eventCertificationAttachment; // 첨부파일
+	private String eventTitle; // 이벤트 제목
 }
