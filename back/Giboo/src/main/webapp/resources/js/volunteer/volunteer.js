@@ -21,14 +21,19 @@ for (let i of item) {
     });
 }
 
+function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+};
+
 for (let i of button) {
     i.addEventListener("mouseenter", () => {
         i.classList.add("buttonFocus");
-        i.firstElementChild.src = "/images/chevron-right-solid-white.svg";
+        i.firstElementChild.src = getContextPath() + "/resources/images/chevron-right-solid-white.svg";
     });
 
     i.addEventListener("mouseleave", () => {
         i.classList.remove("buttonFocus");
-        i.firstElementChild.src = "/images/chevron-right-solid-gray.svg";
+        i.firstElementChild.src = getContextPath() + "/resources/images/chevron-right-solid-gray.svg";
     });
 }
