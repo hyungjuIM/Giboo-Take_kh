@@ -15,7 +15,9 @@ public class MyActiveDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
 
+	
 	//특정 게시판의 전체 게시글 수 조회 DAO
 	public int getListCount(int boardCode) {
 		

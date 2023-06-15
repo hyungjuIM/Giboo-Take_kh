@@ -19,4 +19,5 @@ public class MyActive {
 	private int volunteerNo;
 	private int memberNo;
 	private int eventNo;
+	
 }

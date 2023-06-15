@@ -29,6 +29,7 @@ public class MyActiveServiceImpl implements MyActiveService {
 		// 3)나의기부내역 게시글 목록 조회
 		List<Donation> donationList = dao.selectMyactiveDonationList(pagination, boardCode);
 		
+		
 		// map 만들어서 담기
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);
