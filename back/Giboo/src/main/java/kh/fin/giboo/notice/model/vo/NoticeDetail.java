@@ -2,6 +2,8 @@ package kh.fin.giboo.notice.model.vo;
 
 
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +20,7 @@ public class NoticeDetail {
 	private int viewCount;
 	
 	private String deleteStatus;
+	
+	private List<NoticeImage> imageList;
 	private int mgrNo;
 }

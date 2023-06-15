@@ -16,5 +16,6 @@ public class Notice {
 	private int viewCount;
 	private String deleteStatus;
 	
+	private String mgrNickname;
 	private int mgrNo;
 }
