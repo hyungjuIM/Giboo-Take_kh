@@ -2,8 +2,7 @@
 
 *{
     box-sizing: border-box;
-    padding: 0px;
-  margin: 0px;
+   
   font-family: 'Noto Sans KR', sans-serif;
    
 }
@@ -24,6 +23,7 @@ body{
 } */
 
 .page-title {
+    
     margin-bottom: 100px;
   
     background-color: #8071FC ;

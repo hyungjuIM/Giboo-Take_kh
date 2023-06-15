@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+.option{
+    width: 358px;
+    height:42px;
+}
+
+.MsearchBar > form{
+    /* background-color: wheat; */
+    /* padding-left: 22px; */
+    white-space: nowrap;
+}
+
+.MsearchBar > form > input {
+    border: 1px solid #8071FC;
+    width: 358px;
+    height: 42px;
+    border-radius: 10px;
+    color: #000; 
+    border-radius: 100px;
+    margin-top: 17px;
+    margin-left: 10px;
+}
+
+.MsearchBar > form > input::placeholder{
+    color: #D9D9D9;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    padding-left: 44px;
+}
+
+.MsearchBtn{
+    position: absolute;
+    font-size: 16px;
+    background-color: #634d4d00;
+    border: none;
+    cursor: pointer;
+    right: 340px;
+    top: 28px;
+}
+
+
+
+/* 아래의 모든 코드는 영역::코드로 사용 */
+#menu_wrap::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+#menu_wrap::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #d4cfff; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#menu_wrap::-webkit-scrollbar-track {
+    background: rgba(227, 227, 227, 0);  /*스크롤바 뒷 배경 색상*/
+}
+
+
+
+/*원래 카카오맵 css에서 수정 좀 함*/
+.map_wrap, .map_wrap * {
+    margin:0;
+    padding:0;
+}
+
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{
+    color:#000;
+    text-decoration: none;
+}
+
+.map_wrap {
+    position:relative;
+    width:100%;
+    height:100vh; 
+    overflow: hidden;
+}
+
+#menu_wrap {
+    position:absolute;
+    top:0;
+    left:0;
+    bottom:0;
+    width:390px;
+    height: 867px;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: #FFFFFF;    
+    z-index: 1;
+    font-size:12px;
+    box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.306);
+
+    border-radius: 25px;
+    margin-bottom: 24px;
+    margin-left: 23px;
+    margin-top: 24px;
+}
+
+
+
+.bg_white {
+    background: #FFFFFF;    
+}
+
+/* #menu_wrap .option p {margin:10px 0;}   */
+/* #menu_wrap .option button {margin-left:5px;} */
+#placesList{
+    margin-top: 80px;
+}
+#placesList li {list-style: none;}
+#placesList .item {
+    position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;
+}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+
+#placesList .item h5{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.mplaces{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #767676;
+}
+
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+
+/* 페이지네이션 */
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}
+.radius_border{border:1px solid #919191;border-radius:5px;}     
+.custom_typecontrol {position:absolute;top:10px;right:10px;overflow:hidden;width:130px;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
+.custom_typecontrol span {display:block;width:65px;height:30px;float:left;text-align:center;line-height:30px;cursor:pointer;}
+.custom_typecontrol .btn {background:#fff;background:linear-gradient(#fff,  #e6e6e6);}       
+.custom_typecontrol .btn:hover {background:#f5f5f5;background:linear-gradient(#f5f5f5,#e3e3e3);}
+.custom_typecontrol .btn:active {background:#e6e6e6;background:linear-gradient(#e6e6e6, #fff);}    
+.custom_typecontrol .selected_btn {color:#fff;background:#425470;background:linear-gradient(#425470, #5b6d8a);}
+.custom_typecontrol .selected_btn:hover {color:#fff;}   
+.custom_zoomcontrol {position:absolute;top:50px;right:10px;width:36px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;} 
+.custom_zoomcontrol span {display:block;width:36px;height:40px;text-align:center;cursor:pointer;}     
+.custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}             
+.custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}   
+
+
+/*  */
+*{
+    list-style: none;
+    text-decoration: none;
+}
+
+.mhBoxImg > a > img{
+    width: 358px;
+    height: 180px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mhwrapBox{
+    /* background-color: yellow; */
+    margin-top: 40px;
+    margin-left: 10px;
+    margin-left: 10px;
+}
+
+.mhTiDe{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 16px;
+    /* background-color: yellowgreen; */
+}
+
+.mhTiName{
+    display: flex;
+}
+
+.mhTiName > span:nth-child(1){
+    font-weight: 400;
+    font-size: 18px;
+    color: #000000;
+}
+
+.mhTiCa{
+    /* width: 59px; */
+    height: 27px;
+    background: #F6F6F6;
+    border: 1px solid #8071FC;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.mhTiCa > span{
+    color: #8071FC;
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.mhTiRe{
+    display: flex;
+    margin-top: 14px;
+}
+
+.mhTiRe > span{
+    font-weight: 400;
+    font-size: 10px;
+    color: #767676;
+    display: flex;
+    align-items: center;
+}
+
+.mhTiReDe > span{
+    font-weight: 400;
+    font-size: 10px;
+    color: #767676;
+}
+
+
+.mhTiHe{
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+}
+.mhTiHe > span:nth-child(1){
+    margin-right: 5px;
+}
+.mhTiReDe{
+    margin-left: 8px;
+    display: flex;
+    /* background-color: yellowgreen; */
+    justify-content: space-between;
+    width: 190px;
+    align-items: center;
+}
+
+.mhTiReDe > a > span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
+}
+
+
+.mhRe{
+    font-weight: 600 !important;
+    font-size: 14px;
+    color: #767676;
+}
+
+.mhBtnWrap{
+    display: flex;
+    /* background-color: yellowgreen; */
+    width: 360px;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 23px;
+    border-top: 1px solid rgba(217, 217, 217, 0.85098);
+}
+
+.mhBtn{
+    display: flex;
+    width: 300px;
+    align-items: center;
+    justify-content: space-between;
+    /* background-color: wheat; */
+}
+
+.mhBtn > span{
+    color: #D9D9D9;
+}
+
+.mhBtnHe > a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: violet; */
+}
+
+.mhBtnHe > a > span{
+    font-weight: 400;
+    font-size: 12px;
+    color: #767676;
+}
+
+.mhBtnHe_1{
+    width: 28px;
+    height: 28px;
+    border: 1px solid #CFCFCF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.mhLine{
+    background: #F5F7F8;
+    height: 8px;
+    border-top: 1px solid rgba(217, 217, 217, 0.866667);
+    border-bottom: 1px solid rgba(217, 217, 217, 0.866667);
+}
+
+.mhCaWrap{
+    margin-top: 7px;
+    width: 370px;
+    height: 40px;
+    /* background-color: yellowgreen; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(217, 217, 217, 0.85098);
+}
+
+.mhCa{
+   /* background-color: yellow; */
+   width: 304px;
+   height: 40px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.mhCa > a{
+    font-weight: 500;
+    font-size: 14px;
+    color: #767676;
+    /* background-color: wheat; */
+    height: 40px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 카테고리별로 색 변경 */
+.mhCa > a:nth-child(4){
+    color: #8071FC;
+    font-weight: 600;
+    border-bottom: 1px solid  #8071FC;
+}
+
+
+/* 여기서부터 지우고 만들면 됨 */
+
+
+/* ---------------------- */
+.mpWrap{
+    /* background-color: yellow; */
+    margin-top: 10px;
+}
+
+
+.mvReImg > img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+}
+
+.mvReDeTi > span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
+    /* background-color: yellowgreen; */
+    margin-left: 8px;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+}
+
+.mvReDeTi{
+    display: flex;
+    align-items: center;
+    /* background-color: yellowgreen; */
+    width: 300px;
+}
+
+.mpimgUl{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mpimgli{
+    width: 50%;
+}
+
+.mpimgW{
+    position: relative;
+    padding-top: 100%;  /* 1:1 ratio */
+    overflow: hidden;
+    margin-right: 7px;
+}
+
+.mpimgW > img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.mpimgWrap{
+    /* background-color: yellow; */
+    margin-top: 10px;
+}
+

@@ -33,69 +33,9 @@
         <div class="mhwrap">
             <div class="mhwrapBox">
                 <div class="mhBox">
-                    <div class="mhBoxImg">
-                        <a href="">
-                            <img src="/images/doCenter.jpg" alt="">
-                        </a>
-                    </div>
-                    <div class="mhBoxTi">
-                        <div class="mhTiDe">
-                            <div class="mhTiName">
-                                <span>서울시립장애인행복플러스센터</span>
-                                <div class="mhTiCa">
-                                    <span>장애인</span>
-                                </div>
-                            </div>
-                            <div class="mhTiRe">
-                                <div class="mhTiHe">
-                                    <span><i class="fa-regular fa-heart"></i></span>
-                                    <span class="mhRe">14</span>
-                                </div>
-                                <span class="mhBar">|</span>
-                                <div class="mhTiReDe">
-                                    <a href="">
-                                        <span>봉사자 리뷰</span>
-                                        <span class="mhRe">135</span>
-                                    </a>
-                                    <span>|</span>
-                                    <a href="">
-                                        <span>봉사자</span>
-                                        <span class="mhRe">432</span>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="mhBtnWrap">
-                                <div class="mhBtn">
-                                    <div class="mhBtnHe">
-                                        <a href="">
-                                            <div class="mhBtnHe_1">
-                                                <span><i class="fa-regular fa-heart"></i></span>
-                                            </div>
-                                            <span>즐겨찾기</span>
-                                        </a>
-                                    </div>
-                                    <span>|</span>
-                                    <div class="mhBtnHe">
-                                        <a href="">
-                                            <div class="mhBtnHe_1">
-                                                <span><i class="fa-solid fa-location-dot"></i></span>
-                                            </div>
-                                            <span>위치찾기</span>
-                                        </a>
-                                    </div>
-                                    <span>|</span>
-                                    <div class="mhBtnHe">
-                                        <a href="">
-                                            <div class="mhBtnHe_1">
-                                                <span><i class="fa-regular fa-share-from-square"></i></span>
-                                            </div>
-                                            <span>공유하기</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    <div data-include2="mapHeader" id="mapHeader"></div>
+
                     <div class="mhLine"></div>
                     <div class="mhCaWrap">
                         <div class="mhCa">
@@ -191,8 +131,12 @@
     <script>
         $(function () {
             var include1 = $('[data-include1="header"]');
+            var include2 = $('[data-include2="mapHeader"]');
             jQuery.each(include1, function () {
                 $(this).load('/html/01.header.html');
+            });
+            jQuery.each(include2, function () {
+                $(this).load('/html/map/mapHeader.html');
             });
         });
 

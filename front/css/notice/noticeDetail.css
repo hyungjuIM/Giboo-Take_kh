@@ -1,8 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap'); */
 
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
 *{
-  box-sizing: border-box;}
+  box-sizing: border-box;
+  font-family: 'NanumSquare', sans-serif;
+}
 
   body{
     margin: 0;
@@ -18,7 +21,8 @@
   height: 100vh;
   display: flex;
   justify-content: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  /* font-family: 'Noto Sans KR', sans-serif; */
+  font-family: 'NanumSquare', sans-serif;
 }
 
 .mainContent {
@@ -45,7 +49,8 @@
     font-size: 24px;
     color: white;
     text-align: center;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif;*/
+     font-family: 'NanumSquare', sans-serif; 
   }
   .container1{
     padding-bottom: 20px;
@@ -55,7 +60,8 @@
     .container1 span {
       font-size: 24px;
       font-weight: bold;
-      font-family: 'Noto Sans KR', sans-serif;
+      /* font-family: 'Noto Sans KR', sans-serif; */
+      font-family: 'NanumSquare', sans-serif;
     }
     .notice {
         margin-bottom: 40px;
@@ -70,7 +76,8 @@
     text-align: center;
     font-size: 22px;
       font-weight: bold;
-      font-family: 'Noto Sans KR', sans-serif;
+      /* font-family: 'Noto Sans KR', sans-serif; */
+      font-family: 'NanumSquare', sans-serif;
       color: #767676;
 }
 .detailContent{
@@ -78,7 +85,8 @@
     
     font-size: 18px;
       font-weight: bold;
-      font-family: 'Noto Sans KR', sans-serif;
+      /* font-family: 'Noto Sans KR', sans-serif; */
+      font-family: 'NanumSquare', sans-serif;
       color: #767676;
 
       padding-bottom: 40px;
@@ -98,21 +106,24 @@
    margin-right: 100px;
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'NanumSquare', sans-serif;
     color: black;
 }
 .nextDate{
     margin-left: auto;
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'NanumSquare', sans-serif;
     color: #767676;
 }
 
 a{text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    font-family: 'Noto Sans KR', sans-serif;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    font-family: 'NanumSquare', sans-serif;
     color: #767676;
 }
 
@@ -139,7 +150,8 @@ a{text-decoration: none;
   border: 1px solid #BDBDBD;
   color: #767676;
   text-align: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  /* font-family: 'Noto Sans KR', sans-serif; */
+  font-family: 'NanumSquare', sans-serif;
   justify-content: center;
   margin-left: 12px;
 
