@@ -9,32 +9,43 @@ import org.springframework.stereotype.Repository;
 
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Pagination;
+import kh.fin.giboo.myactive.model.vo.MyActiveDonationList;
 
 @Repository
 public class MyActiveDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+
+	public List<MyActiveDonationList> selectMyactiveDonationList() {
+		
+		return sqlSession.selectList("myActive-mapper.selectMyactiveDonationList") ;
+	}
 	
 
 	
 	//특정 게시판의 전체 게시글 수 조회 DAO
-	public int getListCount(int boardCode) {
-		
-		return sqlSession.selectOne("myactiveMapper.getListCount", boardCode);
-	}
+//	public int getListCount() {
+//		
+//		return sqlSession.selectOne("myactiveMapper.getListCount");
+//	}
 
 	//게시판 목록 조회 DAO
-	public List<Donation> selectMyactiveDonationList(Pagination pagination, int boardCode) {
-		// RowBounds 객체(마이바티스)
-				// - 전체 조회 결과에서
-				// 몇 개의 행을 건너 뛰고 (offset)
-				// 그 다음 몇 개의 행만 조회(limit)할 것인지 지정
-				
-				int offset = ( pagination.getCurrentPage() - 1 ) * pagination.getLimit(); 
-				
-				RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
-				
-				return sqlSession.selectList("myactiveMapper.selectMyactiveDonationList", boardCode, rowBounds);
-	}
+//	public List<Donation> selectMyactiveDonationList(Pagination pagination)  {
+//		// RowBounds 객체(마이바티스)
+//				// - 전체 조회 결과에서
+//				// 몇 개의 행을 건너 뛰고 (offset)
+//				// 그 다음 몇 개의 행만 조회(limit)할 것인지 지정
+//				
+//				int offset = ( pagination.getCurrentPage() - 1 ) * pagination.getLimit(); 
+//				
+//				RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+//				
+//				return sqlSession.selectList("myactiveMapper.selectMyactiveDonationList",rowBounds);
+//	}
+
+//	public List<Donation> selectMyactiveDonationList() {
+//		return sqlSession.selectList("myactiveMapper.selectMyactiveDonationList");
+//	}
+
 }

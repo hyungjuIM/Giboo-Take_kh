@@ -31,6 +31,7 @@
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerDetail" alias="volunteerDetail"/>
 	<typeAlias type="kh.fin.giboo.map.model.vo.Map" alias="mapList"/>
 	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActive" alias="myactive"/>
+	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActiveDonationList" alias="myActiveDonationList"/>
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
