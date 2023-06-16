@@ -72,10 +72,10 @@
                                             <div class="mlistCa">
                                                 <span>장애인</span>
                                             </div>
-                                            <div class="mlistHe">
+                                            <!-- <div class="mlistHe">
                                                 <span>14</span>
                                                 <span><i class="fa-regular fa-heart"></i></span>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <!-- 봉사센터 이름 영역 -->
                                         <div class="mlistName">
@@ -101,17 +101,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    
-        <!-- 지도타입 컨트롤 div 입니다 -->
-        <div class="custom_typecontrol radius_border">
-            <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
-            <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
-        </div>
-        <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
-        <div class="custom_zoomcontrol radius_border"> 
-            <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
-            <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
         </div>
     </div>
     

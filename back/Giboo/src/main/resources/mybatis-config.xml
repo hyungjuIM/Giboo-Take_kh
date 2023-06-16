@@ -49,10 +49,12 @@
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventStickerBar" alias="eventStickerBar"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventPopup" alias="eventPopup"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventMore" alias="eventMore"/>
-	
 
 	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActive" alias="myactive"/>
 
+	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActiveDonationList" alias="myActiveDonationList"/>
+	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActiveVolunteerList" alias="myActiveVolunteerList"/>
+	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActiveEventList" alias="myActiveEventList"/>
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -60,14 +62,9 @@
 	<mapper resource="/mappers/member-mapper.xml"/>
 	<mapper resource="/mappers/map-mapper.xml"/>
 	<mapper resource="/mappers/myPage-mapper.xml" />
-
 	<mapper resource="/mappers/event-mapper.xml" />
-
-
 	<mapper resource="/mappers/myActive-mapper.xml" />
-
 	<mapper resource="/mappers/notice-mapper.xml" />
-
 	<mapper resource="/mappers/admin-mapper.xml" />
 	<mapper resource="/mappers/donation-mapper.xml" />
 	<mapper resource="/mappers/volunteer-mapper.xml" />

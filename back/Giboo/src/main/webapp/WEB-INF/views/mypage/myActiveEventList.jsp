@@ -67,21 +67,21 @@
 												<div class="active_title_name">
 													<div class="myactive_donation">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_1">기부</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveDonationList">기부</a>
 													</div>
 												</div>
 												<div class="active_title_right">|</div>
 												<div class="active_title_name">
 													<div class="myactive_volunteer">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_2">봉사</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveVolunteerList">봉사</a>
 													</div>
 												</div>
 												<div class="active_title_right">|</div>
 												<div class="active_title_name2">
 													<div class="myactive_event">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_3">참여한
+															href="${pageContext.request.contextPath}/mypage/myActiveEventList">참여한
 															이벤트</a>
 													</div>
 												</div>
@@ -124,81 +124,60 @@
 												<tr>
 													<th scope="col" class="th_num">번호</th>
 													<th scope="col" class="th_name">참여한 이벤트 내역</th>
-													<th scope="col" class="th-date">참여일자</th>
+													<th scope="col" class="th-date">등록일자</th>
+													<th scope="col" class="th-date">마감일자</th>
 
 												</tr>
 											</thead>
+											
 											<tbody>
-												<tr>
+
+												<c:choose>
+													<c:when test="${empty myActiveEventList}">
+														<!-- 게시글 목록 조회 결과가 비어있다면 -->
+														<tr>
+															<th colspan="4">게시글이 존재하지 않습니다.</th>
+														</tr>
+													</c:when>
+
+													<c:otherwise>
+														<!-- 게시글 목록 조회 결과가 비어있지 않다면 -->
+
+														<!-- 향상된 for문처럼 사용 -->
+														<c:forEach var="myActiveEventList"
+															items="${myActiveEventList}">
+															<tr>
+																<td>${myActiveEventList.eventNo}</td>
+																<td>${myActiveEventList.eventTitle}</td>
+																<td>${myActiveEventList.enrollDate}</td>
+																<td>${myActiveEventList.endRecruitDate}</td>
+															</tr>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>
+
+												<!--   
+													<tr>
 													<td>50</td>
 													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
 													<td>2023.05.23</td>
 
-												</tr>
-												<tr>
-													<td>49</td>
-													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
-													<td>2023.05.23</td>
-												</tr>
-												<tr>
-													<td>48</td>
-													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
-													<td>2023.05.23</td>
-												</tr>
-												<tr>
-													<td>47</td>
-													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
-													<td>2023.05.23</td>
-												</tr>
-												<tr>
-													<td>46</td>
-													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
-													<td>2023.05.23</td>
-												</tr>
-												<tr>
-													<td>45</td>
-													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
-													<td>2023.05.23</td>
-												</tr>
-
-
-
-												<!-- 여러 개의 게시글 추가 -->
+												</tr> -->
 
 											</tbody>
 										</table>
 									</div>
-									<div class="container4">
-										<nav class="page-nav">
-											<ul class="pagination">
-												<li><a href="">&lt;</a></li>
-												<li><a href="">1</a></li>
-												<li><a href="">2</a></li>
-												<li><a href="">3</a></li>
-												<li><a href="">4</a></li>
-												<li><a href="">5</a></li>
-												<li><a href="">6</a></li>
-												<li><a href="">7</a></li>
-												<!-- 페이지 번호 추가 -->
-												<li><a href="">&gt;</a></li>
-											</ul>
-										</nav>
-
-									</div>
 								</div>
+								
 							</section>
 						</div>
 					</section>
 
-				</div>
-				<!-- myask_content_area -->
+				</div><!-- myask_content_area -->
 
-			</div>
-			<!-- mypage_wrapper -->
-		</div>
-		<!-- mypage-container -->
+			</div><!-- mypage_wrapper -->
+		</div><!-- mypage-container -->
 	</main>
-
 
 
 	<!-- 푸터 영역 -->

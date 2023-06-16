@@ -73,7 +73,14 @@
     height: auto;
 }
 
-.elist_official > li{
+/* .elist_official > li{
+    background-color:#F6F6F6;
+    width: 284px;
+    height: 380px;
+    border-radius: 20px;
+} */
+
+.elist_officialLi{
     background-color:#F6F6F6;
     width: 284px;
     height: 380px;

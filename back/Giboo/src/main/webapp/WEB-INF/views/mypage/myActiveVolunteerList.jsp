@@ -66,21 +66,21 @@
 												<div class="active_title_name">
 													<div class="myactive_donation">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_1">기부</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveDonationList">기부</a>
 													</div>
 												</div>
 												<div class="active_title_right">|</div>
 												<div class="active_title_name">
 													<div class="myactive_volunteer">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_2">봉사</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveVolunteerList">봉사</a>
 													</div>
 												</div>
 												<div class="active_title_right">|</div>
 												<div class="active_title_name2">
 													<div class="myactive_event">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_3">참여한
+															href="${pageContext.request.contextPath}/mypage/myActiveEventList">참여한
 															이벤트</a>
 													</div>
 												</div>
@@ -107,11 +107,7 @@
 													</fieldset>
 												</form>
 											</div>
-
 										</div>
-
-
-
 									</div>
 								</div>
 
@@ -123,14 +119,44 @@
 												<tr>
 													<th scope="col" class="th-num">번호</th>
 													<th scope="col" class="th-name">봉사활동 내역</th>
-													<th scope="col" class="th-time">봉사시간</th>
+													<th scope="col" class="th-time">봉사일자</th>
 													<th scope="col" class="th-place">장소</th>
-													<th scope="col" class="th-date">일자</th>
-													<th scope="col" class="th-print">인증서 출력</th>
+													<th scope="col" class="th-time">등록일자</th>
+													<!-- <th scope="col" class="th-date">일자</th>  -->
+
+													<!-- <th scope="col" class="th-print">인증서 출력</th>    -->
+
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
+
+												<c:choose>
+													<c:when test="${empty myActiveVolunteerList}">
+														<!-- 게시글 목록 조회 결과가 비어있다면 -->
+														<tr>
+															<th colspan="4">게시글이 존재하지 않습니다.</th>
+														</tr>
+													</c:when>
+
+													<c:otherwise>
+														<!-- 게시글 목록 조회 결과가 비어있지 않다면 -->
+
+														<!-- 향상된 for문처럼 사용 -->
+														<c:forEach var="myActiveVolunteerList"
+															items="${myActiveVolunteerList}">
+															<tr>
+																<td>${myActiveVolunteerList.volunteerNo}</td>
+																<td>${myActiveVolunteerList.volunteerTitle}</td>
+																<td>${myActiveVolunteerList.startProgressDate}</td>
+																<td>${myActiveVolunteerList.volunteerAddr}</td>
+																<td>${myActiveVolunteerList.enrollDate}</td>
+															</tr>
+														</c:forEach>
+													</c:otherwise>
+												</c:choose>
+
+												<!--   
+											<tr>
 													<td>50</td>
 													<td>치매안심센터-기억력 검진 봉사활동</td>
 													<td>4시간</td>
@@ -141,84 +167,21 @@
 															<a href="${pageContext.request.contextPath}/mypage/reportPrint">발급</a>
 														</div>
 													</td>
-												</tr>
-												<tr>
-													<td>49</td>
-													<td>치매안심센터-기억력 검진 봉사활동</td>
-													<td>4시간</td>
-													<td>금정구 종합사회복지관</td>
-													<td>2023.05.24</td>
-													<td><div class="myactive_print">발급</div></td>
-												</tr>
-												<tr>
-													<td>48</td>
-													<td>치매안심센터-기억력 검진 봉사활동</td>
-													<td>4시간</td>
-													<td>금정구 종합사회복지관</td>
-													<td>2023.05.24</td>
-													<td><div class="myactive_print">발급</div></td>
-												</tr>
-												<tr>
-													<td>47</td>
-													<td>치매안심센터-기억력 검진 봉사활동</td>
-													<td>4시간</td>
-													<td>금정구 종합사회복지관</td>
-													<td>2023.05.24</td>
-													<td><div class="myactive_print">발급</div></td>
-												</tr>
-												<tr>
-													<td>46</td>
-													<td>치매안심센터-기억력 검진 봉사활동</td>
-													<td>4시간</td>
-													<td>금정구 종합사회복지관</td>
-													<td>2023.05.24</td>
-													<td><div class="myactive_print">발급</div></td>
-												</tr>
-												<tr>
-													<td>45</td>
-													<td>치매안심센터-기억력 검진 봉사활동</td>
-													<td>4시간</td>
-													<td>금정구 종합사회복지관</td>
-													<td>2023.05.24</td>
-													<td><div class="myactive_print">발급</div></td>
-												</tr>
-
-
-
-												<!-- 여러 개의 게시글 추가 -->
+												</tr> -->
 
 											</tbody>
 										</table>
 									</div>
-									<div class="container4">
-										<nav class="page-nav">
-											<ul class="pagination">
-												<li><a href="">&lt;</a></li>
-												<li><a href="">1</a></li>
-												<li><a href="">2</a></li>
-												<li><a href="">3</a></li>
-												<li><a href="">4</a></li>
-												<li><a href="">5</a></li>
-												<li><a href="">6</a></li>
-												<li><a href="">7</a></li>
-												<!-- 페이지 번호 추가 -->
-												<li><a href="">&gt;</a></li>
-											</ul>
-										</nav>
-
-									</div>
 								</div>
+								
 							</section>
 						</div>
 					</section>
 
-				</div>
-				<!-- myask_content_area -->
+				</div><!-- myask_content_area -->
 
-			</div>
-			<!-- mypage_wrapper -->
-		</div>
-		<!-- mypage-container -->
+			</div><!-- mypage_wrapper -->
+		</div><!-- mypage-container -->
 	</main>
 
 
