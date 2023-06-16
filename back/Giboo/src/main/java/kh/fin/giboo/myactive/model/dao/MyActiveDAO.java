@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Pagination;
 import kh.fin.giboo.myactive.model.vo.MyActiveDonationList;
+import kh.fin.giboo.myactive.model.vo.MyActiveVolunteerList;
 
 @Repository
 public class MyActiveDAO {
@@ -17,21 +18,26 @@ public class MyActiveDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
+	
 	public List<MyActiveDonationList> selectMyactiveDonationList() {
 		
 		return sqlSession.selectList("myActive-mapper.selectMyactiveDonationList") ;
 	}
+
+	public List<MyActiveVolunteerList> selectMyActiveVolunteerList() {
+		return sqlSession.selectList("myActive-mapper.selectMyActiveVolunteerList") ;
+	}
 	
 
 	
-	//특정 게시판의 전체 게시글 수 조회 DAO
+//	//특정 게시판의 전체 게시글 수 조회 DAO
 //	public int getListCount() {
 //		
-//		return sqlSession.selectOne("myactiveMapper.getListCount");
+//		return sqlSession.selectOne("myActive-mapper.getListCount");
 //	}
-
-	//게시판 목록 조회 DAO
-//	public List<Donation> selectMyactiveDonationList(Pagination pagination)  {
+//
+//	//게시판 목록 조회 DAO
+//	public List<MyActiveDonationList> selectMyactiveDonationList(Pagination pagination)  {
 //		// RowBounds 객체(마이바티스)
 //				// - 전체 조회 결과에서
 //				// 몇 개의 행을 건너 뛰고 (offset)
@@ -41,11 +47,6 @@ public class MyActiveDAO {
 //				
 //				RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 //				
-//				return sqlSession.selectList("myactiveMapper.selectMyactiveDonationList",rowBounds);
+//				return sqlSession.selectList("myActive-mapper.selectMyactiveDonationList",rowBounds);
 //	}
-
-//	public List<Donation> selectMyactiveDonationList() {
-//		return sqlSession.selectList("myactiveMapper.selectMyactiveDonationList");
-//	}
-
 }

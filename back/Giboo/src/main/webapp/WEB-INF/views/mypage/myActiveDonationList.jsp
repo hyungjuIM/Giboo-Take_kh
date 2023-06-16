@@ -73,14 +73,14 @@
 												<div class="active_title_name">
 													<div class="myactive_volunteer">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_2">봉사</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveVolunteerList">봉사</a>
 													</div>
 												</div>
 												<div class="active_title_right">|</div>
 												<div class="active_title_name2">
 													<div class="myactive_event">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_3">참여한
+															href="${pageContext.request.contextPath}/mypage/myActiveEventList">참여한
 															이벤트</a>
 													</div>
 												</div>
@@ -122,8 +122,10 @@
 											<thead>
 												<tr>
 													<th scope="col" class="th_num">번호</th>
-													<th scope="col" class="th_name">기부내역</th>
-													<th scope="col" class="th_date">기부일자</th>
+													<th scope="col" class="th_name">기부 내역</th>
+													<th scope="col" class="th_date">기부 일자</th>
+													<th scope="col" class="th_date">기부 총 금액</th>
+													
 													<!--   <th scope="col" class="th_print">인증서 출력</th>  -->
 													
 												</tr>
@@ -137,7 +139,7 @@
 													<c:when test="${empty myActiveDonationList}">
 														<!-- 게시글 목록 조회 결과가 비어있다면 -->
 														<tr>
-															<th colspan="3">게시글이 존재하지 않습니다.</th>
+															<th colspan="4">게시글이 존재하지 않습니다.</th>
 														</tr>
 													</c:when>
 
@@ -150,6 +152,7 @@
 																<td>${myActiveDonationList.donationNo}</td>
 																<td>${myActiveDonationList.donationTitle}</td>
 																<td>${myActiveDonationList.enrollDate}</td>
+																<td>${myActiveDonationList.donationAmount}</td>
 																<!--   
 																<td><a href="../detail/${donation.donationNo}?cp=${pagination.currentPage}${sURL}">${donation.donationTitle}</a></td>
 																 -->
@@ -229,15 +232,12 @@
 									</div>
 
 									<!-- 페이지 네비게이션------------------------- -->
-									<!-- 
 									
-									
-									 -->
-									
-									<!-- <div class="container4">
+									<!--   
+									<div class="container4">
 
 										
-										<c:set var="url" value="${boardCode}?cp=" />
+										<c:set var="url" value="?cp=" />
 
 
 										<ul class="pagination">
@@ -270,7 +270,10 @@
 											<li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
 
 										</ul>
-									</div> -->
+									</div> 
+									
+									  -->
+									 
 
 
 									<!-- ------------------------- -->

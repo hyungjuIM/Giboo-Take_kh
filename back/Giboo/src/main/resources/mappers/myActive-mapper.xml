@@ -18,16 +18,31 @@
 		<id property="donationNo" column="DONATION_NO" />
 		<result property="enrollDate" column="ENROLL_DATE" />
 		<result property="donationTitle" column="DONATION_TITLE" />
+		<result property="donationAmount" column="DONATION_AMOUNT" />
+	</resultMap>
+	
+	<!-- 봉사(VOLUNTEER) 목록용 resultMap -->
+	<resultMap type="myActiveVolunteerList" id="myActiveVolunteerList_rm">
+		<id property="volunteerNo" column="VOLUNTEER_NO" />
+		<result property="volunteerTitle" column="VOLUNTEER_DATE" />
+		<result property="startProgressDate" column="START_PROGRESS_DATE" />
+		<result property="volunteerAddr" column="VOLUNTEER_ADDR" />
+		<result property="enrollDate" column="ENROLL_DATE" />
 	</resultMap>
 
+	<!-- 이벤트(EVENT) 목록 조회 resultMap -->
+	<resultMap type="myActiveEventList" id="myActiveEventList_rm">
+		<id property="eventNo" column="EVENT_NO" />
+		<result property="eventTitle" column="EVENT_DATE" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+	</resultMap>
 
-	<!-- 기부 목록 조회 -->
-
-	<!-- 특정 게시판 전체 게시글 수 조회 
-	<select id="getListCount" resultType="_int"> SELECT 
+	<!-- 특정 게시판 전체 게시글 수 조회  -->
+	<select id="getListCount" resultType="_int"> 
+		SELECT 
 		COUNT(*) FROM DONATION JOIN MEMBER ON DONATION.MEMBER_NO = MEMBER.MEMBER_NO 
 		WHERE MEMBER.MEMBER_NO = 7 
-		</select>-->
+		</select>
 
 
 
@@ -35,12 +50,25 @@
 	<!-- 기부 목록 조회 -->
 	<select id="selectMyactiveDonationList" resultMap="myActiveDonationList_rm">
 		SELECT
-		DONATION_NO,
-		DONATION_TITLE, ENROLL_DATE
+		DONATION_NO, DONATION_TITLE, ENROLL_DATE, DONATION_AMOUNT 
 		FROM DONATION
 		JOIN MEMBER ON
 		DONATION.MEMBER_NO = MEMBER.MEMBER_NO
 		WHERE MEMBER.MEMBER_NO = 7
 		ORDER BY DONATION_NO DESC
 	</select>
+	
+	<!-- 봉사 목록 조회 -->
+	<select id="selectMyActiveVolunteerList" resultMap="myActiveVolunteerList_rm">
+		SELECT
+		VOLUNTEER_NO, VOLUNTEER_DATE, START_PROGRESS_DATE, VOLUNTEER_ADDR, ENROLL_DATE
+		FROM EVENT
+		JOIN MEMBER ON
+		EVENT.MEMBER_NO = MEMBER.MEMBER_NO
+		WHERE MEMBER.MEMBER_NO = 7
+		ORDER BY DONATION_NO DESC
+	</select>
+	
+	
+	
 </mapper>

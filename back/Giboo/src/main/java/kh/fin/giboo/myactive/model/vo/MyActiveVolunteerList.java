@@ -9,14 +9,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 
-public class MyActiveDonationList {
+public class MyActiveVolunteerList {
 
 	
-	//기부 목록 
-	private int donationNo;
-	private String donationTitle;
+	//봉사 목록
+	private int volunteerNo;
+	private String volunteerTitle;
+	private String startProgressDate;
+	private String volunteerAddr;
 	private String enrollDate;
-	private int donationAmount;
 	
 	
 }

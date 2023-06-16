@@ -20,6 +20,7 @@ import kh.fin.giboo.event.controller.EventController;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.myactive.model.service.MyActiveService;
 import kh.fin.giboo.myactive.model.vo.MyActiveDonationList;
+import kh.fin.giboo.myactive.model.vo.MyActiveVolunteerList;
 
 @Controller
 @RequestMapping("/mypage")
@@ -33,14 +34,14 @@ public class MyActiveController {
 	// 나의 활동1(기부 목록 조회)
 		@GetMapping(value = "/myActiveDonationList")
 		public String myactive_1(
-//								@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+								//@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
 								Model model
 								//, HttpSession session 
 								) {
-			//Map<String, Object> map = null;
-			
-			//map = service.selectMyactiveDonationList(cp);
-			//model.addAttribute("map",map);
+//			Map<String, Object> map = null;
+//			
+//			map = service.selectMyactiveDonationList(cp);
+//			model.addAttribute("map",map);
 			
 			List<MyActiveDonationList> myActiveDonationList = service.selectMyactiveDonationList();
 			model.addAttribute("myActiveDonationList",myActiveDonationList);
@@ -58,10 +59,16 @@ public class MyActiveController {
 		
 
 		// 나의 활동2(봉사 목록 조회)
-		@GetMapping(value = "/myactive_2")
-		public String myactive_2() {
-			logger.info("나의활동2");
-			return "mypage/myactive_2";
+		@GetMapping(value = "/myActiveVolunteerList")
+		public String myactive_2(Model model) {
+
+			List<MyActiveVolunteerList> myActiveVolunteerList = service.selectMyActiveVolunteerList();
+			model.addAttribute("myActiveVolunteerList",myActiveVolunteerList);
+			
+			logger.info("봉사 목록조회(나의활동2)로 이동");
+
+			
+			return "mypage/myActiveVolunteerList";
 		}
 		
 		
