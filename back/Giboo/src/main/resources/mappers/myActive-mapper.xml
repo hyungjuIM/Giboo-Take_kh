@@ -1,24 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="myactiveMapper">
+<mapper namespace="myActive-mapper">
 
-	<!-- 나의활동 목록 조회 -->
+	<!-- 나의활동 목록 조회 resultMap -->
 	<resultMap type="myactive" id="myactive_rm">
-		<id property="myactiveNo" column="MYACTIVE_NO"/>
-		<result property="volunteerCompleteStatus" column="VOLUNTEER_COMPLETE_STATUS"/>
-		<result property="donationNo" column="DONATION_NO"/>
-		<result property="volunteerNo" column="VOLUNTEER_NO"/>
-		<result property="memberNo" column="MEMBER_NO"/>
-		<result property="eventNo" column="EVENT_NO"/>
+		<id property="myactiveNo" column="MYACTIVE_NO" />
+		<result property="volunteerCompleteStatus"
+			column="VOLUNTEER_COMPLETE_STATUS" />
+		<result property="donationNo" column="DONATION_NO" />
+		<result property="volunteerNo" column="VOLUNTEER_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="eventNo" column="EVENT_NO" />
+	</resultMap>
+
+	<!-- 기부(donation) 목록용 resultMap -->
+	<resultMap type="myActiveDonationList" id="myActiveDonationList_rm">
+		<id property="donationNo" column="DONATION_NO" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+		<result property="donationTitle" column="DONATION_TITLE" />
+		<result property="donationAmount" column="DONATION_AMOUNT" />
 	</resultMap>
 	
-	<!-- 기부 목록 조회 -->
+	<!-- 봉사(VOLUNTEER) 목록용 resultMap -->
+	<resultMap type="myActiveVolunteerList" id="myActiveVolunteerList_rm">
+		<id property="volunteerNo" column="VOLUNTEER_NO" />
+		<result property="volunteerTitle" column="VOLUNTEER_TITLE" />
+		<result property="startProgressDate" column="START_PROGRESS_DATE" />
+		<result property="volunteerAddr" column="VOLUNTEER_ADDR" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+	</resultMap>
 
-	
+	<!-- 이벤트(EVENT) 목록 조회 resultMap -->
+	<resultMap type="myActiveEventList" id="myActiveEventList_rm">
+		<id property="eventNo" column="EVENT_NO" />
+		<result property="eventTitle" column="EVENT_TITLE" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+		<result property="endRecruitDate" column="END_RECRUIT_DATE" />	
+	</resultMap>
+
+	<!-- 특정 게시판 전체 게시글 수 조회  -->
+	<select id="getListCount" resultType="_int"> 
+		SELECT 
+		COUNT(*) FROM DONATION JOIN MEMBER ON DONATION.MEMBER_NO = MEMBER.MEMBER_NO 
+		WHERE MEMBER.MEMBER_NO = 7 
+		</select>
+
+
+
+
 	<!-- 기부 목록 조회 -->
-	<select id="selectMyactiveDonationList" >
-		SELECT DONATION_NO, DONATION_TITLE
+	<select id="selectMyactiveDonationList" resultMap="myActiveDonationList_rm">
+		SELECT
+		DONATION_NO, DONATION_TITLE, ENROLL_DATE, DONATION_AMOUNT 
 		FROM DONATION
-		JOIN MEMBER USING(MEMBER_NO)
+		JOIN MEMBER ON
+		DONATION.MEMBER_NO = MEMBER.MEMBER_NO
+		WHERE MEMBER.MEMBER_NO = 7
+		ORDER BY DONATION_NO DESC
 	</select>
+	
+	<!-- 봉사 목록 조회 -->
+	<select id="selectMyActiveVolunteerList" resultMap="myActiveVolunteerList_rm">
+		SELECT
+		VOLUNTEER_NO, VOLUNTEER_TITLE, START_PROGRESS_DATE,VOLUNTEER_ADDR, ENROLL_DATE
+		FROM VOLUNTEER
+		JOIN MEMBER ON
+		VOLUNTEER.MEMBER_NO = MEMBER.MEMBER_NO
+		WHERE MEMBER.MEMBER_NO = 7
+		ORDER BY VOLUNTEER_NO DESC
+	</select>
+	
+	
+	<!-- 이벤트 목록 조회 -->
+	<select id="selectMyActiveEventList" resultMap="myActiveEventList_rm">
+		SELECT
+		EVENT_NO, EVENT_TITLE, ENROLL_DATE, END_RECRUIT_DATE
+		FROM EVENT
+		JOIN MANAGER ON
+		EVENT.MGR_NO = MANAGER.MGR_NO
+		WHERE MANAGER.MGR_NO = 100
+		ORDER BY EVENT_NO DESC
+	</select>
+	
+	
+	
 </mapper>

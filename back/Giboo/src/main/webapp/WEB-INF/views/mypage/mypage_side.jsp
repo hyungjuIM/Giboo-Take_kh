@@ -63,7 +63,7 @@
 							<div class="mypage_content_second">
 								<ul>
 									<li><a
-										href="${pageContext.request.contextPath}/mypage/myactive_1">나의
+										href="${pageContext.request.contextPath}/mypage/myActiveDonationList">나의
 											활동</a></li>
 									<li><a
 										href="${pageContext.request.contextPath}/mypage/myask">나의
