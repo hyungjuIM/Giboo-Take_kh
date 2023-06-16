@@ -1,6 +1,7 @@
 const SubCategoryLabelTheme = document.getElementsByClassName("SubCategoryLabelTheme");
 const item = document.getElementsByClassName("item");
 const button = document.getElementsByClassName("button");
+const favoriteButton = document.getElementsByClassName("favoriteButton");
 
 for (let i of SubCategoryLabelTheme) {
     i.addEventListener("click", () => {
@@ -21,14 +22,29 @@ for (let i of item) {
     });
 }
 
+function getContextPath() {
+    var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+    return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+};
+
 for (let i of button) {
     i.addEventListener("mouseenter", () => {
         i.classList.add("buttonFocus");
-        i.firstElementChild.src = "${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg";
+        i.firstElementChild.src = getContextPath() + "/resources/images/chevron-right-solid-white.svg";
     });
 
     i.addEventListener("mouseleave", () => {
         i.classList.remove("buttonFocus");
-        i.firstElementChild.src = "${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg";
+        i.firstElementChild.src = getContextPath() + "/resources/images/chevron-right-solid-gray.svg";
+    });
+}
+
+for (let i of favoriteButton) {
+    i.addEventListener("mouseenter", () => {
+        i.classList.add("buttonFocus");
+    });
+
+    i.addEventListener("mouseleave", () => {
+        i.classList.remove("buttonFocus");
     });
 }

@@ -33,3 +33,4 @@ public class MapController {
       return "map/mapList";
    }
 }
+
