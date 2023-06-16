@@ -20,31 +20,14 @@ public class MapController {
    
    @Autowired
    private MapService service;
-
+   
    @GetMapping(value="/mapList")
-   public String mapList(@RequestParam(value="cp", required = false, defaultValue = "1") int cp
-		   				,Model model
-		   				, @RequestParam Map<String, Object> paramMap
-		   	) {
-//
-//	   Map<String, Object> map = null;
-//	   
-////	   if(paramMap.get("key") == null) { // 검색 아닌 경우
-////		   map = service.selectMapList(cp);
-////	   }else {
-////		   paramMap.put("cp", cp);
-////		   
-////		   map = service.searchMapList(paramMap);
-////	   }
-////	   
-////	   model.addAttribute("map", map);
-////	   
-////      logger.info("맵");      
-	   return "map/mapList";
-      
+   public String mapList(
+            ) {
+
+      logger.info("맵");
+      return "map/mapList";
    }
 }
-	
-	
-
-
+   
+   
