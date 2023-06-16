@@ -20,6 +20,7 @@ import kh.fin.giboo.event.controller.EventController;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.myactive.model.service.MyActiveService;
 import kh.fin.giboo.myactive.model.vo.MyActiveDonationList;
+import kh.fin.giboo.myactive.model.vo.MyActiveEventList;
 import kh.fin.giboo.myactive.model.vo.MyActiveVolunteerList;
 
 @Controller
@@ -75,10 +76,13 @@ public class MyActiveController {
 		//==========================================
 
 		// 나의 활동3(참여한 이벤트 목록 조회)
-		@GetMapping(value = "/myactive_3")
-		public String myactive_3() {
-			logger.info("나의활동3");
-			return "mypage/myactive_3";
+		@GetMapping(value = "/myActiveEventList")
+		public String myactive_3(Model model) {
+			List<MyActiveEventList> myActiveEventList = service.selectMyActiveEventList();
+			model.addAttribute("myActiveEventList",myActiveEventList);
+			
+			logger.info("이벤트 목록조회(나의활동3)로 이동");
+			return "mypage/myActiveEventList";
 		}
 		
 		// 인증서 출력

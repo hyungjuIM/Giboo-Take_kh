@@ -11,6 +11,7 @@ import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Pagination;
 import kh.fin.giboo.myactive.model.dao.MyActiveDAO;
 import kh.fin.giboo.myactive.model.vo.MyActiveDonationList;
+import kh.fin.giboo.myactive.model.vo.MyActiveEventList;
 import kh.fin.giboo.myactive.model.vo.MyActiveVolunteerList;
 
 @Service
@@ -52,6 +53,12 @@ public class MyActiveServiceImpl implements MyActiveService {
 	@Override
 	public List<MyActiveVolunteerList> selectMyActiveVolunteerList() {
 		return dao.selectMyActiveVolunteerList();
+	}
+
+
+	@Override
+	public List<MyActiveEventList> selectMyActiveEventList() {
+		return dao.selectMyActiveEventList();
 	}
 	
 	

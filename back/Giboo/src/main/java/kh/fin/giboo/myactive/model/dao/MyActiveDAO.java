@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Pagination;
 import kh.fin.giboo.myactive.model.vo.MyActiveDonationList;
+import kh.fin.giboo.myactive.model.vo.MyActiveEventList;
 import kh.fin.giboo.myactive.model.vo.MyActiveVolunteerList;
 
 @Repository
@@ -26,6 +27,10 @@ public class MyActiveDAO {
 
 	public List<MyActiveVolunteerList> selectMyActiveVolunteerList() {
 		return sqlSession.selectList("myActive-mapper.selectMyActiveVolunteerList") ;
+	}
+
+	public List<MyActiveEventList> selectMyActiveEventList() {
+		return sqlSession.selectList("myActive-mapper.selectMyActiveEventList") ;
 	}
 	
 

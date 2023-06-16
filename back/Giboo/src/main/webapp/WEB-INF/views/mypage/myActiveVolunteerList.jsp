@@ -121,6 +121,7 @@
 													<th scope="col" class="th-name">봉사활동 내역</th>
 													<th scope="col" class="th-time">봉사일자</th>
 													<th scope="col" class="th-place">장소</th>
+													<th scope="col" class="th-time">등록일자</th>
 													<!-- <th scope="col" class="th-date">일자</th>  -->
 
 													<!-- <th scope="col" class="th-print">인증서 출력</th>    -->
@@ -130,7 +131,7 @@
 											<tbody>
 
 												<c:choose>
-													<c:when test="${empty myActiveDonationList}">
+													<c:when test="${empty myActiveVolunteerList}">
 														<!-- 게시글 목록 조회 결과가 비어있다면 -->
 														<tr>
 															<th colspan="4">게시글이 존재하지 않습니다.</th>
@@ -145,10 +146,10 @@
 															items="${myActiveVolunteerList}">
 															<tr>
 																<td>${myActiveVolunteerList.volunteerNo}</td>
+																<td>${myActiveVolunteerList.volunteerTitle}</td>
 																<td>${myActiveVolunteerList.startProgressDate}</td>
 																<td>${myActiveVolunteerList.volunteerAddr}</td>
 																<td>${myActiveVolunteerList.enrollDate}</td>
-																
 															</tr>
 														</c:forEach>
 													</c:otherwise>
