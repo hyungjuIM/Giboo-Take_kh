@@ -50,7 +50,9 @@
 	
 
 	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActive" alias="myactive"/>
-
+	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActiveDonationList" alias="myActiveDonationList"/>
+	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActiveVolunteerList" alias="myActiveVolunteerList"/>
+	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActiveEventList" alias="myActiveEventList"/>
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->

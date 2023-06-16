@@ -66,21 +66,21 @@
 												<div class="active_title_name">
 													<div class="myactive_donation">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_1">기부</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveDonationList">기부</a>
 													</div>
 												</div>
 												<div class="active_title_right">|</div>
 												<div class="active_title_name">
 													<div class="myactive_volunteer">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_2">봉사</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveVolunteerList">봉사</a>
 													</div>
 												</div>
 												<div class="active_title_right">|</div>
 												<div class="active_title_name2">
 													<div class="myactive_event">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myactive_3">참여한
+															href="${pageContext.request.contextPath}/mypage/myActiveEventList">참여한
 															이벤트</a>
 													</div>
 												</div>
@@ -122,9 +122,12 @@
 											<thead>
 												<tr>
 													<th scope="col" class="th_num">번호</th>
-													<th scope="col" class="th_name">기부내역</th>
-													<th scope="col" class="th_date">기부일자</th>
-													<th scope="col" class="th_print">인증서 출력</th>
+													<th scope="col" class="th_name">기부 내역</th>
+													<th scope="col" class="th_date">기부 일자</th>
+													<th scope="col" class="th_date">기부 총 금액</th>
+													
+													<!--   <th scope="col" class="th_print">인증서 출력</th>  -->
+													
 												</tr>
 											</thead>
 
@@ -133,7 +136,7 @@
 
 
 												<c:choose>
-													<c:when test="${empty activeDonationList}">
+													<c:when test="${empty myActiveDonationList}">
 														<!-- 게시글 목록 조회 결과가 비어있다면 -->
 														<tr>
 															<th colspan="4">게시글이 존재하지 않습니다.</th>
@@ -144,12 +147,18 @@
 														<!-- 게시글 목록 조회 결과가 비어있지 않다면 -->
 
 														<!-- 향상된 for문처럼 사용 -->
-														<c:forEach var="activeDonation" items="${activeDonationList}">
+														<c:forEach var="myActiveDonationList" items="${myActiveDonationList}">
 															<tr>
-																<td>${activeDonation.boardNo}</td>
-																<td><a href="../detail/${boardCode}/${activeDonation.boardNo}?cp=${pagination.currentPage}${sURL}">${activeDonation.donationTitle}</a></td>
-																<td>${activeDonation.donationTitle}</td>
-																<td>${activeDonation.boardNo}</td>
+																<td>${myActiveDonationList.donationNo}</td>
+																<td>${myActiveDonationList.donationTitle}</td>
+																<td>${myActiveDonationList.enrollDate}</td>
+																<td>${myActiveDonationList.donationAmount}</td>
+																<!--   
+																<td><a href="../detail/${donation.donationNo}?cp=${pagination.currentPage}${sURL}">${donation.donationTitle}</a></td>
+																 -->
+																
+																
+																
 															</tr>
 														</c:forEach>
 
@@ -223,20 +232,22 @@
 									</div>
 
 									<!-- 페이지 네비게이션------------------------- -->
+									
+									<!--   
 									<div class="container4">
 
-										<!-- 페이지네이션 a태그에 사용될 공통 주소를 저장한 변수 선언 -->
-										<c:set var="url" value="${boardCode}?cp=" />
+										
+										<c:set var="url" value="?cp=" />
 
 
 										<ul class="pagination">
-											<!-- 첫 페이지로 이동 -->
+											
 											<li><a href="${url}1${sURL}">&lt;&lt;</a></li>
 
-											<!-- 이전 목록 마지막 번호로 이동 -->
+											
 											<li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
 
-											<!-- 범위가 정해진 일반 for문 사용 -->
+											
 											<c:forEach var="i" begin="${pagination.startPage}"
 												end="${pagination.endPage}" step="1">
 
@@ -252,14 +263,17 @@
 
 											</c:forEach>
 
-											<!-- 다음 목록 시작 번호로 이동 -->
+											
 											<li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
 
-											<!-- 끝 페이지로 이동 -->
+											
 											<li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
 
 										</ul>
-									</div>
+									</div> 
+									
+									  -->
+									 
 
 
 									<!-- ------------------------- -->
