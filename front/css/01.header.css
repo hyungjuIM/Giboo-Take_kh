@@ -59,55 +59,50 @@ a{
 
 
 /* gnb 영역 */
-.headerContent .gnb{
+.headerContent .gnb {
     flex: 2 1 0;
-}
-.gnb{
+  }
+  
+  .gnb {
     display: flex;
     justify-content: center;
     color: #767676;
-
     font-size: 16px;
     font-weight: 300;
     text-align: center;
-
     list-style-type: none;
     scroll-behavior: smooth;
-}
-
-
-
-.gnb a{
-   margin: 3%;
-   color: #767676;
-   position: relative;
-   
-}
-
-/* gnb a 태그 밑 선 */
-.gnb a:after{
-    content: '';
+  }
+  
+  .gnb a {
+    margin: 3%;
+    color: #767676;
+    position: relative;
+  }
+  
+  /* gnb a 태그 밑 선 */
+  #horizontal_underline {
     position: absolute;
-    width: 60px;
-    height: 4px;
+    width: 0;
+    top: 95%;
+    height: 4px; 
     background-color: var(--mainColor);
-    border-radius: 50px;
-
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    bottom: -160%;
     transition: 0.3s;
-    
-}
-
-.gnb a:hover:after{
-    opacity: 1;
-}
-.gnb a:hover{
+    border-radius: 50px;
+  }
+  
+  .gnb a:hover {
     color: var(--mainColor);
     font-weight: 500;
+  }
+  
+  .gnb a:hover + #horizontal_underline,
+#horizontal_underline.active {
+  width: calc(100% - 2%); /* a 태그 너비에서 좌우 간격을 제외한 영역을 선의 너비로 설정 */
+  left: 1%; /* 좌우 간격을 1%로 설정 */
 }
+
+  
 
 
 
