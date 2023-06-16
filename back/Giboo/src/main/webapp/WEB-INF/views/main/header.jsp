@@ -45,8 +45,9 @@
             </div>
 
             <div class="gnb">
-                <a href="#none">기부하기</a>
-                <a href="#none">봉사하기</a>
+            	<div id="horizontal_underline"></div>
+                <a href="${pageContext.request.contextPath}/donation/home">기부하기</a>
+                <a href="${pageContext.request.contextPath}/volunteer/home">봉사하기</a>
                 <a href="${pageContext.request.contextPath}/event/eventList">이벤트</a>
                 <a href="${pageContext.request.contextPath}/map/mapList">위치찾기</a>
             </div>
