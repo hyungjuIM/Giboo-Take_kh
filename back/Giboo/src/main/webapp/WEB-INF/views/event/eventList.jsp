@@ -10,7 +10,7 @@
         <title>Document</title>
     
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventList.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css">
+      <!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/reset.css"> --> 
         
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -26,8 +26,108 @@
 
     
         <main>
+            <!-- <section class="board-list">
+                <h1 class="board-name">이벤트 목록</h1>
+    
+    
+                <div class="list-wrapper">
+                    <table class="list-table">
+                        <thead>
+                            <tr>
+                                <th>상태</th>
+                                <th>첨부파일</th>
+                                <th>리스트 제목</th>
+                                <th>등록일</th>
+                                <th>마감일</th>
+                                <th>참여자수</th>
+                            </tr>
+                        </thead>
+                        
+                        <%-- 채팅 목록 출력 --%>
+                        <tbody>
+                            <c:choose>
+                            
+                                <%-- 조회된 게시글 목록이 없을 때 --%>
+                                <c:when test="${empty eventList }">
+                                    <tr>
+                                        <td colspan="6">존재하는 이벤트가 없습니다.</td>
+                                    </tr>
+                                </c:when>
+                                
+                                <%-- 조회된 채팅방 목록이 있을 때 --%>
+                                <c:otherwise>
+                                    
+                                    <c:forEach var="eventList" items="${eventList}">
+                                        <tr>
+                                            <td>${eventList.result}</td>
+                                            <td>${eventList.attachment}</td>
+                                            <td>${eventList.eventTitle}</td>
+                                            <td>${eventList.enrollDate}</td>
+                                            <td>${eventList.endRecruitDate}</td>
+                                            <td>${eventList.currentPeople}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </c:otherwise>
+                            </c:choose>
+                        </tbody>
+                    </table>
+                </div>
+            </section> -->
 
-        <div class="eventContent">
+            <div class="eventContent">
+                <div class="eventBody">
+                    <div class="eventList_main">
+                        <div class="ewrap_tab">
+                        </div>
+                        <div class="egroup_catalog">
+                            <c:choose>
+                                <c:when test="${empty eventList}">
+                                    <ul class="elist_official">
+                                        <li class="elist_officialLi">
+                                            <span>존재하는 이벤트가 없습니다.</span>
+                                        </li>
+                                    </ul>
+                                </c:when>
+                                <c:otherwise>
+                                    <ul class="elist_official">
+                                        <c:forEach var="eventList" items="${eventList}">
+                                            <li class="elist_officialLi">  
+                                                <a href="" class="elink_official">
+                                                    <span class="earea_thumb">
+                                                        <img src="${pageContext.request.contextPath}${eventList.attachment}" alt="썸네일이미지">
+
+                                                        <div class="earea_thumb_period">
+                                                            <span>${eventList.result}</span>
+                                                        </div>
+                                                    </span>
+                                                    <span class="etxt_official">
+                                                        <div class="etxt_officialTi">
+                                                            <span>${eventList.eventTitle}</span>
+                                                        </div>
+                                                        <span class="edate_official">
+                                                            <span class="escrean_out">${eventList.enrollDate}</span>
+                                                            <span class="escrean_out">${eventList.endRecruitDate}</span>
+                                                        </span>
+                                                    </span>
+                                                    <span class="ereg">
+                                                        <span>✔️</span>
+                                                        <span>${eventList.currentPeople}</span>
+                                                        <span>참여중</span>
+                                                        <span>${eventList.eventNo}</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        <!-- <div class="eventContent">
             <div class="eventBody">
                 <div class="eventList_main">
                     <div class="ewrap_tab">
@@ -54,7 +154,7 @@
                             <li>  
                                 <a href="" class="elink_official">
                                     <span class="earea_thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
+                                        <img src="${pageContext.request.contextPath}${eventList.attachment}" alt="썸네일이미지">
                                         <div class="earea_thumb_period">
                                             <span>종료<br>임박</span>
                                         </div>
@@ -76,7 +176,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="eother"><!--두번째는 다른 스타일-->
+                            <li class="eother">
                                 <a href="" class="elink_official_2">
                                     <span class="earea_thumb_2">
                                         <img src="${pageContext.request.contextPath}/resources/images/dogil.png" alt="썸네일이미지">
@@ -93,156 +193,6 @@
                                         <span>자세히보기</span>
                                     </a>
                                 </div>
-                            </li>
-                            <li>  
-                                <a href="" class="elink_official">
-                                    <span class="earea_thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
-                                        <div class="earea_thumb_period">
-                                            <span>종료<br>임박</span>
-                                        </div>
-                                    </span>
-                                    <span class="etxt_official">
-                                        <div class="etxt_officialTi">
-                                            <span>
-                                                강아지의 날! 행복한 강아지 만들기
-                                            </span>
-                                        </div>
-                                        <span class="edate_official">
-                                            <span class="escrean_out">
-                                                2023.05.05 ~ 2023.06.07
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <span class="ereg">
-                                        <span>✔️ 5,023명 참여중</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>  
-                                <a href="" class="elink_official">
-                                    <span class="earea_thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
-                                        <div class="earea_thumb_period">
-                                            <span>종료<br>임박</span>
-                                        </div>
-                                    </span>
-                                    <span class="etxt_official">
-                                        <div class="etxt_officialTi">
-                                            <span>
-                                                강아지의 날! 행복한 강아지 만들기
-                                            </span>
-                                        </div>
-                                        <span class="edate_official">
-                                            <span class="escrean_out">
-                                                2023.05.05 ~ 2023.06.07
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <span class="ereg">
-                                        <span>✔️ 5,023명 참여중</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>  
-                                <a href="" class="elink_official">
-                                    <span class="earea_thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
-                                        <div class="earea_thumb_period">
-                                            <span>종료<br>임박</span>
-                                        </div>
-                                    </span>
-                                    <span class="etxt_official">
-                                        <div class="etxt_officialTi">
-                                            <span>
-                                                강아지의 날! 행복한 강아지 만들기
-                                            </span>
-                                        </div>
-                                        <span class="edate_official">
-                                            <span class="escrean_out">
-                                                2023.05.05 ~ 2023.06.07
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <span class="ereg">
-                                        <span>✔️ 5,023명 참여중</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>  
-                                <a href="" class="elink_official">
-                                    <span class="earea_thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
-                                        <div class="earea_thumb_period">
-                                            <span>종료<br>임박</span>
-                                        </div>
-                                    </span>
-                                    <span class="etxt_official">
-                                        <div class="etxt_officialTi">
-                                            <span>
-                                                강아지의 날! 행복한 강아지 만들기
-                                            </span>
-                                        </div>
-                                        <span class="edate_official">
-                                            <span class="escrean_out">
-                                                2023.05.05 ~ 2023.06.07
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <span class="ereg">
-                                        <span>✔️ 5,023명 참여중</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>  
-                                <a href="" class="elink_official">
-                                    <span class="earea_thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
-                                        <div class="earea_thumb_period">
-                                            <span>종료<br>임박</span>
-                                        </div>
-                                    </span>
-                                    <span class="etxt_official">
-                                        <div class="etxt_officialTi">
-                                            <span>
-                                                강아지의 날! 행복한 강아지 만들기
-                                            </span>
-                                        </div>
-                                        <span class="edate_official">
-                                            <span class="escrean_out">
-                                                2023.05.05 ~ 2023.06.07
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <span class="ereg">
-                                        <span>✔️ 5,023명 참여중</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li>  
-                                <a href="" class="elink_official">
-                                    <span class="earea_thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/dog.jpeg" alt="썸네일이미지">
-                                        <div class="earea_thumb_period">
-                                            <span>종료<br>임박</span>
-                                        </div>
-                                    </span>
-                                    <span class="etxt_official">
-                                        <div class="etxt_officialTi">
-                                            <span>
-                                                강아지의 날! 행복한 강아지 만들기
-                                            </span>
-                                        </div>
-                                        <span class="edate_official">
-                                            <span class="escrean_out">
-                                                2023.05.05 ~ 2023.06.07
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <span class="ereg">
-                                        <span>✔️ 5,023명 참여중</span>
-                                    </span>
-                                </a>
                             </li>
                         </ul>
                     </div>
@@ -263,7 +213,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
     
     <!-- 푸터 영역 -->

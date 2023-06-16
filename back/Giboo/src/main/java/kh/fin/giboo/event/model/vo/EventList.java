@@ -11,9 +11,10 @@ import lombok.NoArgsConstructor;
 // 이벤트 리스트
 public class EventList {
 	private int eventNo; // 이벤트no
+	private String result;
 	private String attachment; // 첨부파일
 	private String eventTitle; // 이벤트 제목
 	private String enrollDate; // 등록일
 	private String endRecruitDate; // 마감일
-	private int eventPersonNo; // 이벤트 참여자 no(이벤트 참여 인원)
+	private int currentPeople; // 이벤트 참여자 no(이벤트 참여 인원)
 }

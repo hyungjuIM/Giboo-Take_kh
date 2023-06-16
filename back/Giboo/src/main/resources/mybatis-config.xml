@@ -29,12 +29,6 @@
 	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationDetail" alias="donationDetail"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Volunteer" alias="volunteer"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerDetail" alias="volunteerDetail"/>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 89e718339d1a36b510101e2323d4a2856d9ad72e
-	
 	<!-- 맵 -->
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapList" alias="mapList"/>
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailTop" alias="mapDetailTop"/>
@@ -51,17 +45,8 @@
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventStickerBar" alias="eventStickerBar"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventPopup" alias="eventPopup"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventMore" alias="eventMore"/>
-	
-<<<<<<< HEAD
-=======
-	<typeAlias type="kh.fin.giboo.map.model.vo.Map" alias="mapList"/>
-	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActive" alias="myactive"/>
->>>>>>> 49205b2240e95cf7421c15d586a38a0c578141b5
-=======
 
 	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActive" alias="myactive"/>
-
->>>>>>> 89e718339d1a36b510101e2323d4a2856d9ad72e
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -69,25 +54,9 @@
 <mapper resource="/mappers/member-mapper.xml"/>
 <mapper resource="/mappers/map-mapper.xml"/>
 <mapper resource="/mappers/myPage-mapper.xml" />
-<<<<<<< HEAD
-<<<<<<< HEAD
 <mapper resource="/mappers/event-mapper.xml" />
-=======
-=======
-
-<mapper resource="/mappers/event-mapper.xml" />
-
->>>>>>> 89e718339d1a36b510101e2323d4a2856d9ad72e
-
 <mapper resource="/mappers/myActive-mapper.xml" />
-
 <mapper resource="/mappers/notice-mapper.xml" />
-
-<<<<<<< HEAD
->>>>>>> 49205b2240e95cf7421c15d586a38a0c578141b5
-=======
-
->>>>>>> 89e718339d1a36b510101e2323d4a2856d9ad72e
 </mappers>
 
 </configuration>
