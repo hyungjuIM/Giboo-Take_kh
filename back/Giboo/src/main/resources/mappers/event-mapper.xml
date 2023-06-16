@@ -1,4 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="event-mapper">
+
+	<!-- 이벤트 목록 조회용 resultMap -->
+	<resultMap type="eventList" id="eventList_rm">
+		<id property="eventNo" column="EVENT_NO"/>
+		<result property="attachment" column="ATTACHMENT"/>
+		<result property="eventTitle" column="EVENT_TITLE"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="endRecruitDate" column="END_RECRUIT_DATE"/>
+		<result property="currentPeople" column="CURRENT_PEOPLE"/>
+	</resultMap>
+	
+	
+	
+
+	
+	
+		<select id="selectEventList" resultMap="eventList_rm">
+SELECT 
+ATTACHMENT, 
+  CASE
+    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD HH24:MI:SS')) &lt;= 0 THEN '종료'
+    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD HH24:MI:SS')) &lt;= 5 THEN '마감임박'
+    ELSE '진행중'
+  END AS RESULT,
+EVENT_TITLE , 
+CASE WHEN SYSDATE - ENROLL_DATE > 1
+THEN TO_CHAR(ENROLL_DATE , 'HH:MI')
+ELSE TO_CHAR(ENROLL_DATE , 'YYYY-MM-DD')
+END ENROLL_DATE,
+CASE WHEN SYSDATE - END_RECRUIT_DATE > 1
+THEN TO_CHAR(END_RECRUIT_DATE , 'HH:MI')
+ELSE TO_CHAR(END_RECRUIT_DATE , 'YYYY-MM-DD')
+END END_RECRUIT_DATE,
+CURRENT_PEOPLE,
+EVENT_NO
+FROM EVENT
+WHERE MODI_STATUS = 'N'
+ORDER BY EVENT_NO DESC
+	</select>
+	
+
 </mapper>
