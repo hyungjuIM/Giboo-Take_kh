@@ -1,6 +1,7 @@
 package kh.fin.giboo.map.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,11 +14,6 @@ public class MapServiceImpl implements MapService{
 
 	@Autowired
 	private MapDAO dao;
-
-//	@Override
-//	public List<Map> mapList(int mapNo) {
-//		return dao.mapList(mapNo);
-//	}
 
 	
 }
