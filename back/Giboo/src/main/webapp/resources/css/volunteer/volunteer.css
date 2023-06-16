@@ -210,7 +210,7 @@ a{
     align-items: center;
 }
 
-.buttonSection > .button:first-child {
+.button {
     width: 123px;
     height: 40px;
     background-color: #EFEFEF;
@@ -229,7 +229,7 @@ a{
     transition-duration: 250ms;
 }
 
-.buttonSection > .button:last-child {
+.favoriteButton {
     width: 40px;
     height: 40px;
     background-color: #EFEFEF;

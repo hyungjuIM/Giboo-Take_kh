@@ -1,5 +1,6 @@
 package kh.fin.giboo.map.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kh.fin.giboo.map.model.service.MapService;
+import kh.fin.giboo.map.model.vo.MapList;
 
 @Controller
 @RequestMapping("/map")
@@ -22,28 +24,13 @@ public class MapController {
    private MapService service;
    
    @GetMapping(value="/mapList")
-   public String mapList(@RequestParam(value="cp", required = false, defaultValue = "1") int cp
-		   				,Model model
-		   				, @RequestParam Map<String, Object> paramMap
-		   	) {
+   public String mapList() {
 
-	   Map<String, Object> map = null;
-	   
-	   if(paramMap.get("key") == null) { // 검색 아닌 경우
-		   map = service.selectMapList(cp);
-	   }else {
-		   paramMap.put("cp", cp);
-		   
-		   map = service.searchMapList(paramMap);
-	   }
-	   
-	   model.addAttribute("map", map);
-	   
+//	  List<MapList> mapList = service.selectMapList();
+//	  logger.info("맵 리스트??" + mapList);
+//	  model.addAttribute("mapList",mapList);
       logger.info("맵");
       return "map/mapList";
    }
 }
-	
-	
-
 

@@ -1,15 +1,14 @@
 package kh.fin.giboo.myactive.controller;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 import kh.fin.giboo.event.controller.EventController;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -29,6 +28,9 @@ import kh.fin.giboo.event.controller.EventController;
 import kh.fin.giboo.member.model.vo.Member;
 
 import kh.fin.giboo.myactive.model.service.MyActiveService;
+import kh.fin.giboo.myactive.model.vo.MyActiveDonationList;
+import kh.fin.giboo.myactive.model.vo.MyActiveEventList;
+import kh.fin.giboo.myactive.model.vo.MyActiveVolunteerList;
 
 @Controller
 @RequestMapping("/mypage")
@@ -40,19 +42,25 @@ public class MyActiveController {
 	private MyActiveService service;
 	
 	// 나의 활동1(기부 목록 조회)
-		@GetMapping(value = "/myactive_1/{boardCode}")
-		public String myactive_1(@PathVariable("boardCode") int boardCode,
-								@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
-								Model model, HttpSession session ) {
-			Map<String, Object> map = null;
+		@GetMapping(value = "/myActiveDonationList")
+		public String myactive_1(
+								//@RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+								Model model
+								//, HttpSession session 
+								) {
+//			Map<String, Object> map = null;
+//			
+//			map = service.selectMyactiveDonationList(cp);
+//			model.addAttribute("map",map);
 			
-			map = service.selectMyactiveDonationList(cp, boardCode);
-			model.addAttribute("map",map);
+			List<MyActiveDonationList> myActiveDonationList = service.selectMyactiveDonationList();
+			model.addAttribute("myActiveDonationList",myActiveDonationList);
+			
 			logger.info("기부 목록조회(나의활동1)로 이동");
-			Member loginMember = (Member)session.getAttribute("loginMember");
-			System.out.println(loginMember);
+			//Member loginMember = (Member)session.getAttribute("loginMember");
+			//System.out.println(loginMember);
 			
-			return "mypage/myactive_1";
+			return "mypage/myActiveDonationList";
 		}
 		
 		
@@ -61,11 +69,16 @@ public class MyActiveController {
 		
 
 		// 나의 활동2(봉사 목록 조회)
+		@GetMapping(value = "/myActiveVolunteerList")
+		public String myactive_2(Model model) {
 
-		@GetMapping(value = "/myactive_2")
-		public String myactive_2() {
-			logger.info("나의활동2");
-			return "mypage/myactive_2";
+			List<MyActiveVolunteerList> myActiveVolunteerList = service.selectMyActiveVolunteerList();
+			model.addAttribute("myActiveVolunteerList",myActiveVolunteerList);
+			
+			logger.info("봉사 목록조회(나의활동2)로 이동");
+
+			
+			return "mypage/myActiveVolunteerList";
 		}
 
 
@@ -76,11 +89,13 @@ public class MyActiveController {
 		//==========================================
 
 		// 나의 활동3(참여한 이벤트 목록 조회)
-
-		@GetMapping(value = "/myactive_3")
-		public String myactive_3() {
-			logger.info("나의활동3");
-			return "mypage/myactive_3";
+		@GetMapping(value = "/myActiveEventList")
+		public String myactive_3(Model model) {
+			List<MyActiveEventList> myActiveEventList = service.selectMyActiveEventList();
+			model.addAttribute("myActiveEventList",myActiveEventList);
+			
+			logger.info("이벤트 목록조회(나의활동3)로 이동");
+			return "mypage/myActiveEventList";
 		}
 		
 		// 인증서 출력
