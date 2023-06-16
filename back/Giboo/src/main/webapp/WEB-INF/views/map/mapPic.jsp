@@ -1,10 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <title>맵 리스트 사진</title>
     <script src="https://kit.fontawesome.com/a06d7ad725.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/map/mapPic.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/map/mapPic.css">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -128,6 +131,7 @@
      <!-- jQuery 라이브러리 추가 -->
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"
      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
     <script>
         $(function () {
             var include1 = $('[data-include1="header"]');
@@ -139,11 +143,10 @@
                 $(this).load('/html/map/mapHeader.html');
             });
         });
-
     </script>
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a57d546fefaefbc7ac5bde8a6eb90ec&libraries=services"></script>
-<script src="/JS/map.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/map/map.js"></script>
 </body>
 </html>
