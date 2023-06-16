@@ -120,7 +120,7 @@
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
                             <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
+                        <div class="favoriteButton">💖</div>
                     </div>
 
                     <a href="">
@@ -144,7 +144,7 @@
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
                             <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
+                        <div class="favoriteButton">💖</div>
                     </div>
 
                     <a href="">
@@ -168,7 +168,7 @@
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
                             <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
+                        <div class="favoriteButton">💖</div>
                     </div>
 
                     <a href="">
@@ -192,7 +192,7 @@
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
                             <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
+                        <div class="favoriteButton">💖</div>
                     </div>
 
                     <a href="">
@@ -216,7 +216,7 @@
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
                             <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
+                        <div class="favoriteButton">💖</div>
                     </div>
 
                     <a href="">
@@ -240,7 +240,7 @@
                     <div class="buttonSection">
                         <a href="" class="button">🍀 봉사하기
                             <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
+                        <div class="favoriteButton">💖</div>
                     </div>
 
                     <a href="">

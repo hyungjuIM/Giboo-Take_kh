@@ -1,6 +1,7 @@
 const SubCategoryLabelTheme = document.getElementsByClassName("SubCategoryLabelTheme");
 const item = document.getElementsByClassName("item");
 const button = document.getElementsByClassName("button");
+const favoriteButton = document.getElementsByClassName("favoriteButton");
 
 for (let i of SubCategoryLabelTheme) {
     i.addEventListener("click", () => {
@@ -35,5 +36,15 @@ for (let i of button) {
     i.addEventListener("mouseleave", () => {
         i.classList.remove("buttonFocus");
         i.firstElementChild.src = getContextPath() + "/resources/images/chevron-right-solid-gray.svg";
+    });
+}
+
+for (let i of favoriteButton) {
+    i.addEventListener("mouseenter", () => {
+        i.classList.add("buttonFocus");
+    });
+
+    i.addEventListener("mouseleave", () => {
+        i.classList.remove("buttonFocus");
     });
 }
