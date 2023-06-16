@@ -90,6 +90,21 @@
                                 <td><button id="sortBySavedMoney">적립금</button></td>
                             </tr>
 
+                            <c:forEach var="member" items="${memberList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" class="listCheck"></td>
+                                    <td>${member.memberNo}</td>
+                                    <td>${member.memberType}</td>
+                                    <td>${member.memberId}</td>
+                                    <td>${member.memberEmail}</td>
+                                    <td>${member.memberName}</td>
+                                    <td>${member.memberNick}</td>
+                                    <td>${member.enrollDt}</td>
+                                    <td>${member.pointPrice}</td>
+                                    <td><button class="detail">상세 정보</button></td>
+                                </tr>
+                            </c:forEach>
+
                             <tr class="listArea">
                                 <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
                                 <td>1</td>

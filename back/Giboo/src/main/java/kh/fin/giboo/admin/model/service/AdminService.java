@@ -1,8 +1,10 @@
 package kh.fin.giboo.admin.model.service;
 
-import java.util.Map;
+import kh.fin.giboo.member.model.vo.Member;
+
+import java.util.List;
 
 public interface AdminService {
 
-    Map<String, Object> selectAllMemberList();
+    List<Member> selectMemberList();
 }
