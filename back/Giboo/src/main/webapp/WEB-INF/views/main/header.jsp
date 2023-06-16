@@ -13,10 +13,13 @@
       <!-- jQuery 라이브러리 추가(CDN) -->
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+                  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
+      
          <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/footer.css" /> 
     
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/header.css" />
             <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/alarm.css" />
+            
     
   
 
@@ -42,8 +45,8 @@
             </div>
 
             <div class="gnb">
-                <a href="#none">기부하기</a>
-                <a href="#none">봉사하기</a>
+                <a href="${pageContext.request.contextPath}/donation/home">기부하기</a>
+                <a href="${pageContext.request.contextPath}/volunteer/home">봉사하기</a>
                 <a href="${pageContext.request.contextPath}/event/eventList">이벤트</a>
                 <a href="${pageContext.request.contextPath}/map/mapList">위치찾기</a>
             </div>
@@ -69,96 +72,6 @@
 
 
     
-
-
-
-    <!-- 알림 팝업창 
-    <div class="alarmPopup">
-        <div class="alarm">알림</div>
-        <div class="alarmList">
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <button class="moreBtn">더보기</button>
-    </div>    -->
 
 <!--  추가부분  -->
     

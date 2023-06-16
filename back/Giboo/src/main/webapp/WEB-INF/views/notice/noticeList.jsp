@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+    <c:set var="pagination" value="${map.pagination}" />
+<c:set var="boardList" value="${map.boardList}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,18 +14,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice/noticeList.css" />
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- jQuery 라이브러리 추가(CDN) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-
-    
-    <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
-</head>
-<body>
+  </head>
+  <body>
     <header>
       <jsp:include page="/WEB-INF/views/main/header.jsp" />
     </header>
@@ -79,30 +71,36 @@
                         </tr>
                       </thead>
                       <tbody>
+
+                        <c:choose>
+                          <c:when test="${empty noticeList}">
+                            <tr>
+                              <th colspan="5">게시글이 존재하지 않습니다.</th>
+                          </tr>
+                          </c:when>
+                          <c:otherwise>
+                            <c:forEach var="notice" items="${noticeList}">
+                              <tr>
+                                <td>${notice.noticeNo}</td>
+                                <th><a href="../noticeDetail/${notice.noticeNo}?cp=${pagination.currentPage}${sURL}">${notice.noticeTitle}</a></th>
+                                <td>${notice.enrollDt}</td>
+                                <td>${notice.mgrNickname}</td>
+                                <td>${notice.viewCount}</td>
+                              </tr>
+
+                            </c:forEach>
+                          </c:otherwise>
+                        </c:choose>
                        
-                      
+<!--                       
                         <tr>
                           <td>3</td>
                           <th><a href="#!">Giboo&Take공지사항입니다3</a></th>
                           <td>2023.05.24</td>
                           <td>임형주</td>
                           <td>50</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <th><a href="#!">Giboo&Take공지사항입니다2</a></th>
-                            <td>2023.05.13</td>
-                            <td>임형주</td>
-                            <td>30</td>
-                          </tr>
-                          <tr>
-                            <td>1</td>
-                            <th><a href="#!">Giboo&Take공지사항입니다1</a></th>
-                            <td>2023.05.03</td>
-                            <td>임형주</td>
-                            <td>30</td>
-                          </tr>
-                        <!-- 여러 개의 게시글 추가 -->
+                        </tr> -->
+                        
 
                       
                       </tbody>
@@ -110,15 +108,24 @@
                   </div>
                   <div class="container4">
                     <nav class="page-nav">
+                      <c:set var="url" value="?cp="/>
                       <ul class="pagination">
-                        <li><a href="">&lt;</a></li>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
+                        <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                        <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                        <c:choose>
+                            <c:when test="${i == pagination.currentPage}">
+                                <li><a class="current">${i}</a></li>
+                            </c:when>
+
+                            <c:otherwise>
+                                <li><a href="${url}${i}${sURL}">${i}</a></li>        
+                            </c:otherwise>
+                        </c:choose>
+
+                    </c:forEach>
                         <!-- 페이지 번호 추가 -->
-                        <li><a href="">&gt;</a></li>
+                        <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
                       </ul>
                     </nav>
                     <div class="writeBtn-container">
@@ -135,6 +142,14 @@
      <!-- 푸터 영역 -->
     <footer>
       <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-  </footer>
-</body>
+    </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    
+    
+    <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
+    </body>
 </html>

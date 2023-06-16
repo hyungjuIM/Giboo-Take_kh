@@ -13,7 +13,7 @@ pom.properties
 .classpath
 MANIFEST.MF
 Servers
-
+metadata
 back/.metadata/
 back/Giboo/.settings/
 back/Giboo/src/target

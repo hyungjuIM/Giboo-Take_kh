@@ -48,47 +48,11 @@ public class MypageController {
 		return "mypage/favorites";
 	}
 
-	// 나의 활동1(기부)
-	@GetMapping(value = "/myactive_1")
-	public String myactive_1() {
-		logger.info("나의활동1");
-		return "mypage/myactive_1";
-	}
 
-	// 나의 활동2(봉사)
-	@GetMapping(value = "/myactive_2")
-	public String myactive_2() {
-		logger.info("나의활동2");
-		return "mypage/myactive_2";
-	}
 
-	// 나의 활동3(참여한 이벤트)
-	@GetMapping(value = "/myactive_3")
-	public String myactive_3() {
-		logger.info("나의활동3");
-		return "mypage/myactive_3";
-	}
+	
 
-	// 나의 문의
-	@GetMapping(value = "/myask")
-	public String myask() {
-		logger.info("나의문의");
-		return "mypage/myask";
-	}
-
-	// 나의 문의내역 글쓰기
-	@GetMapping(value = "/myaskWrite")
-	public String myaskWrite() {
-		logger.info("나의문의 글쓰기");
-		return "mypage/myaskWrite";
-	}
-
-	// 나의 문의내역 상세내용
-	@GetMapping(value = "/myaskDetail")
-	public String myaskDetail1() {
-		logger.info("나의문의 상세");
-		return "mypage/myaskDetail";
-	}
+	
 
 	// 나의 리뷰
 	@GetMapping(value = "/myreview")
@@ -104,14 +68,7 @@ public class MypageController {
 		return "mypage/withdrawal";
 	}
 
-	
 
-	// 인증서 출력
-	@GetMapping(value = "/reportPrint")
-	public String reportPrint() {
-		logger.info("인증서 출력");
-		return "mypage/reportPrint";
-	}
 
 	// ===================================================
 
