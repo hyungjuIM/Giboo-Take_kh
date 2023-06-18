@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:set var="pagination" value="${map.pagination}" />
-<c:set var="myActiveVolunteerList" value="${map.myActiveVolunteerList}" />
+<c:set var="myReview" value="${map.myReview}" />
 
 
 <!DOCTYPE html>
@@ -13,15 +13,14 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>나의 활동목록(봉사)</title>
+<title>나의 리뷰목록</title>
 
 
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/mypage/myactive_2.css">
+	href="${pageContext.request.contextPath}/resources/css/mypage/myreview.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/main/reset.css">
-
 
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -30,17 +29,19 @@
 </head>
 
 <body>
+	
 	<header>
 		<jsp:include page="/WEB-INF/views/main/header.jsp" />
 	</header>
 
 	<main>
 		<div class="page-title">
-			<span>나의 활동목록</span>
+			<span>나의 리뷰목록</span>
 		</div>
 
 		<div class="mypage-container">
 			<div class="mypage_wrapper">
+
 				<header>
 					<jsp:include page="/WEB-INF/views/mypage/mypage_side.jsp" />
 				</header>
@@ -53,33 +54,11 @@
 								<div class="notice1">
 									<div class="container1">
 										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #8071FC;"> 활동목록</span><span
+											style="color: #8071FC;"> 리뷰목록</span><span
 											style="color: #767676;">를 알려드립니다 😇</span>
 
 										<div class="container2">
-											<div class="container2_title">
-												<div class="active_title_name">
-													<div class="myactive_donation">
-														<a
-															href="${pageContext.request.contextPath}/mypage/myActiveDonationList">기부</a>
-													</div>
-												</div>
-												<div class="active_title_right">|</div>
-												<div class="active_title_name">
-													<div class="myactive_volunteer">
-														<a
-															href="${pageContext.request.contextPath}/mypage/myActiveVolunteerList">봉사</a>
-													</div>
-												</div>
-												<div class="active_title_right">|</div>
-												<div class="active_title_name2">
-													<div class="myactive_event">
-														<a
-															href="${pageContext.request.contextPath}/mypage/myActiveEventList">참여한
-															이벤트</a>
-													</div>
-												</div>
-											</div>
+
 
 											<div class="search-area">
 												<div class="search-filter">
@@ -102,71 +81,66 @@
 													</fieldset>
 												</form>
 											</div>
+
 										</div>
+
+
+
 									</div>
 								</div>
 
-		
-								<div id="myactive_notice-list">
-									<div class="myactive_container3">
-										<table class="myactive_notice-table">
+
+								<div id="myactive2_notice-list">
+									<div class="myactive2_container3">
+										<table class="myactive2_notice-table">
 											<thead>
 												<tr>
 													<th scope="col" class="th-num">번호</th>
-													<th scope="col" class="th-name">봉사활동 내역</th>
-													<th scope="col" class="th-time">봉사일자</th>
-													<th scope="col" class="th-place">장소</th>
-													<th scope="col" class="th-time">등록일자</th>
-
+													<th scope="col" class="th-name">참가한 내역</th>
+													<th scope="col" class="th-date">리뷰내용</th>
+													<th scope="col" class="th-review">일자</th>
 												</tr>
 											</thead>
 											<tbody>
 
 												<c:choose>
-													<c:when test="${empty myActiveVolunteerList}">
-												
+													<c:when test="${empty myReview}">
+
 														<tr>
-															<th colspan="5">게시글이 존재하지 않습니다.</th>
+															<th colspan="4">게시글이 존재하지 않습니다.</th>
 														</tr>
 													</c:when>
 
 													<c:otherwise>
-														
-														<c:forEach var="myActiveVolunteerList"
-															items="${myActiveVolunteerList}">
+
+														<c:forEach var="myReview"
+															items="${myReview}">
 															<tr>
-																<td>${myActiveVolunteerList.myactiveVolunteerNo}</td>
-																<td>${myActiveVolunteerList.volunteerTitle}</td>
-																<td>${myActiveVolunteerList.myactiveDate}</td>
-																<td>${myActiveVolunteerList.volunteerAddr}</td>
-																<td>${myActiveVolunteerList.enrollDate}</td>
+																<td>${myReview.reviewNo}</td>
+																<td>${myReview.donationTitle}</td>
+																<td>${myReview.reviewContent}</td>																
+																<td>${myReview.enrollDate}</td>
 															</tr>
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>
 
-												<%--
-												<tr>
+												<%-- 
+											<tr>
 													<td>50</td>
-													<td>치매안심센터-기억력 검진 봉사활동</td>
-													<td>4시간</td>
-													<td>금정구 종합사회복지관</td>
+													<td><a href="#">치매안심센터-기억력 검진 봉사활동</a></td>
 													<td>2023.05.24</td>
-													<td>
-														<div class="myactive_print">
-															<a href="${pageContext.request.contextPath}/mypage/reportPrint">발급</a>
-														</div>
-													</td>
+													<td>처음으로 봉사활동 해봤는데 너무 뿌듯해요!....</td>
 												</tr>
-												 --%>
-												
+											 --%>
+
 
 											</tbody>
 										</table>
 									</div>
-									
+
 									<div class="container4">
-										<c:set var="url" value="?cp="/>
+										<c:set var="url" value="?cp=" />
 										<ul class="pagination">
 											<li><a href="${url}1${sURL}">&lt;&lt;</a></li>
 											<li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
@@ -193,25 +167,26 @@
 
 										</ul>
 									</div>
-									
+
 								</div>
-								
+
 							</section>
 						</div>
 					</section>
 
-				</div><%-- myask_content_area --%>
+				</div>
+				<%-- myask_content_area --%>
 
-			</div> <%-- mypage_wrapper --%>
-		</div><%-- mypage-container --%>
+			</div>
+			<%-- mypage_wrapper --%>
+		</div>
+		<%-- mypage-container --%>
 	</main>
-
 
 	<!-- 푸터 영역 -->
 	<footer>
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</footer>
-
 
 </body>
 
