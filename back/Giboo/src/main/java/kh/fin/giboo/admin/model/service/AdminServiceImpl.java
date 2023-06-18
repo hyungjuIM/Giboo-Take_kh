@@ -1,6 +1,7 @@
 package kh.fin.giboo.admin.model.service;
 
 import kh.fin.giboo.admin.model.dao.AdminDAO;
+import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +21,11 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<Member> selectMemberList() {
 
-        List<Member> memberList = dao.selectMemberList();
-        return null;
+        return dao.selectMemberList();
+    }
+
+    @Override
+    public List<Manager> selectManagerList() {
+        return dao.selectManagerList();
     }
 }

@@ -1,6 +1,7 @@
 package kh.fin.giboo.admin.controller;
 
 import kh.fin.giboo.admin.model.service.AdminService;
+import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,8 +41,12 @@ public class AdminController {
     }
 
     @GetMapping("/manager")
-    public String manager() {
+    public String manager(Model model) {
         logger.info("관리자 관리");
+
+        List<Manager> managerList = service.selectManagerList();
+
+        model.addAttribute("managerList", managerList);
 
         return "admin/manager";
     }

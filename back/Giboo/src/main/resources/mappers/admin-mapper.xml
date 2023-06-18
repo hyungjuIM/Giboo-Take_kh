@@ -17,8 +17,28 @@
         <result property="pointPrice" column="POINT_PRICE" />
     </resultMap>
 
+    <resultMap id="manager_rm" type="manager">
+        <id property="managerNo" column="MGR_NO" />
+        <result property="managerId" column="MGR_ID" />
+        <result property="managerEmail" column="MGR_EMAIL" />
+        <result property="managerName" column="MGR_NAME" />
+        <result property="managerNick" column="MGR_NICKNAME" />
+        <result property="managerTel" column="MGR_TEL" />
+        <result property="managerPermission" column="MGR_PERMISSION" />
+        <result property="managerProfileImg" column="MGR_PROFILE_IMG" />
+        <result property="managerSignUpStatus" column="MGR_SIGNUP_STATUS" />
+        <result property="managerSignUpReason" column="MGR_SIGNUP_REASON" />
+    </resultMap>
+
     <select id="selectMemberList" resultMap="member_rm">
-            SELECT MEMBER_NO, MEMBER_ID, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICK, MEMBER_TEL, MEMBER_ADDR, ENROLL_DT, SECESSION_FL, PROFILE_IMG, MEMBER_TYPE, POINT_PRICE
-            FROM MEMBER
+        SELECT MEMBER_NO, MEMBER_ID, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICK, MEMBER_TEL, MEMBER_ADDR, ENROLL_DT, SECESSION_FL, PROFILE_IMG, MEMBER_TYPE, POINT_PRICE
+        FROM MEMBER
+        ORDER BY MEMBER_NO ASC
+    </select>
+
+    <select id="selectManagerList" resultMap="manager_rm">
+        SELECT MGR_NO, MGR_ID, MGR_EMAIL, MGR_NAME, MGR_NICKNAME, MGR_TEL, MGR_PERMISSION, MGR_PROFILE_IMG, MGR_SIGNUP_STATUS, MGR_SIGNUP_REASON
+        FROM MANAGER
+        ORDER BY MGR_NO ASC
     </select>
 </mapper>
