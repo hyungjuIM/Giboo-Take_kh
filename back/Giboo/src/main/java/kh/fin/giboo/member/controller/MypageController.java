@@ -54,12 +54,7 @@ public class MypageController {
 
 	
 
-	// 나의 리뷰
-	@GetMapping(value = "/myreview")
-	public String myreview() {
-		logger.info("나의리뷰 목록");
-		return "mypage/myreview";
-	}
+	
 
 	// 회원탈퇴
 	@GetMapping(value = "/withdrawal")
