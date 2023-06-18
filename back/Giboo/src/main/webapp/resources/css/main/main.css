@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
+
 
 *{
     box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'NanumSquare', sans-serif;
 }
 
 body{
@@ -22,106 +22,534 @@ a{
     color: #000;
 }
 
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+}
 
-main{
+
+/* Common CSS */
+
+h3.sub_title{
+    font-weight: 800;
+    color: var(--titleColor);
+    font-family: 'NanumSquareNeo';
+    font-size: 52px;
+    line-height: 76px;
+    letter-spacing: 1.45px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.container section{
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* 홀수 section에만 배경색 */
+section:nth-child(odd){
+    background-color: #f8f8f8;
+}
+/* 메인 서브 타이틀 공통 속성 */
+.main_sub_title{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+
+}
+.main_sub_title p{
+    font-size: 30px;
+    font-weight: 400;
+    color: var(--mainColor);
+
+    padding-bottom: 20px;
+}
+
+
+
+
+/* ***************** 1번째 section ***************** */
+
+
+
+/* ***************** 2번째 section ***************** */
+.contentContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
-main section:nth-child(1){
-    border: 3px solid paleturquoise;
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-}
-section:nth-child(1) div[class=mainBanner]{
-    background-color: aqua;
-    height: 400px;
-    width: 1200px;
-    margin: 24px 0px ;
-}
-
-main section:nth-child(2){
-    width: 1080px;
+.contentCount .inner{
     display: flex;
     flex-direction: column;
-    align-content: center;
+    justify-content: center;
+
+
 }
 
-.mainContent article:nth-child(1){
-    border: 1px solid blue;
-    height: 173px;
-
+.inner .count_box1{
+    background-color: var(--mainColor);
     display: flex;
-    justify-content: space-between;
+    /* justify-content: flex-end; */
     align-items: center;
-}
-
-.mainContent article:nth-child(1) .showGoal{
-    border: 1px solid red;
-    width: 380px;
-    height: 130px;
-
-    display: flex;
-    align-items: center;
-}
-
-.showGoal div[class=userPhoto]{
-    width: 90px;
-    height: 90px;
-    background-color: #d9d9d9;
+    gap: 20px;
     border-radius: 20px;
-    margin: 12px;
+
+    position: relative;
+    margin-bottom: 20px;
+}
+.inner .count_box1 img{
+    width: 255px;
+    position: absolute;
+    top: -65px;
+    left: 660px;
+}
+.count_box1 .count_box1_container{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 0px;
+    margin: 10px 60px;
+}
+.count_box1_container h3:nth-child(1){
+    font-family: 'NanumSquareNeo';
+    font-size: 34px;
+    line-height: 52px;
+    font-weight: 800;
+    /* text-align: center; */
+    color: #fff;
+}
+
+.count_box1_container p{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    /* text-align: center; */
+}
+
+.inner .count_box2{
+    display: flex;
+    flex-direction: row;
+
+    text-align: center;
+    display: flex;
+
+    gap: 30px;
+  
+}
+
+.count_box2 div{
+    gap: 12px;
+    border: 1px solid var(--etcColor);
+    background-color: #fff;
+    padding: 30px 80px;
+    border-radius: 20px;
+}
+
+.count_box2 div h3{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--mainColor);
+
+}
+.count_box2 div p{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 18px;
+    color: var(--contentColor)
+}
+
+
+/* ***************** 3번째 section ***************** */
+.container .volContainer{
+    position:relative;
+}
+
+.right_btn{
+    width: 80px;
+    height: 80px;
+    background-color: var(--contentColor);
+    border-radius: 50%;
+    display: inline-block;
+
+    position: absolute;
+    left: 1781px;
+    top: 1500px;
+}
+
+
+/* content */
+.vol_box_container{
+    display: flex;
+    gap: 24px;
     
 }
+.vol_box{
+    /* height: 500p x; */
+    background-color: #fff;
+    border-radius: 20px;
+    border: 1px solid var(--etcColor);
 
-.showGoal div[class=showGoal_content]{
-    border: 2px solid greenyellow;
+    width: 350px;
+    opacity: 0;
+    /* animation: slide 6s ease-in-out forwards; */
+    transition: opacity 0.5s ease-in-out;
+    
+}  
+
+
+@keyframes slide{
+    0%{
+        transform: translateY(-80px);
+        opacity: 0;
+    }
+    33%{
+        transform: translate(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+/* d-day 박스 */
+.vol_box .vol_day{
+    position: absolute;
+    top: 24px;
+    left: 24px;
+
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    background-color: #fff;  
+    box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.1);  
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--contentColor);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 15px;
+
+    z-index: 100;
+
+}
+.vol_box .vol_day span{
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+
+    color: var(--redColor);
+}
+
+
+
+.vol_box div img{
+    width: 348px;
+    /* height: 313px; */
+    border-radius: 20px 20px 0px 0px;
+    background-color: var(--etcColor);
+
+    object-fit: cover;
+}
+
+
+
+/* vol_box 내용 부분 */
+.vol_content_part{
+    padding-top: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+/* vol_box percent bar */
+.vol_content_part .vol_content_per_container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    gap:16px;
+}
+.vol_content_part div .vol_con_bar{
+    width: 280px;
+    height: 12px;
+    background-color: #f0f0f0;
+    box-shadow: insert 1px 1px 2px rgba(0, 0, 0.15);
+    border-radius: 50px;
+
+}
+.vol_con_bar .vol_con_bar_per{
+    position:relative;
+    display: block;
     width: 70%;
     height: 100%;
-    padding: 13px;
+
+    background-color: var(--mainColor);
+    box-shadow:  insert 0px 2px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
+    animation: progress 0.4s ease-in-out forwards;
 }
 
-.showGoal_content div:nth-child(1){
+@keyframes progress{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+.vol_content_part div .tooltip{
+    /* position: absolute;
+    top: -8px;
+    left: 290px; */
+
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--etcColor);
+}
+
+.vol_content_part div .tooltip span{
+    font-family: 'NanumSquareNeo';
+
+    font-weight: 700;
+    color: var(--mainColor);
+}
+
+/* vol_content 내용 */
+.vol_content{
+    padding-top: 14px;
+    padding-bottom: 18px;
+}
+.vol_content h3{
+    padding-bottom: 6px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -2.5%;
+    color: var(--titleColor);
+}
+.vol_content div{
+    font-family: 'NanumSquareNeo';
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--contentColor);
+    gap: 4px;
+    
+    display: flex;
+    align-items: center;
+}
+.vol_content div i{
+    font-size: 20px;
+}
+
+/* vol_content tag */
+.vol_tag{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-bottom: 30px;
+}
+ 
+.vol_tag span{
+    font-family: 'NanumSquareNeo';
+    font-weight: 600;
+    font-size: 16px;
+
+    color: var(--mainColor);
+
+    display: inline-block;
+    border: 1.5px solid var(--mainColor);
+    padding: 5px 12px;
+    margin-right:4px;
+    border-radius: 50px;
+
+}
+
+.vol_tag .vol_like{
+    font-family: 'NanumSquareNeo';
     font-size: 18px;
     font-weight: 600;
-    color: #4d4d4d;
-}
-.showGoal_content div:nth-child(1) span{
-    color: #8071fc;
-    display: inline-block;
-    margin: 10px;
-}
-.showGoal_content div:nth-child(2){
-    height: 29px;
-    width: 100%;
-    border: 1px solid pink;
+    color: var(--contentColor);
+    
+    display: flex;
+    align-items: center;
+    gap: 4px;
+   
 }
 
-.mainContent article:nth-child(1) .showStroyBtn{
-    border: 1px solid red;
-    width: 130px;
-    height: 130px; 
+.vol_tag .vol_like i{
+    font-size: 24px;
+}
+
+/* ////////////////////// 후기 section //////////////////////*/
+.userReview .main_sub_title{
+    margin-bottom: 120px;
+}
+.re_box_container{
+    display: flex;
+    gap: 55px;
+}
+.re_box_container .re_box{
+    width: 360px;
+    height: 280px;
+    border: 1px solid var(--etcColor);
+    border-radius: 12px;
+    background-color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    /* padding-top: 20px;     */
+    position: relative;
     
 }
 
-.goalBtn{
-    border-radius: 20px;
-    background-color: #f6f6f6;
+.re_box:after{
+    content: '';
+    padding: 10px 6.5px;
+
+    position: absolute;
+    left: -14px;
+    top: 55px;
+    border-radius: 0px 5px;
+    background-color: var(--mainColor);
+    
 }
 
-.mainContent article:nth-child(2){
-    border: 1px solid red;
-    height: 173px;
+/* 리뷰 캐릭터 */
+.re_box img{
+    position: absolute;
+    /* transform: scaleX(-1); */
+    width: 160px;
+    z-index: 100;
+
+    left: 180px;
+    top: -45px;
 }
 
-.mainContent article:nth-child(3){
-    border: 1px solid orange;
-    height: 811px;
+.re_box img[class="main_book"]{
+    width: 140px;
+    position: absolute;
+    top: -65px;
+}
+/* 리뷰 태그 */
+.re_box_container .re_tag_sticky{
+    position: absolute;
+    top: 16px;
+    left: -14px;
+
+    /* width: 140px; */
+    /* height: 50px; */
+    background-color: var(--mainColor);
+    border-radius: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 100;
+}
+
+.re_tag_sticky span{
+    margin: 8px 10px;
+    padding: 4px 22px;
+    border: 1.5px solid #fff;
+    border-radius: 50px;
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+.re_tag_sticky span i{
+    font-size: 22px;
+}
+
+/* 후기 내용부분 */
+.re_box .re_content_container{
+    margin: 20px;
+    height: 80%;
+}
+.re_content_container .re_content{
+    font-family: 'NanumSquare', sans-serif;
+    height: 85%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: var(--titleColor);
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding-top: 80px;
 
 }
 
+.re_user_name{
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(--contentColor);
 
+    margin-bottom: 10px;
+}
+
+.re_active_info{
+    font-family: 'NanumSquare', sans-serif;
+
+    height: 65px;
+    border-radius: 0px 0px 12px 12px;
+    background-color: var(--etcColor);
+
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 8px;
+    
+}
+.re_active_info span:nth-child(1){
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 500;
+    color: var(--titleColor);
+
+}
+.re_active_info span:nth-child(2){
+    display: inline-block;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    font-family: 'NanumSquare', sans-serif;
+    color: var(--contentColor);
+    font-weight: 500;
+}
 
