@@ -18,4 +18,5 @@ public class MapList {
 	private String volunteerAddr; // 봉사주소
 	private int replyNo; // 댓글no
 	private int volunteerCount; // 봉사참여인원
+	private int replyCount;
 }

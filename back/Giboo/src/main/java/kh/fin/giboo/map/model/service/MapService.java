@@ -7,6 +7,8 @@ import kh.fin.giboo.map.model.vo.MapList;
 
 public interface MapService {
 
+	List<MapList> selectMapList();
+
 //	List<Map> mapList(int mapNo);
 
 

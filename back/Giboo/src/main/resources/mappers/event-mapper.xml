@@ -9,36 +9,125 @@
 		<result property="eventTitle" column="EVENT_TITLE"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="endRecruitDate" column="END_RECRUIT_DATE"/>
-		<result property="currentPeople" column="CURRENT_PEOPLE"/>
 	</resultMap>
 	
+	<!-- 이벤트 디테일 top 조회용 resultMap -->
+	<resultMap type="eventDetailTop" id="eventDetailTop_rm">
+		<id property="eventNo" column="EVENT_NO"/>
+		<result property="attachment" column="ATTACHMENT"/>
+		<result property="eventTitle" column="EVENT_TITLE"/>
+		<result property="targetPeople" column="TARGET_PEOPLE"/>
+	</resultMap>
+	
+	<!-- 이벤트 디테일 멤버 조회용 resultMap -->
+	<resultMap type="eventDetailMember" id="eventDetailMember_rm">
+		<id property="eventNo" column="EVENT_NO"/>
+		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+	</resultMap>
+	
+ 	<resultMap type="eventDetailLeft" id="selectEventDetailLeft_rm">
+		<id property="eventNo" column="EVENT_NO"/>
+		<result property="eventContent" column="EVENT_CONTENT"/>
+	</resultMap> 
+	
+	<resultMap type="eventStickerBar" id="selectEventStickerBar_rm">
+		<id property="eventNo" column="EVENT_NO"/>
+		<result property="eventCertificationAttachment" column="EVENT_CERTIFICATION_ATTACHMENT"/>
+	</resultMap> 
+	
+	<resultMap type="eventDetailBoardPhoto" id="selectEventDetailBoardPhoto_rm">
+		<id property="eventNo" column="EVENT_NO"/>
+		<result property="eventCertificationAttachment" column="EVENT_CERTIFICATION_ATTACHMENT"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+		<result property="eventCertiEnrollDate" column="EVENT_CERTIFICATION_DATE"/>		
+	</resultMap> 
 	
 	
-
+	<!-- 페이지네이션 목록 조회 -->
+	<select id="getListCount" resultType="_int">
+		SELECT COUNT(*) FROM EVENT
+		WHERE MODI_STATUS = 'N'
+	</select>
 	
+	<!-- 이벤트 목록 조회 -->
+	<select id="selectEventList" resultMap="eventList_rm">
+		SELECT 
+		ATTACHMENT, 
+		  CASE
+		    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD HH24:MI:SS')) &lt;=
+ 0 THEN '종료'
+		    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD HH24:MI:SS')) &lt;=
+ 5 THEN '마감임박'
+		    ELSE '진행중'
+		  END AS RESULT,
+		EVENT_TITLE , 
+		TO_CHAR(ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE,
+		TO_CHAR(END_RECRUIT_DATE , 'YYYY-MM-DD') AS END_RECRUIT_DATE,
+		EP.EVENTPERSONCOUNT
+		, EVENT.EVENT_NO
+		FROM EVENT
+		INNER JOIN (
+		  SELECT EVENT_NO, COUNT(EVENT_PERSON_NO) AS EVENTPERSONCOUNT
+		  FROM EVENT_PERSON
+		  GROUP BY EVENT_NO
+		) EP ON EVENT.EVENT_NO = EP.EVENT_NO
+	</select>
 	
-		<select id="selectEventList" resultMap="eventList_rm">
-SELECT 
-ATTACHMENT, 
-  CASE
-    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD HH24:MI:SS')) &lt;= 0 THEN '종료'
-    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD HH24:MI:SS')) &lt;= 5 THEN '마감임박'
-    ELSE '진행중'
-  END AS RESULT,
-EVENT_TITLE , 
-CASE WHEN SYSDATE - ENROLL_DATE > 1
-THEN TO_CHAR(ENROLL_DATE , 'HH:MI')
-ELSE TO_CHAR(ENROLL_DATE , 'YYYY-MM-DD')
-END ENROLL_DATE,
-CASE WHEN SYSDATE - END_RECRUIT_DATE > 1
-THEN TO_CHAR(END_RECRUIT_DATE , 'HH:MI')
-ELSE TO_CHAR(END_RECRUIT_DATE , 'YYYY-MM-DD')
-END END_RECRUIT_DATE,
-CURRENT_PEOPLE,
-EVENT_NO
-FROM EVENT
-WHERE MODI_STATUS = 'N'
-ORDER BY EVENT_NO DESC
+	<!-- 이벤트 디테일 TOP -->
+	<select id="selectEventDetailTop" resultMap="eventDetailTop_rm">
+		SELECT 
+		  ATTACHMENT 
+		  ,TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD')) 
+		  AS RESULT
+		  , EVENT_TITLE 
+		  , EP.EVENTPERSONCOUNT 
+		  , TARGET_PEOPLE 
+		  , EVENT.EVENT_NO
+		FROM EVENT
+		INNER JOIN (
+		  SELECT EVENT_NO, COUNT(EVENT_PERSON_NO) AS EVENTPERSONCOUNT
+		  FROM EVENT_PERSON
+		  GROUP BY EVENT_NO
+		) EP ON EVENT.EVENT_NO = EP.EVENT_NO
+		WHERE EVENT.EVENT_NO = ${eventNo}
+	</select>
+	
+	<select id="selectEventDetailMember" resultMap="eventDetailMember_rm">
+		SELECT
+		M.PROFILE_IMG
+		, M.MEMBER_NICK
+		FROM EVENT E
+		  INNER JOIN EVENT_PERSON EP ON E.EVENT_NO = EP.EVENT_NO
+		  INNER JOIN MEMBER M ON EP.MEMBER_NO = M.MEMBER_NO
+		   WHERE E.EVENT_NO = ${eventNo}
+	</select>
+	
+	<select id="selectEventDetailLeft" resultMap="selectEventDetailLeft_rm">
+		SELECT EVENT_CONTENT 
+		FROM EVENT
+		WHERE EVENT_NO = ${eventNo}
+	</select> 
+	
+	<select id="selectEventStickerBar" resultMap="selectEventStickerBar_rm">
+		SELECT EC.EVENT_CERTIFICATION_ATTACHMENT
+		FROM EVENT_CERTIFICATION EC
+		INNER JOIN EVENT_PERSON EP ON EC.EVENT_PERSON_NO = EP.EVENT_PERSON_NO
+		WHERE EP.EVENT_NO = ${eventNo}
+	</select>
+	
+	<select id="selectEventDetailBoardPhoto">
+		SELECT
+		  EC.EVENT_CERTIFICATION_ATTACHMENT,
+		  M.MEMBER_NICK,
+		  CASE
+		    WHEN TRUNC(SYSDATE) = TRUNC(EC.EVENT_CERTIFICATION_DATE) THEN TO_CHAR(TRUNC(SYSDATE - EC.EVENT_CERTIFICATION_DATE) * 24)
+		    ELSE TO_CHAR(TRUNC(SYSDATE - EC.EVENT_CERTIFICATION_DATE))
+		  END AS TIME_DIFFERENCE
+		FROM EVENT_CERTIFICATION EC
+		INNER JOIN EVENT_PERSON EP ON EC.EVENT_PERSON_NO = EP.EVENT_PERSON_NO
+		INNER JOIN MEMBER M ON EP.MEMBER_NO = M.MEMBER_NO
+		WHERE EP.EVENT_NO = ${eventNo}
 	</select>
 	
 

@@ -79,11 +79,11 @@
                                         </div>
                                         <!-- 봉사센터 이름 영역 -->
                                         <div class="mlistName">
-                                            <span>서울시림장애인행복플러스센터</span>
+                                            <span>${mapList.agencyName}</span>
                                         </div>
                                         <!-- 봉사센터 주소 영역 -->
                                         <div class="mlistAdd">
-                                            <span>서울 강남구 도곡로 416</span>
+                                            <span>${mapList.volunteerAddr}</span>
                                         </div>
                                         <!-- 봉사자 리뷰 & 봉사자 숫자 영역 -->
                                         <div class="mlistDo">
