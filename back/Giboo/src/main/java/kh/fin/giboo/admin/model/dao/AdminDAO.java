@@ -1,5 +1,6 @@
 package kh.fin.giboo.admin.model.dao;
 
+import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -19,5 +20,9 @@ public class AdminDAO {
 
     public List<Member> selectMemberList() {
         return sqlSession.selectList("adminMapper.selectMemberList");
+    }
+
+    public List<Manager> selectManagerList() {
+        return sqlSession.selectList("adminMapper.selectManagerList");
     }
 }
