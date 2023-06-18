@@ -338,7 +338,7 @@ color : #767676;
 
 
 .myactive_notice-table tbody td {
-  padding: 10px 10px;
+  padding: 20px 10px;
   border-right: 0;
   border-left: 0;
 
@@ -432,6 +432,14 @@ color : #767676;
   transition: color 0.3s;
   font-weight: 400;
 }
+
+.pagination .current{
+     background-color: #8071FC;
+  color: #f2f2f2;
+  border-radius: 50%;
+    }
+
+
 
 .pagination li a:hover {
   background-color: #8071FC;

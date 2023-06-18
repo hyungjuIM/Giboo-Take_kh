@@ -2,7 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="myActiveEventList" value="${map.myActiveEventList}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +23,7 @@
 	href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 
 
-<!-- fontawesome -->
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
 	integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -30,7 +31,7 @@
 </head>
 
 <body>
-	<!-- 헤더 영역 -->
+
 	<header>
 		<jsp:include page="/WEB-INF/views/main/header.jsp" />
 	</header>
@@ -42,20 +43,17 @@
 
 		<div class="mypage-container">
 			<div class="mypage_wrapper">
-				<!-- 1200*800 -->
 
-				<!--왼쪽 네비바 틀-->
 				<header>
 					<jsp:include page="/WEB-INF/views/mypage/mypage_side.jsp" />
 				</header>
 
-				<!--오른쪽 나의 문의내역 본문-->
 				<div class="myask_content_area">
 					<section class="mainContainer">
 						<div class="mainContent">
 							<section class="notice">
 
-								<!-- notice seach area -->
+
 								<div class="notice1">
 									<div class="container1">
 										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
@@ -116,7 +114,7 @@
 									</div>
 								</div>
 
-								<!-- notice list area -->
+
 								<div id="myactive_notice-list">
 									<div class="myactive_container3">
 										<table class="myactive_notice-table">
@@ -124,66 +122,92 @@
 												<tr>
 													<th scope="col" class="th_num">번호</th>
 													<th scope="col" class="th_name">참여한 이벤트 내역</th>
-													<th scope="col" class="th-date">등록일자</th>
-													<th scope="col" class="th-date">마감일자</th>
-
+													<th scope="col" class="th-date">이벤트 참여일자</th>
 												</tr>
 											</thead>
-											
+
 											<tbody>
 
 												<c:choose>
 													<c:when test="${empty myActiveEventList}">
-														<!-- 게시글 목록 조회 결과가 비어있다면 -->
+
 														<tr>
-															<th colspan="4">게시글이 존재하지 않습니다.</th>
+															<th colspan="3">게시글이 존재하지 않습니다.</th>
 														</tr>
 													</c:when>
 
 													<c:otherwise>
-														<!-- 게시글 목록 조회 결과가 비어있지 않다면 -->
 
-														<!-- 향상된 for문처럼 사용 -->
 														<c:forEach var="myActiveEventList"
 															items="${myActiveEventList}">
 															<tr>
-																<td>${myActiveEventList.eventNo}</td>
+																<td>${myActiveEventList.myactiveEventNo}</td>
 																<td>${myActiveEventList.eventTitle}</td>
-																<td>${myActiveEventList.enrollDate}</td>
-																<td>${myActiveEventList.endRecruitDate}</td>
+																<td>${myActiveEventList.myactiveDate}</td>
 															</tr>
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>
-
-												<!--   
-													<tr>
+												<%--
+												<tr>
 													<td>50</td>
 													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
 													<td>2023.05.23</td>
-
-												</tr> -->
-
+													</tr>
+												 --%>
 											</tbody>
 										</table>
 									</div>
+
+									<div class="container4">
+										<c:set var="url" value="?cp=" />
+										<ul class="pagination">
+											<li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+											<li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+											<c:forEach var="i" begin="${pagination.startPage}"
+												end="${pagination.endPage}" step="1">
+
+												<c:choose>
+													<c:when test="${i == pagination.currentPage}">
+														<li><a class="current">${i}</a></li>
+													</c:when>
+
+													<c:otherwise>
+														<li><a href="${url}${i}${sURL}">${i}</a></li>
+													</c:otherwise>
+												</c:choose>
+
+											</c:forEach>
+
+
+											<li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+
+
+											<li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+
+										</ul>
+									</div>
+
 								</div>
-								
+
 							</section>
 						</div>
 					</section>
 
-				</div><!-- myask_content_area -->
+				</div>
+				<%-- myask_content_area --%>
 
-			</div><!-- mypage_wrapper -->
-		</div><!-- mypage-container -->
+			</div>
+			<%-- mypage_wrapper --%>
+		</div>
+		<%-- mypage-container --%>
 	</main>
 
 
 	<!-- 푸터 영역 -->
-<footer>
-    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-</footer>
+	<footer>
+		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
+	</footer>
 
 
 </body>
