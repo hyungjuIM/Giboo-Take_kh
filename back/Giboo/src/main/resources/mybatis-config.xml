@@ -48,10 +48,14 @@
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventList" alias="eventList"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailTop" alias="eventDetailTop"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailContent" alias="eventDetailContent"/>
-	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailBoard" alias="eventDetailBoard"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailBoardPhoto" alias="eventDetailBoardPhoto"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventStickerBar" alias="eventStickerBar"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventPopup" alias="eventPopup"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventMore" alias="eventMore"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailMember" alias="eventDetailMember"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailLeft" alias="eventDetailLeft"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventStickerBar" alias="eventStickerBar"/>
+	
 
 	<typeAlias type="kh.fin.giboo.myactive.model.vo.MyActive" alias="myactive"/>
 

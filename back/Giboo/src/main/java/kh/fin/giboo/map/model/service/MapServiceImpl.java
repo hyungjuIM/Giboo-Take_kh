@@ -15,5 +15,10 @@ public class MapServiceImpl implements MapService{
 	@Autowired
 	private MapDAO dao;
 
+	@Override
+	public List<MapList> selectMapList() {
+		return dao.selectMapList();
+	}
+
 	
 }
