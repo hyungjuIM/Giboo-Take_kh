@@ -25,4 +25,7 @@ public class AdminDAO {
     public List<Manager> selectManagerList() {
         return sqlSession.selectList("adminMapper.selectManagerList");
     }
+
+    public List<Object> selectVolunteerDonation() {
+        List<Object> selectVolunteerDonationList = sqlSession.selectList("adminMapper.select
 }
