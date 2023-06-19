@@ -69,10 +69,17 @@
 								<a href="${pageContext.request.contextPath}/main/login"
 									class="loginBtn">로그인</a>
 							</c:when>
+							<%-- 관리자로그인 시 --%>
+							<c:when test="${not empty sessionScope.loginManager}">
+								<!-- 관리자로 로그인한 경우에 대한 내용을 추가 -->
+								<div class="nick_container">
+									<span id="nickName">${loginManager.mgrNickname}</span>관리자님 
+								</div>
+							</c:when>
 							<%-- 로그인 된 후 --%>
 							<c:otherwise>
 								<div class="nick_container">
-									<span id="nickName">${loginMember.userNick}</span>님
+									<span id="nickName">${loginMember.memberNick}</span>님
 								</div>
 							</c:otherwise>
 						</c:choose>
