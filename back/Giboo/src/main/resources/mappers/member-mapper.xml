@@ -31,6 +31,13 @@
     	<result property="mgrSignUpStatus" column="MGR_SIGNUP_STATUS"/>
     	<result property="mgrSignUpReason" column="MGR_SIGNUP_REASON"/>
     </resultMap>
+    
+    <!--  이메일 인증 -->
+	<resultMap type="emailCertification" id="emailcertification_rm">
+		<id property="email" column="EMAIL"/>
+		<result property="certificationNo" column="CERTIFICATION_NO" />
+		<result property="issueDate" column="ISSUE_DT"/>
+	</resultMap>
 
     <!-- 로그인 쿼리 -->
     <select id="login" parameterType="member" resultMap="member_rm">
@@ -52,5 +59,19 @@
 		WHERE MGR_ID = #{memberId}
 		AND MGR_SIGNUP_STATUS = 'N'
 	</select>
+	
+	<!-- 이메일 인증 -->
+	<update id="updateCertification">
+		UPDATE EMAILCERTIFICATION SET
+		CERTIFICATION_NO = #{certificationNo},
+		ISSUE_DT = SYSDATE
+		WHERE EMAIL = #{email}
+		
+	</update>
+	<insert id="insertCertification">
+		INSERT INTO EMAILCERTIFICATION(CERTIFICATION_NO, ISSUE_DT) VALUES({#memberEamil},#{certificationNo), SYSDATE)
+	</insert>
+	
+	
 </mapper>
  

@@ -9,4 +9,6 @@ public interface MemberService {
 
 	public abstract Manager loginManager(Manager inputManager);
 
+	public abstract int emailDupCheck(String memberEmail);
+
 }

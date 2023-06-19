@@ -29,4 +29,14 @@ public class MemberDAO {
 		return loginManager;
 	}
 
+	
+
+	/** 이메일 인증
+	 * @param memberEmail
+	 * @return
+	 */
+	public int emailDupCheck(String memberEmail) {
+		return sqlSession.selectOne("memberMapper.emailDupCheck", memberEmail);
+	}
+
 }
