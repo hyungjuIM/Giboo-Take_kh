@@ -34,6 +34,11 @@ public class MemberServiceImpl implements MemberService{
 		Manager loginManager = dao.loginManager(inputManager);
 		return loginManager;
 	}
+
+	@Override
+	public int emailDupCheck(String memberEmail) {
+		return dao.emailDupCheck(memberEmail);
+	}
 	
 	
 

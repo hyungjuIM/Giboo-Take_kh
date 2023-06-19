@@ -19,7 +19,7 @@ const emailMessage = document.getElementById("emailMessage");
 signUpEmail.addEventListener("input", function () {
 
     //입력이 되지 않은 경우
-    if (signUpEmail.ariaValueMax.length == 0) {
+    if (signUpEmail.value.length == 0) {
         emailMessage.innerText = "이메일을 올바르지 않습니다."
 
         emailMessage.classList.remove("confirm", "error");
@@ -94,7 +94,7 @@ sendBtn.addEventListener("click", function () {
             }
         });
 
-        //비동기 가 느리므로 지연 시간 후 함수를 수행하도록 타이머 
+        //비동기가 느리므로 지연 시간 후 함수를 수행하도록 타이머 
         cMessage.innerText = "5:00"; //초기값 5분
         min = 4;
         sec = 59;
