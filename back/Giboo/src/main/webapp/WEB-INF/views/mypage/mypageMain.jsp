@@ -60,9 +60,9 @@
 								<section class="mypage_up">
 									<div class="mypage_up1">우리동네 지킴이</div>
 									<div class="mypage_up2">
-										<div class="mypage_up2_1">이번달 등급혜택 :</div>
-										<div class="mypage_up2_2">봉사1회/ 기부 1회 진행 시</div>
-										<div class="mypage_up2_3">스탬프 2개 무료증정</div>
+										<div class="mypage_up2_1">회원님의 등급혜택 :</div>
+										<div class="mypage_up2_2">봉사 or 기부(1만원당 1회로 환산) 5회 진행 시</div>
+										<div class="mypage_up2_3">스탬프 1개 무료증정 + 등급업</div>
 										<div class="mypage_up2_4">
 											<img
 												src="${pageContext.request.contextPath}/resources/images/11 3.png"
@@ -73,7 +73,7 @@
 									<hr>
 									<div class="mypage_up3">
 
-										<div class="mypage_up3_1">우리동네지킴이</div>
+										<div class="mypage_up3_1">우리동네지킴이 LV.1</div>
 										<div class="mypage_up3_2">
 											<div class="mypage_up3_2_1">60%</div>
 											<div class="mypage_up3_2_2">
@@ -81,16 +81,22 @@
 											</div>
 
 										</div>
-										<div class="mypage_up3_1">활동하는봉사자</div>
+										<div class="mypage_up3_1">우리동네지킴이 LV.2</div>
 									</div>
 									<div class="mypage_up4">
 										<div class="mypage_up4_1">🍀 봉사 1회, 기부 1회</div>
 										<div class="mypage_up4_2">
 											다음 등급까지 <span style="color: #5b53f5; font-weight: 600;">봉사
-												2회, 기부 1회</span>가 남았습니다.
+												or 기부 3회</span>가 남았습니다.
 										</div>
 										<div class="mypage_up4_3">봉사 3회, 기부 2회 ~</div>
 									</div>
+									<div>기부금액 10000원당 기부 1회로 산정하여 등급혜택 진행합니다.<br>
+									(기부금액이  10000이상 20000미만 1, <br> 
+									 기부금액이  20000이상 30000미만 2,<br>
+									 기부금액이  30000이상 40000미만 3,<br>
+									 기부금액이  40000이상 50000미만 4  <br>
+									 기부금액이  50000이상  5)</div>
 								</section>
 
 							</div>

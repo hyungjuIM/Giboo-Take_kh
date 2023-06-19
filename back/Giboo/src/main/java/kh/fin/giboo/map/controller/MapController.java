@@ -24,11 +24,11 @@ public class MapController {
    private MapService service;
    
    @GetMapping(value="/mapList")
-   public String mapList() {
+   public String mapList(Model model) {
 
-//	  List<MapList> mapList = service.selectMapList();
-//	  logger.info("맵 리스트??" + mapList);
-//	  model.addAttribute("mapList",mapList);
+	  List<MapList> mapList = service.selectMapList();
+	  logger.info("맵 리스트??" + mapList);
+	  model.addAttribute("mapList",mapList);
       logger.info("맵");
       return "map/mapList";
    }

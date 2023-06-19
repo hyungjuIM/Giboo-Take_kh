@@ -11,4 +11,5 @@ import lombok.NoArgsConstructor;
 public class EventStickerBar {
 	private String eventCertificationAttachment; // 첨부파일
 	private String eventTitle; // 이벤트 제목
+	private int eventNo;
 }

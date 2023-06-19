@@ -23,4 +23,5 @@ public class NoticeDetail {
 	
 	private List<NoticeImage> imageList;
 	private int mgrNo;
+	private int memberNo;
 }

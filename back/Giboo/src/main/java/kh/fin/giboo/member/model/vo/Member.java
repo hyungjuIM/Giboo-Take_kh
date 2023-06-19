@@ -21,4 +21,6 @@ public class Member {
 	private String profileImg;
 	private String memberType;
 	private int pointPrice;
+	
+	
 }

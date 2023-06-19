@@ -212,7 +212,7 @@ span{
 .notice-table thead th,
 .notice-table thead td{
   padding: 10px;
-  
+  white-space:nowrap;
 }
 
 
@@ -225,21 +225,29 @@ span{
   border-top: 1px solid #ccc ;
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
+  white-space:nowrap;
 }
 
 
 
 .th-num,
-.th-date,
 .th-count {
   width: 100px;
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
+  white-space:nowrap;
+}
+.th-date{
+  width: 150px;
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  white-space:nowrap;
 }
 
 .th-title {
   width: 700px;
   font-family: 'Noto Sans KR', sans-serif;
+  white-space:nowrap;
 }
 
 

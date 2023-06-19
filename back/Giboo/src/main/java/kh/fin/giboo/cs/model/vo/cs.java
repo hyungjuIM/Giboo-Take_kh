@@ -17,5 +17,4 @@ public class cs {
 	private int mgrNo;
 	private int memberNo;
 	
-
 }

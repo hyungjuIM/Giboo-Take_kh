@@ -69,7 +69,7 @@
 										href="${pageContext.request.contextPath}/mypage/myask">나의
 											문의</a></li>
 									<li><a
-										href="${pageContext.request.contextPath}/mypage/myreview">나의
+										href="${pageContext.request.contextPath}/mypage/myReview">나의
 											리뷰</a></li>
 
 								</ul>
