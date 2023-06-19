@@ -62,6 +62,8 @@ public class AdminController {
     public String volunteerDonation() {
         logger.info("기부/봉사 관리");
 
+        List<Object> volunteerDonationList = service.selectVolunteerDonationList();
+
         return "admin/volunteerDonation";
     }
 
