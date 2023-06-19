@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="faq-mapper">
+  
+  <resultMap type="faq" id="faq_rm">
+  	<id property="faqno" column="FAQNO"></id>
+  	<result property="faqtitle" column="FAQTITLE"></result>
+  	<result property="faqcontent" column="FAQCONTENT"></result>
+  	<result property="faqcategory" column="FAQCATEGORY"></result>
+  </resultMap>
+  
+  <resultMap type="cs" id="cs_rm">
+  	<id property="csNo" column="FAQNO"></id>
+  	<result property="chatcontent" column="CHATCONTENT"></result>
+  	<result property="enrolldate" column="ENROLLDATE"></result>
+  	<result property="cendstatus" column="CENDSTATUS"></result>
+  	<result property="croomstatus" column="CROOMSTATUS"></result>
+  	<result property="mgrno" column="MGRNO"></result>
+  	<result property="memberno" column="MEMBERNO"></result>
+  </resultMap>
+  
+  
+  <select id="selectFaqList" resultMap="faq_rm">
+		SELECT FAQ_NO, FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
+		FROM FAQ;
+	</select>
+  
+</mapper>

@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class cs {
+public class Cs {
 	private int csNo;
 	private String chatContent;
 	private String enrollDate;

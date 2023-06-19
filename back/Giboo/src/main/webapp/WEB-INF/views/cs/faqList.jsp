@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+	<c:set var="pagination" value="${map.pagination}" />
+    <c:set var="faq" value="${map.faqList}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,55 +70,41 @@
 
                         <hr>
 
-
+						<!-- faq list -->
                         <div id="Accordion_wrap">
-                            
-                            <div class="que">
-                                <div class="queCategory">
-                                    <span>봉사</span>
-                                </div>
-                                <span>봉사 신청을 하려면 어떻게 해야 하나요??</span>
-                                
-                                
-
-                                <div class="arrow-wrap">
-                                    <span class="arrow-top">&#x3e;</span>
-                                    <span class="arrow-bottom">&#x3e;</span>
-                                </div>
-                            </div>
-                            <div class="anw">
-                                <div class="anw2">
-
-                                    <span id="anw-content">테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트테스트 테스트 엄청난 테스트
-                                    테스트
-                    
-                                    </span>
-                                    <div class="dontAnw">
-                                        <span id="dontAnw-span">* 원하시는 답을 찾지 못하셨나요?</span>
-                                        <a href=""><span id="dontAnw-span2">1:1 문의</span></a>
-                                    </div>
-                                </div>
-                            </div>
+					    <div class="que">
+					        <c:choose>
+					            <c:when test="${empty faqList}">
+					                <tr>
+					                    <td colspan="5">자주찾는질문이 존재하지 않습니다.</td>
+					                </tr>
+					            </c:when>
+					            <c:otherwise>
+					                <c:forEach var="faq" items="${faqList}">
+					                    <div class="queCategory">
+					                        <span>${faq.faqCategory}</span>
+					                    </div>
+					                    <span>${faq.faqTitle}</span>
+					                    <div class="arrow-wrap">
+					                        <span class="arrow-top">></span>
+					                        <span class="arrow-bottom">></span>
+					                    </div>
+					                    <div class="anw">
+					                        <div class="anw2">
+					                            <span id="anw-content">${faq.faqContent}</span>
+					                            <div class="dontAnw">
+					                                <span id="dontAnw-span">* 원하시는 답을 찾지 못하셨나요?</span>
+					                                <a href=""><span id="dontAnw-span2">1:1 문의</span></a>
+					                            </div>
+					                        </div>
+					                    </div>
+					                </c:forEach>
+					            </c:otherwise>
+					        </c:choose>
+					    </div>
+					</div>
+                           
+                           
                              <div class="que">
                                     <div class="queCategory">
                                         <span>기부</span>
@@ -305,17 +294,26 @@
 
                        <div class="container4">
                             <nav class="page-nav">
+                            <c:set var="url" value="?cp=" />
                                 <ul class="pagination">
-                                    <li><a href="">&lt;</a></li>
-                                    <li><a href="">1</a></li>
-                                    <li><a href="">2</a></li>
-                                    <li><a href="">3</a></li>
-                                    <li><a href="">4</a></li>
-                                    <li><a href="">5</a></li>
-                                    <li><a href="">6</a></li>
-                                    <li><a href="">7</a></li>
-                                    <!-- 페이지 번호 추가 -->
-                                    <li><a href="">&gt;</a></li>
+                                 <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                    		  <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                                 <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                        <c:choose>
+                          <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                          </c:when>
+
+                          <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                          </c:otherwise>
+                        </c:choose>
+
+                      </c:forEach>
+
+                      <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                      <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
                                 </ul>
                             </nav>
             
