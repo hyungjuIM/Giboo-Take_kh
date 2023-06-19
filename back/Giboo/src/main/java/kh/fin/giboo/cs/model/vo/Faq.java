@@ -13,6 +13,4 @@ public class Faq {
 	private String faqTitle;
 	private String faqContent;
 	private String faqCategory;
-	
-
 }

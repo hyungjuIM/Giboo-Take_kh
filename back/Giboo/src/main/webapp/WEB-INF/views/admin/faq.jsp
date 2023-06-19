@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!doctype html>
 <html lang="en">
@@ -82,21 +83,19 @@
                             <tr class="sortingOptionArea">
                                 <td><button id="selectAll">선택</button></td>
                                 <td><button id="sortByNo">번호</button></td>
-                                <td><button id="sortById">아이디</button></td>
+                                <td><button id="sortById">분류</button></td>
                                 <td><button id="sortByTitle">제목</button></td>
-                                <td><button id="sortByEnrollDate">작성일</button></td>
-                                <td><button id="sortByApprovalStatus">결재 여부</button></td>
                             </tr>
 
-                            <tr class="listArea">
-                                <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
-                                <td>1</td>
-                                <td>123451234512</td>
-                                <td>테스트 테스트 테스트 테스트</td>
-                                <td>2023. 01. 01</td>
-                                <td>미결재</td>
-                                <td><button id="detail1" class="detail">상세 정보</button></td>
-                            </tr>
+                            <c:forEach var="faqList" items="${faqList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
+                                    <td>${faqList.faqNo}</td>
+                                    <td>${faqList.faqCategory}</td>
+                                    <td>${faqList.faqTitle}</td>
+                                    <td><button id="detail1" class="detail">상세 정보</button></td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

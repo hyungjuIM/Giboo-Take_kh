@@ -8,14 +8,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Manager {
-    private int managerNo;
-    private String managerId;
-    private String managerEmail;
-    private String managerName;
-    private String managerNick;
-    private String managerTel;
-    private String managerPermission;
-    private String managerProfileImg;
-    private String managerSignUpStatus;
-    private String managerSignUpReason;
+    private int mgrNo;
+    private String mgrId;
+    private String memberId;
+    private String mgrPw;
+    private String mgrEmail;
+    private String mgrName;
+    private String mgrNickname;
+    private String mgrTel;
+    private String mgrPermission;
+    private String mgrProfileImg;
+    private String mgrSignUpStatus;
+    private String mgrSignUpReason;
 }

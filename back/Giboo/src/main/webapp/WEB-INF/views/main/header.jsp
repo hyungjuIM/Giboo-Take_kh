@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<!DOCTYPE html>
-<html lang="en">
+        <!DOCTYPE html>
+        <html lang="en">
+
 
 <head>
 <meta charset="UTF-8">
@@ -65,14 +65,21 @@
 					<section class="laginArea">
 						<%-- 로그인 하기 전 --%>
 						<c:choose>
-							<c:when test="${empty sessionScope.loginMember}">
+							<c:when test="${empty sessionScope.loginMember && empty sessionScope.loginManager}">
 								<a href="${pageContext.request.contextPath}/main/login"
 									class="loginBtn">로그인</a>
+							</c:when>
+							<%-- 관리자로그인 시 --%>
+							<c:when test="${!empty sessionScope.loginManager}">
+								<!-- 관리자로 로그인한 경우에 대한 내용을 추가 -->
+								<div class="nick_container">
+									<span id="nickName">${loginManager.mgrNickname}</span>관리자님 
+								</div>
 							</c:when>
 							<%-- 로그인 된 후 --%>
 							<c:otherwise>
 								<div class="nick_container">
-									<span id="nickName">${loginMember.userNick}</span>님
+									<span id="nickName">${loginMember.memberNick}</span>님
 								</div>
 							</c:otherwise>
 						</c:choose>
@@ -208,3 +215,4 @@
 </body>
 
 </html>
+
