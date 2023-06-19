@@ -33,7 +33,7 @@
                </div>
               <!-- 대표, 이메일, 문의 -->
               <div class="finfoContainer">
-               <div class="ceo">조장 : 임형주</div><div class="emp">조원 : 박상빈 심찬영 이슬기 이유정 정서윤</div>
+               <div class="ceo">조장 : <a href="${pageContext.request.contextPath}/admin/mLogin">임형주</a></div><div class="emp">조원 : 박상빈 심찬영 이슬기 이유정 정서윤</div>
                <div class="femail">이메일 : gibootake@gmail.com</div>
                <div class="ftel">문의 : 02-123-1234</div>
               </div>

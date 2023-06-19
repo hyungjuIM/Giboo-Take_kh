@@ -65,12 +65,12 @@
 					<section class="laginArea">
 						<%-- 로그인 하기 전 --%>
 						<c:choose>
-							<c:when test="${empty sessionScope.loginMember}">
+							<c:when test="${empty sessionScope.loginMember && empty sessionScope.loginManager}">
 								<a href="${pageContext.request.contextPath}/main/login"
 									class="loginBtn">로그인</a>
 							</c:when>
 							<%-- 관리자로그인 시 --%>
-							<c:when test="${not empty sessionScope.loginManager}">
+							<c:when test="${!empty sessionScope.loginManager}">
 								<!-- 관리자로 로그인한 경우에 대한 내용을 추가 -->
 								<div class="nick_container">
 									<span id="nickName">${loginManager.mgrNickname}</span>관리자님 

@@ -1,7 +1,13 @@
-package kh.fin.giboo.member.controller;
+package kh.fin.giboo.admin.controller;
+
+
+
+
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,49 +29,48 @@ import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 
 @Controller
-@RequestMapping("/main")
-@SessionAttributes({ "loginMember" })
-
-public class MemberController {
+@RequestMapping("/admin")
+@SessionAttributes({ "loginManager" })
+public class ManagerLoginController {
 
 	// 로거 객체 생성
-	private Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private Logger logger = LoggerFactory.getLogger(ManagerLoginController.class);
 
 	// 서비스 불러오기
 	@Autowired
 	private MemberService service;
 
 	// 로그인 페이지 이동
-	@GetMapping(value = "/login")
+	@GetMapping(value = "/mLogin")
 	public String login() {
 		logger.info("로그인페이지로이동.");
-		return "main/login";
+		return "admin/mLogin";
 	}
 
 
 	// 로그인 기능
-	@PostMapping("/login")
+	@PostMapping("/mLogin")
 	/* == @RequestMapping(value="login" method=RequestMethod.POST) */
-	public String login(@ModelAttribute Member inputMember,
+	public String login(
 			@ModelAttribute Manager inputManager,
 			Model model,
 			RedirectAttributes ra, HttpServletResponse resp, HttpServletRequest req) {
 
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 service 호출 후 결과 받기
-		Member loginMember = service.loginMember(inputMember);
-		if(loginMember != null) { //로그인 성공 
-			model.addAttribute("loginMember", loginMember);
+		Manager loginManager = service.loginManager(inputManager);
+		if(loginManager != null) { //로그인 성공 
+			model.addAttribute("loginManager", loginManager);
 			
 			logger.info("로그인 기능 수행됨");
 	} else {
 		logger.info("로그인 실패.");
 		ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		
-		return "redirect:/main/login";
+		return "redirect:/admin/mLogin";
 		
 	}
-		return "redirect:/";
+		return "redirect:/admin/home";
 		
 		
 		
