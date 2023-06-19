@@ -10,4 +10,6 @@ public interface AdminService {
     List<Member> selectMemberList();
 
     List<Manager> selectManagerList();
+
+    List<Object> selectVolunteerDonationList();
 }
