@@ -1,12 +1,17 @@
 package kh.fin.giboo.donation.controller;
 
 import kh.fin.giboo.donation.model.service.DonationService;
+import kh.fin.giboo.donation.model.vo.Donation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Controller
 @RequestMapping("/donation")
@@ -18,8 +23,17 @@ public class DonationController {
     private DonationService service;
 
     @GetMapping("/home")
-    public String home() {
+    public String home(Model model) {
         logger.info("기부페이지 메인");
+
+        List<Donation> donationList = service.selectDonationList();
+
+        for (Donation d : donationList) {
+//            System.out.println(d.getEndRecruitDate().getYear() + 1900);
+//            System.out.println(d.getEndRecruitDate().getHours());
+            LocalDate fromDate = LocalDate.now();
+//            LocalDate toDate = LocalDate.of(d.getEndRecruitDate().getYear());
+        }
 
         return "donation/home";
     }

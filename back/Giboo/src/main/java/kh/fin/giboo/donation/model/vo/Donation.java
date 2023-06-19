@@ -4,27 +4,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Donation {
     private int donationNo;
-    private String dAgencyName;
-    private String dAgencyTel;
-    private String dheadName;
-    private String donationPeriod;
-    private String donationPlace;
-    private String donationEnrollDate;
-    private String donationDeleteStatus;
-    private String donationCompleteStatus;
+    private int targetAmount;
+    private int locationX;
+    private int locationY;
+    private String donationAddr;
+    private String enrollDate;
+    private String startRecruitDate;
+    private Date endRecruitDate;
+    private String startProgressDate;
+    private String endProgressDate;
+    private String deleteStatus;
+    private String dComStatus;
     private int donationAmount;
-    private String donationModiDate;
-    private int donationCount;
-    private int donationView;
+    private int viewCount;
     private String donationTitle;
     private String donationContent;
     private String donationAttachment;
-    private int memberNo;
-    private int categoryNo;
-    private int hashtagNo;
+    private String memberId;
+    private String parentCategoryName;
+    private String AgencyName;
 }

@@ -1,4 +1,4 @@
-package kh.fin.giboo.category.model.vo;
+package kh.fin.giboo.admin.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Category {
-    private int categoryNo;
-    private String categoryName;
+public class ParentCategory {
     private int parentCategoryNo;
+    private String parentCategoryName;
+    private String categoryName;
 }

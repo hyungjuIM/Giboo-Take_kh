@@ -83,21 +83,31 @@
                             <tr class="sortingOptionArea">
                                 <td><button id="selectAll">선택</button></td>
                                 <td><button id="sortByNo">번호</button></td>
-                                <td><button id="sortById">중분류</button></td>
-                                <td><button id="sortByTitle">소분류</button></td>
-                                <td><button id="sortByEnrollDate">작성일</button></td>
+                                <td><button id="sortById">대분류</button></td>
+                                <td><button id="sortByTitle">중분류</button></td>
                                 <td colspan="2"></td>
                             </tr>
+                            <c:forEach var="categoryList" items="${categoryList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" class="listCheck"></td>
+                                    <td>${categoryList.categoryNo}</td>
+                                    <td>${categoryList.categoryName}</td>
+                                    <td>-</td>
+                                    <td><button class="modify">수정</button></td>
+                                    <td><button class="deleteCategory">삭제</button></td>
+                                </tr>
+                            </c:forEach>
 
-                            <tr class="listArea">
-                                <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
-                                <td>1</td>
-                                <td>동물</td>
-                                <td>고양이</td>
-                                <td>2023. 01. 01</td>
-                                <td><button id="modify1" class="modify">수정</button></td>
-                                <td><button id="deleteCategory1" class="deleteCategory">삭제</button></td>
-                            </tr>
+                            <c:forEach var="parentCategoryList" items="${parentCategoryList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" class="listCheck"></td>
+                                    <td>${parentCategoryList.parentCategoryNo}</td>
+                                    <td>${parentCategoryList.categoryName}</td>
+                                    <td>${parentCategoryList.parentCategoryName}</td>
+                                    <td><button class="modify">수정</button></td>
+                                    <td><button class="deleteCategory">삭제</button></td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>

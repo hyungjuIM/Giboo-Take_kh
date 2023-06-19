@@ -88,41 +88,33 @@
                                 <td><button id="sortByApprovalStatus">결재 여부</button></td>
                             </tr>
 
-                            <tr class="listArea">
-                                <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
-                                <td>1</td>
-                                <td>봉사</td>
-                                <td>123451234512</td>
-                                <td>테스트 테스트 테스트 테스트</td>
-                                <td>2023. 01. 01</td>
-                                <td>봉사 인원 변동</td>
-                                <td class="confirm">승인</td>
-                                <td><button id="detail1" class="detail">상세 정보</button></td>
-                            </tr>
+                            <c:forEach var="volunteerlist" items="${volunteerList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" class="listCheck"></td>
+                                    <td>${volunteerlist.volunteerNo}</td>
+                                    <td>${volunteerlist.parentCategoryName}</td>
+                                    <td>${volunteerlist.memberId}</td>
+                                    <td>${volunteerlist.volunteerTitle}</td>
+                                    <td>${volunteerlist.enrollDate}</td>
+                                    <td>봉사 인원 변동</td>
+                                    <td class="confirm">승인</td>
+                                    <td><button class="detail">상세 정보</button></td>
+                                </tr>
+                            </c:forEach>
 
-                            <tr class="listArea">
-                                <td><input type="checkbox" id="listCheck2" class="listCheck"></td>
-                                <td>1</td>
-                                <td>봉사</td>
-                                <td>123451234512</td>
-                                <td>테스트 테스트 테스트 테스트</td>
-                                <td>2023. 01. 01</td>
-                                <td>봉사 인원 변동</td>
-                                <td class="reject">반려</td>
-                                <td><button id="detail2" class="detail">상세 정보</button></td>
-                            </tr>
-
-                            <tr class="listArea">
-                                <td><input type="checkbox" id="listCheck3" class="listCheck"></td>
-                                <td>1</td>
-                                <td>봉사</td>
-                                <td>123451234512</td>
-                                <td>테스트 테스트 테스트 테스트</td>
-                                <td>2023. 01. 01</td>
-                                <td>봉사 인원 변동</td>
-                                <td class="">결재 대기중</td>
-                                <td><button id="detail3" class="detail">상세 정보</button></td>
-                            </tr>
+                            <c:forEach var="donationlist" items="${donationList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" class="listCheck"></td>
+                                    <td>${donationlist.donationNo}</td>
+                                    <td>${donationlist.parentCategoryName}</td>
+                                    <td>${donationlist.memberId}</td>
+                                    <td>${donationlist.donationTitle}</td>
+                                    <td>${donationlist.enrollDate}</td>
+                                    <td>봉사 인원 변동</td>
+                                    <td class="confirm">승인</td>
+                                    <td><button class="detail">상세 정보</button></td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
