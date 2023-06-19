@@ -30,6 +30,79 @@
         <result property="managerSignUpReason" column="MGR_SIGNUP_REASON" />
     </resultMap>
 
+    <resultMap id="volunteer_rm" type="volunteer">
+        <id property="volunteerNo" column="VOLUNTEER_NO" />
+        <result property="targetPeople" column="TARGET_PEOPLE" />
+        <result property="locationX" column="LOCATION_X" />
+        <result property="locationY" column="LOCATION_Y" />
+        <result property="volunteerAddr" column="VOLUNTEER_ADDR" />
+        <result property="volunteerTime" column="VOLUNTEER_TIME" />
+        <result property="enrollDate" column="ENROLL_DATE" />
+        <result property="startRecruitDate" column="START_RECRUIT_DATE" />
+        <result property="endRecruitDate" column="END_RECRUIT_DATE" />
+        <result property="startProgressDate" column="START_PROGRESS_DATE" />
+        <result property="endProgressDate" column="END_PROGRESS_DATE" />
+        <result property="volunteerDeleteStatus" column="VOLUNTEER_DELETE_STATUS" />
+        <result property="volunteerCompleteStatus" column="VOLUNTEER_COMPLETE_STATUS" />
+        <result property="volunteerCount" column="VOLUNTEER_COUNT" />
+        <result property="viewCount" column="VIEW_COUNT" />
+        <result property="volunteerTitle" column="VOLUNTEER_TITLE" />
+        <result property="volunteerContent" column="VOLUNTEER_CONTENT" />
+        <result property="volunteerAttachment" column="VOLUNTEER_ATTACHMENT" />
+        <result property="memberId" column="MEMBER_ID" />
+        <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+        <result property="agencyName" column="AGENCY_NAME" />
+    </resultMap>
+
+    <resultMap id="donation_rm" type="donation">
+        <id property="donationNo" column="DONATION_NO" />
+        <result property="targetAmount" column="TARGET_AMOUNT" />
+        <result property="locationX" column="LOCATION_X" />
+        <result property="locationY" column="LOCATION_Y" />
+        <result property="donationAddr" column="DONATION_ADDR" />
+        <result property="enrollDate" column="ENROLL_DATE" />
+        <result property="startRecruitDate" column="START_RECRUIT_DATE" />
+        <result property="endRecruitDate" column="END_RECRUIT_DATE" />
+        <result property="startProgressDate" column="START_PROGRESS_DATE" />
+        <result property="endProgressDate" column="END_PROGRESS_DATE" />
+        <result property="deleteStatus" column="DELETE_STATUS" />
+        <result property="dComStatus" column="DCOM_STATUS" />
+        <result property="donationAmount" column="DONATION_AMOUNT" />
+        <result property="viewCount" column="VIEW_COUNT" />
+        <result property="donationTitle" column="DONATION_TITLE" />
+        <result property="donationContent" column="DONATION_CONTENT" />
+        <result property="donationAttachment" column="DONATION_ATTACHMENT" />
+        <result property="memberId" column="MEMBER_ID" />
+        <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+        <result property="agencyName" column="AGENCY_NAME" />
+    </resultMap>
+
+    <resultMap id="event_rm" type="event">
+        <id property="eventNo" column="EVENT_NO" />
+        <result property="eventTitle" column="EVENT_TITLE" />
+        <result property="enrollDate" column="ENROLL_DATE" />
+        <result property="endRecruitDate" column="END_RECRUIT_DATE" />
+        <result property="mgrId" column="MGR_ID" />
+    </resultMap>
+
+    <resultMap id="category_rm" type="category" >
+        <id property="categoryNo" column="CATEGORY_NO" />
+        <result property="categoryName" column="CATEGORY_NAME" />
+    </resultMap>
+
+    <resultMap id="parentCategory_rm" type="parentCategory" >
+        <id property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
+        <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+        <result property="categoryName" column="CATEGORY_NAME" />
+    </resultMap>
+
+    <resultMap id="faq_rm" type="faq">
+        <id property="faqNo" column="FAQ_NO" />
+        <result property="faqCategory" column="FAQ_CATEGORY" />
+        <result property="faqTitle" column="FAQ_TITLE" />
+        <result property="faqContent" column="FAQ_CONTENT" />
+    </resultMap>
+
     <select id="selectMemberList" resultMap="member_rm">
         SELECT MEMBER_NO, MEMBER_ID, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICK, MEMBER_TEL, MEMBER_ADDR, ENROLL_DT, SECESSION_FL, PROFILE_IMG, MEMBER_TYPE, POINT_PRICE
         FROM MEMBER
@@ -40,5 +113,47 @@
         SELECT MGR_NO, MGR_ID, MGR_EMAIL, MGR_NAME, MGR_NICKNAME, MGR_TEL, MGR_PERMISSION, MGR_PROFILE_IMG, MGR_SIGNUP_STATUS, MGR_SIGNUP_REASON
         FROM MANAGER
         ORDER BY MGR_NO ASC
+    </select>
+
+    <select id="selectVolunteerList" resultMap="volunteer_rm">
+        SELECT VOLUNTEER_NO, P.PARENT_CATEGORY_NAME, M.MEMBER_ID, VOLUNTEER_TITLE, ENROLL_DATE
+        FROM VOLUNTEER V, PARENT_CATEGORY P, MEMBER M
+        WHERE V.PARENT_CATEGORY_NO = P.PARENT_CATEGORY_NO
+        AND V.MEMBER_NO = M.MEMBER_NO
+        ORDER BY VOLUNTEER_NO ASC
+    </select>
+
+    <select id="selectDonationList" resultMap="donation_rm">
+        SELECT DONATION_NO, P.PARENT_CATEGORY_NAME, M.MEMBER_ID, DONATION_TITLE, ENROLL_DATE
+        FROM DONATION D, PARENT_CATEGORY P, MEMBER M
+        WHERE D.PARENT_CATEGORY_NO = P.PARENT_CATEGORY_NO
+        AND D.MEMBER_NO = M.MEMBER_NO
+        ORDER BY DONATION_NO ASC
+    </select>
+    
+    <select id="selectEventList" resultMap="event_rm">
+        SELECT EVENT_NO, EVENT_TITLE, ENROLL_DATE, END_RECRUIT_DATE, M.MGR_ID
+        FROM EVENT E, MANAGER M
+        WHERE E.MGR_NO = M.MGR_NO
+        ORDER BY EVENT_NO ASC
+    </select>
+
+    <select id="selectCategoryList" resultMap="category_rm">
+        SELECT *
+        FROM CATEGORY
+        ORDER BY CATEGORY_NO ASC
+    </select>
+
+    <select id="selectParentCategoryList" resultMap="parentCategory_rm">
+        SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, C.CATEGORY_NAME
+        FROM PARENT_CATEGORY PC, CATEGORY C
+        WHERE PC.CATEGORY_NO = C.CATEGORY_NO
+        ORDER BY PARENT_CATEGORY_NO ASC
+    </select>
+
+    <select id="selectFaqList" resultMap="faq_rm">
+        SELECT *
+        FROM FAQ
+        ORDER BY FAQ_NO ASC
     </select>
 </mapper>
