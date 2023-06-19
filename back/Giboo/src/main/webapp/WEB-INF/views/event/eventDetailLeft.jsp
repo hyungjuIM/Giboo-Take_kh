@@ -20,7 +20,7 @@
         <div class="edCategory">
             <div class="edCategoryWidth">
                     <div class="edEventintro">
-                        <a href="../event/eventDetailMain/${eventList.eventNo}?cp=${pagination.currentPage}${sURL}">
+                        <a href="../event/eventDetailMain/${eventDetailLeft.eventNo}?cp=${pagination.currentPage}${sURL}">
                             <span>이벤트 소개</span>
                         </a>
                     </div>
@@ -30,7 +30,7 @@
                         </a>
                     </div>
                     <div class="edEventintro">
-                        <a href="../event/eventDetailBoardPhoto/${eventList.eventNo}?cp=${pagination.currentPage}${sURL}">
+                        <a href="${pageContext.request.contextPath}/eventDetailBoardPhoto">
                             <span>참여보드</span>
                         </a>
                     </div>

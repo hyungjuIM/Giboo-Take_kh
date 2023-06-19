@@ -79,17 +79,20 @@ public class EventController {
 		return "event/eventDetailMain";	
 	}
 	
-	@GetMapping(value="/eventDetailBoardPhoto/{eventNo}")
-	public String eventDetailBoardPhoto(
-			@PathVariable("eventNo") int eventNo
-			,@RequestParam(value="cp", required = false, defaultValue = "1") int cp
-			,Model model
-			) {
-		
-		EventDetailBoardPhoto eventDetailBoardPhoto = service.selectEventDetailBoardPhoto(eventNo);
-		
-		model.addAttribute("eventDetailBoardPhoto",eventDetailBoardPhoto);
-		logger.info("이벤트 참여보드" + eventDetailBoardPhoto);
-		return "event/eventDetailBoardPhoto";	
-	}
+//	@GetMapping(value="/eventDetailBoardPhoto")
+//	public String eventDetailBoardPhoto(
+////			@PathVariable("eventNo") int eventNo
+////			,@RequestParam(value="cp", required = false, defaultValue = "1") int cp
+////				Model model
+//			) {
+//		
+////		EventDetailBoardPhoto eventDetailBoardPhoto = service.selectEventDetailBoardPhoto(eventNo);
+//		
+////		model.addAttribute("eventDetailBoardPhoto",eventDetailBoardPhoto);
+////		logger.info("이벤트 참여보드" + eventDetailBoardPhoto);
+//		return "event/eventDetailBoardPhoto";	
+//	}
+	
+	
+	
 }

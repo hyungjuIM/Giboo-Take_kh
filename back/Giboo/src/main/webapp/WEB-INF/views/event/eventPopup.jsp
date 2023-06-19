@@ -1,3 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" % pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>팝업</title>
 
-    <link rel="stylesheet" href="/css/event/popup.css">
-    <!-- <link rel="stylesheet" href="/css/reset.css"> -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
+    <link rel="stylesheet" href="/css/reset.css">
 
 
     <!-- fontawesome -->
@@ -20,37 +23,14 @@
 <body>
 
     <main>
-
-        <div class="cont1">
-            <button class="E_button" id="E_popup1">팝업1</button>
-            <button class="E_button" id="E_popup2">팝업2</button>
-            <button class="E_button" id="E_popup3">팝업3</button>
-        </div>
-        <!--  팝업1  -->
-        <div class="E_popup_wrap01">
-            <div class="E_popup_container01">
-                <div class="E_popup_cont01">
-                    <span style="color: #686868;">작성중인 글 작성을</span> <br>
-                    <span style="color: #000000;">취소하시겠습니까? </span>
-                </div>
-
-                <div class="E_popup_cont02">
-                    <button id="popup_close1">취소</button>
-                    <button id="popup_submit1">확인</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="E_pop_mask1"></div>
-
-        <!--  팝업2  -->
         <div class="E_popup_wrap02">
             <div class="E_popup_container02">
                 <div class="E_popup_cont03">
                     <span>참여하기</span>
                 </div>
                 <div class="E_popup_cont04">
-                    <span><img src="/images/dog.jpeg" alt="사진" style="width:50px; height: auto;"></span>
-                    <span>자전거로 시작하는 기후 위기 대응</span>
+                    <span><img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="사진" style="width:50px; height: auto;"></span>
+                    <span>${eventDetailTop.eventTitle}</span>
                 </div>
                 <div class="E_popup_cont05">
                     
@@ -71,14 +51,32 @@
                     - 이벤트 내용에 맞지 않거나 게시글 정책을 위반한 경우 삭제됩니다.
                 </div>
                 <div class="E_popup_cont08">
-                    <button id="popup_close2">취소</button>
+                    <button id="E_popup1">취소</button>
                     <button id="popup_submit2">등록</button>
-
+    
                 </div>
-
+    
             </div>
         </div>
         <div class="E_pop_mask2"></div>
+    
+    
+        <div class="E_popup_wrap01">
+            <div class="E_popup_container01">
+                <div class="E_popup_cont01">
+                    <span style="color: #686868;">작성중인 글 작성을</span> <br>
+                    <span style="color: #000000;">취소하시겠습니까? </span>
+                </div>
+    
+                <div class="E_popup_cont02">
+                    <button id="popup_submit1">취소</button>
+                    <button id="popup_close1">확인</a></button>
+                </div>
+            </div>
+        </div>
+        <div class="E_pop_mask1"></div>
+
+
 
 
         <!--  팝업3  -->
@@ -106,21 +104,11 @@
             </div>
         </div>
         <div class="E_pop_mask3"></div>
-
-
-
-
-
-
     </main>
 
 
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-
-    <script src="/JS/event/popup.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
 </body>
 
 </html>

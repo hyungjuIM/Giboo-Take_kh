@@ -29,8 +29,10 @@
 		<!-- 커넥션 풀 설정 -->
 		<property name="initialSize" value="0" /> <!-- 초기 커넥션 수, 기본 0 -->
 
+
 		<property name="maxTotal" value="24" /> <!-- 최대 커넥션 수, 기본 8 -->
 		<property name="maxIdle" value="24" /> <!-- 유휴 상태로 존재할 수 있는 커넥션 최대 수, 기본 8 -->
+
 
 		<property name="minIdle" value="0" /> <!-- 유휴 상태로 존재할 수 있는 커넥션 최소 수, 기본 0 -->
 		<property name="maxWaitMillis" value="5000" /> <!-- 예외 발생 전 커넥션이 반환 될 떄 까지 대기하는 최대 시간(ms), 기본 -1(무기한) -->
