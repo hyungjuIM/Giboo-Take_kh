@@ -29,7 +29,7 @@
 </head>
 
 <body>
-	
+
 	<header>
 		<jsp:include page="/WEB-INF/views/main/header.jsp" />
 	</header>
@@ -96,9 +96,10 @@
 											<thead>
 												<tr>
 													<th scope="col" class="th-num">번호</th>
+													
 													<th scope="col" class="th-name">참가한 내역</th>
-													<th scope="col" class="th-date">리뷰내용</th>
-													<th scope="col" class="th-review">일자</th>
+													<th scope="col" class="th-content">리뷰내용</th>
+													<th scope="col" class="th-date">일자</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -113,13 +114,12 @@
 
 													<c:otherwise>
 
-														<c:forEach var="myReview"
-															items="${myReview}">
+														<c:forEach var="myReview" items="${myReview}">
 															<tr>
-																<td>${myReview.reviewNo}</td>
-																<td>${myReview.donationTitle}</td>
-																<td>${myReview.reviewContent}</td>																
-																<td>${myReview.enrollDate}</td>
+																<td class="th-num">${myReview.replyNo}</td>
+																<td class="th-name">${myReview.title}</td>  
+																<td class="th-content">${myReview.replyContent}</td>
+																<td class="th-date">${myReview.enrollDate}</td>
 															</tr>
 														</c:forEach>
 													</c:otherwise>
