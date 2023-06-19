@@ -19,15 +19,21 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.fin.giboo.member.model.service.MemberService;
+import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 
 @Controller
 @RequestMapping("/main")
 @SessionAttributes({ "loginMember" })
+
 public class MemberController {
 
 	// 로거 객체 생성
 	private Logger logger = LoggerFactory.getLogger(MemberController.class);
+
+	// 서비스 불러오기
+	@Autowired
+	private MemberService service;
 
 	// 로그인 페이지 이동
 	@GetMapping(value = "/login")
@@ -36,14 +42,13 @@ public class MemberController {
 		return "main/login";
 	}
 
-	// 서비스 불러오기
-	@Autowired
-	private MemberService service;
 
 	// 로그인 기능
 	@PostMapping("/login")
 	/* == @RequestMapping(value="login" method=RequestMethod.POST) */
-	public String login(@ModelAttribute Member inputMember, Model model,
+	public String login(@ModelAttribute Member inputMember,
+			@ModelAttribute Manager inputManager,
+			Model model,
 			RedirectAttributes ra, HttpServletResponse resp, HttpServletRequest req) {
 
 
@@ -53,14 +58,16 @@ public class MemberController {
 			model.addAttribute("loginMember", loginMember);
 			
 			logger.info("로그인 기능 수행됨");
-		
 	} else {
 		logger.info("로그인 실패.");
 		ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
 		
 		return "redirect:/main/login";
 		
-}
+	}
 		return "redirect:/";
+		
+		
+		
 	}
 }
