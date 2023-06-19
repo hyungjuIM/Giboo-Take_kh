@@ -59,8 +59,12 @@ public class AdminController {
     }
 
     @GetMapping("/volunteerDonation")
-    public String volunteerDonation() {
+    public String volunteerDonation(Model model) {
         logger.info("기부/봉사 관리");
+
+        List<Object> volunteerDonationList = service.selectVolunteerDonationList();
+
+        model.addAttribute("volunteerDonationList", volunteerDonationList);
 
         return "admin/volunteerDonation";
     }
