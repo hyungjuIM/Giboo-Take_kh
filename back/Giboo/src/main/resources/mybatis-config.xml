@@ -63,6 +63,12 @@
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveEventList" alias="myActiveEventList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyReview" alias="myReview"/>
 
+
+	<!-- 고객센터 -->
+	<typeAlias type="kh.fin.giboo.cs.model.vo.Cs" alias="cs" />
+	<typeAlias type="kh.fin.giboo.cs.model.vo.Faq" alias="faq" />
+	
+	
 </typeAliases>
 
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
@@ -75,6 +81,7 @@
 	<mapper resource="/mappers/admin-mapper.xml" />
 	<mapper resource="/mappers/donation-mapper.xml" />
 	<mapper resource="/mappers/volunteer-mapper.xml" />
+	<mapper resource="/mappers/faq-mapper.xml" />
 </mappers>
 
 </configuration>
