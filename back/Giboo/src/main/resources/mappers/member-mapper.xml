@@ -18,13 +18,39 @@
         <result property="memberType" column="MEMBER_TYPE"/>
         <result property="pointPrice" column="POINT_PRICE"/>
     </resultMap>
+    <resultMap type="manager" id="manager_rm">
+    	<id property="mgrNo" column="MGR_NO"/>
+    	<result property="mgrId" column="MGR_ID"/>
+    	<result property="mgrPw" column="MGR_PW"/>
+    	<result property="mgrEmail" column="MGR_EMAIL"/>
+    	<result property="mgrName" column="MGR_NAME"/>
+    	<result property="mgrNickname" column="MGR_NICKNAME"/>
+    	<result property="mgrTel" column="MGR_TEL"/>
+    	<result property="mgrPermission" column="MGR_PERMISSION"/>
+    	<result property="mgrProfileImg" column="MGR_PROFILE_IMG"/>
+    	<result property="mgrSignUpStatus" column="MGR_SIGNUP_STATUS"/>
+    	<result property="mgrSignUpReason" column="MGR_SIGNUP_REASON"/>
+    </resultMap>
 
     <!-- 로그인 쿼리 -->
     <select id="login" parameterType="member" resultMap="member_rm">
-        SELECT * FROM MEMBER
+        SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICK,
+        MEMBER_TEL, MEMBER_ADDR,
+        TO_CHAR(ENROLL_DT,'YYYY-MM-DD HH24:MI:SS') AS ENROLL_DT,
+        PROFILE_IMG,MEMBER_TYPE,POINT_PRICE
+        FROM MEMBER
         WHERE MEMBER_ID = #{memberId}
-        AND MEMBER_PW = #{memberPw}
+        AND SECESSION_FL = 'N'
     </select>
-
+	
+	<!-- 매니저 로그인 -->
+	<select id="managerLogin" parameterType="manager" resultMap="manager_rm">
+		SELECT MGR_NO, MGR_ID, MGR_PW, MGR_EMAIL,
+		MGR_NAME, MGR_NICKNAME, MGR_TEL,MGR_PERMISSION,
+		MGR_PROFILE_IMG,MGR_SIGNUP_REASON
+		FROM MANAGER
+		WHERE MGR_ID = #{memberId}
+		AND MGR_SIGNUP_STATUS = 'N'
+	</select>
 </mapper>
  
