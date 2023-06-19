@@ -28,4 +28,9 @@ public class AdminServiceImpl implements AdminService {
     public List<Manager> selectManagerList() {
         return dao.selectManagerList();
     }
+
+    @Override
+    public List<Object> selectVolunteerDonationList() {
+        return dao.selectVolunteerDonationList();
+    }
 }
