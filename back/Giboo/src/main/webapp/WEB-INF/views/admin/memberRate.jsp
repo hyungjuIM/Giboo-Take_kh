@@ -9,7 +9,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>adminMember</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/adminMember.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/adminRateMember.css">
 </head>
 <body>
     <header>
@@ -18,7 +18,7 @@
 
 
     <section class="mainContainer">
-        <div class="menuName">회원 관리</div>
+        <div class="menuName">등급 관리</div>
 
         <div class="mainContent">
             <div class="sideMenuArea">
@@ -47,80 +47,40 @@
 
             <div class="contentContainer">
                 <div class="contentArea">
-                    <div class="menuArea">
-                        <table class="menuBox">
-                            <tbody>
-                                <tr class="menuTitle">
-                                    <td>검색</td>
-                                    <td></td>
-                                </tr>
-
-                                <tr class="menuItem">
-                                    <td class="searchOptionArea">
-                                        <select id="searchOption">
-                                            <option value="no">번호</option>
-                                            <option value="id">아이디</option>
-                                            <option value="email">이메일</option>
-                                            <option value="name">이름</option>
-                                            <option value="nickname">닉네임</option>
-                                            <option value="addr">주소</option>
-                                        </select>
-                                        <input type="text" id="inputSearch">
-                                        <button id="searchButton">🔎</button>
-                                    </td>
-                                    <td><button type="reset" id="resetSearch" class="resetSearch">초기화</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <button id="sendNotification" class="sendNotification">알림 보내기</button>
-                        <a href="${pageContext.request.contextPath}/admin/memberRate" id="rateBtn" class="rateBtn">등급 관리</a>
-
-                    </div>
-
+                  
                     <table class="listTable">
                         <tbody>
                             <tr class="sortingOptionArea">
                                 <td><button id="selectAll">선택</button></td>
                                 <td><button id="sortByNo">번호</button></td>
-                                <td><button id="sortByType">회원 구분</button></td>
+                                
                                 <td><button id="sortById">아이디</button></td>
                                 <td><button id="sortByEmail">이메일</button></td>
                                 <td><button id="sortByName">이름</button></td>
-                                <td><button id="sortByNickname">닉네임</button></td>
-                                <td><button id="sortByEnrollDate">가입일</button></td>
+                                
+                                <td><button id="sortByEnrollDate">등급</button></td>
                                 <td><button id="sortBySavedMoney">적립금</button></td>
                             </tr>
 
-                            <c:forEach var="member" items="${memberList}">
+                            <c:forEach var="member" items="${memberRateList}">
                                 <tr class="listArea">
                                     <td><input type="checkbox" class="listCheck"></td>
-                                    <td>${member.memberNo}</td>
-                                    <td>${member.memberType}</td>
+                                    <td>${member.memberNo}</td>                                    
                                     <td>${member.memberId}</td>
                                     <td>${member.memberEmail}</td>
                                     <td>${member.memberName}</td>
-                                    <td>${member.memberNick}</td>
-                                    <td>${member.enrollDt}</td>
-                                    <td>${member.pointPrice}</td>
+                                    
+                                    <td class="rateName" name="rateName">${member.rateName}</td>
+                                    <td class="pointPrice" name="pointPrice">${member.pointPrice}</td>
                                     <td><button class="detail">상세 정보</button></td>
                                 </tr>
                             </c:forEach>
 
-                            <tr class="listArea">
-                                <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
-                                <td>1</td>
-                                <td>기부자</td>
-                                <td>123451234512</td>
-                                <td>unable.video0w@icloud.com</td>
-                                <td>김김김김</td>
-                                <td>123456</td>
-                                <td>2023. 01. 01</td>
-                                <td>20,000 포인트</td>
-                                <td><button id="detail1" class="detail">상세 정보</button></td>
-                            </tr>
+                           
                         </tbody>
                     </table>
+                    <button type="submit" class="updatebtn" id="updatebtn" name="updatebtn">등급 업데이트</button>
+                
                 </div>
             </div>
         </div>
@@ -129,7 +89,7 @@
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
+    <script src="${pageContext.request.contextPath}/resources/js/admin/updateMemberRate.js"></script>
 
-    <script src="${pageContext.request.contextPath}/resources/js/admin/adminMember.js"></script>
 </body>
 </html>

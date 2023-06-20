@@ -55,4 +55,8 @@ public class AdminDAO {
     public List<Faq> selectFaqList() {
         return sqlSession.selectList("adminMapper.selectFaqList");
     }
+
+	public List<Member> selectmemberRateList() {
+		return sqlSession.selectList("adminMapper.selectmemberRateList");
+	}
 }

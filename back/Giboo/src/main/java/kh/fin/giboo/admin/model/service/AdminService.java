@@ -28,4 +28,8 @@ public interface AdminService {
     List<ParentCategory> selectParentCategoryList();
 
     List<Faq> selectFaqList();
+
+	List<Member> selectmemberRateList();
+
+	int memberRateUpdate(List<Member> updateMember);
 }

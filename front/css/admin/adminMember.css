@@ -216,6 +216,22 @@ a{
     box-shadow: 2px 2px 10px #0000002A;
     transition-duration: 250ms;
 }
+.rateBtn {
+    display: flex;
+    margin-left: 10px;
+    background-color: unset;
+    border: 1px solid #BDBDBD;
+    border-radius: 20px;
+    padding-inline: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px #0000002A;
+    transition-duration: 250ms;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+}
 
 .sortingOptionArea > td {
     text-align: center;

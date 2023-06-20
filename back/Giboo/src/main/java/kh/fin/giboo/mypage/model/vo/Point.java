@@ -11,10 +11,10 @@ public class Point {
 		
 		// 포인트
 		private int pointNo;
-		private String pointIncrease;
-		private String pointIncreaseDate;
+
 		private String pointContent;
 		private int memberNo;
-		private int donationNo;
+		private int rateNo;
+		private int pointPrice;
 		private int eventNo;
 }
