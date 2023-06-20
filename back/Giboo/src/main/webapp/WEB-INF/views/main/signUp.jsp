@@ -40,26 +40,29 @@
 
 
                             <!-- 아이디 -->
+                            <div>
                             <div class="signUpId">
                                 <span><i class="fa-regular fa-circle-user"></i></span>
                                 <input type="text" id="signUpId" name="memberID" class="id" maxlength="20"
                                     placeholder="사용자 아이디">
                             </div>
+                            <span id="idMessage">영어/숫자/한글 2~20글자 사이로 입력해주세요.</span>
+                        </div>
 
                             <!-- 이메일 -->
                             <div class="messageBox">
 
                                 <div class="signUpMessageBox">
                                     <span><i class="fa-solid fa-at"></i></span>
-                                    <input type="text" id="signUpEmail" class="email" name="memberEmail" maxlength="50"
-                                        placeholder="이메일">
+                                    <input type="email" id="memberEmail" class="email" name="memberEmail" maxlength="50"
+                                        placeholder="이메일" required>
                                     <button id="cBtn">인증받기</button>
                                 </div>
 
                                 <span class="signUpMessage" id="emailMessage"> 이메일이 올바르지 않습니다.</span>
                             </div>
-
-                            <!-- 이메일 인증번호 -->
+                            
+                                <!-- 이메일 인증번호 -->
                             <div class="signUpMessageBox">
                                 <div class="signUpMessageBoxC">
                                     <span><i class="fa-regular fa-envelope"></i></span>
@@ -71,15 +74,18 @@
                                 <span class="signUpMessage" id="emailCfMessage">인증번호를 입력해주세요.</span>
                             </div>
 
+                            
+
                             <!-- PW1 -->
                             <div class="signUpPw1">
                                 <div class="signUpPw1Box">
                                     <span><i class="fa-solid fa-fingerprint"></i></span>
+
                                     <input type="password" id="signUpw1" name="memberPw" class="int" maxlength="30"
                                         placeholder="비밀번호">
+
                                 </div>
-                                <span class="signUpw1Message" id="signUpw1Message">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로
-                                    작성해주세요.</span>
+                                <span class="signUpw1Message" id="signUpw1Message">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로 입력해주세요.</span>
                             </div>
 
                             <!-- pw2 -->
@@ -98,24 +104,35 @@
                                     <input type="text" id="signUpNickname" name="memberNick" class="nick" maxlength="10"
                                         placeholder="닉네임 확인">
                                 </div>
-                                <span class="signUpNicknameMessage" id="signUpNicknameMessage">영어/숫자/한글 2~10글자 사이로
-                                    작성해주세요.</span>
+                                <span class="signUpNicknameMessage" id="signUpNicknameMessage">영어/숫자/한글 2~10글자 사이로 입력해주세요.</span>
                             </div>
 
                             <!-- 전화번호 -->
                             <div class="signUpTel">
+                                <div class="singUpTelBox">
                                 <span><i class="fa-solid fa-phone"></i></span>
                                 <input type="tel" id="signUpTel" name="memberTel" class="int" maxlength="12"
                                     placeholder="전화번호(-없이 숫자만 입력)">
+                                </div>
+
+                                <span id="signUpTelMessage">전화번호를 입력해주세요.(- 제외)</span>
                             </div>
 
-                            <!-- 주소 -->
+
+
+            <input type="text" id="sample6_postcode" placeholder="우편번호">
+<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+<input type="text" id="sample6_address" placeholder="주소"><br>
+<input type="text" id="sample6_detailAddress" placeholder="상세주소">
+<!-- <input type="text" id="sample6_extraAddress" placeholder="참고항목"> -->
+
+                            <!-- 주소
                             <div class="signUpAdd">
                                 <span><i class="fa-solid fa-house"></i></span>
                                 <input type="text" id="signUpAdd" name="memberAddr" class="int" maxlength="50"
                                     placeholder="주소">
                                 <button id="signUpAdBtn" onclick="sample5_execDaumPostcode()">주소찾기</button>
-                            </div>
+                            </div> -->
 
                             <!-- join Btn -->
                             <div class="singUpBtnnBox">
@@ -131,31 +148,11 @@
 
 
 
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-            <script>
-                $(function () {
-                    var include1 = $('[data-include1="header"]');
-                    jQuery.each(include1, function () {
-                        $(this).load('/html/01.header.html');
-                    });
-                });
-            </script>
 
+    
             <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
-            <script>
-                function sample5_execDaumPostcode() {
-                    new daum.Postcode({
-                        oncomplete: function (data) {
-                            var addr = data.address; // 최종 주소 변수
-
-                            // 주소 정보를 해당 필드에 넣는다.
-                            document.getElementById("signUpAdd").value = addr;
-                        }
-                    }).open();
-                }
-            </script>
+            <script src="${pageContext.request.contextPath}/resources/js/main/signUp.js"></script>
+            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
         </body>
 

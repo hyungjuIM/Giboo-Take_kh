@@ -11,4 +11,8 @@ public interface MemberService {
 
 	public abstract int emailDupCheck(String memberEmail);
 
+	public abstract int sendCertificationCode(String email) throws Exception;
+
+	public abstract int isValidCertification(String email, String cNumber);
+
 }
