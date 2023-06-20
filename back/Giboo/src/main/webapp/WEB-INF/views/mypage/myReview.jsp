@@ -116,9 +116,9 @@
 
 														<c:forEach var="myReview" items="${myReview}">
 															<tr>
-																<td class="th-num">${myReview.replyNo}</td>
+																<td class="th-num">${myReview.reviewNo}</td>
 																<td class="th-name">${myReview.title}</td>  
-																<td class="th-content">${myReview.replyContent}</td>
+																<td class="th-content">${myReview.reviewContent}</td>
 																<td class="th-date">${myReview.enrollDate}</td>
 															</tr>
 														</c:forEach>

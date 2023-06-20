@@ -25,7 +25,7 @@ body {
   }
 
 .alert_container {
-    display: none; 
+    /* display: none;  */
     z-index: 99;
     right: 10%;
     

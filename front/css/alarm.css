@@ -12,7 +12,7 @@
   }
 
 .alarmPopup{
-    display: none;
+    /* display: none; */
     position: absolute;
 
     background-color: rgb(254, 254, 254);
