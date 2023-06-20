@@ -85,6 +85,7 @@
 	<mapper resource="/mappers/map-mapper.xml"/>
 	<mapper resource="/mappers/myPage-mapper.xml" />
 	<mapper resource="/mappers/event-mapper.xml" />
+	<mapper resource="/mappers/eventPopup-mapper.xml" />
 	<mapper resource="/mappers/notice-mapper.xml" />
 	<mapper resource="/mappers/admin-mapper.xml" />
 	<mapper resource="/mappers/donation-mapper.xml" />
