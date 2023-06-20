@@ -51,10 +51,10 @@
 
 	<!-- 댓글 목록 조회 resultMap -->
 	<resultMap type="myReview" id="myReview_rm">
-		<id property="replyNo" column="REPLY_NO" />
+		<id property="reviewNo" column="REVIEW_NO" />
 		<result property="donationTitle" column="DONATION_TITLE" />
 		<result property="volunteerTitle" column="VOLUNTEER_TITLE" />
-		<result property="replyContent" column="REPLY_CONTENT" />
+		<result property="reviewContent" column="REVIEW_CONTENT" />
 		<result property="enrollDate" column="ENROLL_DATE" />
 
 
@@ -86,7 +86,7 @@
 	<!-- 댓글 게시판 전체 게시글 수 조회 -->
 	<select id="getListCount4" resultType="_int">
 		SELECT COUNT(*) FROM
-		REPLY
+		REVIEW
 		WHERE MEMBER_NO = 7
 	</select>
 
@@ -143,16 +143,16 @@
 	<!-- 리뷰 목록 조회 -->
 	<select id="selectMyReview" resultMap="myReview_rm">
 		SELECT
-		R.REPLY_NO,
+		R.REVIEW_NO,
 		CASE
 		WHEN R.DONATION_NO IS NOT NULL THEN D.DONATION_TITLE
 		WHEN R.VOLUNTEER_NO IS NOT NULL THEN V.VOLUNTEER_TITLE
 		ELSE '제목 없음'
 		END AS TITLE,
-		R.REPLY_CONTENT,
+		R.REVIEW_CONTENT,
 		TO_CHAR(R.ENROLL_DATE, 'DD.MM.RR') AS ENROLL_DATE
 		FROM
-		REPLY R
+		REVIEW R
 		LEFT JOIN
 		DONATION D ON D.DONATION_NO = R.DONATION_NO
 		LEFT JOIN
@@ -160,7 +160,7 @@
 		WHERE
 		R.MEMBER_NO = '7'
 		ORDER BY
-		R.REPLY_NO DESC
+		R.REVIEW_NO DESC
 
 	</select>
 </mapper>

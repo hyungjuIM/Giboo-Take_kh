@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 
 public class MyReview {
 
-	//댓글 목록
+	//리뷰 목록
 	
-	private int replyNo;
+	private int reviewNo;
 	private String donationTitle;
 	private String volunteerTitle;
-	private String replyContent;
+	private String reviewContent;
 	private String enrollDate;
 	
 	private String title;
