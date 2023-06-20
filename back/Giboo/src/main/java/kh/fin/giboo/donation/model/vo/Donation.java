@@ -29,5 +29,7 @@ public class Donation {
     private String donationAttachment;
     private String memberId;
     private String parentCategoryName;
-    private String AgencyName;
+    private String agencyName;
+    private long dDay;
+    private int percent;
 }

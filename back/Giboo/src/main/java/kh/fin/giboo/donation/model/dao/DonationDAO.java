@@ -1,5 +1,6 @@
 package kh.fin.giboo.donation.model.dao;
 
+import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.donation.model.vo.Donation;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -19,5 +20,13 @@ public class DonationDAO {
 
     public List<Donation> selectDonationList() {
         return sqlSession.selectList("donationMapper.selectDonationList");
+    }
+
+    public List<ParentCategory> selectParentCategoryList() {
+        return sqlSession.selectList("donationMapper.selectParentCategoryList");
+    }
+
+    public List<Donation> selectCategoryDonationList(int category) {
+        return sqlSession.selectList("donationMapper.selectCategoryDonationList", category);
     }
 }

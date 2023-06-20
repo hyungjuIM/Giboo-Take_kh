@@ -3,6 +3,12 @@ const item = document.getElementsByClassName("item");
 const button = document.getElementsByClassName("button");
 const favoriteButton = document.getElementsByClassName("favoriteButton");
 
+const searchParams = new URLSearchParams(location.search);
+const category = searchParams.get('category');
+const categoryButton = document.getElementById(category);
+
+// categoryButton
+
 for (let i of SubCategoryLabelTheme) {
     i.addEventListener("click", () => {
         for (let j of SubCategoryLabelTheme) {

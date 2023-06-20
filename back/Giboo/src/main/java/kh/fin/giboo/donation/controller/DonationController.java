@@ -1,5 +1,6 @@
 package kh.fin.giboo.donation.controller;
 
+import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.donation.model.service.DonationService;
 import kh.fin.giboo.donation.model.vo.Donation;
 import org.slf4j.Logger;
@@ -9,8 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Controller
@@ -23,17 +26,40 @@ public class DonationController {
     private DonationService service;
 
     @GetMapping("/home")
-    public String home(Model model) {
+    public String home(@RequestParam(value = "category", required = false, defaultValue = "0") int category, Model model) {
         logger.info("기부페이지 메인");
 
-        List<Donation> donationList = service.selectDonationList();
+        List<ParentCategory> parentCategoryList = service.selectParentCategoryList();
+        List<Donation> donationList = null;
+        Boolean categoryValidate = null;
+
+        for (ParentCategory pc : parentCategoryList) {
+            if (pc.getParentCategoryNo() == category) {
+                categoryValidate = true;
+                break;
+            } else {
+                categoryValidate = false;
+            }
+        }
+
+        if (categoryValidate) {
+            donationList = service.selectCategoryDonationList(category);
+        } else {
+            donationList = service.selectDonationList();
+        }
 
         for (Donation d : donationList) {
-//            System.out.println(d.getEndRecruitDate().getYear() + 1900);
-//            System.out.println(d.getEndRecruitDate().getHours());
-            LocalDate fromDate = LocalDate.now();
-//            LocalDate toDate = LocalDate.of(d.getEndRecruitDate().getYear());
+            LocalDate currentDate = LocalDate.now();
+            LocalDate dDay = LocalDate.of(d.getEndRecruitDate().getYear() + 1900, d.getEndRecruitDate().getMonth() + 1, d.getEndRecruitDate().getDate());
+            long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
+            d.setDDay(untilDay);
+
+            int percent = (d.getDonationAmount() * 100) / d.getTargetAmount();
+            d.setPercent(percent);
         }
+
+        model.addAttribute("parentCategoryList", parentCategoryList);
+        model.addAttribute("donationList", donationList);
 
         return "donation/home";
     }

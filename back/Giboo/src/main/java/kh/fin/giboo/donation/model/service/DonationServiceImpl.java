@@ -1,5 +1,6 @@
 package kh.fin.giboo.donation.model.service;
 
+import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.donation.model.dao.DonationDAO;
 import kh.fin.giboo.donation.model.vo.Donation;
 import org.slf4j.Logger;
@@ -21,5 +22,15 @@ public class DonationServiceImpl implements DonationService {
     @Override
     public List<Donation> selectDonationList() {
         return dao.selectDonationList();
+    }
+
+    @Override
+    public List<ParentCategory> selectParentCategoryList() {
+        return dao.selectParentCategoryList();
+    }
+
+    @Override
+    public List<Donation> selectCategoryDonationList(int category) {
+        return dao.selectCategoryDonationList(category);
     }
 }

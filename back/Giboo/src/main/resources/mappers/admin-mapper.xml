@@ -93,6 +93,7 @@
     <resultMap id="parentCategory_rm" type="parentCategory" >
         <id property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+        <result property="parentCategoryThumbnail" column="PARENT_CATEGORY_THUMBNAIL" />
         <result property="categoryName" column="CATEGORY_NAME" />
     </resultMap>
 
