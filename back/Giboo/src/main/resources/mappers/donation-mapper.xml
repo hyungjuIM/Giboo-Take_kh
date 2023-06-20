@@ -25,9 +25,30 @@
         <result property="agencyName" column="AGENCY_NAME" />
     </resultMap>
 
+    <resultMap id="parentCategory_rm" type="parentCategory" >
+        <id property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
+        <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+        <result property="parentCategoryThumbnail" column="PARENT_CATEGORY_THUMBNAIL" />
+        <result property="categoryName" column="CATEGORY_NAME" />
+    </resultMap>
+
     <select id="selectDonationList" resultMap="donation_rm">
         SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
         FROM DONATION
+        ORDER BY DONATION_NO ASC
+    </select>
+
+    <select id="selectParentCategoryList" resultMap="parentCategory_rm">
+        SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
+        FROM PARENT_CATEGORY
+        WHERE CATEGORY_NO = 1
+        ORDER BY CATEGORY_NO ASC
+    </select>
+
+    <select id="selectCategoryDonationList" resultMap="donation_rm">
+        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
+        FROM DONATION
+        WHERE PARENT_CATEGORY_NO = #{category}
         ORDER BY DONATION_NO ASC
     </select>
 </mapper>

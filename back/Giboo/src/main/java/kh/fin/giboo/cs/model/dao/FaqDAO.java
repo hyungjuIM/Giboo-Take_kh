@@ -20,12 +20,8 @@ public class FaqDAO {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-
-	
-	
 	
 	public int getListCount(Model model) {
-		
 		return sqlSession.selectOne("faq-mapper.getListCount", model);
 	}
 
@@ -35,16 +31,10 @@ public class FaqDAO {
 		return sqlSession.selectList("faq-mapper.selectFaqList", model, rowBounds);
 	}
 
-	
-	
-
 	public List<Faq> selectFaqVolunteer(Pagination pagination, Model model) {
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		return sqlSession.selectList("faq-mapper.selectFaqVolunteer", model, rowBounds);
 	}
-
-	
-	
 	
 }

@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import kh.fin.giboo.cs.model.vo.Pagination;
 import kh.fin.giboo.cs.model.dao.FaqDAO;
 import kh.fin.giboo.cs.model.vo.Faq;
+import kh.fin.giboo.cs.model.vo.Pagination;
 
 @Service
 public class FaqServiceImpl implements FaqService{
