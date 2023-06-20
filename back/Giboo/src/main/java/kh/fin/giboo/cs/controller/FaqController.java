@@ -38,6 +38,36 @@ public class FaqController {
 	 
 		return "cs/faqList";
 	}
+	
+	
+	// 봉사 카테고리만 생성
+	@GetMapping("/faqVolunteer")
+	public String faqVolunteer(@RequestParam(value= "cp", required = false, defaultValue ="1") int cp,
+			Model model)  {
+		
+		Map<String,Object> map = null;
+		
+		map = service.selectFaqVolunteer(cp, model);
+		
+		model.addAttribute("map", map);
+		logger.info("이거의값은???????" + map);
+		logger.info("봉사!!");
+	 
+		return "cs/faqVolunteer";
+	}
+	
+	// 기부 카테고리만 생성
+	@GetMapping("/faqDonation")
+	public String faqDonation()  {
+		
+	return "cs/faqDonation";
+	}
+	// 이벤트 카테고리만 생성
+	@GetMapping("/faqEvent")
+	public String faqEvent()  {
+		
+	return "cs/faqEvent";
+	}
 }
 	
 	
