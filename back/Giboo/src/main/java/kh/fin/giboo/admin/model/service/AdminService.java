@@ -31,5 +31,5 @@ public interface AdminService {
 
 	List<Member> selectmemberRateList();
 
-	int memberRateUpdate(List<Member> updateMember);
+//	int memberRateUpdate(List<Member> updateMember);
 }

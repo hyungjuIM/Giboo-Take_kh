@@ -34,14 +34,14 @@ public class MemberRateController {
         return "admin/memberRate";
     }
     
-    @GetMapping("/memberRateUpdate")
-    @ResponseBody
-    public int memberRateUpdate(Model model,
-    		@RequestBody List<Member> updateMember) {
-    	int result = service.memberRateUpdate(updateMember);
-    	
-    	
-    	
-    	return result;
-    }
+//    @GetMapping("/memberRateUpdate")
+//    @ResponseBody
+//    public int memberRateUpdate(Model model,
+//    		@RequestBody List<Member> updateMember) {
+//    	int result = service.memberRateUpdate(updateMember);
+//    	
+//    	
+//    	
+//    	return result;
+//    }
 }
