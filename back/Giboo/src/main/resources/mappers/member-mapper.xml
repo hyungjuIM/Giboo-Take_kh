@@ -16,7 +16,7 @@
         <result property="secessionFlag" column="SECESSION_FL"/>
         <result property="profileImg" column="PROFILE_IMG"/>
         <result property="memberType" column="MEMBER_TYPE"/>
-        <result property="pointPrice" column="POINT_PRICE"/>
+        <result property="rateNo" column="RATE_NO"/>
     </resultMap>
     <resultMap type="manager" id="manager_rm">
     	<id property="mgrNo" column="MGR_NO"/>
@@ -44,7 +44,7 @@
         SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICK,
         MEMBER_TEL, MEMBER_ADDR,
         TO_CHAR(ENROLL_DT,'YYYY-MM-DD HH24:MI:SS') AS ENROLL_DT,
-        PROFILE_IMG,MEMBER_TYPE,POINT_PRICE
+        PROFILE_IMG,MEMBER_TYPE,RATE_NO
         FROM MEMBER
         WHERE MEMBER_ID = #{memberId}
         AND SECESSION_FL = 'N'

@@ -20,7 +20,7 @@ public class Member {
 	private String secessionFlag;
 	private String profileImg;
 	private String memberType;
-	private int pointPrice;
+	private int rateNo;
 	
 	
 }
