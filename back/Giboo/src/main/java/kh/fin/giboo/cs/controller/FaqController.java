@@ -33,8 +33,8 @@ public class FaqController {
 		map = service.selectFaqList(cp, model);
 		
 		model.addAttribute("map", map);
-			
-		 logger.info("고객센터");
+		logger.info("이거의값은???????" + map);
+		logger.info("고객센터");
 	 
 		return "cs/faqList";
 	}

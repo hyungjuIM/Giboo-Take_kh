@@ -94,5 +94,7 @@ public class EventController {
 //	}
 	
 	
+	// 이벤트 참여하기 버튼 클릭 시 팝업 이동
+	
 	
 }
