@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" % pageEncoding="UTF-8" %>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -11,7 +11,6 @@
     <title>팝업</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
-    <link rel="stylesheet" href="/css/reset.css">
 
 
     <!-- fontawesome -->
@@ -61,6 +60,8 @@
         <div class="E_pop_mask2"></div>
     
     
+    
+    
         <div class="E_popup_wrap01">
             <div class="E_popup_container01">
                 <div class="E_popup_cont01">
@@ -75,7 +76,7 @@
             </div>
         </div>
         <div class="E_pop_mask1"></div>
-
+    
 
 
 

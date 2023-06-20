@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="adminMapper">
 
+
 	<resultMap id="member_rm" type="member">
 		<id property="memberNo" column="MEMBER_NO" />
 		<result property="memberId" column="MEMBER_ID" />
@@ -218,4 +219,5 @@
 		ORDER BY MEMBER_NO ASC
 
 	</select>
+
 </mapper>

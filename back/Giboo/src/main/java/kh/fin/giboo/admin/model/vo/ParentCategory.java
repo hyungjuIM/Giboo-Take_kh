@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 public class ParentCategory {
     private int parentCategoryNo;
     private String parentCategoryName;
+    private String parentCategoryThumbnail;
     private String categoryName;
 }
