@@ -12,9 +12,9 @@ public class Rate {
 	// 등급
 			private int rateNo;
 			private String rateName;
-			private String renewalDate;
-			private int memberNo;
-			private int myactiveNo;
+			private int maxPoint;
+			private int minPoint;
+		
 
 	
 }
