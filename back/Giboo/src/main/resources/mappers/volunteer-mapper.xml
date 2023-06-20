@@ -1,4 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="volunteerMapper">
+    
+    <resultMap id="volunteer_rm" type="volunteer">
+        <id property="volunteerNo" column="VOLUNTEER_NO" />
+        <result property="targetPeople" column="TARGET_PEOPLE" />
+        <result property="locationX" column="LOCATION_X" />
+        <result property="locationY" column="LOCATION_Y" />
+        <result property="volunteerAddr" column="VOLUNTEER_ADDR" />
+        <result property="volunteerTime" column="VOLUNTEER_TIME" />
+        <result property="enrollDate" column="ENROLL_DATE" />
+        <result property="startRecruitDate" column="START_RECRUIT_DATE" />
+        <result property="endRecruitDate" column="END_RECRUIT_DATE" />
+        <result property="startProgressDate" column="START_PROGRESS_DATE" />
+        <result property="endProgressDate" column="END_PROGRESS_DATE" />
+        <result property="volunteerDeleteStatus" column="VOLUNTEER_DELETE_STATUS" />
+        <result property="volunteerCompleteStatus" column="VOLUNTEER_COMPLETE_STATUS" />
+        <result property="volunteerCount" column="VOLUNTEER_COUNT" />
+        <result property="viewCount" column="VIEW_COUNT" />
+        <result property="volunteerTitle" column="VOLUNTEER_TITLE" />
+        <result property="volunteerContent" column="VOLUNTEER_CONTENT" />
+        <result property="volunteerAttachment" column="VOLUNTEER_ATTACHMENT" />
+        <result property="memberId" column="MEMBER_ID" />
+        <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+        <result property="agencyName" column="AGENCY_NAME" />
+    </resultMap>
+
+    <resultMap id="parentCategory_rm" type="parentCategory" >
+        <id property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
+        <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+        <result property="parentCategoryThumbnail" column="PARENT_CATEGORY_THUMBNAIL" />
+        <result property="categoryName" column="CATEGORY_NAME" />
+    </resultMap>
+
+    <select id="selectVolunteerList" resultMap="volunteer_rm">
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
+        FROM VOLUNTEER
+        ORDER BY VOLUNTEER_NO ASC
+    </select>
+
+    <select id="selectParentCategoryList" resultMap="parentCategory_rm">
+        SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
+        FROM PARENT_CATEGORY
+        WHERE CATEGORY_NO = 2
+        ORDER BY CATEGORY_NO ASC
+    </select>
+
+    <select id="selectCategoryVolunteerList" resultMap="volunteer_rm">
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
+        FROM VOLUNTEER
+        WHERE PARENT_CATEGORY_NO = #{category}
+        ORDER BY VOLUNTEER_NO ASC
+    </select>
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,75 +30,28 @@
 
             <ul class="subCategoryList">
                 <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory0" class="SubCategoryTheme" name="SubCategory" checked>
-                    <label for="SubCategory0" class="SubCategoryLabelTheme SubCategoryChecked">
+                    <a href="../donation/home" class="SubCategoryLabelTheme SubCategoryChecked">
                         <div class="SubCategoryEmojiTheme">🧚</div>
                         전체
-                    </label>
+                    </a>
                 </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory1" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory1" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🥳</div>
-                        아동청소년
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory2" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory2" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🥸</div>
-                        어르신
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory3" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory3" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">💖</div>
-                        장애인
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory4" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory4" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🌏</div>
-                        다문화
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory5" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory5" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🐶</div>
-                        동물
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory6" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory6" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🪴</div>
-                        환경
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory7" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory7" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🩸</div>
-                        헌혈
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory8" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory8" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">👻</div>
-                        기타
-                    </label>
-                </li>
+
+                <c:forEach var="parentCategoryList" items="${parentCategoryList}">
+                    <li class="subCategoryItem">
+                        <a href="../donation/home?category=${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme">${parentCategoryList.parentCategoryThumbnail}</div>
+                            ${parentCategoryList.parentCategoryName}
+                        </a>
+                    </li>
+                </c:forEach>
+
             </ul>
         </div>
 
         <div id="content" class="content">
             <h4 class="contentTitle">
                 동물 기부
-                <span class="contentCount" id="contentCount">20</span>개
+                <span class="contentCount" id="contentCount">${fn:length(donationList)}</span>개
             </h4>
 
             <div class="sortingSection">
@@ -116,149 +70,33 @@
 
             <div id="list" class="list">
 
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="favoriteButton">💖</div>
-                    </div>
+                <c:forEach var="donationList" items="${donationList}">
+                    <div class="item">
+                        <div class="buttonSection">
+                            <a href="" class="button">🍀 기부하기
+                                <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
+                            <div class="favoriteButton">💖</div>
+                        </div>
+                        <a href="">
+                            <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
+                            <div class="subTitle">${donationList.donationTitle}</div>
+                            <div class="mainTitle">타이틀2</div>
+                        </a>
+                        <div class="progressBar">
+                            <div class="progressBarValue" style="width: ${donationList.percent}%"></div>
+                        </div>
 
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
+                        <div class="info">
+                            <div class="D-day">D-${donationList.DDay}</div>
+                            <div>달성률
+                                <span class="progressPercentage">${donationList.percent}%</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="favoriteButton">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="favoriteButton">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="favoriteButton">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="favoriteButton">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="favoriteButton">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
+                    <script>
+                        console.log("${donationList.DDay}");
+                    </script>
+                </c:forEach>
 
             </div>
 

@@ -4,6 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +19,7 @@ public class Volunteer {
     private String volunteerTime;
     private String enrollDate;
     private String startRecruitDate;
-    private String endRecruitDate;
+    private Date endRecruitDate;
     private String startProgressDate;
     private String endProgressDate;
     private String volunteerDeleteStatus;
@@ -29,4 +32,6 @@ public class Volunteer {
     private String memberId;
     private String parentCategoryName;
     private int agencyName;
+    private long dDay;
+    private int percent;
 }
