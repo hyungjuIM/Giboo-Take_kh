@@ -36,9 +36,9 @@
                 <div class="cs-inquryBtnWrapper">
                     <div class="cs-inquryBtn" >
                         
-                        <a href="${contextPath}/cs/faqVolunteer"><span>봉사</span></a> 
-                        <a href="${contextPath}/cs/faqDonation"><span>기부</span></a> 
-                        <a href="${contextPath}/cs/faqEvent"><span>이벤트</span></a> 
+                        <a href="${contextPath}"><span>봉사</span></a> 
+                        <a href="#"><span>기부</span></a> 
+                        <a href="#"><span>이벤트</span></a> 
                         <a href="#"><span>지도</span></a>
                         <a href="#"><span>적립금</span></a>
                         <a href="#"><span>스탬프</span></a>

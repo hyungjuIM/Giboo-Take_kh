@@ -3,10 +3,10 @@
 <mapper namespace="faq-mapper">
   
   <resultMap type="faq" id="faq_rm">
-  	<id property="faqno" column="FAQNO"></id>
-  	<result property="faqtitle" column="FAQTITLE"></result>
-  	<result property="faqcontent" column="FAQCONTENT"></result>
-  	<result property="faqcategory" column="FAQCATEGORY"></result>
+  	<id property="faqNo" column="FAQ_NO"></id>
+  	<result property="faqTitle" column="FAQ_TITLE"></result>
+  	<result property="faqContent" column="FAQ_CONTENT"></result>
+  	<result property="faqCategory" column="FAQ_CATEGORY"></result>
   </resultMap>
   
   <resultMap type="cs" id="cs_rm">
@@ -19,10 +19,24 @@
   	<result property="memberno" column="MEMBERNO"></result>
   </resultMap>
   
+  	<!-- 페이지네이션 목록 조회 -->
+	<select id="getListCount" resultType="_int">
+		SELECT COUNT(*) FROM FAQ
+	</select>
+  
   
   <select id="selectFaqList" resultMap="faq_rm">
-		SELECT FAQ_NO, FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
-		FROM FAQ;
+		SELECT FAQ_NO,FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
+		FROM FAQ
 	</select>
+	
+	<select id="selectFaqVolunteer" resultMap="faq_rm">
+    SELECT FAQ_NO, FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
+	FROM FAQ
+	WHERE FAQ_CATEGORY = '봉사'
+	ORDER BY FAQ_NO
+    </select>
+
+	
   
 </mapper>
