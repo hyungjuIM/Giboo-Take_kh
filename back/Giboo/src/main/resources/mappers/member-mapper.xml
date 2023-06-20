@@ -63,15 +63,41 @@
 	
 	<!-- 이메일 인증 -->
 	<update id="updateCertification">
-		UPDATE EMAILCERTIFICATION SET
+		UPDATE EMAIL_CERTIFICATION SET
 		CERTIFICATION_NO = #{certificationNo},
 		ISSUE_DT = SYSDATE
 		WHERE EMAIL = #{email}
 		
 	</update>
 	<insert id="insertCertification">
-		INSERT INTO EMAILCERTIFICATION(CERTIFICATION_NO, ISSUE_DT) VALUES({#memberEamil},#{certificationNo), SYSDATE)
-	</insert>
+		INSERT INTO EMAIL_CERTIFICATION (EMAIL, CERTIFICATION_NO, ISSUE_DT) VALUES(#{memberEmail},#{certificationNo), SYSDATE)
+	</insert> 
+	<select id="checkNumber" resultType="_int">
+		SELECT
+	CASE
+		WHEN EXISTS (
+		SELECT '1' FROM CERTIFICATION
+		WHERE EMAIL = #{email}
+		AND CERTIFICATION_NO = #{certificationNo}
+		)THEN
+			CASE
+				WHEN EXISTS (
+					SELECT '1' FROM CERTIFICATION
+					WHERE EMAIL = #{email}
+					AND ISSUE_DT + (INTERVAL '5' NINUTE) >= SYSDATE
+				)THEN '1'
+				ELSE '2'
+				
+				END
+				ELSE '3'
+				END
+				FROM DUAL
+	</select>
+	<select id="emailDupCheck" parameterType="String" resultType="_int">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_EMAIL = #{memberEmail}
+		AND SECESSION_FL = 'N'
+	</select>
 	
 	
 </mapper>
