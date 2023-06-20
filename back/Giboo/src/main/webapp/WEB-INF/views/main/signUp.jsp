@@ -56,7 +56,7 @@
                                     <span><i class="fa-solid fa-at"></i></span>
                                     <input type="email" id="memberEmail" class="email" name="memberEmail" maxlength="50"
                                         placeholder="이메일" required>
-                                    <button id="cBtn">인증받기</button>
+                                    <button type="button" id="cBtn">인증받기</button>
                                 </div>
 
                                 <span class="signUpMessage" id="emailMessage"> 이메일이 올바르지 않습니다.</span>
@@ -68,7 +68,7 @@
                                     <span><i class="fa-regular fa-envelope"></i></span>
                                     <input type="text" id="cNumber" class="emailCF" maxlength="20"
                                         placeholder="인증번호 확인">
-                                    <button id="McBtn">인증하기</button>
+                                    <button type="button" id="McBtn">인증하기</button>
                                 </div>
 
                                 <span class="signUpMessage" id="emailCfMessage">인증번호를 입력해주세요.</span>
