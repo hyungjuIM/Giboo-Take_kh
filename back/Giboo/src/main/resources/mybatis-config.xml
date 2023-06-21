@@ -23,6 +23,7 @@
 	<!-- 카테고리 -->
 	<typeAlias type="kh.fin.giboo.admin.model.vo.Category" alias="category" />
 	<typeAlias type="kh.fin.giboo.admin.model.vo.ParentCategory" alias="parentCategory" />
+	<typeAlias type="kh.fin.giboo.admin.model.vo.Rate" alias="rate" />
 
 	<!-- 자주찾는 질문 -->
 	<typeAlias type="kh.fin.giboo.cs.model.vo.Faq" alias="faq" />
@@ -34,6 +35,7 @@
 	<typeAlias type="kh.fin.giboo.notice.model.vo.Notice" alias="notice"/>
 
 	<typeAlias type="kh.fin.giboo.alarm.model.vo.Alarm" alias="alarm"/>
+
 
 	<!-- 기부 -->
 	<typeAlias type="kh.fin.giboo.donation.model.vo.Donation" alias="donation"/>
