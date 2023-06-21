@@ -1,28 +1,44 @@
 package kh.fin.giboo.event.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.event.model.service.EventService;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
 import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
 import kh.fin.giboo.event.model.vo.EventDetailTop;
 import kh.fin.giboo.event.model.vo.EventList;
+import kh.fin.giboo.event.model.vo.EventPopup;
 import kh.fin.giboo.event.model.vo.EventStickerBar;
+import kh.fin.giboo.member.model.vo.Member;
+import kh.fin.giboo.mypage.model.vo.MyActiveEventList;
+import kh.fin.giboo.mypage.model.vo.Stamp;
 
 @Controller
 @RequestMapping("/event")
+@SessionAttributes({ "loginMember" })
 public class EventController {
 	private Logger logger = LoggerFactory.getLogger(EventController.class);
 	
@@ -75,26 +91,71 @@ public class EventController {
 		model.addAttribute("eventDetailTop",eventDetailTop);
 		logger.info("이벤트디테일탑???????" + eventDetailTop);
 		
+//	     eventDetailMain 페이지 로드 후 버튼 클릭 시 eventPopup 페이지로 이동할 URL을 모델에 추가
+	    String eventPopupUrl = "event/eventPopup/" + eventNo + "?cp=" + cp;
+	    model.addAttribute("eventPopupUrl", eventPopupUrl);
 		
 		return "event/eventDetailMain";	
+//		return "redirect:/eventPopup/" + eventNo;
 	}
 	
-//	@GetMapping(value="/eventDetailBoardPhoto")
-//	public String eventDetailBoardPhoto(
-////			@PathVariable("eventNo") int eventNo
-////			,@RequestParam(value="cp", required = false, defaultValue = "1") int cp
-////				Model model
-//			) {
-//		
-////		EventDetailBoardPhoto eventDetailBoardPhoto = service.selectEventDetailBoardPhoto(eventNo);
-//		
-////		model.addAttribute("eventDetailBoardPhoto",eventDetailBoardPhoto);
-////		logger.info("이벤트 참여보드" + eventDetailBoardPhoto);
-//		return "event/eventDetailBoardPhoto";	
-//	}
+
+	
+	// 팝업 새창 이동 ㅠㅠ모달로 띄워야 하는데ㅠㅠ
+	@GetMapping(value="/eventPopup/{eventNo}")
+	public String eventPopup(
+	    @PathVariable("eventNo") int eventNo,
+	    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
+	    Model model
+	) {
+
+	    model.addAttribute("eventNo", eventNo);
+	    model.addAttribute("cp", cp);
+	    return "event/eventPopup";
+	}
 	
 	
-	// 이벤트 참여하기 버튼 클릭 시 팝업 이동
-	
+	@PostMapping(value="/eventPopup/{eventNo}")
+	@Transactional
+	public String insertPopup(
+		    @PathVariable("eventNo") int eventNo,
+		    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
+		    @RequestParam("uploadImage") MultipartFile uploadImage, /* 업로일 파일 */
+		    @RequestParam Map<String, Object> map,
+			@ModelAttribute("loginMember") Member loginMember,
+			EventPopup eventPopup
+			, HttpServletRequest req
+			,RedirectAttributes ra
+		)throws IOException {
+		
+		eventPopup.setMemberNo(loginMember.getMemberNo());
+		
+		String webPath = "/resources/images/board/";
+		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+		
+		map.put("webPath", webPath);
+		map.put("folderPath", folderPath);
+		map.put("uploadImage", uploadImage);
+		map.put("memberNo", loginMember.getMemberNo());
+		
+		int result = service.insertPopup(map, eventPopup);
+		
+		String message = null;
+		
+		if(result > 0) {
+			MyActiveEventList myActiveEventList = service.insertMyActiveEventList(eventNo);
+			int stamp = service.insertStamp(stamp);
+			Alarm alarm = service.insertAlarm(eventNo);
+		}else {
+			message = "실패";
+		}
+		
+		ra.addFlashAttribute("message",message);
+		
+		
+		
+		return "redirect:event/eventPopup";
+	}
+
 	
 }

@@ -1,6 +1,7 @@
 package kh.fin.giboo.event.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -13,8 +14,10 @@ import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
 import kh.fin.giboo.event.model.vo.EventDetailTop;
 import kh.fin.giboo.event.model.vo.EventList;
+import kh.fin.giboo.event.model.vo.EventPopup;
 import kh.fin.giboo.event.model.vo.EventStickerBar;
 import kh.fin.giboo.event.model.vo.Pagination;
+import kh.fin.giboo.mypage.model.vo.Stamp;
 
 @Repository
 public class EventDAO {
@@ -52,6 +55,24 @@ public class EventDAO {
 
 	public EventDetailBoardPhoto selectEventDetailBoardPhoto(int eventNo) {
 		return sqlSession.selectOne("event-mapper.selectEventDetailBoardPhoto", eventNo);
+	}
+	
+	
+//
+	public int insertPopup(EventPopup eventPopup) {
+		int result = sqlSession.insert("event-mapper.insertPopup", eventPopup); // 0 또는 1
+		if(result > 0)	result = eventPopup.getEventNo();
+		// 게시글 삽입 성공 시
+		// <selectKey> 태그를 이용해 세팅된 boardNo 값을 반환함 --> 게시글 번호 사용 가능
+		return result;
+	}
+
+	public int insertImage(Map<String, Object> map) {
+		return sqlSession.insert("event-mapper.insertImage", map);
+	}
+
+	public int insertStamp(Stamp stamp) {
+		return sqlSession.insert("event-mapper.insertStamp", stamp);
 	}
 	
 	
