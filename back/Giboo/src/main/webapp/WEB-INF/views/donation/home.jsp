@@ -81,7 +81,7 @@
                                 <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                             <div class="favoriteButton">💖</div>
                         </div>
-                        <a href="">
+                        <a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                             <div class="subTitle">${donationList.donationTitle}</div>
                             <div class="mainTitle">타이틀2</div>

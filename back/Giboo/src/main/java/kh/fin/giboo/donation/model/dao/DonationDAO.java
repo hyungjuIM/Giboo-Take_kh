@@ -3,6 +3,7 @@ package kh.fin.giboo.donation.model.dao;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.donation.model.vo.Donation;
+import kh.fin.giboo.donation.model.vo.DonationDetail;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -45,5 +46,9 @@ public class DonationDAO {
         RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
         return sqlSession.selectList("donationMapper.getDonationListAll", model, rowBounds);
+    }
+
+    public DonationDetail getDonationDetail(int donationNo) {
+        return sqlSession.selectOne("donationMapper.getDonationDetail", donationNo);
     }
 }

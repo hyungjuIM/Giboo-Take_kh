@@ -3,6 +3,7 @@ package kh.fin.giboo.volunteer.model.dao;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
+import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +42,9 @@ public class VolunteerDAO {
         RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
         return sqlSession.selectList("volunteerMapper.getVolunteerListAll", model, rowBounds);
+    }
+
+    public VolunteerDetail getVolunteerDetail(int volunteerNo) {
+        return sqlSession.selectOne("volunteerMapper.getVolunteerDetail", volunteerNo);
     }
 }

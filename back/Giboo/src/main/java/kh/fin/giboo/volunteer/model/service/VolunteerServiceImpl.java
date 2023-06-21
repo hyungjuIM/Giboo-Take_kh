@@ -4,6 +4,7 @@ import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.volunteer.model.dao.VolunteerDAO;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
+import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,5 +69,10 @@ public class VolunteerServiceImpl implements VolunteerService {
         map.put("volunteerList", volunteerList);
 
         return map;
+    }
+
+    @Override
+    public VolunteerDetail getVolunteerDetail(int volunteerNo) {
+        return dao.getVolunteerDetail(volunteerNo);
     }
 }

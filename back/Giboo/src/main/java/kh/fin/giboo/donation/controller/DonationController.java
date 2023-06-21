@@ -1,15 +1,19 @@
 package kh.fin.giboo.donation.controller;
 
 import kh.fin.giboo.donation.model.service.DonationService;
+import kh.fin.giboo.donation.model.vo.DonationDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Map;
 
 @Controller
@@ -44,9 +48,24 @@ public class DonationController {
         return "donation/story";
     }
 
-    @GetMapping("/detail")
-    public String detail() {
+    @GetMapping("/detail/{donationNo}")
+    public String detail(@PathVariable("donationNo") int donationNo,
+                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                         Model model
+                         ) {
         logger.info("기부 상세 페이지");
+
+        DonationDetail donationDetail = service.getDonationDetail(donationNo);
+
+        LocalDate currentDate = LocalDate.now();
+        LocalDate dDay = LocalDate.of(donationDetail.getEndRecruitDate().getYear() + 1900, donationDetail.getEndRecruitDate().getMonth() + 1, donationDetail.getEndRecruitDate().getDate());
+        long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
+        donationDetail.setDDay(untilDay);
+
+        int percent = (donationDetail.getDonationAmount() * 100) / donationDetail.getTargetAmount();
+        donationDetail.setPercent(percent);
+
+        model.addAttribute("donationDetail", donationDetail);
 
         return "donation/detail";
     }
