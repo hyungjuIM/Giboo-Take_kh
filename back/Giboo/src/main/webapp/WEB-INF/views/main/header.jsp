@@ -104,8 +104,8 @@
 
 	</section>
 
-<jsp:include page="/WEB-INF/views/main/alarm.jsp" />
-
+<%-- <jsp:include page="/WEB-INF/views/main/alarm.jsp" />
+ --%>
 
 	<script
 		src="${pageContext.request.contextPath}/resources/js/main/header.js"></script>

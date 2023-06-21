@@ -200,7 +200,7 @@ color: #111111;
     border-radius: 100px;
 }
 
-.edBtnDe > span{
+#popupButton{
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 500;
