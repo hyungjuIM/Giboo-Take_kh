@@ -79,7 +79,7 @@
                            
                         </tbody>
                     </table>
-                    <button type="submit" class="updatebtn" id="updatebtn" name="updatebtn">등급 업데이트</button>
+                    <button type="button" class="updatebtn" id="updatebtn" name="updatebtn">등급 업데이트</button>
                 
                 </div>
             </div>

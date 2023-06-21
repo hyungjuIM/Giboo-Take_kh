@@ -19,6 +19,8 @@
 		<result property="pointNo" column="POINT_NO" />
 		<result property="pointPrice" column="POINT_PRICE" />
 		<result property="rateName" column="RATE_NAME" />
+		
+		
 	</resultMap>
 
 	<resultMap id="manager_rm" type="manager">
@@ -117,6 +119,13 @@
 		<result property="faqTitle" column="FAQ_TITLE" />
 		<result property="faqContent" column="FAQ_CONTENT" />
 	</resultMap>
+	<resultMap id="rate_rm" type="rate">
+  <id property="rateNo" column="RATE_NO" />
+  <result property="rateName" column="RATE_NAME" />
+  <result property="maxpoint" column="MAXPOINT" />
+  <result property="minpoint" column="MINPOINT" />
+  <result property="point" column="POINT" />
+</resultMap>
 
 	<select id="selectMemberList" resultMap="member_rm">
 		SELECT MEMBER_NO,
@@ -219,5 +228,47 @@
 		ORDER BY MEMBER_NO ASC
 
 	</select>
+	
 
+  <select id="selectMinPoint" resultType="int">
+    SELECT MINPOINT
+    FROM RATE
+    WHERE RATE_NAME = #{rateName}
+  </select>
+
+  <select id="selectMaxPoint" resultType="int">
+    SELECT MAXPOINT
+    FROM RATE
+    WHERE RATE_NAME = #{rateName}
+  </select>
+
+  <select id="getVolunteerCount" resultType="int">
+    SELECT COUNT(*)
+    FROM VOLUNTEER
+    WHERE MEMBER_NO = #{memberNo}
+  </select>
+
+  <select id="getDonationCount" resultType="int">
+    SELECT COUNT(*)
+    FROM DONATION
+    WHERE MEMBER_NO = #{memberNo}
+  </select>
+
+  <select id="getPointPriceByRate" resultType="int">
+    SELECT POINT
+    FROM RATE
+    WHERE RATE_NAME = #{rateName}
+  </select>
+
+  <update id="updateMemberRate" parameterType="member">
+    UPDATE MEMBER
+    SET RATE_NO = #{rateNo}, POINT_NO = #{pointNo}
+    WHERE MEMBER_NO = #{memberNo}
+  </update>
+  
+
+  
 </mapper>
+	
+
+

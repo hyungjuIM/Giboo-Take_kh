@@ -2,6 +2,7 @@ package kh.fin.giboo.admin.model.dao;
 
 import kh.fin.giboo.admin.model.vo.Category;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
+import kh.fin.giboo.admin.model.vo.Rate;
 import kh.fin.giboo.cs.model.vo.Faq;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Event;
@@ -59,4 +60,39 @@ public class AdminDAO {
 	public List<Member> selectmemberRateList() {
 		return sqlSession.selectList("adminMapper.selectmemberRateList");
 	}
+
+
+
+	// 등급 나누는 조건 최소값
+	public int getMinPoint(String rateName) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("adminMapper.selectMinPoint",rateName);
+	}
+
+	// 등급 나누는 조건 최대값
+	public int getMaxPoint(String rateName) {
+		return sqlSession.selectOne("adminMapper.selectMaxPoint",rateName);
+	}
+
+	// 봉사기부 참여횟수 조회
+	public int getVolunteerCount(int memberNo) {
+		return sqlSession.selectOne("adminMapper.getVolunteerCount", memberNo);
+	}
+
+	// 봉사기부 참여횟수 조회
+	public int getDonationCount(int memberNo) {
+		return sqlSession.selectOne("adminMapper.getDonationCount", memberNo);
+	}
+
+	// 등급별 적립금혜택 조회
+	public int getPointByRate(String rateName) {
+		 return sqlSession.selectOne("adminMapper.getPointPriceByRate", rateName);
+	}
+
+	// 등급 업데이트
+	public void updateMemberRate(Member member) {
+		 sqlSession.update("adminMapper.updateMemberRate", member);
+	}
+
+	
 }
