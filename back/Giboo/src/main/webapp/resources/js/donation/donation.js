@@ -1,16 +1,19 @@
-const SubCategoryLabelTheme = document.getElementsByClassName("SubCategoryLabelTheme");
 const item = document.getElementsByClassName("item");
 const button = document.getElementsByClassName("button");
 const favoriteButton = document.getElementsByClassName("favoriteButton");
+const all = document.getElementById("all");
 
-for (let i of SubCategoryLabelTheme) {
-    i.addEventListener("click", () => {
-        for (let j of SubCategoryLabelTheme) {
-            j.classList.remove("SubCategoryChecked");
-        }
-        i.classList.add("SubCategoryChecked");
-    });
-}
+const searchParams = new URLSearchParams(location.search);
+const category = searchParams.get('category');
+const categoryButton = document.getElementById(category);
+
+$(document).ready(function () {
+    if (category == null) {
+        all.classList.add("SubCategoryChecked");
+    } else {
+        categoryButton.classList.add("SubCategoryChecked");
+    }
+})
 
 for (let i of item) {
     i.addEventListener("mouseenter", () => {

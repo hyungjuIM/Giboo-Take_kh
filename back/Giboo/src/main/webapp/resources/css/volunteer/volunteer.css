@@ -179,7 +179,7 @@ a{
     transition-duration: 250ms;
 }
 
-.volunteerItemFocus {
+.itemFocus {
     box-shadow: 3px 3px 14px 4px #0000002B;
     transition-duration: 250ms;
 }
