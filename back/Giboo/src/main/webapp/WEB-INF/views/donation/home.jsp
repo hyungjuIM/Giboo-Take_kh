@@ -30,7 +30,7 @@
 
             <ul class="subCategoryList">
                 <li class="subCategoryItem">
-                    <a href="../donation/home" class="SubCategoryLabelTheme SubCategoryChecked">
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
                         <div class="SubCategoryEmojiTheme">🧚</div>
                         전체
                     </a>
@@ -38,7 +38,7 @@
 
                 <c:forEach var="parentCategoryList" items="${parentCategoryList}">
                     <li class="subCategoryItem">
-                        <a href="../donation/home?category=${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
+                        <a href="../donation/home?category=${parentCategoryList.parentCategoryNo}" id="${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
                             <div class="SubCategoryEmojiTheme">${parentCategoryList.parentCategoryThumbnail}</div>
                             ${parentCategoryList.parentCategoryName}
                         </a>

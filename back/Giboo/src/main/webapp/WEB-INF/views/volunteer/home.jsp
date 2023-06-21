@@ -30,7 +30,7 @@
 
             <ul class="subCategoryList">
                 <li class="subCategoryItem">
-                    <a href="../volunteer/home" class="SubCategoryLabelTheme SubCategoryChecked">
+                    <a href="../volunteer/home" id="all" class="SubCategoryLabelTheme">
                         <div class="SubCategoryEmojiTheme">🧚</div>
                         전체
                     </a>
