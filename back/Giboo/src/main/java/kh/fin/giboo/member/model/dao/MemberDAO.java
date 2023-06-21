@@ -54,6 +54,25 @@ public class MemberDAO {
 		int result = sqlSession.selectOne("memberMapper.checkNumber", map);
 		return result;
 	}
+
+
+	/** 닉네 인증  
+	 * @param memberNick
+	 * @return
+	 */
+	public int nicknameDupCheck(String memberNick) {
+		return sqlSession.selectOne("memberMapper.nicknameDupCheck", memberNick);
+	}
+
+
+	public int IdDupCheck(String memberId) {
+		return sqlSession.selectOne("memberMapper.IdDupCheck", memberId);
+	}
+
+
+	public int signUp(Member inputMember) {
+		return sqlSession.insert("memberMapper.signUp", inputMember);
+	}
 	
 
 
