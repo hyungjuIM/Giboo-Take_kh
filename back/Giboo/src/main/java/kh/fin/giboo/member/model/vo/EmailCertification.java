@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class EmailCertification {
 	private int email;
-	private String certificationNo;
+	private String cNumber;
 	private String issueDate;
 }

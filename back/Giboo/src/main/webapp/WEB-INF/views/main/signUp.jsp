@@ -54,7 +54,7 @@
 
                                 <div class="signUpMessageBox">
                                     <span><i class="fa-solid fa-at"></i></span>
-                                    <input type="email" id="memberEmail" class="email" name="memberEmail" maxlength="50"
+                                    <input type="text" id="memberEmail" class="email" name="memberEmail" maxlength="50"
                                         placeholder="이메일" required>
                                     <button type="button" id="cBtn">인증받기</button>
                                 </div>
@@ -66,7 +66,7 @@
                             <div class="signUpMessageBox">
                                 <div class="signUpMessageBoxC">
                                     <span><i class="fa-regular fa-envelope"></i></span>
-                                    <input type="text" id="cNumber" class="emailCF" maxlength="20"
+                                    <input type="text" id="cNumber" name="cNumber" class="emailCF" maxlength="20"
                                         placeholder="인증번호 확인">
                                     <button type="button" id="McBtn">인증하기</button>
                                 </div>

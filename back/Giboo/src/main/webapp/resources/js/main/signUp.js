@@ -3,7 +3,7 @@
 const checkObj = {
     // "signUpName" : false, 
     "signUpId": false,
-    "signUpEmail": false,
+    "memberEmail": false,
     "signUpw1": false, //영어, 숫자, 특수문자(!,@,#,-,_) 6~30
     "signUpw2": false,
     "signUpNickname": false, //영어, 숫자, 한글 2~10
@@ -13,24 +13,24 @@ const checkObj = {
 };
 
 //이메일 유효성 검사 
-const signUpEmail = document.getElementById("memberEmail");
+const memberEmail = document.getElementById("memberEmail");
 const emailMessage = document.getElementById("emailMessage");
 
-signUpEmail.addEventListener("input", function () {
+memberEmail.addEventListener("input", function () {
 
     //입력이 되지 않은 경우
-    if (signUpEmail.value.length == 0) {
+    if (memberEmail.value.length == 0) {
         emailMessage.innerText = "이메일을 입력해주세요.";
         emailMessage.classList.remove("confirm", "error");
-        checkObj.signUpEmail = false; //유효 x 기록
+        checkObj.memberEmail = false; //유효 x 기록
         return;
     }
 
     const regExp = /^[\w\.\_\-]{4,}@[\w\-\_]+(\.\w+){1,3}$/;
-    if (regExp.test(signUpEmail.value)) {
+    if (regExp.test(memberEmail.value)) {
         $.ajax({
             url: "emailDupCheck",
-            data: { "memberEmail": signUpEmail.value },
+            data: { "memberEmail": memberEmail.value },
             type: "GET",
             success: function (result) {
                 if (result == 1) { //중복 O
@@ -42,7 +42,7 @@ signUpEmail.addEventListener("input", function () {
                     emailMessage.innerText = "사용 가능한 이메일입니다.";
                     emailMessage.classList.remove("error");
                     emailMessage.classList.add("confirm");
-                    checkObj.signUpEmail = true;
+                    checkObj.memberEmail = true;
                 }
             },
             error: function () {
@@ -55,13 +55,13 @@ signUpEmail.addEventListener("input", function () {
         emailMessage.classList.remove("confirm");
         emailMessage.classList.add("error");
 
-        checkObj.signUpEmail = false;
+        checkObj.memberEmail = false;
 
     }
 });
 
 // 이메일 인증하기
-const sendBtn = document.getElementById("McBtn");
+const sendBtn = document.getElementById("cBtn");
 const cMessage = document.getElementById("emailCfMessage");
 
 //타이머에 사용될 변수
@@ -149,7 +149,7 @@ cBtn.addEventListener("click", function(){
                         cMessage.classList.remove("error");
                         checkObj.cNumber = true;
                     } else if (result == 2){
-                        alert("완료된 인증 번호 입니다.");
+                        alert("만료된 인증 번호 입니다.");
                         checkObj.cNumber = false;
                     } else {
                         alert("인증 번호가 일치하지 않습니다.");
