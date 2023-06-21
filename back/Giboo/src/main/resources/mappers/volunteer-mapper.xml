@@ -33,23 +33,33 @@
         <result property="categoryName" column="CATEGORY_NAME" />
     </resultMap>
 
-    <select id="selectVolunteerList" resultMap="volunteer_rm">
-        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
-        FROM VOLUNTEER
-        ORDER BY VOLUNTEER_NO ASC
-    </select>
-
-    <select id="selectParentCategoryList" resultMap="parentCategory_rm">
+    <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
         FROM PARENT_CATEGORY
         WHERE CATEGORY_NO = 2
         ORDER BY CATEGORY_NO ASC
     </select>
 
-    <select id="selectCategoryVolunteerList" resultMap="volunteer_rm">
+    <select id="getListCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM VOLUNTEER
+        <if test="category != null">
+            WHERE PARENT_CATEGORY_NO = ${category}
+        </if>
+    </select>
+
+    <select id="getVolunteerList" resultMap="volunteer_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
         FROM VOLUNTEER
-        WHERE PARENT_CATEGORY_NO = #{category}
+        <if test="category != null">
+            WHERE PARENT_CATEGORY_NO = ${category}
+        </if>
+        ORDER BY VOLUNTEER_NO ASC
+    </select>
+
+    <select id="getVolunteerListAll" resultMap="volunteer_rm">
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
+        FROM VOLUNTEER
         ORDER BY VOLUNTEER_NO ASC
     </select>
 </mapper>
