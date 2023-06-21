@@ -126,7 +126,7 @@ body {
     left: 50%;
     margin: -250px 0 0 -250px;
     z-index: 9999;
-    display: none;
+    /* display: none; */
 
 }
 

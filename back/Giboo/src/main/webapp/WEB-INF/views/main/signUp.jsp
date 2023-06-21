@@ -43,7 +43,7 @@
                             <div>
                             <div class="signUpId">
                                 <span><i class="fa-regular fa-circle-user"></i></span>
-                                <input type="text" id="signUpId" name="memberID" class="id" maxlength="20"
+                                <input type="text" id="signUpId" name="memberId" class="id" maxlength="20"
                                     placeholder="사용자 아이디">
                             </div>
                             <span id="idMessage">영어/숫자/한글 2~20글자 사이로 입력해주세요.</span>
@@ -67,7 +67,7 @@
                                 <div class="signUpMessageBoxC">
                                     <span><i class="fa-regular fa-envelope"></i></span>
                                     <input type="text" id="cNumber" class="emailCF" maxlength="20"
-                                        placeholder="인증번호 확인">
+                                        placeholder="인증번호 확인" name="cNumber">
                                     <button type="button" id="McBtn">인증하기</button>
                                 </div>
 
@@ -119,12 +119,29 @@
                             </div>
 
 
+<!--  주소 -->
 
-            <input type="text" id="sample6_postcode" placeholder="우편번호">
-<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-<input type="text" id="sample6_address" placeholder="주소"><br>
-<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-<!-- <input type="text" id="sample6_extraAddress" placeholder="참고항목"> -->
+
+           
+<label for="memberAddr">
+    주소
+</label>
+
+<div class="signUp-input-area">
+    <input type="text" id="sample4_postcode" name="memberAddr"
+            placeholder="우편번호" maxlength="6">
+    
+    <button type="button" onclick="return sample4_execDaumPostcode()" value="우편번호 찾기">검색</button>
+</div>
+
+<div class="signUp-input-area">
+    <input type="text" id="sample4_roadAddress" name="memberAddr" placeholder="도로명주소">
+</div>
+
+<div class="signUp-input-area">
+    <input type="text" id="sample4_detailAddress" name="memberAddr" placeholder="상세주소">
+</div>
+
 
                             <!-- 주소
                             <div class="signUpAdd">
@@ -136,7 +153,7 @@
 
                             <!-- join Btn -->
                             <div class="singUpBtnnBox">
-                                <button class="singUpBtnn">회원가입</button>
+                                <button class="singUpBtnn" type="submit" id="btnJoin">회원가입</button>
                             </div>
                         </form>
                     </div>

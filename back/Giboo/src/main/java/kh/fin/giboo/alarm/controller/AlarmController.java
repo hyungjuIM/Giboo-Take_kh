@@ -29,12 +29,12 @@
 //	private AlarmService service;
 //	
 //	//알림 목록조회
-//	@ResponseBody
-//	@GetMapping("/selectAll")
-//	public List<Alarm> selectAll(){
-//		
-//		return service.selectAll();
-//	}
-//	
+////	@ResponseBody
+////	@GetMapping("/selectAll")
+////	public List<Alarm> selectAll(){
+////		
+////		return service.selectAll();
+////	}
+////	
 //
 //}

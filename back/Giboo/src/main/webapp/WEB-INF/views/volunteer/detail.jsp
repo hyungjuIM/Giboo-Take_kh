@@ -33,27 +33,27 @@
                 <div class="info">
                     <div>
                         <span class="hot">HOT</span>
-                        <span class="d-day">D-<span id="d-day">60</span>일</span>
+                        <span class="d-day">D-<span id="d-day">${volunteerDetail.DDay}</span>일</span>
                     </div>
-                    <div class="title">새 살이 돋지 않는 고양이 '마리'에게 희망을 주세요.</div>
+                    <div class="title">${volunteerDetail.volunteerTitle}</div>
 
                     <div class="progressArea">
                         <div class="progressInfo">
-                            <span class="progressPercentage">60%</span>
+                            <span class="progressPercentage">${volunteerDetail.percent}%</span>
                                 <span class="goal">
                                     목표
-                                    <span class="goal" id="goalValue">3,000,000</span>원
+                                    <span class="goal" id="goalValue">${volunteerDetail.targetPeople}</span>명
                             </span>
                         </div>
 
                         <div class="progressBar">
-                            <div class="progressBarValue"></div>
+                            <div class="progressBarValue" style="width: ${volunteerDetail.percent}%"></div>
                         </div>
 
                         <div class="progressStatus">
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                                <span id="volunteerCount">1,030</span>명 참여중</span>
+                                <span id="volunteerCount">${volunteerDetail.volunteerCount}</span>명 참여중</span>
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                                 <span id="recommendedCount">102</span>명 추천</span>

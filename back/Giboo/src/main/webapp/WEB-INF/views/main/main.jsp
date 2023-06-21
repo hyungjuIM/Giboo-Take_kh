@@ -72,7 +72,7 @@
                 <div class="vol_box_container">
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -98,7 +98,7 @@
                     </div>
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -124,7 +124,7 @@
                     </div>
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -162,7 +162,7 @@
                 <div class="vol_box_container">
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -188,7 +188,7 @@
                     </div>
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -214,7 +214,7 @@
                     </div>
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">

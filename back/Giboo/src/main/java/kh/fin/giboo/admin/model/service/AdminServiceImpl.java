@@ -71,46 +71,29 @@ public class AdminServiceImpl implements AdminService {
 	public List<Member> selectmemberRateList() {
 		return dao.selectmemberRateList();
 	}
-//
-//	@Override
-//	public int memberRateUpdate(List<Member> updateMember) {
-//	     int updatedCount = 0;
-//	        for (Member member : updateMember) {
-//	            int participationCount = dao.getParticipationCount(member.getMemberNo());
-//	            Rate rate = calculateRate(participationCount);
-//	            Rate rate2 = calculatePoint(participationCount);
-//
-//	            member.setRateName(rate.getRateName());
-//	            member.setPointPrice(rate2.getPointPrice());
-//
-//	            dao.updateMemberRateAndPoint(member);
-//	            updatedCount++;
-//	        }
-//	        return updatedCount;
-//	    }
-//
-//	    private Rate calculateRate(int participationCount) {
-//	        // 등급 계산 로직 구현
-//	        // 예: 1에서 5까지는 "등급1", 6에서 10까지는 "등급2", 11 이상은 "등급3"
-//	        if (participationCount >= 1 && participationCount <= 5) {
-//	            return dao.getRateByRateNo(1); 
-//	        } else if (participationCount >= 6 && participationCount <= 10) {
-//	            return dao.getRateByRateNo(2);
-//	        } else {
-//	            return dao.getRateByRateNo(3);
-//	        }
-//	    }
-//
-//	    private Rate calculatePoint(int participationCount) {
-//	        // 적립금 계산 로직 구현
-//	        // 예: 1에서 5까지는 1000원, 6에서 10까지는 3000원, 11 이상은 5000원
-//	        if (participationCount >= 1 && participationCount <= 5) {
-//	            return dao.
-//	        } else if (participationCount >= 6 && participationCount <= 10) {
-//	            return 3000;
-//	        } else {
-//	            return 5000;
-//	        }
-//	    }
+
+
+	 public int updateMemberRates(String rateName, int pointPrice) {
+		    List<Member> members = selectmemberRateList();
+		    int minPoint =dao.getMinPoint(rateName);
+		    int maxPoint =dao.getMaxPoint(rateName);
+		    int point= dao.getPointByRate(rateName);
+		    int updatedMemberCount = 0;
+		    for (Member member : members) {
+		      int volunteerCount = dao.getVolunteerCount(member.getMemberNo());
+		      int donationCount = dao.getDonationCount(member.getMemberNo());
+		      
+		      if ((volunteerCount + donationCount) >= minPoint && (volunteerCount + donationCount) <= maxPoint) {
+		        member.setRateName(rateName);
+		        member.setPointPrice(pointPrice);
+
+		        member.setPointPrice(member.getPointPrice() + point);
+
+		         dao.updateMemberRate(member);
+		         updatedMemberCount++; // 회원 업데이트가 수행되었으므로 카운트를 증가
+		      }
+		    }
+		    return updatedMemberCount; // 업데이트된 회원 수를 반환
+		  }
 
 }

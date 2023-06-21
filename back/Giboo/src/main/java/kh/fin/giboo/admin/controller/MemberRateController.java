@@ -8,11 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kh.fin.giboo.admin.model.service.AdminService;
+import kh.fin.giboo.admin.model.vo.Rate;
 import kh.fin.giboo.member.model.vo.Member;
 
 @Controller
@@ -34,14 +38,11 @@ public class MemberRateController {
         return "admin/memberRate";
     }
     
-//    @GetMapping("/memberRateUpdate")
-//    @ResponseBody
-//    public int memberRateUpdate(Model model,
-//    		@RequestBody List<Member> updateMember) {
-//    	int result = service.memberRateUpdate(updateMember);
-//    	
-//    	
-//    	
-//    	return result;
-//    }
+    @ResponseBody
+    @GetMapping("/memberRateUpdate")
+    public int updateMemberRates(  String rateName,
+            int pointPrice) {
+        int result = service.updateMemberRates(rateName,pointPrice);
+        return result; //
+    }
 }

@@ -33,21 +33,21 @@
                 <div class="info">
                     <div>
                         <span class="hot">HOT</span>
-                        <span class="d-day">D-<span id="d-day">60</span>일</span>
+                        <span class="d-day">D-<span id="d-day">${donationDetail.DDay}</span>일</span>
                     </div>
-                    <div class="title">새 살이 돋지 않는 고양이 '마리'에게 희망을 주세요.</div>
+                    <div class="title">${donationDetail.donationTitle}</div>
 
                     <div class="progressArea">
                         <div class="progressInfo">
-                            <span class="progressPercentage">60%</span>
+                            <span class="progressPercentage">${donationDetail.percent}%</span>
                                 <span class="goal">
                                     목표
-                                    <span class="goal" id="goalValue">3,000,000</span>원
+                                    <span class="goal" id="goalValue">${donationDetail.targetAmount}</span>원
                             </span>
                         </div>
 
                         <div class="progressBar">
-                            <div class="progressBarValue"></div>
+                            <div class="progressBarValue" style="width: ${donationDetail.percent}%"></div>
                         </div>
 
                         <div class="progressStatus">

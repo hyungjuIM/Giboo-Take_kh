@@ -24,7 +24,7 @@ public class FaqController {
 	
 	
 	 
-	@GetMapping("/faqList")
+	@GetMapping("/faqVolunteer")
 	public String csMain(@RequestParam(value= "cp", required = false, defaultValue ="1") int cp,
 			Model model
 			) {	
@@ -36,7 +36,7 @@ public class FaqController {
 		//logger.info("이거의값은???????" + map);
 		//logger.info("고객센터");
 	 
-		return "cs/faqList";
+		return "cs/faqVolunteer";
 	}
 	
 	

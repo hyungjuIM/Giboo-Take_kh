@@ -1,15 +1,13 @@
 package kh.fin.giboo.volunteer.model.service;
 
-import kh.fin.giboo.admin.model.vo.ParentCategory;
-import kh.fin.giboo.volunteer.model.vo.Volunteer;
+import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
+import org.springframework.ui.Model;
 
-import java.util.List;
+import java.util.Map;
 
 public interface VolunteerService {
 
-    List<Volunteer> selectVolunteerList();
+    Map<String, Object> selectVolunteerList(int category, int cp, Model model);
 
-    List<ParentCategory> selectParentCategoryList();
-
-    List<Volunteer> selectCategoryVolunteerList(int category);
+    VolunteerDetail getVolunteerDetail(int volunteerNo);
 }

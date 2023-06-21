@@ -1,20 +1,20 @@
 package kh.fin.giboo.volunteer.controller;
 
-import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.volunteer.model.service.VolunteerService;
-import kh.fin.giboo.volunteer.model.vo.Volunteer;
+import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/volunteer")
@@ -25,40 +25,17 @@ public class VolunteerController {
     private VolunteerService service;
 
     @GetMapping("/home")
-    public String home(@RequestParam(value = "category", required = false, defaultValue = "0") int category, Model model) {
+    public String home(@RequestParam(value = "category", required = false, defaultValue = "0") int category,
+                       @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                       Model model) {
         logger.info("봉사페이지 메인");
 
-        List<ParentCategory> parentCategoryList = service.selectParentCategoryList();
-        List<Volunteer> volunteerList = null;
-        Boolean categoryValidate = null;
+        model.addAttribute("category", category);
 
-        for (ParentCategory pc : parentCategoryList) {
-            if (pc.getParentCategoryNo() == category) {
-                categoryValidate = true;
-                break;
-            } else {
-                categoryValidate = false;
-            }
-        }
+        Map<String, Object> map = null;
+        map = service.selectVolunteerList(category, cp, model);
 
-        if (categoryValidate) {
-            volunteerList = service.selectCategoryVolunteerList(category);
-        } else {
-            volunteerList = service.selectVolunteerList();
-        }
-
-        for(Volunteer v : volunteerList) {
-            LocalDate currentDate = LocalDate.now();
-            LocalDate dDay = LocalDate.of(v.getEndRecruitDate().getYear() + 1900, v.getEndRecruitDate().getMonth() + 1, v.getEndRecruitDate().getDate());
-            long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
-            v.setDDay(untilDay);
-
-            int percent = (v.getVolunteerCount() * 100) / v.getTargetPeople();
-            v.setPercent(percent);
-        }
-
-        model.addAttribute("parentCategoryList", parentCategoryList);
-        model.addAttribute("volunteerList", volunteerList);
+        model.addAttribute("map", map);
 
         return "volunteer/home";
     }
@@ -70,9 +47,23 @@ public class VolunteerController {
         return "volunteer/story";
     }
 
-    @GetMapping("/detail")
-    public String detail() {
+    @GetMapping("/detail/{volunteerNo}")
+    public String detail(@PathVariable("volunteerNo") int volunteerNo,
+                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                         Model model) {
         logger.info("봉사 상세 페이지");
+
+        VolunteerDetail volunteerDetail = service.getVolunteerDetail(volunteerNo);
+
+        LocalDate currentDate = LocalDate.now();
+        LocalDate dDay = LocalDate.of(volunteerDetail.getEndRecruitDate().getYear() + 1900, volunteerDetail.getEndRecruitDate().getMonth() + 1, volunteerDetail.getEndRecruitDate().getDate());
+        long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
+        volunteerDetail.setDDay(untilDay);
+
+        int percent = (volunteerDetail.getVolunteerCount() * 100) / volunteerDetail.getTargetPeople();
+        volunteerDetail.setPercent(percent);
+
+        model.addAttribute("volunteerDetail", volunteerDetail);
 
         return "volunteer/detail";
     }

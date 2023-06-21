@@ -2,6 +2,7 @@ package kh.fin.giboo.admin.model.service;
 
 import kh.fin.giboo.admin.model.vo.Category;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
+import kh.fin.giboo.admin.model.vo.Rate;
 import kh.fin.giboo.cs.model.vo.Faq;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Event;
@@ -31,5 +32,8 @@ public interface AdminService {
 
 	List<Member> selectmemberRateList();
 
-//	int memberRateUpdate(List<Member> updateMember);
+	
+
+	int updateMemberRates(String rateName, int pointPrice);
+
 }

@@ -11,8 +11,14 @@ public interface MemberService {
 
 	public abstract int emailDupCheck(String memberEmail);
 
-	public abstract int sendCertificationCode(String email) throws Exception;
+	public abstract int sendCertificationCode(String email2) throws Exception;
 
-	public abstract int isValidCertification(String email, String cNumber);
+	public abstract int isValidCertification(String email2, String cNumber);
+
+	public abstract int nicknameDupCheck(String memberNick);
+
+	public abstract int IdDupCheck(String memberId);
+
+	public abstract int signUp(Member inputMember);
 
 }

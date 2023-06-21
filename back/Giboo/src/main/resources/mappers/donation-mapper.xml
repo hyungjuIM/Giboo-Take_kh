@@ -25,6 +25,29 @@
         <result property="agencyName" column="AGENCY_NAME" />
     </resultMap>
 
+    <resultMap id="donationDetail_rm" type="donationDetail">
+        <id property="donationNo" column="DONATION_NO" />
+        <result property="targetAmount" column="TARGET_AMOUNT" />
+        <result property="locationX" column="LOCATION_X" />
+        <result property="locationY" column="LOCATION_Y" />
+        <result property="donationAddr" column="DONATION_ADDR" />
+        <result property="enrollDate" column="ENROLL_DATE" />
+        <result property="startRecruitDate" column="START_RECRUIT_DATE" />
+        <result property="endRecruitDate" column="END_RECRUIT_DATE" />
+        <result property="startProgressDate" column="START_PROGRESS_DATE" />
+        <result property="endProgressDate" column="END_PROGRESS_DATE" />
+        <result property="deleteStatus" column="DELETE_STATUS" />
+        <result property="dComStatus" column="DCOM_STATUS" />
+        <result property="donationAmount" column="DONATION_AMOUNT" />
+        <result property="viewCount" column="VIEW_COUNT" />
+        <result property="donationTitle" column="DONATION_TITLE" />
+        <result property="donationContent" column="DONATION_CONTENT" />
+        <result property="donationAttachment" column="DONATION_ATTACHMENT" />
+        <result property="memberId" column="MEMBER_ID" />
+        <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+        <result property="agencyName" column="AGENCY_NAME" />
+    </resultMap>
+
     <resultMap id="parentCategory_rm" type="parentCategory" >
         <id property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
@@ -32,23 +55,40 @@
         <result property="categoryName" column="CATEGORY_NAME" />
     </resultMap>
 
-    <select id="selectDonationList" resultMap="donation_rm">
-        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
-        FROM DONATION
-        ORDER BY DONATION_NO ASC
-    </select>
-
-    <select id="selectParentCategoryList" resultMap="parentCategory_rm">
+    <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
         FROM PARENT_CATEGORY
         WHERE CATEGORY_NO = 1
         ORDER BY CATEGORY_NO ASC
     </select>
 
-    <select id="selectCategoryDonationList" resultMap="donation_rm">
+    <select id="getListCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM DONATION
+        <if test="category != null">
+            WHERE PARENT_CATEGORY_NO = ${category}
+        </if>
+    </select>
+
+    <select id="getDonationList" resultMap="donation_rm">
         SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
         FROM DONATION
-        WHERE PARENT_CATEGORY_NO = #{category}
+        <if test="category != null">
+            WHERE PARENT_CATEGORY_NO = ${category}
+        </if>
         ORDER BY DONATION_NO ASC
     </select>
+
+    <select id="getDonationListAll" resultMap="donation_rm">
+        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
+        FROM DONATION
+        ORDER BY DONATION_NO ASC
+    </select>
+
+    <select id="getDonationDetail" resultMap="donationDetail_rm">
+        SELECT DONATION_TITLE, DONATION_CONTENT, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
+        FROM DONATION
+        WHERE DONATION_NO = ${donationNo}
+    </select>
+
 </mapper>

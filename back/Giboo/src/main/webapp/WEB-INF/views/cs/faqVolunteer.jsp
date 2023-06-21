@@ -52,6 +52,8 @@
                     </div>
                 </div>
             </div>
+      
+            <jsp:include page="/WEB-INF/views/cs/faqList.jsp" />
 
 
 
@@ -63,7 +65,6 @@
                                  자주 찾으시는 목록 Best 10</span><span style="color: #767676;">을 알려드립니다 😇</span>
                         </div>
                         <hr>
-						<!-- faq list -->
                         <div id="Accordion_wrap">
                                 <c:choose>
                                     <c:when test="${empty faqVolunteer}">
@@ -104,30 +105,28 @@
                                 <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
                                 
                                 <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
-
+                    
                                     <c:choose>
                                         <c:when test="${i == pagination.currentPage}">
                                             <li><a class="current">${i}</a></li>
                                         </c:when>
-
+                    
                                         <c:otherwise>
                                             <li><a href="${url}${i}${sURL}">${i}</a></li>
                                         </c:otherwise>
                                     </c:choose>
-
+                    
                                 </c:forEach>
-
+                    
                                 <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
                                 <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
                             </ul>
-                        </nav>
+                        </nav>                    
                     </div>
-                    
                 </section>     
             </div>    
         </div>
         
-        <!-- 푸터 영역 -->
         <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
         </footer>

@@ -1,484 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
+
+
 *{
     box-sizing: border-box;
-    padding : 0px;
-    margin : 0px;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'NanumSquare', sans-serif;
+}
+
+body{
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+}
+main{
+    margin-top: 65px ;
+    
+
 }
 
 .signUpSection{
     display: flex;
     justify-content: center;
-    align-items: center;   
-}
-
-.signUpContainer{
-    width: 646px;
-    height: 1091px;
-    background: #EFEFEF;
-    margin-top: 149px ;
-    margin-bottom: 169px;
-    background: #EFEFEF;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+
+  
+    border: 1px solid blue;
 }
 
-.signUpTitle{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-    color: #252525;
-    margin-bottom: 30px;
+.signUpSection .signUpContainer {
+    border: 1px solid green;
+
+    margin: 50px 0px;
+
 }
 
-/* 사용자 이름 */
-.signUpName{
-    position: relative;
-    margin-bottom: 24px;
-}
-
-.signUpName > input{
+.signUpContainer .signUpInput_Container{
     width: 546px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
+    height: 54px;
 
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
+    margin: 10px 20px;
+    padding: 8px 10px;
 
-.signUpName > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpName > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-/* 아이디 */
-.signUpId{
-    position: relative;
-    margin-bottom: 24px;
-}
-
-.signUpId > input{
-    width: 546px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpId > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpId > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-/* 이메일 */
-.signUpName{
-    position: relative;
-    margin-bottom: 24px;
-}
-
-.signUpName > input{
-    width: 546px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpName > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpName > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-/* 아이디 */
-.signUpEmail{
-    position: relative;
-    margin-bottom: 24px;
-}
-
-.signUpEmail > input{
-    width: 428px;    
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpEmail > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpEmail > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-#cBtn{
-    margin-left: 10px;
-    width: 111px;
-    height: 62px;
-    left: 1139px;
-    top: 493px;
-    background: #00CA61;
-    border-radius: 15px;
-    border: none;
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-/* 인증번호확인 */
-.signUpMessageBoxC{
-    position: relative;
-    margin-bottom: 2px;
-}
-
-.signUpMessageBoxC > input{
-    width: 428px;    
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpMessageBoxC > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpMessageBoxC > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-#McBtn{
-    margin-left: 10px;
-    width: 111px;
-    height: 62px;
-    left: 1139px;
-    top: 493px;
-    background: #00CA61;
-    border-radius: 15px;
-    border: none;
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-.signUpMessage{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    color: #FF5D5E;
-}
-
-.signUpMessageBox{
-    margin-bottom: 8px;
+    border: 1px solid red;
 }
 
 
 
-/* 비밀번호 */
-.signUpPw1Box{
-    position: relative;
-    margin-bottom: 2px;
+.signUpSection .signUpContainer{}
+
+/* 타이틀 */
+.signUpContainer .signUpTitle{}
+.signUpContainer .signUpTitle span{}
+
+
+/* 이름 */
+.signUpContainer .signUpName{}
+.signUpContainer .signUpName input{}
+
+.error{
+    color: red;
 }
-
-.signUpPw1Box > input{
-    width: 549px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpPw1Box > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpPw1Box > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-
-.signUpw1Message{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    color: #FF5D5E;
-}
-
-.signUpPw1{
-    margin-bottom: 8px;
-}
-
-
-/* 비밀번호 확인 */
-.signUpPw2Box{
-    position: relative;
-    margin-bottom: 2px;
-}
-
-.signUpPw2Box > input{
-    width: 549px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpPw2Box > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpPw2Box > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-
-.signUpw2Message{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    color: #FF5D5E;
-}
-
-.signUpw2{
-    margin-bottom: 8px;
-}
-
-/* 닉네임 */
-.signUpNicknameBox{
-    position: relative;
-    margin-bottom: 2px;
-}
-
-.signUpNicknameBox > input{
-    width: 549px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpNicknameBox > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpNicknameBox > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-
-.signUpNicknameMessage{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    color: #FF5D5E;
-}
-
-.signUpNickname{
-    margin-bottom: 8px;
-}
-
-
-/* 전화번호 */
-.signUpTel{
-    position: relative;
-    margin-bottom: 24px;
-}
-
-.signUpTel > input{
-    width: 546px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpTel > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpTel > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-
-/* 주소찾기 */
-.signUpAdd{
-    position: relative;
-    margin-bottom: 2px;
-}
-
-.signUpAdd > input{
-    width: 428px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.signUpAdd > input::placeholder{
-    color: #D9D9D9;
-}
-
-.signUpAdd > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-
-#signUpAdBtn{
-    margin-left: 10px;
-    width: 111px;
-    height: 62px;  
-    left: 1139px;
-    top: 493px;
-    background: #00CA61;
-    border-radius: 15px;
-    border: none;
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-.singUpBtnnBox{
-    margin-top: 47px;
-}
-
-.singUpBtnn{
-    width: 547px;
-    height: 62px;
-    left: 669px;
-    top: 596px;
-    background: #00CA61;
-    border-radius: 15px;
-    border: none;
-    color: white;
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    cursor: pointer;
+.confirm{
+    color: green;
 }

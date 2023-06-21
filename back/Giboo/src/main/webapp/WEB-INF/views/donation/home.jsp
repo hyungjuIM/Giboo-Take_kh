@@ -2,6 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="parentCategoryList" value="${map.parentCategoryList}" />
+<c:set var="donationList" value="${map.donationList}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +34,7 @@
 
             <ul class="subCategoryList">
                 <li class="subCategoryItem">
-                    <a href="../donation/home" class="SubCategoryLabelTheme SubCategoryChecked">
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
                         <div class="SubCategoryEmojiTheme">🧚</div>
                         전체
                     </a>
@@ -38,7 +42,7 @@
 
                 <c:forEach var="parentCategoryList" items="${parentCategoryList}">
                     <li class="subCategoryItem">
-                        <a href="../donation/home?category=${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
+                        <a href="../donation/home?category=${parentCategoryList.parentCategoryNo}" id="${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
                             <div class="SubCategoryEmojiTheme">${parentCategoryList.parentCategoryThumbnail}</div>
                             ${parentCategoryList.parentCategoryName}
                         </a>
@@ -77,7 +81,7 @@
                                 <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                             <div class="favoriteButton">💖</div>
                         </div>
-                        <a href="">
+                        <a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                             <div class="subTitle">${donationList.donationTitle}</div>
                             <div class="mainTitle">타이틀2</div>
@@ -102,7 +106,26 @@
 
         </div>
 
-        <div>페이지네이션</div>
+        <div class="container4">
+            <c:set var="url" value="?cp="/>
+            <ul class="pagination">
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+            </ul>
+        </div>
 
     </div>
 </section>

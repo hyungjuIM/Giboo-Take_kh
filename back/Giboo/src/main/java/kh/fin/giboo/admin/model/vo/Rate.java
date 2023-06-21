@@ -12,4 +12,5 @@ public class Rate {
 	private String rateName;
 	private int maxPoint;
 	private int minPoint;
+	private int point;
 }

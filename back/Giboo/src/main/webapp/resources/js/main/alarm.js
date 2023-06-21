@@ -8,7 +8,7 @@ $('.tooltip[data-text="알림"]').on('click', function() {
 function selectAll(){ // 회원 전체 조회 함수
   // ajax코드
   $.ajax({
-    url: "alarm/selectAll",
+    url: "selectAll",
     dataType: "json",
     success: function (list) {
       const alarmList = document.getElementById("alarmList");
