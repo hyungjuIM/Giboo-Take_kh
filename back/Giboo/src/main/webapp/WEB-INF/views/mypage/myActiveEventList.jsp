@@ -142,8 +142,8 @@
 															items="${myActiveEventList}">
 															<tr>
 																<td>${myActiveEventList.myactiveEventNo}</td>
-																<td>${myActiveEventList.eventTitle}</td>
-																<td>${myActiveEventList.myactiveDate}</td>
+        <td><a href="../event/eventDetailMain/${myActiveEventList.eventNo}?cp=${pagination.currentPage}${sURL}">${myActiveEventList.eventTitle}</a></td>
+        <td>${myActiveEventList.myactiveDate}</td>
 															</tr>
 														</c:forEach>
 													</c:otherwise>
