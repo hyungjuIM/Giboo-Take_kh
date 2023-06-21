@@ -1,10 +1,7 @@
 package kh.fin.giboo.volunteer.model.service;
 
-import kh.fin.giboo.admin.model.vo.ParentCategory;
-import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import org.springframework.ui.Model;
 
-import java.util.List;
 import java.util.Map;
 
 public interface VolunteerService {
