@@ -2,6 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="parentCategoryList" value="${map.parentCategoryList}" />
+<c:set var="volunteerList" value="${map.volunteerList}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,155 +99,30 @@
                     </div>
                 </c:forEach>
 
-<%--                <div class="item">--%>
-<%--                    <div class="buttonSection">--%>
-<%--                        <a href="" class="button">🍀 봉사하기--%>
-<%--                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>--%>
-<%--                        <div class="favoriteButton">💖</div>--%>
-<%--                    </div>--%>
-
-<%--                    <a href="">--%>
-<%--                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">--%>
-<%--                        <div class="subTitle">타이틀</div>--%>
-<%--                        <div class="mainTitle">타이틀2</div>--%>
-<%--                    </a>--%>
-<%--                    <div class="progressBar">--%>
-<%--                        <div class="progressBarValue"></div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="info">--%>
-<%--                        <div class="d-day">D-180</div>--%>
-<%--                        <div>달성률--%>
-<%--                            <span class="progressPercentage">50%</span>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
-<%--                <div class="item">--%>
-<%--                    <div class="buttonSection">--%>
-<%--                        <a href="" class="button">🍀 봉사하기--%>
-<%--                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>--%>
-<%--                        <div class="favoriteButton">💖</div>--%>
-<%--                    </div>--%>
-
-<%--                    <a href="">--%>
-<%--                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">--%>
-<%--                        <div class="subTitle">타이틀</div>--%>
-<%--                        <div class="mainTitle">타이틀2</div>--%>
-<%--                    </a>--%>
-<%--                    <div class="progressBar">--%>
-<%--                        <div class="progressBarValue"></div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="info">--%>
-<%--                        <div class="d-day">D-180</div>--%>
-<%--                        <div>달성률--%>
-<%--                            <span class="progressPercentage">50%</span>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
-<%--                <div class="item">--%>
-<%--                    <div class="buttonSection">--%>
-<%--                        <a href="" class="button">🍀 봉사하기--%>
-<%--                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>--%>
-<%--                        <div class="favoriteButton">💖</div>--%>
-<%--                    </div>--%>
-
-<%--                    <a href="">--%>
-<%--                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">--%>
-<%--                        <div class="subTitle">타이틀</div>--%>
-<%--                        <div class="mainTitle">타이틀2</div>--%>
-<%--                    </a>--%>
-<%--                    <div class="progressBar">--%>
-<%--                        <div class="progressBarValue"></div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="info">--%>
-<%--                        <div class="d-day">D-180</div>--%>
-<%--                        <div>달성률--%>
-<%--                            <span class="progressPercentage">50%</span>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
-<%--                <div class="item">--%>
-<%--                    <div class="buttonSection">--%>
-<%--                        <a href="" class="button">🍀 봉사하기--%>
-<%--                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>--%>
-<%--                        <div class="favoriteButton">💖</div>--%>
-<%--                    </div>--%>
-
-<%--                    <a href="">--%>
-<%--                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">--%>
-<%--                        <div class="subTitle">타이틀</div>--%>
-<%--                        <div class="mainTitle">타이틀2</div>--%>
-<%--                    </a>--%>
-<%--                    <div class="progressBar">--%>
-<%--                        <div class="progressBarValue"></div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="info">--%>
-<%--                        <div class="d-day">D-180</div>--%>
-<%--                        <div>달성률--%>
-<%--                            <span class="progressPercentage">50%</span>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
-<%--                <div class="item">--%>
-<%--                    <div class="buttonSection">--%>
-<%--                        <a href="" class="button">🍀 봉사하기--%>
-<%--                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>--%>
-<%--                        <div class="favoriteButton">💖</div>--%>
-<%--                    </div>--%>
-
-<%--                    <a href="">--%>
-<%--                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">--%>
-<%--                        <div class="subTitle">타이틀</div>--%>
-<%--                        <div class="mainTitle">타이틀2</div>--%>
-<%--                    </a>--%>
-<%--                    <div class="progressBar">--%>
-<%--                        <div class="progressBarValue"></div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="info">--%>
-<%--                        <div class="d-day">D-180</div>--%>
-<%--                        <div>달성률--%>
-<%--                            <span class="progressPercentage">50%</span>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
-<%--                <div class="item">--%>
-<%--                    <div class="buttonSection">--%>
-<%--                        <a href="" class="button">🍀 봉사하기--%>
-<%--                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>--%>
-<%--                        <div class="favoriteButton">💖</div>--%>
-<%--                    </div>--%>
-
-<%--                    <a href="">--%>
-<%--                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">--%>
-<%--                        <div class="subTitle">타이틀</div>--%>
-<%--                        <div class="mainTitle">타이틀2</div>--%>
-<%--                    </a>--%>
-<%--                    <div class="progressBar">--%>
-<%--                        <div class="progressBarValue"></div>--%>
-<%--                    </div>--%>
-
-<%--                    <div class="info">--%>
-<%--                        <div class="d-day">D-180</div>--%>
-<%--                        <div>달성률--%>
-<%--                            <span class="progressPercentage">50%</span>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-
             </div>
 
         </div>
 
-        <div>페이지네이션</div>
+        <div class="container4">
+            <c:set var="url" value="?cp="/>
+            <ul class="pagination">
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+            </ul>
+        </div>
 
     </div>
 </section>
