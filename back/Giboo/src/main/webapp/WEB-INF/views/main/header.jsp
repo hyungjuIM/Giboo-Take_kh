@@ -81,21 +81,22 @@
 								<div class="nick_container">
 									<span id="nickName">${loginMember.memberNick}</span>님
 								</div>
-							</c:otherwise>
-						</c:choose>
-					</section>
-
-					<div class="toggle">
+									<div class="toggle">
 						<a href="${pageContext.request.contextPath}/mypage/mypageMain"
 							class="tooltip" data-text="마이페이지"> <i
 							class="far fa-user-circle"></i>
 						</a>
 					</div>
 					<div class="toggle">
-						<a href="#none" class="tooltip" data-text="알림"> <i
+						<a href="#" class="tooltip" id="alarm" data-text="알림"> <i
 							class="far fa-bell"></i>
 						</a>
-					</div>
+					</div>								
+							</c:otherwise>
+						</c:choose>
+					</section>
+
+				
 
 				</div>
 			</div>

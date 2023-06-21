@@ -21,8 +21,9 @@ public class AlarmServiceImpl implements AlarmService {
 
 	@Override
 	public List<Alarm> selectAll() {
-		return dao.selectAll(); 
+		return dao.selectAll();
 	}
+
 
 	
 

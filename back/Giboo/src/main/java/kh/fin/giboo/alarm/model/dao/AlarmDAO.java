@@ -19,16 +19,7 @@ public class AlarmDAO {
 	private SqlSessionTemplate sqlSession;
 
 	public List<Alarm> selectAll() {
-		
-		 return sqlSession.selectList("alarm-mapper.selectAll");
+		return sqlSession.selectList("alarm-mapper.selectAll" );
 	}
-
-
-
-
-
-	
-
-
 	
 }

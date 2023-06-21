@@ -4,68 +4,42 @@ $('.tooltip[data-text="알림"]').on('click', function() {
 });
 
 
-//ajax
-function selectAll(){ // 회원 전체 조회 함수
-  // ajax코드
+
+$('#alarm').click(function(){
   $.ajax({
-    url: "alarm/selectAll",
-    dataType: "json",
-    success: function (list) {
-      const alarmList = document.getElementById("alarmList");
-      alarmList.innerHTML = "";
+      url: "/Giboo/notifications",
+      dataType: "json",
+      success: function (list) {
+          const alarmList = $("#alarmList");
+          alarmList.empty();
 
-      for (let item of list) {
-        const alertContainer = document.createElement("div");
-        alertContainer.className = "alert_myfavcard_contaner";
+          for (let item of list) {
+              const alertContainer = $("<div>").addClass("alert_myfavcard_contaner");
 
-        // 알림 카드 내용 생성 (알림 카테고리, 이모티콘, 점선 등...)
+              const alertTitleContainerA = $("<div>").addClass("alert_titleContainerA");
 
-        const alertMainContainer = document.createElement("div");
-        alertMainContainer.className = "alert_Maincontainer";
+              const alertTitleContainer = $("<div>").addClass("alert_titleContainer");
 
-        const alertTitleContainerA = document.createElement("div");
-        alertTitleContainerA.className = "alert_titleContainerA";
+              const alarmContent = $("<div>").addClass("alarmContent").text(item.alarmContent + "이(가) 등록되었습니다");
 
-        const alertTitleContainer = document.createElement("div");
-        alertTitleContainer.className = "alert_titleContainer";
+              const alarmDate = $("<div>").addClass("alarmDate").text("등록일자 : " + item.alarmDate); // 알람날짜
 
-        const alarmContent = document.createElement("div");
-        alarmContent.className = "alarmContent";
-        const link = document.createElement("a");
-        link.href = "#";
-        link.textContent = item.alarmContent; // 알림 제목
-        alarmContent.appendChild(link);
+    
 
-        const alarmDate = document.createElement("div");
-        alarmDate.className = "alarmDate";
-        alarmDate.textContent = item.alarmDate; // 알림 기관
+              alertTitleContainer.append(alarmContent);
+              alertTitleContainer.append(alarmDate);
+              
+              alertTitleContainerA.append(alertTitleContainer);
 
-        const achieveAlert = document.createElement("div");
-        achieveAlert.className = "memberNo";
-        achieveAlert.textContent = item.achieveAlert; // 알림 카테고리
+              alertContainer.append(alertTitleContainerA);
 
-        alertTitleContainer.appendChild(alarmContent);
-        alertTitleContainer.appendChild(alarmDate);
-        alertTitleContainer.appendChild(achieveAlert);
+              alarmList.append(alertContainer);
+          }
 
-        alertTitleContainerA.appendChild(alertTitleContainer);
-        alertMainContainer.appendChild(alertTitleContainerA);
-
-        alertContainer.appendChild(alertMainContainer);
-
-        alarmList.appendChild(alertContainer);
-      }
-    },
-    error: function () {
-      console.log("에러 발생");
-    },
+          alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
+      },
+      error: function () {
+          console.log("에러 발생");
+      },
   });
-}
-
-(function () {
-  selectAll();
-  window.setInterval(selectAll, 2000);
-})();
-
-
-
+});

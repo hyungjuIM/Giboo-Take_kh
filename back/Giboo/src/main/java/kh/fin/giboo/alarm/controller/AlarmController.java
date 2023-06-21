@@ -18,23 +18,18 @@ import kh.fin.giboo.alarm.model.service.AlarmService;
 import kh.fin.giboo.alarm.model.vo.Alarm;
 
 
-
 @Controller
-@RequestMapping("/alarm")
 @SessionAttributes({ "loginMember" })
 public class AlarmController {
 	private Logger logger = LoggerFactory.getLogger(AlarmController.class);
 	
 	@Autowired
 	private AlarmService service;
-	
-	//알림 목록조회
+
 	@ResponseBody
-	@GetMapping("/selectAll")
+	@GetMapping(value = { "/Giboo/notifications", "/notifications", ""  })
 	public List<Alarm> selectAll(){
-		
 		return service.selectAll();
 	}
-	
 
 }

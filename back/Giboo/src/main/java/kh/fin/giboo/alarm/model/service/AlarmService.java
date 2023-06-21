@@ -14,10 +14,4 @@ public interface AlarmService {
 
 	List<Alarm> selectAll();
 
-	
-
-	
-
-
-
 }
