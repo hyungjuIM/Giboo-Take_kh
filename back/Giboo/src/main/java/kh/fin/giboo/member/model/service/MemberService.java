@@ -15,4 +15,10 @@ public interface MemberService {
 
 	public abstract int isValidCertification(String email2, String cNumber);
 
+	public abstract int nicknameDupCheck(String memberNick);
+
+	public abstract int IdDupCheck(String memberId);
+
+	public abstract int signUp(Member inputMember);
+
 }

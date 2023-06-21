@@ -77,7 +77,10 @@ section:nth-child(odd){
 
 /* ***************** 1번째 section ***************** */
 
+.container .welcome{
+    border: 1px solid red;
 
+}
 
 /* ***************** 2번째 section ***************** */
 .contentContainer{

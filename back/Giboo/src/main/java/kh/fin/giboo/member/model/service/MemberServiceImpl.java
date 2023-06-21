@@ -8,6 +8,7 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kh.fin.giboo.member.model.dao.MemberDAO;
@@ -16,6 +17,9 @@ import kh.fin.giboo.member.model.vo.Member;
 
 @Service
 public class MemberServiceImpl implements MemberService{
+	
+	@Autowired
+	private BCryptPasswordEncoder bcrypt;
 	
 	@Autowired
 	private MemberDAO dao;
@@ -31,13 +35,13 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Member loginMember(Member inputMember) {
 		Member loginMember = dao.loginMember(inputMember);
-//		if(loginMember !=null) {
-//			if(loginMember.getMemberPw() == inputMember.getMemberPw()) {
-//				loginMember.setMemberPw(null);
-//			}else {
-//				loginMember =null;
-//			}
-//		}
+		if(loginMember !=null) {
+			if(bcrypt.matches(inputMember.getMemberPw(), loginMember.getMemberPw())){
+				loginMember.setMemberPw(null);
+			}else {
+				loginMember =null;
+			}
+		}
 		return loginMember;
 	}
 
@@ -119,6 +123,36 @@ public class MemberServiceImpl implements MemberService{
 		return result;
 	}
 
+	@Override
+	public int nicknameDupCheck(String memberNick) {
+		return dao.nicknameDupCheck(memberNick);
+	}
+
+	@Override
+	public int IdDupCheck(String memberId) {
+		return dao.IdDupCheck(memberId);
+	}
+
+	
+//	회원가입 
+	@Override
+	public int signUp(Member inputMember) {
+		
+		//비밀번호 암호화(bcrypt)
+		
+		String encPw = bcrypt.encode(inputMember.getMemberPw());
+		inputMember.setMemberPw(encPw);
+		
+		int result = dao.signUp(inputMember);
+		return result;
+	}
+	
+	
+	
+	
+
+	
+	
 	
 
 	

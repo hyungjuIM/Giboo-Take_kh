@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.fin.giboo.member.model.service.MemberService;
@@ -85,5 +86,64 @@ public class MemberController {
 	public int emailDupCheck(String memberEmail) {
 		int result = service.emailDupCheck(memberEmail);
 		return result;
+	}
+	
+	
+	//닉네임 중복 검사 
+	@ResponseBody
+	@GetMapping("/nicknameDupCheck")
+	public int nicknameDupCheck(String memberNick) {
+		
+		int result = service.nicknameDupCheck(memberNick);
+		return result;
+	}
+	
+	//아이디 중복 검사 
+	@ResponseBody
+	@GetMapping("/IdDupCheck")
+	public int IdDupCheck(String memberId) {
+		int result = service.IdDupCheck(memberId);
+		return result;
+	}
+	
+	
+	//회원가입 
+	
+	@PostMapping("/signUp")
+	public String signUp(Member inputMember, RedirectAttributes ra, String[] memberAddr) {
+		
+		inputMember.setMemberAddr(String.join(",,", memberAddr));
+		
+		if(inputMember.getMemberAddr().equals(",,,,")) {
+			inputMember.setMemberAddr(null);
+		}
+		//회원 가입 서비스 호출
+		int result = service.signUp(inputMember);
+		
+		String message = null;
+		String path = null;
+		
+		if(result > 0) { //회원 가입 성공
+			
+			message = "회원 가입 성공";
+			path = "redirect:/main/login"; //로그인 페이지 
+			
+		}else { //실패 
+			
+			message ="회원 가입 실패";
+			path="redirect:/main/signUp"; //회원 가입 페이지
+			
+		}
+		
+		ra.addFlashAttribute("message", message);
+		return path;
+	}
+	
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logout(SessionStatus status) {
+		logger.info("로그아웃 수행됨");
+		status.setComplete();
+		return "redirect:/";
 	}
 }
