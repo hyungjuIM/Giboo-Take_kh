@@ -81,7 +81,7 @@
                             <div class="favoriteButton">💖</div>
                         </div>
 
-                        <a href="">
+                        <a href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
                             <div class="subTitle">타이틀</div>
                             <div class="mainTitle">${volunteerList.volunteerTitle}</div>

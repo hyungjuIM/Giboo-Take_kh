@@ -4,6 +4,7 @@ import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.donation.model.dao.DonationDAO;
 import kh.fin.giboo.donation.model.vo.Donation;
+import kh.fin.giboo.donation.model.vo.DonationDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,5 +70,10 @@ public class DonationServiceImpl implements DonationService {
         map.put("donationList", donationList);
 
         return map;
+    }
+
+    @Override
+    public DonationDetail getDonationDetail(int donationNo) {
+        return dao.getDonationDetail(donationNo);
     }
 }

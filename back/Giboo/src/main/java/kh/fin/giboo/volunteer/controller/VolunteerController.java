@@ -1,15 +1,19 @@
 package kh.fin.giboo.volunteer.controller;
 
 import kh.fin.giboo.volunteer.model.service.VolunteerService;
+import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Map;
 
 @Controller
@@ -43,9 +47,23 @@ public class VolunteerController {
         return "volunteer/story";
     }
 
-    @GetMapping("/detail")
-    public String detail() {
+    @GetMapping("/detail/{volunteerNo}")
+    public String detail(@PathVariable("volunteerNo") int volunteerNo,
+                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                         Model model) {
         logger.info("봉사 상세 페이지");
+
+        VolunteerDetail volunteerDetail = service.getVolunteerDetail(volunteerNo);
+
+        LocalDate currentDate = LocalDate.now();
+        LocalDate dDay = LocalDate.of(volunteerDetail.getEndRecruitDate().getYear() + 1900, volunteerDetail.getEndRecruitDate().getMonth() + 1, volunteerDetail.getEndRecruitDate().getDate());
+        long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
+        volunteerDetail.setDDay(untilDay);
+
+        int percent = (volunteerDetail.getVolunteerCount() * 100) / volunteerDetail.getTargetPeople();
+        volunteerDetail.setPercent(percent);
+
+        model.addAttribute("volunteerDetail", volunteerDetail);
 
         return "volunteer/detail";
     }
