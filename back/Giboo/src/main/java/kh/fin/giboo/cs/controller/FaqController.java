@@ -33,8 +33,8 @@ public class FaqController {
 		map = service.selectFaqList(cp, model);
 		
 		model.addAttribute("map", map);
-		logger.info("이거의값은???????" + map);
-		logger.info("고객센터");
+		//logger.info("이거의값은???????" + map);
+		//logger.info("고객센터");
 	 
 		return "cs/faqList";
 	}
@@ -56,12 +56,14 @@ public class FaqController {
 		return "cs/faqVolunteer";
 	}
 	
+	
 	// 기부 카테고리만 생성
 	@GetMapping("/faqDonation")
 	public String faqDonation()  {
 		
 	return "cs/faqDonation";
 	}
+	
 	// 이벤트 카테고리만 생성
 	@GetMapping("/faqEvent")
 	public String faqEvent()  {

@@ -34,6 +34,7 @@ public class FaqDAO {
 	public List<Faq> selectFaqVolunteer(Pagination pagination, Model model) {
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+	
 		return sqlSession.selectList("faq-mapper.selectFaqVolunteer", model, rowBounds);
 	}
 	
