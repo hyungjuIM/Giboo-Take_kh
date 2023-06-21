@@ -22,18 +22,20 @@ public class CheckNumberController {
 	@GetMapping("/sendEmail")
 	@ResponseBody
 	public int sendCertificationCode(HttpServletRequest req, Model model) throws Exception {
-		String email = req.getParameter("memberEmail");
-		int result = service.sendCertificationCode(email);
-		model.addAttribute("email", email);
+		String email2 = req.getParameter("memberEmail");
+		System.out.println("email:"+email2);
+		int result = service.sendCertificationCode(email2);
+		
+		model.addAttribute("email2", email2);
 		return result;
 	}
 	
 	@GetMapping("/checkNumber")
 	@ResponseBody
 	public int confirmCertificationCode(HttpServletRequest req, Model model) {
-		String email = req.getParameter("memberEmail");
+		String email2 = req.getParameter("memberEmail");
 		String cNumber = req.getParameter("cNumber");
-		int result = service.isValidCertification(email, cNumber);
+		int result = service.isValidCertification(email2, cNumber);
 		if(result == 1) {
 			model.addAttribute("message","인증되었습니다.");
 			

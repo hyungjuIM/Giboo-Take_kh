@@ -36,7 +36,7 @@
     <!--  이메일 인증 -->
 	<resultMap type="emailCertification" id="emailcertification_rm">
 		<id property="email" column="EMAIL"/>
-		<result property="certificationNo" column="CERTIFICATION_NO" />
+		<result property="cNumber" column="CERTIFICATION_NO" />
 		<result property="issueDate" column="ISSUE_DT"/>
 	</resultMap>
 
@@ -64,26 +64,26 @@
 	<!-- 이메일 인증 -->
 	<update id="updateCertification">
 		UPDATE EMAIL_CERTIFICATION SET
-		CERTIFICATION_NO = #{certificationNo},
+		CERTIFICATION_NO = #{cNumber},
 		ISSUE_DT = SYSDATE
 		WHERE EMAIL = #{email}
 		
 	</update>
 	<insert id="insertCertification">
-		INSERT INTO EMAIL_CERTIFICATION (EMAIL, CERTIFICATION_NO, ISSUE_DT) VALUES(#{memberEmail},#{certificationNo), SYSDATE)
+		INSERT INTO EMAIL_CERTIFICATION (EMAIL, CERTIFICATION_NO, ISSUE_DT) VALUES(#{memberEmail},#{cNumber}, SYSDATE)
 	</insert> 
 	<select id="checkNumber" resultType="_int">
 		SELECT
 	CASE
 		WHEN EXISTS (
-		SELECT '1' FROM CERTIFICATION
-		WHERE EMAIL = #{email}
-		AND CERTIFICATION_NO = #{certificationNo}
+		SELECT '1' FROM EMAIL_CERTIFICATION
+		WHERE EMAIL = #{memberEmail}
+		AND CERTIFICATION_NO = #{cNumber}
 		)THEN
 			CASE
 				WHEN EXISTS (
-					SELECT '1' FROM CERTIFICATION
-					WHERE EMAIL = #{email}
+					SELECT '1' FROM EMAIL_CERTIFICATION
+					WHERE EMAIL = #{memberEmail}
 					AND ISSUE_DT + (INTERVAL '5' NINUTE) >= SYSDATE
 				)THEN '1'
 				ELSE '2'
