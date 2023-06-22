@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 
 import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
@@ -35,10 +36,10 @@ public interface EventService {
 	//
 	int insertPopup(Map<String, Object> map, EventPopup eventPopup) throws IOException;
 
+	int insertMyActiveEventList(MyActiveEventList myActiveEventList);
+	
 	int insertStamp(Stamp stamp);
 
-	MyActiveEventList insertMyActiveEventList(int eventNo);
-
-	Alarm insertAlarm(int eventNo);
+	int insertAlarm(Alarm alarm);
 
 }

@@ -72,6 +72,7 @@
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveVolunteerList" alias="myActiveVolunteerList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveEventList" alias="myActiveEventList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyReview" alias="myReview"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.Stamp" alias="stamp"/>
 
 
 	<!-- 고객센터 -->
