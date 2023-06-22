@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 // 이벤트 참여하기 팝업
 public class EventPopup {
-	private String attachment; // 첨부파일
+	private String eventCertificationAttachment; // 첨부파일
 	private int memberNo;
 	private int eventNo;
 	private int eventPersonNo;

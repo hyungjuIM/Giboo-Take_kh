@@ -13,7 +13,7 @@
 	</resultMap>
 	
 	<!-- 지도 목록 조회 -->
-	<select id="selectMapList" resultMap="map_rm">
+<!-- 	<select id="selectMapList" resultMap="map_rm">
 		SELECT 
 		MAP_NO,
 		VOLUNTEER_ATTACHEMENT, 
@@ -29,5 +29,5 @@
 		JOIN DONATION USING(DONATION_NO)
 		CROSS JOIN(SELECT COUNT(VOLUNTEER_NO) AS VOLUNTEER_COUNT FROM MYACTIVE) A
 		CROSS JOIN(SELECT COUNT(REPLY_NO) AS REPLY_COUNT FROM REPLY) R;
-	</select>
+	</select> -->
 </mapper>

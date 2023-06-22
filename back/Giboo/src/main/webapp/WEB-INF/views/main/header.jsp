@@ -83,6 +83,7 @@
 									<a href="${contextPath}/main/logout"> 로그아웃</a>
 								</div>
 
+
 								
 									<div class="toggle">
 						<a href="${pageContext.request.contextPath}/mypage/mypageMain"
@@ -95,6 +96,7 @@
 							class="far fa-bell"></i>
 						</a>
 					</div>								
+
 							</c:otherwise>
 						</c:choose>
 					</section>
