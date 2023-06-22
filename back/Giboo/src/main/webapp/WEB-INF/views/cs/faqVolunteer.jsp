@@ -53,10 +53,6 @@
                 </div>
             </div>
       
-            <jsp:include page="/WEB-INF/views/cs/faqList.jsp" />
-
-
-
             <div class="cs-faqArea">
                 <section class="cs-faqContainer">
                     <div class="faqContent">
@@ -65,6 +61,7 @@
                                  자주 찾으시는 목록 Best 10</span><span style="color: #767676;">을 알려드립니다 😇</span>
                         </div>
                         <hr>
+                        <!-- faq list -->
                         <div id="Accordion_wrap">
                                 <c:choose>
                                     <c:when test="${empty faqVolunteer}">
@@ -127,6 +124,7 @@
             </div>    
         </div>
         
+        <!-- 푸터 영역 -->
         <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
         </footer>
