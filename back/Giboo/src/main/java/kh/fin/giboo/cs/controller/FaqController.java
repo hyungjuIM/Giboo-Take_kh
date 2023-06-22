@@ -23,9 +23,7 @@ public class FaqController {
 	private Logger logger = LoggerFactory.getLogger(FaqController.class);
 	
 	
-	 
 
-	
 	
 	// 봉사 카테고리만 생성
 	@GetMapping("/faqVolunteer")

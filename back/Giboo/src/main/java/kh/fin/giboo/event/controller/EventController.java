@@ -142,14 +142,14 @@ public class EventController {
 		
 		String message = null;
 		
-		if(result > 0) {
-			MyActiveEventList myActiveEventList = service.insertMyActiveEventList(eventNo);
-			int stamp = service.insertStamp(stamp);
-			Alarm alarm = service.insertAlarm(eventNo);
-		}else {
-			message = "실패";
-		}
-		
+//		if(result > 0) {
+//			MyActiveEventList myActiveEventList = service.insertMyActiveEventList(eventNo);
+//			int stamp = service.insertStamp(stamp);
+//			Alarm alarm = service.insertAlarm(eventNo);
+//		}else {
+//			message = "실패";
+//		}
+//		
 		ra.addFlashAttribute("message",message);
 		
 		

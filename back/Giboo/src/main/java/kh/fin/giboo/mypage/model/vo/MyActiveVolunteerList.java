@@ -14,6 +14,9 @@ public class MyActiveVolunteerList {
 	
 	//봉사 목록
 	private int myactiveVolunteerNo;
+	
+	private int ROWNUM_VAL; // 순번 값
+	
 	private String myactiveDate;
 	private String volunteerCompleteStatus;	
 	private int volunteerNo;
