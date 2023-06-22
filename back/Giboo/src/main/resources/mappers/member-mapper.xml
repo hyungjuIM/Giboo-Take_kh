@@ -21,7 +21,7 @@
     </resultMap>
 
     <resultMap type="manager" id="manager_rm">
-    	<id property="MANAGERNo" column="MANAGER_NO"/>
+    	<id property="managerNo" column="MANAGER_NO"/>
     	<result property="managerId" column="MANAGER_ID"/>
     	<result property="managerPw" column="MANAGER_PW"/>
     	<result property="managerEmail" column="MANAGER_EMAIL"/>

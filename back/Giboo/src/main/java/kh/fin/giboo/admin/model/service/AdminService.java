@@ -31,9 +31,11 @@ public interface AdminService {
 
     List<Faq> selectFaqList();
 
-	List<Member> selectmemberRateList();
+	  List<Member> selectmemberRateList();
 
-	int updateMemberRates(String rateName, int pointPrice);
+	  int updateMemberRatesByRate(String rateName, int pointPrice);
+
+	//int updateMemberRates(List<String> rateName, List<String> pointPrice);
 
     int removeCategory(Map<String, String> map);
 }

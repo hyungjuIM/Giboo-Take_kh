@@ -70,32 +70,64 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<Member> selectmemberRateList() {
+//		Rate rate = new Rate();
+//		Point pointTb = new Point();
+//		int pointNo = pointTb.getMemberNo();
+//		String rateName = rate.getRateName();
+//		int minPoint =dao.getMinPoint(rateName);
+//		int maxPoint =dao.getMaxPoint(rateName);
+//		int pointPrice = dao.getPointPrice(pointNo);
+//		int point= dao.getPointByRate(rateName);
+//		int updatedMemberCount = 0;
+//		 List<Member> members = selectmemberRateList();
+//		 for (Member member : members) {
+//		      int volunteerCount = dao.getVolunteerCount(member.getMemberNo());
+//		      int donationCount = dao.getDonationCount(member.getMemberNo());
+//		      
+//		      if ((volunteerCount + donationCount) >= minPoint && (volunteerCount + donationCount) <= maxPoint) {
+//		        member.setRateName(rateName);
+//		        member.setPointPrice(pointPrice);
+//
+//		        member.setPointPrice(member.getPointPrice() + point);
+//
+//		         dao.updateMemberRate(member);
+//		         updatedMemberCount++; // 회원 업데이트가 수행되었으므로 카운트를 증가
+//		      }
+//		    }
+//		    return updatedMemberCount;// 업데이트된 회원 수를 반환
+	
 		return dao.selectmemberRateList();
 	}
 
+	@Override
+	public int updateMemberRatesByRate(String rateName, int pointPrice) {
+	    List<Member> members = dao.selectmemberRateList();
+//	    Rate rate = new Rate();
+	    
+	    int minPoint = dao.getMinPoint(rateName);
+	    int maxPoint = dao.getMaxPoint(rateName);
+	    int updatedMemberCount = 0;
 
-	 public int updateMemberRates(String rateName, int pointPrice) {
-		    List<Member> members = selectmemberRateList();
-		    int minPoint =dao.getMinPoint(rateName);
-		    int maxPoint =dao.getMaxPoint(rateName);
-		    int point= dao.getPointByRate(rateName);
-		    int updatedMemberCount = 0;
-		    for (Member member : members) {
-		      int volunteerCount = dao.getVolunteerCount(member.getMemberNo());
-		      int donationCount = dao.getDonationCount(member.getMemberNo());
-		      
-		      if ((volunteerCount + donationCount) >= minPoint && (volunteerCount + donationCount) <= maxPoint) {
-		        member.setRateName(rateName);
-		        member.setPointPrice(pointPrice);
+	    for (Member member : members) {
+	        int volunteerCount = dao.getVolunteerCount(member.getMemberNo());
+	        int donationCount = dao.getDonationCount(member.getMemberNo());
 
-		        member.setPointPrice(member.getPointPrice() + point);
+	        if ((volunteerCount + donationCount) >= minPoint && (volunteerCount + donationCount) <= maxPoint) {
+	        	String rateName2 = dao.getRateName(minPoint,maxPoint);
+	            member.setRateName(rateName2);
+//	            member.setPointPrice(pointPrice);
+	            int point = dao.getPointByRate(rateName);
+	            member.setPointPrice(member.getPointPrice() + point);
 
-		         dao.updateMemberRate(member);
-		         updatedMemberCount++; // 회원 업데이트가 수행되었으므로 카운트를 증가
-		      }
-		    }
-		    return updatedMemberCount; // 업데이트된 회원 수를 반환
-		  }
+	            dao.updateMemberRate(member);
+	            updatedMemberCount++; // 회원 업데이트가 수행되었으므로 카운트를 증가
+	        }
+	    }
+
+	    return updatedMemberCount;
+	}
+	
+
 
     @Override
     public int removeCategory(Map<String, String> map) {
