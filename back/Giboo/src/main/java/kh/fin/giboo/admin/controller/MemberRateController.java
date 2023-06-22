@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.fin.giboo.admin.model.service.AdminService;
 import kh.fin.giboo.admin.model.vo.Rate;
@@ -27,22 +28,41 @@ public class MemberRateController {
     @Autowired
     private AdminService service;
     // 등급관리
-    @GetMapping("memberRate")
-    public String memberRate(Model model) {
-        logger.info("회원 등급 관리");
+    @GetMapping("/memberRate")
+     public String updateMemberRates(
+                                    Model model,
+                                    RedirectAttributes redirectAttributes) {
+    	logger.info("등급관리");
+    	List<Member> memberList = service.selectmemberRateList();
+    	model.addAttribute("memberRateList", memberList);
+    	System.out.println(memberList);
+    	
+    	for (Member member : memberList) {
+    	    // 각 회원 객체에 대한 작업 수행
+    	    String rateName = member.getRateName();  // 회원의 rateName 값 가져오기
+    	    int pointPrice = member.getPointPrice();  // 회원의 pointPrice 값 가져오기
+    	    
+    	    System.out.println("회원의 rateName: " + rateName);
+    	    System.out.println("회원의 pointPrice: " + pointPrice);
 
-        List<Member> memberRateList = service.selectmemberRateList();
 
-        model.addAttribute("memberRateList", memberRateList);
-        System.out.println(memberRateList);
+    	model.addAttribute("rateName", rateName);
+        model.addAttribute("pointPrice", pointPrice);
+        int updatedMemberCount = service.updateMemberRatesByRate(rateName, pointPrice);
+    	
+        redirectAttributes.addFlashAttribute("updatedMemberCount", updatedMemberCount);
+        System.out.println(updatedMemberCount);
+    	}
         return "admin/memberRate";
     }
     
-    @ResponseBody
-    @GetMapping("/memberRateUpdate")
-    public int updateMemberRates(  String rateName,
-            int pointPrice) {
-        int result = service.updateMemberRates(rateName,pointPrice);
-        return result; //
-    }
+//    @ResponseBody
+//    @GetMapping("/memberRateUpdate")
+//    public int updateMemberRates( @RequestParam List<String> rateName,
+//            @RequestParam List<String> pointPrice) {
+//    	System.out.println(rateName);
+//    	System.out.println(pointPrice);
+//        int result = service.updateMemberRates(rateName,pointPrice);
+//        return result; //
+//    }
 }
