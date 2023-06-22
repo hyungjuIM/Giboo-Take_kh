@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,66 +8,99 @@
 
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/login.css">
-    
+
 </head>
+
 <body>
     <header>
         <div data-include1="header" id="header"></div>
     </header>
-    
+
     <main>
         <section class="loginSection">
-            <div class="loginContainer">
+            <div class="loginContainer_box">
+
                 <div class="loginTitle">
                     <span>로그인</span>
                 </div>
-                <form action="" id="loginForm">
-                    <div class="memberId">
-                        <span><i class="fa-regular fa-user"></i></span>
-                        <input type="text" id="loginId" placeholder="아이디">
-                    </div>
-                    <div class="memberPw">
-                        <span><i class="fa-solid fa-fingerprint"></i></span>
-                        <input type="text" name="" id="loginPw" placeholder="비밀번호(8자 이상)">
-                    </div>
-                    <div class="checkContainer">
-                        <div class="checkboxBox">
-                            <input type="checkbox">
-                            <span>아이디 저장</span>
-                        </div>
-                        <div class="signUp"><a>회원가입 하기</a></div>
-                    </div>
-                    <div class="loginBtnnBox">
-                        <button class="loginBtnn">로그인</button>
-                    </div>
-                </form>
+
+                <div class="loginContainer">
+                    <form action="" method="POST" name="login-form" onsubmit="return loginCValidate()" id="loginForm">
+                        <fieldset class="id-pw-area">
+
+                            <div class="memberid loginInput_Container">
+                                <span><i class="fa-regular fa-user"></i></span> <input type="text" name="memberId"
+                                    id="loginId" placeholder="아이디" value="${cookie.saveId.value}">
+                            </div>
+
+                            <div class="memberPw loginInput_Container">
+                                <span><i class="fa-solid fa-fingerprint"></i></span> <input type="password"
+                                    name="memberPw" id="loginPw" placeholder="비밀번호(8자 이상)">
+                            </div>
+
+
+                            <div class="checkContainer">
+                                <div class="checkboxBox">
+                                    <input type="checkbox" class="cookieBox"> <span>아이디 저장</span>
+                                </div>
+                                <div class="signUp">
+                                    <a href="${pageContext.request.contextPath}/main/signUp">회원가입
+                                        하기</a>
+                                </div>
+                            </div>
+    
+
+                            <div>
+                                <div class="loginBtnnBox">
+                                    <button type="submit" class="loginBtnn">로그인</button>
+                                </div>
+                            </div>
+
+                        </fieldset>
+
+                        <!-- 쿠키  -->
+
+                      
+
+
+                    </form>
+
+                </div>
+
+
+
                 <div class="loginSocial">
-                    <span>3초만에 시작하기</span>
-                    <a href="" class="loginKakaoLink">
-                        <div class="loginKakao">
-                            <img src="/images/kakao.jpg" alt="">
+                    <span>3초만에 시작하기</span> <a href="" class="loginKakaoLink">
+                        <div class="social_icon_Container">
+                        <div class="loginKakao icon_Style">
+                            <img src="/images/kakao_icon.png" class="kakaoIcon01" alt="">
+                            <img src="/images//change_kakao.png.png" class="kakaoIcon02" alt="">
                         </div>
-                        <div class="loginKakao">
-                            <span>🥰</span>
+                        <div class="loginGoogle icon_Style" title="서비스를 준비중입니다.">
+                            <img src="/images/google_icon.png" >
                         </div>
+                    </div>
+                    
                     </a>
                 </div>
+
             </div>
+            
         </section>
 
     </main>
 
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-    $(function () {
-        var include1 = $('[data-include1="header"]');
-        jQuery.each(include1, function () {
-            $(this).load('/html/01.header.html');
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            var include1 = $('[data-include1="header"]');
+            jQuery.each(include1, function () {
+                $(this).load('/html/01.header.html');
+            });
         });
-    });
 
-</script>
+    </script>
 </body>
+
 </html>
