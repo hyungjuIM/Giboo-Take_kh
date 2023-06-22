@@ -31,8 +31,10 @@
 	</select>
 	
 	<select id="selectFaqVolunteer" resultMap="faq_rm">
-    SELECT FAQ_NO, FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
+   	SELECT FAQ_NO, FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
 	FROM FAQ
+	WHERE FAQ_CATEGORY = '봉사'
+	ORDER BY FAQ_NO
     </select>
 
 	
