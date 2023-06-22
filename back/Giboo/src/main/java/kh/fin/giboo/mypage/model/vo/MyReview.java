@@ -13,6 +13,9 @@ public class MyReview {
 	//리뷰 목록
 	
 	private int reviewNo;
+	
+	private int ROWNUM_VAL; // 순번 값
+	
 	private String donationTitle;
 	private String volunteerTitle;
 	private String reviewContent;

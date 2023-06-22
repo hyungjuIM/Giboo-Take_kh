@@ -70,8 +70,8 @@
                                     <td>${member.memberEmail}</td>
                                     <td>${member.memberName}</td>
                                     
-                                    <td class="rateName" name="rateName">${member.rateName}</td>
-                                    <td class="pointPrice" name="pointPrice">${member.pointPrice}</td>
+                                    <td ><span class="rateName" name="rateName">${member.rateName}</span></td>
+                                    <td><span  class="pointPrice" name="pointPrice">${member.pointPrice}</span></td>
                                     <td><button class="detail">상세 정보</button></td>
                                 </tr>
                             </c:forEach>
@@ -79,7 +79,6 @@
                            
                         </tbody>
                     </table>
-                    <button type="button" class="updatebtn" id="updatebtn" name="updatebtn">등급 업데이트</button>
                 
                 </div>
             </div>
@@ -89,7 +88,7 @@
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
-    <script src="${pageContext.request.contextPath}/resources/js/admin/updateMemberRate.js"></script>
+    
 
 </body>
 </html>

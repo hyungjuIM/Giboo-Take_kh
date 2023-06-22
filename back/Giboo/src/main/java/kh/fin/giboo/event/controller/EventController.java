@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,6 +33,7 @@ import kh.fin.giboo.event.model.vo.EventDetailTop;
 import kh.fin.giboo.event.model.vo.EventList;
 import kh.fin.giboo.event.model.vo.EventPopup;
 import kh.fin.giboo.event.model.vo.EventStickerBar;
+import kh.fin.giboo.event.Util;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.mypage.model.vo.MyActiveEventList;
 import kh.fin.giboo.mypage.model.vo.Stamp;
@@ -70,6 +72,7 @@ public class EventController {
 				@PathVariable("eventNo") int eventNo
 				,@RequestParam(value="cp", required = false, defaultValue = "1") int cp
 				,Model model
+				, HttpSession session
 			) {
 		
 		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
@@ -90,6 +93,10 @@ public class EventController {
 		
 		model.addAttribute("eventDetailTop",eventDetailTop);
 		logger.info("이벤트디테일탑???????" + eventDetailTop);
+	   
+		// 이벤트 번호를 세션에 저장
+	    session.setAttribute("eventNo", eventNo);
+
 		
 //	     eventDetailMain 페이지 로드 후 버튼 클릭 시 eventPopup 페이지로 이동할 URL을 모델에 추가
 	    String eventPopupUrl = "event/eventPopup/" + eventNo + "?cp=" + cp;
@@ -107,54 +114,110 @@ public class EventController {
 	    @PathVariable("eventNo") int eventNo,
 	    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
 	    Model model
+	    , EventDetailTop eventDetailTop
 	) {
 
+		
 	    model.addAttribute("eventNo", eventNo);
 	    model.addAttribute("cp", cp);
+	    model.addAttribute("eventDetailTop", eventDetailTop);
 	    return "event/eventPopup";
 	}
 	
 	
-	@PostMapping(value="/eventPopup/{eventNo}")
+	
+	@PostMapping(value="/write/{eventNo}")
 	@Transactional
 	public String insertPopup(
 		    @PathVariable("eventNo") int eventNo,
 		    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
 		    @RequestParam("uploadImage") MultipartFile uploadImage, /* 업로일 파일 */
 		    @RequestParam Map<String, Object> map,
-			@ModelAttribute("loginMember") Member loginMember,
-			EventPopup eventPopup
+			@ModelAttribute("loginMember") Member loginMember
+			,EventPopup eventPopup
+			,Stamp stamp
+			,Alarm alarm
+			,MyActiveEventList myActiveEventList
 			, HttpServletRequest req
 			,RedirectAttributes ra
+			,Model model
 		)throws IOException {
+		
+	    eventPopup.setEventNo(eventNo);
 		
 		eventPopup.setMemberNo(loginMember.getMemberNo());
 		
-		String webPath = "/resources/images/board/";
+		String webPath = "\\resources\\images\\eventPopup";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+//		String folderPath = "C:\\gibooTake\\back\\Giboo\\src\\main\\webapp\\resources\\images\\eventPopup\\";
+
+//String webPath = "/resources/images/eventPopup/";
+//String folderPath = req.getSession().getServletContext().getRealPath("/resources/images/eventPopup/");
+
+//	    String folderPath = req.getSession().getServletContext().getRealPath("/");
 		
 		map.put("webPath", webPath);
 		map.put("folderPath", folderPath);
 		map.put("uploadImage", uploadImage);
 		map.put("memberNo", loginMember.getMemberNo());
 		
+
 		int result = service.insertPopup(map, eventPopup);
 		
 		String message = null;
+		String path = null;
 		
-		if(result > 0) {
-			MyActiveEventList myActiveEventList = service.insertMyActiveEventList(eventNo);
-			int stamp = service.insertStamp(stamp);
-			Alarm alarm = service.insertAlarm(eventNo);
-		}else {
-			message = "실패";
+
+        logger.info("result: " + result); // 결과값 로그로 출력
+        logger.info("map: " + map.toString());
+        logger.info("eventPopup: " + eventPopup.toString());
+        logger.info("uploadImage: " + uploadImage.toString());
+		
+		if (result > 0) {
+
+			// myActiveEventList 객체의 MEMBER_NO 설정
+			myActiveEventList.setMemberNo(loginMember.getMemberNo());
+			
+			int result2 = service.insertMyActiveEventList(myActiveEventList);
+            logger.info("result2: " + result2); // 결과값 로그로 출력
+            logger.info("myActiveEventList: " + myActiveEventList); // 결과값 로그로 출력
+
+			
+		    if (result2 > 0 ) {
+		    	
+	            // Stamp 객체의 MEMBER_NO 설정
+	            stamp.setMemberNo(loginMember.getMemberNo());
+		    	
+		        int result3 = service.insertStamp(stamp);
+	            logger.info("result3: " + result3); // 결과값 로그로 출력
+	            logger.info("stamp: " + stamp); // 결과값 로그로 출력
+
+		        if (result3 > 0) {
+		        	   // Alarm 객체의 memberNo 설정
+	                alarm.setMemberNo(loginMember.getMemberNo());
+		        	
+		            int result4 = service.insertAlarm(alarm);
+		            logger.info("result4: " + result4); // 결과값 로그로 출력
+		            logger.info("alarm: " + alarm); // 결과값 로그로 출력
+		            		            
+
+		        } else {
+		            // stamp 삽입 실패 처리
+		        }
+		        
+		        path = "../event/eventDetailMain/" + eventNo + "?cp=" + cp;
+		    } else {
+		        // myActiveEventList 삽입 실패 처리
+		    }
+		} else {
+		    message = "실패";
 		}
-		
+
+
 		ra.addFlashAttribute("message",message);
+		return "redirect:" + path;
 		
 		
-		
-		return "redirect:event/eventPopup";
 	}
 
 	

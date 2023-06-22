@@ -31,11 +31,11 @@
                     <span><img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="사진" style="width:50px; height: auto;"></span>
                     <span>${eventDetailTop.eventTitle}</span>
                 </div>
-                <form action="${eventNo}">
+                <form action="${eventNo}" enctype="multipart/form-data" method="POST" class="eventPopup-write">
                     <div class="E_popup_cont05">
                         <div class="E_imgInputInner">               
                         
-                            <input id="E_imgInput" type="file" accept="image/*">
+                            <input id="E_imgInput" type="file" accept="image/*" name="uploadImage">
                             <div id="E_imgInputPlaceholder"></div>
                             
                             <label for="E_imgInput" class="E_imgSelectButton"><i class="fa-solid fa-camera"></i>사진 첨부</label>
@@ -51,15 +51,22 @@
                     </div>
                     <div class="E_popup_cont08">
                         <button id="E_popup1">취소</button>
-                        <button id="popup_submit2">등록</button>
-        
+                        <button id="popup_submit2" type="submit">등록</button>        
                     </div>
-                    <iframe id="popupFrame" src="" frameborder="0"></iframe>
                 </form>
             </div>
         </div>
         <div class="E_pop_mask2"></div>
     </main>
+
+
+    <script>
+        function redirectToEventDetail(eventNo, currentPage, sURL) {
+          var url = `../event/eventDetailMain/${eventNo}?cp=${currentPage}${sURL}`;
+          window.location.href = url;
+        }
+      </script>
+      
 </body>
 
 </html>

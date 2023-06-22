@@ -28,5 +28,6 @@ public class MyActiveEventList {
 	private String eventNo;
 	private String enrollDate;
 	private String endRecruitDate;
+	private int memberNo;
 	
 }

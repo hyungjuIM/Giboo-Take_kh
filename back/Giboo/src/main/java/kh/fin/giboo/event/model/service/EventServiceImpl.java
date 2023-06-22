@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,6 +18,7 @@ import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.event.Util;
 import kh.fin.giboo.event.controller.EventController;
 import kh.fin.giboo.event.model.dao.EventDAO;
+import kh.fin.giboo.event.model.exception.InsertFailException;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
 import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
@@ -78,27 +80,55 @@ public class EventServiceImpl implements EventService{
 	}
 
 	//
+	@Transactional(rollbackFor = { Exception.class })
 	@Override
 	public int insertPopup(Map<String, Object> map, EventPopup eventPopup) throws IOException {
+
+		MultipartFile uploadImage = (MultipartFile)map.get("uploadImage");
 
 		int eventNo = dao.insertPopup(eventPopup);
 		
 		if(eventNo > 0) {
-			MultipartFile uploadImage = (MultipartFile)map.get("uploadImage");
+//			MultipartFile uploadImage = (MultipartFile)map.get("uploadImage");
+//			String renameImage = null; // 변경된 파일명 저장 변수
+//			renameImage = Util.fileRename( uploadImage.getOriginalFilename() );
+//			map.put("profileImage", map.get("webPath") + renameImage);
+//			
+//			int result = dao.insertImage(map);
 			String renameImage = null; // 변경된 파일명 저장 변수
-			renameImage = Util.fileRename( uploadImage.getOriginalFilename() );
-			map.put("profileImage", map.get("webPath") + renameImage);
 			
-			int result = dao.insertImage(map);
+			 renameImage = Util.fileRename(uploadImage.getOriginalFilename());
+//			 String eventCertificationAttachment = map.get("webPath") + renameImage; //(추가)
+//			 eventPopup.setEventCertificationAttachment(eventCertificationAttachment);
+		        map.put("eventCertificationAttachment", map.get("webPath") + renameImage);
+		        map.put("eventNo", eventNo); // 추가된 코드: eventNo 값을 map에 추가
+//		        map.put("eventCertificationAttachment", eventPopup);
+
+		        
+		        int result = dao.insertImage(map);
 			
 			// DB 수정 성공 시 메모리에 임시 저장되어있는 파일을 서버에 저장
-			if( result > 0 && map.get("profileImage") != null) {
+			if( result > 0 && map.get("eventCertificationAttachment") != null) {
 				uploadImage.transferTo( new File( map.get("folderPath") + renameImage) );
+//				String folderPath = (String) map.get("folderPath");
+//		        uploadImage.transferTo(new File(folderPath + renameImage));
+			}else { // 이미지 삽입 실패 시
+				 
+				// 강제로 예외를 발생 시켜 rollback을 수행하게 함
+				// -> 사용자 정의 예외 
+				throw new InsertFailException();
 			}
-		}	
+
+		}
+		return eventNo;	
 		
-		return eventNo;
 	}
+
+	@Override
+	public int insertMyActiveEventList(MyActiveEventList myActiveEventList) {
+		return dao.insertMyActiveEventList(myActiveEventList);
+	}
+
 
 	@Override
 	public int insertStamp(Stamp stamp) {
@@ -106,14 +136,11 @@ public class EventServiceImpl implements EventService{
 	}
 
 	@Override
-	public MyActiveEventList insertMyActiveEventList(int eventNo) {
-		return dao.insertMyActiveEventList(eventNo);
+	public int insertAlarm(Alarm alarm) {
+		return dao.insertAlarm(alarm);
 	}
 
-	@Override
-	public Alarm insertAlarm(int eventNo) {
-		return dao.insertAlarm(eventNo);
-	}
+
 
 
 

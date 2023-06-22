@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import kh.fin.giboo.event.controller.EventController;
+
 import kh.fin.giboo.member.model.service.MyPageService;
 import kh.fin.giboo.member.model.vo.Member;
 
@@ -22,7 +22,7 @@ import kh.fin.giboo.member.model.vo.Member;
 @SessionAttributes({ "loginMember" })
 @RequestMapping("/mypage")
 public class MypageController {
-	private Logger logger = LoggerFactory.getLogger(EventController.class);
+	private Logger logger = LoggerFactory.getLogger(MypageController.class);
 
 	@Autowired
 	private MyPageService service;

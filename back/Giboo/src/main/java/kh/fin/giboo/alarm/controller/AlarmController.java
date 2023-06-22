@@ -19,7 +19,7 @@ import kh.fin.giboo.alarm.model.vo.Alarm;
 
 
 @Controller
-@SessionAttributes({ "loginMember" })
+//@SessionAttributes({ "loginMember" })
 public class AlarmController {
 	private Logger logger = LoggerFactory.getLogger(AlarmController.class);
 	

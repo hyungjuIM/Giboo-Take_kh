@@ -44,6 +44,7 @@
 	</resultMap> 
 	
 	
+	
 	<!-- 페이지네이션 목록 조회 -->
 	<select id="getListCount" resultType="_int">
 		SELECT COUNT(*) FROM EVENT
@@ -130,6 +131,39 @@
 		INNER JOIN MEMBER M ON EP.MEMBER_NO = M.MEMBER_NO
 		WHERE EP.EVENT_NO = ${eventNo}
 	</select>
+	
+	
+	<!--  -->
+	
+	<insert id="insertPopup"  parameterType="eventPopup">
+	
+<!-- 		<selectKey keyProperty="eventNo"  resultType="_int"  order="BEFORE">
+			SELECT SEQ_EVENT_NO.NEXTVAL FROM DUAL		
+		</selectKey> -->
+		
+		INSERT INTO EVENT_PERSON (EVENT_PERSON_NO, CERTIFICATION_STATUS, MEMBER_NO, EVENT_NO)
+		VALUES (SEQ_EVENT_PERSON_NO.NEXTVAL, 'Y', #{memberNo}, #{eventNo})
+	</insert>
+	
+	 <insert id="insertImage">
+		INSERT INTO EVENT_CERTIFICATION (EVENT_CERTIFICATION_NO, EVENT_CERTIFICATION_DATE, EVENT_CERTIFICATION_ATTACHMENT, EVENT_PERSON_NO)
+		VALUES (SEQ_EVENT_CERTIFICATION_NO.NEXTVAL, DEFAULT, #{eventCertificationAttachment}, (SELECT EVENT_PERSON_NO FROM (SELECT EVENT_PERSON_NO FROM EVENT_PERSON ORDER BY EVENT_PERSON_NO DESC) WHERE ROWNUM = 1))
+	</insert>
+	
+	 <insert id="insertMyActiveEventList" parameterType="myActiveEventList">
+		INSERT INTO MYACTIVE_EVENT (MYACTIVE_EVENT_NO, MYACTIVE_DATE, VOLUNTEER_COMPLETE_STATUS, MEMBER_NO, EVENT_NO)
+		VALUES (MYACTIVE_3_SEQ.NEXTVAL, DEFAULT, 'Y', #{memberNo}, #{eventNo})
+	</insert>
+	
+	<insert id="insertStamp" parameterType="stamp">
+		INSERT INTO STAMP (STAMP_NO, EVENT_NO, MEMBER_NO)
+		VALUES (SEQ_STAMP_NO.NEXTVAL, #{eventNo}, #{memberNo})
+	</insert>
+	
+	<insert id="insertAlarm" parameterType="alarm">
+		INSERT INTO ALARM (ALARM_NO, ALARM_CONTENT, ALARM_DATE, READ_STATUS, MEMBER_NO, EVENT_NO)
+		VALUES (SEQ_ALARM_NO.NEXTVAL, (SELECT EVENT_TITLE FROM EVENT WHERE EVENT_NO = #{eventNo}), DEFAULT, 'N', #{memberNo}, #{eventNo})
+	</insert>
 	
 
 </mapper>
