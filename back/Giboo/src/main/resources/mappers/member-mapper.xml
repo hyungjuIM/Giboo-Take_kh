@@ -9,7 +9,7 @@
         <result property="memberPw" column="MEMBER_PW"/>
         <result property="memberEmail" column="MEMBER_EMAIL"/>
         <result property="memberName" column="MEMBER_NAME"/>
-        <result property="managerNickname" column="MEMBER_NICK"/>
+        <result property="memberNick" column="MEMBER_NICK"/>
         <result property="memberTel" column="MEMBER_TEL"/>
         <result property="memberAddr" column="MEMBER_ADDR"/>
         <result property="enrollDt" column="ENROLL_DT"/>
