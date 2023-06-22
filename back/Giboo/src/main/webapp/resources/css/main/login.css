@@ -1,225 +1,277 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
+
+
 *{
     box-sizing: border-box;
-    padding : 0px;
-    margin : 0px;
-    font-family: 'Noto Sans KR', sans-serif;
-   
-}
-.loginSection{
-    display: flex;
-    justify-content: center;
-    align-items: center;   
 }
 
-.loginContainer{
+body{
+    height: 100%;
+    margin: 0;
+    
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #EFEFEF;
+}
+
+a{
+    text-decoration: none;
+
+}
+
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+}
+
+main{
+    height: 100%;
+
+
+    background-color: #EFEFEF;
+
+
+}
+
+input:not(.cookieBox){
+    width: 80%;
+    border: 0 solid black;
+    padding: 10px 18px;
+    outline: none;
+}
+
+input::placeholder{
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    color: var(--etcColor);
+
+
+}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+
+/* login  container */
+
+.loginSection{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.loginSection .loginContainer_box{
     width: 646px;
     height: 581px;
-    margin-top: 149px ;
-    margin-bottom: 169px;
-    background: #EFEFEF;
+    background-color: #EFEFEF;
+    box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.30);
+
+    margin: 80px 0px;
     border-radius: 15px;
+
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-.loginTitle > span{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 30px;
-}
+.loginSection .loginTitle{
 
-.loginTitle{
-    margin-bottom: 30px;
-}
-
-#loginForm{
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
+    padding: 0px 0px 20px 0px;
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 24px;
+    font-weight: 500;   
+    color: var(--titleColor);
 }
 
-/* 아이디 */
 
-.memberId{
-    margin-bottom: 16px;
-    position: relative;
-}
+/* input */
 
-.memberId > input{
+.loginContainer .loginInput_Container{
     width: 546px;
-    height: 62px;
+    height: 54px;
+
+    margin: 12px 24px;
+    /* padding: 8px 10px; */
+    background-color: white;
     border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
 
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.memberId > input::placeholder{
-    color: #D9D9D9;
-}
-
-.memberId > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-/* 비밀번호 */
-
-.memberPw{
-    position: relative;
-}
-
-.memberPw > input{
-    width: 546px;
-    height: 62px;
-    border-radius: 15px;
-    background: #FFFFFF;
-    padding-left: 49px;
-
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
-    border: none;
-}
-
-.memberPw > input::placeholder{
-    color: #D9D9D9;
-}
-
-.memberPw > span > i{
-    position: absolute;
-    left: 16px;
-    bottom: 22px;
-    font-size: 20px;
-    color: #D9D9D9;
-}
-
-
-/* 아이디 저장 & 회원가입 하기 */
-.checkContainer{
-    display: flex;
-    /* background-color: aqua; */
-    justify-content: space-between;
-    width: 500px;
-    margin-top: 20px;
-}
-
-.checkboxBox{
     display: flex;
     align-items: center;
-    justify-content: center;
 }
 
-.checkboxBox > span{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
+.loginContainer .loginInput_Container span:nth-child(1){
     font-size: 20px;
-    color: #777777;
-    margin-left: 8px;
+    color: #9FF1C6;
+    margin: 18px;
 }
-
-.signUp > a{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    color: #777777;
-}
-
-/* input[type="checkbox"]{
-    display: none;
-  }
-
-.checkboxBox > input[type="checkbox"]{
-    width: 20px;
-    display: inline-block;
-    border:3px solid #707070;
-    position: relative;
-} */
 
 /* 로그인 버튼 */
 
+
 .loginBtnnBox{
-    margin-top: 47px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
+.loginBtnnBox .loginBtnn{
+
+    width: 100%;
+    border-radius: 15px;
+    border:0px;
+    background-color: var(--mainColor);
+    padding: 15px;
+    font-size: 18px;
+    font-family: 'NanumSquareNeo';
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+
+    cursor: pointer;
+
 }
 
-.loginBtnn{
-    width: 547px;
-    height: 62px;
-    left: 669px;
-    top: 596px;
-    background: #00CA61;
-    border-radius: 15px;
-    border: none;
-    color: white;
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 22px;
+/* 아이디 저장 */
+.checkContainer{
+    width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkContainer .checkboxBox{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    white-space: nowrap;
+    padding: 14px;
+}
+
+.checkContainer .checkboxBox input{
+    width: 15px;
+    height: 15px;
+
+    margin-right: 8px;
     cursor: pointer;
 }
 
+.checkContainer .checkboxBox span{
+    color: var(--contentColor);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'NanumSquareNeo';
+}
 
+.checkContainer .signUp{
+
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0px 20px
+   
+}
+
+.checkContainer .signUp a{
+    color: var(--contentColor);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'NanumSquareNeo';
+}
 
 
 /* 소셜 로그인 */
 .loginSocial{
+
+    width: 100%;
     display: flex;
-    margin-top: 32px;
-    /* background-color: antiquewhite; */
-    width: 240.67px;
-    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
 }
 
-.loginSocial > span{
-    font-family: 'NanumSquare';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    color: #777777;
+.loginSocial span{
+    font-family: 'NanumSquareNeo';
+    color: var(--contentColor);
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 10px;
+
 }
 
-.loginKakaoLink{
+.loginSocial .social_icon_Container{
     display: flex;
 }
 
-.loginKakao > img{
-    width: 30.83px;
-    height: 30.83px;
-    border-radius: 50%;
-}
+.loginSocial .icon_Style{
 
-.loginKakaoLink{
-    width: 97.67px;
+    border-radius: 100px;
+    width: 42px;
+    height: 42px;
+
     display: flex;
+    justify-content: center;
     align-items: center;
-    /* background-color: yellowgreen; */
-    justify-content: space-between;
+
+    background-color: #D9D9D9;
+    margin-right: 12px;
+    
 }
 
 .loginKakao{
-    width: 40.83px;
-    height: 40.83px;
-    background: #D9D9D9;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+
+}
+
+.kakaoIcon01{
+    position: absolute;
+    top: 10px;
+    left: 9px;
+}
+
+
+.kakaoIcon02{
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    display: none;
+}
+
+.loginKakao:hover .kakaoIcon02, .loginKakao:hover{
+    display: block;
+    background-color: #F9E000 ;
+}
+
+img{
+    width: 24px;
+}
+
+.loginGoogle{
+    
+        background:darkred;
+        width:400px; height:400px;
+        line-height:400px;
+        text-align:center;
+        color:#fff;
+        font-size:20px;
+        margin:0 auto;
+      
 }

@@ -78,10 +78,12 @@
 							</c:when>
 							<%-- 로그인 된 후 --%>
 							<c:otherwise>
+							<div class="loginContainer_box">
 								<div class="nick_container">
 									<span id="nickName">${loginMember.memberNick}</span>님
 									<a href="${contextPath}/main/logout"> 로그아웃</a>
 								</div>
+
 
 								<div class="toggle">
 									<a href="${pageContext.request.contextPath}/mypage/mypageMain"
@@ -94,28 +96,14 @@
 										class="far fa-bell"></i>
 									</a>
 								</div>
-								<div class="toggle">
-									<a href="${pageContext.request.contextPath}/mypage/mypageMain"
-										class="tooltip" data-text="마이페이지"> <i
-										class="far fa-user-circle"></i>
-									</a>
+								
 								</div>
-								<div class="toggle">
-									<a href="#none" class="tooltip" data-text="알림"> <i
-										class="far fa-bell"></i>
-									</a>
-								</div>
-									<div class="toggle">
-						<a href="${pageContext.request.contextPath}/mypage/mypageMain"
-							class="tooltip" data-text="마이페이지"> <i
-							class="far fa-user-circle"></i>
-						</a>
-					</div>
-					<div class="toggle">
-						<a href="#" class="tooltip" id="alarm" data-text="알림"> <i
-							class="far fa-bell"></i>
-						</a>
-					</div>								
+								
+								
+									
+					
+										
+
 							</c:otherwise>
 						</c:choose>
 					</section>
@@ -130,8 +118,8 @@
 
 	</section>
 
-<%-- <jsp:include page="/WEB-INF/views/main/alarm.jsp" />
- --%>
+ <jsp:include page="/WEB-INF/views/main/alarm.jsp" />
+
 
 	<script
 		src="${pageContext.request.contextPath}/resources/js/main/header.js"></script>

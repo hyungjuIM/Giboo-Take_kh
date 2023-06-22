@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
+import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
 import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
@@ -17,6 +18,7 @@ import kh.fin.giboo.event.model.vo.EventList;
 import kh.fin.giboo.event.model.vo.EventPopup;
 import kh.fin.giboo.event.model.vo.EventStickerBar;
 import kh.fin.giboo.event.model.vo.Pagination;
+import kh.fin.giboo.mypage.model.vo.MyActiveEventList;
 import kh.fin.giboo.mypage.model.vo.Stamp;
 
 @Repository
@@ -71,8 +73,17 @@ public class EventDAO {
 		return sqlSession.insert("event-mapper.insertImage", map);
 	}
 
+
+	public int insertMyActiveEventList(MyActiveEventList myActiveEventList) {
+		return sqlSession.insert("event-mapper.insertMyActiveEventList", myActiveEventList);
+	}
+	
 	public int insertStamp(Stamp stamp) {
 		return sqlSession.insert("event-mapper.insertStamp", stamp);
+	}
+
+	public int insertAlarm(Alarm alarm) {
+		return sqlSession.insert("event-mapper.insertAlarm", alarm);
 	}
 	
 	

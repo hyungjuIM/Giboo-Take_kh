@@ -200,3 +200,9 @@ a{
     display: block;
    
 }
+
+
+.loginContainer_box{
+	display: flex;
+	
+}
