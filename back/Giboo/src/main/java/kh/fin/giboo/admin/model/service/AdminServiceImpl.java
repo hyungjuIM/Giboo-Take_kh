@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -95,5 +96,10 @@ public class AdminServiceImpl implements AdminService {
 		    }
 		    return updatedMemberCount; // 업데이트된 회원 수를 반환
 		  }
+
+    @Override
+    public int removeCategory(Map<String, String> map) {
+        return dao.removeCategory(map);
+    }
 
 }

@@ -51,4 +51,12 @@ public class DonationDAO {
     public DonationDetail getDonationDetail(int donationNo) {
         return sqlSession.selectOne("donationMapper.getDonationDetail", donationNo);
     }
+
+    public int getDonationListCount(int category) {
+        return sqlSession.selectOne("donationMapper.getDonationListCount", category);
+    }
+
+    public int getDonationListCount() {
+        return sqlSession.selectOne("donationMapper.getDonationListCount");
+    }
 }

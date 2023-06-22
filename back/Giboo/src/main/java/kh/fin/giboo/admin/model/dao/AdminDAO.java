@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class AdminDAO {
@@ -94,5 +95,8 @@ public class AdminDAO {
 		 sqlSession.update("adminMapper.updateMemberRate", member);
 	}
 
-	
+
+    public int removeCategory(Map<String, String> map) {
+        return sqlSession.delete("adminMapper.removeCategory", map);
+    }
 }

@@ -24,18 +24,18 @@
 	</resultMap>
 
 	<resultMap id="manager_rm" type="manager">
-		<id property="managerNo" column="MGR_NO" />
-		<result property="managerId" column="MGR_ID" />
-		<result property="managerEmail" column="MGR_EMAIL" />
-		<result property="managerName" column="MGR_NAME" />
-		<result property="managerNick" column="MGR_NICKNAME" />
-		<result property="managerTel" column="MGR_TEL" />
-		<result property="managerPermission" column="MGR_PERMISSION" />
-		<result property="managerProfileImg" column="MGR_PROFILE_IMG" />
+		<id property="managerNo" column="MANAGER_NO" />
+		<result property="managerId" column="MANAGER_ID" />
+		<result property="managerEmail" column="MANAGER_EMAIL" />
+		<result property="managerName" column="MANAGER_NAME" />
+		<result property="managerNickname" column="MANAGER_NICKNAME" />
+		<result property="managerTel" column="MANAGER_TEL" />
+		<result property="managerPermission" column="MANAGER_PERMISSION" />
+		<result property="managerProfileImg" column="MANAGER_PROFILE_IMG" />
 		<result property="managerSignUpStatus"
-			column="MGR_SIGNUP_STATUS" />
+			column="MANAGER_SIGNUP_STATUS" />
 		<result property="managerSignUpReason"
-			column="MGR_SIGNUP_REASON" />
+			column="MANAGER_SIGNUP_REASON" />
 	</resultMap>
 
 	<resultMap id="volunteer_rm" type="volunteer">
@@ -119,13 +119,14 @@
 		<result property="faqTitle" column="FAQ_TITLE" />
 		<result property="faqContent" column="FAQ_CONTENT" />
 	</resultMap>
+
 	<resultMap id="rate_rm" type="rate">
-  <id property="rateNo" column="RATE_NO" />
-  <result property="rateName" column="RATE_NAME" />
-  <result property="maxpoint" column="MAXPOINT" />
-  <result property="minpoint" column="MINPOINT" />
-  <result property="point" column="POINT" />
-</resultMap>
+  		<id property="rateNo" column="RATE_NO" />
+  		<result property="rateName" column="RATE_NAME" />
+  		<result property="maxpoint" column="MAXPOINT" />
+  		<result property="minpoint" column="MINPOINT" />
+  		<result property="point" column="POINT" />
+	</resultMap>
 
 	<select id="selectMemberList" resultMap="member_rm">
 		SELECT MEMBER_NO,
@@ -139,12 +140,12 @@
 	</select>
 
 	<select id="selectManagerList" resultMap="manager_rm">
-		SELECT MGR_NO, MGR_ID,
-		MGR_EMAIL, MGR_NAME, MGR_NICKNAME, MGR_TEL,
-		MGR_PERMISSION,
-		MGR_PROFILE_IMG, MGR_SIGNUP_STATUS, MGR_SIGNUP_REASON
+		SELECT MANAGER_NO, MANAGER_ID,
+			   MANAGER_EMAIL, MANAGER_NAME, MANAGER_NICKNAME, MANAGER_TEL,
+			   MANAGER_PERMISSION,
+			   MANAGER_PROFILE_IMG, MANAGER_SIGNUP_STATUS, MANAGER_SIGNUP_REASON
 		FROM MANAGER
-		ORDER BY MGR_NO ASC
+		ORDER BY MANAGER_NO ASC
 	</select>
 
 	<select id="selectVolunteerList" resultMap="volunteer_rm">
@@ -156,8 +157,7 @@
 		WHERE V.PARENT_CATEGORY_NO =
 		P.PARENT_CATEGORY_NO
 		AND V.MEMBER_NO = M.MEMBER_NO
-		ORDER BY VOLUNTEER_NO
-		ASC
+		ORDER BY VOLUNTEER_NO ASC
 	</select>
 
 	<select id="selectDonationList" resultMap="donation_rm">
@@ -175,10 +175,10 @@
 
 	<select id="selectEventList" resultMap="event_rm">
 		SELECT EVENT_NO,
-		EVENT_TITLE, ENROLL_DATE, END_RECRUIT_DATE, M.MGR_ID
+		EVENT_TITLE, ENROLL_DATE, END_RECRUIT_DATE, M.MANAGER_ID
 		FROM EVENT E,
 		MANAGER M
-		WHERE E.MGR_NO = M.MGR_NO
+		WHERE E.MGR_NO = M.MANAGER_NO
 		ORDER BY EVENT_NO ASC
 	</select>
 
@@ -265,7 +265,11 @@
     SET RATE_NO = #{rateNo}, POINT_NO = #{pointNo}
     WHERE MEMBER_NO = #{memberNo}
   </update>
-  
+
+	<delete id="removeCategory">
+		DELETE FROM #{category}
+		WHERE #{category}_NO = #{id}
+	</delete>
 
   
 </mapper>

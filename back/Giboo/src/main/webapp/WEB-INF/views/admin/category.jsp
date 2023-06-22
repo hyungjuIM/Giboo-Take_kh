@@ -89,23 +89,23 @@
                             </tr>
                             <c:forEach var="categoryList" items="${categoryList}">
                                 <tr class="listArea">
-                                    <td><input type="checkbox" class="listCheck"></td>
-                                    <td>${categoryList.categoryNo}</td>
+                                    <td><input type="checkbox" id="" class="categoryListCheck${categoryList.categoryNo}"></td>
+                                    <td id="categoryNo${categoryList.categoryNo}">${categoryList.categoryNo}</td>
                                     <td>${categoryList.categoryName}</td>
                                     <td>-</td>
-                                    <td><button class="modify">수정</button></td>
-                                    <td><button class="deleteCategory">삭제</button></td>
+                                    <td><button id="categoryModify${categoryList.categoryNo}" class="modify">수정</button></td>
+                                    <td><button id="categoryRemove${categoryList.categoryNo}" class="remove">삭제</button></td>
                                 </tr>
                             </c:forEach>
 
                             <c:forEach var="parentCategoryList" items="${parentCategoryList}">
                                 <tr class="listArea">
-                                    <td><input type="checkbox" class="listCheck"></td>
-                                    <td>${parentCategoryList.parentCategoryNo}</td>
-                                    <td>${parentCategoryList.categoryName}</td>
-                                    <td>${parentCategoryList.parentCategoryName}</td>
-                                    <td><button class="modify">수정</button></td>
-                                    <td><button class="deleteCategory">삭제</button></td>
+                                    <td><input type="checkbox" id="parent_CategoryListCheck${parentCategoryList.parentCategoryNo}" class="listCheck"></td>
+                                    <td id="parent_CategoryNo${parentCategoryList.parentCategoryNo}">${parentCategoryList.parentCategoryNo}</td>
+                                    <td id="parent_CategoryName">${parentCategoryList.categoryName}</td>
+                                    <td id="parent_CategoryName${parentCategoryList.parentCategoryNo}">${parentCategoryList.parentCategoryName}</td>
+                                    <td><button id="parent_CategoryModify${parentCategoryList.parentCategoryNo}" class="modify">수정</button></td>
+                                    <td><button id="parent_CategoryRemove${parentCategoryList.parentCategoryNo}" class="remove">삭제</button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>
