@@ -50,8 +50,7 @@ public class MemberServiceImpl implements MemberService{
 	 */
 	@Override
 	public Manager loginManager(Manager inputManager) {
-		Manager loginManager = dao.loginManager(inputManager);
-		return loginManager;
+		return dao.loginManager(inputManager);
 	}
 
 	@Override

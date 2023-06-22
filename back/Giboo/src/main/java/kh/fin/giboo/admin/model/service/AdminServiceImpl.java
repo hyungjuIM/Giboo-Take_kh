@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -127,5 +128,10 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 
+
+    @Override
+    public int removeCategory(Map<String, String> map) {
+        return dao.removeCategory(map);
+    }
 
 }

@@ -89,11 +89,12 @@
 
                             <c:forEach var="faqList" items="${faqList}">
                                 <tr class="listArea">
-                                    <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
+                                    <td><input type="checkbox" class="listCheck"></td>
                                     <td>${faqList.faqNo}</td>
                                     <td>${faqList.faqCategory}</td>
                                     <td>${faqList.faqTitle}</td>
-                                    <td><button id="detail1" class="detail">상세 정보</button></td>
+                                    <td><button class="detail">상세 정보</button></td>
+                                    <td><button class="remove">삭제</button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>

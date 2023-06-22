@@ -2,6 +2,7 @@ const sideMenu = document.getElementsByClassName("sideMenuItem");
 const resetSearch = document.getElementById("resetSearch");
 const crateFaq = document.getElementById("crateFaq");
 const detail = document.getElementsByClassName("detail");
+const remove = document.getElementsByClassName("remove");
 
 for (const i of sideMenu) {
     i.addEventListener("mouseover", () => {
@@ -39,22 +40,12 @@ for (const i of detail) {
     });
 }
 
-for (const i of confirm) {
+for (const i of remove) {
     i.addEventListener("mouseover", () => {
-        i.classList.add("focus");
+        i.classList.add("removeFocus");
     });
 
     i.addEventListener("mouseleave", () => {
-        i.classList.remove("focus");
-    });
-}
-
-for (const i of reject) {
-    i.addEventListener("mouseover", () => {
-        i.classList.add("focus");
-    });
-
-    i.addEventListener("mouseleave", () => {
-        i.classList.remove("focus");
+        i.classList.remove("removeFocus");
     });
 }

@@ -71,10 +71,11 @@
     </select>
 
     <select id="getDonationList" resultMap="donation_rm">
-        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
-        FROM DONATION
+        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, PC.PARENT_CATEGORY_NAME
+        FROM DONATION D, PARENT_CATEGORY PC
         <if test="category != null">
-            WHERE PARENT_CATEGORY_NO = ${category}
+            WHERE D.PARENT_CATEGORY_NO = ${category}
+            AND D.PARENT_CATEGORY_NO = PC.PARENT_CATEGORY_NO
         </if>
         ORDER BY DONATION_NO ASC
     </select>
@@ -89,6 +90,14 @@
         SELECT DONATION_TITLE, DONATION_CONTENT, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
         FROM DONATION
         WHERE DONATION_NO = ${donationNo}
+    </select>
+
+    <select id="getDonationListCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM DONATION
+        <if test="category != null">
+            WHERE PARENT_CATEGORY_NO = ${category}
+        </if>
     </select>
 
 </mapper>

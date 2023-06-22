@@ -11,6 +11,7 @@ import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AdminService {
 
@@ -30,12 +31,11 @@ public interface AdminService {
 
     List<Faq> selectFaqList();
 
-	List<Member> selectmemberRateList();
+	  List<Member> selectmemberRateList();
 
-	int updateMemberRatesByRate(String rateName, int pointPrice);
-
-	
+	  int updateMemberRatesByRate(String rateName, int pointPrice);
 
 	//int updateMemberRates(List<String> rateName, List<String> pointPrice);
 
+    int removeCategory(Map<String, String> map);
 }

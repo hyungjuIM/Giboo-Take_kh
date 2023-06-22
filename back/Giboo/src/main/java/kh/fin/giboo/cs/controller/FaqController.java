@@ -21,11 +21,7 @@ public class FaqController {
 	private FaqService service;
 	
 	private Logger logger = LoggerFactory.getLogger(FaqController.class);
-	
-	
 
-
-	
 	// 봉사 카테고리만 생성
 	@GetMapping("/faqVolunteer")
 	public String faqVolunteer(@RequestParam(value= "cp", required = false, defaultValue ="1") int cp,

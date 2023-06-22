@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="parentCategoryList" value="${map.parentCategoryList}" />
 <c:set var="donationList" value="${map.donationList}" />
+<c:set var="donationListCount" value="${map.donationListCount}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +54,16 @@
 
         <div id="content" class="content">
             <h4 class="contentTitle">
-                동물 기부
-                <span class="contentCount" id="contentCount">${fn:length(donationList)}</span>개
+                <c:choose>
+                    <c:when test="${empty param.category}">
+                        전체
+                    </c:when>
+                    <c:otherwise>
+                        ${donationList[0].parentCategoryName}
+                    </c:otherwise>
+                </c:choose>
+                기부
+                <span class="contentCount" id="contentCount">${donationListCount}</span>개
             </h4>
 
             <div class="sortingSection">
@@ -97,9 +105,6 @@
                             </div>
                         </div>
                     </div>
-                    <script>
-                        console.log("${donationList.DDay}");
-                    </script>
                 </c:forEach>
 
             </div>

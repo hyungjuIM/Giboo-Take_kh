@@ -99,5 +99,7 @@ public class AdminDAO {
 		 sqlSession.update("adminMapper.updateMemberRate", member);
 	}
 
-
+  public int removeCategory(Map<String, String> map) {
+        return sqlSession.delete("adminMapper.removeCategory", map);
+  }
 }
