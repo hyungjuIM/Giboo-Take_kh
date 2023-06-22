@@ -24,6 +24,7 @@ public class FaqController {
 	
 	
 
+
 	
 	// 봉사 카테고리만 생성
 	@GetMapping("/faqVolunteer")
@@ -40,6 +41,7 @@ public class FaqController {
 	 
 		return "cs/faqVolunteer";
 	}
+
 	
 	
 	// 기부 카테고리만 생성

@@ -10,12 +10,11 @@
     box-sizing: border-box;
     font-family: 'NanumSquare', sans-serif;
     margin: 0;
-    line-height: 1.6em;
+    /* line-height: 1.6em; */
 }
-a{
+a:not(.logout_Btn){
     text-decoration: none;
     font-weight: 500;
-    font-family: 'NanumSquare', sans-serif;
 }
 
 :root{
@@ -120,7 +119,7 @@ a{
 
 /* 로그인 버튼 */
 .myPage > a{
-    margin-right: 0.7rem;
+    margin-right: 0.4rem;
 }
 .loginBtn{
     font-size: 16px;
@@ -137,28 +136,84 @@ a{
 
 
 
+/* 로그인 된 후 */
+.user_sec{
+    width: 100%;
+    height: 100%;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginContainer_box{
+
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+.loginContainer_box .nick_container{
+    padding: 0px 12px;
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 500;
+
+}
+
+.loginContainer_box div{
+    display: flex;
+
+    margin-right: 4px;
+}
+
+.loginContainer_box .nick_container span{
+    color: var(--mainColor);
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    /* margin-right: 4px; */
+}
+
+
+
 /* myPage, alarm toggle event */
 .toggle{
+    font-size: 1.4rem;
+
     width: 44px;
+    /* text-align: center; */
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin-bottom: 20px;
 }
 .toggle.active a i{
 
-    display: inline-block;
     width: 40px;
     height: 40px;
-    background-color: #efefef;
-    text-align: center;
+    
     line-height: 40px;
     border-radius: 50px;
+   
+
+    
 }
-.myPage i{
-    font-size: 1.5rem;
-}
+/* .myPage i{
+    font-size: 1.4rem;
+    margin-top: 5px;
+    color: var(--etcColor);
+} */
+
+
 
 .myPage a{
-    color: #767676;
+    color: var(--etcColor);
     position: relative;
+
 }
+
+
 
 .myPage .tooltip:before{
     content: attr(data-text);
@@ -170,35 +225,85 @@ a{
     font-size: 15px;
     padding: 10px;
 
-    top: 30px;
-    left: 50%;
+
+
+    /* top: 30px;
+    left: 50%; */
+
     transform: translateX(-50%);
     text-align: center;
     border-radius: 50px;
+
 }
-.myPage .tooltip:after{
+/* .myPage .tooltip:after{
     content: '';
     background: var(--mainColor);
     width: 10px;
     height: 10px;
     position: absolute;
     top: 28px;
-    left: 50%;
+    left: 80%;
     transform: translateX(-50%) rotate(45deg);
+
+} */
+
+.logout_Btn{
+  
+    text-decoration: none;
+ 
+
+}
+.logout_Btn span{
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--etcColor);
+    font-family: 'NanumSquare', sans-serif;
+
+    margin-left: 4px;
 
 }
 
+.logout_Btn:before{
+    content: "|";
+  
+    /* border: 1px solid var(--etcColor); */
+    margin-right: 8px;
+}
 
+.logout_Btn span:hover{
+    color: var(--contentColor);
+}
 
+.ibox{
+    position: relative;
+    /* margin-top: 5px; */
+}
+.gray_Style{
+    color: var(--etcColor);
+    
+    position: absolute;
+}
+.green_Style{
+    position: absolute;
+    color: var(--mainColor);
+    top: 0px;
+    left: 0px;
+}
 
 /* hover function */
 .myPage .tooltip:before,
-.myPage .tooltip:after{
+.myPage .tooltip:after,
+.iBox .green_Style{
     display: none;
 }
 
 .myPage .tooltip:hover:before,
-.myPage .tooltip:hover:after{
+.myPage .tooltip:hover:after,
+.iBox:hover .green_Style
+{
     display: block;
    
 }
+
+
+
