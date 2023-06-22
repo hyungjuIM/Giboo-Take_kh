@@ -34,6 +34,7 @@
 	<typeAlias type="kh.fin.giboo.notice.model.vo.NoticeDetail" alias="noticeDetail"/>
 	<typeAlias type="kh.fin.giboo.notice.model.vo.Notice" alias="notice"/>
 
+	<!--  알람 -->
 	<typeAlias type="kh.fin.giboo.alarm.model.vo.Alarm" alias="alarm"/>
 
 

@@ -105,15 +105,15 @@ public class EventServiceImpl implements EventService{
 		return dao.insertStamp(stamp);
 	}
 
-	@Override
-	public MyActiveEventList insertMyActiveEventList(int eventNo) {
-		return dao.insertMyActiveEventList(eventNo);
-	}
-
-	@Override
-	public Alarm insertAlarm(int eventNo) {
-		return dao.insertAlarm(eventNo);
-	}
+//	@Override
+//	public MyActiveEventList insertMyActiveEventList(int eventNo) {
+//		return dao.insertMyActiveEventList(eventNo);
+//	}
+//
+//	@Override
+//	public Alarm insertAlarm(int eventNo) {
+//		return dao.insertAlarm(eventNo);
+//	}
 
 
 

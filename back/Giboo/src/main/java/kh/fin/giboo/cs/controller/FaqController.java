@@ -23,22 +23,6 @@ public class FaqController {
 	private Logger logger = LoggerFactory.getLogger(FaqController.class);
 	
 	
-	 
-	@GetMapping("/faqVolunteer")
-	public String csMain(@RequestParam(value= "cp", required = false, defaultValue ="1") int cp,
-			Model model
-			) {	
-		Map<String,Object> map = null;
-		
-		map = service.selectFaqList(cp, model);
-		
-		model.addAttribute("map", map);
-		//logger.info("이거의값은???????" + map);
-		//logger.info("고객센터");
-	 
-		return "cs/faqVolunteer";
-	}
-	
 	
 	// 봉사 카테고리만 생성
 	@GetMapping("/faqVolunteer")

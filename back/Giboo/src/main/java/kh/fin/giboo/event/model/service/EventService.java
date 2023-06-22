@@ -37,8 +37,8 @@ public interface EventService {
 
 	int insertStamp(Stamp stamp);
 
-	MyActiveEventList insertMyActiveEventList(int eventNo);
-
-	Alarm insertAlarm(int eventNo);
+//	MyActiveEventList insertMyActiveEventList(int eventNo);
+//
+//	Alarm insertAlarm(int eventNo);
 
 }
