@@ -92,6 +92,7 @@
 													</select>
 												</div>
 
+
 												<form action="">
 													<fieldset>
 														<input type="text" id="query" name="query"
@@ -116,7 +117,7 @@
 													<th scope="col" class="th-name">봉사활동 내역</th>
 													<th scope="col" class="th-time">봉사일자</th>
 													<th scope="col" class="th-place">장소</th>
-													<th scope="col" class="th-time">등록일자</th>
+													
 
 												</tr>
 											</thead>
@@ -126,23 +127,30 @@
 													<c:when test="${empty myActiveVolunteerList}">
 												
 														<tr>
-															<th colspan="5">게시글이 존재하지 않습니다.</th>
+															<th colspan="4">게시글이 존재하지 않습니다.</th>
 														</tr>
 													</c:when>
 
-													<c:otherwise>
-														
-														<c:forEach var="myActiveVolunteerList"
-															items="${myActiveVolunteerList}">
-															<tr>
-																<td>${myActiveVolunteerList.myactiveVolunteerNo}</td>
-																<td>${myActiveVolunteerList.volunteerTitle}</td>
-																<td>${myActiveVolunteerList.myactiveDate}</td>
-																<td>${myActiveVolunteerList.volunteerAddr}</td>
-																<td>${myActiveVolunteerList.enrollDate}</td>
-															</tr>
-														</c:forEach>
-													</c:otherwise>
+												<c:otherwise>
+  
+							
+
+<c:set var="volunteerCount" value="${myActiveVolunteerList.size()}" />
+
+<c:forEach var="myActiveVolunteerList" items="${myActiveVolunteerList}" varStatus="status">
+    
+        <c:set var="volunteerNumber" value="${volunteerCount - status.count + 1}" />
+        <tr>
+            <td>${volunteerNumber}</td>
+            <td>${myActiveVolunteerList.volunteerTitle}</td>
+            <td>${myActiveVolunteerList.myactiveDate}</td>
+            <td>${myActiveVolunteerList.volunteerAddr}</td>
+        </tr>
+</c:forEach>
+							
+   
+   
+</c:otherwise>
 												</c:choose>
 
 												<%--

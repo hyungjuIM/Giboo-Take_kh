@@ -19,8 +19,8 @@
 		<result property="pointNo" column="POINT_NO" />
 		<result property="pointPrice" column="POINT_PRICE" />
 		<result property="rateName" column="RATE_NAME" />
-		
-		
+
+
 	</resultMap>
 
 	<resultMap id="manager_rm" type="manager">
@@ -120,12 +120,13 @@
 		<result property="faqContent" column="FAQ_CONTENT" />
 	</resultMap>
 	<resultMap id="rate_rm" type="rate">
-  <id property="rateNo" column="RATE_NO" />
-  <result property="rateName" column="RATE_NAME" />
-  <result property="maxpoint" column="MAXPOINT" />
-  <result property="minpoint" column="MINPOINT" />
-  <result property="point" column="POINT" />
-</resultMap>
+		<id property="rateNo" column="RATE_NO" />
+		<result property="rateName" column="RATE_NAME" />
+		<result property="maxpoint" column="MAXPOINT" />
+		<result property="minpoint" column="MINPOINT" />
+		<result property="point" column="POINT" />
+	</resultMap>
+	
 
 	<select id="selectMemberList" resultMap="member_rm">
 		SELECT MEMBER_NO,
@@ -209,7 +210,8 @@
 	<select id="selectmemberRateList" resultMap="member_rm">
 		SELECT m.MEMBER_NO,
 		m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_EMAIL, m.MEMBER_TEL,
-		g.RATE_NAME, p.POINT_PRICE
+		g.RATE_NAME,
+		p.POINT_PRICE
 		FROM MEMBER m
 		INNER JOIN RATE g ON m.RATE_NO = g.RATE_NO
 		INNER JOIN POINT p ON m.POINT_NO = p.POINT_NO
@@ -217,57 +219,72 @@
 		SELECT 1
 		FROM VOLUNTEER v
 		WHERE v.MEMBER_NO = m.MEMBER_NO
-		AND v.START_PROGRESS_DATE >= SYSDATE - INTERVAL '1' MONTH
+		AND
+		v.START_PROGRESS_DATE >= SYSDATE - INTERVAL '1' MONTH
 		)
 		OR EXISTS (
 		SELECT 1
 		FROM DONATION d
 		WHERE d.MEMBER_NO = m.MEMBER_NO
-		AND d.START_PROGRESS_DATE >= SYSDATE - INTERVAL '1' MONTH
+		AND
+		d.START_PROGRESS_DATE >= SYSDATE - INTERVAL '1' MONTH
 		)
-		ORDER BY MEMBER_NO ASC
+		ORDER BY
+		MEMBER_NO ASC
 
 	</select>
-	
 
-  <select id="selectMinPoint" resultType="int">
-    SELECT MINPOINT
-    FROM RATE
-    WHERE RATE_NAME = #{rateName}
-  </select>
+	<select id="selectMinPoint" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT MINPOINT
+		FROM RATE
+		WHERE RATE_NAME = #{rateName}
+	</select>
 
-  <select id="selectMaxPoint" resultType="int">
-    SELECT MAXPOINT
-    FROM RATE
-    WHERE RATE_NAME = #{rateName}
-  </select>
+	<select id="selectMaxPoint" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT MAXPOINT
+		FROM RATE
+		WHERE RATE_NAME = #{rateName}
+	</select>
 
-  <select id="getVolunteerCount" resultType="int">
-    SELECT COUNT(*)
-    FROM VOLUNTEER
-    WHERE MEMBER_NO = #{memberNo}
-  </select>
+	<select id="getVolunteerCount" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM VOLUNTEER
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
 
-  <select id="getDonationCount" resultType="int">
-    SELECT COUNT(*)
-    FROM DONATION
-    WHERE MEMBER_NO = #{memberNo}
-  </select>
+	<select id="getDonationCount" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM DONATION
+		WHERE MEMBER_NO= #{memberNo}
+	</select>
 
-  <select id="getPointPriceByRate" resultType="int">
-    SELECT POINT
-    FROM RATE
-    WHERE RATE_NAME = #{rateName}
-  </select>
+	<select id="getPointByRate" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT POINT
+		FROM RATE
+		WHERE RATE_NAME = #{rateName}
+	</select>
 
-  <update id="updateMemberRate" parameterType="member">
-    UPDATE MEMBER
-    SET RATE_NO = #{rateNo}, POINT_NO = #{pointNo}
-    WHERE MEMBER_NO = #{memberNo}
-  </update>
-  
+	<select id="getRateName" resultType="java.lang.String">
+		SELECT RATE_NAME
+		FROM RATE
+		WHERE MINPOINT &gt;= #{minPoint}
+		AND MAXPOINT &lt;= #{maxPoint}
+	</select>
 
-  
+	<update id="updateMemberRate" parameterType="member">
+  UPDATE MEMBER M
+  SET M.RATE_NO = (SELECT R.RATE_NO FROM RATE R WHERE R.RATE_NAME = #{rateName}),
+      M.POINT_NO = (SELECT P.POINT_NO FROM POINT P WHERE P.POINT_PRICE = #{pointPrice})
+  WHERE M.MEMBER_NO = #{memberNo}
+	</update>
+
+
+
 </mapper>
 	
 

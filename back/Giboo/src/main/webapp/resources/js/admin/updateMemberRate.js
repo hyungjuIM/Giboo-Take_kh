@@ -1,14 +1,37 @@
 const updateBtn = document.getElementById("updatebtn");
-const rateName=document.getElementsByClassName("rateName");
-const pointPrice =document.getElementsByClassName("pointPrice");
+// const rateName = document.getElementsByClassName("rateName").textContent;
 
+// const pointPrice =document.getElementsByClassName("pointPrice").textContent;
 
+// const pointPrice ="<c:out value='${member.pointPrice}'/>";
+// const rateName = "<c:out value='${member.rateName}'/>";
+
+const rateNameElements = document.getElementsByClassName("rateName");
+const pointPriceElements = document.getElementsByClassName("pointPrice");
+
+const rateName = [];
+const pointPrice = [];
+
+// rateName 값들을 가져와서 배열에 추가
+for (let i = 0; i < rateNameElements.length; i++) {
+    const rateNames = rateNameElements[i].textContent;
+    rateName.push(rateNames);
+}
+
+// pointPrice 값들을 가져와서 배열에 추가
+for (let i = 0; i < pointPriceElements.length; i++) {
+    const pointPrices = pointPriceElements[i].textContent;
+    pointPrice.push(pointPrices);
+}
 
 updateBtn.addEventListener("click",function(){
+    var requestData = {
+        rateName: rateName,
+        pointPrice: pointPrice
+    };
     $.ajax({
         url: "memberRateUpdate",
-        data: {"rateName" : rateName.value,
-                "pointPrice": pointPrice.value},
+        data: requestData,
         type : "GET",
         success: function(result){
             console.log(result);

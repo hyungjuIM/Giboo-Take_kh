@@ -32,8 +32,10 @@ public interface AdminService {
 
 	List<Member> selectmemberRateList();
 
+	int updateMemberRatesByRate(String rateName, int pointPrice);
+
 	
 
-	int updateMemberRates(String rateName, int pointPrice);
+	//int updateMemberRates(List<String> rateName, List<String> pointPrice);
 
 }

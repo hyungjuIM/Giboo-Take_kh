@@ -167,6 +167,7 @@ public class EventController {
 		String message = null;
 		String path = null;
 		
+
         logger.info("result: " + result); // 결과값 로그로 출력
         logger.info("map: " + map.toString());
         logger.info("eventPopup: " + eventPopup.toString());
@@ -211,6 +212,7 @@ public class EventController {
 		} else {
 		    message = "실패";
 		}
+
 
 		ra.addFlashAttribute("message",message);
 		return "redirect:" + path;

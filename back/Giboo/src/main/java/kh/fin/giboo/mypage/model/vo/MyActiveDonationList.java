@@ -14,6 +14,10 @@ public class MyActiveDonationList {
 	
 	//기부 목록 
 	private int myactiveDonationNo;
+	
+	private int ROWNUM_VAL; // 순번 값
+	
+	
 	private String myactiveDate;
 	private String volunteerCompleteStatus;
 	private int donationMoney;

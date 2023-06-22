@@ -129,6 +129,7 @@ public class EventServiceImpl implements EventService{
 		return dao.insertMyActiveEventList(myActiveEventList);
 	}
 
+
 	@Override
 	public int insertStamp(Stamp stamp) {
 		return dao.insertStamp(stamp);
@@ -138,6 +139,7 @@ public class EventServiceImpl implements EventService{
 	public int insertAlarm(Alarm alarm) {
 		return dao.insertAlarm(alarm);
 	}
+
 
 
 

@@ -40,6 +40,8 @@ public interface EventService {
 	
 	int insertStamp(Stamp stamp);
 
+
 	int insertAlarm(Alarm alarm);
+
 
 }
