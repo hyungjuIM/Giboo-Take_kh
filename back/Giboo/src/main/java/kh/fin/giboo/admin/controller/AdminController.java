@@ -18,7 +18,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/admin")
@@ -99,6 +101,20 @@ public class AdminController {
         model.addAttribute("parentCategoryList", parentCategoryList);
 
         return "admin/category";
+    }
+
+    @GetMapping("/category/removeCategory")
+    public String removeCategory(String type, String id) {
+        logger.info("카테고리 삭제");
+
+        Map<String, String> map = new HashMap<String, String>();
+
+        map.put("type", type);
+        map.put("id", id);
+
+        int result = service.removeCategory(map);
+
+        return null;
     }
 
     @GetMapping("faq")

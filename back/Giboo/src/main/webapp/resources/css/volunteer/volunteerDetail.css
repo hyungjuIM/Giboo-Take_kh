@@ -57,7 +57,7 @@ a{
 
 /* section mainContainer */
 .mainContainer{
-    height: 80vh;
+    height: fit-content;
 
     display: flex;
     justify-content: center;

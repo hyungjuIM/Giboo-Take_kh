@@ -63,16 +63,12 @@ public class ManagerLoginController {
 			model.addAttribute("loginManager", loginManager);
 			
 			logger.info("로그인 기능 수행됨");
-	} else {
-		logger.info("로그인 실패.");
-		ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
-		
-		return "redirect:/admin/mLogin";
-		
-	}
-		return "redirect:/admin/home";
-		
-		
-		
+		} else {
+			logger.info("로그인 실패.");
+			ra.addFlashAttribute("message", "아이디 또는 비밀번호가 일치하지 않습니다.");
+
+			return "redirect:/admin/mLogin";
+		}
+			return "redirect:/admin/home";
 	}
 }

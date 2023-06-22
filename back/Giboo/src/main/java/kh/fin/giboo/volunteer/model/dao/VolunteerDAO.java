@@ -47,4 +47,12 @@ public class VolunteerDAO {
     public VolunteerDetail getVolunteerDetail(int volunteerNo) {
         return sqlSession.selectOne("volunteerMapper.getVolunteerDetail", volunteerNo);
     }
+
+    public int getVolunteerListCount(int category) {
+        return sqlSession.selectOne("volunteerMapper.volunteerListCount", category);
+    }
+
+    public int getVolunteerListCount() {
+        return sqlSession.selectOne("volunteerMapper.volunteerListCount");
+    }
 }

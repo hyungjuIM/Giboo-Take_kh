@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
@@ -48,10 +49,13 @@ public class DonationServiceImpl implements DonationService {
         pagination.setLimit(6);
 
         List<Donation> donationList =  null;
+        int donationListCount = 0;
         if (categoryValidate) {
             donationList = dao.getDonationList(pagination, category, model);
+            donationListCount = dao.getDonationListCount(category);
         } else {
             donationList = dao.getDonationList(pagination, model);
+            donationListCount = dao.getDonationListCount();
         }
 
         for (Donation d : donationList) {
@@ -60,14 +64,19 @@ public class DonationServiceImpl implements DonationService {
             long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
             d.setDDay(untilDay);
 
-            int percent = (d.getDonationAmount() * 100) / d.getTargetAmount();
+            int percent = (Integer.parseInt(d.getDonationAmount()) * 100) / Integer.parseInt(d.getTargetAmount());
             d.setPercent(percent);
+
+            DecimalFormat df = new DecimalFormat("###,###");
+            d.setDonationAmount(df.format(Integer.parseInt(d.getDonationAmount())));
+            d.setTargetAmount(df.format(Integer.parseInt(d.getTargetAmount())));
         }
 
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("pagination", pagination);
         map.put("parentCategoryList", parentCategoryList);
         map.put("donationList", donationList);
+        map.put("donationListCount", donationListCount);
 
         return map;
     }

@@ -47,10 +47,13 @@ public class VolunteerServiceImpl implements VolunteerService {
         pagination.setLimit(6);
 
         List<Volunteer> volunteerList =  null;
+        int volunteerListCount = 0;
         if (categoryValidate) {
             volunteerList = dao.getVolunteerList(pagination, category, model);
+            volunteerListCount = dao.getVolunteerListCount(category);
         } else {
             volunteerList = dao.getVolunteerList(pagination, model);
+            volunteerListCount = dao.getVolunteerListCount();
         }
 
         for(Volunteer v : volunteerList) {
@@ -67,6 +70,7 @@ public class VolunteerServiceImpl implements VolunteerService {
         map.put("pagination", pagination);
         map.put("parentCategoryList", parentCategoryList);
         map.put("volunteerList", volunteerList);
+        map.put("volunteerListCount", volunteerListCount);
 
         return map;
     }

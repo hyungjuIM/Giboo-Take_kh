@@ -73,10 +73,11 @@
     </select>
 
     <select id="getVolunteerList" resultMap="volunteer_rm">
-        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
-        FROM VOLUNTEER
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, PC.PARENT_CATEGORY_NAME
+        FROM VOLUNTEER V, PARENT_CATEGORY PC
         <if test="category != null">
-            WHERE PARENT_CATEGORY_NO = ${category}
+            WHERE V.PARENT_CATEGORY_NO = ${category}
+            AND V.PARENT_CATEGORY_NO = PC.PARENT_CATEGORY_NO
         </if>
         ORDER BY VOLUNTEER_NO ASC
     </select>
@@ -91,5 +92,13 @@
         SELECT VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
         FROM VOLUNTEER
         WHERE VOLUNTEER_NO = ${volunteerNo}
+    </select>
+
+    <select id="volunteerListCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM VOLUNTEER
+        <if test="category != null">
+            WHERE PARENT_CATEGORY_NO = ${category}
+        </if>
     </select>
 </mapper>

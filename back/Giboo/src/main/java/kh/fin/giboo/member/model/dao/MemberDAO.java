@@ -30,11 +30,8 @@ public class MemberDAO {
 	 * @return
 	 */
 	public Manager loginManager(Manager inputManager) {
-		Manager loginManager = sqlSession.selectOne("memberMapper.managerLogin", inputManager);
-		return loginManager;
+		return sqlSession.selectOne("memberMapper.managerLogin", inputManager);
 	}
-
-	
 
 	/** 이메일 인증
 	 * @param memberEmail

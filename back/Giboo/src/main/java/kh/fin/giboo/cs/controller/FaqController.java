@@ -23,9 +23,6 @@ public class FaqController {
 	
 	private Logger logger = LoggerFactory.getLogger(FaqController.class);
 	
-	
-	 
-	
 	  @GetMapping("/faqList") 
 	  public String csMain(@RequestParam(value= "cp",required = false, defaultValue ="1") int cp, 
 			  Model model ) {
@@ -40,9 +37,7 @@ public class FaqController {
 		  
 		  return "cs/faqList"; 
 		  }
-	 
-	
-	
+
 	// 봉사 카테고리만 생성
 	@GetMapping("/faqVolunteer")
 	public String faqVolunteer(@RequestParam(value= "cp", required = false, defaultValue ="1") int cp,
@@ -58,6 +53,7 @@ public class FaqController {
 	 
 		return "cs/faqVolunteer";
 	}
+
 	
 	
 	// 기부 카테고리만 생성

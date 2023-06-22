@@ -247,7 +247,7 @@ a{
     height: 16px;
 }
 
-.confirm, .reject, .detail {
+.detail, .remove {
     background-color: unset;
     border: 1px solid #BDBDBD;
     border-radius: 20px;
@@ -258,5 +258,10 @@ a{
 
 .focus {
     background-color: #8071FC;
+    color: white;
+}
+
+.removeFocus {
+    background-color: #EF0101;
     color: white;
 }
