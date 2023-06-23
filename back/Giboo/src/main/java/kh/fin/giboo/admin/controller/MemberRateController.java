@@ -36,33 +36,17 @@ public class MemberRateController {
     	List<Member> memberList = service.selectmemberRateList();
     	model.addAttribute("memberRateList", memberList);
     	System.out.println(memberList);
-    	
-    	for (Member member : memberList) {
-    	    // 각 회원 객체에 대한 작업 수행
-    	    String rateName = member.getRateName();  // 회원의 rateName 값 가져오기
-    	    int pointPrice = member.getPointPrice();  // 회원의 pointPrice 값 가져오기
-    	    
-    	    System.out.println("회원의 rateName: " + rateName);
-    	    System.out.println("회원의 pointPrice: " + pointPrice);
 
-
-    	model.addAttribute("rateName", rateName);
-        model.addAttribute("pointPrice", pointPrice);
-        int updatedMemberCount = service.updateMemberRatesByRate(rateName, pointPrice);
+        int updatedMemberCount = service.updateMemberRatesByRate();
     	
         redirectAttributes.addFlashAttribute("updatedMemberCount", updatedMemberCount);
         System.out.println(updatedMemberCount);
-    	}
+        
+
+    	  List<Member> updatedMemberList = service.selectmemberRateList();
+    	    model.addAttribute("memberRateList", updatedMemberList);
+    	System.out.println("업데이트정보 : "+updatedMemberList);
         return "admin/memberRate";
     }
     
-//    @ResponseBody
-//    @GetMapping("/memberRateUpdate")
-//    public int updateMemberRates( @RequestParam List<String> rateName,
-//            @RequestParam List<String> pointPrice) {
-//    	System.out.println(rateName);
-//    	System.out.println(pointPrice);
-//        int result = service.updateMemberRates(rateName,pointPrice);
-//        return result; //
-//    }
 }

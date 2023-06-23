@@ -26,7 +26,7 @@
     	<result property="managerPw" column="MANAGER_PW"/>
     	<result property="managerEmail" column="MANAGER_EMAIL"/>
     	<result property="managerName" column="MANAGER_NAME"/>
-    	<result property="managerNick" column="MANAGER_NICKNAME"/>
+    	<result property="managerNickname" column="MANAGER_NICKNAME"/>
     	<result property="managerTel" column="MANAGER_TEL"/>
     	<result property="managerPermission" column="MANAGER_PERMISSION"/>
     	<result property="managerProfileImg" column="MANAGER_PROFILE_IMG"/>

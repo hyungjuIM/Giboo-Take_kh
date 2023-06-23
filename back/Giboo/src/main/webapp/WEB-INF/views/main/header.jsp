@@ -73,11 +73,12 @@
 							<c:when test="${!empty sessionScope.loginManager}">
 								<!-- 관리자로 로그인한 경우에 대한 내용을 추가 -->
 								<div class="nick_container">
-									<span id="nickName">${loginManager.mgrNickname}</span>관리자님 
+									<span id="nickName">${loginManager.managerNickname}</span>관리자님 
 								</div>
 							</c:when>
 							<%-- 로그인 된 후 --%>
 							<c:otherwise>
+
 								<div class="loginContainer_box">
 									<div class="nick_container">
 										<span id="nickName">${loginMember.memberNick}</span>님
@@ -110,6 +111,7 @@
 				
 				
 									<a href="${contextPath}/main/logout" class="logout_Btn"><span>로그아웃</span></a>
+
 								</div>
 								
 								
@@ -137,7 +139,11 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/main/header.js"></script>
 	
-
+	<c:if test="${ !empty message }">
+		<script>
+			alert("${message}");
+		</script>
+	</c:if>
 
 </body>
 

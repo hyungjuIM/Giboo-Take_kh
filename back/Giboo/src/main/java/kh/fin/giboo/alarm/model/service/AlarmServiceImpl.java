@@ -24,6 +24,15 @@ public class AlarmServiceImpl implements AlarmService {
 		return dao.selectAll();
 	}
 
+	//알람창 읽음으로 인한 처리
+	@Override
+	public int updateAlarmStatus(int alarmNo) {
+		return dao.updateAlarmStatus(alarmNo);
+	}
+
+	
+	
+
 
 	
 

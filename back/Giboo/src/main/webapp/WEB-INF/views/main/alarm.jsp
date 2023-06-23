@@ -35,21 +35,26 @@
 </head>
 
 <body>
+
+
+
 	<div class="alert_container" id="alarmList">
 		<%-- 알림 카드부분  --%>
-		<div class="alert_myfavcard_contaner">
+		 
+		<div class="alert_myfavcard_contaner" >
 			<div class="alert_titleContainerA">
+			<%-- 작은동그라미 --%>
+                <div class="smallC_Container">
+                    <button class="smallC" id="readStatus"> </button>
+                </div>
+			
 				<div class="alert_titleContainer">
 					<div class="alarmContent"></div>
 					<div class="alarmDate"></div>
 		
 				</div>
 			</div>
-
 		</div>
-
-		
-
 	</div>
 
 	<script
