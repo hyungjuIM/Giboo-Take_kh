@@ -7,9 +7,10 @@ import kh.fin.giboo.map.model.vo.MapList;
 
 public interface MapService {
 
-	List<MapList> selectMapList();
+	Map<String, Object> selectMapList(int cp);
 
-//	List<Map> mapList(int mapNo);
+	Map<String, Object> searchBoardList(Map<String, Object> paramMap);
+
 
 
 
