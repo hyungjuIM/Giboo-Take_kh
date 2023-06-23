@@ -41,8 +41,8 @@
                 <a href="#none">위치찾기</a>
             </div>
 
-                <div class="user_sec">
-                    <!--
+            <div class="user_sec">
+                <!--
                     <a href="#none" class="loginBtn">로그인</a>
 
                     <div class="toggle"><a href="#none" class="tooltip" data-text="마이페이지">
@@ -61,36 +61,41 @@
                  -->
 
 
-                    <div class="loginContainer_box">
-                        <div class="nick_container">
-                            <span id="nickName">2u</span>님
-
-                        </div>
-
-                        <div class="toggle">
-                            <a href="${pageContext.request.contextPath}/mypage/mypageMain" class="tooltip"
-                                data-text="마이페이지">
-                                <div class="iBox">
-                                    <i class="far fa-user-circle gray_Style"></i>
-                                    <i class="far fa-user-circle green_Style"></i>
-
-                                </div>
-                            </a>
-                        </div>
-                        <div class="toggle">
-                            <a href="#none" class="tooltip" data-text="알림">
-                                <div class="iBox">
-                                    <i class="far fa-bell gray_Style"></i>
-                                    <i class="far fa-bell green_Style"></i>
-                                </div>
-                            </a>
-                        </div>
-
-                        <a href="${contextPath}/main/logout" class="logout_Btn"><span>로그아웃</span></a>
-
+                <div class="loginContainer_box">
+                    <div class="nick_container">
+                        <span id="nickName">${loginMember.memberNick}</span>님
 
                     </div>
+
+                    <div class="toggle">
+                        <a href="${pageContext.request.contextPath}/mypage/mypageMain" data-text="마이페이지">
+                            <div class="iBox">
+                                <i class="far fa-user-circle gray_Style"></i>
+                                <i class="far fa-user-circle green_Style"></i>
+                                <!-- <div class="tooltip">마이페이지</div> -->
+                            </div>
+
+                        </a>
+                    </div>
+
+                    <div class="toggle">
+                        <a href="#none" data-text="알림">
+                            <div class="iBox">
+                                <i class="far fa-bell gray_Style"></i>
+                                <i class="far fa-bell green_Style"></i>
+
+                            </div>
+
+
+                        </a>
+                    </div>
+  
+
+
+
                 </div>
+                <a href="${contextPath}/main/logout" class="logout_Btn"><span>로그아웃</span></a>
+            </div>
 
         </div>
     </section>

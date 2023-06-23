@@ -17,7 +17,9 @@
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	
 	 	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    	<script src="/JS/cs/csMain.js"></script>
+
+    	<script src="${pageContext.request.contextPath}/resource/js/csMain.js"></script>
+
 	
 		<!-- fontawesome -->
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -358,32 +360,21 @@
 
             </script>
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-      <script>
-		$(".que").click(function() {
-		    var answerElement = $(this).next(".anw");
-		
-		    if (answerElement.is(":visible")) {
-		        answerElement.slideUp(300); // 아코디언 닫힘
-		    } else {
-		        answerElement.css("display", "flex"); // 아코디언 열림, display를 flex로 변경
-		        answerElement.stop().show(0); // 아코디언 열림, show() 메서드 사용
-		    }
-		
-		    $(this).toggleClass('on').siblings().removeClass('on');
-		    $(this).next(".anw").siblings(".anw").slideUp(300); // 1개씩 펼치기
-		});
-</script>
+
+        <script> $(".que").click(function() {
+                $(this).next(".anw").stop().slideToggle(300);
+            $(this).toggleClass('on').siblings().removeClass('on');
+            $(this).next(".anw").siblings(".anw").slideUp(300); // 1개씩 펼치기
+            });
+        </script>
 
         
         <!-- 푸터 영역 -->
 <footer>
   <jsp:include page="/WEB-INF/views/main/footer.jsp" />
 </footer>
-        <!-- jQuery 라이브러리 추가 -->
-         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-	
-	 	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    	<script src="${pageContext.request.contextPath}/resource/js/csMain.js"></script>
+
+        
+
     </body>
 </html>

@@ -63,15 +63,6 @@ public class AdminDAO {
 		return sqlSession.selectList("adminMapper.selectmemberRateList");
 	}
 
-	// 등급 나누는 조건 최소값
-	public int getMinPoint(String rateName) {
-		return sqlSession.selectOne("adminMapper.selectMinPoint", rateName);
-	}
-
-	// 등급 나누는 조건 최대값
-	public int getMaxPoint(String rateName) {
-		return sqlSession.selectOne("adminMapper.selectMaxPoint", rateName);
-	}
 
 	// 봉사기부 참여횟수 조회
 	public int getVolunteerCount(int memberNo) {
@@ -84,15 +75,16 @@ public class AdminDAO {
 	}
 
 	// 등급별 적립금혜택 조회
-	public int getPointByRate(String rateName) {
-		return sqlSession.selectOne("adminMapper.getPointByRate", rateName);
+	public int getPointByRate(String rateName2) {
+		return sqlSession.selectOne("adminMapper.getPointByRate", rateName2);
 	}
 
-	public String getRateName(int minPoint, int maxPoint) {
+	// 등급name얻어오기
+	public String getRateNameByCounts(int volunteerCount, int donationCount) {
 		Map<String, Integer> params = new HashMap<>();
-		params.put("minPoint", minPoint);
-		params.put("maxPoint", maxPoint);
-		return sqlSession.selectOne("adminMapper.getRateName",params);
+		params.put("volunteerCount", volunteerCount);
+		params.put("donationCount", donationCount);
+		return sqlSession.selectOne("adminMapper.getRateNameByCounts", params);
 	}
 	// 등급 업데이트
 	public void updateMemberRate(Member member) {
@@ -102,4 +94,5 @@ public class AdminDAO {
   public int removeCategory(Map<String, String> map) {
         return sqlSession.delete("adminMapper.removeCategory", map);
   }
+
 }

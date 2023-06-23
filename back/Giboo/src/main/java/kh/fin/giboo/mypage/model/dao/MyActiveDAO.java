@@ -23,6 +23,8 @@ public class MyActiveDAO {
 
 	// 기부 게시판의 전체 게시글 수 조회 DAO
 	public int getListCount1(Model model) {
+		
+		
 
 		return sqlSession.selectOne("myPage-mapper.getListCount1", model);
 	}
@@ -37,6 +39,8 @@ public class MyActiveDAO {
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
 
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+
 
 		return sqlSession.selectList("myPage-mapper.selectMyactiveDonationList", model, rowBounds);
 	}

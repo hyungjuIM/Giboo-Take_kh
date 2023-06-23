@@ -16,12 +16,70 @@
     </header>
 
 
-
     <main>
+
+
         <div class="container">
-            <section class="welcome">
-                <img src="#none" alt="">
-              
+            <section class="welcome_section">
+
+                <div class="slider_btn">
+                    <input type="radio" name="slide" id="slide01" check>
+                    <input type="radio" name="slide" id="slide02">
+                    <input type="radio" name="slide" id="slide03">
+                </div>
+
+                <div class="mainImg_slider">
+
+                    <ul class="mainImg_list">
+
+                        <!-- 첫번째 이미지 -->
+                        <li>
+                            <a>
+                                <img src="/images/main_img/main_img.png">
+
+                            </a>
+                        </li>
+
+                        <!-- 두번째 이미지 -->
+                        <li>
+                            <a>
+                                <img src="/images/main_img/main_img.png">
+
+                            </a>
+                        </li>
+
+                        <!-- 세번째 이미지 -->
+                        <li>
+                            <a>
+                                <img src="/images/main_img/main_img.png">
+
+                            </a>
+                        </li>
+
+                        <div class="slide_control">
+                            <div class="control01">
+                                <label for="slide03" class="mainImag_left"></label>
+                                <label for="slide02" class="mainImag_right"></label>
+                            </div>
+
+                            <div class="control02">
+                                <label for="slide01" class="mainImag_left"></label>
+                                <label for="slide03" class="mainImag_right"></label>
+                            </div>
+
+                            <div class="control03">
+                                <label for="slide2" class="mainImag_left"></label>
+                                <label for="slide01" class="mainImag_right"></label>
+                            </div>
+
+                        </div>
+
+
+                    </ul>
+
+
+                </div>
+
             </section>
 
             <section class="contentCount">
@@ -30,7 +88,7 @@
                         <br> Giboo&Take가 함께 합니다.
                     </h3>
                     <div class="count_box1">
-                        <img src="/images/main_img/02_보드.png">
+                        <img src="${pageContext.request.contextPath}/resources/images/main_img/board.png" alt="#">
                         <div class="count_box1_container">
                             <h3>이웃을 향한 아름다운 도움의 손길을<br> 실천하는 Giboo&Take</h3>
                             <p>봉사 1회에 행복지수 10%가 상승하는 사실 알고 계셨나요?<br>Giboo&Take와 함께 나와 우리 이웃의 행복지수를 높여보아요!</p>
@@ -59,7 +117,7 @@
                 <div class="vol_box_container">
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -85,7 +143,7 @@
                     </div>
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -111,7 +169,7 @@
                     </div>
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -137,7 +195,7 @@
                     </div>
 
                 </div>
- 
+
             </section>
 
             <!-- ***************** 기부 section ***************** -->
@@ -149,7 +207,7 @@
                 <div class="vol_box_container">
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -175,7 +233,7 @@
                     </div>
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -201,7 +259,7 @@
                     </div>
                     <div class="vol_box">
                         <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="/images/childimg.jpeg"></div>
+                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
                         <div class="vol_content_part">
                             <div class="vol_content_per_container">
                                 <span class="vol_con_bar">
@@ -256,7 +314,8 @@
                     </div>
                     <div class="re_box">
                         <div class="re_tag_sticky"><span><i class="xi-user-o"></i>어르신</span></div>
-                        <img src="/images/main_img/04_책.png" class="main_book">
+                        <img src="${pageContext.request.contextPath}/resources/images/main_img/book.png"
+                            class="main_book">
                         <div class="re_content_container">
                             <span class="re_content">
 
@@ -274,7 +333,7 @@
                     </div>
                     <div class="re_box">
                         <div class="re_tag_sticky"><span><i class="xi-user-o"></i>어르신</span></div>
-                        <img src="/images/main_img/01_상체.png">
+                        <img src="${pageContext.request.contextPath}/resources/images/main_img/upperBody.png">
                         <div class="re_content_container">
                             <span class="re_content">
 
@@ -293,9 +352,10 @@
                 </div>
             </section>
         </div>
+        <jsp:include page="/WEB-INF/views/main/qnaBtn.jsp" />
 
     </main>
-    
+
 
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -310,8 +370,8 @@
 
     </script>
 
-<script src="/JS/03.main.js"></script>
-    
+    <script src="/JS/03.main.js"></script>
+
 </body>
 
 </html>

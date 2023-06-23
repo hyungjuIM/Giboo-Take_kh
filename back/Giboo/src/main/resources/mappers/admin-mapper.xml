@@ -208,12 +208,10 @@
 	<!-- 회원등급조회 -->
 	<select id="selectmemberRateList" resultMap="member_rm">
 		SELECT m.MEMBER_NO,
-		m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_EMAIL, m.MEMBER_TEL,
-		g.RATE_NAME,
-		p.POINT_PRICE
+		m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_EMAIL, m.MEMBER_TEL,m.RATE_NO,
+		m.POINT_PRICE,g.RATE_NAME		
 		FROM MEMBER m
 		INNER JOIN RATE g ON m.RATE_NO = g.RATE_NO
-		INNER JOIN POINT p ON m.POINT_NO = p.POINT_NO
 		WHERE EXISTS (
 		SELECT 1
 		FROM VOLUNTEER v
@@ -268,19 +266,23 @@
 		WHERE RATE_NAME = #{rateName}
 	</select>
 
-	<select id="getRateName" resultType="java.lang.String">
-		SELECT RATE_NAME
-		FROM RATE
-		WHERE MINPOINT &gt;= #{minPoint}
-		AND MAXPOINT &lt;= #{maxPoint}
-	</select>
+
 
 	<update id="updateMemberRate" parameterType="member">
   UPDATE MEMBER M
   SET M.RATE_NO = (SELECT R.RATE_NO FROM RATE R WHERE R.RATE_NAME = #{rateName}),
-      M.POINT_NO = (SELECT P.POINT_NO FROM POINT P WHERE P.POINT_PRICE = #{pointPrice})
+      M.POINT_PRICE = #{pointPrice}
   WHERE M.MEMBER_NO = #{memberNo}
 	</update>
+	
+	<select id="getRateNameByCounts" parameterType="map" resultType="java.lang.String">
+    SELECT RATE_NAME
+    FROM RATE
+    WHERE MINPOINT &lt;= #{volunteerCount} + #{donationCount}
+    AND MAXPOINT &gt;= #{volunteerCount} + #{donationCount}
+</select>
+	
+	
   
 	<delete id="removeCategory">
 		DELETE FROM #{category}
