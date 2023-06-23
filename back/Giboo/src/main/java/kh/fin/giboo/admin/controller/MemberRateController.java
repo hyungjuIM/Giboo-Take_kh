@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.fin.giboo.admin.model.service.AdminService;
 import kh.fin.giboo.admin.model.vo.Rate;
@@ -27,22 +28,25 @@ public class MemberRateController {
     @Autowired
     private AdminService service;
     // 등급관리
-    @GetMapping("memberRate")
-    public String memberRate(Model model) {
-        logger.info("회원 등급 관리");
+    @GetMapping("/memberRate")
+     public String updateMemberRates(
+                                    Model model,
+                                    RedirectAttributes redirectAttributes) {
+    	logger.info("등급관리");
+    	List<Member> memberList = service.selectmemberRateList();
+    	model.addAttribute("memberRateList", memberList);
+    	System.out.println(memberList);
 
-        List<Member> memberRateList = service.selectmemberRateList();
+        int updatedMemberCount = service.updateMemberRatesByRate();
+    	
+        redirectAttributes.addFlashAttribute("updatedMemberCount", updatedMemberCount);
+        System.out.println(updatedMemberCount);
+        
 
-        model.addAttribute("memberRateList", memberRateList);
-        System.out.println(memberRateList);
+    	  List<Member> updatedMemberList = service.selectmemberRateList();
+    	    model.addAttribute("memberRateList", updatedMemberList);
+    	System.out.println("업데이트정보 : "+updatedMemberList);
         return "admin/memberRate";
     }
     
-    @ResponseBody
-    @GetMapping("/memberRateUpdate")
-    public int updateMemberRates(  String rateName,
-            int pointPrice) {
-        int result = service.updateMemberRates(rateName,pointPrice);
-        return result; //
-    }
 }

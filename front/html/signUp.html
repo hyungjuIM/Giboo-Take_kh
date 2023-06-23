@@ -26,38 +26,43 @@
                     autocomplete="off">
 
                     <!-- 이름 -->
-                    <div class="signUpName signUpInput_Container">
-                        <span><i class="fa-regular fa-user"></i></span>
-                        <input type="text" id="signUpName" class="int" name="memberName" max="20" placeholder="사용자 이름">
+                    <div class="signUpInput_Container_box">
+
+                        <div class="signUpName signUpInput_Container ">
+                            <span><i class="fa-regular fa-user"></i></span>
+                            <input type="text" id="signUpName" class="int" name="memberName" max="20"
+                                placeholder="사용자 이름">
+                        </div>
+
                     </div>
 
 
                     <!-- 아이디 -->
-                    <div class="signUpInput_Container">
-                        <div class="signUpId">
+                    <div class="signUpInput_Container_box">
+                        <div class="signUpId signUpInput_Container">
                             <span><i class="fa-regular fa-circle-user"></i></span>
-                            <input type="text" id="signUpId" name="memberID" class="id" maxlength="20"
+                            <input type="text" id="signUpId" name="memberId" class="id" maxlength="20"
                                 placeholder="사용자 아이디">
                         </div>
                         <span id="idMessage">영어/숫자/한글 2~20글자 사이로 입력해주세요.</span>
                     </div>
 
                     <!-- 이메일 -->
-                    <div class="messageBox signUpInput_Container">
+                    <div class="messageBox signUpInput_Container_box">
 
-                        <div class="signUpMessageBox">
+                        <div class="signUpMessageBox signUpInput_Container">
                             <span><i class="fa-solid fa-at"></i></span>
                             <input type="email" id="memberEmail" class="email" name="memberEmail" maxlength="50"
                                 placeholder="이메일" required>
                             <button type="button" id="cBtn">인증받기</button>
                         </div>
 
-                        <span class="signUpMessage" id="emailMessage"> 이메일이 올바르지 않습니다.</span>
+                        <span class="signUpMessage" id="emailMessage"></span>
                     </div>
 
                     <!-- 이메일 인증번호 -->
-                    <div class="signUpMessageBox signUpInput_Container">
-                        <div class="signUpMessageBoxC">
+                    <div class="signUpMessageBox signUpInput_Container_box">
+                        <div class="signUpMessageBoxC signUpInput_Container">
                             <span><i class="fa-regular fa-envelope"></i></span>
                             <input type="text" id="cNumber" class="emailCF" maxlength="20" placeholder="인증번호 확인">
                             <button type="button" id="McBtn">인증하기</button>
@@ -69,8 +74,8 @@
 
 
                     <!-- PW1 -->
-                    <div class="signUpPw1 signUpInput_Container">
-                        <div class="signUpPw1Box">
+                    <div class="signUpPw1 signUpInput_Container_box">
+                        <div class="signUpPw1Box signUpInput_Container">
                             <span><i class="fa-solid fa-fingerprint"></i></span>
 
                             <input type="password" id="signUpw1" name="memberPw" class="int" maxlength="30"
@@ -82,8 +87,8 @@
                     </div>
 
                     <!-- pw2 -->
-                    <div class="signUpPw2 signUpInput_Container">
-                        <div class="signUpPw2Box">
+                    <div class="signUpPw2 signUpInput_Container_box">
+                        <div class="signUpPw2Box signUpInput_Container">
                             <span><i class="fa-solid fa-lock"></i></span>
                             <input type="text" id="signUpw2" class="int" placeholder="비밀번호 확인">
                         </div>
@@ -91,8 +96,8 @@
                     </div>
 
                     <!-- 닉네임 -->
-                    <div class="signUpNickname signUpInput_Container">
-                        <div class="signUpNicknameBox">
+                    <div class="signUpNickname signUpInput_Container_box">
+                        <div class="signUpNicknameBox signUpInput_Container">
                             <span><i class="fa-regular fa-face-kiss-wink-heart"></i></span>
                             <input type="text" id="signUpNickname" name="memberNick" class="nick" maxlength="10"
                                 placeholder="닉네임 확인">
@@ -102,8 +107,8 @@
                     </div>
 
                     <!-- 전화번호 -->
-                    <div class="signUpTel signUpInput_Container">
-                        <div class="singUpTelBox">
+                    <div class="signUpTel signUpInput_Container_box">
+                        <div class="singUpTelBox signUpInput_Container">
                             <span><i class="fa-solid fa-phone"></i></span>
                             <input type="tel" id="signUpTel" name="memberTel" class="int" maxlength="12"
                                 placeholder="전화번호(-없이 숫자만 입력)">
@@ -113,13 +118,25 @@
                     </div>
 
 
-                    <div class="signUpInput_Container">
-                        <input type="text" id="sample6_postcode" placeholder="우편번호">
-                        <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-                        <input type="text" id="sample6_address" placeholder="주소"><br>
-                        <input type="text" id="sample6_detailAddress" placeholder="상세주소">
-                        <!-- <input type="text" id="sample6_extraAddress" placeholder="참고항목"> -->
+                    <!-- 주소 -->
+                    <div class="signUpInput_addrContainer_box">
+                        <div class="signUp-input-area signUpInput_addrContainer ">
+                            <div class="addr_box01">
+                                <input type="text" id="sample4_postcode" name="memberAddr" placeholder="우편번호"  maxlength="6">
+                                <button onclick="sample6_execDaumPostcode()">우편번호 찾기</button><br>
+                            </div>
+                            <div class="signUp-input-area addr_box02">
+
+                                <input type="text" id="sample4_roadAddress" name="memberAddr" placeholder="도로명주소"><br>
+                            </div>
+                            <div class="signUp-input-area addr_box02">
+                                <input type="text" id="sample4_detailAddress" name="memberAddr" placeholder="상세주소">
+                            </div>
+                           
+                            <!-- <input type="text" id="sample6_extraAddress" placeholder="참고항목"> -->
+                        </div>
                     </div>
+
                     <!-- 주소
                     <div class="signUpAdd">
                         <span><i class="fa-solid fa-house"></i></span>
@@ -130,7 +147,7 @@
 
                     <!-- join Btn -->
                     <div class="singUpBtnnBox">
-                        <button class="singUpBtnn">회원가입</button>
+                        <button class="singUpBtnn" type="submit" id="btnJoin">회원가입</button>
                     </div>
                 </form>
             </div>

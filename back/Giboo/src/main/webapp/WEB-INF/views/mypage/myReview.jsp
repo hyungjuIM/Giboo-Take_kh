@@ -61,6 +61,21 @@
 
 
 											<div class="search-area">
+
+												<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
+												<c:if test="${!empty param.key}">
+													<c:set var="sURL"
+														value="&key=${param.key}&query=${param.query}" />
+												</c:if>
+
+												<h1 class="board-name">${boardName}</h1>
+
+												<c:if test="${!empty param.key}">
+													<h3 style="margin-left: 30px;">"${param.query}" 검색 결과
+													</h3>
+												</c:if>
+
+
 												<div class="search-filter">
 
 													<select id="filter" name="filter">
@@ -73,7 +88,7 @@
 
 												<form action="">
 													<fieldset>
-														<input type="text" id="query" name="query"
+														<input type="text" id="search-query" name="query"
 															placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
 															onblur="this.placeholder = '검색어를 입력해주세요'">
 														<button type="submit" id="search-btn"
@@ -96,7 +111,7 @@
 											<thead>
 												<tr>
 													<th scope="col" class="th-num">번호</th>
-													
+
 													<th scope="col" class="th-name">참가한 내역</th>
 													<th scope="col" class="th-content">리뷰내용</th>
 													<th scope="col" class="th-date">일자</th>
@@ -113,14 +128,19 @@
 													</c:when>
 
 													<c:otherwise>
+														<c:set var="reviewCount" value="${myReview.size()}" />
 
-														<c:forEach var="myReview" items="${myReview}">
+														<c:forEach var="myReview" items="${myReview}"
+															varStatus="status">
+															<c:set var="reviewNumber"
+																value="${reviewCount - status.count + 1}" />
 															<tr>
-																<td class="th-num">${myReview.reviewNo}</td>
-																<td class="th-name">${myReview.title}</td>  
+																<td class="th-num">${reviewNumber}</td>
+																<td class="th-name">${myReview.title}</td>
 																<td class="th-content">${myReview.reviewContent}</td>
 																<td class="th-date">${myReview.enrollDate}</td>
 															</tr>
+
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>

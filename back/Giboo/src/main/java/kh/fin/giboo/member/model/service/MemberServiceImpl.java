@@ -51,6 +51,14 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public Manager loginManager(Manager inputManager) {
 		Manager loginManager = dao.loginManager(inputManager);
+	
+		if (loginManager !=null) {
+			if(inputManager.getMemberPw().equals(loginManager.getManagerPw())) {
+				loginManager.setMemberPw(null);
+			}else {
+				loginManager = null;
+			}
+		}
 		return loginManager;
 	}
 

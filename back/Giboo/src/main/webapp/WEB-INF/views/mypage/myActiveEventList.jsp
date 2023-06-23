@@ -137,14 +137,18 @@
 													</c:when>
 
 													<c:otherwise>
-
+														<c:set var="eventCount" value="${myActiveEventList.size()}" />
 														<c:forEach var="myActiveEventList"
-															items="${myActiveEventList}">
+															items="${myActiveEventList}" varStatus="status">
+															
+															 <c:set var="eventNumber" value="${eventCount - status.count + 1}" />
 															<tr>
-																<td>${myActiveEventList.myactiveEventNo}</td>
-																<td>${myActiveEventList.eventTitle}</td>
+																<td>${eventNumber}</td>
+																<td><a
+																	href="../event/eventDetailMain/${myActiveEventList.eventNo}?cp=${pagination.currentPage}${sURL}">${myActiveEventList.eventTitle}</a></td>
 																<td>${myActiveEventList.myactiveDate}</td>
 															</tr>
+															
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>

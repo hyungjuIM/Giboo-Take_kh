@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -69,31 +70,41 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public List<Member> selectmemberRateList() {
+
 		return dao.selectmemberRateList();
 	}
 
+	@Override
+	public int updateMemberRatesByRate() {
+	    List<Member> members = dao.selectmemberRateList();
 
-	 public int updateMemberRates(String rateName, int pointPrice) {
-		    List<Member> members = selectmemberRateList();
-		    int minPoint =dao.getMinPoint(rateName);
-		    int maxPoint =dao.getMaxPoint(rateName);
-		    int point= dao.getPointByRate(rateName);
-		    int updatedMemberCount = 0;
-		    for (Member member : members) {
-		      int volunteerCount = dao.getVolunteerCount(member.getMemberNo());
-		      int donationCount = dao.getDonationCount(member.getMemberNo());
-		      
-		      if ((volunteerCount + donationCount) >= minPoint && (volunteerCount + donationCount) <= maxPoint) {
-		        member.setRateName(rateName);
-		        member.setPointPrice(pointPrice);
+	    int updatedMemberCount = 0;
 
-		        member.setPointPrice(member.getPointPrice() + point);
+	    for (Member member : members) {
+	        int volunteerCount = dao.getVolunteerCount(member.getMemberNo());
+	        int donationCount = dao.getDonationCount(member.getMemberNo());
+	        System.out.println("회원의 봉사기부횟수 : " +(volunteerCount+donationCount));
+	        String rateName2 = dao.getRateNameByCounts(volunteerCount, donationCount);
+	        System.out.println("새로운 등급은 : "+rateName2);
+	        if (rateName2 != null) {
+	            member.setRateName(rateName2);
+	            int point = dao.getPointByRate(rateName2);
+	            member.setPointPrice(member.getPointPrice() + point);
+	            System.out.println("적립금은 : "+ member.getPointPrice());
+	            dao.updateMemberRate(member);
+	            updatedMemberCount++; // 회원 업데이트가 수행되었으므로 카운트를 증가
+	        }
 
-		         dao.updateMemberRate(member);
-		         updatedMemberCount++; // 회원 업데이트가 수행되었으므로 카운트를 증가
-		      }
-		    }
-		    return updatedMemberCount; // 업데이트된 회원 수를 반환
-		  }
+	    }
+
+	    return updatedMemberCount;
+	}
+	
+
+
+    @Override
+    public int removeCategory(Map<String, String> map) {
+        return dao.removeCategory(map);
+    }
 
 }

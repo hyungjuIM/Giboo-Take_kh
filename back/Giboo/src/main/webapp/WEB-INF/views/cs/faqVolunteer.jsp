@@ -2,7 +2,7 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 	<c:set var="pagination" value="${map.pagination}" />
-    <c:set var="faqList" value="${map.faqList}" />
+    <c:set var="faqVolunteer" value="${map.faqVolunteer}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +32,27 @@
         </div>
 
         <div class="cs-container">
-            <jsp:include page="/WEB-INF/views/cs/faqList.jsp" />
+            <div class="cs-wrapper">
+                <div class="cs-inquryBtnWrapper">
+                    <div class="cs-inquryBtn" >
+                        
+                     	<a href="${contextPath}/cs/faqVolunteer"><span>봉사</span></a> 
+                        <a href="${contextPath}/cs/faqDonation"><span>기부</span></a> 
+                        <a href="${contextPath}/cs/faqEvent"><span>이벤트</span></a> 
+                        <a href="#"><span>지도</span></a>
+                        <a href="#"><span>적립금</span></a>
+                        <a href="#"><span>스탬프</span></a>
 
+                    </div>
 
-
+                    <div class="cs-inquryBtn" id="cs-inquryBtn">
+                        <a href="#"><span>환불문의</span></a>
+                        <a href="#"><span>신청문의</span></a>
+                        <a href="#"><span>취소문의</span></a>
+                    </div>
+                </div>
+            </div>
+      
             <div class="cs-faqArea">
                 <section class="cs-faqContainer">
                     <div class="faqContent">
@@ -44,18 +61,19 @@
                                  자주 찾으시는 목록 Best 10</span><span style="color: #767676;">을 알려드립니다 😇</span>
                         </div>
                         <hr>
+                        <!-- faq list -->
                         <div id="Accordion_wrap">
                                 <c:choose>
-                                    <c:when test="${empty faqList}">
+                                    <c:when test="${empty faqVolunteer}">
                                         <span>자주찾는질문이 존재하지 않습니다.</span>
                                     </c:when>
                                     <c:otherwise>
-                                        <c:forEach var="faqList" items="${faqList}">
+                                        <c:forEach var="faqVolunteer" items="${faqVolunteer}">
                                             <div class="que">
                                                 <div class="queCategory">
-                                                    <span>${faqList.faqCategory}</span>
+                                                    <span>${faqVolunteer.faqCategory}</span>
                                                 </div>
-                                                <span>${faqList.faqTitle}</span>
+                                                <span>${faqVolunteer.faqTitle}</span>
                                                 <div class="arrow-wrap">
                                                     <span class="arrow-top">></span>
                                                     <span class="arrow-bottom">></span>
@@ -63,7 +81,7 @@
                                             </div>
                                             <div class="anw">
                                                 <div class="anw2">
-                                                    <span id="anw-content">${faqList.faqContent}</span>
+                                                    <span id="anw-content">${faqVolunteer.faqContent}</span>
                                                     <div class="dontAnw">
                                                         <span id="dontAnw-span">* 원하시는 답을 찾지 못하셨나요?</span>
                                                         <a href=""><span id="dontAnw-span2">1:1 문의</span></a>
@@ -106,6 +124,7 @@
             </div>    
         </div>
         
+        <!-- 푸터 영역 -->
         <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
         </footer>

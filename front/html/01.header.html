@@ -18,8 +18,8 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
-        <!-- fontawesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -40,28 +40,64 @@
                 <a href="#none">이벤트</a>
                 <a href="#none">위치찾기</a>
             </div>
+
             <div class="user_sec">
-                <div class="myPage">
+                <!--
                     <a href="#none" class="loginBtn">로그인</a>
 
                     <div class="toggle"><a href="#none" class="tooltip" data-text="마이페이지">
                             <i class="far fa-user-circle"></i>
                         </a>
                     </div>
-                    <!-- <div class="toggle"><a href="#none" class="tooltip" data-text="알림">
+                    <div class="toggle"><a href="#none" class="tooltip" data-text="알림">
                             <i class="far fa-bell"></i>
                         </a>
-                    </div> -->
+                    </div>
                     <div class="toggle"><a href="#none" class="tooltip" data-text="알림">
                         <i class="far fa-bell"></i>
                     </a>
                 </div>
 
+                 -->
+
+
+                <div class="loginContainer_box">
+                    <div class="nick_container">
+                        <span id="nickName">${loginMember.memberNick}</span>님
+
+                    </div>
+
+                    <div class="toggle">
+                        <a href="${pageContext.request.contextPath}/mypage/mypageMain" data-text="마이페이지">
+                            <div class="iBox">
+                                <i class="far fa-user-circle gray_Style"></i>
+                                <i class="far fa-user-circle green_Style"></i>
+                                <!-- <div class="tooltip">마이페이지</div> -->
+                            </div>
+
+                        </a>
+                    </div>
+
+                    <div class="toggle">
+                        <a href="#none" data-text="알림">
+                            <div class="iBox">
+                                <i class="far fa-bell gray_Style"></i>
+                                <i class="far fa-bell green_Style"></i>
+
+                            </div>
+
+
+                        </a>
+                    </div>
+  
+
+
+
                 </div>
+                <a href="${contextPath}/main/logout" class="logout_Btn"><span>로그아웃</span></a>
             </div>
+
         </div>
-
-
     </section>
 
 
@@ -157,13 +193,13 @@
         <button class="moreBtn">더보기</button>
     </div>    -->
 
-<!--  추가부분  -->
-    
-    
-    
+    <!--  추가부분  -->
 
 
-    
+
+
+
+
     <script src="/JS/mypage/alert1.js"></script>
 
 

@@ -11,7 +11,7 @@ import java.sql.Date;
 @AllArgsConstructor
 public class DonationDetail {
     private int donationNo;
-    private int targetAmount;
+    private String targetAmount;
     private int locationX;
     private int locationY;
     private String donationAddr;
@@ -22,7 +22,7 @@ public class DonationDetail {
     private String endProgressDate;
     private String deleteStatus;
     private String dComStatus;
-    private int donationAmount;
+    private String donationAmount;
     private int viewCount;
     private String donationTitle;
     private String donationContent;

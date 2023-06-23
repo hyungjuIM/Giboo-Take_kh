@@ -6,13 +6,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kh.fin.giboo.event.controller.EventController;
+
 
 
 @Controller
 @RequestMapping("/mypage")
 public class MyAskController {
-	private Logger logger = LoggerFactory.getLogger(EventController.class);
+	private Logger logger = LoggerFactory.getLogger(MyAskController.class);
 	
 	// 나의 문의
 		@GetMapping(value = "/myask")

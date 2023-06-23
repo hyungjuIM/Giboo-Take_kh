@@ -19,23 +19,23 @@
 		<result property="pointNo" column="POINT_NO" />
 		<result property="pointPrice" column="POINT_PRICE" />
 		<result property="rateName" column="RATE_NAME" />
-		
-		
+
+
 	</resultMap>
 
 	<resultMap id="manager_rm" type="manager">
-		<id property="managerNo" column="MGR_NO" />
-		<result property="managerId" column="MGR_ID" />
-		<result property="managerEmail" column="MGR_EMAIL" />
-		<result property="managerName" column="MGR_NAME" />
-		<result property="managerNick" column="MGR_NICKNAME" />
-		<result property="managerTel" column="MGR_TEL" />
-		<result property="managerPermission" column="MGR_PERMISSION" />
-		<result property="managerProfileImg" column="MGR_PROFILE_IMG" />
+		<id property="managerNo" column="MANAGER_NO" />
+		<result property="managerId" column="MANAGER_ID" />
+		<result property="managerEmail" column="MANAGER_EMAIL" />
+		<result property="managerName" column="MANAGER_NAME" />
+		<result property="managerNickname" column="MANAGER_NICKNAME" />
+		<result property="managerTel" column="MANAGER_TEL" />
+		<result property="managerPermission" column="MANAGER_PERMISSION" />
+		<result property="managerProfileImg" column="MANAGER_PROFILE_IMG" />
 		<result property="managerSignUpStatus"
-			column="MGR_SIGNUP_STATUS" />
+			column="MANAGER_SIGNUP_STATUS" />
 		<result property="managerSignUpReason"
-			column="MGR_SIGNUP_REASON" />
+			column="MANAGER_SIGNUP_REASON" />
 	</resultMap>
 
 	<resultMap id="volunteer_rm" type="volunteer">
@@ -119,13 +119,14 @@
 		<result property="faqTitle" column="FAQ_TITLE" />
 		<result property="faqContent" column="FAQ_CONTENT" />
 	</resultMap>
+
 	<resultMap id="rate_rm" type="rate">
-  <id property="rateNo" column="RATE_NO" />
-  <result property="rateName" column="RATE_NAME" />
-  <result property="maxpoint" column="MAXPOINT" />
-  <result property="minpoint" column="MINPOINT" />
-  <result property="point" column="POINT" />
-</resultMap>
+		<id property="rateNo" column="RATE_NO" />
+		<result property="rateName" column="RATE_NAME" />
+		<result property="maxpoint" column="MAXPOINT" />
+		<result property="minpoint" column="MINPOINT" />
+		<result property="point" column="POINT" />
+	</resultMap>
 
 	<select id="selectMemberList" resultMap="member_rm">
 		SELECT MEMBER_NO,
@@ -139,12 +140,12 @@
 	</select>
 
 	<select id="selectManagerList" resultMap="manager_rm">
-		SELECT MGR_NO, MGR_ID,
-		MGR_EMAIL, MGR_NAME, MGR_NICKNAME, MGR_TEL,
-		MGR_PERMISSION,
-		MGR_PROFILE_IMG, MGR_SIGNUP_STATUS, MGR_SIGNUP_REASON
+		SELECT MANAGER_NO, MANAGER_ID,
+			   MANAGER_EMAIL, MANAGER_NAME, MANAGER_NICKNAME, MANAGER_TEL,
+			   MANAGER_PERMISSION,
+			   MANAGER_PROFILE_IMG, MANAGER_SIGNUP_STATUS, MANAGER_SIGNUP_REASON
 		FROM MANAGER
-		ORDER BY MGR_NO ASC
+		ORDER BY MANAGER_NO ASC
 	</select>
 
 	<select id="selectVolunteerList" resultMap="volunteer_rm">
@@ -156,8 +157,7 @@
 		WHERE V.PARENT_CATEGORY_NO =
 		P.PARENT_CATEGORY_NO
 		AND V.MEMBER_NO = M.MEMBER_NO
-		ORDER BY VOLUNTEER_NO
-		ASC
+		ORDER BY VOLUNTEER_NO ASC
 	</select>
 
 	<select id="selectDonationList" resultMap="donation_rm">
@@ -175,10 +175,10 @@
 
 	<select id="selectEventList" resultMap="event_rm">
 		SELECT EVENT_NO,
-		EVENT_TITLE, ENROLL_DATE, END_RECRUIT_DATE, M.MGR_ID
+		EVENT_TITLE, ENROLL_DATE, END_RECRUIT_DATE, M.MANAGER_ID
 		FROM EVENT E,
 		MANAGER M
-		WHERE E.MGR_NO = M.MGR_NO
+		WHERE E.MGR_NO = M.MANAGER_NO
 		ORDER BY EVENT_NO ASC
 	</select>
 
@@ -208,66 +208,87 @@
 	<!-- 회원등급조회 -->
 	<select id="selectmemberRateList" resultMap="member_rm">
 		SELECT m.MEMBER_NO,
-		m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_EMAIL, m.MEMBER_TEL,
-		g.RATE_NAME, p.POINT_PRICE
+		m.MEMBER_ID, m.MEMBER_NAME, m.MEMBER_EMAIL, m.MEMBER_TEL,m.RATE_NO,
+		m.POINT_PRICE,g.RATE_NAME		
 		FROM MEMBER m
 		INNER JOIN RATE g ON m.RATE_NO = g.RATE_NO
-		INNER JOIN POINT p ON m.POINT_NO = p.POINT_NO
 		WHERE EXISTS (
 		SELECT 1
 		FROM VOLUNTEER v
 		WHERE v.MEMBER_NO = m.MEMBER_NO
-		AND v.START_PROGRESS_DATE >= SYSDATE - INTERVAL '1' MONTH
+		AND
+		v.START_PROGRESS_DATE >= SYSDATE - INTERVAL '1' MONTH
 		)
 		OR EXISTS (
 		SELECT 1
 		FROM DONATION d
 		WHERE d.MEMBER_NO = m.MEMBER_NO
-		AND d.START_PROGRESS_DATE >= SYSDATE - INTERVAL '1' MONTH
+		AND
+		d.START_PROGRESS_DATE >= SYSDATE - INTERVAL '1' MONTH
 		)
-		ORDER BY MEMBER_NO ASC
+		ORDER BY
+		MEMBER_NO ASC
 
 	</select>
+
+	<select id="selectMinPoint" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT MINPOINT
+		FROM RATE
+		WHERE RATE_NAME = #{rateName}
+	</select>
+
+	<select id="selectMaxPoint" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT MAXPOINT
+		FROM RATE
+		WHERE RATE_NAME = #{rateName}
+	</select>
+
+	<select id="getVolunteerCount" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM VOLUNTEER
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+
+	<select id="getDonationCount" parameterType="java.lang.Integer"
+		resultType="java.lang.Integer">
+		SELECT COUNT(*)
+		FROM DONATION
+		WHERE MEMBER_NO= #{memberNo}
+	</select>
+
+	<select id="getPointByRate" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		SELECT POINT
+		FROM RATE
+		WHERE RATE_NAME = #{rateName}
+	</select>
+
+
+
+	<update id="updateMemberRate" parameterType="member">
+  UPDATE MEMBER M
+  SET M.RATE_NO = (SELECT R.RATE_NO FROM RATE R WHERE R.RATE_NAME = #{rateName}),
+      M.POINT_PRICE = #{pointPrice}
+  WHERE M.MEMBER_NO = #{memberNo}
+	</update>
 	
-
-  <select id="selectMinPoint" resultType="int">
-    SELECT MINPOINT
+	<select id="getRateNameByCounts" parameterType="map" resultType="java.lang.String">
+    SELECT RATE_NAME
     FROM RATE
-    WHERE RATE_NAME = #{rateName}
-  </select>
-
-  <select id="selectMaxPoint" resultType="int">
-    SELECT MAXPOINT
-    FROM RATE
-    WHERE RATE_NAME = #{rateName}
-  </select>
-
-  <select id="getVolunteerCount" resultType="int">
-    SELECT COUNT(*)
-    FROM VOLUNTEER
-    WHERE MEMBER_NO = #{memberNo}
-  </select>
-
-  <select id="getDonationCount" resultType="int">
-    SELECT COUNT(*)
-    FROM DONATION
-    WHERE MEMBER_NO = #{memberNo}
-  </select>
-
-  <select id="getPointPriceByRate" resultType="int">
-    SELECT POINT
-    FROM RATE
-    WHERE RATE_NAME = #{rateName}
-  </select>
-
-  <update id="updateMemberRate" parameterType="member">
-    UPDATE MEMBER
-    SET RATE_NO = #{rateNo}, POINT_NO = #{pointNo}
-    WHERE MEMBER_NO = #{memberNo}
-  </update>
+    WHERE MINPOINT &lt;= #{volunteerCount} + #{donationCount}
+    AND MAXPOINT &gt;= #{volunteerCount} + #{donationCount}
+</select>
+	
+	
   
+	<delete id="removeCategory">
+		DELETE FROM #{category}
+		WHERE #{category}_NO = #{id}
+	</delete>
 
-  
 </mapper>
 	
 

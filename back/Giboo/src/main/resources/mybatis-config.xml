@@ -34,6 +34,7 @@
 	<typeAlias type="kh.fin.giboo.notice.model.vo.NoticeDetail" alias="noticeDetail"/>
 	<typeAlias type="kh.fin.giboo.notice.model.vo.Notice" alias="notice"/>
 
+	<!--  알람 -->
 	<typeAlias type="kh.fin.giboo.alarm.model.vo.Alarm" alias="alarm"/>
 
 
@@ -72,6 +73,7 @@
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveVolunteerList" alias="myActiveVolunteerList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveEventList" alias="myActiveEventList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyReview" alias="myReview"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.Stamp" alias="stamp"/>
 
 
 	<!-- 고객센터 -->
@@ -84,6 +86,7 @@
 <!-- mapper 파일(SQL 작성되는파일) 위치 등록 부분 -->
 <mappers>
 	<mapper resource="/mappers/member-mapper.xml"/>
+	<mapper resource="/mappers/alarm-mapper.xml"/>
 	<mapper resource="/mappers/map-mapper.xml"/>
 	<mapper resource="/mappers/myPage-mapper.xml" />
 	<mapper resource="/mappers/event-mapper.xml" />
@@ -94,5 +97,6 @@
 	<mapper resource="/mappers/volunteer-mapper.xml" />
 	<mapper resource="/mappers/faq-mapper.xml" />
 </mappers>
+
 
 </configuration>

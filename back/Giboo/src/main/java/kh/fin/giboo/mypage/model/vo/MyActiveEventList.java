@@ -14,6 +14,10 @@ public class MyActiveEventList {
 	
 	//이벤트목록
 	private int myactiveEventNo;
+	
+	private int ROWNUM_VAL; // 순번 값
+	
+	
 	private String myactiveDate;
 	private String volunteerCompleteStatus;
 
@@ -21,7 +25,9 @@ public class MyActiveEventList {
 	private int managerNo;
 	
 	private String eventTitle;
+	private String eventNo;
 	private String enrollDate;
 	private String endRecruitDate;
+	private int memberNo;
 	
 }

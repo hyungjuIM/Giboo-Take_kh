@@ -4,68 +4,148 @@ $('.tooltip[data-text="알림"]').on('click', function() {
 });
 
 
-//ajax
-function selectAll(){ // 회원 전체 조회 함수
-  // ajax코드
+
+$('#alarm').click(function(){
   $.ajax({
-    url: "selectAll",
+    url: "/Giboo/notifications",
     dataType: "json",
     success: function (list) {
-      const alarmList = document.getElementById("alarmList");
-      alarmList.innerHTML = "";
+      const alarmList = $("#alarmList");
+      alarmList.empty();
 
       for (let item of list) {
-        const alertContainer = document.createElement("div");
-        alertContainer.className = "alert_myfavcard_contaner";
+        const alertContainer = $("<div>").addClass("alert_myfavcard_contaner");
+        const alertTitleContainerA = $("<div>").addClass("alert_titleContainerA");
+        
+        // 작은 동그라미를 추가하는 부분
+        const smallCContainer = $("<div>").addClass("smallC_Container");
+        const smallC = $("<div>").addClass("smallC");
+        smallCContainer.append(smallC);
+        alertTitleContainerA.append(smallCContainer);
+        
+        const alertTitleContainer = $("<div>").addClass("alert_titleContainer");
 
-        // 알림 카드 내용 생성 (알림 카테고리, 이모티콘, 점선 등...)
+        const alarmContent = $("<div>").addClass("alarmContent");
+        const alarmDate = $("<div>").addClass("alarmDate").text("등록일자: " + item.alarmDate);
 
-        const alertMainContainer = document.createElement("div");
-        alertMainContainer.className = "alert_Maincontainer";
-
-        const alertTitleContainerA = document.createElement("div");
-        alertTitleContainerA.className = "alert_titleContainerA";
-
-        const alertTitleContainer = document.createElement("div");
-        alertTitleContainer.className = "alert_titleContainer";
-
-        const alarmContent = document.createElement("div");
-        alarmContent.className = "alarmContent";
-        const link = document.createElement("a");
-        link.href = "#";
-        link.textContent = item.alarmContent; // 알림 제목
-        alarmContent.appendChild(link);
-
-        const alarmDate = document.createElement("div");
-        alarmDate.className = "alarmDate";
-        alarmDate.textContent = item.alarmDate; // 알림 기관
-
-        const achieveAlert = document.createElement("div");
-        achieveAlert.className = "memberNo";
-        achieveAlert.textContent = item.achieveAlert; // 알림 카테고리
-
-        alertTitleContainer.appendChild(alarmContent);
-        alertTitleContainer.appendChild(alarmDate);
-        alertTitleContainer.appendChild(achieveAlert);
-
-        alertTitleContainerA.appendChild(alertTitleContainer);
-        alertMainContainer.appendChild(alertTitleContainerA);
-
-        alertContainer.appendChild(alertMainContainer);
-
-        alarmList.appendChild(alertContainer);
+        
+      if  (item.volunteerNo !== null && item.volunteerNo !== 0) {
+              const volunteerLink = $("<a>")
+                    .attr("href", "/Giboo/volunteer/detail/" + item.volunteerNo )
+                    .text(item.alarmContent);
+          alarmContent.append(volunteerLink);
       }
+
+      else if (item.eventNo !== null && item.eventNo !== 0) {
+        const eventLink = $("<a>")
+          .attr("href", "/Giboo/event/eventDetailMain/" + item.eventNo)
+          .text(item.alarmContent);
+        alarmContent.append(eventLink);
+      } 
+
+      else if (item.donationNo !== null && item.donationNo !== 0) {
+        const donationtLink = $("<a>")
+          .attr("href", "/Giboo/donation/detail/" + item.donationNo)
+          .text(item.alarmContent);
+        alarmContent.append(donationtLink);
+      } 
+
+      else if (item.noticeNo !== null && item.noticeNo !== 0) {
+        const noticeLink = $("<a>")
+          .attr("href", "/Giboo/event/eventDetailMain/" + item.noticeNo)
+          .text(item.alarmContent);
+        alarmContent.append(noticeLink);
+      } 
+
+      else if (item.reviewNo !== null && item.reviewNo !== 0) {
+        const reviewLink = $("<a>")
+          .attr("href", "/Giboo/event/eventDetailMain/" + item.reviewNo)
+          .text(item.alarmContent);
+        alarmContent.append(reviewLink);
+      } 
+
+      alertTitleContainer.append(alarmContent);
+      alertTitleContainer.append(alarmDate);
+      alertTitleContainerA.append(alertTitleContainer);
+      alertContainer.append(alertTitleContainerA);
+      alarmList.append(alertContainer);
+      }
+
+      alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
     },
     error: function () {
       console.log("에러 발생");
     },
   });
+});
+
+
+
+// // 작은동그라미 클릭 이벤트 핸들러
+// $(document).on("click", "#readStatus", function() {
+// 	const alarmNo = $(this).closest(".alert_myfavcard_contaner").data("alarmNo");
+// 	updateAlarmStatus(alarmNo);
+// });
+
+// // 알림 읽음 상태 업데이트 함수
+// function updateAlarmStatus(alarmNo) {
+// 	$.ajax({
+// 		url: "/Giboo/updateAlarmStatus",
+// 		method: "POST",
+// 		data: {
+// 			alarmNo: alarmNo,
+// 		},
+// 		success: function(response) {
+// 			console.log(response);
+// 			// 성공한 경우 작은 동그라미를 변경합니다.
+// 			const smallC = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']").find("#readStatus");
+// 			smallC.css("background", "white");
+// 			smallC.css("border-color", "red");
+
+// 			// 해당 alert_titleContainer 부분의 글자색을 연하게 변경합니다.
+// 			const alertTitleContainer = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']")
+// 				.find(".alert_titleContainer");
+// 			alertTitleContainer.css("color", "blue");
+// 		},
+// 		error: function(jqXHR, textStatus, errorThrown) {
+// 			console.log(jqXHR.responseText);
+// 			console.log(textStatus);
+// 			console.log(errorThrown);
+// 		},
+// 	});
+// }
+
+
+// 작은동그라미 클릭 이벤트 핸들러
+$(document).on("click", "#readStatus", function() {
+	const alarmNo = $(this).closest(".alert_myfavcard_contaner").data("alarmNo");
+	updateAlarmStatus(alarmNo);
+});
+
+// 알림 읽음 상태 업데이트 함수
+function updateAlarmStatus(alarmNo) {
+	$.ajax({
+		url: "/Giboo/updateAlarmStatus",
+		method: "POST",
+		data: {
+			alarmNo: alarmNo,
+		},
+		success: function(response) {
+			console.log(response);
+			// 성공한 경우 작은 동그라미를 변경합니다.
+			const smallC = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']").find("#readStatus");
+			smallC.css("background", "white");
+			smallC.css("border-color", "red");
+
+			// 해당 alert_titleContainer 부분의 글자색을 연하게 변경합니다.
+			const alertTitleContainer = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']")
+				.find(".alert_titleContainer");
+			alertTitleContainer.css("color", "blue");
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.log(jqXHR.responseText);
+			console.log(textStatus);
+			console.log(errorThrown);
+		},
+	});
 }
-
-(function () {
-  selectAll();
-  window.setInterval(selectAll, 2000);
-})();
-
-
-

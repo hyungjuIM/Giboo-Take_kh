@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Map;
@@ -62,8 +63,12 @@ public class DonationController {
         long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
         donationDetail.setDDay(untilDay);
 
-        int percent = (donationDetail.getDonationAmount() * 100) / donationDetail.getTargetAmount();
+        int percent = (Integer.parseInt(donationDetail.getDonationAmount()) * 100) / Integer.parseInt(donationDetail.getTargetAmount());
         donationDetail.setPercent(percent);
+
+        DecimalFormat df = new DecimalFormat("###,###");
+        donationDetail.setDonationAmount(df.format(Integer.parseInt(donationDetail.getDonationAmount())));
+        donationDetail.setTargetAmount(df.format(Integer.parseInt(donationDetail.getTargetAmount())));
 
         model.addAttribute("donationDetail", donationDetail);
 

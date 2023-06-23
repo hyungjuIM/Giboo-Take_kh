@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="parentCategoryList" value="${map.parentCategoryList}" />
 <c:set var="volunteerList" value="${map.volunteerList}" />
+<c:set var="volunteerListCount" value="${map.volunteerListCount}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,8 +53,16 @@
 
         <div id="content" class="content">
             <h4 class="contentTitle">
-                동물 봉사
-                <span class="contentCount" id="contentCount">${fn:length(volunteerList)}</span>개
+                <c:choose>
+                    <c:when test="${empty param.category}">
+                        전체
+                    </c:when>
+                    <c:otherwise>
+                        ${volunteerList[0].parentCategoryName}
+                    </c:otherwise>
+                </c:choose>
+                봉사
+                <span class="contentCount" id="contentCount">${volunteerListCount}</span>개
             </h4>
 
             <div class="sortingSection">
