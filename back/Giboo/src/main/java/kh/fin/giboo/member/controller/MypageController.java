@@ -34,6 +34,13 @@ public class MypageController {
 		return "mypage/mypageMain";
 	}
 
+	//회원 정보 조회 
+	@GetMapping("/info")
+	public String info(){
+		return "mypage/memberChange";
+	}
+
+
 	// 회원정보 수정
 	@GetMapping(value = "/memberChange")
 	public String memberChange() {
