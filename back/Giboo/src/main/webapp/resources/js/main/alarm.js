@@ -16,6 +16,13 @@ $('#alarm').click(function(){
       for (let item of list) {
         const alertContainer = $("<div>").addClass("alert_myfavcard_contaner");
         const alertTitleContainerA = $("<div>").addClass("alert_titleContainerA");
+        
+        // 작은 동그라미를 추가하는 부분
+        const smallCContainer = $("<div>").addClass("smallC_Container");
+        const smallC = $("<div>").addClass("smallC");
+        smallCContainer.append(smallC);
+        alertTitleContainerA.append(smallCContainer);
+        
         const alertTitleContainer = $("<div>").addClass("alert_titleContainer");
 
         const alarmContent = $("<div>").addClass("alarmContent");
@@ -57,11 +64,11 @@ $('#alarm').click(function(){
         alarmContent.append(reviewLink);
       } 
 
-        alertTitleContainer.append(alarmContent);
-        alertTitleContainer.append(alarmDate);
-        alertTitleContainerA.append(alertTitleContainer);
-        alertContainer.append(alertTitleContainerA);
-        alarmList.append(alertContainer);
+      alertTitleContainer.append(alarmContent);
+      alertTitleContainer.append(alarmDate);
+      alertTitleContainerA.append(alertTitleContainer);
+      alertContainer.append(alertTitleContainerA);
+      alarmList.append(alertContainer);
       }
 
       alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
@@ -71,3 +78,74 @@ $('#alarm').click(function(){
     },
   });
 });
+
+
+
+// // 작은동그라미 클릭 이벤트 핸들러
+// $(document).on("click", "#readStatus", function() {
+// 	const alarmNo = $(this).closest(".alert_myfavcard_contaner").data("alarmNo");
+// 	updateAlarmStatus(alarmNo);
+// });
+
+// // 알림 읽음 상태 업데이트 함수
+// function updateAlarmStatus(alarmNo) {
+// 	$.ajax({
+// 		url: "/Giboo/updateAlarmStatus",
+// 		method: "POST",
+// 		data: {
+// 			alarmNo: alarmNo,
+// 		},
+// 		success: function(response) {
+// 			console.log(response);
+// 			// 성공한 경우 작은 동그라미를 변경합니다.
+// 			const smallC = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']").find("#readStatus");
+// 			smallC.css("background", "white");
+// 			smallC.css("border-color", "red");
+
+// 			// 해당 alert_titleContainer 부분의 글자색을 연하게 변경합니다.
+// 			const alertTitleContainer = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']")
+// 				.find(".alert_titleContainer");
+// 			alertTitleContainer.css("color", "blue");
+// 		},
+// 		error: function(jqXHR, textStatus, errorThrown) {
+// 			console.log(jqXHR.responseText);
+// 			console.log(textStatus);
+// 			console.log(errorThrown);
+// 		},
+// 	});
+// }
+
+
+// 작은동그라미 클릭 이벤트 핸들러
+$(document).on("click", "#readStatus", function() {
+	const alarmNo = $(this).closest(".alert_myfavcard_contaner").data("alarmNo");
+	updateAlarmStatus(alarmNo);
+});
+
+// 알림 읽음 상태 업데이트 함수
+function updateAlarmStatus(alarmNo) {
+	$.ajax({
+		url: "/Giboo/updateAlarmStatus",
+		method: "POST",
+		data: {
+			alarmNo: alarmNo,
+		},
+		success: function(response) {
+			console.log(response);
+			// 성공한 경우 작은 동그라미를 변경합니다.
+			const smallC = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']").find("#readStatus");
+			smallC.css("background", "white");
+			smallC.css("border-color", "red");
+
+			// 해당 alert_titleContainer 부분의 글자색을 연하게 변경합니다.
+			const alertTitleContainer = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']")
+				.find(".alert_titleContainer");
+			alertTitleContainer.css("color", "blue");
+		},
+		error: function(jqXHR, textStatus, errorThrown) {
+			console.log(jqXHR.responseText);
+			console.log(textStatus);
+			console.log(errorThrown);
+		},
+	});
+}

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,20 +34,34 @@ public class MyActiveController {
 
 	// 나의 활동1(기부 목록 조회)
 	@GetMapping(value = "/myActiveDonationList")
-	public String myactive_1(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model
-	// , HttpSession session
+	public String myactive_1(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp
+	, Model model
+	,HttpSession session,
+	MyActiveDonationList myActiveDonationList,
+	@ModelAttribute("loginMember") Member loginMember
 	) {
+		
+		 // 로그인한 회원의 memberNo 값을 가져옴
+	    int memberNo = loginMember.getMemberNo();
+	 // 서비스로 전달할 memberNo 값을 model에 추가
+	    model.addAttribute("memberNo", memberNo);
+	  
+
+	    
+
+	    
 		Map<String, Object> map = null;
+		
 
 		map = service.selectMyactiveDonationList(cp, model);
 		model.addAttribute("map", map);
 
-//			List<MyActiveDonationList> myActiveDonationList = service.selectMyactiveDonationList();
-//			model.addAttribute("myActiveDonationList",myActiveDonationList);
+		logger.info("기부 목록조회(나의활동1===)로 이동");
+		logger.info("memberNo" + memberNo);
+		logger.info("map" + map.toString());
 
-		logger.info("기부 목록조회(나의활동1)로 이동");
-		// Member loginMember = (Member)session.getAttribute("loginMember");
-		// System.out.println(loginMember);
+
+		
 
 		return "mypage/myActiveDonationList";
 	}

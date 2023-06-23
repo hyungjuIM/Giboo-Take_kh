@@ -92,7 +92,7 @@
 									</a>
 								</div>
 								<div class="toggle">
-									<a href="#none" class="tooltip" data-text="알림"> <i
+									<a href="#none" class="tooltip" id="alarm" data-text="알림"> <i
 										class="far fa-bell"></i>
 									</a>
 								</div>
