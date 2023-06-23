@@ -96,11 +96,13 @@
 
 
 .section2_TalkBox{
-  position:absolute;
+  position:fixed;
   right:50px;
   bottom:200px;
   padding-top: 30px;
   display: flex;
+  z-index: 101;
+  background-color: none;
   
 }
 
@@ -109,7 +111,7 @@
    
     list-style: none;
     text-decoration: none;
-    
+   	
 
 }
 
@@ -140,7 +142,7 @@
     margin-left: 150px;
     margin-top: 60px;
     width: 350px;
-    height: 500px;
+    height: 460px;
     border-radius: 20px;
     overflow: scroll;
     overflow-x: hidden;
@@ -301,6 +303,23 @@
     margin-right: 8px;
 }
 
+
+
+
+.AAiBox_1 > a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
+}
+
 .AAiBox_1 > span{
     display: flex;
     align-items: center;
@@ -358,6 +377,7 @@
     padding-top: 16px;
     padding-bottom: 16px;
     /* background-color: yellowgreen; */
+    padding-left: 10px;
 }
 
 .ALiMeSpan > span{
