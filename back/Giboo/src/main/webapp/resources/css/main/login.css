@@ -1,0 +1,277 @@
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
+
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100%;
+    margin: 0;
+    
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #EFEFEF;
+}
+
+a{
+    text-decoration: none;
+
+}
+
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+}
+
+main{
+    height: 100%;
+
+
+    background-color: #EFEFEF;
+
+
+}
+
+input:not(.cookieBox){
+    width: 80%;
+    border: 0 solid black;
+    padding: 10px 18px;
+    outline: none;
+}
+
+input::placeholder{
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    color: var(--etcColor);
+
+
+}
+
+input:focus::placeholder{
+    color:transparent;
+}
+
+
+/* login  container */
+
+.loginSection{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+.loginSection .loginContainer_box{
+    width: 646px;
+    height: 581px;
+    background-color: #EFEFEF;
+    box-shadow: 2px 4px 20px 0px rgba(0, 0, 0, 0.30);
+
+    margin: 80px 0px;
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginSection .loginTitle{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0px 0px 20px 0px;
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 24px;
+    font-weight: 500;   
+    color: var(--titleColor);
+}
+
+
+/* input */
+
+.loginContainer .loginInput_Container{
+    width: 546px;
+    height: 54px;
+
+    margin: 12px 24px;
+    /* padding: 8px 10px; */
+    background-color: white;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+}
+
+.loginContainer .loginInput_Container span:nth-child(1){
+    font-size: 20px;
+    color: #9FF1C6;
+    margin: 18px;
+}
+
+/* 로그인 버튼 */
+
+
+.loginBtnnBox{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+}
+.loginBtnnBox .loginBtnn{
+
+    width: 100%;
+    border-radius: 15px;
+    border:0px;
+    background-color: var(--mainColor);
+    padding: 15px;
+    font-size: 18px;
+    font-family: 'NanumSquareNeo';
+    font-weight: 600;
+    color: white;
+    margin-bottom: 20px;
+
+    cursor: pointer;
+
+}
+
+/* 아이디 저장 */
+.checkContainer{
+    width: 100%;
+    padding: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkContainer .checkboxBox{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    white-space: nowrap;
+    padding: 14px;
+}
+
+.checkContainer .checkboxBox input{
+    width: 15px;
+    height: 15px;
+
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.checkContainer .checkboxBox span{
+    color: var(--contentColor);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'NanumSquareNeo';
+}
+
+.checkContainer .signUp{
+
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0px 20px
+   
+}
+
+.checkContainer .signUp a{
+    color: var(--contentColor);
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'NanumSquareNeo';
+}
+
+
+/* 소셜 로그인 */
+.loginSocial{
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginSocial span{
+    font-family: 'NanumSquareNeo';
+    color: var(--contentColor);
+    font-size: 14px;
+    font-weight: 600;
+    margin-right: 10px;
+
+}
+
+.loginSocial .social_icon_Container{
+    display: flex;
+}
+
+.loginSocial .icon_Style{
+
+    border-radius: 100px;
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #D9D9D9;
+    margin-right: 12px;
+    
+}
+
+.loginKakao{
+    position: relative;
+
+}
+
+.kakaoIcon01{
+    position: absolute;
+    top: 10px;
+    left: 9px;
+}
+
+
+.kakaoIcon02{
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    display: none;
+}
+
+.loginKakao:hover .kakaoIcon02, .loginKakao:hover{
+    display: block;
+    background-color: #F9E000 ;
+}
+
+img{
+    width: 24px;
+}
+
+.loginGoogle{
+    
+        background:darkred;
+        width:400px; height:400px;
+        line-height:400px;
+        text-align:center;
+        color:#fff;
+        font-size:20px;
+        margin:0 auto;
+      
+}

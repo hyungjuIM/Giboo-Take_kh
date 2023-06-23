@@ -11,19 +11,15 @@ public class Alarm {
 	private int alarmNo;
 	private String alarmContent;
 	private String alarmDate;
-	private String alarmStatus;
+	private String readStatus;
 	
 	private int memberNo;
-	private int donationNo;
 	private int volunteerNo;
+	private int donationNo;
 	private int reviewNo;
-	private int usageNo;
-	private int rateNo;
+	private int pointNo;
 	private int eventNo;
-	private int csNo;
-	private int paymentNo;
 	private int noticeNo;
-	private int askNo;
-	
-	
+	private int askNo;	
+	private String agencyName;
 }

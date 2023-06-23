@@ -3,7 +3,7 @@ const resetSearch = document.getElementById("resetSearch");
 const selectDelete = document.getElementById("selectDelete");
 const crateCategory = document.getElementById("crateCategory");
 const modify = document.getElementsByClassName("modify");
-const deleteCategory = document.getElementsByClassName("deleteCategory");
+const remove = document.getElementsByClassName("remove");
 
 for (const i of sideMenu) {
     i.addEventListener("mouseover", () => {
@@ -49,12 +49,31 @@ for (const i of modify) {
     });
 }
 
-for (const i of deleteCategory) {
+for (const i of remove) {
     i.addEventListener("mouseover", () => {
-        i.classList.add("focus");
+        i.classList.add("removeFocus");
     });
 
     i.addEventListener("mouseleave", () => {
-        i.classList.remove("focus");
+        i.classList.remove("removeFocus");
+    });
+
+    i.addEventListener("click", () => {
+        const type = i.id.replace(/[^a-z]/gi, "");
+        const id = i.id.replace(/[^0-9]/g, "");
+        console.log(type);
+        console.log(id);
+        $.ajax({
+            url : "category/removeCategory",
+            data: {"type": type, "id": id},
+            success: function (result) {
+
+            },
+
+            error: function () {
+                console.log("AJAX Error");
+                console.log("code : " + request.status);
+            }
+        })
     });
 }

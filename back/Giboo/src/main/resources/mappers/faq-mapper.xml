@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="faq-mapper">
+  
+  <resultMap type="faq" id="faq_rm">
+  	<id property="faqNo" column="FAQ_NO"></id>
+  	<result property="faqTitle" column="FAQ_TITLE"></result>
+  	<result property="faqContent" column="FAQ_CONTENT"></result>
+  	<result property="faqCategory" column="FAQ_CATEGORY"></result>
+  </resultMap>
+  
+  <resultMap type="cs" id="cs_rm">
+  	<id property="csNo" column="FAQNO"></id>
+  	<result property="chatcontent" column="CHATCONTENT"></result>
+  	<result property="enrolldate" column="ENROLLDATE"></result>
+  	<result property="cendstatus" column="CENDSTATUS"></result>
+  	<result property="croomstatus" column="CROOMSTATUS"></result>
+  	<result property="mgrno" column="MGRNO"></result>
+  	<result property="memberno" column="MEMBERNO"></result>
+  </resultMap>
+  
+  	<!-- 페이지네이션 목록 조회 -->
+	<select id="getListCount" resultType="_int">
+		SELECT COUNT(*) FROM FAQ
+	</select>
+  
+  
+  <select id="selectFaqList" resultMap="faq_rm">
+		SELECT FAQ_NO,FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
+		FROM FAQ
+	</select>
+	
+	<select id="selectFaqVolunteer" resultMap="faq_rm">
+   	SELECT FAQ_NO, FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
+	FROM FAQ
+	WHERE FAQ_CATEGORY = '봉사'
+	ORDER BY FAQ_NO
+    </select>
+
+	
+  
+</mapper>

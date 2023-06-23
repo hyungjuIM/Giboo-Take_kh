@@ -1,5 +1,7 @@
 package kh.fin.giboo.member.model.vo;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,14 +13,19 @@ public class Member {
 	private int memberNo;
 	private String memberId;
 	private String memberPw;
+	private String memberEmail;
 	private String memberName;
 	private String memberNick;
 	private int memberTel;
 	private String memberAddr;
-	private String signupType;
-	private String memberEnrollDT;
-	private String memberSecessionFlag;
+	private String enrollDt;
+	private String secessionFlag;
 	private String profileImg;
-	private String daType;
-	private int savedMoney;
+	private String memberType;
+	private int rateNo;
+	private int pointNo;
+	private String rateName;
+	private int pointPrice;
+	
+	
 }

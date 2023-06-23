@@ -8,14 +8,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Event {
-	
-	private int eventNo;
-	private String eventTitle;
-	private String eventContent;
-	private String enrollDt;
-	private String modiDt;
-	private int eventViews;
-	private String deleteStatus;
-	private String eventImg;
-	private int mrgNo;
+    private int eventNo;
+    private String eventTitle;
+    private String eventContent;
+    private String eventCertificationContent;
+    private int targetPeople;
+    private String enrollDate;
+    private String endRecruitDate;
+    private String modiStatus;
+    private String attachment;
+    private String mgrId;
 }

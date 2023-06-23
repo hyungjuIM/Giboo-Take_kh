@@ -28,26 +28,26 @@
         <div class="mainContent">
 
             <div class="infoArea">
-                <img class="thumbnail" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
+                <img class="thumbnail" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
 
                 <div class="info">
                     <div>
                         <span class="hot">HOT</span>
-                        <span class="d-day">D-<span id="d-day">60</span>일</span>
+                        <span class="d-day">D-<span id="d-day">${donationDetail.DDay}</span>일</span>
                     </div>
-                    <div class="title">새 살이 돋지 않는 고양이 '마리'에게 희망을 주세요.</div>
+                    <div class="title">${donationDetail.donationTitle}</div>
 
                     <div class="progressArea">
                         <div class="progressInfo">
-                            <span class="progressPercentage">60%</span>
+                            <span class="progressPercentage">${donationDetail.percent}%</span>
                                 <span class="goal">
                                     목표
-                                    <span class="goal" id="goalValue">3,000,000</span>원
+                                    <span class="goal" id="goalValue">${donationDetail.targetAmount}</span>원
                             </span>
                         </div>
 
                         <div class="progressBar">
-                            <div class="progressBarValue"></div>
+                            <div class="progressBarValue" style="width: ${donationDetail.percent}%"></div>
                         </div>
 
                         <div class="progressStatus">
@@ -304,19 +304,6 @@
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
-
-     <!-- jQuery 라이브러리 추가 -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-        });
-
-    </script>
 
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
 

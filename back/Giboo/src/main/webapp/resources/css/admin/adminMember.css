@@ -205,6 +205,22 @@ a{
     box-shadow: 2px 2px 10px #0000002A;
     transition-duration: 250ms;
 }
+.rateBtn {
+    display: flex;
+    margin-left: 10px;
+    background-color: unset;
+    border: 1px solid #BDBDBD;
+    border-radius: 20px;
+    padding-inline: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px #0000002A;
+    transition-duration: 250ms;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+}
 
 .sendNotification {
     background-color: unset;
@@ -259,25 +275,4 @@ a{
 .focus {
     background-color: #8071FC;
     color: white;
-}
-
-/* footer */
-.footerContainer{
-    background-color: #F6F6F6;
-    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
-    height: 244px;
-    display: flex;
-
-    justify-content: center;
-}
-
-.footerContent{
-    width: 1200px;
-    height: 65px;
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
 }

@@ -91,19 +91,21 @@
                                 <td colspan="2"><button id="sortByApprovalStatus">결재</button></td>
                             </tr>
 
-                            <tr class="listArea">
-                                <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
-                                <td>1</td>
-                                <td>마스터</td>
-                                <td>123451234512</td>
-                                <td>video0w@icloud.com</td>
-                                <td>김김김김</td>
-                                <td>010-0000-0000</td>
-                                <td>신규 등록</td>
-                                <td><button id="confirm1" class="confirm">승인</button></td>
-                                <td><button id="reject1" class="reject">반려</button></td>
-                                <td><button id="detail1" class="detail">상세 정보</button></td>
-                            </tr>
+                            <c:forEach var="manager" items="${managerList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" class="listCheck"></td>
+                                    <td>${manager.managerNo}</td>
+                                    <td>${manager.managerPermission}</td>
+                                    <td>${manager.managerId}</td>
+                                    <td>${manager.managerEmail}</td>
+                                    <td>${manager.managerName}</td>
+                                    <td>${manager.managerTel}</td>
+                                    <td>${manager.managerSignUpReason}</td>
+                                    <td><button class="confirm">승인</button></td>
+                                    <td><button class="reject">반려</button></td>
+                                    <td><button class="detail">상세 정보</button></td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -114,19 +116,6 @@
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
-
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-        });
-
-    </script>
 
     <script src="${pageContext.request.contextPath}/resources/js/admin/adminManager.js"></script>
 </body>

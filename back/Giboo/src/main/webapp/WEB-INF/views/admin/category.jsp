@@ -83,21 +83,31 @@
                             <tr class="sortingOptionArea">
                                 <td><button id="selectAll">선택</button></td>
                                 <td><button id="sortByNo">번호</button></td>
-                                <td><button id="sortById">중분류</button></td>
-                                <td><button id="sortByTitle">소분류</button></td>
-                                <td><button id="sortByEnrollDate">작성일</button></td>
+                                <td><button id="sortById">대분류</button></td>
+                                <td><button id="sortByTitle">중분류</button></td>
                                 <td colspan="2"></td>
                             </tr>
+                            <c:forEach var="categoryList" items="${categoryList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" id="" class="categoryListCheck${categoryList.categoryNo}"></td>
+                                    <td id="categoryNo${categoryList.categoryNo}">${categoryList.categoryNo}</td>
+                                    <td>${categoryList.categoryName}</td>
+                                    <td>-</td>
+                                    <td><button id="categoryModify${categoryList.categoryNo}" class="modify">수정</button></td>
+                                    <td><button id="categoryRemove${categoryList.categoryNo}" class="remove">삭제</button></td>
+                                </tr>
+                            </c:forEach>
 
-                            <tr class="listArea">
-                                <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
-                                <td>1</td>
-                                <td>동물</td>
-                                <td>고양이</td>
-                                <td>2023. 01. 01</td>
-                                <td><button id="modify1" class="modify">수정</button></td>
-                                <td><button id="deleteCategory1" class="deleteCategory">삭제</button></td>
-                            </tr>
+                            <c:forEach var="parentCategoryList" items="${parentCategoryList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" id="parent_CategoryListCheck${parentCategoryList.parentCategoryNo}" class="listCheck"></td>
+                                    <td id="parent_CategoryNo${parentCategoryList.parentCategoryNo}">${parentCategoryList.parentCategoryNo}</td>
+                                    <td id="parent_CategoryName">${parentCategoryList.categoryName}</td>
+                                    <td id="parent_CategoryName${parentCategoryList.parentCategoryNo}">${parentCategoryList.parentCategoryName}</td>
+                                    <td><button id="parent_CategoryModify${parentCategoryList.parentCategoryNo}" class="modify">수정</button></td>
+                                    <td><button id="parent_CategoryRemove${parentCategoryList.parentCategoryNo}" class="remove">삭제</button></td>
+                                </tr>
+                            </c:forEach>
                         </tbody>
                     </table>
                 </div>
@@ -109,19 +119,6 @@
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
 
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-        });
-
-    </script>
-
-    <script src="/JS/admin/adminCategory.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/admin/adminCategory.js"></script>
 </body>
 </html>

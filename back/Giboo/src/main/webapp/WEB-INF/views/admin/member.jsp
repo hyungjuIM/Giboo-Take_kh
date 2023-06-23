@@ -74,6 +74,8 @@
                         </table>
 
                         <button id="sendNotification" class="sendNotification">알림 보내기</button>
+                        <a href="${pageContext.request.contextPath}/admin/memberRate" id="rateBtn" class="rateBtn" method="POST">등급 관리</a>
+
                     </div>
 
                     <table class="listTable">
@@ -89,6 +91,21 @@
                                 <td><button id="sortByEnrollDate">가입일</button></td>
                                 <td><button id="sortBySavedMoney">적립금</button></td>
                             </tr>
+
+                            <c:forEach var="member" items="${memberList}">
+                                <tr class="listArea">
+                                    <td><input type="checkbox" class="listCheck"></td>
+                                    <td>${member.memberNo}</td>
+                                    <td>${member.memberType}</td>
+                                    <td>${member.memberId}</td>
+                                    <td>${member.memberEmail}</td>
+                                    <td>${member.memberName}</td>
+                                    <td>${member.memberNick}</td>
+                                    <td>${member.enrollDt}</td>
+                                    <td>${member.pointPrice}</td>
+                                    <td><button class="detail">상세 정보</button></td>
+                                </tr>
+                            </c:forEach>
 
                             <tr class="listArea">
                                 <td><input type="checkbox" id="listCheck1" class="listCheck"></td>
@@ -112,19 +129,6 @@
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
-
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-        });
-
-    </script>
 
     <script src="${pageContext.request.contextPath}/resources/js/admin/adminMember.js"></script>
 </body>

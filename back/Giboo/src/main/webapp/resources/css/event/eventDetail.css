@@ -1,0 +1,635 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.edWrap > img{
+    width: 813px;
+    height: 700px;
+}
+
+.edDoPerImg > img{
+    width: 50px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+
+
+.edWrapBox{
+    display: flex;
+    background: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    width: 1200px;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.edWrapDetail{
+    margin-top: 22px;
+    margin-left: 24px;
+}
+
+.edWrapPeriod{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.edWrapPeriodSpan{
+    border: 1px solid #8071FC;
+    border-radius: 100px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edWrapPeriodSpan > span:nth-child(1){
+    padding-left: 16px;
+}
+
+.edWrapPeriodSpan > span:nth-child(2){
+    padding-right: 16px;
+}
+
+.edWrapPeriodSpan > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    color: #8071FC;
+}
+
+.edWrapTitle{
+    width: 208px;
+}
+
+.edWrapTitle > span{
+    font-family: 'Noto Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 26px;
+line-height: 33px;
+letter-spacing: -0.05em;
+color: #111111;
+}
+
+.edWrapBar{
+    width: 340px;
+    margin-top: 15px;
+    /* background-color: yellow; */
+    border-bottom: 1px solid #D9D9D9;
+}
+
+.edDoBar > progress{
+    width: 339px;
+    height: 15px;
+    /* background-color: #7468da; */
+}
+
+.edWrapBar_2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.edVolDo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 13px;
+    margin-bottom: 20px;
+}
+
+.edVolDo > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #767676;
+}
+
+.edDoTo{
+    margin-top: 17px;
+}
+
+.edDoTitle > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #4D4D4D;
+}
+
+.edDoPerson{
+    /* background-color: yellowgreen; */
+    margin-top: 12px;
+    height: 89px;
+    display: flex;
+    align-items: center;
+    max-width: 340px;
+    overflow: hidden;
+}
+
+.edDoPersonUl{
+    display: flex;
+}
+
+.edDoPersonLi{
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edDoPerImg{
+    width: 60px;
+    height: 60px;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.edPersonName{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #767676;
+}
+
+.edBtn{
+    /* background-color: violet; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.edBtnDe{
+    width: 161px;
+    height: 41px;
+    background-color: #8071FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+
+#popupButton{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.edStampPopDe {
+	position: relative;
+	background: #4b4b4b;
+	border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 130px;
+    /* border: 1px solid #9D9D9D; */
+}
+
+.edStampPopDe:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 80%;
+	width: 0;
+	height: 0;
+	border: 13px solid transparent;
+	border-top-color: #4b4b4b;
+	border-bottom: 0;
+	margin-left: -20px;
+	margin-bottom: -9px;
+}
+
+.edStampPopDe > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    color: #ffffff;
+}
+
+.edStamp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edStampBtn{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 15px;
+    margin-left: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D9D9D9;
+}
+
+.edStampBtn > span{
+    font-size: 20px;
+}
+
+/* ------------카테고리------------ */
+.edDetail{
+    display: flex;
+    margin-top: 20px;
+}
+
+.edDetailLeft{
+    width: 813px;
+    /* background-color: yellowgreen; */
+}
+
+.edCategory{
+    display: flex;
+    /* background-color: yellow; */
+    border-bottom: 1px solid #D9D9D9;
+    align-items: center;
+    height: 50px;
+}
+
+.edCategoryWidth{
+    width: 400px;
+    display: flex;
+    /* background-color: wheat; */
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+
+
+/* ------------카테고리 변경 시마다 색 변경하기----------- */
+.edEventintro:nth-child(1){
+    border-bottom: 2px solid #8071FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+}
+
+.edEventintro:nth-child(1) > a > span{
+    color: #8071FC;
+}
+
+.edEventintro > a > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #4D4D4D;
+}
+
+
+/* ----------본문---------- */
+.edDetailWrap{
+    margin-top: 20px;
+    width: 100%;
+    /* background-color: yellow; */
+}
+
+.edDetailWrite{
+    background-color: wheat;
+    max-width: 800px;
+    overflow: hidden;
+    height: 1000px;
+}
+
+
+/* -----------오른쪽 영역-------------- */
+.edDetailRight{
+    /* background-color: yellowgreen; */
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+.edHowtoTitle{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.edHowtoBox{
+    width: 347px;
+    background: #F0F0F0;
+    border-radius: 12px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.edHowtoTi{
+    margin-top: 10px;
+    margin-right: 260px;
+    margin-bottom: 4px;
+}
+
+.edHowtoTi > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    color: #8071FC;
+}
+
+.edHowtoDetail{
+    /* background-color: yellow; */
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.edHowtoDetail > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: -0.025em;
+    color: #767676;
+}
+
+
+/* ------------인증 fixed 된 바(사진)------------ */
+.edInBar{
+    /* background-color: yellow; */
+    position: sticky;
+    height: 420px;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #D9D9D9;
+    border-radius: 15px;
+    background-color: white;
+    top: 400px;
+    margin-top: 20px;
+}
+
+.edInBarBox{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edInTitle{
+    /* background-color: wheat; */
+    margin-bottom: 15px;
+}
+
+.edInTitle > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    color: #000000;
+}
+
+.edInPhotoBarUl{
+    display: flex;
+    width: 320px;
+    max-height: 280px;
+    background-color: rgb(238, 238, 238);
+    flex-wrap: wrap;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.edInPhotoBarLi{
+    margin-right: 5px;
+}
+
+.edInPhotoImg > img{
+    width: 75px;
+    height: 75px;
+}
+
+.edInBarBox > a > .edBtnDe{
+    margin-top: 12px;
+}
+
+
+
+/* --------------더보기-------------- */
+.eMoreWrap{
+    margin-top: 200px;
+}
+
+.eMoreTitle > span{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.eMoreTitle{
+    margin-bottom: 20px;
+}
+
+.elist_official > li{
+    background-color:#F6F6F6;
+    width: 224px;
+    height: 270px;
+    border-radius: 20px;
+    margin-right: 15px;
+}
+
+.elist_official{
+    /* background-color: yellowgreen; */
+    overflow: hidden;
+    display: flex;
+    width: 71%;
+}
+
+.earea_thumb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 진행중 */
+.earea_thumb_period_go{
+    background-color: #8071FC;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 75px;
+    bottom: 173px;
+}
+
+.earea_thumb_period > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb_period_end > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb_period_go > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb > img{
+    width: 170.57px;
+    height: 176.43px;
+    border-radius: 20px;
+    margin-top: 16px;
+}
+
+.etxt_official{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: rgb(95, 119, 47); */
+    width: 200px;
+    position: relative;
+    bottom: 30px;
+}
+
+.etxt_officialTi{
+    width: 200px;
+    max-height: 45px;
+    /* background-color: yellow; */
+    display: flex;
+    overflow: hidden;
+}
+
+.etxt_officialTi > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    /* identical to box height */
+    
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #4D4D4D;
+}
+
+.escrean_out{
+    color: #9D9D9D;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.ereg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellowgreen; */
+    width: 224px;
+    height: 43px;
+    position: relative;
+    bottom: 15px;
+    border-top: 1px solid #D9D9D9;
+}
+
+.elink_official{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* 더보기 버튼 */
+.eMoreBtnBox{
+    background-color: #8071FC;
+    width: 180px;
+    height: 40px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.eMoreBtnBox > span:nth-child(1){
+    margin-right: 8px;
+}
+
+.eMoreBtnBox > span{
+    font-weight: 600;
+    font-size: 16px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+}
+
+.eMoreBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 71%;
+    margin-top: 20px;
+}

@@ -57,154 +57,7 @@ body {
 
 /*===========================================*/
 /* 왼쪽 네비바 */
-.mypage_nav_area{
-  width : 285px;
-  /* height: 85vh; */
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: column;
-  border-left: 0.5px solid #dcdcdc;
-  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
 
-    
-}
-
-/*왼쪽 네비바 상단 사진+이름*/
-.mypage_summary_container{
-  width: 100%;
-}
-.mypage_profileEmojiContainer{
-display: flex;
-  
-justify-content: center;
-align-items: center;
-}
-.mypage_profileEmojiTheme {
-width: 100px;
-height: 100px;
-background-color: #D9D9D9;
-border-radius: 100%;
-
-display: flex;
-justify-content: center;
-align-items: center;
-
-margin : 96px 90px 16px 79px;
-font-size: 70px;
-}
-
-
-/*왼쪽 네비바 고마운분 */
-.mypage_hiuser{
-  margin: 10px;
-  margin-top: 0;
-  display: flex;
-  justify-content: center;
-  /*font */
-  font-size: 18px;
-  font-weight: 400;
-  color: #BDBDBD;
-  font-family: 'Noto Sans KR', sans-serif;
-  text-align: center;
-}
-
-/*가명: 000 님, 안녕하세요*/
-.userName {
-  font-weight: 600;
-  font-size: 14px;
-  
-  font-family: 'Noto Sans KR', sans-serif;
-
-  display: flex;
-  justify-content: center;
-  color: #767676;
-}
-
-/*왼쪽 네비바 메뉴*/
-.mypage_content_container{
-  margin : 80px 137px 526px 46px;
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
-  flex-direction: column;
-}
-
-.mypage_content_container ul{
-  width: 100%;
-  color : #767676;
-
-    
-  list-style: none;
-}
-
-.mypage_content_container li{
-  display: flex;
-
-  text-decoration: none;
-  /* font-weight: 500; */
-  color: #767676;
-  font-family: 'Noto Sans KR', sans-serif;
-  /* margin-bottom : 0px; */
-}
-
-.mypage_content_container a{
-  font-size: 16px;    
-  color: #767676;
-  
-  padding: 5px;
-  margin : 5px;  
-  margin-left: 0px;  
-}
-.mypage_content_first {
-margin-bottom: 21px;
-}
-
-.mypage_content_container hr{
-border: 1px solid #D9D9D9;
-width: 190px;
-margin-right: 40px;
-}
-
-.mypage_content_second{
-margin-top: 24px;
-margin-bottom: 24px;
-}
-
-.mypage_content_second a{
-font-weight: 400;
-font-size: 14px;
-color: #767676;
-}
-
-
-
-
-.mypage_content_third button{
-color: #767676;
-font-size: 14px;
-/* padding: 3px; */
-margin-top: 27px; 
-border: none;
-background-color: transparent;
-margin-left: 5px;
-font-weight:bold;
-cursor: pointer;
-}
-.mypage_content_third button:hover{
-
-color: #8071FC;
-  
-font-weight: 600;
-transition-duration: 0.2s;
-}
-
-
-.mypage_content_container a:hover{   
-  color: #8071FC;
-  
-  font-weight: 600;
-  transition-duration: 0.2s;
-}
 
 
 /*------------------body-content------------------*/
@@ -341,6 +194,7 @@ input::placeholder {
   color : #FFFFFF;
   border-radius: 50px;
   cursor: pointer;
+      margin-left: 17px;
 }
 
 .memberChange_bottom{
@@ -369,7 +223,7 @@ input::placeholder {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 500;
   font-size: 14px;
-  margin-left: 20px;
+  margin-left: -10px;
 }
 
 .memberChange_w{

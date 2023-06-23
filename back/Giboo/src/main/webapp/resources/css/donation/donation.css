@@ -213,7 +213,7 @@ a{
     align-items: center;
 }
 
-.buttonSection > .button:first-child {
+.button {
     width: 123px;
     height: 40px;
     background-color: #EFEFEF;
@@ -232,7 +232,7 @@ a{
     transition-duration: 250ms;
 }
 
-.buttonSection > .button:last-child {
+.favoriteButton {
     width: 40px;
     height: 40px;
     background-color: #EFEFEF;
@@ -309,6 +309,29 @@ a{
     font-weight: bold;
 }
 
-[aria-hidden="true"] {
-    display: none;
+.container4{
+    width: 850px;
+    padding-top: 30px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination .current {
+    background-color: #8071FC;
+    color: #f2f2f2;
+    border-radius: 50%;
+}
+
+.pagination li a:hover {
+    background-color: #8071FC;
+    color: #f2f2f2;
+    border-radius: 50%;
 }

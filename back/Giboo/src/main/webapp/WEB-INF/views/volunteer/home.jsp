@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="pagination" value="${map.pagination}" />
+<c:set var="parentCategoryList" value="${map.parentCategoryList}" />
+<c:set var="volunteerList" value="${map.volunteerList}" />
+<c:set var="volunteerListCount" value="${map.volunteerListCount}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,75 +34,35 @@
 
             <ul class="subCategoryList">
                 <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory0" class="SubCategoryTheme" name="SubCategory" checked>
-                    <label for="SubCategory0" class="SubCategoryLabelTheme SubCategoryChecked">
+                    <a href="../volunteer/home" id="all" class="SubCategoryLabelTheme">
                         <div class="SubCategoryEmojiTheme">🧚</div>
                         전체
-                    </label>
+                    </a>
                 </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory1" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory1" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🥳</div>
-                        아동청소년
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory2" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory2" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🥸</div>
-                        어르신
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory3" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory3" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">💖</div>
-                        장애인
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory4" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory4" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🌏</div>
-                        다문화
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory5" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory5" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🐶</div>
-                        동물
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory6" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory6" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🪴</div>
-                        환경
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory7" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory7" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🩸</div>
-                        헌혈
-                    </label>
-                </li>
-                <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory8" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory8" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">👻</div>
-                        기타
-                    </label>
-                </li>
+
+                <c:forEach var="parentCategoryList" items="${parentCategoryList}">
+                    <li class="subCategoryItem">
+                        <a href="../volunteer/home?category=${parentCategoryList.parentCategoryNo}" id="${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme">${parentCategoryList.parentCategoryThumbnail}</div>
+                                ${parentCategoryList.parentCategoryName}
+                        </a>
+                    </li>
+                </c:forEach>
             </ul>
         </div>
 
         <div id="content" class="content">
             <h4 class="contentTitle">
-                동물 봉사
-                <span class="contentCount" id="contentCount">20</span>개
+                <c:choose>
+                    <c:when test="${empty param.category}">
+                        전체
+                    </c:when>
+                    <c:otherwise>
+                        ${volunteerList[0].parentCategoryName}
+                    </c:otherwise>
+                </c:choose>
+                봉사
+                <span class="contentCount" id="contentCount">${volunteerListCount}</span>개
             </h4>
 
             <div class="sortingSection">
@@ -116,155 +81,56 @@
 
             <div id="list" class="list">
 
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 봉사하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
+                <c:forEach var="volunteerList" items="${volunteerList}">
+                    <div class="item">
+                        <div class="buttonSection">
+                            <a href="" class="button">🍀 봉사하기
+                                <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
+                            <div class="favoriteButton">💖</div>
+                        </div>
 
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
+                        <a href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
+                            <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
+                            <div class="subTitle">타이틀</div>
+                            <div class="mainTitle">${volunteerList.volunteerTitle}</div>
+                        </a>
+                        <div class="progressBar">
+                            <div class="progressBarValue" style="width: ${volunteerList.percent}%"></div>
+                        </div>
 
-                    <div class="info">
-                        <div class="d-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
+                        <div class="info">
+                            <div class="d-day">D-${volunteerList.DDay}</div>
+                            <div>달성률
+                                <span class="progressPercentage">${volunteerList.percent}%</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 봉사하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="d-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 봉사하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="d-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 봉사하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="d-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 봉사하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="d-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 봉사하기
-                            <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="d-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
 
             </div>
 
         </div>
 
-        <div>페이지네이션</div>
+        <div class="container4">
+            <c:set var="url" value="?cp="/>
+            <ul class="pagination">
+                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                    <c:choose>
+                        <c:when test="${i == pagination.currentPage}">
+                            <li><a class="current">${i}</a></li>
+                        </c:when>
+
+                        <c:otherwise>
+                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+            </ul>
+        </div>
 
     </div>
 </section>
@@ -272,19 +138,6 @@
 <footer>
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />
 </footer>
-
-<!-- jQuery 라이브러리 추가 -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-    $(function () {
-        var include1 = $('[data-include1="header"]');
-        jQuery.each(include1, function () {
-            $(this).load('../../html/01.header.html');
-        });
-    });
-
-</script>
 
 <script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteer.js"></script>
 </body>

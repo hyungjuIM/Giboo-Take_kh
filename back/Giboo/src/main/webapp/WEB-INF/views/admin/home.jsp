@@ -76,38 +76,38 @@
 
                     <div class="menuButtonArea">
                         <div class="menuButtonLine1">
-                            <a href="" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/admin/member" class="menuButton">
                                 <div>🥰</div>
                                 <div>회원 관리</div>
                             </a>
-                            <a href="" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/admin/manager" class="menuButton">
                                 <div>🚧</div>
                                 <div>관리자 관리</div>
                             </a>
-                            <a href="" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/admin/notice" class="menuButton">
                                 <div>📢</div>
                                 <div>공지사항 관리</div>
                             </a>
-                            <a href="" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/admin/chat" class="menuButton">
                                 <div>💬</div>
                                 <div>1 대 1 채팅상담</div>
                             </a>
                         </div>
 
                         <div class="menuButtonLine2">
-                            <a href="" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/admin/volunteerDonation" class="menuButton">
                                 <div>🕊️</div>
                                 <div>기부 / 봉사 관리</div>
                             </a>
-                            <a href="" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/admin/event" class="menuButton">
                                 <div>🎉</div>
                                 <div>이벤트 관리</div>
                             </a>
-                            <a href="" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/admin/category" class="menuButton">
                                 <div>🗂️</div>
                                 <div>카테고리 관리</div>
                             </a>
-                            <a href="" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/admin/faq" class="menuButton">
                                 <div>🤔</div>
                                 <div>자주 찾는 질문 관리</div>
                             </a>
@@ -123,20 +123,6 @@
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
-
-
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-        });
-
-    </script>
 
     <script src="${pageContext.request.contextPath}/resources/js/admin/admin.js"></script>
 </body>

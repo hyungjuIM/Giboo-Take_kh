@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.section1{
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 9;
+}
+
+
+/* Q&A 아이콘 */
+.QnABtn-icon, .QnAxBtn-icon {
+  width: 100%;
+  cursor: pointer;
+  
+  width: 80px;
+  height: 80px;
+  background-color: #FFF;
+  border-radius: 30px;
+  box-shadow: 3px 3px 3px rgba(255,255,255,0.34) inset, 
+  0 2px 0 -1px rgba(0,0,0,0.13), 
+  0 3px 0 -1px rgba(0,0,0,0.08), 
+  0 3px 13px -1px rgba(0,0,0,0.21);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+} 
+.QnABtn-icon, .QnAxBtn-icon:active {
+  top: 1px;
+  border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+  position: relative;
+}
+
+
+  .jittery:hover{animation: jittery 3s infinite;}
+
+@keyframes jittery {
+    5%,
+    50% {
+      transform: scale(1);
+    }
+  
+    10% {
+      transform: scale(0.9);
+    }
+  
+    15% {
+      transform: scale(1.15);
+    }
+  
+    20% {
+      transform: scale(1.15) rotate(-5deg);
+    }
+  
+    25% {
+      transform: scale(1.15) rotate(5deg);
+    }
+  
+    30% {
+      transform: scale(1.15) rotate(-3deg);
+    }
+  
+    35% {
+      transform: scale(1.15) rotate(2deg);
+    }
+  
+    40% {
+      transform: scale(1.15) rotate(0);
+    }
+  }
+
+  .btn-emoji{
+    width: 80px;
+    height: 60px;
+    box-shadow: 3px 3px 5px rgba(219, 218, 218, 0.34);
+    border-radius: 50px;
+    padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+.section2_TalkBox{
+  position:fixed;
+  right:50px;
+  bottom:200px;
+  padding-top: 30px;
+  display: flex;
+  z-index: 101;
+  background-color: none;
+  
+}
+
+
+.AWrap{
+   
+    list-style: none;
+    text-decoration: none;
+   	
+
+}
+
+.AProImg > img{
+    width: 42px;
+    height: 37.04px;
+}
+
+.AWrap::-webkit-scrollbar {
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+.AWrap::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background: #d4cfff; /* 스크롤바의 색상 */
+    
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.AWrap::-webkit-scrollbar-track {
+    background: rgba(227, 227, 227, 0.418);  /*스크롤바 뒷 배경 색상*/
+}
+
+
+.AWrap{
+    background-color: rgb(255, 255, 255);
+    margin-left: 150px;
+    margin-top: 60px;
+    width: 350px;
+    height: 460px;
+    border-radius: 20px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+
+/* 헤더 스티키 */
+.ABox{
+    height: 55px;
+    position: absolute;
+    overflow: hidden;
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    top: 50px;
+}
+
+.ATitle{
+    position: sticky;
+    /* bottom: 625px; */
+    background: #D9D9D9;    
+    width: 350px;
+    height: 55px;
+    display: flex;   
+    align-items: center;
+    z-index: 999;
+}
+
+
+.ATitlDe{
+    display: flex;   
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.ATitlDe > span{
+    font-weight: 500;
+    font-size: 18px;
+    color: #767676;
+}
+
+.ALogo{
+    margin-left: 155px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ALogo > img{
+    width: 30px;
+    height: 30px;
+}
+
+/* ------------------- */
+
+.AchatWrap{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 65px;
+    margin-bottom: 80px;
+    /* background-color: tomato; */
+}
+
+.AAichatLi{
+    display: flex;
+}
+
+.AProfile{
+    /* background-color: wheat; */
+    margin-right: 19px;
+}
+
+.AProImg{
+    width: 60px;
+    height: 60px;
+    background-color: #ECEBEB;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+.AAiLiBox{
+	position: relative;
+    background: #ECEBEB;	
+    border-radius: .4em;
+    border-radius: 20px;
+    margin-bottom: 10px;
+
+}
+
+.AAiLiBox:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 40%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: #ECEBEB;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -10px;
+	margin-left: -15px;
+}
+
+.AAiSpan{
+    /* background-color: yellow; */
+    max-width: 202px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.AAiSpan > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.025em;
+    color: #111111;
+    word-wrap: break-word;
+}
+
+.AAiWrap{
+    /* background-color: rgb(75, 53, 49); */
+    max-width: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.AAiBox{
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    /* background-color: yellow; */
+}
+
+.AAiBox_1{
+    border: 1px solid #D9D9D9;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 8px;
+    margin-right: 8px;
+}
+
+
+
+
+.AAiBox_1 > a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
+}
+
+.AAiBox_1 > span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    font-weight: 400;
+    font-size: 14px;
+    color: #767676;
+}
+
+/* -------------------------------- */
+
+.AMeWrap{
+    /* background-color: violet; */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.AMechatWrapBox {
+	position: relative;
+	background: #8071FC;
+	border-radius: .4em;
+    border-radius: 20px;
+    margin-right: 20px;
+}
+
+.AMechatWrapBox:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 17px solid transparent;
+	border-left-color: #8071FC;
+	border-right: 0;
+	border-top: 0;
+	margin-top: -10px;
+	margin-right: -15px;
+}
+
+.ALiMeSpan{
+    max-width: 202px;
+    margin-right: 20px;
+    margin-left: 10px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    /* background-color: yellowgreen; */
+    padding-left: 10px;
+}
+
+.ALiMeSpan > span{
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    word-wrap: break-word;
+}
+
+/* ---------------------------- */
+
+.AInputWrap{
+    height: 80px;
+    overflow: hidden;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    position: absolute;
+    /* background-color: yellowgreen; */
+    top: 546px;
+}
+
+.AInputSticky{
+    height: 60px;
+    width: 350px;
+    background: #D9D9D9;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    position: sticky;
+    z-index: 999;
+}
+
+
+.AInputBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+#AInputArea{
+    width: 249px;
+    height: 38px;
+    border: none;
+    resize: none;
+    border-radius: 50px;
+}
+
+#AInputArea::placeholder {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #D9D9D9;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#AInputArea:focus {
+    outline: none;
+}
+
+.AsendBtn{
+    margin-left: 8px;
+    width: 77px;
+    height: 38px;
+    background: #8071FC;
+    border-radius: 50px;
+    border: none;
+
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+
+    cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}

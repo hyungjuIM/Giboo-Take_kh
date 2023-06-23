@@ -251,7 +251,7 @@ a{
     height: 16px;
 }
 
-.modify, .deleteCategory {
+.modify, .remove {
     background-color: unset;
     border: 1px solid #BDBDBD;
     border-radius: 20px;
@@ -265,23 +265,7 @@ a{
     color: white;
 }
 
-/* footer */
-.footerContainer{
-    background-color: #F6F6F6;
-    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
-    height: 244px;
-    display: flex;
-
-    justify-content: center;
-}
-
-.footerContent{
-    width: 1200px;
-    height: 65px;
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-    align-items: center;
+.removeFocus {
+    background-color: #EF0101;
+    color: white;
 }

@@ -2,261 +2,150 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
-<!DOCTYPE html>
-<html lang="en">
+        <!DOCTYPE html>
+        <html lang="en">
+
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>header</title>
-      <!-- jQuery 라이브러리 추가(CDN) -->
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/footer.css" /> 
-    
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/header.css" />
-            <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/alarm.css" />
-    
-  
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>header</title>
+<!-- jQuery 라이브러리 추가(CDN) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/main/footer.css" />
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/main/header.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/main/alarm.css" />
 
 
-   
 
 
-        <!-- fontawesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+
+
+
+
+<!-- fontawesome -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+	integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
 <body>
 
-    <section class="headerContainer">
-        <div class="headerContent">
-            <div class="logo">
-                <div>여기는 로고자리올시다</div>
-            </div>
+	<section class="headerContainer">
+		<div class="headerContent">
+			<div class="logo">
+				<a href="${pageContext.request.contextPath}/main"><div>여기는 로고자리올시다</div></a>
+				
+			</div>
 
-            <div class="gnb">
-                <a href="#none">기부하기</a>
-                <a href="#none">봉사하기</a>
-                <a href="${pageContext.request.contextPath}/event/eventList">이벤트</a>
-                <a href="${pageContext.request.contextPath}/map/mapList">위치찾기</a>
-            </div>
-            <div class="user_sec">
-                <div class="myPage">
-                    <a href="#none" class="loginBtn">로그인</a>
+			<div class="gnb">
+				<div id="horizontal_underline"></div>
+				<a href="${pageContext.request.contextPath}/donation/home">기부하기</a>
+				<a href="${pageContext.request.contextPath}/volunteer/home">봉사하기</a>
+				<a href="${pageContext.request.contextPath}/event/eventList">이벤트</a>
+				<a href="${pageContext.request.contextPath}/map/mapList">위치찾기</a>
+			</div>
+			<div class="user_sec">
 
-                    <div class="toggle"><a href="${pageContext.request.contextPath}/mypage/myask" class="tooltip" data-text="마이페이지">
-                            <i class="far fa-user-circle"></i>
-                        </a>
-                    </div>                
-                    <div class="toggle"><a href="#none" class="tooltip" data-text="알림">
-                        <i class="far fa-bell"></i>
-                    </a>
-                </div>
+					<section class="laginArea">
+						<%-- 로그인 하기 전 --%>
+						<c:choose>
+							<c:when test="${empty sessionScope.loginMember && empty sessionScope.loginManager}">
+								<a href="${pageContext.request.contextPath}/main/login"
+									class="loginBtn">로그인</a>
+							</c:when>
+							<%-- 관리자로그인 시 --%>
+							<c:when test="${!empty sessionScope.loginManager}">
+								<!-- 관리자로 로그인한 경우에 대한 내용을 추가 -->
+								<div class="nick_container">
+									<span id="nickName">${loginManager.managerNickname}</span>관리자님 
+								</div>
+							</c:when>
+							<%-- 로그인 된 후 --%>
+							<c:otherwise>
 
-                </div>
-            </div>
-        </div>
+								<div class="loginContainer_box">
+									<div class="nick_container">
+										<span id="nickName">${loginMember.memberNick}</span>님
+				
+									</div>
+				
+									<div class="toggle">
+										<a href="${pageContext.request.contextPath}/mypage/mypageMain" data-text="마이페이지">
+											<div class="iBox">
+												<i class="far fa-user-circle gray_Style"></i>
+												<i class="far fa-user-circle green_Style"></i>
+												<!-- <div class="tooltip">마이페이지</div> -->
+											</div>
+				
+										</a>
+									</div>
+				
+									<div class="toggle">
+										<a href="#none" data-text="알림">
+											<div class="iBox">
+												<i class="far fa-bell gray_Style"></i>
+												<i class="far fa-bell green_Style"></i>
+				
+											</div>
+				
+				
+										</a>
+									</div>
+				  
+				
+				
+									<a href="${contextPath}/main/logout" class="logout_Btn"><span>로그아웃</span></a>
 
+								</div>
+								
+								
+								
+									
+					
+										
 
-    </section>
+							</c:otherwise>
+						</c:choose>
+					</section>
 
+					
+				
 
-    
-
-
-
-    <!-- 알림 팝업창 
-    <div class="alarmPopup">
-        <div class="alarm">알림</div>
-        <div class="alarmList">
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-            <a class="alarmBox">
-                <div class="alarmBoxBox">
-                    <div class="alarmImg">
-                        <img src="/images/profile.jpeg" alt="프로필사진">
-                    </div>
-                    <div class="alarmContent">
-                        <div class="alarmTitle">
-                            <div class="alarmName">
-                                <div class="alarmName_a">이벤트</div>
-                            </div>
-                            <div class="alarmPeriod">1일 전</div>
-                        </div>
-                        <div class="alarmStory">이벤트이벤트이벤트이벤트이벤트이벤트!</div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <button class="moreBtn">더보기</button>
-    </div>    -->
-
-<!--  추가부분  -->
-    
-    <div class="alert_container">
-        <!-- 알림 카드부분 -->
-        
-        <div class="alert_myfavcard_contaner">
-            <div class="myalert_container">
-                <!--작은동그라미 -->
-                <div class="smallC_Container">
-                    <div class="smallC"> </div>
-                </div>
-                <!-- 이모티콘 -->
-                <div class="alert_categoryImgContainer">
-                    <div class="alert_categoryImg"><i class="fa-solid fa-person-cane"></i></div>
-                    <!-- 점선 -->
-                    <div class="alert_hrpart">
-                        <div class="alert_hrpart2"></div>
-                    </div>
-                </div>
-
-                <!-- 메인내용 -->
-                <div class="alert_Maincontainer">
-                    <!-- 카테고리, 마감일, 메인 -->
-                    <div class="alert_categoryUpdateContainer">
-                        <div class="alert_detailCategory">
-                            <div style="color: #8071fc;">참여완료</div>
-                        </div>
-                        <div class="alert_updateDate">15시간 전</div>
-                    </div>
-
-                    <!-- 제목, 작성자, 달성률, 총기부금액 -->
-                    <div class="alert_titleContainerA">
-                        <div class="alert_titleContainer">
-                            <div class="alertTitle"><a href="#">강릉 산불 피해 주민분들을 위한 모금</a></div>
-                            <div class="alertWriter">밀알 복지 재단</div>
-                            <div class="achieveAlert">기부 > 환경</div>
-                        </div>
-                    </div>
-                </div>
+			</div>
+		</div>
 
 
-            </div>
-        </div>
+	</section>
+
+ <jsp:include page="/WEB-INF/views/main/alarm.jsp" />
 
 
-        <!-- 알림 카드부분 클릭시 바뀌는 부분-->
-        <div class="alert_myfavcard_contaner">
-            <div class="myalert_container">
-                <!--작은동그라미 사라짐 -->
-                <div class="smallC_Container_after">
-
-                </div>
-                <!-- 이모티콘 -->
-                <div class="alert_categoryImgContainer">
-                    <div class="alert_categoryImg"><i class="fa-solid fa-person-cane"></i></div>
-                    <!-- 점선 -->
-                    <div class="alert_hrpart">
-                        <div class="alert_hrpart2"></div>
-                    </div>
-                </div>
-
-                <!-- 메인내용 -->
-                <div class="alert_Maincontainer">
-                    <!-- 카테고리, 마감일, 메인 -->
-                    <div class="alert_categoryUpdateContainer">
-                        <div class="alert_detailCategory_after">
-                            <div style="color: #767676;">참여완료</div>
-                        </div>
-                        <div class="alert_updateDate">15시간 전</div>
-                    </div>
-
-                    <!-- 제목, 작성자, 달성률, 총기부금액 -->
-                    <div class="alert_titleContainerA">
-                        <div class="alert_titleContainer">
-                            <div class="alertTitle_after"><a href="#">강릉 산불 피해 주민분들을 위한 모금</a></div>
-                            <div class="alertWriter">밀알 복지 재단</div>
-                            <div class="achieveAlert">기부 > 환경</div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-        <!-- 더 보기 탭-->
-        <div class="alert_addTab">
-            <div class="alert_addTab_text">더보기</div>
-        </div>
-    </div>
-
-
-
-    
-     <script src="${pageContext.request.contextPath}/resources/js/main/header.js"></script>
-     <script src="${pageContext.request.contextPath}/resources/js/main/alarm.js"></script>
-
+	<script
+		src="${pageContext.request.contextPath}/resources/js/main/header.js"></script>
+	
+	<c:if test="${ !empty message }">
+		<script>
+			alert("${message}");
+		</script>
+	</c:if>
 
 </body>
 
 </html>
+
