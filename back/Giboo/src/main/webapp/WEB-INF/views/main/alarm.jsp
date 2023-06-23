@@ -49,7 +49,7 @@
                 </div>
 			
 				<div class="alert_titleContainer">
-					<div class="alarmContent"></div>
+					<a class="alarmContent" id="alarmContent"></a>
 					<div class="alarmDate"></div>
 		
 				</div>
