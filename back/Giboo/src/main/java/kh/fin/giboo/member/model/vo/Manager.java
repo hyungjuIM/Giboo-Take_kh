@@ -19,4 +19,6 @@ public class Manager {
     private String managerProfileImg;
     private String managerSignUpStatus;
     private String managerSignUpReason;
+    private String memberId;
+    private String memberPw;
 }
