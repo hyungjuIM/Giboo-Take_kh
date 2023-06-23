@@ -14,4 +14,8 @@ public interface AlarmService {
 
 	List<Alarm> selectAll();
 
+	int updateAlarmStatus(int alarmNo);
+
+
+
 }

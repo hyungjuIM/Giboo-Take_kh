@@ -22,4 +22,15 @@ public class AlarmDAO {
 		return sqlSession.selectList("alarm-mapper.selectAll" );
 	}
 	
+	
+	public int updateAlarmStatus(int alarmNo) {
+		return sqlSession.update("alarm-mapper.updateAlarmStatus", alarmNo );
+	}
+
+
+
+
+
+	
+	
 }
