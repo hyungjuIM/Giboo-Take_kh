@@ -49,7 +49,11 @@
                 </div>
 			
 				<div class="alert_titleContainer">
+<<<<<<< HEAD
 					<a href="" class="alarmContent"></a>
+=======
+					<a class="alarmContent" id="alarmContent"></a>
+>>>>>>> c0b471a54c0e6956ed49a3f771408313eb2cd1cf
 					<div class="alarmDate"></div>
 		
 				</div>
