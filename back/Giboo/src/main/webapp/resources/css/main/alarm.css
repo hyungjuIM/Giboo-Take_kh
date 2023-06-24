@@ -299,6 +299,9 @@ body {
     justify-content: center;
     align-items: center;
 }
+.alarmContent{
+    cursor: pointer;
+}
 
 
 
