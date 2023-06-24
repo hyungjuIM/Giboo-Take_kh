@@ -177,7 +177,7 @@
 
 
 
-            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+            
             <script src="${pageContext.request.contextPath}/resources/js/main/signUp.js"></script>
             <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 

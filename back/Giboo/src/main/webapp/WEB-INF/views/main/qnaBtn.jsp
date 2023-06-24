@@ -27,11 +27,11 @@
      <section class="section1">
     
         <div class="QnABtn-icon show jittery" data-animate="shake">
-             <img src="/images/hunny.png" class="btn-emoji">
+             <img src="${pageContext.request.contextPath}/resources/images/main_img/upperBody.png" class="btn-emoji">
          </div>
    
          <div class="QnAxBtn-icon show jittery" data-animate="shake">
-            <img src="/images/heart-regular.svg" class="btn-emoji">
+            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg" class="btn-emoji">
         </div>
     </section>
         
@@ -44,7 +44,7 @@
                         <div class="ATitlDe">
                             <span>기부 앤 테이크</span>
                             <div class="ALogo">
-                                <img src="/images/doCenter.jpg" alt="">
+                                <img src="${pageContext.request.contextPath}/resources/images/main_img/plane.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <li class="AAichatLi">
                                     <div class="AProfile">
                                         <div class="AProImg">
-                                            <img src="/images/profile.jpeg" alt="">
+                                            <img src="${pageContext.request.contextPath}/resources/images/main_img/upperBody.png" alt="">
                                         </div>
                                     </div>
                                     <div class="AchatWrapBox">
@@ -73,16 +73,24 @@
                                         <div class="AAiWrap">
                                             <div class="AAiBox">
                                                 <div class="AAiBox_1">
-                                                    <span>봉사 신청 바로가기😆</span>
+                                                	<a href="http://localhost:8081/giboo/volunteer/home" target="_blank">
+                                                    	<span>봉사 신청 바로가기😆</span>
+                                                    </a>
                                                 </div>
                                                 <div class="AAiBox_1">
-                                                    <span>기부 신청 바로가기😋</span>
+                                                	<a href="http://localhost:8081/giboo/donation/home" target="_blank">
+                                                    	<span>기부 신청 바로가기😋</span>
+                                                    </a>
                                                 </div>
                                                 <div class="AAiBox_1">
-                                                    <span>이벤트❤️</span>
+                                                	<a href="http://localhost:8081/giboo/event/eventList" target="_blank">
+                                                    	<span>이벤트❤️</span>
+                                                    </a>
                                                 </div>
                                                 <div class="AAiBox_1">
-                                                    <span>대표전화📞</span>
+                                                	
+                                                    	<span>대표전화📞</span>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -99,7 +107,7 @@
                                     </div>
                                     <div class="AMeProfile">
                                         <div class="AProImg">
-                                            <img src="/images/doCenter.jpg" alt="">
+                                            <img src="${pageContext.request.contextPath}/resources/images/ghost-solid.svg" alt="">
                                         </div>
                                     </div>
                                 </li>
@@ -107,7 +115,7 @@
                                 <li class="AAichatLi">
                                     <div class="AProfile">
                                         <div class="AProImg">
-                                            <img src="/images/profile.jpeg" alt="">
+                                           <img src="${pageContext.request.contextPath}/resources/images/main_img/upperBody.png" alt="">
                                         </div>
                                     </div>
                                     <div class="AchatWrapBox">
@@ -156,7 +164,6 @@
     </section>
 
 
-    
     
     <script src="${pageContext.request.contextPath}/resources/js/main//qna.js"></script>
 </body>

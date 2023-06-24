@@ -49,7 +49,9 @@
                 </div>
 			
 				<div class="alert_titleContainer">
-					<a href="" class="alarmContent"></a>
+
+					<a class="alarmContent" id="alarmContent"></a>
+
 					<div class="alarmDate"></div>
 		
 				</div>
