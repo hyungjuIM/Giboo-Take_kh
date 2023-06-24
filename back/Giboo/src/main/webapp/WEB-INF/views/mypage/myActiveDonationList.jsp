@@ -115,7 +115,7 @@
 										<table class="myactive_notice-table">
 											<thead>
 												<tr>
-													<th scope="col" class="th_num">글 번호</th>
+													<th scope="col" class="th_num">번호</th>
 													<th scope="col" class="th_name">기부 내역</th>
 													<th scope="col" class="th_date">기부 일자</th>
 													<th scope="col" class="th_date">기부한 금액</th>
@@ -136,7 +136,8 @@
 															items="${myActiveDonationList}">
 															<tr>
 																<td>${myActiveDonationList.myactiveDonationNo}</td>
-																<td>${myActiveDonationList.donationTitle}</td>
+																<td><a href="../donation/detail/${myActiveDonationList.donationNo}?cp=${pagination.currentPage}${sURL}">${myActiveDonationList.donationTitle}</a></td>
+															
 																<td>${myActiveDonationList.myactiveDate}</td>
 																<td>${myActiveDonationList.donationMoney}</td>
 																<%-- <td><a href="../detail/${donation.donationNo}?cp=${pagination.currentPage}${sURL}">${donation.donationTitle}</a></td>   --%>

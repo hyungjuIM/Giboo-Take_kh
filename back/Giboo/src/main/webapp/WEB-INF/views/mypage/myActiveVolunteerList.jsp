@@ -107,7 +107,7 @@
 									</div>
 								</div>
 
-		
+
 								<div id="myactive_notice-list">
 									<div class="myactive_container3">
 										<table class="myactive_notice-table">
@@ -117,7 +117,7 @@
 													<th scope="col" class="th-name">봉사활동 내역</th>
 													<th scope="col" class="th-time">봉사일자</th>
 													<th scope="col" class="th-place">장소</th>
-													
+
 
 												</tr>
 											</thead>
@@ -125,32 +125,28 @@
 
 												<c:choose>
 													<c:when test="${empty myActiveVolunteerList}">
-												
+
 														<tr>
 															<th colspan="4">게시글이 존재하지 않습니다.</th>
 														</tr>
 													</c:when>
 
-												<c:otherwise>
-  
-							
+													<c:otherwise>
+														<c:forEach var="myActiveVolunteerList"
+															items="${myActiveVolunteerList}" >
+															<tr>
+																<td>${myActiveVolunteerList.myactiveVolunteerNo}</td>
+																<td><a
+																	href="../volunteer/detail/${myActiveVolunteerList.volunteerNo}?cp=${pagination.currentPage}${sURL}">${myActiveVolunteerList.volunteerTitle}</a></td>
+								
+																<td>${myActiveVolunteerList.myactiveDate}</td>
+																<td>${myActiveVolunteerList.volunteerAddr}</td>
+															</tr>
+														</c:forEach>
 
-<c:set var="volunteerCount" value="${myActiveVolunteerList.size()}" />
 
-<c:forEach var="myActiveVolunteerList" items="${myActiveVolunteerList}" varStatus="status">
-    
-        <c:set var="volunteerNumber" value="${volunteerCount - status.count + 1}" />
-        <tr>
-            <td>${volunteerNumber}</td>
-            <td>${myActiveVolunteerList.volunteerTitle}</td>
-            <td>${myActiveVolunteerList.myactiveDate}</td>
-            <td>${myActiveVolunteerList.volunteerAddr}</td>
-        </tr>
-</c:forEach>
-							
-   
-   
-</c:otherwise>
+
+													</c:otherwise>
 												</c:choose>
 
 												<%--
@@ -167,14 +163,14 @@
 													</td>
 												</tr>
 												 --%>
-												
+
 
 											</tbody>
 										</table>
 									</div>
-									
+
 									<div class="container4">
-										<c:set var="url" value="?cp="/>
+										<c:set var="url" value="?cp=" />
 										<ul class="pagination">
 											<li><a href="${url}1${sURL}">&lt;&lt;</a></li>
 											<li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
@@ -201,17 +197,20 @@
 
 										</ul>
 									</div>
-									
+
 								</div>
-								
+
 							</section>
 						</div>
 					</section>
 
-				</div><%-- myask_content_area --%>
+				</div>
+				<%-- myask_content_area --%>
 
-			</div> <%-- mypage_wrapper --%>
-		</div><%-- mypage-container --%>
+			</div>
+			<%-- mypage_wrapper --%>
+		</div>
+		<%-- mypage-container --%>
 	</main>
 
 

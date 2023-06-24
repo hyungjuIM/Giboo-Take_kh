@@ -19,16 +19,27 @@ public class AlarmServiceImpl implements AlarmService {
 	@Autowired
 	private AlarmDAO dao;
 
-	@Override
-	public List<Alarm> selectAll() {
-		return dao.selectAll();
-	}
+//	@Override
+//	public List<Alarm> selectAll(Model model) {
+//		return dao.selectAll(model);
+//	}
 
+	@Override
+	public Map<String, Object> selectAll(Model model) {
+		List<Alarm> alarms = dao.selectAll(model);
+		Map<String, Object> map = new HashMap<>();
+		map.put("alarms", alarms);
+		return map;
+	}
+	
+	
 	//알람창 읽음으로 인한 처리
 	@Override
 	public int updateAlarmStatus(int alarmNo) {
 		return dao.updateAlarmStatus(alarmNo);
 	}
+
+
 
 	
 	

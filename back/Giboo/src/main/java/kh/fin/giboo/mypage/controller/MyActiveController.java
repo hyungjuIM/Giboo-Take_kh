@@ -46,22 +46,14 @@ public class MyActiveController {
 	 // 서비스로 전달할 memberNo 값을 model에 추가
 	    model.addAttribute("memberNo", memberNo);
 	  
-
-	    
-
-	    
 		Map<String, Object> map = null;
 		
-
 		map = service.selectMyactiveDonationList(cp, model);
 		model.addAttribute("map", map);
 
 		logger.info("기부 목록조회(나의활동1===)로 이동");
 		logger.info("memberNo" + memberNo);
 		logger.info("map" + map.toString());
-
-
-		
 
 		return "mypage/myActiveDonationList";
 	}
@@ -70,8 +62,15 @@ public class MyActiveController {
 
 	// 나의 활동2(봉사 목록 조회)
 	@GetMapping(value = "/myActiveVolunteerList")
-	public String myactive_2(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model) {
-
+	public String myactive_2(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model
+			,HttpSession session,
+			MyActiveDonationList myActiveVolunteerList,
+			@ModelAttribute("loginMember") Member loginMember) {
+		
+		 int memberNo = loginMember.getMemberNo();
+		
+		 model.addAttribute("memberNo", memberNo);
+		 
 		Map<String, Object> map = null;
 
 		map = service.selectMyActiveVolunteerList(cp, model);
@@ -86,14 +85,24 @@ public class MyActiveController {
 
 	// 나의 활동3(참여한 이벤트 목록 조회)
 	@GetMapping(value = "/myActiveEventList")
-	public String myactive_3(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model) {
-
+	public String myactive_3(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model
+			,HttpSession session,
+			MyActiveDonationList myActiveEventList,
+			@ModelAttribute("loginMember") Member loginMember
+			
+			) {
+		int memberNo = loginMember.getMemberNo();
+		
+		 model.addAttribute("memberNo", memberNo);
 		Map<String, Object> map = null;
 
 		map = service.selectMyActiveEventList(cp, model);
 		model.addAttribute("map", map);
 
-		logger.info("참여한 이벤트 목록 조회(나의활동3)로 이동");
+		logger.info("참여한 이벤트 목록 조회(나의활동3====)로 이동");
+		logger.info("memberNo" + memberNo);
+		logger.info("map" + map.toString());
+		logger.info("model" + model.toString());
 
 		return "mypage/myActiveEventList";
 	}
