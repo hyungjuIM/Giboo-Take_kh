@@ -45,11 +45,13 @@
 			<div class="alert_titleContainerA">
 			<%-- 작은동그라미 --%>
                 <div class="smallC_Container">
-                    <button class="smallC" id="readStatus"> </button>
+                    <div class="smallC" id="readStatus"> </div>
                 </div>
 			
 				<div class="alert_titleContainer">
+
 					<a class="alarmContent" id="alarmContent"></a>
+
 					<div class="alarmDate"></div>
 		
 				</div>

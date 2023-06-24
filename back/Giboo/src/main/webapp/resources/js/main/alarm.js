@@ -1,3 +1,4 @@
+
 // 알림 버튼 클릭 시 알림 팝업 토글
 $('.tooltip[data-text="알림"]').on('click', function() {
   $('.alert_container').toggleClass('show');
@@ -89,11 +90,14 @@ $(document).on('click', '#alarmContent', function() {
 //         const alarmDate = $("<div>").addClass("alarmDate").text("등록일자: " + item.alarmDate);
 
         
+
 //       if  (item.volunteerNo !== null && item.volunteerNo !== 0) {
 //               const volunteerLink = $("<a>")
 //                     .attr("href", "/Giboo/volunteer/detail/" + item.volunteerNo )
 //                     .text(item.alarmContent);
 //           alarmContent.append(volunteerLink);
+
+
 //       }
 
 //       else if (item.eventNo !== null && item.eventNo !== 0) {
@@ -131,6 +135,8 @@ $(document).on('click', '#alarmContent', function() {
 //       alarmList.append(alertContainer);
 //       }
 
+
+
 //       alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
 //     },
 //     error: function () {
@@ -142,6 +148,41 @@ $(document).on('click', '#alarmContent', function() {
 
 
 
+
+
+// // // 작은동그라미 클릭 이벤트 핸들러
+// // $(document).on("click", "#readStatus", function() {
+// // 	const alarmNo = $(this).closest(".alert_myfavcard_contaner").data("alarmNo");
+// // 	updateAlarmStatus(alarmNo);
+// // });
+
+// // // 알림 읽음 상태 업데이트 함수
+// // function updateAlarmStatus(alarmNo) {
+// // 	$.ajax({
+// // 		url: "/Giboo/updateAlarmStatus",
+// // 		method: "POST",
+// // 		data: {
+// // 			alarmNo: alarmNo,
+// // 		},
+// // 		success: function(response) {
+// // 			console.log(response);
+// // 			// 성공한 경우 작은 동그라미를 변경합니다.
+// // 			const smallC = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']").find("#readStatus");
+// // 			smallC.css("background", "white");
+// // 			smallC.css("border-color", "red");
+
+// // 			// 해당 alert_titleContainer 부분의 글자색을 연하게 변경합니다.
+// // 			const alertTitleContainer = $(".alert_myfavcard_contaner[data-alarmNo='" + alarmNo + "']")
+// // 				.find(".alert_titleContainer");
+// // 			alertTitleContainer.css("color", "blue");
+// // 		},
+// // 		error: function(jqXHR, textStatus, errorThrown) {
+// // 			console.log(jqXHR.responseText);
+// // 			console.log(textStatus);
+// // 			console.log(errorThrown);
+// // 		},
+// // 	});
+// // }
 
 
 // // 작은동그라미 클릭 이벤트 핸들러
@@ -176,4 +217,6 @@ $(document).on('click', '#alarmContent', function() {
 // 			console.log(errorThrown);
 // 		},
 // 	});
+
 // }
+
