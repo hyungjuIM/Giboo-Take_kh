@@ -97,10 +97,10 @@
 									</div>
 				
 									<div class="toggle">
-										<a href="#none" data-text="알림">
+										<a href="#none" data-text="알림" class="tooltip" id="alarm">
 											<div class="iBox">
 												<i class="far fa-bell gray_Style"></i>
-												<i class="far fa-bell green_Style"></i>
+												<!-- <i class="far fa-bell green_Style"></i> -->
 				
 											</div>
 				

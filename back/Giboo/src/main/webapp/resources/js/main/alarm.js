@@ -1,4 +1,3 @@
-
 // 알림 버튼 클릭 시 알림 팝업 토글
 $('.tooltip[data-text="알림"]').on('click', function() {
   $('.alert_container').toggleClass('show');
@@ -6,59 +5,81 @@ $('.tooltip[data-text="알림"]').on('click', function() {
 
 $('#alarm').click(function(){
   $.ajax({
-      url: "/Giboo/notifications",
-      dataType: "json",
-      success: function (list) {
-          const alarmList = $("#alarmList");
-          alarmList.empty();
+    url: "/Giboo/notifications",
+    dataType: "json",
+    success: function (list) {
+      const alarmList = $("#alarmList");
+      alarmList.empty();
 
-          for (let item of list) {
-              const alertContainer = $("<div>").addClass("alert_myfavcard_contaner");
+      for (let item of list) {
+        const alertContainer = $("<div>").addClass("alert_myfavcard_contaner");
 
-              const alertTitleContainerA = $("<div>").addClass("alert_titleContainerA");
+        const alertTitleContainerA = $("<div>").addClass("alert_titleContainerA");
 
-              const alertTitleContainer = $("<div>").addClass("alert_titleContainer");
+        const alertTitleContainer = $("<div>").addClass("alert_titleContainer");
 
-              const alarmContent = $("<a>").addClass("alarmContent").text(item.alarmContent);
+        const alarmContent = $("<a>").addClass("alarmContent").text(item.alarmContent);
 
-              const alarmDate = $("<div>").addClass("alarmDate").text("등록일자 : " + item.alarmDate); // 알람날짜
+        const alarmDate = $("<div>").addClass("alarmDate").text("등록일자 : " + item.alarmDate); // 알람날짜
 
-    
+        // 작은 동그라미를 추가하는 부분
+        const smallCContainer = $("<div>").addClass("smallC_Container");
+        const smallC = $("<div>").addClass("smallC");
 
-              alertTitleContainer.append(alarmContent);
-              alertTitleContainer.append(alarmDate);
-              
-              alertTitleContainerA.append(alertTitleContainer);
+        // 작은 동그라미에 대한 CSS 클래스 설정
+        if (item.readStatus === "읽음") {
+          smallC.addClass("read");
+        } else {
+          smallC.addClass("unread");
+        }
 
-              alertContainer.append(alertTitleContainerA);
+        smallCContainer.append(smallC);
+        alertTitleContainerA.append(smallCContainer);
 
-              alarmList.append(alertContainer);
-          }
+        alertTitleContainer.append(alarmContent);
+        alertTitleContainer.append(alarmDate);
 
-          alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
-      },
-      error: function () {
-          console.log("에러 발생");
-      },
+        alertTitleContainerA.append(alertTitleContainer);
+
+        alertContainer.append(alertTitleContainerA);
+
+        alarmList.append(alertContainer);
+        alarmContent.data('item', item);
+      }
+
+      alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
+
+      // 클릭 이벤트를 바인딩하는 부분
+      $(document).on('click', '.alarmContent', function() {
+        const item = $(this).data('item');
+
+        if (item.volunteerNo !== null && item.volunteerNo !== 0) {
+          window.location.href = "/Giboo/volunteer/detail/" + item.volunteerNo;
+        } else if (item.eventNo !== null && item.eventNo !== 0) {
+          window.location.href = "/Giboo/event/eventDetailMain/" + item.eventNo;
+        } else if (item.donationNo !== null && item.donationNo !== 0) {
+          window.location.href = "/Giboo/donation/detail/" + item.donationNo;
+        } else if (item.noticeNo !== null && item.noticeNo !== 0) {
+          window.location.href = "/Giboo/event/eventDetailMain/" + item.noticeNo;
+        } else if (item.reviewNo !== null && item.reviewNo !== 0) {
+          window.location.href = "/Giboo/event/eventDetailMain/" + item.reviewNo;
+        }
+
+        // 작은 동그라미 요소
+        const smallC = $(this).closest('.alert_titleContainerA').find('.smallC');
+
+        // 작은 동그라미에 대한 CSS 클래스 설정
+        smallC.removeClass("unread");
+        smallC.addClass("read");
+      });
+    },
+    error: function () {
+      console.log("에러 발생");
+    },
   });
 });
 
 
-$(document).on('click', '#alarmContent', function() {
-  const item = $(this).data('item');
-
-  if (item.volunteerNo !== null && item.volunteerNo !== 0) {
-      window.location.href = "/Giboo/volunteer/detail/" + item.volunteerNo;
-  } else if (item.eventNo !== null && item.eventNo !== 0) {
-      window.location.href = "/Giboo/event/eventDetailMain/" + item.eventNo;
-  } else if (item.donationNo !== null && item.donationNo !== 0) {
-      window.location.href = "/Giboo/donation/detail/" + item.donationNo;
-  } else if (item.noticeNo !== null && item.noticeNo !== 0) {
-      window.location.href = "/Giboo/event/eventDetailMain/" + item.noticeNo;
-  } else if (item.reviewNo !== null && item.reviewNo !== 0) {
-      window.location.href = "/Giboo/event/eventDetailMain/" + item.reviewNo;
-  }
-});
 
 
 
@@ -88,7 +109,12 @@ $(document).on('click', '#alarmContent', function() {
 
 //         const alarmContent = $("<div>").addClass("alarmContent");
 //         const alarmDate = $("<div>").addClass("alarmDate").text("등록일자: " + item.alarmDate);
-
+//         // 작은 동그라미에 대한 CSS 클래스 설정
+//         if (item.readStatus === "읽음") {
+//           smallC.addClass("read");
+//         } else {
+//           smallC.addClass("unread");
+//         }
         
 
 //       if  (item.volunteerNo !== null && item.volunteerNo !== 0) {
@@ -127,14 +153,21 @@ $(document).on('click', '#alarmContent', function() {
 //           .text(item.alarmContent);
 //         alarmContent.append(reviewLink);
 //       } 
-
+      
+      
 //       alertTitleContainer.append(alarmContent);
 //       alertTitleContainer.append(alarmDate);
 //       alertTitleContainerA.append(alertTitleContainer);
 //       alertContainer.append(alertTitleContainerA);
 //       alarmList.append(alertContainer);
-//       }
+//     }
+    
+//     // 작은 동그라미 요소
+//     const smallC = $(this).closest('.alert_titleContainerA').find('.smallC');
 
+//     // 작은 동그라미에 대한 CSS 클래스 설정
+//     smallC.removeClass("unread");
+//     smallC.addClass("read");
 
 
 //       alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
