@@ -1,4 +1,3 @@
-
 // 알림 버튼 클릭 시 알림 팝업 토글
 $('.tooltip[data-text="알림"]').on('click', function() {
   $('.alert_container').toggleClass('show');
@@ -6,6 +5,7 @@ $('.tooltip[data-text="알림"]').on('click', function() {
 
 
 $('#alarm').click(function(){
+
     $.ajax({
       url: "/Giboo/notifications",
       dataType: "json",
@@ -78,7 +78,10 @@ $('#alarm').click(function(){
         console.log("에러 발생");
       },
     });
+
   });
+
+
 
 
 

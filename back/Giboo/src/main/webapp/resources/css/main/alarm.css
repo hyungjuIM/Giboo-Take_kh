@@ -214,8 +214,16 @@ body {
     border-radius: 100px;
     width: 10px;
     height: 10px;
-    border: 1px solid #6c5fd5;
+    /* border: 1px solid #6c5fd5;
+    background-color: #6c5fd5; */
+}
+.smallC.unread{
+     border: 1px solid #6c5fd5;
     background-color: #6c5fd5;
+}
+.smallC.read{
+     border: 1px solid silver;
+    background-color: silver;
 }
 
 

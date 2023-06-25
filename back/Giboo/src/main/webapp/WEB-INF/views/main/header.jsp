@@ -97,6 +97,7 @@
 									</div>
 				
 									<div class="toggle">
+
                               <a href="#none" data-text="알림" class="tooltip" id="alarm">
                                  <div class="iBox">
                                     <i class="far fa-bell gray_Style"></i>
@@ -107,6 +108,7 @@
             
                               </a>
                            </div>
+
 				  
 				
 				
