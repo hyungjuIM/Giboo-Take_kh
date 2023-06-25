@@ -311,6 +311,11 @@ body {
     cursor: pointer;
 }
 
+.alarmContent a {
+    color: inherit; /* 링크의 기본 색상을 상속받음 */
+  text-decoration: none;
+}
+
 
 
 
