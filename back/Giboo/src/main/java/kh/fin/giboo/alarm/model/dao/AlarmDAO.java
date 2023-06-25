@@ -18,9 +18,14 @@ public class AlarmDAO {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public List<Alarm> selectAll() {
-		return sqlSession.selectList("alarm-mapper.selectAll" );
+//	public List<Alarm> selectAll(Model model) {
+//		return sqlSession.selectList("alarm-mapper.selectAll" );
+//	}
+
+	public List<Alarm> selectAll(Model model) {
+		return sqlSession.selectList("alarm-mapper.selectAll", model);
 	}
+	
 	
 	
 	public int updateAlarmStatus(int alarmNo) {

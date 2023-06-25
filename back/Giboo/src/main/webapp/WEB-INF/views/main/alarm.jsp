@@ -44,13 +44,15 @@
 		<div class="alert_myfavcard_contaner" >
 			<div class="alert_titleContainerA">
 			<%-- 작은동그라미 --%>
-                <div class="smallC_Container">
+			<div class="smallC_Container">
                     <div class="smallC" id="readStatus"> </div>
                 </div>
+                
+                
 			
 				<div class="alert_titleContainer">
 
-					<a class="alarmContent" id="alarmContent"></a>
+					<div class="alarmContent" id="alarmContent"></div>
 
 					<div class="alarmDate"></div>
 		

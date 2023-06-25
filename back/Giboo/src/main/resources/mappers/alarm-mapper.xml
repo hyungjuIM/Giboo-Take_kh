@@ -17,27 +17,26 @@
 		<result property="askNo" column="ASK_NO" />
 		<result property="agencyName" column="AGENCY_NAME" />
 	</resultMap>
-	
-<!-- 알람 목록 조회  -->
-<select id="selectAll" resultMap="alarm_rm">
 
-  SELECT ALARM_CONTENT, TO_CHAR(ALARM_DATE, 'YY.MM.DD') AS ALARM_DATE
-FROM ALARM 
-WHERE MEMBER_NO = '7'
+	<!-- 알람 목록 조회 -->
+	<select id="selectAll" resultMap="alarm_rm">
 
-
-
-    </select>
-    
-    
-    <!-- SELECT READ_STATUS,ALARM_NO , ALARM_CONTENT, TO_CHAR(ALARM_DATE, 'YY.MM.DD') AS ALARM_DATE,
-		EVENT_NO, DONATION_NO, VOLUNTEER_NO, NOTICE_NO, REVIEW_NO
+		SELECT ALARM_NO , ALARM_CONTENT, TO_CHAR(ALARM_DATE, 'YY.MM.DD') AS
+		ALARM_DATE, EVENT_NO, DONATION_NO, VOLUNTEER_NO, NOTICE_NO, REVIEW_NO
 		FROM ALARM
-		WHERE MEMBER_NO = '7'
-		ORDER BY ALARM_NO DES C,  READ_STATUS  DESC -->
-    
-    <update id="updateAlarmStatus" >
-		UPDATE ALARM SET READ_STATUS = 'Y' WHERE ALARM_NO = #{alarmNo}
+		WHERE MEMBER_NO = #{memberNo}
+		ORDER BY ALARM_NO DESC
+
+	</select>
+
+
+	<!-- SELECT READ_STATUS,ALARM_NO , ALARM_CONTENT, TO_CHAR(ALARM_DATE, 'YY.MM.DD') 
+		AS ALARM_DATE, EVENT_NO, DONATION_NO, VOLUNTEER_NO, NOTICE_NO, REVIEW_NO 
+		FROM ALARM WHERE MEMBER_NO = '7' ORDER BY ALARM_NO DES C, READ_STATUS DESC -->
+
+	<update id="updateAlarmStatus">
+		UPDATE ALARM SET READ_STATUS =
+		'Y' WHERE ALARM_NO = #{alarmNo}
 	</update>
 
 
