@@ -128,7 +128,7 @@
 	#{memberNick},
 	#{memberTel},
 	#{memberAddr},
-	DEFAULT, DEFAULT, NULL, 'Y', NULL, NULL
+	DEFAULT, DEFAULT, NULL, 'Y', NULL, NULL,NULL
 	)
 </insert>
 

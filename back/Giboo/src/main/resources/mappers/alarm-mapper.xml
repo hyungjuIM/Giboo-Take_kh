@@ -24,20 +24,22 @@
 		SELECT ALARM_NO , ALARM_CONTENT, TO_CHAR(ALARM_DATE, 'YY.MM.DD') AS
 		ALARM_DATE, EVENT_NO, DONATION_NO, VOLUNTEER_NO, NOTICE_NO, REVIEW_NO
 		FROM ALARM
-		WHERE MEMBER_NO = #{memberNo}
+		WHERE MEMBER_NO = #{memberNo} 
+		AND READ_STATUS = 'N'
 		ORDER BY ALARM_NO DESC
 
 	</select>
 
 
-	<!-- SELECT READ_STATUS,ALARM_NO , ALARM_CONTENT, TO_CHAR(ALARM_DATE, 'YY.MM.DD') 
-		AS ALARM_DATE, EVENT_NO, DONATION_NO, VOLUNTEER_NO, NOTICE_NO, REVIEW_NO 
-		FROM ALARM WHERE MEMBER_NO = '7' ORDER BY ALARM_NO DES C, READ_STATUS DESC -->
 
-	<update id="updateAlarmStatus">
-		UPDATE ALARM SET READ_STATUS =
-		'Y' WHERE ALARM_NO = #{alarmNo}
-	</update>
-
-
+ <update id="updateReadStatus">
+        <!-- readStatus 일괄 업데이트에 대한 SQL -->
+            UPDATE ALARM
+            SET READ_STATUS = #{readStatus}
+            WHERE ALARM_NO = #{alarmNo}
+    </update>
+    
+       <select id="getReadStatus" resultType="java.lang.String">
+        SELECT READ_STATUS FROM ALARM WHERE MEMBER_NO=#{memberNo}
+    </select>
 </mapper>
