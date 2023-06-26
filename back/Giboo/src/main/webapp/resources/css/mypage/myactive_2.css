@@ -424,3 +424,12 @@ color : #767676;
   color: #f2f2f2;
   border-radius: 50%;
 }
+
+
+.active_contatiner{
+	display: flex;
+    flex-direction: row;
+    margin-top: 80px;
+    justify-content: space-between;
+    margin-bottom: -20px;
+}
