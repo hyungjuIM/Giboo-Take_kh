@@ -21,11 +21,15 @@ public class MyActiveVolunteerList {
 	private String volunteerCompleteStatus;	
 	private int volunteerNo;
 	private int memberNo;
-		
-	private String volunteerTitle;
-	private String startProgressDate;
+	
 	private String volunteerAddr;
 	private String enrollDate;
+	
+	private String startProgressDate;
+	private String volunteerTitle;
+	private String volunteerContent;
+	
+	
 	
 	
 }

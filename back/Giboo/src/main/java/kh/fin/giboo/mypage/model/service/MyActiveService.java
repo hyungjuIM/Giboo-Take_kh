@@ -12,12 +12,21 @@ import kh.fin.giboo.mypage.model.vo.MyActiveVolunteerList;
 public interface MyActiveService {
 	
 
-	//나의활동1(기부) 목록 조회
-		Map<String, Object> selectMyactiveDonationList(int cp, Model model);
+	//나의활동 전체 목록 조회
+		Map<String, Object> selectMyactiveDonationList(int cp, int memberNo);
 
-		Map<String, Object> selectMyActiveVolunteerList(int cp, Model model);
+		Map<String, Object> selectMyActiveVolunteerList(int cp, int memberNo);
 
-		Map<String, Object> selectMyActiveEventList(int cp, Model model);
+		Map<String, Object> selectMyActiveEventList(int cp, int memberNo);
+
+		//검색 목록 조회
+		Map<String, Object> searchMyactiveDonationList(Map<String, Object> paramMap);
+		
+		Map<String, Object> searchMyActiveVolunteerList(Map<String, Object> paramMap);
+
+		Map<String, Object> searchMyActiveEventList(Map<String, Object> paramMap);
+
+
 	
 	
 

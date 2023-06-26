@@ -38,23 +38,23 @@ public class MyActiveController {
 	, Model model
 	,HttpSession session,
 	MyActiveDonationList myActiveDonationList,
-	@ModelAttribute("loginMember") Member loginMember
+	@ModelAttribute("loginMember") Member loginMember,
+	@RequestParam Map<String, Object> paramMap
 	) {
-		
-		 // 로그인한 회원의 memberNo 값을 가져옴
-	    int memberNo = loginMember.getMemberNo();
-	 // 서비스로 전달할 memberNo 값을 model에 추가
-	    model.addAttribute("memberNo", memberNo);
-	  
+		int memberNo = loginMember.getMemberNo();
+		 
 		Map<String, Object> map = null;
 		
-		map = service.selectMyactiveDonationList(cp, model);
-		model.addAttribute("map", map);
+		if(paramMap.get("key") == null) { // 검색이 아닌 경우
+			map = service.selectMyactiveDonationList(cp, memberNo);
+			model.addAttribute("map", map);
 
-		logger.info("기부 목록조회(나의활동1===)로 이동");
-		logger.info("memberNo" + memberNo);
-		logger.info("map" + map.toString());
-
+		}else { 			
+			paramMap.put("cp", cp);  // 검색 있으면 값으로 덮어쓰기, 없으면 추가
+			paramMap.put("memberNo", memberNo);
+			map = service.searchMyactiveDonationList(paramMap);	
+			model.addAttribute("map", map);	
+		}
 		return "mypage/myActiveDonationList";
 	}
 
@@ -65,19 +65,39 @@ public class MyActiveController {
 	public String myactive_2(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model
 			,HttpSession session,
 			MyActiveDonationList myActiveVolunteerList,
-			@ModelAttribute("loginMember") Member loginMember) {
+			@ModelAttribute("loginMember") Member loginMember,
+			@RequestParam Map<String, Object> paramMap) {
 		
 		 int memberNo = loginMember.getMemberNo();
-		
-		 model.addAttribute("memberNo", memberNo);
 		 
 		Map<String, Object> map = null;
-
-		map = service.selectMyActiveVolunteerList(cp, model);
-		model.addAttribute("map", map);
+		
+		if(paramMap.get("key") == null) { // 검색이 아닌 경우
+			map = service.selectMyActiveVolunteerList(cp, memberNo);
+			model.addAttribute("map", map);
+			logger.info("map 봉사 검색아닌경우" + map.toString());
+		
+			
+		}else { 
+			
+			paramMap.put("cp", cp);  // 있으면 같으면 값으로 덮어쓰기, 없으면 추가
+			paramMap.put("memberNo", memberNo);
+			System.out.println("paramMAp:::"+paramMap);
+			
+			
+			map = service.searchMyActiveVolunteerList(paramMap);
+			
+			model.addAttribute("map", map);
+			
+			logger.info("map 봉사 검색인경우" + map.toString());
+			
+		}
 
 		logger.info("봉사 목록조회(나의활동2)로 이동");
-
+		logger.info("memberNo" + memberNo);
+		logger.info("===========봉사 목록조회 map===========" + map.toString());
+		
+		System.out.println("map" + map.toString());
 		return "mypage/myActiveVolunteerList";
 	}
 
@@ -88,22 +108,29 @@ public class MyActiveController {
 	public String myactive_3(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp, Model model
 			,HttpSession session,
 			MyActiveDonationList myActiveEventList,
-			@ModelAttribute("loginMember") Member loginMember
+			@ModelAttribute("loginMember") Member loginMember,
+			@RequestParam Map<String, Object> paramMap
 			
 			) {
 		int memberNo = loginMember.getMemberNo();
-		
-		 model.addAttribute("memberNo", memberNo);
+		 
 		Map<String, Object> map = null;
+		
+		if(paramMap.get("key") == null) { // 검색이 아닌 경우
+			map = service.selectMyActiveEventList(cp, memberNo);
+			model.addAttribute("map", map);
 
-		map = service.selectMyActiveEventList(cp, model);
-		model.addAttribute("map", map);
-
-		logger.info("참여한 이벤트 목록 조회(나의활동3====)로 이동");
-		logger.info("memberNo" + memberNo);
-		logger.info("map" + map.toString());
-		logger.info("model" + model.toString());
-
+		}else { 			
+			paramMap.put("cp", cp);  // 검색 있으면 값으로 덮어쓰기, 없으면 추가
+			paramMap.put("memberNo", memberNo);
+			map = service.searchMyActiveEventList(paramMap);	
+			model.addAttribute("map", map);	
+			
+			
+			
+			logger.info("map 이벤트 검색인경우" + map.toString());
+			System.out.println("paramMAp:::"+paramMap);
+		}
 		return "mypage/myActiveEventList";
 	}
 
