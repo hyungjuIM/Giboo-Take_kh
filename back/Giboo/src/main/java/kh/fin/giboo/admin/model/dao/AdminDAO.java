@@ -2,7 +2,6 @@ package kh.fin.giboo.admin.model.dao;
 
 import kh.fin.giboo.admin.model.vo.Category;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
-import kh.fin.giboo.admin.model.vo.Rate;
 import kh.fin.giboo.cs.model.vo.Faq;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Event;
@@ -91,8 +90,15 @@ public class AdminDAO {
 		 sqlSession.update("adminMapper.updateMemberRate", member);
 	}
 
-  public int removeCategory(Map<String, String> map) {
-        return sqlSession.delete("adminMapper.removeCategory", map);
+  public int removeCategory(int id) {
+        return sqlSession.delete("adminMapper.removeCategory", id);
   }
 
+	public int removeParentCategory(int id) {
+		return sqlSession.delete("adminMapper.removeParentCategory", id);
+	}
+
+	public int removeFaq(int id) {
+		return sqlSession.delete("adminMapper.removeFaq", id);
+	}
 }

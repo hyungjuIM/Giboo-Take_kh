@@ -8,7 +8,6 @@ import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Event;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
-import kh.fin.giboo.mypage.model.vo.Rate;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 import java.util.List;
@@ -103,21 +103,26 @@ public class AdminController {
         return "admin/category";
     }
 
+    @ResponseBody
     @GetMapping("/category/removeCategory")
-    public String removeCategory(String type, String id) {
+    public int removeCategory(String type, int id) {
         logger.info("카테고리 삭제");
 
-        Map<String, String> map = new HashMap<String, String>();
+        int result = 0;
 
-        map.put("type", type);
-        map.put("id", id);
+        switch (type) {
+            case "parentCategoryRemove":
+                result = service.removeParentCategory(id);
+                break;
+            case "categoryRemove":
+                result = service.removeCategory(id);
+                break;
+        }
 
-        int result = service.removeCategory(map);
-
-        return null;
+        return result;
     }
 
-    @GetMapping("faq")
+    @GetMapping("/faq")
     public String faq(Model model) {
         logger.info("자주 찾는 질문 관리");
 
@@ -127,6 +132,12 @@ public class AdminController {
 
         return "admin/faq";
     }
-    
 
+    @ResponseBody
+    @GetMapping("/faq/removeFaq")
+    public int removeFaq(int id) {
+        logger.info("자주 찾는 질문 삭제");
+
+        return service.removeFaq(id);
+    }
 }
