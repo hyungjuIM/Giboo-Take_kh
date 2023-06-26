@@ -16,50 +16,42 @@
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-     <!-- jQuery 라이브러리 추가(CDN) -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-
      <!-- fontawesome -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
      crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
-
-    
-            
+     
                     <div class="mhBox">
                         <div class="mhBoxImg">
                             <a href="">
-                                <img src="/images/doCenter.jpg" alt="">
+                                <img src="${pageContext.request.contextPath}${mapDetailTop.volunteerAttachement}" alt="">
                             </a>
                         </div>
                         <div class="mhBoxTi">
                             <div class="mhTiDe">
                                 <div class="mhTiName">
-                                    <span>서울시립장애인행복플러스센터</span>
+                                    <span>${mapDetailTop.agencyName}</span>
                                     <div class="mhTiCa">
-                                        <span>장애인</span>
+                                        <span>${mapDetailTop.parentCategoryName}</span>
                                     </div>
                                 </div>
                                 <div class="mhTiRe">
                                     <div class="mhTiHe">
                                         <span><i class="fa-regular fa-heart"></i></span>
-                                        <span class="mhRe">14</span>
+                                        <span class="mhRe">${mapDetailTop.volunteerFavCount}</span>
                                     </div>
                                     <span class="mhBar">|</span>
                                     <div class="mhTiReDe">
                                         <a href="">
                                             <span>봉사자 리뷰</span>
-                                            <span class="mhRe">135</span>
+                                            <span class="mhRe">${mapDetailTop.replyCount}</span>
                                         </a>
                                         <span>|</span>
                                         <a href="">
                                             <span>봉사자</span>
-                                            <span class="mhRe">432</span>
+                                            <span class="mhRe">${mapDetailTop.volunteerCount}</span>
                                         </a>
                                     </div>
                                 </div>

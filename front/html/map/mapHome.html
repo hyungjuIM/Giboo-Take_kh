@@ -22,12 +22,7 @@
 
     <div id="menu_wrap" class="bg_white">
         <div class="option">
-            <div class="MsearchBar">
-                <form onsubmit="searchPlaces(); return false;">
-                    <input type="text" value="" id="keyword" placeholder="봉사, 기부 장소 검색">
-                    <button type="submit" class="MsearchBtn">🔍</button>  
-                </form>
-            </div>
+            <div data-include3="mapSearchBar" id="mapSearchBar"></div>
         </div>
 
         <div class="mhwrap">
@@ -130,11 +125,15 @@
         $(function () {
             var include1 = $('[data-include1="header"]');
             var include2 = $('[data-include2="mapHeader"]');
+            var include3 = $('[data-include3="mapSearchBar"]');
             jQuery.each(include1, function () {
                 $(this).load('/html/01.header.html');
             });
             jQuery.each(include2, function () {
                 $(this).load('/html/map/mapHeader.html');
+            });
+            jQuery.each(include3, function () {
+                $(this).load('/html/map/mapSearchBar.html');
             });
         });
 
