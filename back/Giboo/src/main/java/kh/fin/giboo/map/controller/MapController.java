@@ -14,11 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
 import kh.fin.giboo.map.model.service.MapService;
 import kh.fin.giboo.map.model.vo.MapDetailHome;
+import kh.fin.giboo.map.model.vo.MapDetailReviewReply;
+import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
 import kh.fin.giboo.map.model.vo.MapList;
 
@@ -72,7 +75,7 @@ public class MapController {
 	}
 	
 	
-	// 지도 상세
+	// 지도 상세(탑, 홈)
 	@GetMapping("/mapHome/{volunteerNo}")
 	public String MapHome(
 			@PathVariable("volunteerNo") int volunteerNo			
@@ -92,8 +95,42 @@ public class MapController {
 		logger.info("mapDetailTop" + mapDetailTop);
 
 		
-		return "map/mapHome";
+		return "map/mapHome";	
+	}
+	
+	// ajax로 하고싶은데.............................
+	@GetMapping("/mapVoRe/{volunteerNo}")
+	public String mapVoRe(
+			@PathVariable("volunteerNo") int volunteerNo			
+			, @RequestParam(value = "cp", required = false, defaultValue = "1") int cp
+			, Model model
+			) {
 		
+		MapDetailTop mapDetailTop = service.selectMapDetailTop(volunteerNo);
+		if(mapDetailTop != null) {
+			List<MapDetailReviewReply> mapDetailReviewReply = service.selectMapDetailReviewReply(volunteerNo);
+			model.addAttribute("mapDetailReviewReply", mapDetailReviewReply);
+			logger.info("mapDetailReviewReply" + mapDetailReviewReply);
+		}
+		model.addAttribute("mapDetailTop", mapDetailTop);
+		return "map/mapVoRe";	
+	}
+	
+	@GetMapping("/mapVoSo/{volunteerNo}")
+	public String mapVoSo(
+			@PathVariable("volunteerNo") int volunteerNo			
+			, @RequestParam(value = "cp", required = false, defaultValue = "1") int cp
+			, Model model
+			) {
+		
+		MapDetailTop mapDetailTop = service.selectMapDetailTop(volunteerNo);
+		if(mapDetailTop != null) {
+			List<MapDetailReviewStory> mapDetailReviewStory = service.selectMapDetailReviewStory(volunteerNo);
+			model.addAttribute("mapDetailReviewStory", mapDetailReviewStory);
+			logger.info("mapDetailReviewStory" + mapDetailReviewStory);
+		}
+		model.addAttribute("mapDetailTop", mapDetailTop);
+		return "map/mapVoSo";	
 	}
 }
 

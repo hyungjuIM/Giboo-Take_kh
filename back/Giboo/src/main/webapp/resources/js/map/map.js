@@ -79,3 +79,20 @@ function displayMarker(locPosition, message) {
             element.scrollIntoView();
         }
     };
+
+
+$('#mapVoRe').click(function(){
+    
+    $.ajax({
+        url: contextPath +"/map/mapVoRe",
+        data : {"volunteerNo" : volunteerNo},
+        type: "GET",
+        dataType: "",
+        success: function(data) {
+        $("#contentArea").html(data);
+        },
+        error: function(xhr, status, error) {
+        console.log(error);
+        }
+    });
+});

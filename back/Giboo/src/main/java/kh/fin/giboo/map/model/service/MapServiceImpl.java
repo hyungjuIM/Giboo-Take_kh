@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 
 import kh.fin.giboo.map.model.dao.MapDAO;
 import kh.fin.giboo.map.model.vo.MapDetailHome;
+import kh.fin.giboo.map.model.vo.MapDetailReviewReply;
+import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
 import kh.fin.giboo.map.model.vo.MapList;
 import kh.fin.giboo.map.model.vo.Pagination;
@@ -61,6 +63,18 @@ public class MapServiceImpl implements MapService{
 	public MapDetailHome selectMapDetailHome(int volunteerNo) {
 		return dao.selectMapDetailHome(volunteerNo);
 	}
+
+	@Override
+	public List<MapDetailReviewReply> selectMapDetailReviewReply(int volunteerNo) {
+		return dao.selectMapDetailReviewReply(volunteerNo);
+	}
+
+	@Override
+	public List<MapDetailReviewStory> selectMapDetailReviewStory(int volunteerNo) {
+		return dao.selectMapDetailReviewStory(volunteerNo);
+	}
+
+
 
 //	@Override
 //	public Map<String, Object> searchMapList(int cp, Model model) {

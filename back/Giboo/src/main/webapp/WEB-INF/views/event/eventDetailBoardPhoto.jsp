@@ -43,7 +43,7 @@
                                 </a>
                             </div>
                             <div class="edEventintro">
-                                <a href="/html/event/eventDetailBoardPhoto.html">
+                                <a href="${pageContext.request.contextPath}/event/eventDetailBoardPhoto/${eventDetailTop.eventNo}?cp=${pagination.currentPage}${sURL}">
                                     <span>참여보드</span>
                                 </a>
                             </div>
