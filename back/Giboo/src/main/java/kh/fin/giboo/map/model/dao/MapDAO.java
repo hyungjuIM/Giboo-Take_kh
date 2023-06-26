@@ -15,12 +15,14 @@ import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
 import kh.fin.giboo.map.model.vo.MapList;
 import kh.fin.giboo.map.model.vo.Pagination;
+import kh.fin.giboo.volunteer.model.vo.Volunteer;
 
 @Repository
 public class MapDAO {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
 
 
 	public int getMapListCount(Model model) {
@@ -62,6 +64,11 @@ public class MapDAO {
 	}
 
 
+
+	public List<Volunteer> selectMarkerVolunteer() {
+		
+		return sqlSession.selectList("map-mapper.selectMarkerVolunteer");
+
 	public List<MapDetailReviewReply> selectMapDetailReviewReply(int volunteerNo) {
 		return sqlSession.selectList("map-mapper.selectMapDetailReviewReply", volunteerNo);
 	}
@@ -69,6 +76,7 @@ public class MapDAO {
 
 	public List<MapDetailReviewStory> selectMapDetailReviewStory(int volunteerNo) {
 		return sqlSession.selectList("map-mapper.selectMapDetailReviewStory", volunteerNo);
+
 	}
 
 

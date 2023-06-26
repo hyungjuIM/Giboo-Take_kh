@@ -15,6 +15,7 @@ import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
 import kh.fin.giboo.map.model.vo.MapList;
 import kh.fin.giboo.map.model.vo.Pagination;
+import kh.fin.giboo.volunteer.model.vo.Volunteer;
 
 @Service
 public class MapServiceImpl implements MapService{
@@ -64,6 +65,17 @@ public class MapServiceImpl implements MapService{
 		return dao.selectMapDetailHome(volunteerNo);
 	}
 
+
+	
+	 @Override 
+	 public List<Volunteer> selectMarkerVolunteer() {
+	  
+	  return dao.selectMarkerVolunteer(); 
+	  }
+	 
+
+	
+
 	@Override
 	public List<MapDetailReviewReply> selectMapDetailReviewReply(int volunteerNo) {
 		return dao.selectMapDetailReviewReply(volunteerNo);
@@ -73,6 +85,7 @@ public class MapServiceImpl implements MapService{
 	public List<MapDetailReviewStory> selectMapDetailReviewStory(int volunteerNo) {
 		return dao.selectMapDetailReviewStory(volunteerNo);
 	}
+
 
 
 

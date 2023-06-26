@@ -29,6 +29,17 @@
 		<result property="volunteerContent" column="VOLUNTEER_CONTENT"/>
 	</resultMap>
 	
+
+		<!-- 지도 마커 조회 -->
+	  <resultMap id="markerVolunteer_rm" type="volunteer">
+        <id property="volunteerNo" column="VOLUNTEER_NO" />
+        <result property="locationX" column="LOCATION_X" />
+        <result property="locationY" column="LOCATION_Y" />
+        <result property="volunteerTitle" column="VOLUNTEER_TITLE" />
+       
+    </resultMap>
+	
+
 			<!-- 지도 디테일 리뷰 조회 -->
 	<resultMap type="MapDetailReviewReply" id="mapDetailReviewReply_rm">
 		<id property="volunteerNo" column="VOLUNTEER_NO"/>
@@ -46,6 +57,7 @@
 		<result property="reviewContent" column="REVIEW_CONTENT"/>
 		<result property="reviewAttachement" column="REVIEW_ATTACHMENT"/>
 	</resultMap>
+
 	
 	
 	<!-- 전체 게시글 수 조회 -->
@@ -249,6 +261,14 @@ WHERE D.AGENCY_NO &gt; 0
 		WHERE VOLUNTEER_NO = #{volunteerNo}
 	</select>
 	
+
+	<!-- 지도 마커 조회 -->
+	<select id="selectMarkerVolunteer" resultMap="markerVolunteer_rm">
+		SELECT LOCATION_X, LOCATION_Y, VOLUNTEER_TITLE
+		FROM VOLUNTEER
+	</select>
+	
+
 	
 	<select id="selectMapDetailReviewReply" resultMap="mapDetailReviewReply_rm">
 		SELECT 
@@ -278,6 +298,7 @@ WHERE D.AGENCY_NO &gt; 0
 		JOIN VOLUNTEER V ON V.VOLUNTEER_NO = R.VOLUNTEER_NO 
 		WHERE R.VOLUNTEER_NO = #{volunteerNo}
 	</select>
+
 	
 	
 	

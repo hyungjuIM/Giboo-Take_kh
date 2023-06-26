@@ -10,20 +10,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+
 
 import kh.fin.giboo.map.model.service.MapService;
 import kh.fin.giboo.map.model.vo.MapDetailHome;
 import kh.fin.giboo.map.model.vo.MapDetailReviewReply;
 import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
-import kh.fin.giboo.map.model.vo.MapList;
+import kh.fin.giboo.volunteer.model.vo.Volunteer;
 
 @Controller
 @RequestMapping("/map")
@@ -50,7 +51,8 @@ public class MapController {
 			) {
 		
 		Map<String, Object> map = null;
-		
+		 List<Volunteer> markers = service.selectMarkerVolunteer();
+		    model.addAttribute("markers", markers);
 		if(paramMap.get("key") == null) { // 검색이 아닌 경우
 			
 			map = service.selectMapList(cp, model);
@@ -91,7 +93,8 @@ public class MapController {
 			logger.info("mapDetailHome" + mapDetailHome);
 		}
 		
-		model.addAttribute("mapDetailTop", mapDetailTop);
+		model.addAttribute("mapDeta"
+				+ "ilTop", mapDetailTop);
 		logger.info("mapDetailTop" + mapDetailTop);
 
 		
@@ -132,5 +135,14 @@ public class MapController {
 		model.addAttribute("mapDetailTop", mapDetailTop);
 		return "map/mapVoSo";	
 	}
-}
-
+	
+	// 지도 마커표시
+//	@GetMapping("/mapList")
+//	public String getMarkers(@PathVariable("volunteerNo") int volunteerNo
+//			,Model model) {
+//	    List<Volunteer> markers = service.selectMarkerVolunteer(volunteerNo);
+//	    model.addAttribute("markers", markers);
+//	    return "map/mapList";
+//	}
+	}
+	
