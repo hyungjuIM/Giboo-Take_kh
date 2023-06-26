@@ -55,9 +55,7 @@ public class EventDAO {
 		return sqlSession.selectList("event-mapper.selectEventStickerBar", eventNo);
 	}
 
-	public EventDetailBoardPhoto selectEventDetailBoardPhoto(int eventNo) {
-		return sqlSession.selectOne("event-mapper.selectEventDetailBoardPhoto", eventNo);
-	}
+
 	
 	
 //
@@ -86,6 +84,10 @@ public class EventDAO {
 		return sqlSession.insert("event-mapper.insertAlarm", alarm);
 	}
 	
+	
+	public List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo) {
+		return sqlSession.selectList("event-mapper.selectEventDetailBoardPhoto", eventNo);
+	}
 	
 
 }

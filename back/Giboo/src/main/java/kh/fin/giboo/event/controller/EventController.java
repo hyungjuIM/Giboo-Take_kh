@@ -96,6 +96,7 @@ public class EventController {
 	   
 		// 이벤트 번호를 세션에 저장
 	    session.setAttribute("eventNo", eventNo);
+	    session.setAttribute("cp", cp);
 
 		
 //	     eventDetailMain 페이지 로드 후 버튼 클릭 시 eventPopup 페이지로 이동할 URL을 모델에 추가
@@ -114,19 +115,22 @@ public class EventController {
 	    @PathVariable("eventNo") int eventNo,
 	    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
 	    Model model
-	    , EventDetailTop eventDetailTop
 	) {
 
+		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
 		
 	    model.addAttribute("eventNo", eventNo);
 	    model.addAttribute("cp", cp);
-	    model.addAttribute("eventDetailTop", eventDetailTop);
+		model.addAttribute("eventDetailTop",eventDetailTop);
+
 	    return "event/eventPopup";
 	}
 	
 	
 	
-	@PostMapping(value="/write/{eventNo}")
+	
+	// 이벤트 글쓰기(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
+	@PostMapping(value="/eventPopup/{eventNo}")
 	@Transactional
 	public String insertPopup(
 		    @PathVariable("eventNo") int eventNo,
@@ -147,7 +151,7 @@ public class EventController {
 		
 		eventPopup.setMemberNo(loginMember.getMemberNo());
 		
-		String webPath = "\\resources\\images\\eventPopup";
+		String webPath = "/resources/images/eventPopup/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 //		String folderPath = "C:\\gibooTake\\back\\Giboo\\src\\main\\webapp\\resources\\images\\eventPopup\\";
 
@@ -204,7 +208,8 @@ public class EventController {
 		            // stamp 삽입 실패 처리
 		        }
 		        
-		        path = "../event/eventDetailMain/" + eventNo + "?cp=" + cp;
+		        message = "사진 업로드 성공";
+		        path = "../eventDetailMain/" + eventNo + "?cp=" + cp;
 		    } else {
 		        // myActiveEventList 삽입 실패 처리
 		    }
@@ -215,9 +220,43 @@ public class EventController {
 
 		ra.addFlashAttribute("message",message);
 		return "redirect:" + path;
-		
-		
 	}
+	
+	
+	
+	// 참여보드 이동
+	@GetMapping(value="/eventDetailBoardPhoto/{eventNo}")
+	public String eventDetailBoardPhoto(
+	    @PathVariable("eventNo") int eventNo,
+	    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
+	    Model model
+	) {
+		
+		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
+		
+		if(eventDetailTop != null) {
+			
+			List<EventDetailBoardPhoto> eventDetailBoardPhoto = service.selectEventDetailBoardPhoto(eventNo);
+			model.addAttribute("eventDetailBoardPhoto",eventDetailBoardPhoto);
+		    logger.info("eventDetailBoardPhoto" + eventDetailBoardPhoto);
+
+			List<EventDetailMember> eventDetailMember = service.selectEventDetailMember(eventNo);
+			model.addAttribute("eventDetailMember",eventDetailMember );
+			
+			List<EventStickerBar> eventStickerBar = service.selectEventStickerBar(eventNo);
+			model.addAttribute("eventStickerBar",eventStickerBar);
+		}
+		
+		model.addAttribute("eventDetailTop",eventDetailTop);
+	    model.addAttribute("eventNo", eventNo);
+	    model.addAttribute("cp", cp);
+
+	    logger.info("참여보드");
+
+	    return "event/eventDetailBoardPhoto";
+	}
+	
+	
 
 	
 }

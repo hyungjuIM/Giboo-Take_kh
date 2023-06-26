@@ -326,7 +326,7 @@ color: #111111;
 }
 
 .edDetailWrite{
-    background-color: wheat;
+    /* background-color: wheat; */
     max-width: 800px;
     overflow: hidden;
     height: 1000px;

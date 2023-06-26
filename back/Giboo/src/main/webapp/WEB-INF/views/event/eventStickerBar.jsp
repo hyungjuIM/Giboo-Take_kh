@@ -14,7 +14,7 @@
         <div class="edInBarBox">
             <div class="edInTitle">
                 <span>🥰</span>
-                <span>자전거로 탄소 감축 인증</span>
+                <span>${eventDetailTop.eventTitle}</span>
             </div>
             <div class="edInPhotoBar">
                 <c:choose>

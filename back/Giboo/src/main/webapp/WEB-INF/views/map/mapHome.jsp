@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -28,22 +28,16 @@
 
     <div id="menu_wrap" class="bg_white">
         <div class="option">
-            <div class="MsearchBar">
-                <form onsubmit="searchPlaces(); return false;">
-                    <input type="text" value="" id="keyword" placeholder="봉사, 기부 장소 검색">
-                    <button type="submit" class="MsearchBtn">🔍</button>  
-                </form>
-            </div>
+            <jsp:include page="/WEB-INF/views/map/mapSearchBar.jsp" />
         </div>
 
         <div class="mhwrap">
             <div class="mhwrapBox">
                 <div class="mhBox">
                     
-                    <div data-include2="mapHeader" id="mapHeader"></div>
+                    <jsp:include page="/WEB-INF/views/map/mapHeader.jsp" />
                     
-                            
-
+                        
                     <div class="mhLine"></div>
                     <div class="mhCaWrap">
                         <div class="mhCa">
@@ -62,7 +56,7 @@
                         <div class="mhDeAddIc">
                             <span>🚩</span>
                         </div>
-                        <span>서울 강남구 도곡로 416</span>
+                        <span>${mapDetailHome.volunteerAddr}</span>
                     </div>
                     <!-- 전화번호 -->
                     <div class="mhDeAdd">
@@ -70,7 +64,7 @@
                             <!-- <span>📞</span> -->
                             <span><i class="fa-solid fa-phone"></i></span>
                         </div>
-                        <span>031-339-2121</span>
+                        <span>${mapDetailHome.memberTel}</span>
                     </div>
                     <!-- 링크 -->
                     <div class="mhDeAdd">
@@ -99,54 +93,21 @@
                         </div>
                         <div class="mhDeAdd_4">
                             <span>
-                                올해 점점 더 뜨거워진다고 하는데 여름을 조금이라도 건강하고 시원하게 보낼 수 있도록 시원함을 전달해 주세요! 
-                                독거노인종합지원센터는 홀로 사는 어르신들에게 시원한 마음❤ 전달하려 전달 합니다.
-                                올해 점점 더 뜨거워진다고 하는데 여름을 조금이라도 건강하고 시원하게 보낼 수 있도록 시원함을 전달해 주세요! 
-                                독거노인종합지원센터는 홀로 사는 어르신들에게 시원한 마음❤ 전달하려 전달 합니다.
+                                ${mapDetailHome.volunteerContent}
                             </span>
-                            <!-- <button>더보기</button> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- <ul id="placesList"></ul>
-        <div id="pagination"></div> -->
-    </div>
-
-     <!-- 지도타입 컨트롤 div 입니다 -->
-     <div class="custom_typecontrol radius_border">
-        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
-        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
-    </div>
-    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
-    <div class="custom_zoomcontrol radius_border"> 
-        <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
-        <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
     </div>
 </div>
 
 
 
-     <!-- jQuery 라이브러리 추가 -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            var include2 = $('[data-include2="mapHeader"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-            jQuery.each(include2, function () {
-                $(this).load('/html/map/mapHeader.html');
-            });
-        });
-
-    </script>
-
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=437e55438be69dd079f0ad5d9084099e&libraries=services"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <script src="${pageContext.request.contextPath}/resources/js/map/map.js"></script>
 
 </body>
