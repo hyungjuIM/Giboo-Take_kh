@@ -140,7 +140,7 @@
                             <img class="agencyImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
                             <div class="agencyInfoInner">
                                 <div class="division">모금단체</div>
-                                <div class="agencyName">동물권행동 카라</div>
+                                <div class="agencyName">${donationDetail.agencyName}</div>
                             </div>
                         </div>
 

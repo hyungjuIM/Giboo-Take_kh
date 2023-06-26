@@ -48,4 +48,26 @@ for (const i of remove) {
     i.addEventListener("mouseleave", () => {
         i.classList.remove("removeFocus");
     });
+
+    i.addEventListener("click", () => {
+        const id = i.id.replace(/[^0-9]/g, "");
+        $.ajax({
+            url : "faq/removeFaq",
+            data: {"id": id},
+            success: function (result) {
+                if (result == 1) {
+                    alert("자주 찾는 질문이 삭제되었습니다.");
+                    location.reload();
+                } else {
+                    alert("자주 찾는 질문 삭제에 실패했습니다. 잠시후 다시 시도해주세요.");
+                    location.reload();
+                }
+            },
+
+            error: function () {
+                console.log("AJAX Error");
+                console.log("code : " + request.status);
+            }
+        })
+    });
 }

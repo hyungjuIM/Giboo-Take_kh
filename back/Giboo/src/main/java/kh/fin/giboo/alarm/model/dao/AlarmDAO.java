@@ -1,6 +1,8 @@
 package kh.fin.giboo.alarm.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -28,9 +30,34 @@ public class AlarmDAO {
 	
 	
 	
-	public int updateAlarmStatus(int alarmNo) {
-		return sqlSession.update("alarm-mapper.updateAlarmStatus", alarmNo );
+//	public int updateAlarmStatus(int alarmNo) {
+//		return sqlSession.update("alarm-mapper.updateAlarmStatus", alarmNo );
+//	}
+
+
+
+//	public int updateReadStatusBulk(List<Alarm> updateList) {
+//		int result =0;
+//		  for (Alarm alarm : updateList) {
+//	            result = sqlSession.update("alarm-mapper.updateReadStatus", alarm);
+//	        }
+//		  return result;
+//	}
+//
+
+
+	public int updateReadStatus(double alarmNo, String readStatus) {
+	    Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("alarmNo", alarmNo);
+        parameterMap.put("readStatus", readStatus);
+        
+       return sqlSession.update("alarm-mapper.updateReadStatus", parameterMap);
+   
 	}
+
+
+
+	
 
 
 

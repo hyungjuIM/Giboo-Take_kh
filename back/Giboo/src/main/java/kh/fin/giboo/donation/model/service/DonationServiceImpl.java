@@ -51,10 +51,10 @@ public class DonationServiceImpl implements DonationService {
         List<Donation> donationList =  null;
         int donationListCount = 0;
         if (categoryValidate) {
-            donationList = dao.getDonationList(pagination, category, model);
+            donationList = dao.getDonationList(pagination, model);
             donationListCount = dao.getDonationListCount(category);
         } else {
-            donationList = dao.getDonationList(pagination, model);
+            donationList = dao.getDonationListAll(pagination, model);
             donationListCount = dao.getDonationListCount();
         }
 

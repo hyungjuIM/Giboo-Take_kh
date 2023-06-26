@@ -6,6 +6,8 @@ import java.util.Map;
 import org.springframework.ui.Model;
 
 import kh.fin.giboo.map.model.vo.MapDetailHome;
+import kh.fin.giboo.map.model.vo.MapDetailReviewReply;
+import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
 import kh.fin.giboo.map.model.vo.MapList;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
@@ -27,6 +29,11 @@ public interface MapService {
 	List<Volunteer> selectMarkerVolunteer();
 
 	
+
+
+	List<MapDetailReviewReply> selectMapDetailReviewReply(int volunteerNo);
+
+	List<MapDetailReviewStory> selectMapDetailReviewStory(int volunteerNo);
 
 
 

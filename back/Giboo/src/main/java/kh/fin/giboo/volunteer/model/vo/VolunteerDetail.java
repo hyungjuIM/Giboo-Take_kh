@@ -30,7 +30,7 @@ public class VolunteerDetail {
     private String volunteerAttachment;
     private String memberId;
     private String parentCategoryName;
-    private int agencyName;
+    private String agencyName;
     private long dDay;
     private int percent;
 }

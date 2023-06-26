@@ -41,16 +41,16 @@
                     <div class="mhLine"></div>
                     <div class="mhCaWrap">
                         <div class="mhCa">
-                            <a href="/html/map/mapHome.html">홈</a>
+                            <a href="${pageContext.request.contextPath}/map/mapHome/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" id="mapVoRe">홈</a>
                             <a href="/html/map/mapSosick.html">소식</a>
-                            <a href="/html/map/mapVoRe.html">리뷰</a>
+                            <a href="${pageContext.request.contextPath}/map/mapVoRe/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" id="mapVoRe">리뷰</a>
                             <a href="">사진</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- 여기부터 지우고 만들면 됨 -->
-                <div class="mhDe">
+                <div class="mhDe" id="contentArea">
                     <!-- 주소 -->
                     <div class="mhDeAdd">
                         <div class="mhDeAddIc">

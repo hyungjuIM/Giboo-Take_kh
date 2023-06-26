@@ -34,14 +34,14 @@ public class DonationDAO {
         return sqlSession.selectOne("donationMapper.getListCount");
     }
 
-    public List<Donation> getDonationList(Pagination pagination, int category, Model model) {
+    public List<Donation> getDonationList(Pagination pagination, Model model) {
         int offset = ( pagination.getCurrentPage() - 1 ) * pagination.getLimit();
         RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
         return sqlSession.selectList("donationMapper.getDonationList", model, rowBounds);
     }
 
-    public List<Donation> getDonationList(Pagination pagination, Model model) {
+    public List<Donation> getDonationListAll(Pagination pagination, Model model) {
         int offset = ( pagination.getCurrentPage() - 1 ) * pagination.getLimit();
         RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 

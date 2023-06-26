@@ -82,6 +82,7 @@ function displayMarker(locPosition, message) {
 
 
 
+
   
  
 // 마커를 표시할 위치와 title 객체 배열입니다 
@@ -123,3 +124,20 @@ for (var i = 0; i < positions.length; i ++) {
         image : markerImage // 마커 이미지 
     });
 }
+
+$('#mapVoRe').click(function(){
+    
+    $.ajax({
+        url: contextPath +"/map/mapVoRe",
+        data : {"volunteerNo" : volunteerNo},
+        type: "GET",
+        dataType: "",
+        success: function(data) {
+        $("#contentArea").html(data);
+        },
+        error: function(xhr, status, error) {
+        console.log(error);
+        }
+    });
+});
+
