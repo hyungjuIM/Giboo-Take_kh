@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
 import kh.fin.giboo.map.model.vo.MapDetailHome;
+import kh.fin.giboo.map.model.vo.MapDetailReviewReply;
+import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
 import kh.fin.giboo.map.model.vo.MapList;
 import kh.fin.giboo.map.model.vo.Pagination;
@@ -57,6 +59,16 @@ public class MapDAO {
 
 	public MapDetailHome selectMapDetailHome(int volunteerNo) {
 		return sqlSession.selectOne("map-mapper.selectMapDetailHome", volunteerNo);
+	}
+
+
+	public List<MapDetailReviewReply> selectMapDetailReviewReply(int volunteerNo) {
+		return sqlSession.selectList("map-mapper.selectMapDetailReviewReply", volunteerNo);
+	}
+
+
+	public List<MapDetailReviewStory> selectMapDetailReviewStory(int volunteerNo) {
+		return sqlSession.selectList("map-mapper.selectMapDetailReviewStory", volunteerNo);
 	}
 
 

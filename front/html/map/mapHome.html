@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/map/mapVoRe.css">
+
 </head>
 
 <body>
@@ -38,7 +40,7 @@
                         <div class="mhCa">
                             <a href="/html/map/mapHome.html">홈</a>
                             <a href="/html/map/mapSosick.html">소식</a>
-                            <a href="/html/map/mapVoRe.html">리뷰</a>
+                            <a href="/html/map/mapVoRe.html" id="mapVoRe">리뷰</a>
                             <a href="">사진</a>
                         </div>
                     </div>
@@ -46,57 +48,135 @@
 
                 <!-- 여기부터 지우고 만들면 됨 -->
                 <div class="mhDe">
-                    <!-- 주소 -->
-                    <div class="mhDeAdd">
-                        <div class="mhDeAddIc">
-                            <span>🚩</span>
+                    <div class="dfdad">
+                        <!-- 주소 -->
+                        <div class="mhDeAdd">
+                            <div class="mhDeAddIc">
+                                <span>🚩</span>
+                            </div>
+                            <span>서울 강남구 도곡로 416</span>
                         </div>
-                        <span>서울 강남구 도곡로 416</span>
-                    </div>
-                    <!-- 전화번호 -->
-                    <div class="mhDeAdd">
-                        <div class="mhDeAddIc">
-                            <!-- <span>📞</span> -->
-                            <span><i class="fa-solid fa-phone"></i></span>
+                        <!-- 전화번호 -->
+                        <div class="mhDeAdd">
+                            <div class="mhDeAddIc">
+                                <!-- <span>📞</span> -->
+                                <span><i class="fa-solid fa-phone"></i></span>
+                            </div>
+                            <span>031-339-2121</span>
                         </div>
-                        <span>031-339-2121</span>
-                    </div>
-                    <!-- 링크 -->
-                    <div class="mhDeAdd">
-                        <div class="mhDeAddIc">
-                            <span>🏠</span>
-                        </div>
-                        <div class="mhDeAddLink">
-                            <a href="">
-                                <span>https://www.instagram.com/bongsaplace</span>
-                            </a>
-                            <div class="mhDeAddLink_2">
+                        <!-- 링크 -->
+                        <div class="mhDeAdd">
+                            <div class="mhDeAddIc">
+                                <span>🏠</span>
+                            </div>
+                            <div class="mhDeAddLink">
                                 <a href="">
-                                    <span>인스타그램</span>
+                                    <span>https://www.instagram.com/bongsaplace</span>
                                 </a>
-                                <span>|</span>
-                                <a href="">
-                                    <span>블로그</span>
-                                </a>
+                                <div class="mhDeAddLink_2">
+                                    <a href="">
+                                        <span>인스타그램</span>
+                                    </a>
+                                    <span>|</span>
+                                    <a href="">
+                                        <span>블로그</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 설명 -->
+                        <div class="mhDeAddCh">
+                            <div class="mhDeAddIc">
+                                <span>🗯️</span>
+                            </div>
+                            <div class="mhDeAdd_4">
+                                <span>
+                                    올해 점점 더 뜨거워진다고 하는데 여름을 조금이라도 건강하고 시원하게 보낼 수 있도록 시원함을 전달해 주세요! 
+                                    독거노인종합지원센터는 홀로 사는 어르신들에게 시원한 마음❤ 전달하려 전달 합니다.
+                                    올해 점점 더 뜨거워진다고 하는데 여름을 조금이라도 건강하고 시원하게 보낼 수 있도록 시원함을 전달해 주세요! 
+                                    독거노인종합지원센터는 홀로 사는 어르신들에게 시원한 마음❤ 전달하려 전달 합니다.
+                                </span>
+                                <!-- <button>더보기</button> -->
                             </div>
                         </div>
                     </div>
-                    <!-- 설명 -->
-                    <div class="mhDeAddCh">
-                        <div class="mhDeAddIc">
-                            <span>🗯️</span>
-                        </div>
-                        <div class="mhDeAdd_4">
-                            <span>
-                                올해 점점 더 뜨거워진다고 하는데 여름을 조금이라도 건강하고 시원하게 보낼 수 있도록 시원함을 전달해 주세요! 
-                                독거노인종합지원센터는 홀로 사는 어르신들에게 시원한 마음❤ 전달하려 전달 합니다.
-                                올해 점점 더 뜨거워진다고 하는데 여름을 조금이라도 건강하고 시원하게 보낼 수 있도록 시원함을 전달해 주세요! 
-                                독거노인종합지원센터는 홀로 사는 어르신들에게 시원한 마음❤ 전달하려 전달 합니다.
-                            </span>
-                            <!-- <button>더보기</button> -->
+
+
+
+
+
+
+
+
+                    <div class="dsf">
+                        <div data-include2="mapHeader" id="mapHeader"></div>
+                        <div class="mvWrapBox">
+                            <div class="mvBtn">
+                                <div class="mvBtnWrap">
+                                    <div class="mvBtnRe">
+                                        <a href="/html/map/mapVoRe.html" class="mvBtnspan">
+                                            <span class="mvBtnspan_1"><i class="fa-regular fa-comments"></i></span>
+                                            <span class="mvBtnspan_1">봉사자 리뷰</span>
+                                        </a>
+                                    </div>
+                                    <div class="mvBtnSo">
+                                        <a href="/html/map/mapVoSo.html" class="mvBtnspan_b">
+                                            <span><i class="fa-regular fa-heart"></i></span>
+                                            <span mvBtnspan_2>봉사자 소식</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mvReNo">
+                                <div class="mvRe">
+                                    <span>리뷰</span>
+                                    <span>22</span>
+                                </div>
+                            </div>
+                            <div class="mvReWrap">
+                                <div class="mvReBox">
+                                    <ul class="mvReUl">
+                                        <li class="mvReLi">
+                                            <div class="mvReliBox">
+                                                <div class="mvRelili">
+                                                    <div class="mvReliliDe">
+                                                        <div class="mvReliDe">
+                                                            <img src="/images/news_1486098867_610387_m_1.jpg" alt="">
+                                                            <span>지구용사썬가드</span>
+                                                        </div>
+                                                        <div class="mreDe">
+                                                                <span>
+                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                    정말 뜻깊은 시간이었습니다. 추천해용!!!
+                                                                </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mvReDate">
+                                                    <div class="mvReDateDe">
+                                                        <span>05.03</span>
+                                                        <span>금</span>
+                                                    </div>
+                                                </div>
+                                            </div>       
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
+            </div>
+                    
+                </div>
+
             </div>
         </div>
 
@@ -137,6 +217,16 @@
             });
         });
 
+        $(document).ready(function () {
+
+$("#mapVoRe").click(function () {
+
+    $(".dsf").css("display", "block");
+
+    $(".dfdad").css("display", "none");
+
+    });
+}); 
     </script>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=437e55438be69dd079f0ad5d9084099e&libraries=services"></script>
