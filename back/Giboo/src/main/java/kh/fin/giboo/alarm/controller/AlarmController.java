@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -32,9 +33,32 @@ public class AlarmController {
 	
 	@Autowired
 	private AlarmService service;
-
 	
+//	public class ReadStatusResponse {
+//	    private String readStatus;
+//
+//	    public ReadStatusResponse(String readStatus) {
+//	        this.readStatus = readStatus;
+//	    }
+//
+//	    public String getReadStatus() {
+//	        return readStatus;
+//	    }
+//
+//	    public void setReadStatus(String readStatus) {
+//	        this.readStatus = readStatus;
+//	    }
+//	}
+//
+//
+//	@GetMapping("/Giboo/getReadStatus")
+//	@ResponseBody
+//	public ReadStatusResponse getReadStatus() {
+//		String readStatus = service.getReadStatus();
+//		return new ReadStatusResponse(readStatus);
+//	}
 	
+	@SuppressWarnings("unchecked")
 	@ResponseBody
 	@GetMapping(value = { "/Giboo/notifications", "/notifications", ""  })
 	public List<Alarm> selectAll(	Model model
@@ -51,20 +75,28 @@ public class AlarmController {
 		//return service.selectAll(model);
 	}
 	
-	
-	@PostMapping("/Giboo/updateAlarmStatus")
-	@ResponseBody
-	public ResponseEntity<String> updateAlarmStatus(@RequestParam("alarmNo") int alarmNo) {
-	    int affectedRows = service.updateAlarmStatus(alarmNo);
 
-	    if (affectedRows > 0) {
-	    	logger.info("affectedRows: " + affectedRows);
-	        return ResponseEntity.ok("알림 읽음 상태가 업데이트되었습니다.");
+	@ResponseBody
+	@PostMapping(value ="/updateReadStatus", consumes = "application/json")
+    public int updateReadStatus(
+
+    		@RequestBody Map<String, Object> data,
+    		HttpSession session) {
+    	  double alarmNo = (double) data.get("alarmNo");
+    	  String readStatus = (String) data.get("readStatus");
+
+	      int result =  service.updateReadStatus(alarmNo, readStatus);
 	        
-	    } else {
-	    	logger.info("업데이트실패");
-	    	return ResponseEntity.badRequest().body("알림 읽음 상태 업데이트에 실패했습니다.");
-	    }
+	        session.setAttribute("readStatus", "Y");
+	        
 	    
-	}
+	    return result;
+    }
+
 }
+
+
+
+
+
+
