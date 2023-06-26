@@ -3,13 +3,11 @@ package kh.fin.giboo.admin.model.service;
 import kh.fin.giboo.admin.model.dao.AdminDAO;
 import kh.fin.giboo.admin.model.vo.Category;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
-import kh.fin.giboo.admin.model.vo.Rate;
 import kh.fin.giboo.cs.model.vo.Faq;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Event;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
-import kh.fin.giboo.mypage.model.vo.Point;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -130,8 +127,18 @@ public class AdminServiceImpl implements AdminService {
 
 
     @Override
-    public int removeCategory(Map<String, String> map) {
-        return dao.removeCategory(map);
+    public int removeCategory(int id) {
+        return dao.removeCategory(id);
+    }
+
+    @Override
+    public int removeParentCategory(int id) {
+        return dao.removeParentCategory(id);
+    }
+
+    @Override
+    public int removeFaq(int id) {
+        return dao.removeFaq(id);
     }
 
 }

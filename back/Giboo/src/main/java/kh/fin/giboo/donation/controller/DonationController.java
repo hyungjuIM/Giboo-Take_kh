@@ -81,4 +81,11 @@ public class DonationController {
 
         return "donation/write";
     }
+
+    @GetMapping("/pay")
+    public String pay() {
+        logger.info("기부 결제페이지");
+
+        return "doantion/pay";
+    }
 }

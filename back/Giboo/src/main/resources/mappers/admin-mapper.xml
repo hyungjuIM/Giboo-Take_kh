@@ -276,15 +276,25 @@
 	</select>
 
 	<update id="updateMemberRate" parameterType="member">
-  UPDATE MEMBER M
-  SET M.RATE_NO = (SELECT R.RATE_NO FROM RATE R WHERE R.RATE_NAME = #{rateName}),
-      M.POINT_NO = (SELECT P.POINT_NO FROM POINT P WHERE P.POINT_PRICE = #{pointPrice})
-  WHERE M.MEMBER_NO = #{memberNo}
+		UPDATE MEMBER M
+		SET M.RATE_NO = (SELECT R.RATE_NO FROM RATE R WHERE R.RATE_NAME = #{rateName}),
+		M.POINT_NO = (SELECT P.POINT_NO FROM POINT P WHERE P.POINT_PRICE = #{pointPrice})
+		WHERE M.MEMBER_NO = #{memberNo}
 	</update>
   
 	<delete id="removeCategory">
-		DELETE FROM #{category}
-		WHERE #{category}_NO = #{id}
+		DELETE FROM CATEGORY
+		WHERE CATEGORY_NO = ${id}
+	</delete>
+
+	<delete id="removeParentCategory">
+		DELETE FROM PARENT_CATEGORY
+		WHERE PARENT_CATEGORY_NO = ${id}
+	</delete>
+
+	<delete id="removeFaq">
+		DELETE FROM FAQ
+		WHERE FAQ_NO = ${id}
 	</delete>
 
 </mapper>

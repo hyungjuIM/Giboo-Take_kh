@@ -89,9 +89,10 @@
     </select>
 
     <select id="getVolunteerDetail" resultMap="volunteerDetail_rm">
-        SELECT VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
-        FROM VOLUNTEER
+        SELECT VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME
+        FROM VOLUNTEER V, AGENCY A
         WHERE VOLUNTEER_NO = ${volunteerNo}
+        AND V.AGENCY_NO = A.AGENCY_NO
     </select>
 
     <select id="volunteerListCount" resultType="_int">
