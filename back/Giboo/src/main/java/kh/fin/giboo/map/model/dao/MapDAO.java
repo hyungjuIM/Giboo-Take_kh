@@ -13,12 +13,14 @@ import kh.fin.giboo.map.model.vo.MapDetailHome;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
 import kh.fin.giboo.map.model.vo.MapList;
 import kh.fin.giboo.map.model.vo.Pagination;
+import kh.fin.giboo.volunteer.model.vo.Volunteer;
 
 @Repository
 public class MapDAO {
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;
+	
 
 
 	public int getMapListCount(Model model) {
@@ -57,6 +59,12 @@ public class MapDAO {
 
 	public MapDetailHome selectMapDetailHome(int volunteerNo) {
 		return sqlSession.selectOne("map-mapper.selectMapDetailHome", volunteerNo);
+	}
+
+
+	public List<Volunteer> selectMarkerVolunteer() {
+		
+		return sqlSession.selectList("map-mapper.selectMarkerVolunteer");
 	}
 
 
