@@ -49,7 +49,8 @@
 	<section class="headerContainer">
 		<div class="headerContent">
 			<div class="logo">
-				<div>여기는 로고자리올시다</div>
+				<a href="${pageContext.request.contextPath}/main"><div>여기는 로고자리올시다</div></a>
+				
 			</div>
 
 			<div class="gnb">
@@ -60,7 +61,6 @@
 				<a href="${pageContext.request.contextPath}/map/mapList">위치찾기</a>
 			</div>
 			<div class="user_sec">
-				<div class="myPage">
 
 					<section class="laginArea">
 						<%-- 로그인 하기 전 --%>
@@ -73,31 +73,49 @@
 							<c:when test="${!empty sessionScope.loginManager}">
 								<!-- 관리자로 로그인한 경우에 대한 내용을 추가 -->
 								<div class="nick_container">
-									<span id="nickName">${loginManager.mgrNickname}</span>관리자님 
+									<span id="nickName">${loginManager.managerNickname}</span>관리자님 
 								</div>
 							</c:when>
 							<%-- 로그인 된 후 --%>
 							<c:otherwise>
-							<div class="loginContainer_box">
-								<div class="nick_container">
-									<span id="nickName">${loginMember.memberNick}</span>님
-									<a href="${contextPath}/main/logout"> 로그아웃</a>
-								</div>
 
+								<div class="loginContainer_box">
+									<div class="nick_container">
+										<span id="nickName">${loginMember.memberNick}</span>님
+				
+									</div>
+				
+									<div class="toggle">
+										<a href="${pageContext.request.contextPath}/mypage/mypageMain" data-text="마이페이지">
+											<div class="iBox">
+												<i class="far fa-user-circle gray_Style"></i>
+												<i class="far fa-user-circle green_Style"></i>
+												<!-- <div class="tooltip">마이페이지</div> -->
+											</div>
+				
+										</a>
+									</div>
+				
+									<div class="toggle">
 
-								<div class="toggle">
-									<a href="${pageContext.request.contextPath}/mypage/mypageMain"
-										class="tooltip" data-text="마이페이지"> <i
-										class="far fa-user-circle"></i>
-									</a>
-								</div>
-								<div class="toggle">
-									<a href="#none" class="tooltip" data-text="알림"> <i
-										class="far fa-bell"></i>
-									</a>
+                              <a href="#none" data-text="알림" class="tooltip" id="alarm">
+                                 <div class="iBox">
+                                    <i class="far fa-bell gray_Style"></i>
+                                    <!-- <i class="far fa-bell green_Style"></i> -->
+            
+                                 </div>
+            
+            
+                              </a>
+                           </div>
+
+				  
+				
+				
+									<a href="${contextPath}/main/logout" class="logout_Btn"><span>로그아웃</span></a>
+
 								</div>
 								
-								</div>
 								
 								
 									
@@ -111,7 +129,6 @@
 					
 				
 
-				</div>
 			</div>
 		</div>
 
@@ -124,7 +141,11 @@
 	<script
 		src="${pageContext.request.contextPath}/resources/js/main/header.js"></script>
 	
-
+	<c:if test="${ !empty message }">
+		<script>
+			alert("${message}");
+		</script>
+	</c:if>
 
 </body>
 

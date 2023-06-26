@@ -45,7 +45,7 @@
 							<div class="mypage_profileEmojiTheme ">🥳</div>
 						</div>
 						<div class="mypage_hiuser">고마운분</div>
-						<div class="userName">000님, 안녕하세요🥳</div>
+						<div class="userName">${loginMember.memberNick}님, 안녕하세요🥳</div>
 
 
 						<!--왼쪽 네비바 메뉴 -->

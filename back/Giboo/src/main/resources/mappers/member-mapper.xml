@@ -18,6 +18,7 @@
         <result property="memberType" column="MEMBER_TYPE"/>
         <result property="rateNo" column="RATE_NO"/>
         <result property="pointNo" column="POINT_NO"/>
+        <result property="pointPrice" column="POINT_PRICE"/>
     </resultMap>
 
     <resultMap type="manager" id="manager_rm">
@@ -26,7 +27,7 @@
     	<result property="managerPw" column="MANAGER_PW"/>
     	<result property="managerEmail" column="MANAGER_EMAIL"/>
     	<result property="managerName" column="MANAGER_NAME"/>
-    	<result property="managerNick" column="MANAGER_NICKNAME"/>
+    	<result property="managerNickname" column="MANAGER_NICKNAME"/>
     	<result property="managerTel" column="MANAGER_TEL"/>
     	<result property="managerPermission" column="MANAGER_PERMISSION"/>
     	<result property="managerProfileImg" column="MANAGER_PROFILE_IMG"/>
@@ -46,7 +47,7 @@
         SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_EMAIL, MEMBER_NAME, MEMBER_NICK,
         MEMBER_TEL, MEMBER_ADDR,
         TO_CHAR(ENROLL_DT,'YYYY-MM-DD HH24:MI:SS') AS ENROLL_DT,
-        PROFILE_IMG,MEMBER_TYPE,RATE_NO,POINT_NO
+        PROFILE_IMG,MEMBER_TYPE,RATE_NO,POINT_NO,POINT_PRICE
         FROM MEMBER
         WHERE MEMBER_ID = #{memberId}
         AND SECESSION_FL = 'N'
@@ -127,7 +128,7 @@
 	#{memberNick},
 	#{memberTel},
 	#{memberAddr},
-	DEFAULT, DEFAULT, NULL, 'Y', NULL, NULL
+	DEFAULT, DEFAULT, NULL, 'Y', NULL, NULL,NULL
 	)
 </insert>
 

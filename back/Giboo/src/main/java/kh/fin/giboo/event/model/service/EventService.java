@@ -31,7 +31,6 @@ public interface EventService {
 
 	List<EventStickerBar> selectEventStickerBar(int eventNo);
 
-	EventDetailBoardPhoto selectEventDetailBoardPhoto(int eventNo);
 
 	//
 	int insertPopup(Map<String, Object> map, EventPopup eventPopup) throws IOException;
@@ -42,6 +41,9 @@ public interface EventService {
 
 
 	int insertAlarm(Alarm alarm);
+
+	List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo);
+
 
 
 }

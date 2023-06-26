@@ -81,33 +81,49 @@
 												</div>
 											</div>
 
-											<div class="search-area">
-												<div class="search-filter">
 
-													<select id="filter" name="filter">
-														<option value="title">제목</option>
-														<option value="author">작성자</option>
-														<option value="views">조회수</option>
-														<option value="date">등록일</option>
-													</select>
-												</div>
+										</div>
+										<div class="active_contatiner">
+										<%--  container2 --%>
+
+										<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
+										<c:if test="${!empty param.key}">
+											<c:set var="sURL"
+												value="&key=${param.key}&query=${param.query}" />
+										</c:if>
+
+										<c:if test="${!empty param.key}">
+											<h3 style="margin-left: 30px;">"${param.query}" 검색 결과</h3>
+										</c:if>
 
 
-												<form action="">
-													<fieldset>
-														<input type="text" id="query" name="query"
-															placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
-															onblur="this.placeholder = '검색어를 입력해주세요'">
-														<button type="submit" id="search-btn"
-															class="fa-solid fa-magnifying-glass"></button>
-													</fieldset>
-												</form>
-											</div>
+										<form method="get" id="boardSearch"
+											onsubmit="return searchValidate()">
+
+
+											<select id="search-key" name="key">
+												<option value="t">제목</option>
+												<option value="c">일자</option>
+												<option value="p">장소</option>
+
+											</select>
+
+
+											
+												<input type="text" id="search-query" name="query"
+													placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
+													onblur="this.placeholder = '검색어를 입력해주세요'">
+												<button type="submit" id="search-btn"
+													class="fa-solid fa-magnifying-glass"></button>
+												<button>검색</button>
+											
+											<%--     search-area --%>
+										</form>
 										</div>
 									</div>
 								</div>
 
-		
+
 								<div id="myactive_notice-list">
 									<div class="myactive_container3">
 										<table class="myactive_notice-table">
@@ -117,7 +133,7 @@
 													<th scope="col" class="th-name">봉사활동 내역</th>
 													<th scope="col" class="th-time">봉사일자</th>
 													<th scope="col" class="th-place">장소</th>
-													
+
 
 												</tr>
 											</thead>
@@ -125,56 +141,35 @@
 
 												<c:choose>
 													<c:when test="${empty myActiveVolunteerList}">
-												
+
 														<tr>
 															<th colspan="4">게시글이 존재하지 않습니다.</th>
 														</tr>
 													</c:when>
 
-												<c:otherwise>
-  
-							
+													<c:otherwise>
+														<c:forEach var="myActiveVolunteerList"
+															items="${myActiveVolunteerList}">
+															<tr>
+																<td>${myActiveVolunteerList.myactiveVolunteerNo}</td>
+																<td><a
+																	href="../volunteer/detail/${myActiveVolunteerList.volunteerNo}?cp=${pagination.currentPage}${sURL}">${myActiveVolunteerList.volunteerTitle}</a></td>
 
-<c:set var="volunteerCount" value="${myActiveVolunteerList.size()}" />
+																<td>${myActiveVolunteerList.myactiveDate}</td>
+																<td>${myActiveVolunteerList.volunteerAddr}</td>
+															</tr>
+														</c:forEach>
 
-<c:forEach var="myActiveVolunteerList" items="${myActiveVolunteerList}" varStatus="status">
-    
-        <c:set var="volunteerNumber" value="${volunteerCount - status.count + 1}" />
-        <tr>
-            <td>${volunteerNumber}</td>
-            <td>${myActiveVolunteerList.volunteerTitle}</td>
-            <td>${myActiveVolunteerList.myactiveDate}</td>
-            <td>${myActiveVolunteerList.volunteerAddr}</td>
-        </tr>
-</c:forEach>
-							
-   
-   
-</c:otherwise>
+
+
+													</c:otherwise>
 												</c:choose>
-
-												<%--
-												<tr>
-													<td>50</td>
-													<td>치매안심센터-기억력 검진 봉사활동</td>
-													<td>4시간</td>
-													<td>금정구 종합사회복지관</td>
-													<td>2023.05.24</td>
-													<td>
-														<div class="myactive_print">
-															<a href="${pageContext.request.contextPath}/mypage/reportPrint">발급</a>
-														</div>
-													</td>
-												</tr>
-												 --%>
-												
-
 											</tbody>
 										</table>
 									</div>
-									
+
 									<div class="container4">
-										<c:set var="url" value="?cp="/>
+										<c:set var="url" value="?cp=" />
 										<ul class="pagination">
 											<li><a href="${url}1${sURL}">&lt;&lt;</a></li>
 											<li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
@@ -201,17 +196,20 @@
 
 										</ul>
 									</div>
-									
+
 								</div>
-								
+
 							</section>
 						</div>
 					</section>
 
-				</div><%-- myask_content_area --%>
+				</div>
+				<%-- myask_content_area --%>
 
-			</div> <%-- mypage_wrapper --%>
-		</div><%-- mypage-container --%>
+			</div>
+			<%-- mypage_wrapper --%>
+		</div>
+		<%-- mypage-container --%>
 	</main>
 
 
@@ -219,6 +217,9 @@
 	<footer>
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</footer>
+
+<script src="${pageContext.request.contextPath}/resources/js/mypage/mypageBoard.js"></script>
+
 
 
 </body>

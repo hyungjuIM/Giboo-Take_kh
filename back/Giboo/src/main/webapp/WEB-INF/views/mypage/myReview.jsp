@@ -128,14 +128,11 @@
 													</c:when>
 
 													<c:otherwise>
-														<c:set var="reviewCount" value="${myReview.size()}" />
-
-														<c:forEach var="myReview" items="${myReview}"
-															varStatus="status">
-															<c:set var="reviewNumber"
-																value="${reviewCount - status.count + 1}" />
+													
+														<c:forEach var="myReview" items="${myReview}">
+															
 															<tr>
-																<td class="th-num">${reviewNumber}</td>
+																<td class="th-num">${myReview.reviewNo}</td>
 																<td class="th-name">${myReview.title}</td>
 																<td class="th-content">${myReview.reviewContent}</td>
 																<td class="th-date">${myReview.enrollDate}</td>

@@ -34,7 +34,7 @@
 
                 <div class="edDetailRight">
                     <div class="edInBar">
-                        <%--<jsp:include page="/WEB-INF/views/event/eventStickerBar.jsp" />--%>
+                        <jsp:include page="/WEB-INF/views/event/eventStickerBar.jsp" />
                     </div>
                 </div>
             </div>

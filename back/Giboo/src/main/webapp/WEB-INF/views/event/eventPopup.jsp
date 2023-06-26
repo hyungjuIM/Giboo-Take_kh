@@ -36,7 +36,7 @@
                         <div class="E_imgInputInner">               
                         
                             <input id="E_imgInput" type="file" accept="image/*" name="uploadImage">
-                            <div id="E_imgInputPlaceholder"></div>
+                            <div type="text" name="uploadImage" id="E_imgInputPlaceholder"></div>
                             
                             <label for="E_imgInput" class="E_imgSelectButton"><i class="fa-solid fa-camera"></i>사진 첨부</label>
                             

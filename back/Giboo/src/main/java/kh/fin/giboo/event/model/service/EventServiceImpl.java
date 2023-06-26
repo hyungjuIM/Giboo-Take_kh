@@ -74,10 +74,7 @@ public class EventServiceImpl implements EventService{
 		return dao.selectEventStickerBar(eventNo);
 	}
 
-	@Override
-	public EventDetailBoardPhoto selectEventDetailBoardPhoto(int eventNo) {
-		return dao.selectEventDetailBoardPhoto(eventNo);
-	}
+
 
 	//
 	@Transactional(rollbackFor = { Exception.class })
@@ -138,6 +135,11 @@ public class EventServiceImpl implements EventService{
 	@Override
 	public int insertAlarm(Alarm alarm) {
 		return dao.insertAlarm(alarm);
+	}
+
+	@Override
+	public List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo) {
+		return dao.selectEventDetailBoardPhoto(eventNo);
 	}
 
 

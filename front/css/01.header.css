@@ -1,4 +1,5 @@
 @import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
 
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
@@ -29,7 +30,6 @@ a:not(.logout_Btn){
 
     background-color: #F6F6F6;
     box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
-    /* position: fixed; */
     width: 100%;
     z-index: 100;
 
@@ -78,6 +78,8 @@ a:not(.logout_Btn){
     margin: 3%;
     color: #767676;
     position: relative;
+
+    white-space: nowrap;
   }
   
   /* gnb a 태그 밑 선 */
@@ -139,32 +141,24 @@ a:not(.logout_Btn){
 /* 로그인 된 후 */
 .user_sec{
     width: 100%;
-    height: 100%;
-    border: 1px solid blue;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .loginContainer_box{
 
-    border: 1px solid red;
-    width: 100%;
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
 }
+
+/* 닉네임 */
 .loginContainer_box .nick_container{
     padding: 0px 12px;
     font-family: 'NanumSquare', sans-serif;
     font-weight: 500;
+    color: var(--titleColor)
 
-}
-
-.loginContainer_box div{
-    display: flex;
-
-    margin-right: 4px;
 }
 
 .loginContainer_box .nick_container span{
@@ -172,80 +166,85 @@ a:not(.logout_Btn){
     font-family: 'NanumSquare', sans-serif;
     font-weight: 600;
     font-size: 18px;
-    /* margin-right: 4px; */
+    margin-right: 4px;
 }
 
 
 
 /* myPage, alarm toggle event */
-.toggle{
+/* 아이콘 정렬 */
+
+
+.loginContainer_box .toggle{
     font-size: 1.4rem;
+    height: 42px;
+    width: 42px;
 
-    width: 44px;
-    /* text-align: center; */
-    display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
-    margin-bottom: 20px;
-}
-.toggle.active a i{
+    transform: translate(0%, 0%);
+    top: 30%;
 
-    width: 40px;
-    height: 40px;
-    
-    line-height: 40px;
-    border-radius: 50px;
-   
-
-    
-}
-/* .myPage i{
-    font-size: 1.4rem;
-    margin-top: 5px;
-    color: var(--etcColor);
-} */
-
-
-
-.myPage a{
-    color: var(--etcColor);
     position: relative;
 
+    
 }
 
+.toggle a div{
+    
 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-.myPage .tooltip:before{
+    position: absolute;
+    color: #767676;
+   
+    
+}
+
+.toggle a::after{
     content: attr(data-text);
     position: absolute;
-    background-color: var(--mainColor);
-    width: 80px;
-    /* height: 10px; */
-    color: #F6F6F6;
-    font-size: 15px;
-    padding: 10px;
 
-
-
-    /* top: 30px;
-    left: 50%; */
-
-    transform: translateX(-50%);
-    text-align: center;
+    background-color: #00CA61;
+    /* padding: 12px; */
     border-radius: 50px;
+    width: 100px;
+    height: 30px;
+
+    font-size: 14px;
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 0.8px;
+    text-align: center;
+    line-height: 30px;
+    
+
+    top: 40px;
+    left: -75%;
+    /* transform: translateX(50%); */
+    white-space: nowrap;
+
+    
 
 }
-/* .myPage .tooltip:after{
-    content: '';
-    background: var(--mainColor);
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    top: 28px;
-    left: 80%;
-    transform: translateX(-50%) rotate(45deg);
 
-} */
+.toggle a::before{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #00CA61;
+
+    top:  37px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    
+}
+
+/* 로그아웃 */
 
 .logout_Btn{
   
@@ -268,37 +267,33 @@ a:not(.logout_Btn){
   
     /* border: 1px solid var(--etcColor); */
     margin-right: 8px;
+    color: var(--etcColor)
 }
 
 .logout_Btn span:hover{
     color: var(--contentColor);
 }
 
-.ibox{
+.iBox .gray_Style{
     position: relative;
     /* margin-top: 5px; */
-}
-.gray_Style{
-    color: var(--etcColor);
-    
-    position: absolute;
 }
 .green_Style{
     position: absolute;
     color: var(--mainColor);
-    top: 0px;
-    left: 0px;
+   
+
 }
 
 /* hover function */
-.myPage .tooltip:before,
-.myPage .tooltip:after,
+.toggle a:before,
+.toggle a:after,
 .iBox .green_Style{
     display: none;
 }
 
-.myPage .tooltip:hover:before,
-.myPage .tooltip:hover:after,
+.toggle a:hover:before,
+.toggle a:hover:after,
 .iBox:hover .green_Style
 {
     display: block;

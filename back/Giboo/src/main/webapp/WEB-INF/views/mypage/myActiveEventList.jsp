@@ -84,36 +84,41 @@
 													</div>
 												</div>
 											</div>
-
-											<div class="search-area">
-												<div class="search-filter">
-
-													<select id="filter" name="filter">
-														<option value="title">제목</option>
-														<option value="author">작성자</option>
-														<option value="views">조회수</option>
-														<option value="date">등록일</option>
-													</select>
-												</div>
-
-												<form action="">
-													<fieldset>
-														<input type="text" id="query" name="query"
-															placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
-															onblur="this.placeholder = '검색어를 입력해주세요'">
-														<button type="submit" id="search-btn"
-															class="fa-solid fa-magnifying-glass"></button>
-													</fieldset>
-												</form>
+											
 											</div>
+											<div class="active_contatiner">
+										<%--  container2 --%>
 
+										<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
+										<c:if test="${!empty param.key}">
+											<c:set var="sURL"
+												value="&key=${param.key}&query=${param.query}" />
+										</c:if>
+
+										<c:if test="${!empty param.key}">
+											<div style="margin-left: 30px;">"${param.query}" 검색 결과</div>
+										</c:if>
+
+											<form method="get" id="boardSearch"
+											onsubmit="return searchValidate()">
+										
+													<select id="search-key" name="key">
+														<option value="t">제목</option>
+														<option value="c">일자</option>										
+													</select>
+												
+												<input type="text" id="search-query" name="query"
+													placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
+													onblur="this.placeholder = '검색어를 입력해주세요'">
+												<button type="submit" id="search-btn"
+													class="fa-solid fa-magnifying-glass"></button>
+												<button>검색</button>
+											
+											<%--     search-area --%>
+										</form>
 										</div>
-
-
-
 									</div>
 								</div>
-
 
 								<div id="myactive_notice-list">
 									<div class="myactive_container3">
@@ -137,13 +142,11 @@
 													</c:when>
 
 													<c:otherwise>
-														<c:set var="eventCount" value="${myActiveEventList.size()}" />
+														
 														<c:forEach var="myActiveEventList"
-															items="${myActiveEventList}" varStatus="status">
-															
-															 <c:set var="eventNumber" value="${eventCount - status.count + 1}" />
+															items="${myActiveEventList}">
 															<tr>
-																<td>${eventNumber}</td>
+																<td>${myActiveEventList.myactiveEventNo}</td>
 																<td><a
 																	href="../event/eventDetailMain/${myActiveEventList.eventNo}?cp=${pagination.currentPage}${sURL}">${myActiveEventList.eventTitle}</a></td>
 																<td>${myActiveEventList.myactiveDate}</td>
@@ -152,13 +155,7 @@
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>
-												<%--
-												<tr>
-													<td>50</td>
-													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
-													<td>2023.05.23</td>
-													</tr>
-												 --%>
+												
 											</tbody>
 										</table>
 									</div>
@@ -212,6 +209,8 @@
 	<footer>
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</footer>
+
+<script src="${pageContext.request.contextPath}/resources/js/mypage/mypageBoard.js"></script>
 
 
 </body>

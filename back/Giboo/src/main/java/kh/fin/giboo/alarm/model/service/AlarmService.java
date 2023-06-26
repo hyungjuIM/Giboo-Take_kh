@@ -12,6 +12,14 @@ import kh.fin.giboo.mypage.model.vo.MyActiveVolunteerList;
 
 public interface AlarmService {
 
-	List<Alarm> selectAll();
+
+	Map<String, Object> selectAll(Model model);
+	
+
+	int updateReadStatus(double alarmNo, String readStatus);
+
+
+
+
 
 }

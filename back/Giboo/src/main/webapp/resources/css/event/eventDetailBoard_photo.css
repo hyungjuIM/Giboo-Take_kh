@@ -296,7 +296,7 @@ color: #111111;
 
 /* ------------카테고리 변경 시마다 색 변경하기----------- */
 .edEventintro:nth-child(3){
-    border-bottom: 2px solid #8071FC;
+    border-bottom: 2px solid #8071FC !important;
     display: flex;
     align-items: center;
     justify-content: center;

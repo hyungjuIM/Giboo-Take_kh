@@ -29,6 +29,7 @@
 		<result property="memberNo" column="MEMBER_NO" />
 
 		<result property="volunteerTitle" column="VOLUNTEER_TITLE" />
+		<result property="volunteerContent" column="VOLUNTEER_CONTENT" />
 		<result property="startProgressDate"
 			column="START_PROGRESS_DATE" />
 		<result property="volunteerAddr" column="VOLUNTEER_ADDR" />
@@ -48,6 +49,7 @@
 		<result property="eventNo" column="EVENT_NO" />
 		<result property="enrollDate" column="ENROLL_DATE" />
 		<result property="endRecruitDate" column="END_RECRUIT_DATE" />
+		<result property="memberNo" column="MEMBER_NO" />
 	</resultMap>
 
 	<!-- 댓글 목록 조회 resultMap -->
@@ -69,114 +71,72 @@
 	<!--기부 게시판 전체 게시글 수 조회 -->
 	<select id="getListCount1" resultType="_int">
 		SELECT COUNT(*) FROM
-		MYACTIVE_DONATION WHERE MEMBER_NO = 7
+		MYACTIVE_DONATION WHERE MEMBER_NO = #{memberNo}
 	</select>
 
 	<!--봉사 게시판 전체 게시글 수 조회 -->
 	<select id="getListCount2" resultType="_int">
 		SELECT COUNT(*) FROM
-		MYACTIVE_VOLUNTEER WHERE MEMBER_NO = 7
+		MYACTIVE_VOLUNTEER WHERE MEMBER_NO = #{memberNo}
 	</select>
 
 	<!--이벤트 게시판 전체 게시글 수 조회 -->
 	<select id="getListCount3" resultType="_int">
 		SELECT COUNT(*) FROM
-		MYACTIVE_EVENT WHERE MEMBER_NO = 7
+		MYACTIVE_EVENT WHERE MEMBER_NO = #{memberNo}
 	</select>
 
 	<!-- 댓글 게시판 전체 게시글 수 조회 -->
 	<select id="getListCount4" resultType="_int">
 		SELECT COUNT(*) FROM
 		REVIEW
-		WHERE MEMBER_NO = 7
+		WHERE MEMBER_NO = #{memberNo}
 	</select>
 
 	<!-- 기부 목록 조회 -->
 	<select id="selectMyactiveDonationList"
 		resultMap="myActiveDonationList_rm">
 		
-		SELECT DISTINCT M.MYACTIVE_DONATION_NO, M.MYACTIVE_DATE,
-		M.DONATION_MONEY, D.DONATION_TITLE,
-		D.DONATION_AMOUNT, D.DONATION_NO
-		FROM DONATION D
-		JOIN MYACTIVE_DONATION M ON D.MEMBER_NO = M.MEMBER_NO
-		AND D.DONATION_NO =
-		M.DONATION_NO
-		WHERE D.MEMBER_NO = 7
-		ORDER BY
-		MYACTIVE_DONATION_NO DESC
-		
-		
-		
+		SELECT TO_CHAR(M.MYACTIVE_DATE, 'YY.MM.DD') AS MYACTIVE_DATE, M.MYACTIVE_DONATION_NO,  D.DONATION_NO   , M.DONATION_MONEY,
+       D.DONATION_TITLE, D.DONATION_AMOUNT, D.DONATION_NO
+FROM MYACTIVE_DONATION M
+JOIN DONATION D ON M.DONATION_NO = D.DONATION_NO
+WHERE M.MEMBER_NO = #{memberNo}
+ORDER BY M.MYACTIVE_DONATION_NO DESC
+	
 	</select>
 
-	<!--  	SELECT ROW_NUMBER() OVER (ORDER BY M.MYACTIVE_DONATION_NO DESC) AS ROWNUM_VAL, 
-		M.MYACTIVE_DONATION_NO, M.MYACTIVE_DATE,
-		M.DONATION_MONEY, D.DONATION_TITLE,
-		D.DONATION_AMOUNT, D.DONATION_NO
-		FROM DONATION D
-		JOIN MYACTIVE_DONATION M ON D.MEMBER_NO = M.MEMBER_NO
-		AND D.DONATION_NO =
-		M.DONATION_NO
-		WHERE D.MEMBER_NO = 7
-		ORDER BY
-		MYACTIVE_DONATION_NO DESC   -->
 
 	<!-- 봉사 목록 조회 -->
 	<select id="selectMyActiveVolunteerList"
 		resultMap="myActiveVolunteerList_rm">
-		
-		SELECT ROW_NUMBER() OVER (ORDER BY M.MYACTIVE_VOLUNTEER_NO DESC) AS ROWNUM_VAL, 
-M.MYACTIVE_VOLUNTEER_NO, M.MYACTIVE_DATE, V.VOLUNTEER_TITLE, V.ENROLL_DATE , V.VOLUNTEER_ADDR,
-		V.VOLUNTEER_NO FROM
-		VOLUNTEER V
-		JOIN MYACTIVE_VOLUNTEER M ON V.MEMBER_NO = M.MEMBER_NO AND
-		V.VOLUNTEER_NO
-		= M.VOLUNTEER_NO
-		WHERE V.MEMBER_NO = 7
-		ORDER BY
-		MYACTIVE_VOLUNTEER_NO DESC  
-		
 
+		SELECT TO_CHAR(M.MYACTIVE_DATE, 'YY.MM.DD') AS MYACTIVE_DATE, V.VOLUNTEER_NO, M.MYACTIVE_VOLUNTEER_NO, V.VOLUNTEER_CONTENT, V.VOLUNTEER_TITLE, V.VOLUNTEER_ADDR
+FROM MYACTIVE_VOLUNTEER M
+		JOIN VOLUNTEER V ON V.VOLUNTEER_NO = M.VOLUNTEER_NO 
+		WHERE M.MEMBER_NO =#{memberNo}
+		ORDER BY M.MYACTIVE_VOLUNTEER_NO DESC
+		
 	</select>
-
-		<!-- 
-		SELECT DISTINCT M.MYACTIVE_VOLUNTEER_NO, M.MYACTIVE_DATE, V.VOLUNTEER_TITLE, V.ENROLL_DATE , V.VOLUNTEER_ADDR,
-		V.VOLUNTEER_NO FROM
-		VOLUNTEER V
-		JOIN MYACTIVE_VOLUNTEER M ON V.MEMBER_NO = M.MEMBER_NO AND
-		V.VOLUNTEER_NO
-		= M.VOLUNTEER_NO
-		WHERE V.MEMBER_NO = 7
-		ORDER BY
-		MYACTIVE_VOLUNTEER_NO DESC		
-		 -->
 
 
 
 	<!-- 이벤트 목록 조회 -->
 	<select id="selectMyActiveEventList"
 		resultMap="myActiveEventList_rm">
-		SELECT ROW_NUMBER() OVER (ORDER BY ME.MYACTIVE_EVENT_NO DESC) AS ROWNUM_VAL,
-       ME.MYACTIVE_EVENT_NO, ME.MYACTIVE_DATE, E.EVENT_TITLE
-FROM MYACTIVE_EVENT ME
-JOIN EVENT E ON E.EVENT_NO = ME.EVENT_NO
-WHERE ME.MEMBER_NO = '7'
-ORDER BY ME.MYACTIVE_EVENT_NO DESC
+		SELECT TO_CHAR(M.MYACTIVE_DATE, 'YY.MM.DD') AS MYACTIVE_DATE, E.EVENT_NO ,  M.MYACTIVE_EVENT_NO , E.EVENT_TITLE
+FROM MYACTIVE_EVENT M
+JOIN EVENT E ON E.EVENT_NO = M.EVENT_NO
+WHERE M.MEMBER_NO = #{memberNo}
+ORDER BY M.MYACTIVE_EVENT_NO DESC
 	</select>
 
-	<!-- SELECT ME.MYACTIVE_EVENT_NO, ME.MYACTIVE_DATE, ME.EVENT_NO, E.EVENT_TITLE 
-		FROM MYACTIVE_EVENT ME JOIN EVENT E ON E.EVENT_NO = ME.EVENT_NO WHERE ME.MEMBER_NO 
-		= '7' ORDER BY ME.MYACTIVE_EVENT_NO DESC -->
-
-	<!-- -->
 
 	<!-- ==================================================== -->
 
 	<!-- 리뷰 목록 조회 -->
 	<select id="selectMyReview" resultMap="myReview_rm">
-		SELECT ROW_NUMBER() OVER (ORDER BY R.REVIEW_NO DESC) AS ROWNUM_VAL, 
-		R.REVIEW_NO,
+SELECT R.REVIEW_NO,
 		CASE
 		WHEN R.DONATION_NO IS NOT NULL THEN D.DONATION_TITLE
 		WHEN
@@ -195,9 +155,192 @@ ORDER BY ME.MYACTIVE_EVENT_NO DESC
 		LEFT JOIN
 		VOLUNTEER V ON V.VOLUNTEER_NO = R.VOLUNTEER_NO
 		WHERE
-		R.MEMBER_NO = '7'
+		R.MEMBER_NO = #{memberNo}
 		ORDER BY
 		R.REVIEW_NO DESC
 
 	</select>
+	
+<!-- 기부금 검색 게시글 목록 전체 개수 조회 -->	
+	
+	<select id="searchListCount1" resultType="_int">  
+    SELECT COUNT(*) 
+		FROM MYACTIVE_DONATION M
+		JOIN DONATION D ON D.DONATION_NO = M.DONATION_NO 
+		WHERE M.MEMBER_NO =  #{memberNo}
+
+		<!-- 검색어가 있을 경우 -->
+		<if test='query != null and query != ""'>
+			AND
+			<choose>
+				<when test='key == "t"'> 
+					D.DONATION_TITLE LIKE '%' || #{query} || '%'
+				</when>
+				
+				<when test='key == "c"'>
+					TO_CHAR(MYACTIVE_DATE, 'YY.MM.DD') LIKE '%' || #{query} || '%'
+				</when>
+				
+			</choose>			
+		</if>
+		
+	</select>
+	
+
+
+	<!-- 검색 조건에 맞는 게시글 목록 조회(페이징 처리 적용) -->
+
+	<select id="searchMyactiveDonationList" resultMap="myActiveDonationList_rm">
+		
+		SELECT TO_CHAR(M.MYACTIVE_DATE, 'YY.MM.DD') AS MYACTIVE_DATE, M.MYACTIVE_DONATION_NO,  D.DONATION_NO   , M.DONATION_MONEY,
+       D.DONATION_TITLE, D.DONATION_AMOUNT, D.DONATION_NO
+FROM MYACTIVE_DONATION M
+JOIN DONATION D ON M.DONATION_NO = D.DONATION_NO
+WHERE M.MEMBER_NO = #{memberNo}
+		
+		
+		<!-- 검색어가 있을 경우 -->
+		<if test='query != null and query != ""'>
+			AND
+			<choose>
+				<when test='key == "t"'> 
+					D.DONATION_TITLE LIKE '%' || #{query} || '%'
+				</when>
+				
+				<when test='key == "c"'>
+					TO_CHAR(MYACTIVE_DATE, 'YY.MM.DD') LIKE '%' || #{query} || '%'
+				</when>
+				
+			</choose>		
+		</if>
+		ORDER BY M.MYACTIVE_DONATION_NO DESC
+		
+		
+	</select>
+	
+	
+	
+	
+	
+	
+<!-- 봉사 검색 게시글 목록 전체 개수 조회 -->
+	<select id="searchListCount2" resultType="_int">  
+    SELECT COUNT(*) 
+		FROM MYACTIVE_VOLUNTEER M
+		JOIN VOLUNTEER V ON V.VOLUNTEER_NO = M.VOLUNTEER_NO 
+		WHERE M.MEMBER_NO =  #{memberNo}
+
+		<!-- 검색어가 있을 경우 -->
+		<if test='query != null and query != ""'>
+			AND
+			<choose>
+				<when test='key == "t"'> 
+					V.VOLUNTEER_TITLE LIKE '%' || #{query} || '%'
+				</when>
+				
+				<when test='key == "c"'>
+					TO_CHAR(MYACTIVE_DATE, 'YY.MM.DD') LIKE '%' || #{query} || '%'
+				</when>
+				
+				<when test='key == "p"'>
+					V.VOLUNTEER_ADDR LIKE '%' || #{query} || '%'
+				</when>
+				
+				
+			</choose>			
+		</if>
+		
+	</select>
+	
+
+
+	<!-- 검색 조건에 맞는 게시글 목록 조회(페이징 처리 적용) -->
+
+	<select id="searchMyActiveVolunteerList" resultMap="myActiveVolunteerList_rm">
+		SELECT TO_CHAR(M.MYACTIVE_DATE, 'YY.MM.DD') AS MYACTIVE_DATE, V.VOLUNTEER_NO, M.MYACTIVE_VOLUNTEER_NO, V.VOLUNTEER_CONTENT, V.VOLUNTEER_TITLE, V.VOLUNTEER_ADDR
+FROM MYACTIVE_VOLUNTEER M
+		JOIN VOLUNTEER V ON V.VOLUNTEER_NO = M.VOLUNTEER_NO 
+		WHERE M.MEMBER_NO = #{memberNo}
+		
+		
+		<!-- 검색어가 있을 경우 -->
+		<if test='query != null and query != ""'>
+			AND
+			<choose>
+				<when test='key == "t"'> 
+					V.VOLUNTEER_TITLE LIKE '%' || #{query} || '%'
+				</when>
+				
+				<when test='key == "c"'>
+				TO_CHAR(MYACTIVE_DATE, 'YY.MM.DD') LIKE '%' || #{query} || '%'
+				</when>
+				
+				<when test='key == "p"'>
+					 V.VOLUNTEER_ADDR LIKE '%' || #{query} || '%'
+				</when>
+				
+				
+			</choose>			
+		</if>
+		ORDER BY M.MYACTIVE_VOLUNTEER_NO DESC
+		
+		
+	</select>
+	
+	
+	<!-- 이벤트 검색 게시글 목록 전체 개수 조회 -->
+	<select id="searchListCount3" resultType="_int">  
+   SELECT COUNT(*) FROM
+		MYACTIVE_EVENT M
+		JOIN EVENT E ON E.EVENT_NO = M.EVENT_NO 
+		WHERE M.MEMBER_NO =  #{memberNo}
+		
+
+		<!-- 검색어가 있을 경우 -->
+		<if test='query != null and query != ""'>
+			AND
+			<choose>
+				<when test='key == "t"'> 
+					E.EVENT_TITLE LIKE '%${query}%'
+				</when>
+				
+				<when test='key == "c"'>
+					TO_CHAR(MYACTIVE_DATE, 'YY.MM.DD') LIKE '%' || #{query} || '%'
+				</when>
+				
+			</choose>			
+		</if>
+		
+	</select>
+	
+
+
+	<!-- 검색 조건에 맞는 게시글 목록 조회(페이징 처리 적용) -->
+
+	<select id="searchMyActiveEventList" resultMap="myActiveEventList_rm">
+		
+SELECT TO_CHAR(M.MYACTIVE_DATE, 'YY.MM.DD') AS MYACTIVE_DATE, E.EVENT_NO ,  M.MYACTIVE_EVENT_NO , E.EVENT_TITLE
+FROM MYACTIVE_EVENT M
+JOIN EVENT E ON E.EVENT_NO = M.EVENT_NO
+WHERE M.MEMBER_NO = #{memberNo}
+		
+		<!-- 검색어가 있을 경우 -->
+		<if test='query != null and query != ""'>
+			AND
+			<choose>
+				<when test='key == "t"'> 
+					E.EVENT_TITLE LIKE '%${query}%'
+				</when>
+				
+				<when test='key == "c"'>
+					TO_CHAR(MYACTIVE_DATE, 'YY.MM.DD') LIKE '%' || #{query} || '%'
+				</when>
+				
+			</choose>		
+		</if>
+ORDER BY M.MYACTIVE_EVENT_NO DESC
+		
+		
+	</select>
+	
 </mapper>
