@@ -307,6 +307,9 @@
 
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
 
+    <script src="https://js.bootpay.co.kr/bootpay-.min.js" type="application/javascript"></script>
+
     <script src="${pageContext.request.contextPath}/resources/js/donation/donationDetail.js"></script>
+
 </body>
 </html>
