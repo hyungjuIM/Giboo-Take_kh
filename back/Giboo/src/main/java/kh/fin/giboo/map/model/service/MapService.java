@@ -26,7 +26,7 @@ public interface MapService {
 
 	MapDetailHome selectMapDetailHome(int volunteerNo);
 
-	List<Volunteer> selectMarkerVolunteer();
+//	List<Volunteer> selectMarkerVolunteer();
 
 	
 

@@ -263,10 +263,10 @@ WHERE D.AGENCY_NO &gt; 0
 	
 
 	<!-- 지도 마커 조회 -->
-	<select id="selectMarkerVolunteer" resultMap="markerVolunteer_rm">
+<!-- 	<select id="selectMarkerVolunteer" resultMap="markerVolunteer_rm">
 		SELECT LOCATION_X, LOCATION_Y, VOLUNTEER_TITLE
 		FROM VOLUNTEER
-	</select>
+	</select> -->
 	
 
 	

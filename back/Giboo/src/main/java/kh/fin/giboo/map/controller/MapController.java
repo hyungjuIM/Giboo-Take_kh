@@ -51,8 +51,8 @@ public class MapController {
 			) {
 		
 		Map<String, Object> map = null;
-		 List<Volunteer> markers = service.selectMarkerVolunteer();
-		    model.addAttribute("markers", markers);
+//		 List<Volunteer> markers = service.selectMarkerVolunteer();
+//		    model.addAttribute("markers", markers);
 		if(paramMap.get("key") == null) { // 검색이 아닌 경우
 			
 			map = service.selectMapList(cp, model);
@@ -135,6 +135,7 @@ public class MapController {
 		model.addAttribute("mapDetailTop", mapDetailTop);
 		return "map/mapVoSo";	
 	}
+	
 	
 	// 지도 마커표시
 //	@GetMapping("/mapList")

@@ -10,7 +10,30 @@
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Open Sans', sans-serif;
 }
+/* 프로그래스 바 스타일 수정 */
+progress {
+    /* 스타일 속성 설정 */
+    background-color: #ffffff;
+    border: none;
+    height: 10px;
+    border-radius: 12px;
+  }
 
+  /* 프로그래스 바 채워진 부분의 스타일 수정 */
+  progress::-webkit-progress-value {
+    background-color: #00c3ff;
+    border-radius: 12px;
+
+  }
+  /*  Mozilla Firefox 브라우저 */
+  progress::-moz-progress-bar {
+    background-color: #00c3ff;
+  }
+  /*  Microsoft Edge 브라우저 */
+  progress::-ms-fill {
+    background-color: #00c3ff;
+  }
+  
 main{
     display: flex;
     justify-content: center;

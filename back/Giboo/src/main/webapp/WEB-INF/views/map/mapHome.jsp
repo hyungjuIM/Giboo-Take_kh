@@ -28,7 +28,6 @@
 
     <div id="menu_wrap" class="bg_white">
         <div class="option">
-            <jsp:include page="/WEB-INF/views/map/mapSearchBar.jsp" />
         </div>
 
         <div class="mhwrap">
