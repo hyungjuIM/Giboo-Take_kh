@@ -16,7 +16,7 @@ public class Member {
 	private String memberEmail;
 	private String memberName;
 	private String memberNick;
-	private int memberTel;
+	private String memberTel;
 	private String memberAddr;
 	private String enrollDt;
 	private String secessionFlag;

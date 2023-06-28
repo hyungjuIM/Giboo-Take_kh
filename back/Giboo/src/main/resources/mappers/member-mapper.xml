@@ -133,6 +133,31 @@
 	)
 </insert>
 
+
+<!-- 회원 정보 수정 -->
+	<update id="memberChange" parameterType="member">
+		UPDATE MEMBER SET
+		MEMBER_NAME = #{updateName},
+		MEMBER_NICK = #{updateNickname},
+		MEMBER_TEL = #{updateTel},
+		MEMBER_ADDR = #{memberAddress}
+		WHERE MEMBER_NO = ${memberNo}  
+	</update>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="changePw" parameterType="member">
+		UPDATE MEMBER SET
+		MEMBER_PW = #{newPw}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+	
+	<!-- 프로필 이미지 수정 -->
+	<update id="changeProfile" parameterType="member">
+		UPDATE MEMBER SET
+		PROFILE_IMG = #{profileImg}
+		WHERE MEMBER_NO = #{memberNo}
+	</update>
+
 <select id="kakao" parameterType="java.util.HashMap" resultMap="member_rm">
  
  SELECT * FROM MEMBER WHERE MEMBER_NICK= #{memberNick} AND MEMBER_EMAIL = #{memberEmail} 
@@ -155,6 +180,7 @@
 
  
 </insert>
+
 
 </mapper>
  

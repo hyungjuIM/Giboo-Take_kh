@@ -65,9 +65,11 @@ public class MapDAO {
 
 
 
+
 	public List<Volunteer> selectMarkerVolunteer() {
 		return sqlSession.selectList("map-mapper.selectMarkerVolunteer");
 	}
+
 
 	public List<MapDetailReviewReply> selectMapDetailReviewReply(int volunteerNo) {
 		return sqlSession.selectList("map-mapper.selectMapDetailReviewReply", volunteerNo);

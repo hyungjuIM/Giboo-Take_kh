@@ -67,11 +67,11 @@ public class MapServiceImpl implements MapService{
 
 
 	
-	 @Override 
-	 public List<Volunteer> selectMarkerVolunteer() {
-	  
-	  return dao.selectMarkerVolunteer(); 
-	  }
+//	 @Override 
+//	 public List<Volunteer> selectMarkerVolunteer() {
+//	  
+//	  return dao.selectMarkerVolunteer(); 
+//	  }
 	 
 
 	
