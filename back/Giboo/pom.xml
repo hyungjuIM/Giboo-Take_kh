@@ -354,6 +354,26 @@
 	        <classifier>jdk15</classifier>
 	    </dependency>
 
+		<!-- https://mvnrepository.com/artifact/io.github.bootpay/backend -->
+		<dependency>
+			<groupId>io.github.bootpay</groupId>
+			<artifactId>backend</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		
+		 <!-- 채팅 위한 socket -->
+        <dependency> 
+            <groupId>org.springframework</groupId> 
+            <artifactId>spring-websocket</artifactId> 
+            <version>${org.springframework-version}</version> 
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.9.6</version>
+        </dependency>
+        <!-- // 채팅 위한 socket -->
+		
 	</dependencies>
 
 

@@ -27,7 +27,7 @@
      <section class="section1">
     
         <div class="QnABtn-icon show jittery" data-animate="shake">
-             <img src="${pageContext.request.contextPath}/resources/images/main_img/upperBody.png" class="btn-emoji">
+             <img src="${pageContext.request.contextPath}/resources/images/hunny.png" class="btn-emoji">
          </div>
    
          <div class="QnAxBtn-icon show jittery" data-animate="shake">
@@ -44,7 +44,7 @@
                         <div class="ATitlDe">
                             <span>기부 앤 테이크</span>
                             <div class="ALogo">
-                                <img src="${pageContext.request.contextPath}/resources/images/main_img/plane.png" alt="">
+                                <img src="${pageContext.request.contextPath}/resources/images/hunny.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <li class="AAichatLi">
                                     <div class="AProfile">
                                         <div class="AProImg">
-                                            <img src="${pageContext.request.contextPath}/resources/images/main_img/upperBody.png" alt="">
+                                            <img src="${pageContext.request.contextPath}/resources/images/hunny.png" alt="">
                                         </div>
                                     </div>
                                     <div class="AchatWrapBox">
@@ -96,7 +96,7 @@
                                         </div>
                                     </div>
                                 </li>
-                                <!-- 나 -->
+                                <!-- 고객 -->
                                 <li class="AMeWrap">
                                     <div class="AMechatWrapBox">
                                         <div class="ALiMeSpan">
@@ -115,7 +115,7 @@
                                 <li class="AAichatLi">
                                     <div class="AProfile">
                                         <div class="AProImg">
-                                           <img src="${pageContext.request.contextPath}/resources/images/main_img/upperBody.png" alt="">
+                                           <img src="${pageContext.request.contextPath}/resources/images/hunny.png" alt="">
                                         </div>
                                     </div>
                                     <div class="AchatWrapBox">
