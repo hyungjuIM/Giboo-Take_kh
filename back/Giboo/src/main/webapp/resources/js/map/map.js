@@ -99,7 +99,6 @@ function displayMarker(locPosition, message) {
     var vimgs = [];
 
 
-
     // HTML에서 주소와 이름을 가져옵니다
     $(".mlistAdd span").each(function() {
         var address = $(this).data("address");
@@ -238,7 +237,6 @@ function displayMarker(locPosition, message) {
             });
         })(vimgs[i], addresses[i], names[i], categorys[i], volreviews[i], volcounts[i]);
     }
-
 });
 
 })

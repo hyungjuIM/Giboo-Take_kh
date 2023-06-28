@@ -2,6 +2,7 @@ package kh.fin.giboo.member.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kh.fin.giboo.member.model.service.KakaoLoginService;
 import kh.fin.giboo.member.model.service.MemberService;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
@@ -36,6 +38,9 @@ public class MemberController {
 	// 서비스 불러오기
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private KakaoLoginService kakaoservice;
 
 	// 로그인 페이지 이동
 	@GetMapping(value = "/login")
@@ -141,8 +146,19 @@ public class MemberController {
 	
 	// 로그아웃
 	@GetMapping("/logout")
-	public String logout(SessionStatus status) {
+	public String logout(SessionStatus status,HttpSession session) {
 		logger.info("로그아웃 수행됨");
+		 String access_Token = (String)session.getAttribute("access_Token");
+
+	        if(access_Token != null && !"".equals(access_Token)){
+	            kakaoservice.kakaoLogout(access_Token);
+	            session.removeAttribute("access_Token");
+	            session.removeAttribute("loginMember2");
+	            session.invalidate();
+	        }else{
+	            System.out.println("access_Token is null");
+	            //return "redirect:/";
+	        }
 		status.setComplete();
 		return "redirect:/";
 	}
