@@ -59,70 +59,29 @@
 						<div class="memberChange_notice">
 							<div class="memberChange_container1">
 								<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-									style="color: #8071FC;"> 회원정보수정</span><span
+									style="color: #8071FC;"> 비밀번호 변경</span><span
 									style="color: #767676;">에 대해 알려드립니다 😇</span>
 							</div>
 						</div>
 
-						<form action="memberChange" method="POST" name="myPage-form"
-							onsubmit="return infoValidate()">
+						<form action="changePw" method="POST" name="myPage-form" onsubmit="return changePwValidate()">
 
-
-							<!-- 이름  -->
+							<!-- 비밀번호 변경 -->
 							<div class="memberChange_title">
-								
-									<label>이름</label>
-									<input type="text" name="updateName" id="memberName" value="${loginMember.memberName}"
-									maxlength="10">
+								<label>새 비밀번호</label> <input type="password" name="newPw"
+									maxlength="30">
 							</div>
 
-							
-							<!-- 닉네임 -->
 							<div class="memberChange_title">
-								<label>닉네임</label> <input type="text" name="updateNickname"
-									id="memberNickname" value="${loginMember.memberNick}"
-									maxlength="10">
+								<label>새 비밀번호 확인</label> <input type="password"
+									name="newPwConfirm" maxlength="30">
 							</div>
-
-							<!-- 휴대폰 번호 -->
-							<div class="memberChange_title">
-								<label>휴대폰번호</label> <input type="text" name="updateTel"
-									id="memberTel" value="${loginMember.memberTel}" maxlength="11">
-							</div>
-
-							<!-- 주소 -->
-							<c:set var="addr"
-								value="${fn:split(loginMember.memberAddr, ',,')}" />
-
-							<div class="myPage-row info-title">
-								<span>주소</span>
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="postcode"
-									value="${addr[0]}" maxlength="6">
-								<button type="button" id="info-address-btn"
-									onclick="execDaumPostcode()">검색</button>
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="address"
-									value="${addr[1]}">
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="detailAddress"
-									value="${addr[2]}">
-							</div>
-
 
 							<div class="memberChange_bottom">
 								<button class="memberChange_b">수정완료</button>
 								<button class="memberChange_b">이전으로</button>
-								<span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>
-								<button class="memberChange_w">
-									<a href="${pageContext.request.contextPath}/mypage/withdrawal">회원탈퇴</a>
-								</button>
+				
+								
 							</div>
 						</form>
 					</div>

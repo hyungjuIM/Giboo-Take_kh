@@ -59,71 +59,49 @@
 						<div class="memberChange_notice">
 							<div class="memberChange_container1">
 								<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-									style="color: #8071FC;"> 회원정보수정</span><span
+									style="color: #8071FC;"> 프로필 이미지 수정</span><span
 									style="color: #767676;">에 대해 알려드립니다 😇</span>
 							</div>
 						</div>
 
-						<form action="memberChange" method="POST" name="myPage-form"
-							onsubmit="return infoValidate()">
+						<form action="changeProfile" method="POST" name="myPage-form"
+							enctype="multipart/form-data" onsubmit="return profileValidate()">
 
+							<%-- =====프로필 이미지====== --%>
+							<div class="profile-image-area">
 
-							<!-- 이름  -->
-							<div class="memberChange_title">
-								
-									<label>이름</label>
-									<input type="text" name="updateName" id="memberName" value="${loginMember.memberName}"
-									maxlength="10">
+								<c:if test="${empty loginMember.profileImg}">
+									<img src="${contextPath}/resources/images/user.png"
+										id="profile-image">
+								</c:if>
+
+								<c:if test="${!empty loginMember.profileImg}">
+									<img src="${contextPath}${loginMember.profileImg}"
+										id="profile-image">
+								</c:if>
+
+								<%-- 프로필 이미지 삭제 버튼 --%>
+								<span id="delete-image">x</span>
+
 							</div>
 
-							
-							<!-- 닉네임 -->
-							<div class="memberChange_title">
-								<label>닉네임</label> <input type="text" name="updateNickname"
-									id="memberNickname" value="${loginMember.memberNick}"
-									maxlength="10">
+
+							<div class="profile-btn-area">
+								<label for="input-image">이미지 선택</label> <input type="file"
+									name="uploadImg" id="input-image" accept="image/*">
+
+								<button type="submit">변경하기</button>
 							</div>
-
-							<!-- 휴대폰 번호 -->
-							<div class="memberChange_title">
-								<label>휴대폰번호</label> <input type="text" name="updateTel"
-									id="memberTel" value="${loginMember.memberTel}" maxlength="11">
-							</div>
-
-							<!-- 주소 -->
-							<c:set var="addr"
-								value="${fn:split(loginMember.memberAddr, ',,')}" />
-
-							<div class="myPage-row info-title">
-								<span>주소</span>
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="postcode"
-									value="${addr[0]}" maxlength="6">
-								<button type="button" id="info-address-btn"
-									onclick="execDaumPostcode()">검색</button>
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="address"
-									value="${addr[1]}">
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="detailAddress"
-									value="${addr[2]}">
-							</div>
-
 
 							<div class="memberChange_bottom">
 								<button class="memberChange_b">수정완료</button>
 								<button class="memberChange_b">이전으로</button>
-								<span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>
-								<button class="memberChange_w">
-									<a href="${pageContext.request.contextPath}/mypage/withdrawal">회원탈퇴</a>
-								</button>
+
 							</div>
+
+							<!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
+							<!-- 0 : 안눌러짐   /   1: 눌러짐 -->
+							<input type="hidden" name="delete" id="delete" value="0">
 						</form>
 					</div>
 				</section>
@@ -144,11 +122,20 @@
 	</footer>
 
 	<%-- 다음 주소 API --%>
-    <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:11;-webkit-overflow-scrolling:touch;">
-        <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
-    </div>
+	<div id="layer"
+		style="display: none; position: fixed; overflow: hidden; z-index: 11; -webkit-overflow-scrolling: touch;">
+		<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
+			id="btnCloseLayer"
+			style="cursor: pointer; position: absolute; right: -3px; top: -3px; z-index: 1"
+			onclick="closeDaumPostcode()" alt="닫기 버튼">
+	</div>
 
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+	<script>
+		const contextPath = "${contextPath}"; // 최상위 경로를 JS 전역변수로 선언
+	</script>
 
 	<script
 		src="${pageContext.request.contextPath}/resources/js/mypage/memberChange.js"></script>

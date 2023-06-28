@@ -54,6 +54,12 @@
 								<li><a
 									href="${pageContext.request.contextPath}/mypage/memberChange">회원정보수정</a>
 								</li>
+								<li><a
+										href="${pageContext.request.contextPath}/mypage/changePw">비밀번호 변경</a>
+										</li>
+										<li><a
+										href="${pageContext.request.contextPath}/mypage/changeProfile">프로필 이미지 변경</a>
+										</li>
 
 								<li><a
 									href="${pageContext.request.contextPath}/mypage/favorites">즐겨찾기</a></li>

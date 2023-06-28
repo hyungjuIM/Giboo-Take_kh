@@ -92,32 +92,34 @@
 										</c:if>
 
 										<c:if test="${!empty param.key}">
-											<h3 style="margin-left: 30px;">"${param.query}" 검색 결과</h3>
+											
+											<div class="query_result">"${param.query}" 검색 결과</div>
 										</c:if>
 
-
+									<div class="search_area">
 										<form method="get" id="boardSearch"
 											onsubmit="return searchValidate()">
 
-
+											<div class="search-filter">
 											<select id="search-key" name="key">
 												<option value="t">제목</option>
 												<option value="c">일자</option>
-												
+											</div>	
 
 											</select>
 
 
-											
+											<div class="search_field">
 												<input type="text" id="search-query" name="query"
 													placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
 													onblur="this.placeholder = '검색어를 입력해주세요'">
 												<button type="submit" id="search-btn"
 													class="fa-solid fa-magnifying-glass"></button>
-												<button>검색</button>
+												
+											</div>
 											
-											<%--     search-area --%>
 										</form>
+										</div>
 										</div>
 									</div>
 								</div>
@@ -141,7 +143,11 @@
 												<c:choose>
 													<c:when test="${empty myActiveDonationList}">
 														<tr>
-															<th colspan="4">게시글이 존재하지 않습니다.</th>
+															<th colspan="4">
+															 <div class="board_no">
+															  	게시글이 존재하지 않습니다.
+															 </div>
+															</th>
 														</tr>
 													</c:when>
 
