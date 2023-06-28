@@ -16,6 +16,7 @@
 <typeAliases>
 	<!-- 사용자 -->
 	<typeAlias type="kh.fin.giboo.member.model.vo.Member" alias="member"/>
+	<typeAlias type="kh.fin.giboo.member.model.vo.KakaoProfile" alias="kakao"/>
 
 	<!-- 관리자 -->
 	<typeAlias type="kh.fin.giboo.member.model.vo.Manager" alias="manager" />
