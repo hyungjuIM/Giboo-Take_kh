@@ -11,6 +11,42 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/donationDetail.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick-theme.css">
+
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+
+    <script>
+        window.onload = function () {
+            const IMP = window.IMP;
+            IMP.init("imp67011510");
+        }
+            const today = new Date();
+            const hours = today.getHours(); // 시
+            const minutes = today.getMinutes();  // 분
+            const seconds = today.getSeconds();  // 초
+            const milliseconds = today.getMilliseconds();
+            var makeMerchantUid = hours +  minutes + seconds + milliseconds;
+
+        function requestPay() {
+            IMP.request_pay({
+                pg : 'nice',
+                pay_method : 'applepay',
+                merchant_uid: "IMP2"+makeMerchantUid,
+                name : '당근 10kg',
+                amount : 1004,
+                buyer_email : 'Iamport@chai.finance',
+                buyer_name : '아임포트 기술지원팀',
+                buyer_tel : '010-1234-5678',
+                buyer_addr : '서울특별시 강남구 삼성동',
+                buyer_postcode : '123-456'
+            }, function (rsp) { // callback
+                if (rsp.success) {
+                    console.log(rsp);
+                } else {
+                    console.log(rsp);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -64,7 +100,7 @@
                         기부금 전액 올무에 패인 상처가 평생 낫지 않는 길고양이 1마리의 3개월 치료비와 1년 사료비를 지원합니다.
                     </div>
 
-                    <button class="donationButton">모금함 기부하기</button>
+                    <button class="donationButton" onclick="requestPay()">모금함 기부하기</button>
                 </div>
             </div>
 
@@ -307,9 +343,9 @@
 
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
 
-    <script src="https://js.bootpay.co.kr/bootpay-.min.js" type="application/javascript"></script>
-
     <script src="${pageContext.request.contextPath}/resources/js/donation/donationDetail.js"></script>
+
+
 
 </body>
 </html>
