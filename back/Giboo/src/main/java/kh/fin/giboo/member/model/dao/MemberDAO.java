@@ -1,5 +1,6 @@
 package kh.fin.giboo.member.model.dao;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -8,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kh.fin.giboo.member.model.vo.KakaoProfile;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 
@@ -70,6 +72,20 @@ public class MemberDAO {
 	public int signUp(Member inputMember) {
 		return sqlSession.insert("memberMapper.signUp", inputMember);
 	}
+
+
+	public Member findkakao(HashMap<String, Object> userInfo) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("memberMapper.kakao",userInfo);
+	}
+
+
+	public void kakaoinsert(HashMap<String, Object> userInfo) {
+		sqlSession.insert("memberMapper.kakaoinsert",userInfo);
+		System.out.println("userInfo: "+userInfo);
+	}
+
+
 	
 
 
