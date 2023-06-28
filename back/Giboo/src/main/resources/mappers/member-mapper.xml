@@ -19,6 +19,7 @@
         <result property="rateNo" column="RATE_NO"/>
         <result property="pointNo" column="POINT_NO"/>
         <result property="pointPrice" column="POINT_PRICE"/>
+        <result property="kakao" column="KAKAO"/>
     </resultMap>
 
     <resultMap type="manager" id="manager_rm">
@@ -128,9 +129,10 @@
 	#{memberNick},
 	#{memberTel},
 	#{memberAddr},
-	DEFAULT, DEFAULT, NULL, 'Y', NULL, NULL,NULL
+	DEFAULT, DEFAULT, NULL, 'Y', NULL, NULL,NULL,DEFAULT
 	)
 </insert>
+
 
 <!-- 회원 정보 수정 -->
 	<update id="memberChange" parameterType="member">
@@ -155,6 +157,30 @@
 		PROFILE_IMG = #{profileImg}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
+
+<select id="kakao" parameterType="java.util.HashMap" resultMap="member_rm">
+ 
+ SELECT * FROM MEMBER WHERE MEMBER_NICK= #{memberNick} AND MEMBER_EMAIL = #{memberEmail} 
+
+ 
+</select>
+
+<insert id="kakaoinsert" parameterType="java.util.HashMap">
+ INSERT INTO MEMBER VALUES(
+	SEQ_MEMBER_NO.NEXTVAL,
+	NULL,
+	NULL,
+	#{memberEmail},
+	NULL,
+	#{memberNick},
+	NULL,
+	NULL,
+	DEFAULT, DEFAULT, NULL, 'Y', NULL, NULL,NULL,'k'
+	)
+
+ 
+</insert>
+
 
 </mapper>
  

@@ -26,6 +26,10 @@ public class Member {
 	private int pointNo;
 	private String rateName;
 	private int pointPrice;
+	private String email;
+	private String nickname;
+	private String kakao;
+	
 	
 	
 }
