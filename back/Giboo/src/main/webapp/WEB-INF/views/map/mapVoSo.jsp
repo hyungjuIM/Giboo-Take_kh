@@ -25,12 +25,6 @@
 
     <div id="menu_wrap" class="bg_white">
         <div class="option">
-            <div class="MsearchBar">
-                <form onsubmit="searchPlaces(); return false;">
-                    <input type="text" value="" id="keyword" placeholder="봉사, 기부 장소 검색">
-                    <button type="submit" class="MsearchBtn">🔍</button>  
-                </form>
-            </div>
         </div>
 
         <div class="mhwrap">
@@ -138,35 +132,10 @@
             </div>
         </div>
 
-        <!-- <ul id="placesList"></ul>
-        <div id="pagination"></div> -->
     </div>
 
-     <!-- 지도타입 컨트롤 div 입니다 -->
-     <div class="custom_typecontrol radius_border">
-        <span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
-        <span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
-    </div>
-    <!-- 지도 확대, 축소 컨트롤 div 입니다 -->
-    <div class="custom_zoomcontrol radius_border"> 
-        <span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
-        <span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
-    </div>
 </div>
 
-
-     <!-- jQuery 라이브러리 추가 -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script>
-        $(function () {
-            var include1 = $('[data-include1="header"]');
-            jQuery.each(include1, function () {
-                $(this).load('/html/01.header.html');
-            });
-        });
-
-    </script>
 
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a57d546fefaefbc7ac5bde8a6eb90ec&libraries=services"></script>

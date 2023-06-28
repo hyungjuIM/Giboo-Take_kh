@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="stamp-mapper">
+
+	<!-- 스탬프 목록 조회용 resultMap -->
+	<resultMap type="stamp" id="stampList_rm">
+		<id property="stampNo" column="EVENT_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+	</resultMap>
+	
+	<select id="stamp" resultMap="stampList_rm">
+		SELECT
+		STAMP_NO
+		FROM STAMP S
+		WHERE S.MEMBER_NO = #{memberNo}
+	</select>
+</mapper>

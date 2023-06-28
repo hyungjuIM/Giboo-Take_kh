@@ -100,8 +100,8 @@ public class EventController {
 
 		
 //	     eventDetailMain 페이지 로드 후 버튼 클릭 시 eventPopup 페이지로 이동할 URL을 모델에 추가
-	    String eventPopupUrl = "event/eventPopup/" + eventNo + "?cp=" + cp;
-	    model.addAttribute("eventPopupUrl", eventPopupUrl);
+//	    String eventPopupUrl = "event/eventPopup/" + eventNo + "?cp=" + cp;
+//	    model.addAttribute("eventPopupUrl", eventPopupUrl);
 		
 		return "event/eventDetailMain";	
 //		return "redirect:/eventPopup/" + eventNo;
@@ -110,27 +110,27 @@ public class EventController {
 
 	
 	// 팝업 새창 이동 ㅠㅠ모달로 띄워야 하는데ㅠㅠ
-	@GetMapping(value="/eventPopup/{eventNo}")
-	public String eventPopup(
-	    @PathVariable("eventNo") int eventNo,
-	    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
-	    Model model
-	) {
-
-		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
-		
-	    model.addAttribute("eventNo", eventNo);
-	    model.addAttribute("cp", cp);
-		model.addAttribute("eventDetailTop",eventDetailTop);
-
-	    return "event/eventPopup";
-	}
+//	@GetMapping(value="/eventPopup/{eventNo}")
+//	public String eventPopup(
+//	    @PathVariable("eventNo") int eventNo,
+//	    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
+//	    Model model
+//	) {
+//
+//		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
+//		
+//	    model.addAttribute("eventNo", eventNo);
+//	    model.addAttribute("cp", cp);
+//		model.addAttribute("eventDetailTop",eventDetailTop);
+//
+//	    return "event/eventPopup";
+//	}
 	
 	
 	
 	
-	// 이벤트 글쓰기(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
-	@PostMapping(value="/eventPopup/{eventNo}")
+	// 이벤트 팝업(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
+	@PostMapping(value="/eventDetailMain/{eventNo}")
 	@Transactional
 	public String insertPopup(
 		    @PathVariable("eventNo") int eventNo,

@@ -41,7 +41,7 @@ crossorigin="anonymous"></script>
                     </div>
                     <div class="edWrapBar">
                         <div class="edDoBar">
-                            <progress value="80" max="100"></progress>
+                            <progress value="${eventDetailTop.eventPersonCount}" max="${eventDetailTop.targetPeople}"></progress>
                         </div>
                         <div class="edWrapBar_2">
                             <div class="edVolDo">
@@ -88,7 +88,8 @@ crossorigin="anonymous"></script>
                     </div>
                     <div class="edBtn">
                         <div class="edBtnDe">
-                            <a id="popupButton" href="${pageContext.request.contextPath}/${eventPopupUrl}">이벤트 함께하기</a>                        </div>
+                            <button id="popupButton">이벤트 함께하기</button>                        
+                        </div>
                         <div class="edStamp">
                             <div class="edStampPopup">
                                 <div class="edStampPopDe">
@@ -106,6 +107,7 @@ crossorigin="anonymous"></script>
             </div>
     </main>     
 
+    
 <script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
     </body>

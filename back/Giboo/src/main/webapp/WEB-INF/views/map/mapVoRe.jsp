@@ -26,7 +26,6 @@
 
     <div id="menu_wrap" class="bg_white">
         <div class="option">
-            <jsp:include page="/WEB-INF/views/map/mapSearchBar.jsp" />
         </div>
 
 
@@ -65,7 +64,7 @@
                                         <span mvBtnspan_2>봉사자 소식</span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> 
                         </div>
                         <div class="mvReNo">
                             <div class="mvRe">
