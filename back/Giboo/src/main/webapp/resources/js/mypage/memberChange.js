@@ -274,45 +274,54 @@ if( document.getElementById("delete-image") != null ){
 }
 
 
+const popup_withdrawal = document.getElementById("popup_withdrawal");
 
 //=======================================================================================
+//회원탈퇴 팝업==========
+// $(document).ready(function(){ 
+
+    // $("#withdrawal").click(function(){ //팝업에서 회원탈퇴 취소 버튼을 클릭
+    //     $(".popup_wrap").css("display", "block");        
+    //     $(".mask").css("display", "block");     
+    //     popup_withdrawal.addEventListener("click", function(){
+    //         if (secessionValidate()) {
+    //             return true;
+    //            }
+    //     })
+            
+          
+    //     });      
+    // $("#popup_close").click(function(){        //팝업에서 회원탈퇴 버튼 클릭
+    //     $(".popup_wrap").css("display", "none");         
+    //     $(".mask").css("display", "none");       
+    //     }); 
+    
+ 
+ 
+
 // 회원 탈퇴 유효성 검사
 function secessionValidate(){
-
-    const memberPw = document.getElementById("memberPw");
-    const agree = document.getElementById("agree");
-
-    // 비밀번호 미작성
-    if(memberPw.value.trim().length == 0){
-        alert("비밀번호를 입력해주세요.");
-        memberPw.focus();
+      if( !confirm("탈퇴시점으로부터 30일 이내 재가입이 불가합니다.  정말 Giboo & take 를 회원탈퇴하시겠습니까?") ){ //  취소를 누른 경우
         return false;
     }
-
-    // 약관 동의 체크 여부
-    // - 체크박스요소.checked  : 체크 시 true, 해제 시 false 반환
-
-    if( !agree.checked ){ // 체크를 안했을 때
-        alert("약관 동의 후 탈퇴 버튼을 클릭해주세요.");
-        agree.focus();
-        return false;
-    }
-
-    // 정말 탈퇴할지 확인
-    // - window.confirm("내용") : 대화 상자에 확인/취소 생성
-    //      확인 클릭 시 true / 취소 클릭 시 false
-    //      window는 생략 가능
-    
-    if( !confirm("정말 탈퇴 하시겠습니까?????") ){ //  취소를 누른 경우
-        return false;
-    }
-
     return true;
-}
+    }
+
+// $("#popup_withdrawal").click(function() {
+//     if (secessionValidate()) {
+//      return true;
+//     }
+//   });
+
+    
 
 
+ 
+
+//회원탈퇴 창에서 이전으로 
+    $("#back").click(function() {
+        window.history.back(); // 이전 페이지로 이동
+      });
 
 
-
-
-
+     

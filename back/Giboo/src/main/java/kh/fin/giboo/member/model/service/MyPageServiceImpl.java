@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import kh.fin.giboo.common.Util;
 import kh.fin.giboo.member.model.dao.MyPageDAO;
+import kh.fin.giboo.member.model.vo.Member;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
@@ -59,5 +60,11 @@ public class MyPageServiceImpl implements MyPageService {
 				// transferTo() : 해당 파일을 지정된 경로+이름으로 저장
 			}			
 			return result;
+		}
+
+		//회원탈퇴
+		@Override
+		public int withdrawal(Member loginMember) {
+			return dao.withdrawal(loginMember.getMemberNo());
 		}
 }

@@ -3,7 +3,9 @@ package kh.fin.giboo.member.controller;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -64,6 +67,14 @@ public class MypageController {
 		logger.info("즐겨찾기");
 		return "mypage/favorites";
 	}
+	
+	
+	// 회원탈퇴
+		@GetMapping(value = "/withdrawal")
+		public String withdrawal() {
+			logger.info("회원탈퇴 목록");
+			return "mypage/withdrawal";
+		}
 
 	// 회원정보 수정(비번변경+프로필 이미지변경)==================================================
 	@PostMapping("/memberChange")
@@ -174,11 +185,47 @@ public class MypageController {
 		return "redirect:/mypage/changeProfile";
 	}
 
-	// 회원탈퇴
-	@GetMapping(value = "/withdrawal")
-	public String withdrawal() {
-		logger.info("나의리뷰 목록");
-		return "mypage/withdrawal";
-	}
+	// 회원 탈퇴
+		@PostMapping("/withdrawal")		// session의 회원정보 + 입력받은 파라미터(비밀번호)
+		public String withdrawal(@ModelAttribute("loginMember") Member loginMember
+							   , SessionStatus status
+							   , HttpServletRequest req
+							   , HttpServletResponse resp
+							   , RedirectAttributes ra) {
+			
+			// 회원 탈퇴 서비스 호출
+			int result = service.withdrawal(loginMember);
+			System.out.println("result" + result);
+			
+			String message = null;
+			String path = null;
+			
+			if(result > 0) {
+				message = "회원탈퇴 되었습니다.";
+				path = "/";
+				
+				// 세션 없애기
+				status.setComplete();
+				
+				// 쿠키 없애기
+				Cookie cookie = new Cookie("saveId", "");
+				cookie.setMaxAge(0);
+				cookie.setPath(req.getContextPath());
+				resp.addCookie(cookie);
+				
+			}else {
+				message = "회원탈퇴 실패";
+				path = "secession";
+			}
+			
+			ra.addFlashAttribute("message", message);
+			logger.info("-----------------회원탈퇴---------------");
+			
+			return "redirect:" + path;
+		}
+		
+	
+	
+	
 
 }
