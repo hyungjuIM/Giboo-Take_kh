@@ -1,3 +1,12 @@
+window.onload = function () {
+    const IMP = window.IMP;
+    IMP.init("imp43674535");
+}
+
+const grayBox = document.getElementById("grayBox");
+const donationContainer = document.getElementById("donationContainer");
+const donationValue = document.getElementById("donationValue");
+
 $(function(){
     $('.relatedItemList').slick({
         slide: "div",        //슬라이드 되어야 할 태그
@@ -31,3 +40,4 @@ $(function(){
 
     });
 })
+

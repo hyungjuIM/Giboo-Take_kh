@@ -48,7 +48,7 @@
                                                     <span class="earea_thumb">
                                                         <img src="${pageContext.request.contextPath}${eventList.attachment}" alt="썸네일이미지">
 
-                                                        <div class="earea_thumb_period">
+                                                        <div class="earea_thumb_period ${eventList.result}">
                                                             <span>${eventList.result}</span>
                                                         </div>
                                                     </span>

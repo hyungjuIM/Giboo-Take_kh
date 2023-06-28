@@ -11,12 +11,9 @@
     <title>맵 마커 팝업</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/map/mapPopup.css">
 
-    <!-- jQuery 라이브러리 추가(CDN) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    
     <div class="mpopWrap">
         <div class="mpopBox">
             <div class="mpopup">
@@ -67,75 +64,6 @@
                 </a>
             </div>
         </div>
-        <!-- 공유 팝업 -->
-    <div class="mpWrap">
-        <div class="mpBox">
-            <div class="mpBtn">
-                <div class="mpBtnWrap">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-            <div class="mpUrlWrap">
-                <div class="mpUrlBox">
-                    <div class="mpUrlInput">
-                        <input type="text">
-                    </div>
-                    <a href="">
-                        <div class="mpUrlP">
-                            <span>url복사</span>
-                        </div> 
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
-    </div>
-
-
-
-   
-
-    <!-- 임시 마커 -->
-    <div class="Marker" id="Marker" >
-        <div class="MarkerMarker">
-            <img src="/images/profile.jpeg" alt="">
-        </div>
-    </div>
-
-
-    <script>
-        // $('.Marker').on('click', function() {
-        // $('.mpopWrap').toggleClass('show');
-        // });
-
-        // 찐
-        $(document).on('click', function(event) {
-        if (!$(event.target).closest('.Marker').length && !$(event.target).closest('.mpopWrap').length) {
-            $('.mpopWrap').removeClass('show');
-        }
-        });
-
-        $('.Marker').on('click', function() {
-        $('.mpopWrap').toggleClass('show');
-        });
-
-
-
-
-
-        // 공유팝업
-        // $(document).on('click', function(event) {
-        // if (!$(event.target).closest('.mpopBs').length && !$(event.target).closest('.mpWrap').length) {
-        //     $('.mpWrap').removeClass('show');
-        // }
-        // });
-
-        // $('.mpopBs').on('click', function() {
-        // $('.mpWrap').toggleClass('show');
-        // });
-        
-      </script>
 </body>
 </html>

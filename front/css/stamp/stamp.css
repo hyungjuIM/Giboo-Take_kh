@@ -1,0 +1,67 @@
+*{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stampWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(49, 63, 21);
+    width: 800px;
+    height: 300px;
+}
+
+.stampBox{
+    background-color: wheat;
+    width: 750px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.stampDiv{
+    background-color: yellowgreen;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.stampReal{
+    background-color: violet;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.stampUl{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 700px;
+    height: 200px;
+    /* background-color: aqua; */
+    flex-wrap: wrap;
+}
+
+.stampLi{
+    margin-right: 40px;
+}
+
+/* 초록색은 원래 있고 분홍색이 찍히는것 */

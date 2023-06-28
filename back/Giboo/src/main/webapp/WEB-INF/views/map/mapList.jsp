@@ -69,30 +69,30 @@
                                     <c:otherwise>        
                                         <c:forEach var="mapList" items="${mapList}">
                                             <li class="mlistLi">
-                                                <a href="../map/mapHome/${mapList.volunteerNo}?cp=${pagination.currentPage}${sURL}">
-                                                    <img src="${pageContext.request.contextPath}${mapList.volunteerAttachement}" alt="">
+                                                <a  class="vUrl" href="../map/mapHome/${mapList.volunteerNo}?cp=${pagination.currentPage}${sURL}" data-volunteerNo="${mapList.volunteerNo}" data-currentPage="${pagination.currentPage}">
+                                                    <img src="${pageContext.request.contextPath}${mapList.volunteerAttachement}" alt="" class="vimg" data-vimg="${pageContext.request.contextPath}${mapList.volunteerAttachement}">
                                                     <div class="mlistDetail">
                                                         <!-- 카테고리와 즐겨찾기 숫자 나오는 영역 -->
                                                         <div class="mlistTi">
                                                             <div class="mlistCa">
-                                                                <span>${mapList.parentCategoryName}</span>
+                                                                <span id="volCa" data-category="${mapList.parentCategoryName}">${mapList.parentCategoryName}</span>
                                                             </div>
                                                         </div>
                                                         <!-- 봉사센터 이름 영역 -->
                                                         <div class="mlistName">
-                                                            <span>${mapList.agencyName}</span>
+                                                            <span id="volName" data-volname="${mapList.agencyName}">${mapList.agencyName}</span>
                                                         </div>
                                                         <!-- 봉사센터 주소 영역 -->
                                                         <div class="mlistAdd">
-                                                            <span>${mapList.volunteerAddr}</span>
+                                                            <span id="volAdd" data-address="${mapList.volunteerAddr}">${mapList.volunteerAddr}</span>
                                                         </div>
                                                         <!-- 봉사자 리뷰 & 봉사자 숫자 영역 -->
                                                         <div class="mlistDo">
-                                                            <span>봉사자 리뷰</span>
-                                                            <span class="mDe">${mapList.replyCount}</span>
+                                                            <span >봉사자 리뷰</span>
+                                                            <span class="mDe" id="volreview" data-volreview="${mapList.replyCount}">${mapList.replyCount}</span>
                                                             <span>|</span>
                                                             <span>봉사자</span>
-                                                            <span class="mDe">${mapList.volunteerCount}</span>
+                                                            <span class="mDee" id="volcount" data-volcount="${mapList.volunteerCount}">${mapList.volunteerCount}</span>
                                                         </div>
                                                     </div>
                                                 </a>

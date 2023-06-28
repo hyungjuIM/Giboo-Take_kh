@@ -60,6 +60,9 @@
 											style="color: #767676;">에 대해 알려드립니다 😇</span>
 									</div>
 
+
+									<form action="withdrawal" method="POST" name="myPage-form" onsubmit="return secessionValidate()" >
+
 									<div class="withdrawal_container">
 										<div class="withdrawal_title1">회원탈퇴</div>
 										<div class="withdrawal_content1">
@@ -67,6 +70,9 @@
 											점을 저희에게 공유해주시면 <br> 더욱 건강한 서비스를 제공할 수 있는 Giboo&take 가
 											되도록 노력하겠습니다.<br>
 										</div>
+										
+									
+										
 										<div class="withdrawal_hr">
 											<hr>
 										</div>
@@ -113,6 +119,7 @@
 
 											</div>
 										</div>
+										</form>
 
 										<div class="popup_wrap">
 
@@ -128,7 +135,7 @@
 												<div class="popup_cont02">
 													<button id="popup_close">취소</button>
 													<button id="popup_withdrawal">
-														회원탈퇴</a>
+														회원탈퇴
 													</button>
 												</div>
 
@@ -139,7 +146,7 @@
 
 										<div class="mask"></div>
 									</div>
-
+								
 
 
 
@@ -166,8 +173,8 @@
 </footer>
 
 
-	<script
-		src="${pageContext.request.contextPath}/resources/js/mypage/withdrawal.js"></script>
+<script
+		src="${pageContext.request.contextPath}/resources/js/mypage/memberChange.js"></script>
 </body>
 
 </html>

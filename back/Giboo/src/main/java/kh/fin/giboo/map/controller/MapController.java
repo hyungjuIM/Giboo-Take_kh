@@ -24,6 +24,7 @@ import kh.fin.giboo.map.model.vo.MapDetailHome;
 import kh.fin.giboo.map.model.vo.MapDetailReviewReply;
 import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
+import kh.fin.giboo.map.model.vo.Marker;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 
 @Controller
@@ -51,11 +52,13 @@ public class MapController {
 			) {
 		
 		Map<String, Object> map = null;
-		
+//		 List<Volunteer> markers = service.selectMarkerVolunteer();
+//		    model.addAttribute("markers", markers);
 		if(paramMap.get("key") == null) { // 검색이 아닌 경우
 			
 			map = service.selectMapList(cp, model);
 			model.addAttribute("map", map);
+			
 		}else { // 검색인 경우
 			
 			paramMap.put("cp", cp);
@@ -135,20 +138,15 @@ public class MapController {
 		return "map/mapVoSo";	
 	}
 	
-	@ResponseBody
-	@GetMapping("/getMarkerData")
-	public List<Volunteer> getMarkerData(Model model) {
-		List<Volunteer> markers = service.selectMarkerVolunteer();
-		 model.addAttribute("markers", markers);
-		
-		// 마커 너 거기 있니?
-		 if(markers != null) {
-		        logger.info("markers: " + markers.toString());
-		    } else {
-		        logger.info("markers is null");
-		    }
-		
-        return markers;
+	
+	// 지도 마커표시
+//	@GetMapping("/mapList")
+//	public String getMarkers(@PathVariable("volunteerNo") int volunteerNo
+//			,Model model) {
+//	    List<Volunteer> markers = service.selectMarkerVolunteer(volunteerNo);
+//	    model.addAttribute("markers", markers);
+//	    return "map/mapList";
+//	}
 	}
-}
+
 	

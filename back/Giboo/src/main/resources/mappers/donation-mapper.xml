@@ -87,7 +87,7 @@
     </select>
 
     <select id="getDonationDetail" resultMap="donationDetail_rm">
-        SELECT DONATION_TITLE, DONATION_CONTENT, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, A.AGENCY_NAME
+        SELECT DONATION_NO, DONATION_TITLE, DONATION_CONTENT, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, A.AGENCY_NAME
         FROM DONATION D, AGENCY A
         WHERE DONATION_NO = ${donationNo}
         AND D.AGENCY_NO = A.AGENCY_NO
@@ -100,5 +100,17 @@
             WHERE PARENT_CATEGORY_NO = ${category}
         </if>
     </select>
+
+    <insert id="sync">
+        INSERT INTO PAYMENT VALUES (
+                                    SEQ_PAYMENT_NO.nextval,
+                                    ${payMethod},
+                                    SYSDATE,
+                                    ${paidAmount},
+                                    3,
+                                    ${donationNo},
+                                    ${impUid}
+                                   )
+    </insert>
 
 </mapper>
