@@ -24,6 +24,7 @@ import kh.fin.giboo.map.model.vo.MapDetailHome;
 import kh.fin.giboo.map.model.vo.MapDetailReviewReply;
 import kh.fin.giboo.map.model.vo.MapDetailReviewStory;
 import kh.fin.giboo.map.model.vo.MapDetailTop;
+import kh.fin.giboo.map.model.vo.Marker;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 
 @Controller
@@ -57,6 +58,7 @@ public class MapController {
 			
 			map = service.selectMapList(cp, model);
 			model.addAttribute("map", map);
+			
 		}else { // 검색인 경우
 			
 			paramMap.put("cp", cp);

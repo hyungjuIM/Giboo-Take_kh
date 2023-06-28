@@ -54,6 +54,7 @@
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailReviewStory" alias="mapDetailReviewStory"/>
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailImg" alias="mapDetailImg"/>
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapPopup" alias="mapPopup"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.Marker" alias="marker"/>
   
 	<!-- 이벤트 -->
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventList" alias="eventList"/>
