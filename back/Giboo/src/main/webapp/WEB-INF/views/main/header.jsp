@@ -65,7 +65,7 @@
 					<section class="laginArea">
 						<%-- 로그인 하기 전 --%>
 						<c:choose>
-							<c:when test="${empty sessionScope.loginMember && empty sessionScope.loginManager}">
+							<c:when test="${empty sessionScope.loginMember && empty sessionScope.loginManager && empty sessionScope.loginMember2}">
 								<a href="${pageContext.request.contextPath}/main/login"
 									class="loginBtn">로그인</a>
 							</c:when>
@@ -81,8 +81,14 @@
 
 								<div class="loginContainer_box">
 									<div class="nick_container">
+										<c:choose>
+											<c:when test="${not empty loginMember}">
 										<span id="nickName">${loginMember.memberNick}</span>님
-				
+											</c:when>
+											<c:when test="${not empty loginMember2}">
+										<span id="nickName">${loginMember2.memberNick}</span>님
+											</c:when>
+										</c:choose>
 									</div>
 				
 									<div class="toggle">
