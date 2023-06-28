@@ -19,12 +19,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.notice.model.service.NoticeService;
 import kh.fin.giboo.notice.model.vo.NoticeDetail;
 
 @Controller
+@SessionAttributes({"loginManager"})
 @RequestMapping("/notice")
 public class NoticeController {
 	private Logger logger = LoggerFactory.getLogger(NoticeController.class);
@@ -141,10 +143,13 @@ public class NoticeController {
 	
 	
 	
-	// 공지사항 작성
+	// 공지사항 작성화면 전환
 	@GetMapping("/noticeWrite")
-	public String noticeWrite() {
+	public String noticeWrite(String mode,
+			@RequestParam(value="no",required = false, defaultValue = "0")int boardNo,
+			Model model) {
 		logger.info("공지사항 작성");
 		return "notice/noticeWrite";
 	}
+	
 }

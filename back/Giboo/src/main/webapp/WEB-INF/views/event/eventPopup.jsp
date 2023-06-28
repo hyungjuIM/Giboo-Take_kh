@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
+<%-- <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@
                     <div class="E_popup_cont05">
                         <div class="E_imgInputInner">               
                         
-                            <input id="E_imgInput" type="file" accept="image/*" name="uploadImage">
+                            <input id="E_imgInput" type="file" accept="image/*" name="uploadImage" onchange="handleImagePreview()">
                             <div type="text" name="uploadImage" id="E_imgInputPlaceholder"></div>
                             
                             <label for="E_imgInput" class="E_imgSelectButton"><i class="fa-solid fa-camera"></i>사진 첨부</label>
@@ -43,8 +43,8 @@
                         </div>
                     </div>
                     <div class="E_popup_cont06">
-                        <textarea placeholder="자전거 주행 사진 및 자전거 내비게이션 이용 화면을 캡쳐 후 인증해주세요."></textarea>
-                    </div>
+                        <img src="" id="preview-image">
+                    </div>                    
                     <div class="E_popup_cont07">
                         - 사진은 10MB 이내, 최대 5장까지 첨부 가능합니다.<br>
                         - 이벤트 내용에 맞지 않거나 게시글 정책을 위반한 경우 삭제됩니다.
@@ -66,7 +66,8 @@
           window.location.href = url;
         }
       </script>
-      
+      <script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
+
 </body>
 
-</html>
+</html> --%>

@@ -130,10 +130,13 @@
                       <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
                     </ul>
                   </nav>
+                 
                   <div class="writeBtn-container">
+                    <c:if test="${!empty loginManager}">
                     <button class="writeBtn"
-                      onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite'"><i
+                      onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite?mode=insert&cp=${pagination.currentPage}'"><i
                         class="fa-solid fa-pen"></i>_글쓰기</button>
+                      </c:if>
                   </div>
                 </div>
               </div>

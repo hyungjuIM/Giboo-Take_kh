@@ -16,7 +16,7 @@ public class Member {
 	private String memberEmail;
 	private String memberName;
 	private String memberNick;
-	private int memberTel;
+	private String memberTel;
 	private String memberAddr;
 	private String enrollDt;
 	private String secessionFlag;
@@ -26,6 +26,10 @@ public class Member {
 	private int pointNo;
 	private String rateName;
 	private int pointPrice;
+	private String email;
+	private String nickname;
+	private String kakao;
+	
 	
 	
 }

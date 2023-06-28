@@ -277,7 +277,7 @@
 .Marker{cursor: pointer;}
 
 .mpopWrap {
-    display: none;
+    /* display: none; */
   }
 
 .mpopWrap.show {
