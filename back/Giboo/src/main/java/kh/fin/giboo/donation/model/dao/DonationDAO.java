@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class DonationDAO {
@@ -58,5 +59,9 @@ public class DonationDAO {
 
     public int getDonationListCount() {
         return sqlSession.selectOne("donationMapper.getDonationListCount");
+    }
+
+    public int sync(Map<String, Object> map) {
+        return sqlSession.insert("donationMapper.sync", map);
     }
 }

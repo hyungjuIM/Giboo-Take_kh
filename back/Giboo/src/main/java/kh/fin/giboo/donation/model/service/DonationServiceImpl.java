@@ -85,4 +85,9 @@ public class DonationServiceImpl implements DonationService {
     public DonationDetail getDonationDetail(int donationNo) {
         return dao.getDonationDetail(donationNo);
     }
+
+    @Override
+    public int sync(Map<String, Object> map) {
+        return dao.sync(map);
+    }
 }

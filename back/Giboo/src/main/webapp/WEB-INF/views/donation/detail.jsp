@@ -14,39 +14,6 @@
 
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
 
-    <script>
-        window.onload = function () {
-            const IMP = window.IMP;
-            IMP.init("imp67011510");
-        }
-            const today = new Date();
-            const hours = today.getHours(); // 시
-            const minutes = today.getMinutes();  // 분
-            const seconds = today.getSeconds();  // 초
-            const milliseconds = today.getMilliseconds();
-            var makeMerchantUid = hours +  minutes + seconds + milliseconds;
-
-        function requestPay() {
-            IMP.request_pay({
-                pg : 'nice',
-                pay_method : 'applepay',
-                merchant_uid: "IMP2"+makeMerchantUid,
-                name : '당근 10kg',
-                amount : 1004,
-                buyer_email : 'Iamport@chai.finance',
-                buyer_name : '아임포트 기술지원팀',
-                buyer_tel : '010-1234-5678',
-                buyer_addr : '서울특별시 강남구 삼성동',
-                buyer_postcode : '123-456'
-            }, function (rsp) { // callback
-                if (rsp.success) {
-                    console.log(rsp);
-                } else {
-                    console.log(rsp);
-                }
-            });
-        }
-    </script>
 </head>
 <body>
     <header>
@@ -100,7 +67,7 @@
                         기부금 전액 올무에 패인 상처가 평생 낫지 않는 길고양이 1마리의 3개월 치료비와 1년 사료비를 지원합니다.
                     </div>
 
-                    <button class="donationButton" onclick="requestPay()">모금함 기부하기</button>
+                    <button class="donationButton" onclick="donationInput()">모금함 기부하기</button>
                 </div>
             </div>
 
@@ -337,6 +304,17 @@
         </div>
     </section>
 
+    <div class="grayBox" id="grayBox">
+        <div class="donationContainer" id="donationContainer">
+            <div>기부자님의 소중한 마음이 세상을 아름답게 변화시킵니다.</div>
+            <div>
+                <input type="number" id="donationValue">
+                <button id="donationConfirm" onclick="requestPay()">기부하기</button>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
@@ -345,7 +323,57 @@
 
     <script src="${pageContext.request.contextPath}/resources/js/donation/donationDetail.js"></script>
 
+    <script>
+        function donationInput() {
+            grayBox.style.display = "flex";
+            donationContainer.style.display = "inline";
+        }
 
+        function requestPay() {
+            const today = new Date();
+            const hours = today.getHours();
+            const minutes = today.getMinutes();
+            const seconds = today.getSeconds();
+            const milliseconds = today.getMilliseconds();
+            const makeMerchantUid = hours + minutes + seconds + milliseconds;
+            donationContainer.style.display = "none";
+            console.log(donationValue.value);
+
+            IMP.request_pay({
+                pg : 'nice.{store-25334d4e-e97d-471c-a263-d93b21592ad8}',
+                pay_method : 'card',
+                merchant_uid: "IMP2" + makeMerchantUid,
+                name : "${donationDetail.donationTitle}",
+                amount : donationValue.value,
+                buyer_email : 'Iamport@chai.finance',
+                buyer_name : '아임포트 기술지원팀',
+                buyer_tel : '010-1234-5678',
+            }, function (rsp) { // callback
+                grayBox.style.display = "none";
+                if (rsp.success) {
+                    console.log(rsp);
+                    $.ajax({
+                        type: "POST",
+                        url: "../verify/" + rsp.imp_uid
+                    }).done(function (data) {
+                        if (rsp.paid_amount == data.response.amount) {
+                            alert("성공");
+
+                            $.ajax({
+                                type: "POST",
+                                url: "../sync",
+                                data: {"impUid" : rsp.imp_uid, "payMethod" : rsp.pay_method, "paidAmount" : rsp.paid_amount, "donationNo" : ${donationDetail.donationNo}}
+                            })
+                        } else {
+                            alert("실패");
+                        }
+                    })
+                } else {
+                    console.log(rsp);
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
