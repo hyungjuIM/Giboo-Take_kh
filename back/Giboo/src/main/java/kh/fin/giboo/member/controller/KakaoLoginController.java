@@ -21,7 +21,7 @@ import kh.fin.giboo.member.model.vo.Member;
 
 
 	
-@SessionAttributes({ "loginMember2" })
+@SessionAttributes({ "loginMember" })
 @Controller
 //@RequestMapping(value="/Giboo")
 public class KakaoLoginController {
@@ -37,12 +37,12 @@ public class KakaoLoginController {
 			Model model) throws Exception {
 		System.out.println("#########" + code);
 		String access_Token = kakaoservice.getAccessToken(code);
-		Member loginMember2 = kakaoservice.getUserInfo(access_Token);
+		Member loginMember = kakaoservice.getUserInfo(access_Token);
 		System.out.println("###access_Token#### : " + access_Token);
-		System.out.println("loginMember2 : "+loginMember2);
-		session.setAttribute("loginMember2", loginMember2);
-		if(loginMember2 !=null) {
-			session.setAttribute("loginMember2", loginMember2);
+		System.out.println("loginMember : "+loginMember);
+		session.setAttribute("loginMember", loginMember);
+		if(loginMember !=null) {
+			session.setAttribute("loginMember", loginMember);
 			session.setAttribute("access_Token", access_Token);
 			 return "redirect:/main";
         } else {

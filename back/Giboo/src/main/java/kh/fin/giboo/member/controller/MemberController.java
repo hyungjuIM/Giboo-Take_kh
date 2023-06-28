@@ -153,7 +153,7 @@ public class MemberController {
 	        if(access_Token != null && !"".equals(access_Token)){
 	            kakaoservice.kakaoLogout(access_Token);
 	            session.removeAttribute("access_Token");
-	            session.removeAttribute("loginMember2");
+	            session.removeAttribute("loginMember");
 	            session.invalidate();
 	        }else{
 	            System.out.println("access_Token is null");
