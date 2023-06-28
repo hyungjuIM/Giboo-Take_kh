@@ -1,5 +1,9 @@
 package kh.fin.giboo.donation.controller;
 
+import com.siot.IamportRestClient.IamportClient;
+import com.siot.IamportRestClient.exception.IamportResponseException;
+import com.siot.IamportRestClient.response.IamportResponse;
+import com.siot.IamportRestClient.response.Payment;
 import kh.fin.giboo.donation.model.service.DonationService;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import org.slf4j.Logger;
@@ -7,14 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -25,6 +29,12 @@ public class DonationController {
 
     @Autowired
     private DonationService service;
+
+    private IamportClient api;
+
+    public DonationController() {
+        this.api = new IamportClient("6188008171654432", "kzGY3QwAc5fYBtqiCU4NrpXGfuAAVJFDJnqTDdKyYOR8ddxROogALM7as5f3pIuUpdN6mbwpPxi2VNO6");
+    }
 
     @GetMapping("/home")
     public String home(@RequestParam(value = "category", required = false, defaultValue = "0") int category,
@@ -75,17 +85,33 @@ public class DonationController {
         return "donation/detail";
     }
 
+    @ResponseBody
+    @PostMapping("/verify/{imp_uid}")
+    public IamportResponse<Payment> verify(Model model, HttpSession session,
+                                           @PathVariable("imp_uid") String imp_uid) throws IamportResponseException, IOException {
+        logger.info("기부 결제 검증");
+
+        System.out.println(imp_uid);
+
+        return api.paymentByImpUid(imp_uid);
+    }
+
+    @ResponseBody
+    @PostMapping("/sync")
+    public int sync(String impUid, String payMethod, int paidAmount, int donationNo) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("impUid", impUid);
+        map.put("payMethod", payMethod);
+        map.put("paidAmount", paidAmount);
+        map.put("donationNo", donationNo);
+
+        return service.sync(map);
+    }
+
     @GetMapping("/write")
     public String write() {
         logger.info("기부 작성 페이지");
 
         return "donation/write";
-    }
-
-    @GetMapping("/pay")
-    public String pay() {
-        logger.info("기부 결제페이지");
-
-        return "doantion/pay";
     }
 }

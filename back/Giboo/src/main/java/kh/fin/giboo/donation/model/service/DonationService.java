@@ -10,4 +10,6 @@ public interface DonationService {
     Map<String, Object> selectDonationList(int category, int cp, Model model);
 
     DonationDetail getDonationDetail(int donationNo);
+
+    int sync(Map<String, Object> map);
 }

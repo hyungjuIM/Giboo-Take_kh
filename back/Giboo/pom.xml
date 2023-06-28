@@ -16,12 +16,14 @@
 		<org.slf4j-version>1.7.25</org.slf4j-version>
 	</properties>
 
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 
-
-
-
-
-	<!-- dependencies : Maven 프로젝트는 외부 저장소와 의존 관계를 맺고 있어 프로젝트에 필요한 파일을(라이브러리) 
+	<!-- dependencies : Maven 프로젝트는 외부 저장소와 의존 관계를 맺고 있어 프로젝트에 필요한 파일을(라이브러리)
 		사용자가 직접 받을 필요 없이 해당 태그 내에 지정된 형식으로 작성하면 네트워크를 통해 외부 저장소에서 자동으로 얻어와 세팅함. -->
 	<dependencies>
 	
@@ -31,9 +33,14 @@
   <artifactId>jackson-databind</artifactId>
   <version>2.13.0</version>
 </dependency>
-	
 
-	
+		<!-- 2023. 06. 28 결제 api 관련 의존성 추가 -->
+		<dependency>
+			<groupId>com.github.iamport</groupId>
+			<artifactId>iamport-rest-client-java</artifactId>
+			<version>0.2.23</version>
+		</dependency>
+
 		<!-- 23.04.26 - 27 GSON 추가 -->
 	<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 	<dependency>
@@ -346,13 +353,6 @@
 	        <version>2.4</version>
 	        <classifier>jdk15</classifier>
 	    </dependency>
-
-		<!-- https://mvnrepository.com/artifact/io.github.bootpay/backend -->
-		<dependency>
-			<groupId>io.github.bootpay</groupId>
-			<artifactId>backend</artifactId>
-			<version>2.2.1</version>
-		</dependency>
 
 	</dependencies>
 
