@@ -26,6 +26,11 @@ public class MyPageDAO {
 		return sqlSession.update("memberMapper.changeProfile", map);
 	}
 
+	//회원탈퇴
+	public int withdrawal(int memberNo) {
+		return sqlSession.update("memberMapper.withdrawal", memberNo);
+	}
+
 	
 
 	

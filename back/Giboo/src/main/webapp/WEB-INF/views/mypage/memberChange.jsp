@@ -70,10 +70,11 @@
 
 							<!-- 이름  -->
 							<div class="memberChange_title">
-								
-									<label>이름</label>
-									<input type="text" name="updateName" id="memberName" value="${loginMember.memberName}"
-									maxlength="10">
+								<span class="memberChange_con1">이름</span> 
+								<span class="memberChange_con2">
+								<input type="text" name="updateName" id="memberName" value="${loginMember.memberName}"
+									maxlength="10"></span>
+									
 							</div>
 
 							
@@ -119,12 +120,13 @@
 							<div class="memberChange_bottom">
 								<button class="memberChange_b">수정완료</button>
 								<button class="memberChange_b">이전으로</button>
-								<span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>
+								
+							</div>
+						</form>
+						<span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>
 								<button class="memberChange_w">
 									<a href="${pageContext.request.contextPath}/mypage/withdrawal">회원탈퇴</a>
 								</button>
-							</div>
-						</form>
 					</div>
 				</section>
 			</div>
