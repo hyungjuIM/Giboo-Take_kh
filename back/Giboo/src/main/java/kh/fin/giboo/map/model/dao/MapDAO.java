@@ -66,7 +66,6 @@ public class MapDAO {
 
 
 	public List<Volunteer> selectMarkerVolunteer() {
-		
 		return sqlSession.selectList("map-mapper.selectMarkerVolunteer");
 	}
 

@@ -339,6 +339,14 @@
 	        <version>2.4</version>
 	        <classifier>jdk15</classifier>
 	    </dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.github.bootpay/backend -->
+		<dependency>
+			<groupId>io.github.bootpay</groupId>
+			<artifactId>backend</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+
 	</dependencies>
 
 
