@@ -8,9 +8,9 @@
 	  <result property="noticeTitle" column="NOTICE_TITLE"/>
 	  <result property="enrollDt" column="ENROLL_DT"/>
 	  <result property="viewCount" column="VIEW_COUNT"/>
-	  <result property="mgrNickname" column="MGR_NICKNAME"/>
+	  <result property="mgrNickname" column="MANAGER_NICKNAME"/>
 	  
-	  <result property="mgrNo" column="MGR_NO"/>
+	  <result property="mgrNo" column="MANAGER_NO"/>
   </resultMap>
   
   <!-- 공지사항 상세 -->
@@ -20,7 +20,7 @@
 	  <result property="noticeContent" column="NOTICE_CONTENT"/>
 	  <result property="viewCount" column="VIEW_COUNT"/>
 	  <result property="enrollDt" column="ENROLL_DT"/>
-	  <result property="mgrNo" column="MGR_NO"/>
+	  <result property="mgrNo" column="MANAGER_NO"/>
 	  <!-- 
 	  	<collection property="imageList" column="NOTICE_NO" 
 			javaType="java.util.ArrayList" ofType="noticeImage" select="selectImageList"/>
@@ -35,7 +35,7 @@
   	<!-- 게시글 목록 조회 -->
 	<select id="selectNoticeList" resultMap="notice_rm">
 		SELECT NOTICE_NO,
-		NOTICE_TITLE, MGR_NICKNAME, VIEW_COUNT,
+		NOTICE_TITLE, MANAGER_NICKNAME, VIEW_COUNT,
 		CASE WHEN SYSDATE - ENROLL_DT &lt; 1
 		THEN TO_CHAR(ENROLL_DT, 'YYYY-MM-DD')
 		ELSE TO_CHAR(ENROLL_DT, 'HH:MI')
@@ -43,7 +43,7 @@
 
 		FROM NOTICE
 		
-		JOIN MANAGER USING(MGR_NO)
+		JOIN MANAGER USING(MANAGER_NO)
 		WHERE DELETE_STATUS = 'N'
 		
 		ORDER BY NOTICE_NO DESC
@@ -55,10 +55,10 @@
 		SELECT NOTICE_NO, NOTICE_TITLE, NOTICE_CONTENT,
 		TO_CHAR(ENROLL_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') ENROLL_DT,
 		
-		VIEW_COUNT, MGR_NICKNAME, MGR_NO
+		VIEW_COUNT, MANAGER_NICKNAME, MANAGER_NO
 		
 		FROM NOTICE
-		JOIN MANAGER USING(MGR_NO)
+		JOIN MANAGER USING(MANAGER_NO)
 		
 		WHERE NOTICE_NO = ${noticeNo}
 		AND DELETE_STATUS = 'N'

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.fin.giboo.member.model.service.MemberService;
@@ -70,5 +71,10 @@ public class ManagerLoginController {
 			return "redirect:/admin/mLogin";
 		}
 			return "redirect:/admin/home";
+	}
+	@GetMapping("/managerlogout")
+	public String managerLogout(SessionStatus status) {
+		status.setComplete();
+		return "redirect:/main";
 	}
 }
