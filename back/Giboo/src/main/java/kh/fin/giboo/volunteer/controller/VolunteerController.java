@@ -40,6 +40,13 @@ public class VolunteerController {
         return "volunteer/home";
     }
 
+    @GetMapping("/storyList")
+    public String storyList() {
+        logger.info("봉사 이야기 목록");
+
+        return "volunteer/storyList";
+    }
+
     @GetMapping("/story")
     public String story() {
         logger.info("봉사 이야기");

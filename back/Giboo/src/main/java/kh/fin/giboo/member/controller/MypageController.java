@@ -200,14 +200,16 @@ public class MypageController {
 			
 			// 회원 탈퇴 서비스 호출
 			int result = service.withdrawal(loginMember);
-			System.out.println("result" + result);
+			System.out.println("result: " + result);
 			
 			String message = null;
 			String path = null;
 			
 			if(result > 0) {
 				message = "회원탈퇴 되었습니다.";
+
 				 ra.addFlashAttribute("message", "탈퇴 되었습니다.");
+
 				path = "/main";
 				
 				// 세션 없애기

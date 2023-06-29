@@ -5,6 +5,7 @@ import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.donation.model.dao.DonationDAO;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
+import kh.fin.giboo.donation.model.vo.DonationStory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -89,5 +90,19 @@ public class DonationServiceImpl implements DonationService {
     @Override
     public int sync(Map<String, Object> map) {
         return dao.sync(map);
+    }
+
+    @Override
+    public Map<String, Object> getStoryList(int cp, Model model) {
+        int listCount = dao.getStoryListCount();
+        Pagination pagination = new Pagination(cp, listCount);
+
+        List<DonationStory> storyList = dao.getStoryList(pagination, model);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("pagination", pagination);
+        map.put("storyList", storyList);
+
+        return map;
     }
 }
