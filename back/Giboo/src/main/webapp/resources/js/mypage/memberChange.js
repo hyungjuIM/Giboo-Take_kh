@@ -272,10 +272,91 @@ if( document.getElementById("delete-image") != null ){
         }
     }); 
 }
+const withdrawalButton = document.getElementById("withdrawal");
+const closeButton = document.getElementById("popup_close");
+// withdrawalButton.addEventListener("click",function(event){
+//     event.preventDefault();
+//     const popup = document.querySelector(".popup_wrap");
+//     const mask = document.querySelector(".mask");
+//     popup.style.display = "block";
+//     mask.style.display = "block";
+// })
+// closeButton.addEventListener("click",function(event){
+//     event.preventDefault();
+//     const popup = document.querySelector(".popup_wrap");
+//     const mask = document.querySelector(".mask");
+//     popup.style.display = "none";
+//     mask.style.display = "none";
+// })
+// function secessionValidate(){
+//     if (!confirm("정말 회원탈퇴하시겠습니까?")) {
+//         return false
+//       }
+//       return true;
+//   }
 
+// // 문서가 로드될 때까지 기다립니다.
+// document.addEventListener("DOMContentLoaded", function () {
+//     // 회원탈퇴 버튼을 가져와 클릭 이벤트 리스너를 추가합니다.
+//     const withdrawalButton = document.getElementById("withdrawal");
+//     withdrawalButton.addEventListener("click", showWithdrawalPopup);
+  
+//     // 팝업 창의 닫기 버튼을 가져와 클릭 이벤트 리스너를 추가하여 팝업을 닫습니다.
+//     const closeButton = document.getElementById("popup_close");
+//     closeButton.addEventListener("click", closeWithdrawalPopup);
+  
+//     // 팝업 창의 회원탈퇴 확인 버튼을 가져와 클릭 이벤트 리스너를 추가하여 회원탈퇴를 수행합니다.
+//     // const withdrawalConfirmationButton = document.getElementById("popup_withdrawal");
+//     // withdrawalConfirmationButton.addEventListener("click", performWithdrawal);
+//   });
+  
+//   // 회원탈퇴 팝업을 보여줍니다.
+  function showWithdrawalPopup() {
+    const popup = document.querySelector(".popup_wrap");
+    const mask = document.querySelector(".mask");
+    popup.style.display = "block";
+    mask.style.display = "block";
+  }
+  
+  // 회원탈퇴 팝업을 닫습니다.
+  function closeWithdrawalPopup() {
+    const popup = document.querySelector(".popup_wrap");
+    const mask = document.querySelector(".mask");
+    popup.style.display = "none";
+    mask.style.display = "none";
+  }
+  
+  function secessionValidate(){
+    if (!confirm("정말 회원탈퇴하시겠습니까?")) {
+        return false
+      }
+      return true;
+    
+  }
+  
+  
+//   // 회원탈퇴 확인 팝업을 띄우고, 확인 버튼을 눌렀을 때 회원탈퇴를 수행합니다.
+//   function secessionValidate() {
+//     return confirm();
+//   }
+  
 
-const popup_withdrawal = document.getElementById("popup_withdrawal");
-
+// function secessionValidate(){
+// withdrawal.addEventListener("click",function(){
+//     $(".popup_wrap").css("display", "block");        
+//     $(".mask").css("display", "block");
+//     if(popup_withdrawal.addEventListener(this.click)){
+//         function secessionValidate(){
+//                   if( !confirm("탈퇴시점으로부터 30일 이내 재가입이 불가합니다.  정말 Giboo & take 를 회원탈퇴하시겠습니까?") ){ //  취소를 누른 경우
+//                     return false;
+//                 }
+//                 return true;
+//                 }
+//     }else{
+//         return false;
+//     }
+// });
+// }
 //=======================================================================================
 //회원탈퇴 팝업==========
 // $(document).ready(function(){ 
@@ -300,12 +381,12 @@ const popup_withdrawal = document.getElementById("popup_withdrawal");
  
 
 // 회원 탈퇴 유효성 검사
-function secessionValidate(){
-      if( !confirm("탈퇴시점으로부터 30일 이내 재가입이 불가합니다.  정말 Giboo & take 를 회원탈퇴하시겠습니까?") ){ //  취소를 누른 경우
-        return false;
-    }
-    return true;
-    }
+// function secessionValidate(){
+//       if( !confirm("탈퇴시점으로부터 30일 이내 재가입이 불가합니다.  정말 Giboo & take 를 회원탈퇴하시겠습니까?") ){ //  취소를 누른 경우
+//         return false;
+//     }
+//     return true;
+//     }
 
 // $("#popup_withdrawal").click(function() {
 //     if (secessionValidate()) {
