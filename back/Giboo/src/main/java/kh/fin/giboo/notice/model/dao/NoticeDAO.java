@@ -51,7 +51,7 @@ public class NoticeDAO {
 	 * @return
 	 */
 	public int updateVieweadCount(int noticeNo) {
-		return sqlSession.update("notice-Mapper.updateViewCount", noticeNo);
+		return sqlSession.update("notice-Mapper.updateReadCount", noticeNo);
 	}
 
 }
