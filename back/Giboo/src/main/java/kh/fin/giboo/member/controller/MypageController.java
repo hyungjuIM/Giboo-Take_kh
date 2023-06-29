@@ -26,7 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kh.fin.giboo.member.model.service.MyPageService;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.mypage.model.vo.MyActiveDonationList;
-
+  
 @Controller
 @SessionAttributes({ "loginMember" })
 @RequestMapping("/mypage")

@@ -19,7 +19,7 @@ public interface AlarmService {
 	int updateReadStatus(int alarmNo, String readStatus);
 
 
-
+    
 
 
 }
