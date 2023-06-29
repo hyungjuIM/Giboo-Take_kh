@@ -40,6 +40,20 @@ public class VolunteerController {
         return "volunteer/home";
     }
 
+    @GetMapping("/storyList")
+    public String storyList(@RequestParam(value = "cp", required = false, defaultValue = "1")int cp,
+                            Model model) {
+        logger.info("봉사 이야기 목록");
+
+        Map<String, Object> map = null;
+
+        map = service.getStoryList(cp, model);
+
+        model.addAttribute("map", map);
+
+        return "volunteer/storyList";
+    }
+
     @GetMapping("/story")
     public String story() {
         logger.info("봉사 이야기");

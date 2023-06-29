@@ -139,14 +139,8 @@ public class MapController {
 	}
 	
 	
-	// 지도 마커표시
-//	@GetMapping("/mapList")
-//	public String getMarkers(@PathVariable("volunteerNo") int volunteerNo
-//			,Model model) {
-//	    List<Volunteer> markers = service.selectMarkerVolunteer(volunteerNo);
-//	    model.addAttribute("markers", markers);
-//	    return "map/mapList";
-//	}
-	}
+	// 즐겨찾기
+	
+}
 
 	

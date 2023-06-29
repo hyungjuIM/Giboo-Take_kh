@@ -94,8 +94,23 @@ justify-content: center;
 align-items: center;
 
 margin : 96px 90px 16px 79px;
-font-size: 70px;
+
+
+display: block;
+  width: 135px;
+  height: 135px;
+  border: 3px solid #ddd;
+  border-radius: 50%;
 }
+
+
+#member-profile{
+  width: 130px;
+    height: 130px;
+    border-radius: 50%;
+
+}
+
 
 
 /*왼쪽 네비바 고마운분 */
@@ -123,6 +138,21 @@ font-size: 70px;
   justify-content: center;
   color: #767676;
 }
+
+.rateName{
+  font-size: 18px;
+    font-weight: 400;
+    color: #767676;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 30px 0px 10px 50px ;
+}
+
+.rateName > span {
+  font-weight: 600;
+}
+
+
+
 
 /*왼쪽 네비바 메뉴*/
 .mypage_content_container{
@@ -163,6 +193,14 @@ font-size: 70px;
 margin-bottom: 21px;
 }
 
+
+.mypage_content_first_s a{
+  font-weight: 400;
+font-size: 14px;
+color: #767676;
+margin-left: 10px;
+}
+
 .mypage_content_container hr{
 border: 1px solid #D9D9D9;
 width: 190px;
@@ -180,10 +218,10 @@ font-size: 14px;
 color: #767676;
 }
 
+   
 
 
-
-.mypage_content_third button{
+.mypage_content_third a{
 color: #767676;
 font-size: 14px;
 /* padding: 3px; */
@@ -194,7 +232,7 @@ margin-left: 5px;
 font-weight:bold;
 cursor: pointer;
 }
-.mypage_content_third button:hover{
+.mypage_content_third a:hover{
 
 color: #8071FC;
   

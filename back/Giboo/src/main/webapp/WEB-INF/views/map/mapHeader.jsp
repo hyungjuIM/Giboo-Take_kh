@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="mhBtnWrap">
                                     <div class="mhBtn">
-                                        <div class="mhBtnHe">
+                                        <div class="mhBtnHe" id="mhBtnHe">
                                             <a href="">
                                                 <div class="mhBtnHe_1">
                                                     <span><i class="fa-regular fa-heart"></i></span>
@@ -76,7 +76,7 @@
                                         </div>
                                         <span>|</span>
                                         <div class="mhBtnHe">
-                                            <a href="">
+                                            <a href="" onclick="copyToClipboard(); return false;">
                                                 <div class="mhBtnHe_1">
                                                     <span><i class="fa-regular fa-share-from-square"></i></span>
                                                 </div>
@@ -95,4 +95,5 @@
     
             
 </body>
+
 </html>

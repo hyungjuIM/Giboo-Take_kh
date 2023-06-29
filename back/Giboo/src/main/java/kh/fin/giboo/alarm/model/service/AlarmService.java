@@ -16,10 +16,10 @@ public interface AlarmService {
 	Map<String, Object> selectAll(Model model);
 	
 
-	int updateReadStatus(double alarmNo, String readStatus);
+	int updateReadStatus(int alarmNo, String readStatus);
 
 
-
+    
 
 
 }

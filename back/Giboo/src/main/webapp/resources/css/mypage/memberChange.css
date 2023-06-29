@@ -62,7 +62,7 @@ body {
 
 /*------------------body-content------------------*/
 /* 오른쪽 문의한 내역*/
-.memberChange_content_area {
+.myask_content_area{
   width : 940px;
   background-color: #f6f6f6;
 
@@ -70,14 +70,14 @@ body {
   align-items: center;
   flex-direction: column;
 
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);   
 }
 
 
 
-.memberChange_mainContainer {
+.mainContainer {
   width: 860px;
-  height: 880px;
+  height: 720px;
 
   margin-top : 66px;
 
@@ -86,36 +86,50 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
 
   background: #FFFFFF;
-  border: 0.5px solid #BDBDBD;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+    border: 0.5px solid #BDBDBD;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
 
 }
-
-.memberChange_notice {
+.notice{
   margin : 20px;
   display: flex;
   flex-direction: column;
 }
 
-.memberChange_mainContent {
+.mainContent {
   width: 1080px;
 }
 
-
-.memberChange_container1 {
-  margin-bottom: 10px;
-  padding-top: 20px;
-  font-size: 20px;
-  font-weight: 500;
-
+.notice1{
+  margin: 20px;
 }
 
-span {
+
+.container1{
+
+    padding-top: 20px;
+    font-size: 20px;
+    font-weight: 500;
+	margin : 0 20px;
+}
+
+span{
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+.memberChange_Con{
+  margin-top: 50px;
+}
+
+
 .memberChange_title{
+  margin : 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.memberChange_address{
   margin : 10px;
   display: flex;
   flex-direction: row;
@@ -134,27 +148,60 @@ span {
 
 .memberChange_con2{
   background-color: #efefef;
-  border-radius: 20px;
+  border-radius: 15px;
   width : 600px;
-  height : 40px;
+  height : 54px;
   display: flex;
   align-items: center;
   margin-left: 20px;
+  margin-top: 10px;
+
+  /* width: 100%;
+    height: 54px;
+    border-radius: 15px;
+    background-color: white;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center */
+
+
 }
 
-.memberChange_con2 div{
-  margin-left: 20px;
+.memberChange_con2 span{
+  
+  font-size: 20px;
+    color: #9FF1C6;
+    margin: 18px;
 }
 
-.memberChange_con3{
-  background-color: #efefef;
-  border-radius: 20px;
-  width : 500px;
-  height : 40px;
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
+.memberChange_con2_area{
+  margin-bottom: 8px;
 }
+
+.memberChange_con2 button{
+  height: 100%;
+  width: 20%;
+    background-color: var(--mainColor);
+    border: 4px solid #efefef;
+    border-radius: 15px;
+    /* padding: 14px 30px; */
+    color: white;
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.changeMessage{
+  font-size: 14px;
+    font-family: 'NanumSquare', sans-serif;
+   
+    padding-left: 40px;
+    font-weight: 500;
+    margin-left: 150px;
+}
+
 
 
 input{
@@ -166,6 +213,7 @@ input{
   width : 300px;
   height : 30px;
   margin-left: 20px;
+  font-size: 15px;
   
 }
 
@@ -180,7 +228,7 @@ input::placeholder {
   font-size: 14px;
 }
 
-.memberChange_title input[type="button"] {
+/* .memberChange_title input[type="button"] {
   border: none; 
 
   display: flex;
@@ -195,11 +243,10 @@ input::placeholder {
   border-radius: 50px;
   cursor: pointer;
       margin-left: 17px;
-}
+} */
 
 .memberChange_bottom{
-  margin-left: 202px;
-  margin-right: 20px;
+  margin-left: 180px;
 }
 
 
@@ -207,13 +254,15 @@ input::placeholder {
 
 .memberChange_b{
   border: none; 
-  background-color: #978AFF; 
+  background-color: var(--mainColor);
   border-radius: 10px;
   width: 100px;
   height: 35px;
 
+  font-size: 16px;
+    font-weight: 500;
   color : #FFFFFF;
-  border-radius: 50px;
+  border-radius: 15px;
   cursor: pointer;
   margin-right: 20px;
 }
@@ -262,52 +311,5 @@ input::placeholder {
     position : relative;
 }
 
-/* 프로필 이미지 */
-#profile-image{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-}
 
-/* 프로필 버튼 영역 */
-.profile-btn-area{
-    width: 230px;
-    margin: 20px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-/* 프로필 버튼 영역의 모든 자식 요소 */
-.profile-btn-area > *{
-    width: 110px;
-    height: 33px;
-
-    padding: 5px 10px;
-    border: 1px solid black;
-    background-color: white;
-    font-size: 14px;
-    cursor: pointer;
-    text-align: center;
-}
-
-/* 파일 선택 버튼 */
-#input-image{
-    display: none;
-}
-
-/* 변경하기 버튼 */
-.profile-btn-area > button{
-    background-color: #455ba8;
-    color : white;
-    border: 0;
-}
-
-/* 프로필 이미지 삭제 버튼 */
-#delete-image{
-    position : absolute;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-}
-
+  

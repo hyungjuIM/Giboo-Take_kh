@@ -23,7 +23,7 @@
 <div class="mainCategoryArea">
     <div class="mainCategoryInner">
         <a href="${pageContext.request.contextPath}/donation/home" class="mainCategoryItem mainCategoryChecked" id="home">기부 진행중</a>
-        <a href="${pageContext.request.contextPath}/donation/story" class="mainCategoryItem" id="story">기부이야기</a>
+        <a href="${pageContext.request.contextPath}/donation/storyList" class="mainCategoryItem" id="story">기부이야기</a>
     </div>
 </div>
 
@@ -91,7 +91,6 @@
                         </div>
                         <a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                            
                             <div class="mainTitle">${donationList.donationTitle}</div>
                         </a>
                         <div class="progressBar">

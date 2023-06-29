@@ -15,7 +15,7 @@ public class MyPageDAO {
 	public int memberChange(Map<String, Object> paramMap) {
 		return sqlSession.update("memberMapper.memberChange", paramMap);
 	}
-	
+	  
 	//비번변경
 	public int changePw(Map<String, Object> paramMap) {
 		return sqlSession.update("memberMapper.changePw", paramMap);

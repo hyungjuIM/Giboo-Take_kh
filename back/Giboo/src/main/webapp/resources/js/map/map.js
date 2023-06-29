@@ -97,6 +97,8 @@ function displayMarker(locPosition, message) {
     var volreviews = [];
     var volcounts = [];
     var vimgs = [];
+    var volunteernos = [];
+    var currentpages = [];
 
 
     // HTML에서 주소와 이름을 가져옵니다
@@ -134,6 +136,16 @@ function displayMarker(locPosition, message) {
         vimgs.push(vimg);
     });
 
+    $(".vUrl").each(function() {
+        var volunteerno = $(this).data("volunteerno");
+        volunteernos.push(volunteerno);
+    });
+
+    $(".vUrl").each(function() {
+        var currentpage = $(this).data("currentpage");
+        currentpages.push(currentpage);
+    });
+
 
     // 지도와 지오코더 인스턴스를 생성합니다
     // var mapContainer = document.getElementById('map');
@@ -146,7 +158,7 @@ function displayMarker(locPosition, message) {
 
     // 주소를 반복하며 마커를 생성합니다
     for (var i = 0; i < addresses.length; i++) {
-        (function(vimg, address, name, category, volreview, volcount) {
+        (function( volunteerno,currentpage, vimg, address, name, category, volreview, volcount) {
             // 주소를 지오코드하여 좌표를 얻습니다
             geocoder.addressSearch(address, function(result, status) {
                 if (status === kakao.maps.services.Status.OK) {
@@ -177,7 +189,7 @@ function displayMarker(locPosition, message) {
                     // '    <div class="mpopWrap">'+
                     // '        <div class="mpopBox">'+
                     '            <div class="mpopup">'+
-                    '                <a href="">'+
+                    '                   <a href="../map/mapHome/' + volunteerno + '?cp=' + currentpage + '">' +
                     '                    <div class="mpopImg">'+
                     '                        <img src="' + vimg  + '" alt="">'+
                     '                    </div>'+
@@ -185,7 +197,7 @@ function displayMarker(locPosition, message) {
                     '                        <div class="mpopTi">'+
                     '                                <div class="mpopTitle">'+
                     '                                    <span>' + name + '</span>'+
-                    '            </div>'+
+                    '                                </div>'+
                     '        <div class="mpopCa">'+
                     '            <span>' + category + '</span>'+
                     '        </div>'+
@@ -231,12 +243,54 @@ function displayMarker(locPosition, message) {
                             infowindow.open(map, marker);
                         }
                     });
+                                        
                     // 처음에는 팝업이 닫혀있도록 설정
                     infowindow.close();
+
+                    
                 }
             });
-        })(vimgs[i], addresses[i], names[i], categorys[i], volreviews[i], volcounts[i]);
+        })( volunteernos[i],currentpages[i], vimgs[i],  addresses[i], names[i], categorys[i], volreviews[i], volcounts[i]);
     }
+    
 });
 
 })
+
+
+
+// url 복사
+function copyToClipboard() {
+    var urlToCopy = window.location.href; // 복사할 URL
+  
+    // Clipboard API를 지원하는지 확인
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(urlToCopy)
+        .then(function() {
+          console.log('URL이 성공적으로 복사되었습니다.');
+          alert("URL이 성공적으로 복사되었습니다.")
+          // 복사 성공한 경우 추가로 처리할 작업을 여기에 작성하세요.
+        })
+        .catch(function(error) {
+          console.error('URL 복사에 실패했습니다.', error);
+          // 복사 실패한 경우 추가로 처리할 작업을 여기에 작성하세요.
+        });
+    } else {
+      // Clipboard API를 지원하지 않는 경우 대체 방법을 사용할 수 있습니다.
+      console.warn('Clipboard API가 지원되지 않습니다. 다른 방법을 사용하세요.');
+  
+      // 대체 방법으로 클립보드에 복사할 수 있도록 구현하세요.
+    }
+}
+
+
+
+
+//------------------
+// const mhBtnHe = document.getElementById("mhBtnHe");
+
+// mhBtnHe.addEventListener("click", function)
+
+
+
+

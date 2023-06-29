@@ -6,6 +6,9 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +16,12 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회원정보수정</title>
+<title>회원프로필 이미지</title>
 
 
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/mypage/memberChange.css">
+	href="${pageContext.request.contextPath}/resources/css/mypage/changeProfile.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 
@@ -37,33 +40,30 @@
 
 	<main>
 		<div class="page-title">
-			<span>회원정보수정</span>
+			<span>프로필 이미지 변경</span>
 		</div>
 
 		<div class="mypage-container">
 			<div class="mypage_wrapper">
-				<!-- 1200*800 -->
 
-				<!--왼쪽 네비바 틀-->
 				<header>
 					<jsp:include page="/WEB-INF/views/mypage/mypage_side.jsp" />
 				</header>
 
-				<!--오른쪽 회원정보수정 본문-->
 
-				<section class="memberChange_mainContainer">
 
-					<div class="memberChange_mainContent">
+				<div class="myask_content_area">
+					<section class="mainContainer">
+						<div class="mainContent">
+							<section class="notice">
 
-						<!-- notice seach area -->
-						<div class="memberChange_notice">
-							<div class="memberChange_container1">
-								<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-									style="color: #8071FC;"> 프로필 이미지 수정</span><span
-									style="color: #767676;">에 대해 알려드립니다 😇</span>
-							</div>
-						</div>
+								<div class="notice1">
+									<div class="container1">
+										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
+											style="color: #8071FC;"> 프로필 이미지 변경</span><span
+											style="color: #767676;">에 대해 알려드립니다 😇</span>
 
+						<div class="memberChange_Con">			
 						<form action="changeProfile" method="POST" name="myPage-form"
 							enctype="multipart/form-data" onsubmit="return profileValidate()">
 
@@ -71,7 +71,7 @@
 							<div class="profile-image-area">
 
 								<c:if test="${empty loginMember.profileImg}">
-									<img src="${contextPath}/resources/images/user.png"
+									<img src="${contextPath}/resources/images/11 3.png"
 										id="profile-image">
 								</c:if>
 
@@ -87,32 +87,38 @@
 
 
 							<div class="profile-btn-area">
-								<label for="input-image">이미지 선택</label> <input type="file"
-									name="uploadImg" id="input-image" accept="image/*">
+								<label for="input-image">이미지 선택</label> 
+								<input type="file" name="uploadImg" id="input-image" accept="image/*">
 
 								<button type="submit">변경하기</button>
 							</div>
 
-							<div class="memberChange_bottom">
-								<button class="memberChange_b">수정완료</button>
-								<button class="memberChange_b">이전으로</button>
+								
 
 							</div>
+							
+							<div class="myPage-row">
+                        <label>가입일</label>
+                        <span>${loginMember.enrollDt}</span>
+                    </div>
 
 							<!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
 							<!-- 0 : 안눌러짐   /   1: 눌러짐 -->
 							<input type="hidden" name="delete" id="delete" value="0">
 						</form>
-					</div>
-				</section>
+								</div>			
+										
+										
+										</div>
+									</div>
+							</section>
+						</div>
+					</section>
+				</div>
+
+
 			</div>
-
-
-
 		</div>
-
-
-
 	</main>
 
 
@@ -120,28 +126,14 @@
 	<footer>
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</footer>
-
-	<%-- 다음 주소 API --%>
-	<div id="layer"
-		style="display: none; position: fixed; overflow: hidden; z-index: 11; -webkit-overflow-scrolling: touch;">
-		<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
-			id="btnCloseLayer"
-			style="cursor: pointer; position: absolute; right: -3px; top: -3px; z-index: 1"
-			onclick="closeDaumPostcode()" alt="닫기 버튼">
-	</div>
-
-	<script
-		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
-	<script>
-		const contextPath = "${contextPath}"; // 최상위 경로를 JS 전역변수로 선언
-	</script>
-
-	<script
+	
+		<script>
+  const contextPath = "${pageContext.request.contextPath}";
+</script>
+		
+	
+		<script
 		src="${pageContext.request.contextPath}/resources/js/mypage/memberChange.js"></script>
-
-
-
 
 
 </body>

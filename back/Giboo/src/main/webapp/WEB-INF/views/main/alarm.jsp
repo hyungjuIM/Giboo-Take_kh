@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,7 +52,7 @@
                 
 			
 				<div class="alert_titleContainer">
-
+					<div class="alarmCategory">기부or봉사</div>
 					<div class="alarmContent" id="alarmContent"></div>
 
 					<div class="alarmDate"></div>
