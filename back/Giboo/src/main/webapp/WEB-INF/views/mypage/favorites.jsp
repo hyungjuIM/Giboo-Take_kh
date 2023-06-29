@@ -86,40 +86,51 @@
 								</div>
 								<div class="updateDate">2023.05.30</div>
 							</div>
-
+							<div class="titleWrap">
 							<!-- 제목, 작성자, 달성률, 총기부금액 -->
-							<div class="titleContainer">
-								<div class="favTitle">강릉 산불 피해 주민분들을 위한 모금</div>
-								<div class="favWriter">밀알 복지 재단</div>
-								<div class="achieveFav">달성률 60% | 총 기부 금액 1,358,000원</div>
-							</div>
-						</div>
+							<c:choose>
+							    <c:when test="${empty favoritesList}">
+							        <p>즐겨 찾는 플렛폼이 없습니다.</p>
+							    </c:when>
+							    <c:otherwise>
+
+							        <c:forEach var="favorite" items="${favoritesList}">
+							            <!-- Use the 'favorite' object to display each favorite. For example: -->
+							            
+										<div class="titleContainer">
+							                <div class="favTitle">${favorite.mainTitle}</div>
+							               
+							            </div>
+							        </c:forEach>
+							    </c:otherwise>
+							</c:choose>
 
 						<div class="favmarkContainer">
 							<div class="favMark">
 								<i class="fa-regular fa-heart heartIcon"></i>
 							</div>
-
 						</div>
+					</div>
+				</div>
 
 
 					</div>
 					<!-- 즐겨찾기 카드부분 -->
-					<div class="myfavcard_contaner">
-						<!-- 이모티콘 -->
+					<!-- <div class="myfavcard_contaner">
+						이모티콘
 						<div class="categoryImgContainer">
 							<div class="categoryImg">
 								<i class="fa-solid fa-person-cane"></i>
 							</div>
-							<!-- 점선 -->
+							점선
 							<div class="hrpart">
 								<div class="hrpart2"></div>
 							</div>
-						</div>
+						</div> -->
 
 						<!-- 메인내용 -->
-						<div class="favMaincontainer">
-							<!-- 카테고리, 마감일, 메인 -->
+				  		 <!-- <div class="favMaincontainer">
+							카테고리, 마감일, 메인
 							<div class="categoryUpdateContainer">
 								<div class="detailCategory">
 									<div style="color: #8071fc;">기부</div>
@@ -128,21 +139,21 @@
 								<div class="updateDate">2023.05.30</div>
 							</div>
 
-							<!-- 제목, 작성자, 달성률, 총기부금액 -->
+							제목, 작성자, 달성률, 총기부금액
 							<div class="titleContainer">
 								<div class="favTitle">강릉 산불 피해 주민분들을 위한 모금</div>
 								<div class="favWriter">밀알 복지 재단</div>
 								<div class="achieveFav">달성률 60% | 총 기부 금액 1,358,000원</div>
 							</div>
-						</div>
+						</div> 
 
-						<!-- 하트모양 -->
+						하트모양
 						<div class="favmarkContainer">
 							<div class="favMark">
 								<i class="fa-regular fa-heart heartIcon"></i>
 							</div>
 
-						</div>
+						</div> -->
 
 
 					</div>

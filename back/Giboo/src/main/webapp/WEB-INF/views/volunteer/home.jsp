@@ -86,12 +86,12 @@
                         <div class="buttonSection">
                             <a href="" class="button">🍀 봉사하기
                                 <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                            <div class="favoriteButton">💖</div>
+                            <div class="favoriteButton" onclick="addFavorite('${donationList.donationTitle}')">🤍</div>
                         </div>
 
                         <a href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                            <div class="subTitle">타이틀</div>
+                            
                             <div class="mainTitle">${volunteerList.volunteerTitle}</div>
                         </a>
                         <div class="progressBar">
@@ -117,6 +117,7 @@
                 <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
                 <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
                 <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+                
                     <c:choose>
                         <c:when test="${i == pagination.currentPage}">
                             <li><a class="current">${i}</a></li>
@@ -126,6 +127,7 @@
                             <li><a href="${url}${i}${sURL}">${i}</a></li>
                         </c:otherwise>
                     </c:choose>
+                    
                 </c:forEach>
                 <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
                 <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>

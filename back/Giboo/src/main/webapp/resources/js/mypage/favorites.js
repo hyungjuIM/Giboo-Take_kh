@@ -16,3 +16,17 @@ for (let i = 0; i < heartIcons.length; i++) {
       }
     });
   }      
+  
+  
+  function addFavorite(mainTitle) {
+    $.ajax({
+        url: '/addFavorite',
+        type: 'POST',
+        data: {
+            mainTitle: mainTitle
+        },
+        success: function() {
+            alert('즐겨찾기에 추가되었습니다!');
+        }
+    });
+}
