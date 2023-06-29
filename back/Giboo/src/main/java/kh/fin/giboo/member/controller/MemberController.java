@@ -26,7 +26,7 @@ import kh.fin.giboo.member.model.service.KakaoLoginService;
 import kh.fin.giboo.member.model.service.MemberService;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
-
+  
 @Controller
 @RequestMapping("/main")
 @SessionAttributes({ "loginMember" })

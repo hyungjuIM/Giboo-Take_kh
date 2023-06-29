@@ -4,6 +4,8 @@
         <!DOCTYPE html>
         <html lang="en">
 
+
+        
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +31,20 @@
 
                         <form action="signUp" method="POST" id="signUpForm" onsubmit="return signUpValidate()"
                             autocomplete="off">
+							
+							<%-- memberType(사용자Y, 운영자N) --%>
+							<div class="signUpInput_Container_box">
 
+                                <div class="signUpName signUpInput_Container ">
+                                    <span><i class="fa-regular fa-user"></i></span>
+                                    <input class="memberTy" type="radio" name="radioType" value="user" checked> 사용자
+									<input class="memberTy" type="radio" name="radioType" value="admin"> 운영자
+                                    
+                                </div>
+
+                            </div>
+							
+							
                             <!-- 이름 -->
                             <div class="signUpInput_Container_box">
 

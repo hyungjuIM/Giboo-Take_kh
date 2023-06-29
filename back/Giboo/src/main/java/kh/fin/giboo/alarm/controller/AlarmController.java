@@ -24,7 +24,7 @@ import kh.fin.giboo.alarm.model.service.AlarmService;
 import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.mypage.model.vo.MyActiveDonationList;
-
+ 
 
 @Controller
 @SessionAttributes({ "loginMember" })

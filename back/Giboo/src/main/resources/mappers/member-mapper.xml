@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="memberMapper">
-
+   
 	<!-- 결과 매핑 -->
 	<resultMap type="member" id="member_rm">
 		<id property="memberNo" column="MEMBER_NO" />
@@ -142,7 +142,7 @@
 		#{memberNick},
 		#{memberTel},
 		#{memberAddr},
-		DEFAULT, DEFAULT, NULL, 'Y', NULL, NULL,NULL,DEFAULT
+		DEFAULT, DEFAULT, NULL, 'Y', 1, NULL,NULL,DEFAULT
 		)
 	</insert>
 
