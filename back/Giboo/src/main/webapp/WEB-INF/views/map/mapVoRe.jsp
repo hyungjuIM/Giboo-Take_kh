@@ -18,7 +18,7 @@
 <body>
 
     <header>
-        <div data-include1="header" id="header"></div>
+        <jsp:include page="/WEB-INF/views/main/header.jsp" />
     </header>
 
 <div class="map_wrap">
@@ -121,6 +121,10 @@
 </div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a57d546fefaefbc7ac5bde8a6eb90ec&libraries=services"></script>
-<script src="/JS/map.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="${pageContext.request.contextPath}/resources/js/map/map.js"></script>
 </body>
 </html>
