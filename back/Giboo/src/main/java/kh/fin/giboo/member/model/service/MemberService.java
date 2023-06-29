@@ -22,3 +22,4 @@ public interface MemberService {
 	public abstract int signUp(Member inputMember);
 
 }
+  

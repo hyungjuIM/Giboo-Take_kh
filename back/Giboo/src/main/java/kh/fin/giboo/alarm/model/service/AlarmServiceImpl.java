@@ -19,7 +19,7 @@ public class AlarmServiceImpl implements AlarmService {
 
 	@Autowired
 	private AlarmDAO dao;
-
+  
 
 
 	@Override
@@ -31,7 +31,7 @@ public class AlarmServiceImpl implements AlarmService {
 	}
 
 	@Override
-	public int updateReadStatus(double alarmNo, String readStatus) {
+	public int updateReadStatus(int alarmNo, String readStatus) {
 		return dao.updateReadStatus(alarmNo, readStatus);
 		 
 	}

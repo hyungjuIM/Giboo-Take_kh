@@ -1,6 +1,7 @@
 package kh.fin.giboo.donation.model.service;
 
 import kh.fin.giboo.donation.model.vo.DonationDetail;
+import kh.fin.giboo.donation.model.vo.DonationStory;
 import org.springframework.ui.Model;
 
 import java.util.Map;
@@ -12,4 +13,10 @@ public interface DonationService {
     DonationDetail getDonationDetail(int donationNo);
 
     int sync(Map<String, Object> map);
+
+    Map<String, Object> getStoryList(int cp, Model model);
+
+    DonationStory selectDonationStory(int donationStoryNo);
+
+    int updateViewCount(int donationStoryNo);
 }

@@ -23,7 +23,7 @@
 <div class="mainCategoryArea">
     <div class="mainCategoryInner">
         <a href="${pageContext.request.contextPath}/volunteer/home" class="mainCategoryItem mainCategoryChecked" id="home">봉사 진행중</a>
-        <a href="${pageContext.request.contextPath}/volunteer/story" class="mainCategoryItem" id="story">봉사이야기</a>
+        <a href="${pageContext.request.contextPath}/volunteer/storyList" class="mainCategoryItem" id="story">봉사이야기</a>
     </div>
 </div>
 
@@ -91,7 +91,7 @@
 
                         <a href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-                            
+
                             <div class="mainTitle">${volunteerList.volunteerTitle}</div>
                         </a>
                         <div class="progressBar">

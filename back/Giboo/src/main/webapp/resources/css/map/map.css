@@ -2,28 +2,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
+
+
 .option{
     width: 358px;
     height:42px;
+    display: flex;
     /* background-color: yellowgreen; */
 }
 
-.MsearchBar > form{
-    /* background-color: wheat; */
-    /* padding-left: 22px; */
-    white-space: nowrap;
+
+
+#mapSearch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellowgreen;
 }
 
-.MsearchBar > form > input {
-    border: 1px solid #8071FC;
-    width: 358px;
+#search-key{
+    /* position: absolute; */
+}
+
+
+#searchArea {
+    border: 1px solid #686868;
+    width: 300px;
     height: 42px;
     border-radius: 10px;
     color: #000; 
     border-radius: 100px;
     margin-top: 17px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     padding-left: 50px;
+    position: relative;
 }
 
 .MsearchBar > form > input::placeholder{
@@ -31,7 +43,6 @@
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    padding-left: 44px;
 }
 
 .MsearchBtn{
@@ -78,7 +89,7 @@
 
 #menu_wrap::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
-    background: #d4cfff; /* 스크롤바의 색상 */
+    background: #686868; /* 스크롤바의 색상 */
     
     border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -101,11 +112,12 @@
     text-decoration: none;
 }
 
-.map_wrap {
+#map_wrap {
     position:relative;
     width:100%;
     height:100vh; 
     overflow: hidden;
+    /* margin-top: 50px; */
 }
 
 #menu_wrap {
@@ -113,7 +125,7 @@
     top:0;
     left:0;
     bottom:0;
-    width:390px;
+    width:450px;
     height: 867px;
 
     overflow-y: scroll;
@@ -130,15 +142,22 @@
 }
 
 
+
 .mlistbox{
     display: flex;
     margin-top: 95px;
     margin-left: 12px;
+    justify-content: center;
 
 }
 
 .mlistUl{
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .mlistTi{
@@ -186,6 +205,10 @@
     height: 180px;
     border-radius: 12px;
     overflow: hidden;
+}
+
+.mlistLi{
+    margin-bottom: 20px;
 }
 
 .mlistName{
@@ -438,3 +461,18 @@
 
 
 
+.pagination-area{
+    width: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination{
+    /* background-color: yellowgreen; */
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: space-between;
+}

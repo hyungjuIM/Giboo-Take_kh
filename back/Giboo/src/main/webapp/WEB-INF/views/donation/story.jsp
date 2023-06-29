@@ -17,14 +17,14 @@
 
 <div class="mainCategoryArea">
     <div class="mainCategoryInner">
-        <a href="${pageContext.request.contextPath}/donation/home" class="mainCategoryItem mainCategoryChecked" id="home">기부 진행중</a>
-        <a href="${pageContext.request.contextPath}/donation/story" class="mainCategoryItem" id="story">기부이야기</a>
+        <a href="${pageContext.request.contextPath}/donation/home" class="mainCategoryItem " id="home">기부 진행중</a>
+        <a href="${pageContext.request.contextPath}/donation/storyList" class="mainCategoryItem mainCategoryChecked" id="story">기부이야기</a>
     </div>
 </div>
 
 <section class="mainContainer">
     <div class="mainContent">
-        <div class="storyTitle">Story Title</div>
+        <div class="storyTitle">${story.donationStoryTitle}</div>
 
         <div class="categoryArea">
             <span class="type">기부</span>
@@ -33,13 +33,14 @@
         </div>
 
         <div class="infoArea">
-            <span class="writerArea">작성자 : <span class="writerName">김김김</span></span>
-            <span class="enrollDate">2023. 01. 01</span>
+            <span class="writerArea">작성자 : <span class="writerName">${story.memberNick}</span></span>
+            <span class="enrollDate">${story.enrollDt}</span>
         </div>
 
         <div class="contentArea">
             <img class="contentImg" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
             <div class="content">
+                ${story.donationStoryContent}
                 <h4>What is Lorem Ipsum?</h4><br>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>

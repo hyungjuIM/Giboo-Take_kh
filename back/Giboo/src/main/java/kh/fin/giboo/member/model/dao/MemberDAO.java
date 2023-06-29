@@ -14,7 +14,7 @@ import kh.fin.giboo.member.model.vo.Member;
 
 @Repository
 public class MemberDAO {
-	
+	  
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	

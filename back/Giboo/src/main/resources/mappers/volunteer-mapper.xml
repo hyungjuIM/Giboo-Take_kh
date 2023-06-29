@@ -57,6 +57,17 @@
         <result property="categoryName" column="CATEGORY_NAME" />
     </resultMap>
 
+    <resultMap id="volunteerStory_rm" type="volunteerStory" >
+        <id property="volunteerStoryNo" column="VOLUNTEER_STORY_NO" />
+        <result property="volunteerStoryTitle" column="VOLUNTEER_STORY_TITLE" />
+        <result property="volunteerStoryContent" column="VOLUNTEER_STORY_CONTENT" />
+        <result property="attachment" column="ATTACHMENT" />
+        <result property="enrollDt" column="ENROLL_DT" />
+        <result property="viewCount" column="VIEW_COUNT" />
+        <result property="deleteStatus" column="DELETE_STATUS" />
+        <result property="memberNick" column="MEMBER_NICK" />
+    </resultMap>
+
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
         FROM PARENT_CATEGORY
@@ -67,16 +78,18 @@
     <select id="getListCount" resultType="_int">
         SELECT COUNT(*)
         FROM VOLUNTEER
+        WHERE VOLUNTEER_DELETE_STATUS = 'N'
         <if test="category != null">
-            WHERE PARENT_CATEGORY_NO = ${category}
+            AND PARENT_CATEGORY_NO = ${category}
         </if>
     </select>
 
     <select id="getVolunteerList" resultMap="volunteer_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, PC.PARENT_CATEGORY_NAME
         FROM VOLUNTEER V, PARENT_CATEGORY PC
+        WHERE VOLUNTEER_DELETE_STATUS = 'N'
         <if test="category != null">
-            WHERE V.PARENT_CATEGORY_NO = ${category}
+            AND V.PARENT_CATEGORY_NO = ${category}
             AND V.PARENT_CATEGORY_NO = PC.PARENT_CATEGORY_NO
         </if>
         ORDER BY VOLUNTEER_NO ASC
@@ -85,6 +98,7 @@
     <select id="getVolunteerListAll" resultMap="volunteer_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
         FROM VOLUNTEER
+        WHERE VOLUNTEER_DELETE_STATUS = 'N'
         ORDER BY VOLUNTEER_NO ASC
     </select>
 
@@ -92,14 +106,35 @@
         SELECT VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME
         FROM VOLUNTEER V, AGENCY A
         WHERE VOLUNTEER_NO = ${volunteerNo}
+          AND VOLUNTEER_DELETE_STATUS = 'N'
         AND V.AGENCY_NO = A.AGENCY_NO
     </select>
 
     <select id="volunteerListCount" resultType="_int">
         SELECT COUNT(*)
         FROM VOLUNTEER
+        WHERE VOLUNTEER_DELETE_STATUS = 'N'
         <if test="category != null">
-            WHERE PARENT_CATEGORY_NO = ${category}
+            AND PARENT_CATEGORY_NO = ${category}
         </if>
+    </select>
+
+    <select id="getStoryListCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM VOLUNTEER_STORY
+        WHERE DELETE_STATUS = 'N'
+    </select>
+
+    <select id="getStoryList" resultMap="volunteerStory_rm">
+        SELECT VOLUNTEER_STORY_NO, VOLUNTEER_STORY_TITLE, VOLUNTEER_STORY_CONTENT, M.MEMBER_NICK, VIEW_COUNT,
+        CASE WHEN SYSDATE - VS.ENROLL_DT &lt; 1
+        THEN TO_CHAR(VS.ENROLL_DT, 'YYYY-MM-DD')
+        ELSE TO_CHAR(VS.ENROLL_DT, 'HH:MI')
+        END ENROLL_DT
+
+        FROM VOLUNTEER_STORY VS, MEMBER M
+        WHERE M.MEMBER_NO = VS.MEMBER_NO
+        AND DELETE_STATUS = 'N'
+        ORDER BY VOLUNTEER_STORY_NO DESC
     </select>
 </mapper>

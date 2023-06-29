@@ -24,7 +24,7 @@ import kh.fin.giboo.alarm.model.service.AlarmService;
 import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.mypage.model.vo.MyActiveDonationList;
-
+ 
 
 @Controller
 @SessionAttributes({ "loginMember" })
@@ -82,7 +82,7 @@ public class AlarmController {
 
     		@RequestBody Map<String, Object> data,
     		HttpSession session) {
-    	  double alarmNo = (double) data.get("alarmNo");
+    	  int alarmNo = (int) data.get("alarmNo");
     	  String readStatus = (String) data.get("readStatus");
 
 	      int result =  service.updateReadStatus(alarmNo, readStatus);

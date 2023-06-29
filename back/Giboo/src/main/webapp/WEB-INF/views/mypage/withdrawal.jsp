@@ -4,6 +4,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -61,9 +63,9 @@
 									</div>
 
 
-									<form action="withdrawal" method="POST" name="myPage-form" onsubmit="return secessionValidate()" >
+									<form action="withdrawal" method="POST" name="myPage-form" onsubmit="return secessionValidate()"  >
 
-									<div class="withdrawal_container">
+									 <div class="withdrawal_container">
 										<div class="withdrawal_title1">회원탈퇴</div>
 										<div class="withdrawal_content1">
 											Giboo&take 를 아끼고 사랑해주신신 시간에 감사드립니다.<br> 기부자(봉사자)님이 느끼셨을
@@ -114,13 +116,11 @@
 													style="color: #8071FC">탈퇴시점 후로부터 30일 이내 재가입이 불가합니다.</span>
 											</div>
 											<div class="withdrawal_content4">
-												<button class="withdrawal_content4_button" id="back">이전으로</button>
-												<button class="withdrawal_content4_button" id="withdrawal">회원탈퇴</button>
+												<a  class="withdrawal_content4_button" id="back">이전으로</a>
+												<a  class="withdrawal_content4_button" id="withdrawal" onclick="showWithdrawalPopup()">회원탈퇴</a>
 
 											</div>
 										</div>
-										</form>
-
 										<div class="popup_wrap">
 
 											<div class="popup-cont01">
@@ -133,8 +133,8 @@
 												</div>
 												<hr>
 												<div class="popup_cont02">
-													<button id="popup_close">취소</button>
-													<button id="popup_withdrawal">
+													<a id="popup_close" onclick="closeWithdrawalPopup()" >취소</a>
+													<button type="submit" id="popup_withdrawal" >
 														회원탈퇴
 													</button>
 												</div>
@@ -145,6 +145,9 @@
 										</div>
 
 										<div class="mask"></div>
+										</form>
+									
+
 									</div>
 								
 

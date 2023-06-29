@@ -9,6 +9,10 @@
 }
 
 
+
+
+
+
 body {
     margin: 0;
     background-color: white;
@@ -32,7 +36,7 @@ body {
     width: 360px;
     height: 791px;
     
-    margin-top: 20px;
+    margin-top: 5px;
 
     position: absolute;
 	background: #f6f6f6;
@@ -67,7 +71,7 @@ body {
     margin: 15px;
 
     width: 327px;
-    height: 151px;
+    height: 120px;
 
     background-color: #FFFFFF;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
@@ -158,12 +162,14 @@ body {
 }
 
 .alert_titleContainerA {
-    margin-top: 20px;
+    align-items: center;
+    display: flex;
 }
 
 .alert_titleContainer {
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
 }
 
 .alertTitle {
@@ -201,8 +207,8 @@ body {
 .smallC_Container {
     display: flex;
     flex-direction: row;
-    margin-top: 19px;
-    margin-left: 5px;
+    margin-top: 44px;
+    margin-left: 20px;
     width: 10px;
     height: 10px;
 }
@@ -214,12 +220,12 @@ body {
     border-radius: 100px;
     width: 10px;
     height: 10px;
-    /* border: 1px solid #6c5fd5;
-    background-color: #6c5fd5; */
+    border: 1px solid #00CA61;
+    background-color: #00CA61;
 }
 .smallC.unread{
-     border: 1px solid #6c5fd5;
-    background-color: #6c5fd5;
+     border: 1px solid #00CA61;
+    background-color: #00CA61;
 }
 .smallC.read{
      border: 1px solid silver;
@@ -269,46 +275,10 @@ body {
     text-decoration: none;
 }
 
-/* 더보기 탭  */
 
-.alert_addTab {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 115px;
-
-    margin: 15px;
-
-
-    width: 328px;
-    height: 33px;
-
-    background: #8071FC;
-    border-radius: 500px;
-
-    cursor:pointer;
-}
-
-.alert_addTab_text {
-
-    font-family: 'Noto Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 25px;
-
-    letter-spacing: -0.05em;
-
-    color: #FFFFFF;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .alarmContent{
     cursor: pointer;
+    font-size: 16px;
 }
 
 .alarmContent a {
@@ -316,11 +286,10 @@ body {
   text-decoration: none;
 }
 
-
-
-
-
-
+.alarmDate{
+    font-size: 14px;
+    margin-top: 10px;
+}
 
 
 
