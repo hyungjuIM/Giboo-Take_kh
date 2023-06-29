@@ -5,6 +5,7 @@ import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.volunteer.model.dao.VolunteerDAO;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
+import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,5 +79,19 @@ public class VolunteerServiceImpl implements VolunteerService {
     @Override
     public VolunteerDetail getVolunteerDetail(int volunteerNo) {
         return dao.getVolunteerDetail(volunteerNo);
+    }
+
+    @Override
+    public Map<String, Object> getStoryList(int cp, Model model) {
+        int listCount = dao.getStoryListCount();
+        Pagination pagination = new Pagination(cp, listCount);
+
+        List<VolunteerStory> storyList = dao.getStoryList(pagination, model);
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("pagination", pagination);
+        map.put("storyList", storyList);
+
+        return map;
     }
 }

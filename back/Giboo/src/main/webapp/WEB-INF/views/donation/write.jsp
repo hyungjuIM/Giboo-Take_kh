@@ -25,7 +25,7 @@
 </header>
 
 <div class="mainTitleArea">
-    <div class="mainTitle">봉사등록</div>
+    <div class="mainTitle">기부등록</div>
 </div>
 
 <section class="mainContainer">
