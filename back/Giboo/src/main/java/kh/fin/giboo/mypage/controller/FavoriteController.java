@@ -15,7 +15,8 @@
 //
 //import kh.fin.giboo.member.model.vo.Member;
 //import kh.fin.giboo.mypage.model.vo.Favorite;
-//
+
+// 즐겨찾기 컨트롤러
 //@Controller
 //@RequestMapping("/mypage")
 //@SessionAttributes({ "loginMember" })
