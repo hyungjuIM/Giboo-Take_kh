@@ -162,40 +162,46 @@ public class NoticeController {
 		return "notice/noticeWrite";
 	}
 	
+	
+	
 	// 썸머노트 이미지 저장
-	@PostMapping("/uploadSNoticeImageFile")
-	@ResponseBody
-	public String uploadSNoticeImageFile(@RequestParam("file") MultipartFile[] multipartFiles, HttpServletRequest request) {
-        JsonArray jsonArray = new JsonArray(); 
+	// 공지사항 등록용 이미지 업로드
+	   @PostMapping("/uploadSNoticeImageFile")
+	   @ResponseBody
+	   public String noticeUploadImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
+	      JsonObject jsonObject = new JsonObject();
 
-        String webPath = "/resources/images/notice/";
-        String fileRoot = request.getServletContext().getRealPath(webPath);
+	      // String fileRoot = "C:\\Users\\cropr\\Desktop\\test"; // 외부경로로 저장을 희망할때.
 
-        for (MultipartFile multipartFile : multipartFiles) {
-            JsonObject jsonObject = new JsonObject();
+	      // 내부경로로 저장
+	      String webPath = "/resources/images/fileupload/";
 
-            String originalFileName = multipartFile.getOriginalFilename();
-            String savedFileName = Util.fileRename(originalFileName);
+	      String fileRoot = request.getServletContext().getRealPath(webPath);
 
-            File targetFile = new File(fileRoot + savedFileName);
-            try {
-                InputStream fileStream = multipartFile.getInputStream();
-                FileUtils.copyInputStreamToFile(fileStream, targetFile);
-                jsonObject.addProperty("", request.getContextPath() + webPath + savedFileName);
+	      String originalFileName = multipartFile.getOriginalFilename();
+	      // String extension =
+	      // originalFileName.substring(originalFileName.lastIndexOf("."));
+	      String savedFileName = Util.fileRename(originalFileName);
 
-            } catch (IOException e) {
-                FileUtils.deleteQuietly(targetFile);
-                jsonObject.addProperty("responseCode", "error");
-                e.printStackTrace();
-            }
+	      File targetFile = new File(fileRoot + savedFileName);
+	      try {
+	         InputStream fileStream = multipartFile.getInputStream();
+	         FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
+	         jsonObject.addProperty("url", request.getContextPath() + webPath + savedFileName); // contextroot +
+	                                                                        // resources + 저장할 내부
+	                                                                        // 폴더명
+	         jsonObject.addProperty("responseCode", "success");
 
-            jsonArray.add(jsonObject);
-        }
+	      } catch (IOException e) {
+	         FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
+	         jsonObject.addProperty("responseCode", "error");
+	         e.printStackTrace();
+	      }
+	      String result = jsonObject.toString();
+	      System.out.println("================================================= 이미지 는?? : : " + result);
+	      return result;
 
-        String jsonResult = jsonArray.toString();
-        System.out.println("이미지: " + jsonResult);
-        return jsonResult;
-    }
+	   }
 
 	
 }
