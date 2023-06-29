@@ -180,13 +180,7 @@
       WHERE MEMBER_NO = #{memberNo}
    </update>
 
-	<!-- 회원 탈퇴 -->
-	<update id="withdrawal">
-		UPDATE MEMBER SET
-		SECESSION_FL = 'Y'
-		WHERE MEMBER_NO =
-		#{memberNo}
-	</update>
+	
 
 	<select id="kakao" parameterType="java.util.HashMap"
 		resultMap="member_rm">
@@ -200,7 +194,7 @@
 	<insert id="kakaoinsert" parameterType="java.util.HashMap">
 		INSERT INTO MEMBER VALUES(
 		SEQ_MEMBER_NO.NEXTVAL,
-		NULL,
+		NULL,   
 		NULL,
 		#{memberEmail},
 		NULL,

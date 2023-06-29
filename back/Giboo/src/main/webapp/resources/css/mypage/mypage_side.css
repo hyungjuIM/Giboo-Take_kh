@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
 
@@ -8,8 +8,7 @@
     box-sizing: border-box;
     padding : 0px;
     margin : 0px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'NanumSquareNeo';
 }
 
 
@@ -114,25 +113,25 @@ display: block;
 
 
 /*왼쪽 네비바 고마운분 */
-.mypage_hiuser{
+/* .mypage_hiuser{
   margin: 10px;
   margin-top: 0;
   display: flex;
   justify-content: center;
-  /*font */
+  font
   font-size: 18px;
   font-weight: 400;
   color: #BDBDBD;
   font-family: 'Noto Sans KR', sans-serif;
   text-align: center;
-}
+} */
 
 /*가명: 000 님, 안녕하세요*/
 .userName {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NanumSquareNeo';
 
   display: flex;
   justify-content: center;

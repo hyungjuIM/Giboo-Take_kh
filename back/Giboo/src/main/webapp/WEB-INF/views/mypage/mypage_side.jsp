@@ -63,8 +63,8 @@
 							
 							</div>
 						</div>
-						<div class="mypage_hiuser">고마운분</div>
-						<div class="userName">${loginMember.memberNick}님, 안녕하세요🥳</div>
+						<!-- <div class="mypage_hiuser">고마운분</div> -->
+						<div class="userName">${loginMember.memberNick}님, <br> 안녕하세요🥳</div>
 
 						<div class="rateName">${loginMember.memberNick}님 등급  
 							<span>${loginMember.rateName}🥳</span> </div> 	
