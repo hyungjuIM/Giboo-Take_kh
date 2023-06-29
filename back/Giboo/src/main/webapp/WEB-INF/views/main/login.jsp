@@ -88,7 +88,7 @@
 					<span>3초만에 시작하기</span> <a href="" class="loginKakaoLink">
 						<div class="social_icon_Container">
 							<a class="loginKakao icon_Style"
-								href="https://kauth.kakao.com/oauth/authorize?client_id=ca354a1ec30c6c06ea4746d8610afdf8&redirect_uri=http://localhost:8080/giboo_war/oauth/kakao&response_type=code">
+								href="https://kauth.kakao.com/oauth/authorize?client_id=ca354a1ec30c6c06ea4746d8610afdf8&redirect_uri=http://localhost:8080/Giboo/oauth/kakao&response_type=code">
 								<img
 								src="${pageContext.request.contextPath}/resources/images/kakao_icon.png"
 								class="kakaoIcon01" alt=""> <img
