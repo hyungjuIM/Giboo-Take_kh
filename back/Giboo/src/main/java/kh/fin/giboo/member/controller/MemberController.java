@@ -63,7 +63,7 @@ public class MemberController {
 		Member loginMember = service.loginMember(inputMember);
 		if(loginMember != null) { //로그인 성공 
 			model.addAttribute("loginMember", loginMember);
-			
+			System.out.println(loginMember);
 			logger.info("로그인 기능 수행됨");
 	} else {
 		logger.info("로그인 실패.");

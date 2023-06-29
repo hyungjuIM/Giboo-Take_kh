@@ -77,6 +77,35 @@
 
         $('#summernote').summernote(setting);
         });
+        const jsonArray = [];
+        function uploadSummernoteImageFile(file, el) {
+          data = new FormData();
+          data.append("file", file);
+          $.ajax({
+            
+            url : "uploadSNoticeImageFile",
+            type: "POST",
+            enctype: 'multipart/form-data',
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+              console.log("성공이여")
+                var json = JSON.parse(data);
+                $(el).summernote('editor.insertImage', json["url"]);
+                jsonArray.push(json["url"]);
+                jsonFn(jsonArray);
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    }
+
+    function jsonFn(jsonArray) {
+        console.log(jsonArray);
+    }
 
 
 
@@ -126,7 +155,7 @@
 //     //     var data = new FormData();
 //     //     data.append("file", file);
 //     //     $.ajax({
-//     //         url: 'event_add/uploadImageFile',
+//     //         url: 'uploadSNoticeImageFile',
 //     //         type: "POST",
 //     //         enctype: 'multipart/form-data',
 //     //         data: data,
