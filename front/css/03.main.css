@@ -255,6 +255,7 @@ section:nth-child(odd){
     background-color: #fff;
     padding: 30px 60px;
     border-radius: 20px;
+    width: 405px;
 }
 
 .count_box2 div h3{
