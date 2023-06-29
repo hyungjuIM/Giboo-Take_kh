@@ -181,7 +181,6 @@
    </update>
 
 
-
 	<select id="kakao" parameterType="java.util.HashMap"
 		resultMap="member_rm">
 

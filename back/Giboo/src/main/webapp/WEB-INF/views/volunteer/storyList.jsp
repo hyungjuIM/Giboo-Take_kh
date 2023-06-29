@@ -2,7 +2,7 @@
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <c:set var="pagination" value="${map.pagination}" />
-    <c:set var="noticeList" value="${map.noticeList}" />
+    <c:set var="storyList" value="${map.storyList}" />
 
     <!DOCTYPE html>
     <html lang="en">
@@ -78,21 +78,21 @@
                     <tbody>
 
                       <c:choose>
-                        <c:when test="${empty noticeList}">
+                        <c:when test="${empty storyList}">
                           <tr>
                             <td colspan="5">게시글이 존재하지 않습니다.</td>
                           </tr>
                         </c:when>
                         <c:otherwise>
-                          <c:forEach var="notice" items="${noticeList}">
+                          <c:forEach var="story" items="${storyList}">
                             <tr>
-                              <td>${notice.noticeNo}</td>
+                              <td>${story.volunteerStoryNo}</td>
                               <td><a
-                                  href="../notice/noticeDetail/${notice.noticeNo}?cp=${pagination.currentPage}${sURL}">${notice.noticeTitle}</a>
+                                  href="../notice/noticeDetail/${story.volunteerStoryNo}?cp=${pagination.currentPage}${sURL}">${story.volunteerStoryTitle}</a>
                               </td>
-                              <td>${notice.enrollDt}</td>
-                              <td>${notice.mgrNickname}</td>
-                              <td>${notice.viewCount}</td>
+                              <td>${story.enrollDt}</td>
+                              <td>${story.memberNick}</td>
+                              <td>${story.viewCount}</td>
                             </tr>
 
                           </c:forEach>
@@ -132,7 +132,7 @@
                   </nav>
                  
                   <div class="writeBtn-container">
-                    <c:if test="${!empty loginManager}">
+                    <c:if test="${!empty loginMember}">
                     <button class="writeBtn"
                       onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite?mode=insert&cp=${pagination.currentPage}'"><i
                         class="fa-solid fa-pen"></i>_글쓰기</button>

@@ -24,7 +24,7 @@
             <jsp:include page="/WEB-INF/views/main/header.jsp" />
         </header>
 
-        <div class="map_wrap" id="map_wrap">
+        <div class="c" id="map_wrap">
             <div id="map" style="width: 100%; height: 100vh; overflow: hidden;"></div>
 
             <c:if test="${!empty param.key}">
@@ -69,7 +69,7 @@
                                     <c:otherwise>        
                                         <c:forEach var="mapList" items="${mapList}">
                                             <li class="mlistLi">
-                                                <a  class="vUrl" href="../map/mapHome/${mapList.volunteerNo}?cp=${pagination.currentPage}${sURL}" data-volunteerNo="${mapList.volunteerNo}" data-currentPage="${pagination.currentPage}">
+                                                <a class="vUrl" href="../map/mapHome/${mapList.volunteerNo}?cp=${pagination.currentPage}${sURL}" data-volunteerno="${mapList.volunteerNo}" data-currentpage="${pagination.currentPage}">
                                                     <img src="${pageContext.request.contextPath}${mapList.volunteerAttachement}" alt="" class="vimg" data-vimg="${pageContext.request.contextPath}${mapList.volunteerAttachement}">
                                                     <div class="mlistDetail">
                                                         <!-- 카테고리와 즐겨찾기 숫자 나오는 영역 -->
@@ -78,6 +78,7 @@
                                                                 <span id="volCa" data-category="${mapList.parentCategoryName}">${mapList.parentCategoryName}</span>
                                                             </div>
                                                         </div>
+
                                                         <!-- 봉사센터 이름 영역 -->
                                                         <div class="mlistName">
                                                             <span id="volName" data-volname="${mapList.agencyName}">${mapList.agencyName}</span>
@@ -96,7 +97,6 @@
                                                         </div>
                                                     </div>
                                                 </a>
-                                                <div class="mbox"></div>
                                             </li>
                                         </c:forEach>                        
                                     </c:otherwise>

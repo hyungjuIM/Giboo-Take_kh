@@ -151,6 +151,7 @@ public class EventController {
 		
 		eventPopup.setMemberNo(loginMember.getMemberNo());
 		
+		
 		String webPath = "/resources/images/eventPopup/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 //		String folderPath = "C:\\gibooTake\\back\\Giboo\\src\\main\\webapp\\resources\\images\\eventPopup\\";
@@ -176,6 +177,7 @@ public class EventController {
         logger.info("eventPopup: " + eventPopup.toString());
         logger.info("uploadImage: " + uploadImage.toString());
 		
+
 		if (result > 0) {
 
 			// myActiveEventList 객체의 MEMBER_NO 설정

@@ -17,7 +17,9 @@ $(document).ready(function () {
             ['table', ['table', 'codeview']],
             //줄 높이 
             ['height', ['height']]],
-        height: 450, // 에디터 높이 
+
+        height: 400, // 에디터 높이 
+
         minHeight: null, // 최소 높이 
         maxHeight: null, // 최대 높이 
         lang: "ko-KR", //한글 설정 
@@ -59,10 +61,7 @@ $(document).ready(function () {
                 jsonFn(jsonArray);
 
                 console.log("성공 후 반환 메시지11", data);
-          // let jsonArray = JSON.parse(data); // JSON 문자열을 파싱하여 배열로 변환
-          // let imageObject = jsonArray[0]; // 배열의 첫 번째 요소 선택
-          // imageUrl1 = imageObject[""]; // 빈 키에 해당하는 이미지 URL 선택
-          // console.log("이미지 URL:", imageObject);
+
             },
             error: function (e) {
                 console.log(e);

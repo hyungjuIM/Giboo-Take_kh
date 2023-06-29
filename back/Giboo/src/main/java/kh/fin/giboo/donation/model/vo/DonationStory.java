@@ -15,5 +15,6 @@ public class DonationStory {
     private String enrollDt;
     private int viewCount;
     private String deleteStatus;
+    private String memberNick;
     private int memberNo;
 }
