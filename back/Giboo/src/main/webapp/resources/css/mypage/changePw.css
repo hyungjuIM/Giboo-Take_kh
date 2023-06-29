@@ -118,6 +118,12 @@ span{
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+.changePw_C{
+  border : 1px solid blue;
+  margin-top: 200px;
+}
+
+
 .memberChange_Con{
   margin-top: 50px;
 }
@@ -129,11 +135,7 @@ span{
   flex-direction: row;
 }
 
-.memberChange_address{
-  margin : 10px;
-  display: flex;
-  flex-direction: row;
-}
+
 
 
 .memberChange_con1{
@@ -245,9 +247,7 @@ input::placeholder {
       margin-left: 17px;
 } */
 
-.memberChange_bottom{
-  margin-left: 180px;
-}
+
 
 
 
@@ -256,59 +256,16 @@ input::placeholder {
   border: none; 
   background-color: var(--mainColor);
   border-radius: 10px;
-  width: 100px;
-  height: 35px;
+  width: 97%;
+  height: 40px;
 
-  font-size: 16px;
-    font-weight: 500;
+  font-size: 18px;
+    font-weight: 600;
   color : #FFFFFF;
   border-radius: 15px;
   cursor: pointer;
-  margin-right: 20px;
+  margin : 30px 10px;
 }
 
-.memberChange_w_c{
-  color: #A9A9A9; 
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  margin-left: -10px;
-}
-
-.memberChange_w{
-  border: none; 
-
-  background-color: #BDBDBD; 
-  border-radius: 10px;
-  width: 75px;
-  height: 25px;
-  
-  border-radius: 50px;
-  cursor: pointer;
-}
-
-.memberChange_w a {
-  outline : none;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  color : #FFFFFF;
-}
-
-/* 프로필 */
-
-/* 프로필 이미지 영역 */
-.profile-image-area{
-    width: 150px;
-    height: 150px;
-    border : 3px solid #ddd;
-    border-radius: 50%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    position : relative;
-}
 
 

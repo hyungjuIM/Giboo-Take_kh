@@ -82,7 +82,7 @@ public class AlarmController {
 
     		@RequestBody Map<String, Object> data,
     		HttpSession session) {
-    	  double alarmNo = (double) data.get("alarmNo");
+    	  int alarmNo = (int) data.get("alarmNo");
     	  String readStatus = (String) data.get("readStatus");
 
 	      int result =  service.updateReadStatus(alarmNo, readStatus);

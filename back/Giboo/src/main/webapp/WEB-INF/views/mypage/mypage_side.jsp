@@ -42,10 +42,32 @@
 					<div class="mypage_summary_container">
 
 						<div class="mypage_profileEmojiContainer">
-							<div class="mypage_profileEmojiTheme ">🥳</div>
+							<div class="mypage_profileEmojiTheme ">
+								
+								<%--회원프로필 이미지 --%>
+								<a href="${pageContext.request.contextPath}/mypage/changeProfile">
+                                
+                                <c:if test="${empty loginMember.profileImg}">
+                                    <img src="${contextPath}/resources/images/11 3.png" id="member-profile">
+                                </c:if>
+
+                                <c:if test="${!empty loginMember.profileImg}">
+                                    <img src="${contextPath}${loginMember.profileImg}" id="member-profile">
+                                </c:if>
+
+            				</a>
+							
+							
+							
+							</div>
 						</div>
 						<div class="mypage_hiuser">고마운분</div>
 						<div class="userName">${loginMember.memberNick}님, 안녕하세요🥳</div>
+
+						<div class="rateName">${loginMember.memberNick}님 등급  
+							<span>${loginMember.rateName}🥳</span> </div> 	
+						<div class="rateName">${loginMember.memberNick}님 적립금 
+						  <span>${loginMember.pointPrice} 원🥳</span></div>	
 
 
 						<!--왼쪽 네비바 메뉴 -->
@@ -54,10 +76,10 @@
 								<li><a
 									href="${pageContext.request.contextPath}/mypage/memberChange">회원정보수정</a>
 								</li>
-								<li><a
+								<li class="mypage_content_first_s"><a
 										href="${pageContext.request.contextPath}/mypage/changePw">비밀번호 변경</a>
 										</li>
-										<li><a
+										<li class="mypage_content_first_s"><a
 										href="${pageContext.request.contextPath}/mypage/changeProfile">프로필 이미지 변경</a>
 										</li>
 
@@ -82,7 +104,10 @@
 							</div>
 							<hr>
 							<div class="mypage_content_third">
-								<button>로그아웃</button>
+								<ul>
+									<li><a href="${contextPath}/main/logout">로그아웃</a></li>
+								</ul>
+								
 							</div>
 						</nav>
 						<!--mypage_content_container-->
