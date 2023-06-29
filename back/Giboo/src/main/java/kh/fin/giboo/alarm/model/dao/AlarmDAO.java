@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.event.model.vo.EventList;
 import kh.fin.giboo.event.model.vo.Pagination;
-
+  
 @Repository
 public class AlarmDAO {
 

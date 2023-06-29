@@ -25,38 +25,76 @@
             <header>
                 <jsp:include page="/WEB-INF/views/main/header.jsp" />
             </header>
+            
+            
 
 
 
-    <main>
-    	 
     
+    <main>
+
+
         <div class="container">
+
             <section class="welcome">
-                <img src="#none" alt="">
-              
+
+                <div class="main_swiper">
+
+
+
+                    <div class="mainImg_wrapper">
+                        <div class="mainImg_slide active"><img src="${pageContext.request.contextPath}/resources/images/main_img/main_img.png" alt=""></div>
+                        <div class="mainImg_slide"><img src="#none" alt=""></div>
+                        <div class="mainImg_slide"><img src="${pageContext.request.contextPath}/resources/images/main_img/main_img.png" alt=""></div>
+                    </div>
+                    <!-- 
+                    <div class="swiper_pagination">
+                        <div class="step active-step"></div>
+                        <div class="step"></div>
+                        <div class="step"></div>
+                    </div> -->
+
+                    <!-- <div class="vol_next_prev_btn">
+                        <button class="vol_swiper_button_prev">prev</button>
+                        <button class="vol_swiper_button_next">next</button>
+                    </div> -->
+
+
+
+                </div>
+
+
+
+
+
+
+
             </section>
+
 
             <section class="contentCount">
                 <div class="inner title_style">
                     <h3 class="sub_title">아름다운 사회를 위해
-                        <br> Giboo&Take가 함께 합니다.
+                        <br> Hunny가 함께 합니다.
                     </h3>
+
+
+
                     <div class="count_box1">
-                        <img src="${pageContext.request.contextPath}/resources/images/main_img/board.png" alt="#">
+                        <img src="${pageContext.request.contextPath}/resources/images/main_img/bunny_01.png">
                         <div class="count_box1_container">
-                            <h3>이웃을 향한 아름다운 도움의 손길을<br> 실천하는 Giboo&Take</h3>
-                            <p>봉사 1회에 행복지수 10%가 상승하는 사실 알고 계셨나요?<br>Giboo&Take와 함께 나와 우리 이웃의 행복지수를 높여보아요!</p>
+                            <h3>이웃을 향한 아름다운 도움의 손길을<br> 실천하는 Hunny :)</h3>
+                            <p>봉사 1회에 행복지수 10%가 상승하는 사실 알고 계셨나요?<br>Hunny와 함께 나와 우리 이웃의 행복지수를 높여보아요!</p>
                         </div>
                     </div>
                     <div class="count_box2">
                         <div class="vol_count_person">
                             <h3><span>425</span>명</h3>
-                            <p>2023년 Giboo&Take를 통해 이웃들을 위한<br>봉사활동에 참여한 봉사자들 입니다.</p>
+                            <p>2023년 Hunny를 통해 이웃들을 위한<br>봉사활동에 참여한 봉사자들 입니다.</p>
                         </div>
                         <div class="vol_count_money">
                             <h3><span>5,248,002</span>원</h3>
-                            <p>2023년 Giboo&Take에 진행된 기부 활동에<br>모여진 기부금액 입니다.</p>
+                            <p>2023년 Hunny에 진행된 기부 활동에<br>모여진 기부금액 입니다.</p>
                         </div>
                     </div>
                 </div>
@@ -69,88 +107,148 @@
                     <p>Volunteer</p>
                     <h3 class="sub_title">이웃을 향한 아름다운 도움의 손길</h3>
                 </div>
+
+
+
                 <div class="vol_box_container">
-                    <div class="vol_box">
-                        <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-                        <div class="vol_content_part">
-                            <div class="vol_content_per_container">
-                                <span class="vol_con_bar">
-                                    <span class="vol_con_bar_per"></span>
-                                </span>
-                                <span class="tooltip"><span>14</span>/20</span>
-                            </div>
-                            <div class="vol_content">
-                                <h3>아동 놀이 치료 봉사자 및 보조 봉사자 모집</h3>
-                                <div><i class="xi-time-o"></i> <span>2023. 06. 12 ~ 06. 17</span></div>
-                            </div>
-                            <div class="vol_tag">
-                                <div>
-                                    <span class="vol_tag_child">어린이</span>
-                                    <span class="vol_tag_applyPlay">놀이지원</span>
+
+                    <ul class="allSlides slidesStyle">
+                        <li class="vol_box_style vol_box">
+                            <div class="vol_day"><span>9</span>D-day</div>
+                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
+
+                            <div class="vol_content_part">
+                                <div class="vol_content_per_container">
+                                    <span class="vol_con_bar">
+                                        <span class="vol_con_bar_per"></span>
+                                    </span>
+                                    <span class="tooltip"><span>14</span>/20</span>
                                 </div>
-                                <div class="vol_like">
-                                    <i class="xi-heart-o"></i>
-                                    <p>102</p>
+
+                                <div class="vol_content">
+                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
+                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vol_box">
-                        <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-                        <div class="vol_content_part">
-                            <div class="vol_content_per_container">
-                                <span class="vol_con_bar">
-                                    <span class="vol_con_bar_per"></span>
-                                </span>
-                                <span class="tooltip"><span>14</span>/20</span>
-                            </div>
-                            <div class="vol_content">
-                                <h3>아동 놀이 치료 봉사자 및 보조 봉사자 모집</h3>
-                                <div><i class="xi-time-o"></i> <span>2023. 06. 12 ~ 06. 17</span></div>
-                            </div>
-                            <div class="vol_tag">
-                                <div>
-                                    <span class="vol_tag_child">어린이</span>
-                                    <span class="vol_tag_applyPlay">놀이지원</span>
-                                </div>
-                                <div class="vol_like">
-                                    <i class="xi-heart-o"></i>
-                                    <p>102</p>
+                                <div class="vol_tag">
+                                    <div>
+                                        <span class="vol_tag_child">어린이</span>
+                                        <span class="vol_tag_applyPlay">놀이지원</span>
+                                    </div>
+                                    <div class="vol_like">
+                                        <i class="xi-heart-o"></i>
+                                        <p>102</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="vol_box">
-                        <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-                        <div class="vol_content_part">
-                            <div class="vol_content_per_container">
-                                <span class="vol_con_bar">
-                                    <span class="vol_con_bar_per"></span>
-                                </span>
-                                <span class="tooltip"><span>14</span>/20</span>
-                            </div>
-                            <div class="vol_content">
-                                <h3>아동 놀이 치료 봉사자 및 보조 봉사자 모집합니다.</h3>
-                                <div><i class="xi-time-o"></i> <span>2023. 06. 12 ~ 06. 17</span></div>
-                            </div>
-                            <div class="vol_tag">
-                                <div>
-                                    <span class="vol_tag_child">어린이</span>
-                                    <span class="vol_tag_applyPlay">놀이지원</span>
+                        </li>
+
+                        <li class="vol_box_style vol_box">
+                            <div class="vol_day"><span>9</span>D-day</div>
+                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
+
+                            <div class="vol_content_part">
+                                <div class="vol_content_per_container">
+                                    <span class="vol_con_bar">
+                                        <span class="vol_con_bar_per"></span>
+                                    </span>
+                                    <span class="tooltip"><span>14</span>/20</span>
                                 </div>
-                                <div class="vol_like">
-                                    <i class="xi-heart-o"></i>
-                                    <p>102</p>
+
+                                <div class="vol_content">
+                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
+                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
+                                </div>
+                                <div class="vol_tag">
+                                    <div>
+                                        <span class="vol_tag_child">어린이</span>
+                                        <span class="vol_tag_applyPlay">놀이지원</span>
+                                    </div>
+                                    <div class="vol_like">
+                                        <i class="xi-heart-o"></i>
+                                        <p>102</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+
+                        <li class="vol_box_style vol_box">
+                            <div class="vol_day"><span>9</span>D-day</div>
+                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
+
+                            <div class="vol_content_part">
+                                <div class="vol_content_per_container">
+                                    <span class="vol_con_bar">
+                                        <span class="vol_con_bar_per"></span>
+                                    </span>
+                                    <span class="tooltip"><span>14</span>/20</span>
+                                </div>
+
+                                <div class="vol_content">
+                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
+                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
+                                </div>
+                                <div class="vol_tag">
+                                    <div>
+                                        <span class="vol_tag_child">어린이</span>
+                                        <span class="vol_tag_applyPlay">놀이지원</span>
+                                    </div>
+                                    <div class="vol_like">
+                                        <i class="xi-heart-o"></i>
+                                        <p>102</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="vol_box_style">
+                            <div class="vol_day"><span>9</span>D-day</div>
+                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
+
+                            <div class="vol_content_part">
+                                <div class="vol_content_per_container">
+                                    <span class="vol_con_bar">
+                                        <span class="vol_con_bar_per"></span>
+                                    </span>
+                                    <span class="tooltip"><span>14</span>/20</span>
+                                </div>
+
+                                <div class="vol_content">
+                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
+                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
+                                </div>
+                                <div class="vol_tag">
+                                    <div>
+                                        <span class="vol_tag_child">어린이</span>
+                                        <span class="vol_tag_applyPlay">놀이지원</span>
+                                    </div>
+                                    <div class="vol_like">
+                                        <i class="xi-heart-o"></i>
+                                        <p>102</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+
+
+                    </ul>
+
+
+
+
+
+
+
 
                 </div>
- 
+                <div class="vol_next_prev_btn">
+                    <span class="vol_prev">prev</span>
+                    <span class="vol_next">next</span>
+                </div>
+
+
+
             </section>
 
             <!-- ***************** 기부 section ***************** -->
@@ -159,88 +257,155 @@
                     <p>Donation</p>
                     <h3 class="sub_title">이웃을 향한 아름다운 도움의 손길</h3>
                 </div>
-                <div class="vol_box_container">
-                    <div class="vol_box">
-                        <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-                        <div class="vol_content_part">
-                            <div class="vol_content_per_container">
-                                <span class="vol_con_bar">
-                                    <span class="vol_con_bar_per"></span>
-                                </span>
-                                <span class="tooltip"><span>14</span>/20</span>
-                            </div>
-                            <div class="vol_content">
-                                <h3>아동 놀이 치료 봉사자 및 보조 봉사자 모집</h3>
-                                <div><i class="xi-time-o"></i> <span>2023. 06. 12 ~ 06. 17</span></div>
-                            </div>
-                            <div class="vol_tag">
-                                <div>
-                                    <span class="vol_tag_child">어린이</span>
-                                    <span class="vol_tag_applyPlay">놀이지원</span>
-                                </div>
-                                <div class="vol_like">
-                                    <i class="xi-heart-o"></i>
-                                    <p>102</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vol_box">
-                        <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-                        <div class="vol_content_part">
-                            <div class="vol_content_per_container">
-                                <span class="vol_con_bar">
-                                    <span class="vol_con_bar_per"></span>
-                                </span>
-                                <span class="tooltip"><span>14</span>/20</span>
-                            </div>
-                            <div class="vol_content">
-                                <h3>아동 놀이 치료 봉사자 및 보조 봉사자 모집</h3>
-                                <div><i class="xi-time-o"></i> <span>2023. 06. 12 ~ 06. 17</span></div>
-                            </div>
-                            <div class="vol_tag">
-                                <div>
-                                    <span class="vol_tag_child">어린이</span>
-                                    <span class="vol_tag_applyPlay">놀이지원</span>
-                                </div>
-                                <div class="vol_like">
-                                    <i class="xi-heart-o"></i>
-                                    <p>102</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="vol_box">
-                        <div class="vol_day"><span>9</span>D-day</div>
-                        <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-                        <div class="vol_content_part">
-                            <div class="vol_content_per_container">
-                                <span class="vol_con_bar">
-                                    <span class="vol_con_bar_per"></span>
-                                </span>
-                                <span class="tooltip"><span>14</span>/20</span>
-                            </div>
-                            <div class="vol_content">
-                                <h3>아동 놀이 치료 봉사자 및 보조 봉사자 모집합니다.</h3>
-                                <div><i class="xi-time-o"></i> <span>2023. 06. 12 ~ 06. 17</span></div>
-                            </div>
-                            <div class="vol_tag">
-                                <div>
-                                    <span class="vol_tag_child">어린이</span>
-                                    <span class="vol_tag_applyPlay">놀이지원</span>
-                                </div>
-                                <div class="vol_like">
-                                    <i class="xi-heart-o"></i>
-                                    <p>102</p>
-                                </div>
-                            </div>
-                        </div>
+
+
+                <div class="do_bigContainer">
+                    <div class="best_img">
+                        <span>Best</span>
+                        <div class="beeImg"><img src="${pageContext.request.contextPath}/resources/images/main_img/img_bee.png" alt=""></div>
                     </div>
 
+                    <div class="do_box_container">
+
+
+
+                        <ul class="doAllSlides">
+
+                            <li class="do_box">
+
+
+                                <div class="do_right">
+                                    <div class="do_tag_container">
+                                        <div class="do_tag">
+                                            <span>#어린이 👧🏻</span>
+                                        </div>
+                                        <div class="do_like">
+                                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png" alt=""></div>
+                                            <span>5.0</span>추천해요!
+                                        </div>
+                                    </div>
+                                    <div class="doTitle">
+                                        <h3>초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
+                                    </div>
+
+                                    <div class="do_content_per">
+                                        <span class="do_con_bar">
+                                            <span class="do_con_bar_per"></span>
+                                        </span>
+                                        <span class="doTooltip"><span>14</span>/20
+                                        </span>
+                                    </div>
+
+                                    <div class="percent_content">
+                                        <div><img src="${pageContext.request.contextPath}/resources/images/main_img/check_icon.png" alt=""></div>곧 봉사 모집이 마감됩니다.
+                                    </div>
+                                </div>
+
+
+
+                                <div class="do_left">
+                                    <div class="divImg"><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg" alt=""></div>
+                                </div>
+
+                            </li>
+
+                            <li class="do_box">
+
+
+                                <div class="do_right">
+                                    <div class="do_tag_container">
+                                        <div class="do_tag">
+                                            <span>#어린이 👧🏻</span>
+                                        </div>
+                                        <div class="do_like">
+                                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png" alt=""></div>
+                                            <span>5.0</span>추천해요!
+                                        </div>
+                                    </div>
+                                    <div class="doTitle">
+                                        <h3>초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
+                                    </div>
+
+                                    <div class="do_content_per">
+                                        <span class="do_con_bar">
+                                            <span class="do_con_bar_per"></span>
+                                        </span>
+                                        <span class="doTooltip"><span>14</span>/20
+                                        </span>
+                                    </div>
+
+                                    <div class="percent_content">
+                                        <div><img src="${pageContext.request.contextPath}/resources/images/main_img/check_icon.png" alt=""></div>곧 봉사 모집이 마감됩니다.
+                                    </div>
+                                </div>
+
+
+
+                                <div class="do_left">
+                                    <div class="divImg"><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg" alt=""></div>
+                                </div>
+
+                            </li>
+                            <li class="do_box">
+
+
+                                <div class="do_right">
+                                    <div class="do_tag_container">
+                                        <div class="do_tag">
+                                            <span>#어린이 👧🏻</span>
+                                        </div>
+                                        <div class="do_like">
+                                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png" alt=""></div>
+                                            <span>5.0</span>추천해요!
+                                        </div>
+                                    </div>
+                                    <div class="doTitle">
+                                        <h3>초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
+                                    </div>
+
+                                    <div class="do_content_per">
+                                        <span class="do_con_bar">
+                                            <span class="do_con_bar_per"></span>
+                                        </span>
+                                        <span class="doTooltip"><span>14</span>/20
+                                        </span>
+                                    </div>
+
+                                    <div class="percent_content">
+                                        <div><img src="${pageContext.request.contextPath}/resources/images/main_img/check_icon.png" alt=""></div>곧 봉사 모집이 마감됩니다.
+                                    </div>
+                                </div>
+
+
+
+                                <div class="do_left">
+                                    <div class="divImg"><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg" alt=""></div>
+                                </div>
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+                <div class="do_next_prev_btn">
+                    <span class="do_prev">prev</span>
+                    <span class="do_next">next</span>
                 </div>
             </section>
+
+
+            <!-- 리뷰 -->
             <section class="userReview">
                 <div class="main_sub_title">
                     <p>Review</p>
@@ -250,16 +415,33 @@
                 <div class="re_box_container">
 
                     <div class="re_box">
-                        <div class="re_tag_sticky"><span><i class="xi-user-o"></i>어르신</span></div>
-                        <img src="/images/main_img/01_상체.png">
+
+                        <div class="re_char">
+                            <img src="${pageContext.request.contextPath}/resources/images/main_img/re_img.png" alt="">
+                        </div>
+
+                        <div class="tag_box">
+                            <div><img class="imgback" src="${pageContext.request.contextPath}/resources/images/main_img/tag_box.png"></div>
+                            
+                        </div>
+                        <div class="tag_box_context">
+                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png"></div>
+                            <span>5.0</span>
+                            <span>매우 만족해요!</span>
+                        </div>
+
                         <div class="re_content_container">
+                            <span>완전 추천합니다!</span>
                             <span class="re_content">
 
                                 갈 때 마다 어르신들이 너무 반겨 주셔서 제가 힐링받고
                                 오는 곳입니다. 정말 어르신들 너무 좋으시고 추천합니다!
 
                             </span>
-                            <span class="re_user_name">유정(우리동네 지킴이)</span>
+                            <div>
+                                <span class="re_user_name">유정</span>
+                                <span>2023. 04. 01 방문 · 재방문 2회</span>
+                            </div>
                         </div>
                         <div class="re_active_info">
                             <span>활동</span>
@@ -267,17 +449,35 @@
                         </div>
 
                     </div>
+
                     <div class="re_box">
-                        <div class="re_tag_sticky"><span><i class="xi-user-o"></i>어르신</span></div>
-                        <img src="${pageContext.request.contextPath}/resources/images/main_img/book.png" class="main_book">
+
+                        <div class="re_char">
+                            <img src="${pageContext.request.contextPath}/resources/images/main_img/re_img.png" alt="">
+                        </div>
+
+                        <div class="tag_box">
+                            <div><img class="imgback" src="${pageContext.request.contextPath}/resources/images/main_img/tag_box.png"></div>
+                            
+                        </div>
+                        <div class="tag_box_context">
+                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png"></div>
+                            <span>5.0</span>
+                            <span>매우 만족해요!</span>
+                        </div>
+
                         <div class="re_content_container">
+                            <span>완전 추천합니다!</span>
                             <span class="re_content">
 
                                 갈 때 마다 어르신들이 너무 반겨 주셔서 제가 힐링받고
                                 오는 곳입니다. 정말 어르신들 너무 좋으시고 추천합니다!
 
                             </span>
-                            <span class="re_user_name">유정(우리동네 지킴이)</span>
+                            <div>
+                                <span class="re_user_name">유정</span>
+                                <span>2023. 04. 01 방문 · 재방문 2회</span>
+                            </div>
                         </div>
                         <div class="re_active_info">
                             <span>활동</span>
@@ -285,17 +485,35 @@
                         </div>
 
                     </div>
+
                     <div class="re_box">
-                        <div class="re_tag_sticky"><span><i class="xi-user-o"></i>어르신</span></div>
-                        <img src="${pageContext.request.contextPath}/resources/images/main_img/upperBody.png">
+
+                        <div class="re_char">
+                            <img src="${pageContext.request.contextPath}/resources/images/main_img/re_img.png" alt="">
+                        </div>
+
+                        <div class="tag_box">
+                            <div><img class="imgback" src="${pageContext.request.contextPath}/resources/images/main_img/tag_box.png"></div>
+                            
+                        </div>
+                        <div class="tag_box_context">
+                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png"></div>
+                            <span>5.0</span>
+                            <span>매우 만족해요!</span>
+                        </div>
+
                         <div class="re_content_container">
+                            <span>완전 추천합니다!</span>
                             <span class="re_content">
 
                                 갈 때 마다 어르신들이 너무 반겨 주셔서 제가 힐링받고
                                 오는 곳입니다. 정말 어르신들 너무 좋으시고 추천합니다!
 
                             </span>
-                            <span class="re_user_name">유정(우리동네 지킴이)</span>
+                            <div>
+                                <span class="re_user_name">유정</span>
+                                <span>2023. 04. 01 방문 · 재방문 2회</span>
+                            </div>
                         </div>
                         <div class="re_active_info">
                             <span>활동</span>
@@ -306,9 +524,17 @@
                 </div>
             </section>
         </div>
+        <jsp:include page="/WEB-INF/views/main/qnaBtn.jsp" />
+
+    </main>
+
+    	 
+    
+        
+             
 		 <jsp:include page="/WEB-INF/views/main/qnaBtn.jsp" />
 		 
-    </main>
+
     <!-- 푸터 영역 -->
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />

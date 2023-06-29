@@ -105,4 +105,14 @@ public class DonationServiceImpl implements DonationService {
 
         return map;
     }
+
+    @Override
+    public DonationStory selectDonationStory(int donationStoryNo) {
+        return dao.selectDonationStory(donationStoryNo);
+    }
+
+    @Override
+    public int updateViewCount(int donationStoryNo) {
+        return dao.updateViewCount(donationStoryNo);
+    }
 }

@@ -15,7 +15,7 @@ import kh.fin.giboo.member.model.dao.MemberDAO;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 
-@Service
+@Service  
 public class MemberServiceImpl implements MemberService{
 	
 	@Autowired

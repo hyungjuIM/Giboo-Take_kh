@@ -15,7 +15,7 @@ import kh.fin.giboo.member.model.vo.Member;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
-
+   
 	@Autowired
 	private MyPageDAO dao;
 
