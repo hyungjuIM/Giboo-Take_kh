@@ -55,6 +55,17 @@
         <result property="categoryName" column="CATEGORY_NAME" />
     </resultMap>
 
+    <resultMap id="donationStory_rm" type="donationStory">
+        <id property="donationStoryNo" column="DONATION_STORY_NO" />
+        <result property="donationStoryTitle" column="DONATION_STORY_TITLE" />
+        <result property="donationStoryContent" column="DONATION_STORY_CONTENT" />
+        <result property="attachment" column="ATTACHMENT" />
+        <result property="enrollDt" column="ENROLL_DT" />
+        <result property="viewCount" column="VIEW_COUNT" />
+        <result property="deleteStatus" column="DELETE_STATUS" />
+        <result property="memberNo" column="MEMBER_NO" />
+    </resultMap>
+
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
         FROM PARENT_CATEGORY
@@ -65,8 +76,9 @@
     <select id="getListCount" resultType="_int">
         SELECT COUNT(*)
         FROM DONATION
+        WHERE DELETE_STATUS = 'N'
         <if test="category != null">
-            WHERE PARENT_CATEGORY_NO = ${category}
+            AND PARENT_CATEGORY_NO = ${category}
         </if>
     </select>
 
@@ -76,6 +88,7 @@
         <if test="category != null">
             WHERE D.PARENT_CATEGORY_NO = ${category}
             AND D.PARENT_CATEGORY_NO = PC.PARENT_CATEGORY_NO
+            AND DELETE_STATUS = 'N'
         </if>
         ORDER BY DONATION_NO ASC
     </select>
@@ -83,6 +96,7 @@
     <select id="getDonationListAll" resultMap="donation_rm">
         SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
         FROM DONATION
+        WHERE DELETE_STATUS = 'N'
         ORDER BY DONATION_NO ASC
     </select>
 
@@ -96,21 +110,29 @@
     <select id="getDonationListCount" resultType="_int">
         SELECT COUNT(*)
         FROM DONATION
+        WHERE DELETE_STATUS = 'N'
         <if test="category != null">
-            WHERE PARENT_CATEGORY_NO = ${category}
+            AND PARENT_CATEGORY_NO = ${category}
         </if>
     </select>
 
     <insert id="sync">
-        INSERT INTO PAYMENT VALUES (
-                                    SEQ_PAYMENT_NO.nextval,
-                                    ${payMethod},
-                                    SYSDATE,
-                                    ${paidAmount},
-                                    3,
-                                    ${donationNo},
-                                    ${impUid}
-                                   )
+        INSERT ALL
+            INTO PAYMENT(PAYMENT_NO, PAYMENT_TYPE, PAYMENT_PRICE, MEMBER_NO, DONATION_NO, PAYMENT_UID) VALUES (SEQ_PAYMENT_NO.nextval, #{payMethod}, ${paidAmount}, ${memberNo}, ${donationNo}, #{impUid})
+            INTO MYACTIVE_DONATION(MYACTIVE_DONATION_NO, DONATION_NO, MEMBER_NO, DONATION_MONEY) VALUES (MYACTIVE_DONATION_NO_SEQ.nextval, ${donationNo}, ${memberNo}, ${paidAmount})
+        SELECT * FROM DUAL
     </insert>
+    
+    <select id="getStoryListCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM DONATION_STORY
+        WHERE DELETE_STATUS = 'N';
+    </select>
+
+    <select id="getStoryList" resultMap="donationStory_rm">
+        SELECT DONATION_STORY_NO, DONATION_STORY_TITLE, DONATION_STORY_CONTENT,
+        FROM DONATION_STORY
+    </select>
+
 
 </mapper>

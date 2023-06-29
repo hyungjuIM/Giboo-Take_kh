@@ -41,6 +41,7 @@
 	<!-- 기부 -->
 	<typeAlias type="kh.fin.giboo.donation.model.vo.Donation" alias="donation"/>
 	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationDetail" alias="donationDetail"/>
+	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationStory" alias="donationStory" />
 
 	<!-- 봉사 -->
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Volunteer" alias="volunteer"/>
