@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+      <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+         <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+            <%@ page session="false" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -21,7 +23,7 @@
         <!--  -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice/noticeWrite.css" />
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/summernote/summernote-lite.css" />
+        <!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/summernote/summernote-lite.css" /> -->
     </head>
     
     <body>
@@ -45,7 +47,7 @@
                 
                 <!-- 본문 -->
                 
-                <form method="post" class="contentContiner" action="#">
+                <form method="post" class="contentContiner">
                     <textarea id="summernote" name="editordata"></textarea>
                 </form>
 
@@ -72,12 +74,19 @@
 <footer>
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />
 </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Summernote-->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
+rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
  <script src="${pageContext.request.contextPath}/resources/js/summernote/noticeWrite.js" ></script>
- <script src="${pageContext.request.contextPath}/resources/js/summernote/summernote-lite.js" ></script>
- <script src="${pageContext.request.contextPath}/resources/js/summernote/lang/summernote-ko-KR.js" ></script>
+ <!-- <script src="${pageContext.request.contextPath}/resources/js/summernote/summernote-lite.js" ></script>
+ <script src="${pageContext.request.contextPath}/resources/js/summernote/lang/summernote-ko-KR.js" ></script> -->
  
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="

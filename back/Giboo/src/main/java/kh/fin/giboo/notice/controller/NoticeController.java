@@ -196,6 +196,43 @@ public class NoticeController {
         System.out.println("이미지: " + jsonResult);
         return jsonResult;
     }
+	
+	
+	// 썸머노트 이미지 저장
+	   @PostMapping("/uploadSNoticeImageFile")
+	   @ResponseBody
+	   public String uploadSNoticeImageFile(@RequestParam("file") MultipartFile[] multipartFiles, HttpServletRequest request) {
+	        JsonArray jsonArray = new JsonArray(); 
+
+	        String webPath = "/resources/images/notice/";
+	        String fileRoot = request.getServletContext().getRealPath(webPath);
+
+	        for (MultipartFile multipartFile : multipartFiles) {
+	            JsonObject jsonObject = new JsonObject();
+
+	            String originalFileName = multipartFile.getOriginalFilename();
+	            String savedFileName = Util.fileRename(originalFileName);
+
+	            File targetFile = new File(fileRoot + savedFileName);
+	            try {
+	               //파일 저장
+	                InputStream fileStream = multipartFile.getInputStream();
+	                FileUtils.copyInputStreamToFile(fileStream, targetFile);
+	                jsonObject.addProperty("url", request.getContextPath() + webPath + savedFileName);
+
+	            } catch (IOException e) {
+	                FileUtils.deleteQuietly(targetFile);
+	                jsonObject.addProperty("responseCode", "error");
+	                e.printStackTrace();
+	            }
+
+	            jsonArray.add(jsonObject);
+	        }
+
+	        String jsonResult = jsonArray.toString();
+	        System.out.println("이미지: " + jsonResult);
+	        return jsonResult;
+	    }
 
 	
 }

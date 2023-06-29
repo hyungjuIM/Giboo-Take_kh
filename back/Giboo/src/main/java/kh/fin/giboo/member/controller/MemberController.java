@@ -133,13 +133,21 @@ public class MemberController {
 	//회원가입 
 	
 	@PostMapping("/signUp")
-	public String signUp(Member inputMember, RedirectAttributes ra, String[] memberAddr) {
+	public String signUp(Member inputMember, RedirectAttributes ra, String[] memberAddr,
+			@RequestParam("memberType") String memberType) {
 		
 		inputMember.setMemberAddr(String.join(",,", memberAddr));
 		
 		if(inputMember.getMemberAddr().equals(",,,,")) {
 			inputMember.setMemberAddr(null);
 		}
+		//radio 버튼값에 따라 memberType DB 설정
+		if (memberType.equals("user")) {
+	        inputMember.setMemberType("Y");
+	    } else if (memberType.equals("admin")) {
+	        inputMember.setMemberType("N");
+	    }
+
 		//회원 가입 서비스 호출
 		int result = service.signUp(inputMember);
 		

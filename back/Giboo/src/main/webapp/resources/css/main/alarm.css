@@ -275,10 +275,15 @@ body {
     text-decoration: none;
 }
 
+.alarmCategory{
+    font-size: 14px;
+}
+
 
 .alarmContent{
     cursor: pointer;
     font-size: 16px;
+    margin-top: 10px;
 }
 
 .alarmContent a {
