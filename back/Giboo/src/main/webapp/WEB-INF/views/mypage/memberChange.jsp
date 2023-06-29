@@ -42,97 +42,116 @@
 
 		<div class="mypage-container">
 			<div class="mypage_wrapper">
-				<!-- 1200*800 -->
 
-				<!--왼쪽 네비바 틀-->
 				<header>
 					<jsp:include page="/WEB-INF/views/mypage/mypage_side.jsp" />
 				</header>
 
-				<!--오른쪽 회원정보수정 본문-->
 
-				<section class="memberChange_mainContainer">
 
-					<div class="memberChange_mainContent">
+				<div class="myask_content_area">
+					<section class="mainContainer">
+						<div class="mainContent">
+							<section class="notice">
 
-						<!-- notice seach area -->
-						<div class="memberChange_notice">
-							<div class="memberChange_container1">
-								<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-									style="color: #8071FC;"> 회원정보수정</span><span
-									style="color: #767676;">에 대해 알려드립니다 😇</span>
-							</div>
+								<div class="notice1">
+									<div class="container1">
+										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
+											style="color: #8071FC;"> 회원정보수정</span><span
+											style="color: #767676;">을 알려드립니다 😇</span>
+
+										<form action="memberChange" method="POST" name="myPage-form"
+											onsubmit="return infoValidate()">
+
+											<div class="memberChange_Con">
+												<!-- 이름  -->
+												<div class="memberChange_title">
+													<span class="memberChange_con1">이름</span> 
+													<span class="memberChange_con2"> 
+														<span><i class="fa-regular fa-user"></i></span>
+														<input type="text" name="updateName" id="memberName"
+														value="${loginMember.memberName}" maxlength="10"></span>
+												</div>
+												<span class="changeMessage">영어/숫자/한글 2~10글자 사이로
+                                    입력해주세요.</span>
+
+
+												<!-- 닉네임 -->
+												<div class="memberChange_title">
+													<span class="memberChange_con1">닉네임</span> 
+													<span
+														class="memberChange_con2"> 
+														<span><i
+														class="fa-regular fa-face-kiss-wink-heart"></i> </span><input
+														type="text" name="updateNickname" id="memberNickname"
+														value="${loginMember.memberNick}" maxlength="10"></span>
+												</div>
+												<span class="changeMessage">영어/숫자/한글 2~10글자 사이로
+                                    입력해주세요.</span>
+
+												<!-- 휴대폰 번호 -->
+												<div class="memberChange_title">
+													<span class="memberChange_con1">전화번호</span> 
+													<span class="memberChange_con2"> 
+														<span><i
+														class="fa-solid fa-phone"></i></span> <input type="text"
+														name="updateTel" id="memberTel"
+														value="${loginMember.memberTel}" maxlength="11"></span>
+													
+												</div>
+												<span class="changeMessage">전화번호를 입력해주세요.(- 제외)</span>
+
+												<!-- 주소 -->
+												<div class="memberChange_address">
+													<c:set var="addr"
+														value="${fn:split(loginMember.memberAddr, ',,')}" />
+
+													<div class="memberChange_con1">
+														<span>주소</span>
+													</div>
+
+												<div class=memberChange_con2_area>
+													<div class=memberChange_con2>
+														<input type="text" name="updateAddress" id="postcode"
+															value="${addr[0]}" maxlength="6">
+														<button type="button" id="info-address-btn"
+															onclick="execDaumPostcode()">우편번호 찾기</button>
+													</div>
+
+													<div class="memberChange_con2">
+														<input type="text" name="updateAddress" id="address"
+															value="${addr[1]}">
+													</div>
+
+													<div class="memberChange_con2">
+														<input type="text" name="updateAddress" id="detailAddress"
+															value="${addr[2]}">
+													</div>
+													</div>
+												</div>
+
+												<div class="memberChange_bottom">
+													<button class="memberChange_b">수정완료</button>
+													<button class="memberChange_b">이전으로</button>
+
+												
+										</form>
+										
+										<span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을
+											눌러주세요</span>
+										<button class="memberChange_w">
+											<a
+												href="${pageContext.request.contextPath}/mypage/withdrawal">회원탈퇴</a>
+										</button>
+										</div>
+									</div>
+							</section>
 						</div>
-
-						<form action="memberChange" method="POST" name="myPage-form"
-							onsubmit="return infoValidate()">
-
-
-							<!-- 이름  -->
-							<div class="memberChange_title">
-								<span class="memberChange_con1">이름</span> 
-								<span class="memberChange_con2">
-								<input type="text" name="updateName" id="memberName" value="${loginMember.memberName}"
-									maxlength="10"></span>
-									
-							</div>
-
-							
-							<!-- 닉네임 -->
-							<div class="memberChange_title">
-								<label>닉네임</label> <input type="text" name="updateNickname"
-									id="memberNickname" value="${loginMember.memberNick}"
-									maxlength="10">
-							</div>
-
-							<!-- 휴대폰 번호 -->
-							<div class="memberChange_title">
-								<label>휴대폰번호</label> <input type="text" name="updateTel"
-									id="memberTel" value="${loginMember.memberTel}" maxlength="11">
-							</div>
-
-							<!-- 주소 -->
-							<c:set var="addr"
-								value="${fn:split(loginMember.memberAddr, ',,')}" />
-
-							<div class="myPage-row info-title">
-								<span>주소</span>
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="postcode"
-									value="${addr[0]}" maxlength="6">
-								<button type="button" id="info-address-btn"
-									onclick="execDaumPostcode()">검색</button>
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="address"
-									value="${addr[1]}">
-							</div>
-
-							<div class="myPage-row info-address">
-								<input type="text" name="updateAddress" id="detailAddress"
-									value="${addr[2]}">
-							</div>
+					</section>
+				</div>
 
 
-							<div class="memberChange_bottom">
-								<button class="memberChange_b">수정완료</button>
-								<button class="memberChange_b">이전으로</button>
-								
-							</div>
-						</form>
-						<span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>
-								<button class="memberChange_w">
-									<a href="${pageContext.request.contextPath}/mypage/withdrawal">회원탈퇴</a>
-								</button>
-					</div>
-				</section>
 			</div>
-
-
-
 		</div>
 
 
@@ -146,11 +165,16 @@
 	</footer>
 
 	<%-- 다음 주소 API --%>
-    <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:11;-webkit-overflow-scrolling:touch;">
-        <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
-    </div>
+	<div id="layer"
+		style="display: none; position: fixed; overflow: hidden; z-index: 11; -webkit-overflow-scrolling: touch;">
+		<img src="//t1.daumcdn.net/postcode/resource/images/close.png"
+			id="btnCloseLayer"
+			style="cursor: pointer; position: absolute; right: -3px; top: -3px; z-index: 1"
+			onclick="closeDaumPostcode()" alt="닫기 버튼">
+	</div>
 
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 	<script
 		src="${pageContext.request.contextPath}/resources/js/mypage/memberChange.js"></script>

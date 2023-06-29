@@ -1,5 +1,6 @@
 package kh.fin.giboo.member.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -56,14 +57,31 @@ public class MemberController {
 	public String login(@ModelAttribute Member inputMember,
 			@ModelAttribute Manager inputManager,
 			Model model,
-			RedirectAttributes ra, HttpServletResponse resp, HttpServletRequest req) {
+			RedirectAttributes ra, HttpServletResponse resp, HttpServletRequest req,
+			@RequestParam(value="saveId", required = false) String saveId) {
 
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 service 호출 후 결과 받기
 		Member loginMember = service.loginMember(inputMember);
 		if(loginMember != null) { //로그인 성공 
 			model.addAttribute("loginMember", loginMember);
-			System.out.println(loginMember);
+
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
+			
+			if(saveId != null) { // 아이디 저장이 체크 되었을 때
+				cookie.setMaxAge(60 * 60 * 24 * 365); 
+			} else { // 체크 되지 않았을 때
+				cookie.setMaxAge(0); 
+			}
+			// 쿠키가 적용될 범위(경로) 지정
+			cookie.setPath(req.getContextPath());
+			
+			resp.addCookie(cookie);	
+			
+			
+			
+			
+
 			logger.info("로그인 기능 수행됨");
 	} else {
 		logger.info("로그인 실패.");

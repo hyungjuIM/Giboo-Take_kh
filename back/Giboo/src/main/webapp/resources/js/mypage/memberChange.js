@@ -12,7 +12,7 @@ function infoValidate(){
 
     const regExp1 = /^[a-zA-Z0-9가-힣]{2,10}$/;        // 닉네임, 이름 정규식
     const regExp2 =  /^0(1[01679]|2|[3-6][1-5]|70)\d{3,4}\d{4}$/; // 전화번호 정규식
-   // const regExp3 = /^[\w\!\@\#\-\_]{6,30}/;      // 비밀번호 정규표현식
+    const regExp3 = /^[\w\!\@\#\-\_]{6,30}/;      // 비밀번호 정규표현식
    // const regExp4 = /^[\w\.\_\-]{4,}@[\w\-\_]+(\.\w+){1,3}$/; // 이메일 유효성 검사 
     
     // 닉네임 유효성 검사
@@ -73,8 +73,16 @@ function infoValidate(){
     return true; // 위 조건을 모두 수행하지 않은 경우 true 반환
 }
 
+// 경고 출력 + 포커스 + false 반환  함수
+function printAlert(el, message){ // 매개변수 el은 요소
+    alert(message);
+    el.focus();
+    return false;
+}
 
-
+const newPw = document.getElementsByName("newPw")[0];
+const newPwConfirm = document.getElementsByName("newPwConfirm")[0];
+const regExp3 = /^[\w\!\@\#\-\_]{6,30}/;      // 비밀번호 정규표현식
 // 비밀번호 변경 제출 시 유효성 검사====================================
 function changePwValidate(){
     // 새 비밀번호
@@ -86,18 +94,18 @@ function changePwValidate(){
     }
 
     // // 유효하지 않은 경우
-    // if(!regExp2.test(newPw.value)){
-    //     alert("영어, 숫자, 특수문자(!,@,#,-,_) 6~30 글자 사이로 작성해주세요.");
-    //     newPw.focus();
-    //     return false;
-    // }
+    if(!regExp3.test(newPw.value)){
+        alert("영어, 숫자, 특수문자(!,@,#,-,_) 6~30 글자 사이로 작성해주세요.");
+        newPw.focus();
+        return false;
+    }
 
-
-
-    // 새 비밀번호 확인
+    // 새 비밀번호
     // 미작성
-    if(newPwConfirm.value.trim().length == 0){
-        return printAlert(newPwConfirm, "새 비밀번호 확인을 입력해주세요.");
+    if(newPw.value.trim().length == 0){
+        alert("새 비밀번호를 입력해주세요.");
+        newPw.focus();
+        return false;
     }
 
 
@@ -105,14 +113,11 @@ function changePwValidate(){
     if(newPw.value != newPwConfirm.value){
         return printAlert(newPwConfirm, "새 비밀번호가 일치하지 않습니다.");
     }
+
+    return true; // 위 조건을 모두 수행하지 않은 경우 true 반환
 }
 
-// 경고 출력 + 포커스 + false 반환  함수
-function printAlert(el, message){ // 매개변수 el은 요소
-    alert(message);
-    el.focus();
-    return false;
-}
+
 
 // 다음 주소 API===================================================================
 
@@ -181,9 +186,7 @@ function initLayerPosition(){
 }
 
 
-
-
-// 회원 프로필 이미지 변경(미리보기)======================================================
+// 회원 프로필 이미지 변경(미리보기)
 const inputImage = document.getElementById("input-image");
 
 if(inputImage != null){ // inputImage 요소가 화면에 존재 할 때
@@ -234,6 +237,9 @@ if(inputImage != null){ // inputImage 요소가 화면에 존재 할 때
 }
 
 
+
+
+
 // 이미지 선택 확인
 function profileValidate(){
     const inputImage = document.getElementById("input-image");
@@ -251,6 +257,8 @@ function profileValidate(){
 
     return true;
 }
+
+
 
 
 if( document.getElementById("delete-image") != null ){
@@ -272,91 +280,11 @@ if( document.getElementById("delete-image") != null ){
         }
     }); 
 }
-const withdrawalButton = document.getElementById("withdrawal");
-const closeButton = document.getElementById("popup_close");
-// withdrawalButton.addEventListener("click",function(event){
-//     event.preventDefault();
-//     const popup = document.querySelector(".popup_wrap");
-//     const mask = document.querySelector(".mask");
-//     popup.style.display = "block";
-//     mask.style.display = "block";
-// })
-// closeButton.addEventListener("click",function(event){
-//     event.preventDefault();
-//     const popup = document.querySelector(".popup_wrap");
-//     const mask = document.querySelector(".mask");
-//     popup.style.display = "none";
-//     mask.style.display = "none";
-// })
-// function secessionValidate(){
-//     if (!confirm("정말 회원탈퇴하시겠습니까?")) {
-//         return false
-//       }
-//       return true;
-//   }
 
-// // 문서가 로드될 때까지 기다립니다.
-// document.addEventListener("DOMContentLoaded", function () {
-//     // 회원탈퇴 버튼을 가져와 클릭 이벤트 리스너를 추가합니다.
-//     const withdrawalButton = document.getElementById("withdrawal");
-//     withdrawalButton.addEventListener("click", showWithdrawalPopup);
-  
-//     // 팝업 창의 닫기 버튼을 가져와 클릭 이벤트 리스너를 추가하여 팝업을 닫습니다.
-//     const closeButton = document.getElementById("popup_close");
-//     closeButton.addEventListener("click", closeWithdrawalPopup);
-  
-//     // 팝업 창의 회원탈퇴 확인 버튼을 가져와 클릭 이벤트 리스너를 추가하여 회원탈퇴를 수행합니다.
-//     // const withdrawalConfirmationButton = document.getElementById("popup_withdrawal");
-//     // withdrawalConfirmationButton.addEventListener("click", performWithdrawal);
-//   });
-  
-//   // 회원탈퇴 팝업을 보여줍니다.
-  function showWithdrawalPopup() {
-    const popup = document.querySelector(".popup_wrap");
-    const mask = document.querySelector(".mask");
-    popup.style.display = "block";
-    mask.style.display = "block";
-  }
-  
-  // 회원탈퇴 팝업을 닫습니다.
-  function closeWithdrawalPopup() {
-    const popup = document.querySelector(".popup_wrap");
-    const mask = document.querySelector(".mask");
-    popup.style.display = "none";
-    mask.style.display = "none";
-  }
-  
-  function secessionValidate(){
-    if (!confirm("정말 회원탈퇴하시겠습니까?")) {
-        return false
-      }
-      return true;
-    
-  }
-  
-  
-//   // 회원탈퇴 확인 팝업을 띄우고, 확인 버튼을 눌렀을 때 회원탈퇴를 수행합니다.
-//   function secessionValidate() {
-//     return confirm();
-//   }
-  
 
-// function secessionValidate(){
-// withdrawal.addEventListener("click",function(){
-//     $(".popup_wrap").css("display", "block");        
-//     $(".mask").css("display", "block");
-//     if(popup_withdrawal.addEventListener(this.click)){
-//         function secessionValidate(){
-//                   if( !confirm("탈퇴시점으로부터 30일 이내 재가입이 불가합니다.  정말 Giboo & take 를 회원탈퇴하시겠습니까?") ){ //  취소를 누른 경우
-//                     return false;
-//                 }
-//                 return true;
-//                 }
-//     }else{
-//         return false;
-//     }
-// });
-// }
+const popup_withdrawal = document.getElementById("popup_withdrawal");
+
+
 //=======================================================================================
 //회원탈퇴 팝업==========
 // $(document).ready(function(){ 
@@ -377,9 +305,6 @@ const closeButton = document.getElementById("popup_close");
     //     $(".mask").css("display", "none");       
     //     }); 
     
- 
- 
-
 // 회원 탈퇴 유효성 검사
 // function secessionValidate(){
 //       if( !confirm("탈퇴시점으로부터 30일 이내 재가입이 불가합니다.  정말 Giboo & take 를 회원탈퇴하시겠습니까?") ){ //  취소를 누른 경우
@@ -394,10 +319,6 @@ const closeButton = document.getElementById("popup_close");
 //     }
 //   });
 
-    
-
-
- 
 
 //회원탈퇴 창에서 이전으로 
     $("#back").click(function() {

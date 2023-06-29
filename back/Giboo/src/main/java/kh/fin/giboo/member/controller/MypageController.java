@@ -6,11 +6,13 @@ import java.util.Map;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.fin.giboo.member.model.service.MyPageService;
 import kh.fin.giboo.member.model.vo.Member;
+import kh.fin.giboo.mypage.model.vo.MyActiveDonationList;
 
 @Controller
 @SessionAttributes({ "loginMember" })
@@ -116,7 +119,7 @@ public class MypageController {
 		logger.info("-----------------회원정보수정---------------");
 
 		return "redirect:/mypage/memberChange";
-		// return path;
+	
 
 	}
 
@@ -138,16 +141,18 @@ public class MypageController {
 			loginMember.setMemberPw((String) paramMap.get("newPw"));
 
 			message = "비밀번호가 변경되었습니다.";
-			path = "info";
+			path = "main";
 		} else {
 			message = "현재 비밀번호가 일치하지 않습니다.";
-			path = "changePw";
+			path = "mypage/changePw";
 		}
 
 		ra.addFlashAttribute("message", message);
 		logger.info("-----------------비밀번호 변경---------------");
 
-		return "redirect:/mypage/changePw";
+		//return "redirect:/mypage/changePw";
+		//return "redirect:/";
+		return "redirect:/" + path;
 	}
 
 	// 회원 프로필 이미지 변경==================================================
@@ -202,6 +207,9 @@ public class MypageController {
 			
 			if(result > 0) {
 				message = "회원탈퇴 되었습니다.";
+
+				 ra.addFlashAttribute("message", "탈퇴 되었습니다.");
+
 				path = "/main";
 				
 				// 세션 없애기
@@ -215,7 +223,8 @@ public class MypageController {
 				
 			}else {
 				message = "회원탈퇴 실패";
-				path = "secession";
+				 ra.addFlashAttribute("message", "회원탈퇴 실패하였습니다.");
+				path = "withdrawal";
 			}
 			
 			ra.addFlashAttribute("message", message);
@@ -223,9 +232,5 @@ public class MypageController {
 			
 			return "redirect:" + path;
 		}
-		
-	
-	
-	
 
 }
