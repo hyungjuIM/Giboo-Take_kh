@@ -85,7 +85,7 @@ section:nth-child(odd){
     /* position: relative; */
     width: 100%;
     height: 980px;
-    margin-top: 65px;
+    /* margin-top: 65px; */
     position: relative;
     overflow: hidden;
     justify-content: center;
@@ -721,7 +721,7 @@ li .vol_day span{
 }
 
 .do_tag_container .do_tag{
-    background-color: #E1F4EA;
+    background-color: var(--mainColor);
     height: 35px;
     width: 120px;
     border-radius: 50px;
@@ -733,13 +733,13 @@ li .vol_day span{
     align-items: center;
     justify-content: center;
 
-    color: var(--mainColor);
+    color:white;
     font-family: 'NanumSquareNeo';
-    font-weight: 400;
+    font-weight: 500;
     font-size: 20px;
 }
 
-.do_tag_container .do_tag div:nth-child(1),
+
 .do_tag_container .do_like div:nth-child(1){
       display: flex;
     align-items: center;
@@ -747,15 +747,12 @@ li .vol_day span{
 
 
 }
-.do_tag div:nth-child(1) img{
-    margin-right: 4px;
-}
 
 .do_like div:nth-child(1) img{
     margin: 1px;
 }
 
-.do_tag_container .do_tag div:nth-child(1) img,
+
 .do_tag_container .do_like div:nth-child(1) img{
     width: 22px;
     height: 22px;
@@ -891,7 +888,7 @@ li .vol_day span{
     font-size: 14px;
     font-family: 'NanumSquareNeo';
     font-weight: 600;
-    color: var(--mainColor);
+    color: var(--titleColor);
 
 
 
@@ -902,8 +899,8 @@ li .vol_day span{
 }
 
 .percent_content div img{
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
 
     margin: 0px 4px ;
 }
@@ -946,115 +943,216 @@ li .vol_day span{
 }
 
 /* ////////////////////// 후기 section //////////////////////*/
-.userReview .main_sub_title{
-    margin-bottom: 120px;
-}
-.re_box_container{
+.userReview{
     display: flex;
-    gap: 55px;
-}
-.re_box_container .re_box{
-    width: 360px;
-    height: 280px;
-    border: 1px solid var(--etcColor);
-    border-radius: 12px;
-    background-color: #fff;
-
-    display: flex;
-    flex-direction: column;
-    /* padding-top: 20px;     */
-    position: relative;
-    
+    justify-content: center;
+    align-items: center;
 }
 
-.re_box:after{
-    content: '';
-    padding: 10px 6.5px;
 
-    position: absolute;
-    left: -13px;
-    top: 50px;
-    border-radius: 0px 5px;
-    background-color: #008C43;
-    
-}
 
 /* 리뷰 캐릭터 */
-.re_box img{
-    position: absolute;
-    /* transform: scaleX(-1); */
-    width: 160px;
-    z-index: 100;
 
-    left: 180px;
-    top: -45px;
+.re_box{
+    position: relative;
+      
+}
+.re_char{
+    position: absolute;
+   
+   margin-left: 230px;
+   top: -30px;
+
+ 
+    
 }
 
-.re_box img[class="main_book"]{
-    width: 140px;
+.re_box .re_char img{
     position: absolute;
-    top: -65px;
+    width: 150px;
+   
+  
+
 }
 /* 리뷰 태그 */
 
-.tag_box{
-
-    border: 1px solid blue;
-    position: relative;
-    margin-top: 16px;
-    
-    text-align: center;
-    
-
-}
-
-.tag_box .imgback{
-    position: absolute;
-    width: 82px;
-    
-    top: 50%;
-    left: -5%;
-    transform: translate(5%, -50%);
-}
-/* .re_box_container .re_tag_sticky{
-    position: absolute;
-    top: 16px;
-    left: -14px;
-
-  
-    background-color: var(--mainColor);
-    border-radius: 6px;
+.userReview .re_box_container{
 
     display: flex;
+    /* width: 900px; */
     justify-content: center;
     align-items: center;
+    gap: 50px;
+   
+}
 
-    z-index: 100;
-} */
+.re_box_container{
+}
+
+.re_box{
+    width: 350px;
+    border: 1px solid var(--etcColor);
+    border-radius: 20px;
+    position: relative;
+
+}
+
+.re_box .tag_box{
+   
+    height: 28px;
+    position: relative;
 
 
+}
 
-.re_tag_sticky span{
-    margin: 8px 10px;
-    padding: 4px 22px;
-    border: 1.5px solid #fff;
+.re_box .tag_box span{
+    /* background-color: var(--mainColor); */
+    padding: 10px 12px;
     border-radius: 50px;
+    color: white;
     font-family: 'NanumSquareNeo';
     font-size: 16px;
-    font-weight: 600;
-    color: #fff;
+}
+
+.tag_box div img{
+    width: 100px;
+    position: absolute;
+
+    top: 10px;
+    left: -9px;
+}
+
+.re_box .tag_box_context{
+    display: flex;
+    align-items: center;
+
+    margin-left: 100px;
+    font-family: 'NanumSquareNeo';
+    margin-right: 4px;
+
+}
+
+.tag_box_context div:nth-child(1){
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    
+    
+}
+
+.tag_box_context div:nth-child(1) img{
+    width: 20px;
+    height: 20px;
+    line-height: 24px;
+    /* padding-bottom: 4px; */
+    
+ 
+}
+
+.re_box .re_content_container{
+   
+    display: flex;
+    flex-direction: column;
+    font-family: 'NanumSquareNeo';
+    padding: 20px;
+
+    
+
+}
+
+.tag_box_context span:nth-child(1){
+    
+}
+.tag_box_context span:nth-child(2){
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 0px;
+    color: var(--titleColor);
+}
+
+.tag_box_context span:nth-child(3){
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 4px;
+    color: var(--contentColor);
+
+}
+
+.tag_box_context span:nth-child(3)::before{
+    content: '|';
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+.re_box .re_content_container span:nth-child(1){
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--titleColor);
+    margin-bottom: 12px;
+}
+
+
+.re_box .re_content_container span:nth-child(2){
+    line-height: 22px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: 400;
+ color: var(--contentColor);   
+}
+
+.re_box .re_content_container div:nth-child(1){
+    display: flex;
+}
+.re_box .re_content_container div span:nth-child(1){
+ font-size: 16px;
+ font-weight: 500;
+ color: var(--contentColor);   
+ margin-right: 4px;
+}
+
+.re_box .re_content_container div span:nth-child(2){
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--mainColor);   
+   }
+
+.re_box .re_active_info{
+    font-family: 'NanumSquare', sans-serif;
+
+    height: 50px;
+    border-radius: 0px 0px 12px 12px;
+    background-color: var(--etcColor);
 
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 2px;
-}
-.re_tag_sticky span i{
-    font-size: 22px;
+    padding-left: 30px;
+    padding-right: 30px;
+    gap: 8px;
 }
 
+.re_active_info span:nth-child(1){
+    font-family: 'NanumSquare', sans-serif;
+    font-weight: 500;
+    color: var(--titleColor);
+
+}
+.re_active_info span:nth-child(2){
+    display: inline-block;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    font-family: 'NanumSquare', sans-serif;
+    color: var(--contentColor);
+    font-weight: 500;
+}
+
+
+
 /* 후기 내용부분 */
-.re_box .re_content_container{
+/* .re_box .re_content_container{
     margin: 20px;
     height: 80%;
 }
@@ -1068,7 +1166,6 @@ li .vol_day span{
 
     display: flex;
     justify-content: center;
-    /* align-items: center; */
     padding-top: 80px;
 
 }
@@ -1081,9 +1178,9 @@ li .vol_day span{
     color: var(--contentColor);
 
     margin-bottom: 10px;
-}
+} */
 
-.re_active_info{
+/* .re_active_info{
     font-family: 'NanumSquare', sans-serif;
 
     height: 65px;
@@ -1091,7 +1188,6 @@ li .vol_day span{
     background-color: var(--etcColor);
 
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     padding-left: 30px;
     padding-right: 30px;
@@ -1115,5 +1211,5 @@ li .vol_day span{
     font-family: 'NanumSquare', sans-serif;
     color: var(--contentColor);
     font-weight: 500;
-}
+} */
 
