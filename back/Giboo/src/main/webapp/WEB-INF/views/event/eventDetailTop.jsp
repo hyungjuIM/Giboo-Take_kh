@@ -72,8 +72,13 @@ crossorigin="anonymous"></script>
                                     <ul class="edDoPersonUl">
                                         <c:forEach var="eventDetailMember" items="${eventDetailMember}">
                                             <li class="edDoPersonLi">
-                                                <div class="edDoPerImg">
-                                                    <img src="${pageContext.request.contextPath}${eventDetailMember.profileImg}" alt="">
+                                                <div class="edDoPerImg">                        
+                                                    <c:if test="${empty eventDetailMember.profileImg}">
+                                                        <span>🥰</span>
+                                                    </c:if>
+                                                    <c:if test="${!empty eventDetailMember.profileImg}">
+                                                        <img src="${pageContext.request.contextPath}${eventDetailMember.profileImg}" alt="">
+                                                    </c:if>
                                                 </div>
                                                 <div class="edPersonName">
                                                     <span>${eventDetailMember.memberNick}</span>

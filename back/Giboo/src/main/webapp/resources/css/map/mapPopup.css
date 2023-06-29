@@ -19,11 +19,12 @@
 
 .mpopup{
     position: relative;
-	background: #a0f7ff;
-    border-radius: 12px;    
+	background: #ffffff;
+    /* border-radius: 12px;     */
     width: 338px;
     /* height: 233px; */
     box-shadow: 3px 3px 10px 5px rgba(117, 117, 117, 0.306);
+    border: none;
 }
 
 .mpopup:after {
@@ -34,10 +35,11 @@
 	width: 0;
 	height: 0;
 	border: 12px solid transparent;
-	border-top-color: #a0f7ff;
+	border-top-color: #ffffff;
 	border-bottom: 0;
 	margin-left: -12px;
 	margin-bottom: -12px;
+    border: none;
 }
 
 .mpopImg{

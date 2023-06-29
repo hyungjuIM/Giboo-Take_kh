@@ -27,3 +27,47 @@ function handleImagePreview() {
     reader.readAsDataURL(file);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$("#popupButton").click(function () {
+
+    $(".E_popup_wrap02").css("display", "block");
+
+    $(".E_pop_mask2").css("display", "block");
+
+});
+
+$("#E_popup1").click(function (event) {
+    event.preventDefault(); // 폼 제출 방지
+    $(".E_popup_wrap02").css("display", "none");
+    $(".E_pop_mask2").css("display", "none");
+
+});
