@@ -4,6 +4,7 @@ import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
+import kh.fin.giboo.donation.model.vo.DonationStory;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -63,5 +64,16 @@ public class DonationDAO {
 
     public int sync(Map<String, Object> map) {
         return sqlSession.insert("donationMapper.sync", map);
+    }
+
+    public int getStoryListCount() {
+        return sqlSession.selectOne("donationMapper.getStoryListCount");
+    }
+
+    public List<DonationStory> getStoryList(Pagination pagination, Model model) {
+        int offset = (pagination.getCurrentPage() -1) * pagination.getLimit();
+        RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+        return sqlSession.selectList("donationMapper.getStoryList", model, rowBounds);
     }
 }
