@@ -17,7 +17,9 @@ $(document).ready(function () {
             ['table', ['table', 'codeview']],
             //줄 높이 
             ['height', ['height']]],
+
         height: 400, // 에디터 높이 
+
         minHeight: null, // 최소 높이 
         maxHeight: null, // 최대 높이 
         lang: "ko-KR", //한글 설정 
@@ -59,6 +61,7 @@ $(document).ready(function () {
                 jsonFn(jsonArray);
 
                 console.log("성공 후 반환 메시지11", data);
+
             },
             error: function (e) {
                 console.log(e);

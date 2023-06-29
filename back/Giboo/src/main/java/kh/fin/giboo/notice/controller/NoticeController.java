@@ -165,6 +165,7 @@ public class NoticeController {
 	
 	
 	// 썸머노트 이미지 저장
+
 	// 공지사항 등록용 이미지 업로드
 	   @PostMapping("/uploadSNoticeImageFile")
 	   @ResponseBody
@@ -202,6 +203,7 @@ public class NoticeController {
 	      return result;
 
 	   }
+
 
 	
 }

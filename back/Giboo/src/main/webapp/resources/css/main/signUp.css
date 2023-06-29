@@ -50,6 +50,10 @@ main{
     margin-bottom: 18px;
 }
 
+.memberTy {
+    width: 20px;
+}
+
 .signUpSection .signUpContainer {
 
     background-color: #EFEFEF;
