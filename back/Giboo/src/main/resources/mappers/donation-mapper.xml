@@ -63,7 +63,8 @@
         <result property="enrollDt" column="ENROLL_DT" />
         <result property="viewCount" column="VIEW_COUNT" />
         <result property="deleteStatus" column="DELETE_STATUS" />
-        <result property="memberNo" column="MEMBER_NO" />
+        <result property="memberNick" column="MEMBER_NICK" />
+        <result property="memberNo" column="MEMBER_NO"/>
     </resultMap>
 
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
@@ -126,13 +127,38 @@
     <select id="getStoryListCount" resultType="_int">
         SELECT COUNT(*)
         FROM DONATION_STORY
-        WHERE DELETE_STATUS = 'N';
+        WHERE DELETE_STATUS = 'N'
     </select>
 
     <select id="getStoryList" resultMap="donationStory_rm">
-        SELECT DONATION_STORY_NO, DONATION_STORY_TITLE, DONATION_STORY_CONTENT,
-        FROM DONATION_STORY
+        SELECT DONATION_STORY_NO, DONATION_STORY_TITLE, DONATION_STORY_CONTENT, M.MEMBER_NICK, VIEW_COUNT,
+        CASE WHEN SYSDATE - DS.ENROLL_DT &lt; 1
+            THEN TO_CHAR(DS.ENROLL_DT, 'YYYY-MM-DD')
+        ELSE TO_CHAR(DS.ENROLL_DT, 'HH:MI')
+        END ENROLL_DT
+
+        FROM DONATION_STORY DS, MEMBER M
+        WHERE M.MEMBER_NO = DS.MEMBER_NO
+        AND DELETE_STATUS = 'N'
+
+        ORDER BY DONATION_STORY_NO DESC
     </select>
+
+    <select id="selectDonationStory" resultMap="donationStory_rm">
+        SELECT DONATION_STORY_NO, DONATION_STORY_TITLE, DONATION_STORY_CONTENT,
+               TO_CHAR(DS.ENROLL_DT, 'YYYY. MM. DD') ENROLL_DT,
+               VIEW_COUNT, M.MEMBER_NICK, DS.MEMBER_NO
+        FROM DONATION_STORY DS, MEMBER M
+        WHERE DONATION_STORY_NO = ${donationStoryNo}
+        AND DS.MEMBER_NO = M.MEMBER_NO
+        AND DELETE_STATUS = 'N'
+    </select>
+
+    <update id="updateViewCount">
+        UPDATE DONATION_STORY
+        SET VIEW_COUNT = VIEW_COUNT + 1
+        WHERE DONATION_STORY_NO = ${donationStoryNo}
+    </update>
 
 
 </mapper>

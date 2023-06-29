@@ -2,7 +2,7 @@
   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
     <c:set var="pagination" value="${map.pagination}" />
-    <c:set var="noticeList" value="${map.noticeList}" />
+    <c:set var="storyList" value="${map.storyList}" />
 
     <!DOCTYPE html>
     <html lang="en">
@@ -11,7 +11,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>notice</title>
+      <title>기부이야기</title>
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/storyList.css" />
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
 
@@ -78,21 +78,21 @@
                     <tbody>
 
                       <c:choose>
-                        <c:when test="${empty noticeList}">
+                        <c:when test="${empty storyList}">
                           <tr>
                             <td colspan="5">게시글이 존재하지 않습니다.</td>
                           </tr>
                         </c:when>
                         <c:otherwise>
-                          <c:forEach var="notice" items="${noticeList}">
+                          <c:forEach var="story" items="${storyList}">
                             <tr>
-                              <td>${notice.noticeNo}</td>
+                              <td>${story.donationStoryNo}</td>
                               <td><a
-                                  href="../notice/noticeDetail/${notice.noticeNo}?cp=${pagination.currentPage}${sURL}">${notice.noticeTitle}</a>
+                                  href="../donation/story/${story.donationStoryNo}?cp=${pagination.currentPage}${sURL}">${story.donationStoryTitle}</a>
                               </td>
-                              <td>${notice.enrollDt}</td>
-                              <td>${notice.mgrNickname}</td>
-                              <td>${notice.viewCount}</td>
+                              <td>${story.enrollDt}</td>
+                              <td>${story.memberNick}</td>
+                              <td>${story.viewCount}</td>
                             </tr>
 
                           </c:forEach>
@@ -132,9 +132,9 @@
                   </nav>
                  
                   <div class="writeBtn-container">
-                    <c:if test="${!empty loginManager}">
+                    <c:if test="${!empty loginMember}">
                     <button class="writeBtn"
-                      onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite?mode=insert&cp=${pagination.currentPage}'"><i
+                      onclick="location.href='${pageContext.request.contextPath}/donation/write?mode=insert&cp=${pagination.currentPage}'"><i
                         class="fa-solid fa-pen"></i>_글쓰기</button>
                       </c:if>
                   </div>

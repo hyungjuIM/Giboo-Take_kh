@@ -76,4 +76,12 @@ public class DonationDAO {
 
         return sqlSession.selectList("donationMapper.getStoryList", model, rowBounds);
     }
+
+    public DonationStory selectDonationStory(int donationStoryNo) {
+        return sqlSession.selectOne("donationMapper.selectDonationStory", donationStoryNo);
+    }
+
+    public int updateViewCount(int donationStoryNo) {
+        return sqlSession.update("donationMapper.updateViewCount", donationStoryNo);
+    }
 }
