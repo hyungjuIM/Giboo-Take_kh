@@ -172,6 +172,13 @@
 		PROFILE_IMG = #{profileImg}
 		WHERE MEMBER_NO = #{memberNo}
 	</update>
+	
+	   <!-- 회원 탈퇴 -->
+   <update id="withdrawal">
+      UPDATE MEMBER SET
+      SECESSION_FL = 'Y'
+      WHERE MEMBER_NO = #{memberNo}
+   </update>
 
 	<!-- 회원 탈퇴 -->
 	<update id="withdrawal">

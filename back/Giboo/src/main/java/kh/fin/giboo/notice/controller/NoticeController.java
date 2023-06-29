@@ -1,5 +1,8 @@
 package kh.fin.giboo.notice.controller;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +20,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
+import kh.fin.giboo.common.Util;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.notice.model.service.NoticeService;
 import kh.fin.giboo.notice.model.vo.NoticeDetail;
@@ -151,5 +161,41 @@ public class NoticeController {
 		logger.info("공지사항 작성");
 		return "notice/noticeWrite";
 	}
+	
+	// 썸머노트 이미지 저장
+	@PostMapping("/uploadSNoticeImageFile")
+	@ResponseBody
+	public String uploadSNoticeImageFile(@RequestParam("file") MultipartFile[] multipartFiles, HttpServletRequest request) {
+        JsonArray jsonArray = new JsonArray(); 
+
+        String webPath = "/resources/images/notice/";
+        String fileRoot = request.getServletContext().getRealPath(webPath);
+
+        for (MultipartFile multipartFile : multipartFiles) {
+            JsonObject jsonObject = new JsonObject();
+
+            String originalFileName = multipartFile.getOriginalFilename();
+            String savedFileName = Util.fileRename(originalFileName);
+
+            File targetFile = new File(fileRoot + savedFileName);
+            try {
+                InputStream fileStream = multipartFile.getInputStream();
+                FileUtils.copyInputStreamToFile(fileStream, targetFile);
+                jsonObject.addProperty("", request.getContextPath() + webPath + savedFileName);
+
+            } catch (IOException e) {
+                FileUtils.deleteQuietly(targetFile);
+                jsonObject.addProperty("responseCode", "error");
+                e.printStackTrace();
+            }
+
+            jsonArray.add(jsonObject);
+        }
+
+        String jsonResult = jsonArray.toString();
+        System.out.println("이미지: " + jsonResult);
+        return jsonResult;
+    }
+
 	
 }

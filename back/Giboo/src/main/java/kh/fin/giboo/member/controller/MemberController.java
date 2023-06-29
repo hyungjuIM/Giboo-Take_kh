@@ -65,6 +65,7 @@ public class MemberController {
 		Member loginMember = service.loginMember(inputMember);
 		if(loginMember != null) { //로그인 성공 
 			model.addAttribute("loginMember", loginMember);
+
 			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
 			
 			if(saveId != null) { // 아이디 저장이 체크 되었을 때
@@ -80,6 +81,7 @@ public class MemberController {
 			
 			
 			
+
 			logger.info("로그인 기능 수행됨");
 	} else {
 		logger.info("로그인 실패.");

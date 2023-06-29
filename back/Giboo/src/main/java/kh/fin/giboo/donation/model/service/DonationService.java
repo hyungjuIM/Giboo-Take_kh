@@ -12,4 +12,6 @@ public interface DonationService {
     DonationDetail getDonationDetail(int donationNo);
 
     int sync(Map<String, Object> map);
+
+    Map<String, Object> getStoryList(int cp, Model model);
 }

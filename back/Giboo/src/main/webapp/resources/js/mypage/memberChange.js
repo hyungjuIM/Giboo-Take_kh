@@ -281,7 +281,9 @@ if( document.getElementById("delete-image") != null ){
     }); 
 }
 
+
 const popup_withdrawal = document.getElementById("popup_withdrawal");
+
 
 //=======================================================================================
 //회원탈퇴 팝업==========
@@ -304,12 +306,12 @@ const popup_withdrawal = document.getElementById("popup_withdrawal");
     //     }); 
     
 // 회원 탈퇴 유효성 검사
-function secessionValidate(){
-      if( !confirm("탈퇴시점으로부터 30일 이내 재가입이 불가합니다.  정말 Giboo & take 를 회원탈퇴하시겠습니까?") ){ //  취소를 누른 경우
-        return false;
-    }
-    return true;
-    }
+// function secessionValidate(){
+//       if( !confirm("탈퇴시점으로부터 30일 이내 재가입이 불가합니다.  정말 Giboo & take 를 회원탈퇴하시겠습니까?") ){ //  취소를 누른 경우
+//         return false;
+//     }
+//     return true;
+//     }
 
 // $("#popup_withdrawal").click(function() {
 //     if (secessionValidate()) {

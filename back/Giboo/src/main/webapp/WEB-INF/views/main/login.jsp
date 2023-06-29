@@ -21,6 +21,7 @@
 		<jsp:include page="/WEB-INF/views/main/header.jsp" />
 	</header>
 
+
 	<main>
 		<section class="loginSection">
 			<div class="loginContainer_box">
@@ -71,6 +72,7 @@
 							<div>
 								<div class="loginBtnnBox">
 									<button type="submit" class="loginBtnn">로그인</button>
+
 								</div>
 							</div>
 
