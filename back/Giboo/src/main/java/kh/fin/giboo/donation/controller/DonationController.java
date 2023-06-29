@@ -6,6 +6,7 @@ import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
 import kh.fin.giboo.donation.model.service.DonationService;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
+import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.member.model.vo.Member;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,7 +23,9 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -58,22 +62,79 @@ public class DonationController {
 
     @GetMapping("/storyList")
     public String storyList(@RequestParam(value = "cp", required = false, defaultValue = "1")int cp,
-                            Model model) {
+                            Model model, HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
         logger.info("기부 이야기 목록");
 
         Map <String, Object> map = null;
 
+        Member loginMember = (Member)session.getAttribute("loginMember");
+
         map = service.getStoryList(cp, model);
 
         model.addAttribute("map", map);
+        model.addAttribute("loginMember", loginMember);
 
         return "donation/storyList";
     }
 
-    @GetMapping("/story")
-    public String story() {
+    @GetMapping("/story/{donationStoryNo}")
+    public String story(@PathVariable("donationStoryNo") int donationStoryNo,
+    @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                        Model model,
+                        HttpSession session,
+                        HttpServletRequest req, HttpServletResponse resp) {
         logger.info("기부 이야기");
 
+        DonationStory story = service.selectDonationStory(donationStoryNo);
+
+        if (story != null) {
+            Member loginMember = (Member) session.getAttribute("loginMember");
+
+            int memberNo = 0;
+
+            if (loginMember != null) {
+                memberNo = loginMember.getMemberNo();
+            }
+
+            if (story.getMemberNo() != memberNo) {
+                Cookie cookie = null;
+
+                Cookie[] cArr = req.getCookies();
+
+                if(cArr != null && cArr.length > 0) {
+                    for(Cookie c : cArr) {
+                        if(c.getName().equals("readNoticeNo")) {
+                            cookie = c;
+                        }
+                    }
+                }
+
+                int result = 0;
+
+                if (cookie == null) {
+                    cookie = new Cookie("readDonationStoryNo", donationStoryNo + "");
+                    result = service.updateViewCount(donationStoryNo);
+                } else {
+                    String[] temp = cookie.getValue().split("/");
+
+                    List<String> list = Arrays.asList(temp);
+
+                    if (list.indexOf(donationStoryNo+"") == -1) {
+                        cookie.setValue(cookie.getValue() + "/" + donationStoryNo);
+                        result = service.updateViewCount(donationStoryNo);
+                    }
+                }
+
+                if (result > 0) {
+                    story.setViewCount(story.getViewCount() + 1);
+                    cookie.setPath(req.getContextPath());
+                    cookie.setMaxAge(60 * 60 * 1);
+                    resp.addCookie(cookie);
+                }
+            }
+        }
+
+        model.addAttribute("story", story);
         return "donation/story";
     }
 

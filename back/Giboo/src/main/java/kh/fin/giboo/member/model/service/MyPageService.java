@@ -20,6 +20,6 @@ public interface MyPageService {
 	int withdrawal(Member loginMember);
 
 	
-
+  
 	
 }

@@ -10,4 +10,6 @@ public interface VolunteerService {
     Map<String, Object> selectVolunteerList(int category, int cp, Model model);
 
     VolunteerDetail getVolunteerDetail(int volunteerNo);
+
+    Map<String, Object> getStoryList(int cp, Model model);
 }
