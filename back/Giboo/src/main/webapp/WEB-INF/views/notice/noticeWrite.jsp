@@ -75,21 +75,17 @@
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />
 </footer>
 <!-- Summernote-->
-<<<<<<< HEAD
+
 
 <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
 
-=======
-<!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
->>>>>>> origin/SB
 rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
 rel="stylesheet">
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/SB
+
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
