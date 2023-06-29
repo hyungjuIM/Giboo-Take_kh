@@ -275,15 +275,21 @@ body {
     text-decoration: none;
 }
 
+<<<<<<< HEAD
 .alarmCategory{
     font-size: 14px;
 }
 
+=======
+>>>>>>> origin/SB
 
 .alarmContent{
     cursor: pointer;
     font-size: 16px;
+<<<<<<< HEAD
     margin-top: 10px;
+=======
+>>>>>>> origin/SB
 }
 
 .alarmContent a {

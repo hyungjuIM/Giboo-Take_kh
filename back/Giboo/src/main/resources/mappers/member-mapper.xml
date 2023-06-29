@@ -142,7 +142,11 @@
 		#{memberNick},
 		#{memberTel},
 		#{memberAddr},
+<<<<<<< HEAD
 		DEFAULT, DEFAULT, NULL, #{memberType}, 1, NULL,NULL,DEFAULT
+=======
+		DEFAULT, DEFAULT, NULL, 'Y', 1, NULL,NULL,DEFAULT
+>>>>>>> origin/SB
 		)
 	</insert>
 
@@ -180,6 +184,7 @@
       WHERE MEMBER_NO = #{memberNo}
    </update>
 
+<<<<<<< HEAD
 
 	<select id="kakao" parameterType="java.util.HashMap"
 		resultMap="member_rm">
@@ -188,6 +193,15 @@
 		#{memberEmail}
 
 
+=======
+	<select id="kakao" parameterType="java.util.HashMap"
+		resultMap="member_rm">
+
+		SELECT * FROM MEMBER WHERE MEMBER_NICK= #{memberNick} AND MEMBER_EMAIL =
+		#{memberEmail}
+
+
+>>>>>>> origin/SB
 	</select>
 
 	<insert id="kakaoinsert" parameterType="java.util.HashMap">
