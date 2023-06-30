@@ -19,4 +19,6 @@ public interface DonationService {
     DonationStory selectDonationStory(int donationStoryNo);
 
     int updateViewCount(int donationStoryNo);
+
+    int updateAmount(Map<String, Object> map);
 }

@@ -16,4 +16,5 @@ public class VolunteerStory {
     private int viewCount;
     private String deleteStatus;
     private String memberNick;
+    private int memberNo;
 }

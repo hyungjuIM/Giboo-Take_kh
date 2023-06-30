@@ -43,6 +43,7 @@
         <result property="donationTitle" column="DONATION_TITLE" />
         <result property="donationContent" column="DONATION_CONTENT" />
         <result property="donationAttachment" column="DONATION_ATTACHMENT" />
+        <result property="memberNo" column="MEMBER_NO" />
         <result property="memberId" column="MEMBER_ID" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
@@ -123,6 +124,12 @@
             INTO MYACTIVE_DONATION(MYACTIVE_DONATION_NO, DONATION_NO, MEMBER_NO, DONATION_MONEY) VALUES (MYACTIVE_DONATION_NO_SEQ.nextval, ${donationNo}, ${memberNo}, ${paidAmount})
         SELECT * FROM DUAL
     </insert>
+
+    <update id="updateAmount">
+        UPDATE DONATION
+        SET DONATION_AMOUNT = DONATION_AMOUNT + ${paidAmount}
+        WHERE DONATION_NO = ${donationNo}
+    </update>
     
     <select id="getStoryListCount" resultType="_int">
         SELECT COUNT(*)
@@ -159,6 +166,4 @@
         SET VIEW_COUNT = VIEW_COUNT + 1
         WHERE DONATION_STORY_NO = ${donationStoryNo}
     </update>
-
-
 </mapper>

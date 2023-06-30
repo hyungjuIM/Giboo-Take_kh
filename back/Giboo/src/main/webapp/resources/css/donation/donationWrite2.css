@@ -114,6 +114,14 @@ a{
     align-items: start !important;
 }
 
+#amount {
+    width: 90%;
+}
+
+#amount::placeholder {
+    color: #D6D3F4;
+}
+
 #address {
     width: 828px;
     height: 42px;
@@ -155,6 +163,7 @@ a{
     width: 390px;
     display: flex;
     align-items: center;
+    outline: none;
 }
 
 #imgInput::file-selector-button {
