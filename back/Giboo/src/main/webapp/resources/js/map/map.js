@@ -38,55 +38,90 @@ $(document).ready(function() {
 
     // --------------현재위치 js----------------
 
- // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
- if (navigator.geolocation) {
-    
-    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-    navigator.geolocation.getCurrentPosition(function(position) {
-        
-        var lat = position.coords.latitude, // 위도
-            lon = position.coords.longitude; // 경도
-        
-        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-            message = '<div style="padding:5px;">찾았다</div>'; // 인포윈도우에 표시될 내용입니다
-        
-        // 마커와 인포윈도우를 표시합니다
-        displayMarker(locPosition, message);
-            
-      });
-    
-} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-    
-    var locPosition = new kakao.maps.LatLng(33.450701, 126.570667),    
-        message = 'geolocation을 사용할수 없어요..'
-        
-    displayMarker(locPosition, message);
+    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+// 주소값을 JSP로 전달하는 AJAX 요청
+function sendAddressToJSP(address) {
+    $.ajax({
+        url: contextPath + '/map/mapList',
+        type: 'GET',
+        data: { address: address },
+        success: function(response) {
+            // 요청이 성공한 경우 처리할 내용
+            console.log('주소값이 JSP로 전달되었습니다.');
+                // 주소값을 JSP에 표시
+                $(".myAdress").text(address);
+        },
+        error: function(xhr, status, error) {
+            // 요청이 실패한 경우 처리할 내용
+            console.error('AJAX 요청이 실패하였습니다.', error);
+        }
+    });
 }
 
-// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-function displayMarker(locPosition, message) {
+// HTML5의 geolocation으로 사용할 수 있는지 확인합니다
+if (navigator.geolocation) {
+    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+    navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude; // 위도
+        var lon = position.coords.longitude; // 경도
 
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({  
-        map: map, 
-        position: locPosition
-    }); 
-    
-    var iwContent = message, // 인포윈도우에 표시할 내용
-        iwRemoveable = true;
+// 좌표를 주소로 변환합니다
+var geocoder = new kakao.maps.services.Geocoder();
+geocoder.coord2Address(lon, lat, function(result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+        var address = result[0].address.address_name; // 현재 주소
+        console.log(address); // 주소 출력 또는 원하는 처리 수행
 
-    // 인포윈도우를 생성합니다
-    var infowindow = new kakao.maps.InfoWindow({
-        content : iwContent,
-        removable : iwRemoveable
+        // 주소값을 JSP로 전달
+        sendAddressToJSP(address);
+        
+
+        var markerPosition = new kakao.maps.LatLng(lat, lon);
+        var marker = new kakao.maps.Marker({
+            position: markerPosition
+        });
+        marker.setMap(map);
+
+        // 지도의 중심을 마커의 위치로 설정합니다
+        map.setCenter(markerPosition);
+
+        // 팝업 내용을 HTML로 작성합니다
+        var popupContent = `
+            <div class="popup">
+                <div class="popup-inner">
+                    <div class="popup-content">
+                        <h3>현재 위치</h3>
+                        <p>${address}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // 팝업 오버레이를 생성합니다
+        var overlay = new kakao.maps.CustomOverlay({
+            content: popupContent,
+            position: markerPosition,
+            yAnchor: 1.5 // 팝업이 마커 위에 정확히 표시되도록 y 좌표 조정
+        });
+
+        // 팝업을 지도에 표시합니다
+        overlay.setMap(map);
+    }  
+});
+
+
+
+
+    }, function(error) {
+        console.log('위치 정보를 가져오는데 실패했습니다:', error);
     });
-    
-    // 인포윈도우를 마커위에 표시합니다 
-    infowindow.open(map, marker);
-    
-    // 지도 중심좌표를 접속위치로 변경합니다
-    // map.setCenter(locPosition);      
-}  
+} else {
+    console.log('geolocation을 사용할 수 없어요..');
+}
+
+
+
+ 
 
 
 ////////////////////////////////////////////////////////
@@ -97,6 +132,8 @@ function displayMarker(locPosition, message) {
     var volreviews = [];
     var volcounts = [];
     var vimgs = [];
+    var volunteernos = [];
+    var currentpages = [];
 
 
     // HTML에서 주소와 이름을 가져옵니다
@@ -134,6 +171,18 @@ function displayMarker(locPosition, message) {
         vimgs.push(vimg);
     });
 
+    $(".vUrl").each(function() {
+        var volunteerno = $(this).data("volunteerno");
+        volunteernos.push(volunteerno);
+    });
+
+    $(".vUrl").each(function() {
+        var currentpage = $(this).data("currentpage");
+        currentpages.push(currentpage);
+    });
+
+    console.log(addresses);
+
 
     // 지도와 지오코더 인스턴스를 생성합니다
     // var mapContainer = document.getElementById('map');
@@ -146,7 +195,7 @@ function displayMarker(locPosition, message) {
 
     // 주소를 반복하며 마커를 생성합니다
     for (var i = 0; i < addresses.length; i++) {
-        (function(vimg, address, name, category, volreview, volcount) {
+        (function( volunteerno,currentpage, vimg, address, name, category, volreview, volcount) {
             // 주소를 지오코드하여 좌표를 얻습니다
             geocoder.addressSearch(address, function(result, status) {
                 if (status === kakao.maps.services.Status.OK) {
@@ -177,7 +226,7 @@ function displayMarker(locPosition, message) {
                     // '    <div class="mpopWrap">'+
                     // '        <div class="mpopBox">'+
                     '            <div class="mpopup">'+
-                    '                <a href="">'+
+                    '                   <a href="../map/mapHome/' + volunteerno + '?cp=' + currentpage + '">' +
                     '                    <div class="mpopImg">'+
                     '                        <img src="' + vimg  + '" alt="">'+
                     '                    </div>'+
@@ -185,7 +234,7 @@ function displayMarker(locPosition, message) {
                     '                        <div class="mpopTi">'+
                     '                                <div class="mpopTitle">'+
                     '                                    <span>' + name + '</span>'+
-                    '            </div>'+
+                    '                                </div>'+
                     '        <div class="mpopCa">'+
                     '            <span>' + category + '</span>'+
                     '        </div>'+
@@ -218,7 +267,7 @@ function displayMarker(locPosition, message) {
                     infowindow.open(map, marker);
 
                     // 지도의 중심을 마커의 위치로 설정합니다
-                    map.setCenter(coords);
+                    // map.setCenter(coords);
 
                     // 마커에 클릭 이벤트 리스너를 추가합니다
                     kakao.maps.event.addListener(marker, 'click', function() {
@@ -231,12 +280,54 @@ function displayMarker(locPosition, message) {
                             infowindow.open(map, marker);
                         }
                     });
+                                        
                     // 처음에는 팝업이 닫혀있도록 설정
                     infowindow.close();
+
+                    
                 }
             });
-        })(vimgs[i], addresses[i], names[i], categorys[i], volreviews[i], volcounts[i]);
+        })( volunteernos[i],currentpages[i], vimgs[i],  addresses[i], names[i], categorys[i], volreviews[i], volcounts[i]);
     }
+
 });
 
 })
+
+
+
+// url 복사
+function copyToClipboard() {
+    var urlToCopy = window.location.href; // 복사할 URL
+  
+    // Clipboard API를 지원하는지 확인
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(urlToCopy)
+        .then(function() {
+          console.log('URL이 성공적으로 복사되었습니다.');
+          alert("URL이 복사되었습니다.")
+          // 복사 성공한 경우 추가로 처리할 작업을 여기에 작성하세요.
+        })
+        .catch(function(error) {
+          console.error('URL 복사에 실패했습니다.', error);
+          // 복사 실패한 경우 추가로 처리할 작업을 여기에 작성하세요.
+        });
+    } else {
+      // Clipboard API를 지원하지 않는 경우 대체 방법을 사용할 수 있습니다.
+      console.warn('Clipboard API가 지원되지 않습니다. 다른 방법을 사용하세요.');
+  
+      // 대체 방법으로 클립보드에 복사할 수 있도록 구현하세요.
+    }
+}
+
+
+
+
+//------------------
+// const mhBtnHe = document.getElementById("mhBtnHe");
+
+// mhBtnHe.addEventListener("click", function)
+
+
+
+

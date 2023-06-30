@@ -140,4 +140,15 @@ public class AdminController {
 
         return service.removeFaq(id);
     }
+    
+    
+    
+    @GetMapping("/eventWrite")
+    public String eventWrite() {
+        logger.info("이벤트 작성폼");
+
+        return "admin/eventWrite";
+    }
+
+    
 }

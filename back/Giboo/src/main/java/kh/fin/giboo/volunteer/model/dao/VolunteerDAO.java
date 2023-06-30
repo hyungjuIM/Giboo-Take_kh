@@ -4,6 +4,7 @@ import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
+import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,16 @@ public class VolunteerDAO {
 
     public int getVolunteerListCount() {
         return sqlSession.selectOne("volunteerMapper.volunteerListCount");
+    }
+
+    public int getStoryListCount() {
+        return sqlSession.selectOne("volunteerMapper.getStoryListCount");
+    }
+
+    public List<VolunteerStory> getStoryList(Pagination pagination, Model model) {
+        int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+        RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+
+        return sqlSession.selectList("volunteerMapper.getStoryList", model, rowBounds);
     }
 }

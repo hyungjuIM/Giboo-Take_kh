@@ -13,7 +13,7 @@
 <title>알림창</title>
 
 
-
+   
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/main/alarm.css">
@@ -52,7 +52,7 @@
                 
 			
 				<div class="alert_titleContainer">
-
+					<div class="alarmCategory">기부or봉사</div>
 					<div class="alarmContent" id="alarmContent"></div>
 
 					<div class="alarmDate"></div>

@@ -273,12 +273,20 @@ body {
     font-weight: 600;
     font-size: 16px;
     text-decoration: none;
+}    
+
+
+.alarmCategory{
+    font-size: 14px;
 }
 
 
 .alarmContent{
     cursor: pointer;
     font-size: 16px;
+    margin-top: 10px;
+
+
 }
 
 .alarmContent a {
@@ -289,6 +297,14 @@ body {
 .alarmDate{
     font-size: 14px;
     margin-top: 10px;
+}
+
+.noNotificationText{
+    color: #00CA61;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
 }
 
 

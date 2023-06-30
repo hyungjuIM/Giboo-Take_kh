@@ -656,3 +656,70 @@ color: #111111;
     width: 71%;
     margin-top: 20px;
 }
+
+
+/*==============================================*/
+
+
+.progressArea {
+    background-color: #F0EFF9;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.progressInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progressPercentage {
+    color: #8071FC;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.goal {
+    color: #767676;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.progressBar {
+    width: 100%;
+    height: 10px;
+    border-radius: 50px;
+    background-color: white;
+}
+
+.progressBarValue {
+    background: linear-gradient(to top, #8071FC 50%, #574da1);
+    border-radius: 30px;
+
+    width: 50%;
+    height: 100%;
+}
+
+.progressStatus {
+    display: flex;
+}
+
+.progressStatus > span {
+    color: #767676;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-right: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.progressStatus > span > img {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+.progressStatus > span > span {
+    font-size: 14px;
+}

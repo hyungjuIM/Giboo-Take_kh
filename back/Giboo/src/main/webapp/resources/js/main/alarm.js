@@ -184,7 +184,10 @@ const smallC = $("<div>").addClass("smallC").attr("id", "readStatus");
 smallCContainer.append(smallC);
 alertTitleContainerA.append(smallCContainer);
 const alertTitleContainer = $("<div>").addClass("alert_titleContainer");
-
+//
+//const alarmCategory = $("<div>").addClass("alarmCategory").text(item.category);
+//        alertTitleContainer.append(alarmCategory);
+//
 const alarmContent = $("<div>").addClass("alarmContent");
 const alarmDate = $("<div>").addClass("alarmDate").text("등록일자: " + item.alarmDate);
 
@@ -197,6 +200,9 @@ if (item.volunteerNo !== null && item.volunteerNo !== 0) {
     updateReadStatus(item.alarmNo);
     smallC.addClass("read");
   });
+  const alarmCategory = $("<div>").addClass("alarmCategory").text("<봉사>");
+  alertTitleContainer.append(alarmCategory);
+
 } else if (item.eventNo !== null && item.eventNo !== 0) {
   const eventLink = $("<a>")
     .attr("href", "/Giboo/event/eventDetailMain/" + item.eventNo)
@@ -206,7 +212,11 @@ if (item.volunteerNo !== null && item.volunteerNo !== 0) {
     updateReadStatus(item.alarmNo);
     smallC.addClass("read");
   });
-} else if (item.donationNo !== null && item.donationNo !== 0) {
+  const alarmCategory = $("<div>").addClass("alarmCategory").text("<이벤트>");
+  alertTitleContainer.append(alarmCategory);
+
+} 
+else if (item.donationNo !== null && item.donationNo !== 0) {
   const donationtLink = $("<a>")
     .attr("href", "/Giboo/donation/detail/" + item.donationNo)
     .text(item.alarmContent);
@@ -215,6 +225,10 @@ if (item.volunteerNo !== null && item.volunteerNo !== 0) {
     updateReadStatus(item.alarmNo);
     smallC.addClass("read");
   });
+
+  const alarmCategory = $("<div>").addClass("alarmCategory").text("<기부>");
+  alertTitleContainer.append(alarmCategory);
+
 } else if (item.noticeNo !== null && item.noticeNo !== 0) {
   const noticeLink = $("<a>")
     .attr("href", "/Giboo/event/eventDetailMain/" + item.noticeNo)
@@ -224,6 +238,9 @@ if (item.volunteerNo !== null && item.volunteerNo !== 0) {
     updateReadStatus(item.alarmNo);
     smallC.addClass("read");
   });
+  const alarmCategory = $("<div>").addClass("alarmCategory").text("<공지사항>");
+  alertTitleContainer.append(alarmCategory);
+
 } else if (item.reviewNo !== null && item.reviewNo !== 0) {
   const reviewLink = $("<a>")
     .attr("href", "/Giboo/event/eventDetailMain/" + item.reviewNo)
@@ -233,6 +250,10 @@ if (item.volunteerNo !== null && item.volunteerNo !== 0) {
     updateReadStatus(item.alarmNo);
     smallC.addClass("read");
   });
+  const alarmCategory = $("<div>").addClass("alarmCategory").text("<리뷰>");
+  alertTitleContainer.append(alarmCategory);
+
+
 } else {
   // 기타 경우 처리
   alarmContent.text(item.alarmContent);
@@ -242,7 +263,10 @@ if (item.volunteerNo !== null && item.volunteerNo !== 0) {
     $('.smallC').addClass('unread');
   }
 }
-alertContainer.append(smallCContainer);
+alertContainer.append(smallCContainer);   
+//
+//alertTitleContainer.append(alarmCategory);
+//
 alertTitleContainer.append(alarmContent);
 alertTitleContainer.append(alarmDate);
 alertTitleContainerA.append(alertTitleContainer);
@@ -250,7 +274,14 @@ alertContainer.append(alertTitleContainerA);
 alarmList.append(alertContainer);
 }
 
-alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
+if (list.length === 0) {
+  const noNotificationText = $("<div>").addClass("noNotificationText").text("새로운 알람이 없습니다");
+  alarmList.append(noNotificationText);
+} else {
+  alarmList.css("overflow-y", "auto");
+}
+3
+//alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
 
 function updateReadStatus(alarmNo) {
 $.ajax({

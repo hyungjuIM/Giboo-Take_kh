@@ -18,7 +18,7 @@
 <div class="mainCategoryArea">
     <div class="mainCategoryInner">
         <a href="${pageContext.request.contextPath}/volunteer/home" class="mainCategoryItem" id="home">봉사 진행중</a>
-        <a href="${pageContext.request.contextPath}/volunteer/story" class="mainCategoryItem mainCategoryChecked" id="story">봉사이야기</a>
+        <a href="${pageContext.request.contextPath}/volunteer/storyList" class="mainCategoryItem mainCategoryChecked" id="story">봉사이야기</a>
     </div>
 </div>
 
