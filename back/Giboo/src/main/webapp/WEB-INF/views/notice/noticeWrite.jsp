@@ -23,7 +23,7 @@
         <!--  -->
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/notice/noticeWrite.css" />
-        <!-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/summernote/summernote-lite.css" /> -->
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/summernote/summernote-lite.css" />
     </head>
     
     <body>
@@ -38,33 +38,42 @@
     
         
         <section class="mainContainer">
-            <div class="mainContent"> 
+            <form action="noticeWrite" method="POST" class="mainContent" onsubmit="return noticeWriteValidate()"> 
                 <!-- 제목 -->
                 <div class="TitleBox">
-                    <div class="title"> <input type="text" placeholder="제목을 입력해 주세요"></div>
+                    <div class="title"> <input name="noticeTitle" type="text" placeholder="제목을 입력해 주세요"></div>
                     
                 </div>
                 
                 <!-- 본문 -->
                 
-                <form method="post" class="contentContiner">
-                    <textarea id="summernote" name="editordata"></textarea>
-                </form>
+                <div class="contentContiner">
+                    <textarea id="summernote" name="noticeContent"></textarea>
+                    
+                </div>
 
                 
                 
                 <!-- 목록 알림 등록 취소 영역 -->
                 <div class="submitContainer">
                     <button class="listBack">목록으로</button>
-                    <div class="alarmCheck"><input type="checkbox"> 알림 보내기</div>
-                    <button class="save">등록</button>
+                    <div class="alarmCheck"><input type="checkbox" name="sendAlarm"> 알림 보내기</div>
+                    <button type="submit" class="save">등록</button>
                     <button class="cancel">취소</button>
                 </div>
                 
+                   <!-- 숨겨진 값(hidden) -->
+            <!-- 동작 구분 -->
+            <input type="hidden" name="mode" value="${param.mode}">
+
+            <!-- 게시글 번호 (커맨드객체 NoticeDetail.noticeNo 세팅) -->
+            <input type="hidden" name="noticeNo" value="${empty param.no ? 0 : param.no}">
+            
+            <!-- 현재 페이지 -->
+            <input type="hidden" name="cp" value="${param.cp}">
                 
                 
-                
-            </div>
+            </form>
         </section> 
     </main>
     
@@ -75,26 +84,23 @@
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />
 </footer>
 <!-- Summernote-->
-
-
 <!-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css"
-
 rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script> -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
 rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  -->
+ <script src="${pageContext.request.contextPath}/resources/js/summernote/summernote-lite.js" ></script>
+ <script src="${pageContext.request.contextPath}/resources/js/summernote/lang/summernote-ko-KR.js" ></script>
+ <script src="${pageContext.request.contextPath}/resources/js/summernote/writeForm.js" ></script>
+ <script src="${pageContext.request.contextPath}/resources/js/notice/noticeWrite.js" ></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
- <script src="${pageContext.request.contextPath}/resources/js/summernote/noticeWrite.js" ></script>
- <!-- <script src="${pageContext.request.contextPath}/resources/js/summernote/summernote-lite.js" ></script>
- <script src="${pageContext.request.contextPath}/resources/js/summernote/lang/summernote-ko-KR.js" ></script> -->
- 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
  crossorigin="anonymous" referrerpolicy="no-referrer" />
