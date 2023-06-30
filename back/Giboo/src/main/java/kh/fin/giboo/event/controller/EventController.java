@@ -1,6 +1,8 @@
 package kh.fin.giboo.event.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Map;
 
@@ -76,6 +78,13 @@ public class EventController {
 			) {
 		
 		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
+		//슬
+	
+	        int percent = (eventDetailTop.getEventPersonCount() * 100) / eventDetailTop.getTargetPeople();
+	        eventDetailTop.setPercent(percent);
+		//슬
+		
+		
 		
 		if(eventDetailTop != null) {
 			List<EventDetailMember> eventDetailMember = service.selectEventDetailMember(eventNo);

@@ -296,6 +296,14 @@ body {
     margin-top: 10px;
 }
 
+.noNotificationText{
+    color: #00CA61;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
 
 
 
