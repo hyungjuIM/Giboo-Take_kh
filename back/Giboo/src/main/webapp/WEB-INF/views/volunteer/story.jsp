@@ -24,7 +24,7 @@
 
 <section class="mainContainer">
     <div class="mainContent">
-        <div class="storyTitle">Story Title</div>
+        <div class="storyTitle">${story.volunteerStoryTitle}</div>
 
         <div class="categoryArea">
             <span class="type">봉사</span>
@@ -33,13 +33,14 @@
         </div>
 
         <div class="infoArea">
-            <span class="writerArea">작성자 : <span class="writerName">김김김</span></span>
-            <span class="enrollDate">2023. 01. 01</span>
+            <span class="writerArea">작성자 : <span class="writerName">${story.memberNick}</span></span>
+            <span class="enrollDate">${story.enrollDt}</span>
         </div>
 
         <div class="contentArea">
             <img class="contentImg" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
             <div class="content">
+                ${story.volunteerStoryContent}
                 <h4>What is Lorem Ipsum?</h4><br>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br>
                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,<br>

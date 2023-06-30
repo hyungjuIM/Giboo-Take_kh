@@ -13,12 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +28,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import kh.fin.giboo.common.Util;
+import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.notice.model.service.NoticeService;
 import kh.fin.giboo.notice.model.vo.NoticeDetail;
@@ -144,7 +148,10 @@ public class NoticeController {
 
 				}
 			}
-		}
+		} 
+		String unescapedContent = StringEscapeUtils.unescapeHtml(noticeDetail.getNoticeContent());
+		noticeDetail.setNoticeContent(unescapedContent);
+	      
 
 		model.addAttribute("noticeDetail", noticeDetail);
 		return "notice/noticeDetail";
@@ -155,8 +162,8 @@ public class NoticeController {
 	
 	// 공지사항 작성화면 전환
 	@GetMapping("/noticeWrite")
-	public String noticeWrite(String mode,
-			@RequestParam(value="no",required = false, defaultValue = "0")int boardNo,
+	public String noticeWriteForm(String mode,
+			@RequestParam(value="no",required = false, defaultValue = "0")int noticeNo,
 			Model model) {
 		logger.info("공지사항 작성");
 		return "notice/noticeWrite";
@@ -204,6 +211,37 @@ public class NoticeController {
 	      System.out.println("================================================= 이미지 는?? : : " + result);
 	      return result;
 
+	   }
+	   
+	   @PostMapping("/noticeWrite")
+	   public String noticeWrite(
+			   NoticeDetail noticeDetail,
+			   @ModelAttribute("loginManager") Manager loginManager,
+			   String mode
+				, HttpServletRequest req
+				, RedirectAttributes ra
+				,@RequestParam(value="cp", required=false, defaultValue="1") int cp
+			   ) {
+		   noticeDetail.setManagerNo( loginManager.getManagerNo()  );
+		   
+		   String path =null;
+		   String message =null;
+		   // 게시글 등록
+		   System.out.println(mode);
+		   if(mode.equals("insert")) {
+			   int noticeNo = service.insertNotice(noticeDetail);
+			   logger.info("게시글 등록 성공");
+			  path = "../notice/noticeDetail/"+noticeNo;
+			  message ="공지사항이 등록 되었습니다.";
+		   }else { //수정
+			   int result = service.updateNotice(noticeDetail);
+			   if(result>0) {
+				   path="../notice/noticeDetail"+noticeDetail.getNoticeNo()+"?cp="+cp;
+			   }
+			   
+		   }
+		   ra.addFlashAttribute("message", message);
+		   return "redirect:"+path;
 	   }
 
 

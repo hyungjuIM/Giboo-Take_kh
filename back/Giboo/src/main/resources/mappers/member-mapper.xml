@@ -193,7 +193,6 @@
 		#{memberEmail}
 
 
-
 	</select>
 
 	<insert id="kakaoinsert" parameterType="java.util.HashMap">

@@ -115,4 +115,9 @@ public class DonationServiceImpl implements DonationService {
     public int updateViewCount(int donationStoryNo) {
         return dao.updateViewCount(donationStoryNo);
     }
+
+    @Override
+    public int updateAmount(Map<String, Object> map) {
+        return dao.updateAmount(map);
+    }
 }

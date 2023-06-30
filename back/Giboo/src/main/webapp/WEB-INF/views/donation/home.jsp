@@ -91,10 +91,6 @@
                         </div>
                         <a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/SB
                             <div class="mainTitle">${donationList.donationTitle}</div>
                         </a>
                         <div class="progressBar">
@@ -133,6 +129,14 @@
                 <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
                 <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
             </ul>
+        </div>
+
+        <div class="writeBtn-container">
+            <c:if test="${loginMember.memberType == 'N'}">
+                <button class="writeBtn"
+                        onclick="location.href='${pageContext.request.contextPath}/donation/write?mode=insert&cp=${pagination.currentPage}'"><i
+                        class="fa-solid fa-pen"></i>_기부등록</button>
+            </c:if>
         </div>
 
     </div>

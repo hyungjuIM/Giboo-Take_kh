@@ -27,6 +27,7 @@ public class DonationDetail {
     private String donationTitle;
     private String donationContent;
     private String donationAttachment;
+    private int memberNo;
     private String memberId;
     private String parentCategoryName;
     private String agencyName;

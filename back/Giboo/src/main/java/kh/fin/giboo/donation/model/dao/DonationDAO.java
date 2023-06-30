@@ -84,4 +84,8 @@ public class DonationDAO {
     public int updateViewCount(int donationStoryNo) {
         return sqlSession.update("donationMapper.updateViewCount", donationStoryNo);
     }
+
+    public int updateAmount(Map<String, Object> map) {
+        return sqlSession.update("donationMapper.updateAmount", map);
+    }
 }
