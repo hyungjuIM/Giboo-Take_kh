@@ -1,5 +1,6 @@
 package kh.fin.giboo.map.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -79,6 +80,14 @@ public class MapDAO {
 
 	public List<Marker> selectMarkerAll(Model model) {
 		return sqlSession.selectList("map-mapper.selectMarkerAll", model);
+	}
+
+
+	public int insertFav(int memberNo, int volunteerNo) {
+	    Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("memberNo", memberNo);
+        parameterMap.put("volunteerNo", volunteerNo);
+		return sqlSession.insert("map-mapper.insertFav", parameterMap);
 	}
 
 

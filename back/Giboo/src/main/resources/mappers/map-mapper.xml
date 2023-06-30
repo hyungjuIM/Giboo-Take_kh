@@ -248,5 +248,10 @@
 		, V.VOLUNTEER_ADDR 
 		FROM VOLUNTEER V
 	</select>
+	
+	<insert id="insertFav">
+		INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, MEMBER_NO, VOLUNTEER_NO)
+		VALUES (SEQ_FAVORITE_NO.NEXTVAL, 'Y', #{memberNo}, #{volunteerNo})
+	</insert>
 
 </mapper>

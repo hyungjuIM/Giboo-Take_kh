@@ -1,6 +1,10 @@
 package kh.fin.giboo.map.controller;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -147,19 +151,93 @@ public class MapController {
 	@GetMapping("/map/mapList")
 	@ResponseBody
 	public String handleMapListRequest(@RequestParam("address") String address) {
-	    // 주소값을 활용한 처리를 수행합니다.
-	    // 필요한 비즈니스 로직을 구현하고 원하는 결과를 반환합니다.
-
-	    return new Gson().toJson(address); // 클라이언트로 반환할 데이터
+		
+	    return new Gson().toJson(address); 
 	}
 
 	
 	// 즐겨찾기
 //	@ResponseBody
-//	@PostMapping(value="/insertFav")
-//	public int insertFav(int volunteerNo) {
-//		return service.insertFav(volunteerNo);
+//	@PostMapping(value = "/insertFav")
+//	public int insertFav(@RequestParam("memberNo") int memberNo, @RequestParam("volunteerNo") int volunteerNo) {
+//
+//		return service.insertFav(memberNo, volunteerNo);
 //	}
+	
+//	@ResponseBody
+//	@PostMapping(value = "/insertFav")
+//	public int insertFav(
+//			@RequestParam("memberNo") int memberNo, 
+//			@RequestParam("volunteerNo") int volunteerNo, 
+//			HttpServletResponse response,
+//			HttpServletRequest req) {
+//	    // 쿠키 생성 및 추가
+//	    Cookie favoriteCookie = new Cookie("favorite", "true");
+//	    favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1년 설정 (초 단위)
+////	    favoriteCookie.setPath("/map");
+//	    favoriteCookie.setPath(req.getContextPath());
+//
+//	    response.addCookie(favoriteCookie);
+//
+//	    return service.insertFav(memberNo, volunteerNo);
+//	}
+	
+	@ResponseBody
+	@PostMapping(value = "/insertFav")
+	public String insertFav(
+	        @RequestParam("memberNo") int memberNo,
+	        @RequestParam("volunteerNo") int volunteerNo,
+	        HttpServletResponse response,
+	        HttpServletRequest req) {
+
+	    int result = service.insertFav(memberNo, volunteerNo);
+
+	    if (result > 0) {
+	    	
+	    	 HttpSession session = req.getSession();
+	         session.setAttribute("volunteerNo", volunteerNo);
+	        // 쿠키 생성 및 추가
+	        Cookie favoriteCookie = new Cookie("favorite", "true");
+	        favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1년 설정 (초 단위)
+	        favoriteCookie.setPath(req.getContextPath() + "/map/mapHome/" + volunteerNo); // 쿠키의 경로 설정
+	        response.addCookie(favoriteCookie);
+	        return "red";
+	    } else {
+	        return "failed";
+	    }
+	}
+	
+	
+	
+	@ResponseBody
+	@GetMapping(value = "/getFavoriteColor")
+	public String getFavoriteColor(
+	        @RequestParam("memberNo") int memberNo,
+	        @RequestParam("volunteerNo") int volunteerNo,
+	        HttpServletRequest request) {
+		// 세션에서 volunteerNo 값을 가져옴
+		HttpSession session = request.getSession();
+		int sessionVolunteerNo = (int) session.getAttribute("volunteerNo");
+
+		// 쿠키를 읽어와 비교
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+		    for (Cookie cookie : cookies) {
+		        if (cookie.getName().equals("favorite") && cookie.getValue().equals("true") && cookie.getPath().equals(request.getContextPath() + "/map/mapHome/" + sessionVolunteerNo)) {
+		            return "red";
+		        }
+		    }
+		}
+
+		return "none";
+
+	}
+
+
+	
+	
+	
+
 }
 
 	

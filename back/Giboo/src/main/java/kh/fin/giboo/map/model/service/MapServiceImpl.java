@@ -92,6 +92,11 @@ public class MapServiceImpl implements MapService{
 		return dao.selectMarkerAll(model);
 	}
 
+	@Override
+	public int insertFav(int memberNo, int volunteerNo) {
+		return dao.insertFav(memberNo, volunteerNo);
+	}
+
 
 
 

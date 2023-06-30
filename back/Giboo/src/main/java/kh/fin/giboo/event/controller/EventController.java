@@ -117,25 +117,7 @@ public class EventController {
 	}
 	
 
-	
-	// 팝업 새창 이동 ㅠㅠ모달로 띄워야 하는데ㅠㅠ
-//	@GetMapping(value="/eventPopup/{eventNo}")
-//	public String eventPopup(
-//	    @PathVariable("eventNo") int eventNo,
-//	    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
-//	    Model model
-//	) {
-//
-//		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
-//		
-//	    model.addAttribute("eventNo", eventNo);
-//	    model.addAttribute("cp", cp);
-//		model.addAttribute("eventDetailTop",eventDetailTop);
-//
-//	    return "event/eventPopup";
-//	}
-	
-	
+		
 	
 	
 	// 이벤트 팝업(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
