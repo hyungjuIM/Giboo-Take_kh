@@ -1,7 +1,10 @@
 package kh.fin.giboo.map.controller;
+import javax.servlet.http.HttpSession;
 
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +13,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -139,8 +144,22 @@ public class MapController {
 	}
 	
 	
-	// 즐겨찾기
+	@GetMapping("/map/mapList")
+	@ResponseBody
+	public String handleMapListRequest(@RequestParam("address") String address) {
+	    // 주소값을 활용한 처리를 수행합니다.
+	    // 필요한 비즈니스 로직을 구현하고 원하는 결과를 반환합니다.
+
+	    return new Gson().toJson(address); // 클라이언트로 반환할 데이터
+	}
+
 	
+	// 즐겨찾기
+//	@ResponseBody
+//	@PostMapping(value="/insertFav")
+//	public int insertFav(int volunteerNo) {
+//		return service.insertFav(volunteerNo);
+//	}
 }
 
 	
