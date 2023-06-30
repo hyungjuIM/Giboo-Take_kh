@@ -81,7 +81,7 @@ public class MyActiveServiceImpl implements MyActiveService {
 	//봉사 검색리스트 조회
 	@Override
 	public Map<String, Object> searchMyActiveVolunteerList(Map<String, Object> paramMap) {
-int listCount = dao.searchListCount2( paramMap  );
+		int listCount = dao.searchListCount2( paramMap  );
 		
 		// 페이지네이션 객체 생성
 		Pagination pagination = new Pagination( (int)paramMap.get("cp") , listCount);

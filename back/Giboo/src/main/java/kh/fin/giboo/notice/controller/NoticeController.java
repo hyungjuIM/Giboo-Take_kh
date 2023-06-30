@@ -173,8 +173,11 @@ public class NoticeController {
 	
 	// 썸머노트 이미지 저장
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 3422a4507a2d181702da7d32cbb5a7baf42cd176
 	// 공지사항 등록용 이미지 업로드
 	   @PostMapping("/uploadSNoticeImageFile")
 	   @ResponseBody
@@ -245,4 +248,8 @@ public class NoticeController {
 	   }
 
 
+<<<<<<< HEAD
+	
+=======
+>>>>>>> 3422a4507a2d181702da7d32cbb5a7baf42cd176
 }

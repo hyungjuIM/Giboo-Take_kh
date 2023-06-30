@@ -1,6 +1,6 @@
 const item = document.getElementsByClassName("item");
 const button = document.getElementsByClassName("button");
-const favoriteButton = document.getElementsByClassName("favoriteButton");
+// const favoriteButton = document.getElementsByClassName("favoriteButton");
 const all = document.getElementById("all");
 
 const searchParams = new URLSearchParams(location.search);
@@ -52,19 +52,19 @@ for (let i of favoriteButton) {
     });
 }
 
-window.onload = function() {
-    var favoriteButton = document.querySelector(".favoriteButton");
-    var favorited = false; // State of the button
+// window.onload = function() {
+//     var favoriteButton = document.querySelector(".favoriteButton");
+//     var favorited = false; // State of the button
 
-    favoriteButton.addEventListener('click', function() {
-        if (favorited) {
-            favoriteButton.innerHTML = '🤍'; 
-            favoriteButton.style.color = 'black'; 
-            favorited = false;
-        } else {
-            favoriteButton.innerHTML = '❤️'; 
-            favoriteButton.style.color = 'red'; 
-            favorited = true;
-        }
-    });
-}
+//     favoriteButton.addEventListener('click', function() {
+//         if (favorited) {
+//             favoriteButton.innerHTML = '🤍'; 
+//             favoriteButton.style.color = 'black'; 
+//             favorited = false;
+//         } else {
+//             favoriteButton.innerHTML = '❤️'; 
+//             favoriteButton.style.color = 'red'; 
+//             favorited = true;
+//         }
+//     });
+// }

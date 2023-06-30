@@ -65,9 +65,21 @@
 		<result property="donationNo" column="DONATION_NO" />
 		<result property="volunteerNo" column="VOLUNTEER_NO" />
 		<result property="secessionFl" column="SECESSION_FL" />
+		
+		
+	
+		
 
 	</resultMap>
 
+
+	<resultMap type="favorite" id="favorite_rm">
+		<id property="favoriteNo" column="FAVORITE_NO"/>
+		<result property="memberNo" column="MEMBER_NO" />
+		<result property="donationNo" column="DONATION_NO" />
+		<result property="volunteerNo" column="VOLUNTEER_NO" />
+		
+		</resultMap>
 	<!--기부 게시판 전체 게시글 수 조회 -->
 	<select id="getListCount1" resultType="_int">
 		SELECT COUNT(*) FROM
@@ -342,5 +354,10 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 		
 		
 	</select>
+	
+	<insert id="insertFavorite">
+	  INSERT INTO FAVORITE (MEMBER_NO, DONATION_NO, VOLUNTEER_NO)
+    VALUES (#{memberNo}, #{donationNo}, #{volunteerNo})
+	</insert>
 	
 </mapper>

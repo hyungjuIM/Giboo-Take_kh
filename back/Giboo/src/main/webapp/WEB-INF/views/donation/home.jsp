@@ -91,6 +91,10 @@
                         </div>
                         <a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 3422a4507a2d181702da7d32cbb5a7baf42cd176
                             <div class="mainTitle">${donationList.donationTitle}</div>
                         </a>
                         <div class="progressBar">

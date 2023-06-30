@@ -142,11 +142,17 @@
 		#{memberNick},
 		#{memberTel},
 		#{memberAddr},
+<<<<<<< HEAD
+		DEFAULT, DEFAULT, NULL, #{memberType}, 1, NULL,NULL,DEFAULT
+
+		<!-- DEFAULT, DEFAULT, NULL, 'Y', 1, NULL,NULL,DEFAULT -->
+=======
 
 		DEFAULT, DEFAULT, NULL, #{memberType}, 1, NULL,NULL,DEFAULT
 
 		DEFAULT, DEFAULT, NULL, 'Y', 1, NULL,NULL,DEFAULT
 
+>>>>>>> 3422a4507a2d181702da7d32cbb5a7baf42cd176
 
 		)
 	</insert>
@@ -191,9 +197,14 @@
 
 		SELECT * FROM MEMBER WHERE MEMBER_NICK= #{memberNick} AND MEMBER_EMAIL =
 		#{memberEmail}
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 3422a4507a2d181702da7d32cbb5a7baf42cd176
 	</select>
+
+	
 
 	<insert id="kakaoinsert" parameterType="java.util.HashMap">
 		INSERT INTO MEMBER VALUES(
