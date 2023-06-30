@@ -266,7 +266,7 @@ else if (item.donationNo !== null && item.donationNo !== 0) {
 alertContainer.append(smallCContainer);   
 //
 //alertTitleContainer.append(alarmCategory);
-//
+//    
 alertTitleContainer.append(alarmContent);
 alertTitleContainer.append(alarmDate);
 alertTitleContainerA.append(alertTitleContainer);
