@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
 
 * {
   box-sizing: border-box;
@@ -19,9 +20,25 @@ body {
   flex-direction: column;
 }
 
+
+
+:root{
+  --mainColor: #00CA61;
+  --titleColor: #252525;
+  --redColor: #FF5D5E;
+  --contentColor: #767676;
+  --etcColor: #d9d9d9;
+}
+
+
 /*상단 나의 문의내역 */
 .page-title {
-  background-color: #8071FC;
+
+  margin-top: 65px;
+
+  
+  background-color: var(--mainColor);
+
 
   width: 100%;
   height: 80px;
@@ -32,21 +49,25 @@ body {
 }
 
 .page-title span {
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 22px;
   color: white;
   text-align: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NanumSquareNeo';
 }
 
 /*title 아래 전체 container*/
 .mypage-container {
+
+  border: 1px solid red;
   display: flex;
   justify-content: center;
 }
 
 /*title 아래 전체 container 중 width 1200px*/
 .mypage_wrapper {
+
+  border: 1px solid blue;
   width: 1200px;
   display: flex;
   flex-direction: row;
@@ -57,8 +78,67 @@ body {
 /*===========================================*/
 /* 왼쪽 네비바 */
 .mypage_nav_area{
+  border: 1px solid red;
+}
+
+.mypage_nav_area .mypage_summary_container{
+  border: 1px solid plum;
+  padding: 42px;
+}
+
+/* 프로필 사진 */
+
+.mypage_nav_area .mypage_summary_container div:nth-child(1){
+  border: 1px solid skyblue;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mypage_profileEmojiContainer div:nth-child(1){
+  border: 1px solid var(--etcColor);
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
+
+/* 사용자 정보 */
+.side_user_container{
+  border: 1px solid green;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.side_user_container div{
+  font-family: 'NanumSquareNeo';
+  font-size: 16px;
+
+}
+.side_user_container span{
+  
+  font-weight: 700;
+  color: var(--mainColor);
+
+}
+.side_user_container div:nth-child(1){
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0px;
+
+}
+
+.side_user_container div:nth-child(1) p:nth-child(2){
+  font-weight: 400;
+}
+
+
+/* .mypage_nav_area{
   width : 285px;
-  /* height: 85vh; */
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
@@ -66,10 +146,10 @@ body {
   box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
 
     
-}
+}*/
 
 /*왼쪽 네비바 상단 사진+이름*/
-.mypage_summary_container{
+/* .mypage_summary_container{
   width: 100%;
 }
 .mypage_profileEmojiContainer{
@@ -90,25 +170,25 @@ align-items: center;
 
 margin : 96px 90px 16px 79px;
 font-size: 70px;
-}
+} */
 
 
 /*왼쪽 네비바 고마운분 */
-.mypage_hiuser{
+/* .mypage_hiuser{
   margin: 10px;
   margin-top: 0;
   display: flex;
   justify-content: center;
-  /*font */
+  
   font-size: 18px;
   font-weight: 400;
   color: #BDBDBD;
   font-family: 'Noto Sans KR', sans-serif;
   text-align: center;
-}
+} */
 
 /*가명: 000 님, 안녕하세요*/
-.userName {
+/*.userName {
   font-weight: 600;
   font-size: 14px;
   
@@ -117,7 +197,7 @@ font-size: 70px;
   display: flex;
   justify-content: center;
   color: #767676;
-}
+} */
 
 /*왼쪽 네비바 메뉴*/
 .mypage_content_container{

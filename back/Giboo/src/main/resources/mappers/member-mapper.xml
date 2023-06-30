@@ -186,6 +186,7 @@
    </update>
 
 
+
 	<select id="kakao" parameterType="java.util.HashMap"
 		resultMap="member_rm">
 
@@ -206,7 +207,7 @@
 	<insert id="kakaoinsert" parameterType="java.util.HashMap">
 		INSERT INTO MEMBER VALUES(
 		SEQ_MEMBER_NO.NEXTVAL,
-		NULL,
+		NULL,   
 		NULL,
 		#{memberEmail},
 		NULL,
