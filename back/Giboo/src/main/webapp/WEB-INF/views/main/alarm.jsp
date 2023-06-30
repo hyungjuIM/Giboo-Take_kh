@@ -13,7 +13,7 @@
 <title>알림창</title>
 
 
-
+   
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/main/alarm.css">

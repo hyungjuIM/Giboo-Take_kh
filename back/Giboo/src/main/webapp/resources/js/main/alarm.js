@@ -263,7 +263,7 @@ else if (item.donationNo !== null && item.donationNo !== 0) {
     $('.smallC').addClass('unread');
   }
 }
-alertContainer.append(smallCContainer);
+alertContainer.append(smallCContainer);   
 //
 //alertTitleContainer.append(alarmCategory);
 //
