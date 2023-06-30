@@ -162,6 +162,10 @@
 //   console.log("읽음 상태 정보 가져오기 실패");
 // }
 // });
+function getContextPath() {
+  var hostIndex = location.href.indexOf( location.host ) + location.host.length;
+  return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
+}
 
 // 알림 버튼 클릭 시 알림 팝업 토글
 $('.tooltip[data-text="알림"]').on('click', function () {
@@ -170,7 +174,7 @@ $('.alert_container').toggleClass('show');
 
 $('#alarm').click(function () {
 $.ajax({
-url: "/Giboo/notifications",
+url: getContextPath() + "/notifications",
 dataType: "json",
 async:false,
 success: function (list) {

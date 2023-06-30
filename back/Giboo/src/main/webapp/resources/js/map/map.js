@@ -207,20 +207,6 @@ geocoder.coord2Address(lon, lat, function(result, status) {
                         position: coords,
                     });
 
-                                        // // 팝업 클릭 이벤트 리스너를 추가합니다
-                                        // kakao.maps.event.addListener(infowindow, 'click', function() {
-
-                                        //     var volunteerNo = ${mapList.volunteerNo}
-                                        //     // 팝업을 클릭했을 때 수행할 동작을 정의합니다
-                                        //     // 특정 경로로 이동하는 예시 코드입니다
-                                        //     var url = "../map/mapHome/" + mapList.volunteerNo + "?cp=" + pagination.currentPage + sURL;
-                                        //     window.location.href = url;
-                                        // });
-
-                    // 이름을 내용으로 하는 인포윈도우를 생성합니다
-                    // var infowindow = new kakao.maps.InfoWindow({
-                    //     content: '<div style="width:150px;text-align:center;padding:3px 0;">' + name + '</div>'
-                    // });
                     var infowindow = new kakao.maps.InfoWindow({
                     content: 
                     // '    <div class="mpopWrap">'+
@@ -324,10 +310,91 @@ function copyToClipboard() {
 
 
 //------------------
-// const mhBtnHe = document.getElementById("mhBtnHe");
+const mhBtnHe = document.getElementById("mhBtnHe");
+mhBtnHe.addEventListener("click", function(event) {
+    // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
+    if (loginMemberNo == "") { // 로그인 X
+        alert("로그인 후 이용해주세요.");
+        event.preventDefault();
+    } else {
+        // 2) 이미 즐겨찾기한 경우 처리
+        if (mhBtnHe.classList.contains("loggedIn")) {
+            alert("이미 즐겨찾기한 항목입니다.");
+            event.preventDefault();
+            return;
+        }
 
-// mhBtnHe.addEventListener("click", function)
+        // $.ajax({
+        //     url: contextPath + "/map/insertFav",
+        //     data: {
+        //         "memberNo": loginMemberNo,
+        //         "volunteerNo": volunteerNo
+        //     },
+        //     type: "post",
+        //     success: function(result) {
+        //         // if (result > 0) { // 등록 성공
+        //         //     alert("즐겨찾기에 등록되었습니다.");
+        //         //     mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
+        //         // } else { // 실패
+        //         //     alert("즐겨찾기에 실패했습니다...");
+        //         // }
+        //         if (result === "red") { // 색상 변경 성공
+        //             alert("즐겨찾기에 등록되었습니다.");
+        //             mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
+        //             mhBtnHe.style.backgroundColor = "red"; // 색상 변경
+        //         } else { // 실패
+        //             alert("즐겨찾기에 실패했습니다...");
+        //         }
+        //     },
+        //     error: function(req, status, error) {
+        //         console.log("즐겨찾기 등록 실패");
+        //         console.log(req.responseText);
+        //     }
+        // });
 
+        $.ajax({
+            url: contextPath + "/map/insertFav",
+            data: {
+                "memberNo": loginMemberNo,
+                "volunteerNo": volunteerNo
+            },
+            type: "post",
+            success: function(result) {
+                if (result === "red") { // 색상 변경 성공
+                    alert("즐겨찾기에 등록되었습니다.");
+                    mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
+                    mhBtnHe.style.backgroundColor = "red"; // 색상 변경
+                } else { // 실패
+                    alert("즐겨찾기에 실패했습니다...");
+                }
+            },
+            error: function(req, status, error) {
+                console.log("즐겨찾기 등록 실패");
+                console.log(req.responseText);
+            }
+        });
+        
+        event.preventDefault(); // 이벤트 전파 중지
+    }
+});
 
+$.ajax({
+    url: contextPath + "/map/getFavoriteColor/" + volunteerNo,
+    data: {
+        "memberNo": loginMemberNo,
+        "volunteerNo": volunteerNo
+    },
+    type: "get",
+    success: function(result) {
+        if (result === "red") {
+            mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
+            mhBtnHe.style.backgroundColor = "red"; // 색상 변경
+        }
+    },
+    error: function(req, status, error) {
+        console.log("즐겨찾기 색상 조회 실패");
+        console.log(req.responseText);
+    }
+});
 
 

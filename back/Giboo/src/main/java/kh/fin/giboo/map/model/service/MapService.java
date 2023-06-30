@@ -38,6 +38,8 @@ public interface MapService {
 
 	List<Marker> selectMarkerAll(Model model);
 
+	int insertFav(int memberNo, int volunteerNo);
+
 
 
 
