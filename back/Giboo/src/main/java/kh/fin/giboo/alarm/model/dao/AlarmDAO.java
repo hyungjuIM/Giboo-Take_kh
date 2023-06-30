@@ -16,7 +16,7 @@ import kh.fin.giboo.event.model.vo.Pagination;
   
 @Repository
 public class AlarmDAO {
-
+    
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 

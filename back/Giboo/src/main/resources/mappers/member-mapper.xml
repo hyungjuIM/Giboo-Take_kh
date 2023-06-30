@@ -185,13 +185,12 @@
       WHERE MEMBER_NO = #{memberNo}
    </update>
 
-
-
 	<select id="kakao" parameterType="java.util.HashMap"
 		resultMap="member_rm">
 
 		SELECT * FROM MEMBER WHERE MEMBER_NICK= #{memberNick} AND MEMBER_EMAIL =
 		#{memberEmail}
+
 
 	</select>
 
