@@ -19,7 +19,7 @@ public class AlarmServiceImpl implements AlarmService {
 
 	@Autowired
 	private AlarmDAO dao;
-  
+     
 
 
 	@Override
