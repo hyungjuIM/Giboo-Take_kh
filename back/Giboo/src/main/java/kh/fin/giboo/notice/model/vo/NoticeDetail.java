@@ -22,6 +22,6 @@ public class NoticeDetail {
 	private String deleteStatus;
 	
 	private List<NoticeImage> imageList;
-	private int mgrNo;
+	private int managerNo;
 	private int memberNo;
 }

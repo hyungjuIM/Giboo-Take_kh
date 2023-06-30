@@ -1,7 +1,9 @@
 package kh.fin.giboo.volunteer.controller;
 
+import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.volunteer.model.service.VolunteerService;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
+import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -54,10 +62,63 @@ public class VolunteerController {
         return "volunteer/storyList";
     }
 
-    @GetMapping("/story")
-    public String story() {
+    @GetMapping("/story/{volunteerStoryNo}")
+    public String story(@PathVariable("volunteerStoryNo") int volunteerStoryNo,
+                        @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                        Model model,
+                        HttpSession session,
+                        HttpServletRequest req, HttpServletResponse resp) {
         logger.info("봉사 이야기");
 
+        VolunteerStory story = service.selectVolunteerStory(volunteerStoryNo);
+
+        if (story != null) {
+            Member loginMember = (Member) session.getAttribute("loginMember");
+
+            int memberNo = 0;
+
+            if (loginMember != null) {
+                memberNo = loginMember.getMemberNo();
+            }
+
+            if (story.getMemberNo() != memberNo) {
+                Cookie cookie = null;
+
+                Cookie[] cArr = req.getCookies();
+
+                if (cArr != null && cArr.length > 0) {
+                    for (Cookie c : cArr) {
+                        if (c.getName().equals("readVolunteerStoryNo")) {
+                            cookie = c;
+                        }
+                    }
+                }
+
+                int result = 0;
+
+                if (cookie == null) {
+                    cookie = new Cookie("readVolunteerStoryNo", volunteerStoryNo + "");
+                    result = service.updateViewCount(volunteerStoryNo);
+                } else {
+                    String[] temp = cookie.getValue().split("/");
+
+                    List<String> list = Arrays.asList(temp);
+
+                    if (list.indexOf(volunteerStoryNo+"") == -1) {
+                        cookie.setValue(cookie.getValue() + "/" + volunteerStoryNo);
+                        result = service.updateViewCount(volunteerStoryNo);
+                    }
+                }
+
+                if (result > 0) {
+                    story.setViewCount(story.getViewCount() + 1);
+                    cookie.setPath(req.getContextPath());
+                    cookie.setMaxAge(60 * 60 * 1);
+                    resp.addCookie(cookie);
+                }
+            }
+        }
+        model.addAttribute("story", story);
         return "volunteer/story";
     }
 

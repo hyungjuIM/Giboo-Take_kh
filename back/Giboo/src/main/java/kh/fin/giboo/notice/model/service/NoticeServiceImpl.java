@@ -6,8 +6,10 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 
+import kh.fin.giboo.common.Util;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.notice.model.dao.NoticeDAO;
 import kh.fin.giboo.notice.model.vo.Notice;
@@ -44,6 +46,26 @@ public class NoticeServiceImpl implements NoticeService {
 		return dao.updateVieweadCount(noticeNo);
 	}
 
+	@Transactional(rollbackFor = { Exception.class })
+	@Override
+	public int insertNotice(NoticeDetail noticeDetail) {
+		noticeDetail.setNoticeTitle(  Util.XSSHandling(noticeDetail.getNoticeTitle())  );
+		noticeDetail.setNoticeContent(  Util.XSSHandling(noticeDetail.getNoticeContent())  );
+		noticeDetail.setNoticeContent(  Util.newLineHandling(noticeDetail.getNoticeContent())  );
+		
+		int noticeNo = dao.insertNotice(noticeDetail);
+		
+		return noticeNo;
+	}
+	@Transactional(rollbackFor = { Exception.class })
+	@Override
+	public int updateNotice(NoticeDetail noticeDetail) {
+		noticeDetail.setNoticeTitle(  Util.XSSHandling(noticeDetail.getNoticeTitle())  );
+		noticeDetail.setNoticeContent(  Util.XSSHandling(noticeDetail.getNoticeContent())  );
+		noticeDetail.setNoticeContent(  Util.newLineHandling(noticeDetail.getNoticeContent())  );
+		int result = dao.updateNotice(noticeDetail);
+		return result;
+	}
 	
 
 }

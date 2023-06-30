@@ -17,6 +17,8 @@
 		<result property="attachment" column="ATTACHMENT"/>
 		<result property="eventTitle" column="EVENT_TITLE"/>
 		<result property="targetPeople" column="TARGET_PEOPLE"/>
+		<result property="eventPersonNo" column="EVENT_PERSON_NO"/>
+		
 	</resultMap>
 	
 	<!-- 이벤트 디테일 멤버 조회용 resultMap -->

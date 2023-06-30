@@ -1,20 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
 
-
-*{
-    box-sizing: border-box;
-    padding : 0px;
-    margin : 0px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 
 
-
-body{
+body {
   margin: 0;
   background-color: white;
   color: #000;
@@ -24,10 +19,25 @@ body{
   flex-direction: column;
 }
 
+
+
+:root{
+  --mainColor: #00CA61;
+  --titleColor: #252525;
+  --redColor: #FF5D5E;
+  --contentColor: #767676;
+  --etcColor: #d9d9d9;
+}
+
+
+
 /*상단 나의 문의내역 */
 .page-title {
-  background-color: #8071FC ;
- 
+
+  
+  background-color: var(--mainColor);
+
+
   width: 100%;
   height: 80px;
 
@@ -37,24 +47,30 @@ body{
 }
 
 .page-title span {
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 22px;
   color: white;
   text-align: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NanumSquareNeo';
 }
 
+
 /*title 아래 전체 container*/
-.mypage-container{    
+.mypage-container {
+
   display: flex;
   justify-content: center;
 }
 
 /*title 아래 전체 container 중 width 1200px*/
-.mypage_wrapper{
-    width: 1200px;
-    display: flex;
-    flex-direction: row;   
+.mypage_wrapper {
+
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+
 }
 
 
@@ -68,21 +84,21 @@ body{
   display: flex;
   flex-direction: column;
   border-left: 0.5px solid #dcdcdc;
-  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
 
     
 }
 
 /*왼쪽 네비바 상단 사진+이름*/
-.mypage_summary_container{
+/* .mypage_summary_container{
   width: 100%;
-}
-.mypage_profileEmojiContainer{
+} */
+/* .mypage_profileEmojiContainer{
 display: flex;
   
 justify-content: center;
 align-items: center;
 }
+
 .mypage_profileEmojiTheme {
 width: 100px;
 height: 100px;
@@ -91,120 +107,182 @@ border-radius: 100%;
 
 display: flex;
 justify-content: center;
-align-items: center;
+align-items: center; */
 
-margin : 96px 90px 16px 79px;
+/* margin : 96px 90px 16px 79px;
+ */
 
-
-display: block;
+/* display: block;
   width: 135px;
   height: 135px;
   border: 3px solid #ddd;
   border-radius: 50%;
 }
+ */
 
-
-#member-profile{
+/* #member-profile{
   width: 130px;
     height: 130px;
     border-radius: 50%;
 
 }
+ */
 
 
 
-/*왼쪽 네비바 고마운분 */
-.mypage_hiuser{
-  margin: 10px;
-  margin-top: 0;
-  display: flex;
-  justify-content: center;
-  /*font */
-  font-size: 18px;
-  font-weight: 400;
-  color: #BDBDBD;
-  font-family: 'Noto Sans KR', sans-serif;
-  text-align: center;
-}
 
-/*가명: 000 님, 안녕하세요*/
-.userName {
-  font-weight: 600;
-  font-size: 14px;
+
+/*===========================================*/
+/* 왼쪽 네비바 */
+
+
+.mypage_nav_area{
+  width: 300px;
   
-  font-family: 'Noto Sans KR', sans-serif;
+  
+
+  
+}
+
+.mypage_nav_area .mypage_summary_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 85px;
+  
+  
+}
+
+/* 프로필 사진 */
+.mypage_nav_area .mypage_summary_container div:nth-child(1){
 
   display: flex;
   justify-content: center;
-  color: #767676;
+/*   align-items: center; */
+
+  /* object-fit: cover; */
+ 
+
 }
 
-.rateName{
+.mypage_profileEmojiContainer .mypage_profileEmojiTheme{
+  border: 1px solid var(--etcColor);
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+
+  overflow: hidden;
+
+
+   
+  
+}
+
+.mypage_profileEmojiContainer .mypage_profileEmojiTheme #member-profile{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 사용자 정보 */
+.side_user_container{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.side_user_container div{
+  font-family: 'NanumSquareNeo';
   font-size: 18px;
-    font-weight: 400;
-    color: #767676;
-    font-family: 'Noto Sans KR', sans-serif;
-    margin: 30px 0px 10px 50px ;
+  font-weight: 500;
+  color: var(--titleColor);
+
 }
 
-.rateName > span {
-  font-weight: 600;
+.side_user_container div:nth-child(1){
+  font-size: 20px;
+  font-weight: 500;
+  margin: 20px 0px 16px 0px;
+
 }
 
 
+.side_user_container div span{
+  
+  /* font-size: 16px; */
+  font-weight: 700;
+  color: var(--mainColor);
+
+}
+
+.side_user_container div span:nth-child(1)::after{
+  content: '|';
+  color: var(--etcColor);
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+
+.side_user_container div:nth-child(1) p:nth-child(2){
+  font-weight: 400;
+}
 
 
 /*왼쪽 네비바 메뉴*/
+
+
+
+
 .mypage_content_container{
-  margin : 80px 137px 526px 46px;
-  display: flex;
-  justify-content: center;
-  white-space: nowrap;
-  flex-direction: column;
+  margin-top: 70px;
+  width: 76%;
+  /* white-space: nowrap; */
 }
 
 .mypage_content_container ul{
   width: 100%;
-  color : #767676;
 
-    
+  color : #767676;
   list-style: none;
+  margin-bottom: 12px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  
 }
 
 .mypage_content_container li{
   display: flex;
-
   text-decoration: none;
-  /* font-weight: 500; */
   color: #767676;
-  font-family: 'Noto Sans KR', sans-serif;
-  /* margin-bottom : 0px; */
+}
+
+.li_enter{
+  margin-top: 14px;
 }
 
 .mypage_content_container a{
-  font-size: 16px;    
+  font-size: 16px;  
+  font-weight: 500;  
   color: #767676;
-  
   padding: 5px;
   margin : 5px;  
   margin-left: 0px;  
-}
-.mypage_content_first {
-margin-bottom: 21px;
+  font-family: 'NanumSquareNeo';
+
 }
 
-
-.mypage_content_first_s a{
-  font-weight: 400;
-font-size: 14px;
-color: #767676;
-margin-left: 10px;
-}
 
 .mypage_content_container hr{
-border: 1px solid #D9D9D9;
-width: 190px;
-margin-right: 40px;
+border: 0.8px solid #D9D9D9;
+width: 100%;
+margin: 20px 0px;
 }
 
 .mypage_content_second{
@@ -214,16 +292,16 @@ margin-bottom: 24px;
 
 .mypage_content_second a{
 font-weight: 400;
-font-size: 14px;
+font-size: 16px;
 color: #767676;
 }
 
-   
 
 
-.mypage_content_third a{
-color: #767676;
-font-size: 14px;
+
+.mypage_content_third button{
+color: var(--etcColor);
+font-size: 16px;
 /* padding: 3px; */
 margin-top: 27px; 
 border: none;
@@ -232,9 +310,10 @@ margin-left: 5px;
 font-weight:bold;
 cursor: pointer;
 }
-.mypage_content_third a:hover{
 
-color: #8071FC;
+.mypage_content_third button:hover{
+
+color: var(--mainColor);
   
 font-weight: 600;
 transition-duration: 0.2s;
@@ -242,7 +321,7 @@ transition-duration: 0.2s;
 
 
 .mypage_content_container a:hover{   
-  color: #8071FC;
+  color: var(--mainColor);
   
   font-weight: 600;
   transition-duration: 0.2s;

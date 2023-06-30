@@ -39,8 +39,35 @@ crossorigin="anonymous"></script>
                     <div class="edWrapTitle">
                         <span>${eventDetailTop.eventTitle}</span>
                     </div>
+                    <%-- ====================================== --%>
+                    <div class="progressArea">
+                        <div class="progressInfo">
+                            <span class="progressPercentage">${eventDetailTop.percent}%</span>
+                                <span class="goal">
+                                    목표
+                                    <span class="goal" id="goalValue">${eventDetailTop.targetPeople}</span>명
+                            </span>
+                        </div>
+
+                        <div class="progressBar">
+                            <div class="progressBarValue" style="width: ${eventDetailTop.percent}%"></div>
+                        </div>
+
+                        <div class="progressStatus">
+                            <span>
+                                <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+                                <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중</span>
+                            <span>
+                                <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
+                                <span id="recommendedCount">102</span>명 추천</span>
+                        </div>
+                    </div>
+
+                    <%-- ====================================== --%>
+                    
+                    
                     <div class="edWrapBar">
-                        <div class="edDoBar">
+                        <%--  <div class="edDoBar">
                             <progress value="${eventDetailTop.eventPersonCount}" max="${eventDetailTop.targetPeople}"></progress>
                         </div>
                         <div class="edWrapBar_2">
@@ -53,7 +80,8 @@ crossorigin="anonymous"></script>
                                 <span>${eventDetailTop.targetPeople}</span>
                                 <span>명 목표</span>
                             </div>
-                        </div>
+                        </div>  --%>
+                        
                     </div>
                     <div class="edDoTo">
                         <div class="edDoTitle">
@@ -112,6 +140,32 @@ crossorigin="anonymous"></script>
             </div>
     </main>     
 
+
+
+
+
+    <script>
+        // 댓글 관련 JS 코드에 필요한 값을 전역 변수로 선언
+
+        // jsp 파일 : html, css, js, el, jstl 사용 가능
+        // js  파일 : js
+
+        // 코드 해석 순서  :   EL == JSTL > HTML > JS
+
+        // ** JS 코드에서 EL/JSTL을 작성하게 된다면 반드시 ""를 양쪽에 추가 **
+
+        // 최상위 주소
+        const contextPath = "${pageContext.request.contextPath}";
+        
+        // 게시글 번호
+        const boardNo = "${detail.boardNo}"; // "500"
+
+        // 로그인한 회원 번호
+        const loginMemberNo = "${loginMember.memberNo}";
+        // -> 로그인 O  : "10";
+        // -> 로그인 X  : "";  (빈문자열)
+
+    </script>
     
 <script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>

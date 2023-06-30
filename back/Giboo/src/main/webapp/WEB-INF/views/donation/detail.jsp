@@ -67,7 +67,7 @@
                         기부금 전액 올무에 패인 상처가 평생 낫지 않는 길고양이 1마리의 3개월 치료비와 1년 사료비를 지원합니다.
                     </div>
 
-                    <button class="donationButton" onclick="donationInput()">모금함 기부하기</button>
+                    <button class="donationButton" onclick="clickPayButton()">모금함 기부하기</button>
                 </div>
             </div>
 
@@ -215,17 +215,17 @@
 
                         <div class="relatedItem">
                             <a href="">
-                                <img id="relatedImg1" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
+                                <img class="relatedImg" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
                                 <div class="relatedItemTitle">타이틀</div>
                             </a>
                             <div class="relatedItemStatus">
                             <span>
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount1">1,030</span>명 참여중</span>
+                            <span>1,030</span>명 참여중</span>
 
                                 <span>
                             <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount1">102</span>명 추천</span>
+                            <span>102</span>명 추천</span>
                             </div>
                         </div>
 
@@ -327,6 +327,15 @@
         function donationInput() {
             grayBox.style.display = "flex";
             donationContainer.style.display = "inline";
+        }
+
+        function clickPayButton() {
+            if (${!empty loginMember}) {
+                donationInput();
+            } else {
+                alert("로그인이 필요한 서비스 입니다.");
+                location.href = "../../main/login";
+            }
         }
 
         function requestPay() {

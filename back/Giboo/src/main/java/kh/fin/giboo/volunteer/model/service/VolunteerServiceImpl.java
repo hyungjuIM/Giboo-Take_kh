@@ -94,4 +94,14 @@ public class VolunteerServiceImpl implements VolunteerService {
 
         return map;
     }
+
+    @Override
+    public VolunteerStory selectVolunteerStory(int volunteerStoryNo) {
+        return dao.selectVolunteerStory(volunteerStoryNo);
+    }
+
+    @Override
+    public int updateViewCount(int volunteerStoryNo) {
+        return dao.updateViewCount(volunteerStoryNo);
+    }
 }

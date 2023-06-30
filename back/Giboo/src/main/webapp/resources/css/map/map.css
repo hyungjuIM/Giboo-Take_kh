@@ -8,16 +8,22 @@
     width: 358px;
     height:42px;
     display: flex;
+    background-color: yellowgreen;
+    /* position: relative; */
     /* background-color: yellowgreen; */
+    align-items: center;
+    justify-content: center;
 }
 
 
 
+#MsearchBar{
+/* position: absolute; */
+display: flex;
+}
+
 #mapSearch{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: yellowgreen;
 }
 
 #search-key{
@@ -475,4 +481,11 @@
     width: 200px;
     align-items: center;
     justify-content: space-between;
+}
+
+
+.popup{
+    width: 200px;
+    height: 50px;
+    background-color: white;
 }

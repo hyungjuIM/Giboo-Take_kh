@@ -263,10 +263,10 @@ else if (item.donationNo !== null && item.donationNo !== 0) {
     $('.smallC').addClass('unread');
   }
 }
-alertContainer.append(smallCContainer);
+alertContainer.append(smallCContainer);   
 //
 //alertTitleContainer.append(alarmCategory);
-//
+//    
 alertTitleContainer.append(alarmContent);
 alertTitleContainer.append(alarmDate);
 alertTitleContainerA.append(alertTitleContainer);
@@ -274,7 +274,14 @@ alertContainer.append(alertTitleContainerA);
 alarmList.append(alertContainer);
 }
 
-alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
+if (list.length === 0) {
+  const noNotificationText = $("<div>").addClass("noNotificationText").text("새로운 알람이 없습니다");
+  alarmList.append(noNotificationText);
+} else {
+  alarmList.css("overflow-y", "auto");
+}
+3
+//alarmList.css("overflow-y", "auto"); // 스크롤바 숨김
 
 function updateReadStatus(alarmNo) {
 $.ajax({

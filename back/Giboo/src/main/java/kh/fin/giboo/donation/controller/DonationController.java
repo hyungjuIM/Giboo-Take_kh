@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -60,6 +61,32 @@ public class DonationController {
         return "donation/home";
     }
 
+    @GetMapping("/detail/{donationNo}")
+    public String detail(@PathVariable("donationNo") int donationNo,
+                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                         Model model
+    ) {
+        logger.info("기부 상세 페이지");
+
+        DonationDetail donationDetail = service.getDonationDetail(donationNo);
+
+        LocalDate currentDate = LocalDate.now();
+        LocalDate dDay = LocalDate.of(donationDetail.getEndRecruitDate().getYear() + 1900, donationDetail.getEndRecruitDate().getMonth() + 1, donationDetail.getEndRecruitDate().getDate());
+        long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
+        donationDetail.setDDay(untilDay);
+
+        int percent = (Integer.parseInt(donationDetail.getDonationAmount()) * 100) / Integer.parseInt(donationDetail.getTargetAmount());
+        donationDetail.setPercent(percent);
+
+        DecimalFormat df = new DecimalFormat("###,###");
+        donationDetail.setDonationAmount(df.format(Integer.parseInt(donationDetail.getDonationAmount())));
+        donationDetail.setTargetAmount(df.format(Integer.parseInt(donationDetail.getTargetAmount())));
+
+        model.addAttribute("donationDetail", donationDetail);
+
+        return "donation/detail";
+    }
+
     @GetMapping("/storyList")
     public String storyList(@RequestParam(value = "cp", required = false, defaultValue = "1")int cp,
                             Model model, HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
@@ -103,7 +130,7 @@ public class DonationController {
 
                 if(cArr != null && cArr.length > 0) {
                     for(Cookie c : cArr) {
-                        if(c.getName().equals("readNoticeNo")) {
+                        if(c.getName().equals("readDonationStoryNo")) {
                             cookie = c;
                         }
                     }
@@ -138,32 +165,6 @@ public class DonationController {
         return "donation/story";
     }
 
-    @GetMapping("/detail/{donationNo}")
-    public String detail(@PathVariable("donationNo") int donationNo,
-                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
-                         Model model
-                         ) {
-        logger.info("기부 상세 페이지");
-
-        DonationDetail donationDetail = service.getDonationDetail(donationNo);
-
-        LocalDate currentDate = LocalDate.now();
-        LocalDate dDay = LocalDate.of(donationDetail.getEndRecruitDate().getYear() + 1900, donationDetail.getEndRecruitDate().getMonth() + 1, donationDetail.getEndRecruitDate().getDate());
-        long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
-        donationDetail.setDDay(untilDay);
-
-        int percent = (Integer.parseInt(donationDetail.getDonationAmount()) * 100) / Integer.parseInt(donationDetail.getTargetAmount());
-        donationDetail.setPercent(percent);
-
-        DecimalFormat df = new DecimalFormat("###,###");
-        donationDetail.setDonationAmount(df.format(Integer.parseInt(donationDetail.getDonationAmount())));
-        donationDetail.setTargetAmount(df.format(Integer.parseInt(donationDetail.getTargetAmount())));
-
-        model.addAttribute("donationDetail", donationDetail);
-
-        return "donation/detail";
-    }
-
     @ResponseBody
     @PostMapping("/verify/{imp_uid}")
     public IamportResponse<Payment> verify(Model model, HttpSession session,
@@ -190,6 +191,8 @@ public class DonationController {
         map.put("donationNo", donationNo);
         map.put("memberNo", memberNo);
 
+        int result = service.updateAmount(map);
+
         return service.sync(map);
     }
 
@@ -199,4 +202,17 @@ public class DonationController {
 
         return "donation/write";
     }
+
+//    @PostMapping("/write")
+//    public String insert(DonationDetail detail, @ModelAttribute("loginMember") Member loginMember,
+//                         RedirectAttributes ra, HttpServletRequest req
+//                         ) {
+//        logger.info("기부 등록");
+//
+//        detail.setMemberNo(loginMember.getMemberNo());
+//
+//        int donationNo = service.insertDonation(detail);
+//
+//        return "redirect:../donation/home";
+//    }
 }
