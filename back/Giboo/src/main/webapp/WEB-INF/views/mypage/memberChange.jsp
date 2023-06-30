@@ -51,109 +51,113 @@
 
 
 
-				<div class="myask_content_area">
-					<section class="mainContainer">
-						<div class="mainContent">
+				<div class="myask_content_area memberChange_content_area">
+					<section class="mainContainer memberChange_mainContainer">
+						<div class="mainContent memberChange_mainContent">
 							<section class="notice">
 
-								<div class="notice1">
-									<div class="container1">
-										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #8071FC;"> 회원정보수정</span><span
-											style="color: #767676;">을 알려드립니다 😇</span>
-
-										<form action="memberChange" method="POST" name="myPage-form"
-											onsubmit="return infoValidate()">
-
-											<div class="memberChange_Con">
-												<!-- 이름  -->
-												<div class="memberChange_title">
-													<span class="memberChange_con1">이름</span> 
-													<span class="memberChange_con2"> 
-														<span><i class="fa-regular fa-user"></i></span>
-														<input type="text" name="updateName" id="memberName"
-														value="${loginMember.memberName}" maxlength="10"></span>
-												</div>
-												<span class="changeMessage">영어/숫자/한글 2~10글자 사이로
-                                    입력해주세요.</span>
-
-
-												<!-- 닉네임 -->
-												<div class="memberChange_title">
-													<span class="memberChange_con1">닉네임</span> 
-													<span
-														class="memberChange_con2"> 
-														<span><i
-														class="fa-regular fa-face-kiss-wink-heart"></i> </span><input
-														type="text" name="updateNickname" id="memberNickname"
-														value="${loginMember.memberNick}" maxlength="10"></span>
-												</div>
-												<span class="changeMessage">영어/숫자/한글 2~10글자 사이로
-                                    입력해주세요.</span>
-
-												<!-- 휴대폰 번호 -->
-												<div class="memberChange_title">
-													<span class="memberChange_con1">전화번호</span> 
-													<span class="memberChange_con2"> 
-														<span><i
-														class="fa-solid fa-phone"></i></span> <input type="text"
-														name="updateTel" id="memberTel"
-														value="${loginMember.memberTel}" maxlength="11"></span>
-													
-												</div>
-												<span class="changeMessage">전화번호를 입력해주세요.(- 제외)</span>
-
-												<!-- 주소 -->
-												<div class="memberChange_address">
-													<c:set var="addr"
-														value="${fn:split(loginMember.memberAddr, ',,')}" />
-
-													<div class="memberChange_con1">
-														<span>주소</span>
-													</div>
-
-												<div class=memberChange_con2_area>
-													<div class=memberChange_con2>
-														<input type="text" name="updateAddress" id="postcode"
-															value="${addr[0]}" maxlength="6">
-														<button type="button" id="info-address-btn"
-															onclick="execDaumPostcode()">우편번호 찾기</button>
-													</div>
-
-													<div class="memberChange_con2">
-														<input type="text" name="updateAddress" id="address"
-															value="${addr[1]}">
-													</div>
-
-													<div class="memberChange_con2">
-														<input type="text" name="updateAddress" id="detailAddress"
-															value="${addr[2]}">
-													</div>
-													</div>
-												</div>
-
-												<div class="memberChange_bottom">
-													<button class="memberChange_b">수정완료</button>
-													<button class="memberChange_b">이전으로</button>
-
-												
-										</form>
-										
-										<span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을
-											눌러주세요</span>
-										<button class="memberChange_w">
-											<a
-												href="${pageContext.request.contextPath}/mypage/withdrawal">회원탈퇴</a>
-										</button>
-										</div>
+								<div class="memberChange_notice">
+									<div class="memberChange_container1">
+										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
+											<span style="color: #00CA61;"> 회원정보수정 </span>에 대해 알려드립니다 😇
+										</span>
 									</div>
-							</section>
-						</div>
+
+									<form action="memberChange" method="POST" name="myPage-form"
+										onsubmit="return infoValidate()">
+
+										<div class="memberChange_Con">
+
+											<div class="memberChange_title">
+
+												<span class="memberChange_con1">이메일</span> <span
+													class="memberChange_con2">
+													<div>${loginMember.memberEmail}</div>
+												</span>
+
+											</div>
+											<div class="memberChange_title">
+												<span class="memberChange_con1">이름</span> <span
+													class="memberChange_con2"> <input type="text"
+													name="updateName" id="memberName"
+													value="${loginMember.memberName}" maxlength="10">
+												</span>
+											</div>
+											<div class="memberChange_title">
+												<span class="memberChange_con1">닉네임</span> <span
+													class="memberChange_con2"> <input type="text"
+													name="updateNickname" id="memberNickname"
+													value="${loginMember.memberNick}" maxlength="10">
+												</span>
+											</div>
+											<div class="messageContainer">
+												<span class="changeMessage">영어/숫자/한글 2~10글자 사이로
+													입력해주세요.</span>
+											</div>
+
+											<div class="memberChange_title">
+												<span class="memberChange_con1">휴대폰번호</span> <span
+													class="memberChange_con2"> <input type="text"
+													name="updateTel" id="memberTel"
+													value="${loginMember.memberTel}" maxlength="11">
+												</span>
+											</div>
+
+											<div class="messageContainer">
+												<span class="changeMessage">전화번호를 입력해주세요.(- 제외)</span>
+											</div>
+
+										 <!-- 주소 -->
+                                    <div class="memberChange_address">
+
+                                        <div class="adderess_first">
+                                            <div class="memberChange_con1 add_style">
+                                                <span class="memberChange_con1">주소</span>
+                                            </div>
+
+                                            <div class="memberChange_con2_area memberChange_con2 notAddress">
+                                                <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"
+                                                    maxlength="6" class="">
+
+                                            </div>
+                                            <button class="notInput" type="button" id="info-address-btn"
+                                                onclick="execDaumPostcode()">검색</button>
+
+                                        </div>
+                                        <div class="addr_container_2">
+                                            <div class="memberChange_con2">
+                                                <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+
+                                            </div>
+
+                                            <div class="memberChange_con2">
+                                                <input type="text" name="updateAddress" id="detailAddress"
+                                                    value="${addr[2]}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+											 <div class="memberChange_bottom">
+                                    <div>
+                                        <button class="memberChange_b">수정완료</button>
+                                        <button class="memberChange_b">이전으로</button>
+                                    </div>
+                                    <div>
+                                        <span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>
+                                        <button class="memberChange_w">
+                                            <a href="#none">회원탈퇴</a>
+                                        </button> </span>
+                                    </div>
+                                </div>
 					</section>
 				</div>
-
-
+				</section>
 			</div>
+
+
+		</div>
 		</div>
 
 
