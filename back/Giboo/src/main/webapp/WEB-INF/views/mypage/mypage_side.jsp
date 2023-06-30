@@ -45,6 +45,8 @@
 
 						<div class="mypage_profileEmojiContainer">
 							<div class="mypage_profileEmojiTheme ">
+							
+					
 								
 								<%--회원프로필 이미지 --%>
 								<a href="${pageContext.request.contextPath}/mypage/changeProfile">
@@ -56,40 +58,44 @@
                                 <c:if test="${!empty loginMember.profileImg}">
                                     <img src="${contextPath}${loginMember.profileImg}" id="member-profile">
                                 </c:if>
-
-            				</a>
-							
-							
-							
+		
+            					</a>
+					
 							</div>
 						</div>
-						<!-- <div class="mypage_hiuser">고마운분</div> -->
-						<div class="userName">${loginMember.memberNick}님, <br> 안녕하세요🥳</div>
+						
+						
+						<!-- 사용자 정보 -->
+						 <div class="side_user_container">
+                            <div class="userName">
+                                <p>${loginMember.memberNick}님,</p>
+                                <p> 안녕하세요🥳</p>
+                            </div>
 
-						<div class="rateName">${loginMember.memberNick}님 등급  
-							<span>${loginMember.rateName}🥳</span> </div> 	
-						<div class="rateName">${loginMember.memberNick}님 적립금 
-						  <span>${loginMember.pointPrice} 원🥳</span></div>	
+                            <div class="rateName">
+                                <span>LV.3</span>
+                                <span>123원</span>
+                            </div>
+                        </div>
 
 
 						<!--왼쪽 네비바 메뉴 -->
 						<nav class="mypage_content_container">
 							<ul class="mypage_content_first">
-								<li><a
-									href="${pageContext.request.contextPath}/mypage/memberChange">회원정보수정</a>
-								</li>
-								<li class="mypage_content_first_s"><a
-										href="${pageContext.request.contextPath}/mypage/changePw">비밀번호 변경</a>
-										</li>
-										<li class="mypage_content_first_s"><a
-										href="${pageContext.request.contextPath}/mypage/changeProfile">프로필 이미지 변경</a>
-										</li>
+                                <li><a href="${pageContext.request.contextPath}/mypage/memberChange">회원정보수정</a></li>
 
-								<li><a
-									href="${pageContext.request.contextPath}/mypage/favorites">즐겨찾기</a></li>
+                                <li class="mypage_content_first_s">
+                                    <a href="${pageContext.request.contextPath}/mypage/changePw">- 비밀번호 변경</a>
+                                </li>
+                                 <li class="mypage_content_first_s">
+                                    <a href="${pageContext.request.contextPath}/mypage/changeProfile">- 프로필 이미지 변경</a>
+                                </li>
 
-							</ul>
+                                <li class="li_enter"><a href="${pageContext.request.contextPath}/mypage/favorites">즐겨찾기</a></li>
+                            </ul>
+                            
 							<hr>
+							
 							<div class="mypage_content_second">
 								<ul>
 									<li><a
