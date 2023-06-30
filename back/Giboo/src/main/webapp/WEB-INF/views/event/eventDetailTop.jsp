@@ -39,8 +39,35 @@ crossorigin="anonymous"></script>
                     <div class="edWrapTitle">
                         <span>${eventDetailTop.eventTitle}</span>
                     </div>
+                    <%-- ====================================== --%>
+                    <div class="progressArea">
+                        <div class="progressInfo">
+                            <span class="progressPercentage">${eventDetailTop.percent}%</span>
+                                <span class="goal">
+                                    목표
+                                    <span class="goal" id="goalValue">${eventDetailTop.targetPeople}</span>명
+                            </span>
+                        </div>
+
+                        <div class="progressBar">
+                            <div class="progressBarValue" style="width: ${eventDetailTop.percent}%"></div>
+                        </div>
+
+                        <div class="progressStatus">
+                            <span>
+                                <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+                                <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중</span>
+                            <span>
+                                <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
+                                <span id="recommendedCount">102</span>명 추천</span>
+                        </div>
+                    </div>
+
+                    <%-- ====================================== --%>
+                    
+                    
                     <div class="edWrapBar">
-                        <div class="edDoBar">
+                        <%--  <div class="edDoBar">
                             <progress value="${eventDetailTop.eventPersonCount}" max="${eventDetailTop.targetPeople}"></progress>
                         </div>
                         <div class="edWrapBar_2">
@@ -53,7 +80,8 @@ crossorigin="anonymous"></script>
                                 <span>${eventDetailTop.targetPeople}</span>
                                 <span>명 목표</span>
                             </div>
-                        </div>
+                        </div>  --%>
+                        
                     </div>
                     <div class="edDoTo">
                         <div class="edDoTitle">
