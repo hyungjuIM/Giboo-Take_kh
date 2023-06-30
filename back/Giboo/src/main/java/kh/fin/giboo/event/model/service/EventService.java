@@ -44,6 +44,8 @@ public interface EventService {
 
 	List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo);
 
+	int eventDupCheck(int memberNo, int eventNo);
+
 
 
 }

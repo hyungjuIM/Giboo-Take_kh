@@ -169,5 +169,11 @@
 		WHERE EP.EVENT_NO = ${eventNo}
 	</select>
 	
+	<!--  이벤트 참여자 중복확인  -->
+	<select id="eventDupCheck" resultType="string">
+		SELECT COUNT(*) FROM EVENT_PERSON
+		WHERE MEMBER_NO = #{memberNo}
+		AND EVENT_NO = #{eventNo}
+	</select>
 
 </mapper>

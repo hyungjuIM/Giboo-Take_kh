@@ -50,7 +50,7 @@ crossorigin="anonymous"></script>
                         </div>
 
                         <div class="progressBar">
-                            <div class="progressBarValue" style="width: ${eventDetailTop.percent}%"></div>
+                             <div class="progressBarValue" style="width: ${Math.min(eventDetailTop.percent.longValue(), 100)}%"></div>
                         </div>
 
                         <div class="progressStatus">
@@ -123,6 +123,9 @@ crossorigin="anonymous"></script>
                         <div class="edBtnDe">
                             <button id="popupButton">이벤트 함께하기</button>                        
                         </div>
+                        
+                        <button id="participationB">이벤트 참여</button> 
+                        
                         <div class="edStamp">
                             <div class="edStampPopup">
                                 <div class="edStampPopDe">
@@ -164,6 +167,9 @@ crossorigin="anonymous"></script>
         const loginMemberNo = "${loginMember.memberNo}";
         // -> 로그인 O  : "10";
         // -> 로그인 X  : "";  (빈문자열)
+        
+        //이벤트페이지의 이벤트번호
+        const eventNo = "${eventDetailTop.eventNo}";
 
     </script>
     
