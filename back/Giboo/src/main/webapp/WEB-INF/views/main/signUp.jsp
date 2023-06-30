@@ -37,9 +37,11 @@
 
                                 <div class="signUpName signUpInput_Container ">
                                     <span><i class="fa-regular fa-user"></i></span>
+
                                     <input class="memberTy" type="radio" name="memberType" value="user" checked> <span>사용자</span>
                                     <input class="memberTy" type="radio" name="memberType" value="admin"><span>운영자</span>
                                    
+
                                 </div>
 
                             </div>

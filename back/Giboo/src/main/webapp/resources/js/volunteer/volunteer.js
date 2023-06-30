@@ -51,3 +51,20 @@ for (let i of favoriteButton) {
         i.classList.remove("buttonFocus");
     });
 }
+
+window.onload = function() {
+    var favoriteButton = document.querySelector(".favoriteButton");
+    var favorited = false; // State of the button
+
+    favoriteButton.addEventListener('click', function() {
+        if (favorited) {
+            favoriteButton.innerHTML = '🤍'; 
+            favoriteButton.style.color = 'black'; 
+            favorited = false;
+        } else {
+            favoriteButton.innerHTML = '❤️'; 
+            favoriteButton.style.color = 'red'; 
+            favorited = true;
+        }
+    });
+}

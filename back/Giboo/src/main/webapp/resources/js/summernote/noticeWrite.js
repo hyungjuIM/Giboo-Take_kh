@@ -18,6 +18,7 @@ $(document).ready(function () {
             //줄 높이 
             ['height', ['height']]],
 
+
         height: 400, // 에디터 높이 
 
         minHeight: null, // 최소 높이 
@@ -26,6 +27,7 @@ $(document).ready(function () {
         placeholder: '본문을 작성해주세요', //placeholder 설정 
         disableResizeEditor: true,
         focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
+
 
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', '맑은 고딕', '궁서', '굴림체', '굴림', '돋움체', '바탕체'],
         fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '28', '30', '36', '50', '72'],
@@ -61,6 +63,8 @@ $(document).ready(function () {
                 jsonFn(jsonArray);
 
                 console.log("성공 후 반환 메시지11", data);
+
+
 
             },
             error: function (e) {

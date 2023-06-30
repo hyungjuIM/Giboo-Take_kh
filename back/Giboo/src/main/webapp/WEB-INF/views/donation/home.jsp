@@ -87,10 +87,14 @@
                         <div class="buttonSection">
                             <a href="" class="button">🍀 기부하기
                                 <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                            <div class="favoriteButton">💖</div>
+                           <div class="favoriteButton" onclick="addFavorite('${donationList.donationTitle}')">🤍</div>
                         </div>
                         <a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/SB
                             <div class="mainTitle">${donationList.donationTitle}</div>
                         </a>
                         <div class="progressBar">
