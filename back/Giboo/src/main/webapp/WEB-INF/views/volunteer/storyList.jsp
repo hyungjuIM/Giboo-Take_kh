@@ -11,7 +11,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>notice</title>
+      <title>봉사이야기</title>
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/volunteer/storyList.css" />
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
 
@@ -24,7 +24,7 @@
 
       <main>
         <div class="page-title">
-          <span>공지사항</span>
+          <span>봉사이야기</span>
         </div>
         <section class="mainContainer">
           <div class="mainContent">
@@ -88,7 +88,7 @@
                             <tr>
                               <td>${story.volunteerStoryNo}</td>
                               <td><a
-                                  href="../notice/noticeDetail/${story.volunteerStoryNo}?cp=${pagination.currentPage}${sURL}">${story.volunteerStoryTitle}</a>
+                                  href="../volunteer/story/${story.volunteerStoryNo}?cp=${pagination.currentPage}${sURL}">${story.volunteerStoryTitle}</a>
                               </td>
                               <td>${story.enrollDt}</td>
                               <td>${story.memberNick}</td>

@@ -67,4 +67,12 @@ public class VolunteerDAO {
 
         return sqlSession.selectList("volunteerMapper.getStoryList", model, rowBounds);
     }
+
+    public VolunteerStory selectVolunteerStory(int volunteerStoryNo) {
+        return sqlSession.selectOne("volunteerMapper.selectVolunteerStory", volunteerStoryNo);
+    }
+
+    public int updateViewCount(int volunteerStoryNo) {
+        return sqlSession.update("volunteerMapper.updateViewCount", volunteerStoryNo);
+    }
 }

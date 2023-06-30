@@ -335,3 +335,19 @@ a{
     color: #f2f2f2;
     border-radius: 50%;
 }
+
+.writeBtn{
+    margin-left: 300px;
+
+    border :solid 1px #bdbdbd;
+    border-radius: 5px;
+
+    color: #767676;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+
+    background-color: transparent;
+
+    width: 98px;
+    height: 38px;
+}

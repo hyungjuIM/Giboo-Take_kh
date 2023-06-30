@@ -24,7 +24,7 @@
 
       <main>
         <div class="page-title">
-          <span>공지사항</span>
+          <span>기부이야기</span>
         </div>
         <section class="mainContainer">
           <div class="mainContent">

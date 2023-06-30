@@ -34,6 +34,7 @@ for (let i of button) {
     i.addEventListener("mouseenter", () => {
         i.classList.add("buttonFocus");
         i.firstElementChild.src = getContextPath() + "/resources/images/chevron-right-solid-white.svg";
+        console.log(getContextPath());
     });
 
     i.addEventListener("mouseleave", () => {
