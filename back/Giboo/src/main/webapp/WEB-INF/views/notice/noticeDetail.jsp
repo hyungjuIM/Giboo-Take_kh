@@ -61,8 +61,8 @@
 
 						<!-- 본문 -->
 						<div class="detailContent">
-							${noticeDetail.noticeContent}
-						
+							<!-- ${noticeDetail.noticeContent} -->
+							<c:out value="${noticeDetail.noticeContent}" escapeXml="false" />
 							<c:if test="${fn:length(noticeDetail.imageList) > start}">
 
 
@@ -98,9 +98,9 @@
 
 						<!-- 목록 알림 등록 취소 영역 -->
 						<div class="submitContainer">
-							<button class="listBack">목록으로</button>
+							<button class="listBack" >목록으로</button>
 
-							<button class="update">수정</button>
+							<button class="update" onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite?mode=update&cp=${cp}&no=${noticeDetail.noticeNo}'">수정</button>
 							<button class="delete">삭제</button>
 						</div>
 

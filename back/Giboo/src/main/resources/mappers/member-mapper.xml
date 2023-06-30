@@ -193,15 +193,6 @@
 		SELECT * FROM MEMBER WHERE MEMBER_NICK= #{memberNick} AND MEMBER_EMAIL =
 		#{memberEmail}
 
-
-	<select id="kakao" parameterType="java.util.HashMap"
-		resultMap="member_rm">
-
-		SELECT * FROM MEMBER WHERE MEMBER_NICK= #{memberNick} AND MEMBER_EMAIL =
-		#{memberEmail}
-
-
-
 	</select>
 
 	<insert id="kakaoinsert" parameterType="java.util.HashMap">
