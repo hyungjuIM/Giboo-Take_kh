@@ -87,7 +87,7 @@
                         <div class="buttonSection">
                             <a href="" class="button">🍀 봉사하기
                                 <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                            <div class="favoriteButton" onclick="addFavorite('${donationList.donationTitle}')">🤍</div>
+                            <div class="favoriteButton" id="${volunteerList.volunteerNo}">🤍</div>
                         </div>
 
                         <a href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
@@ -141,6 +141,19 @@
 <footer>
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />
 </footer>
+
+<script>
+    const favoriteButton = document.getElementsByClassName("favoriteButton");
+    for (let i of favoriteButton) {
+        i.addEventListener("click", function() {
+            console.log("${volunteerList.volunteerNo}");
+            // $.ajax ({
+            //     url: "addFavorite",
+            //     data: {"memberNo" : ${loginMember.memberNo}}
+            // })
+        })
+    }
+</script>
 
 <script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteer.js"></script>
 </body>
