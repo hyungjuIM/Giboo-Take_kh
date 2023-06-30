@@ -267,6 +267,30 @@ public class EventController {
 	    return "event/eventDetailBoardPhoto";
 	}
 	
+	//이벤트참여자 중복확인
+	
+	
+	
+	
+	@ResponseBody  // ajax 응답 시 사용!
+	//@PostMapping(value="/eventDetailMain/{eventNo}")
+	@GetMapping("/eventDupCheck")
+	public int eventDupCheck(
+				@PathVariable("eventNo") int eventNo
+				,Model model
+				, HttpSession session,
+				@ModelAttribute("loginMember") Member loginMember
+			) {
+		int memberNo = loginMember.getMemberNo();
+
+		int result = service.eventDupCheck(memberNo, eventNo);
+		
+		 logger.info("이벤트 참여자 중복 result: " + result);
+		
+		return result;
+		
+		
+	}
 	
 
 	

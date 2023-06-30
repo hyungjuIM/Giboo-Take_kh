@@ -1,5 +1,6 @@
 package kh.fin.giboo.event.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -88,6 +89,14 @@ public class EventDAO {
 	public List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo) {
 		return sqlSession.selectList("event-mapper.selectEventDetailBoardPhoto", eventNo);
 	}
+
+	public int eventDupCheck(int memberNo, int eventNo) {
+	    Map<String, Object> paramMap = new HashMap<>();
+	    paramMap.put("memberNo", memberNo);
+	    paramMap.put("eventNo", eventNo);
+	    return sqlSession.selectOne("event-mapper.eventDupCheck", paramMap);
+	}
+
 	
 
 }

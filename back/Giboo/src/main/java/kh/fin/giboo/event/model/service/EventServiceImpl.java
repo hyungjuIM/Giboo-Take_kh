@@ -142,6 +142,11 @@ public class EventServiceImpl implements EventService{
 		return dao.selectEventDetailBoardPhoto(eventNo);
 	}
 
+	@Override
+	public int eventDupCheck(int memberNo, int eventNo) {
+		return dao.eventDupCheck(memberNo,eventNo);
+	}
+
 
 
 
