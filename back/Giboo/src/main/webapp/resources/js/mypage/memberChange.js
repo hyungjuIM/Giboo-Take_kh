@@ -320,6 +320,11 @@ const popup_withdrawal = document.getElementById("popup_withdrawal");
 //   });
 
 
+//회원정보수정에서 이전으로
+$("#back1").click(function() {
+    window.history.back(); // 이전 페이지로 이동
+  });
+
 //회원탈퇴 창에서 이전으로 
     $("#back").click(function() {
         window.history.back(); // 이전 페이지로 이동

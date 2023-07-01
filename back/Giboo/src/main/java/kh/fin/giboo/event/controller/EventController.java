@@ -6,7 +6,9 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -78,11 +80,9 @@ public class EventController {
 			) {
 		
 		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
-		//슬
-	
 	        int percent = (eventDetailTop.getEventPersonCount() * 100) / eventDetailTop.getTargetPeople();
 	        eventDetailTop.setPercent(percent);
-		//슬
+		
 		
 		
 		
@@ -117,7 +117,7 @@ public class EventController {
 	}
 	
 
-		
+	//============================================================		
 	
 	
 	// 이벤트 팝업(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
@@ -129,6 +129,7 @@ public class EventController {
 		    @RequestParam("uploadImage") MultipartFile uploadImage, /* 업로일 파일 */
 		    @RequestParam Map<String, Object> map,
 			@ModelAttribute("loginMember") Member loginMember
+			,@RequestParam("memberNo") int memberNo
 			,EventPopup eventPopup
 			,Stamp stamp
 			,Alarm alarm
@@ -138,6 +139,17 @@ public class EventController {
 			,Model model
 		)throws IOException {
 		
+		int memberNo1 = loginMember.getMemberNo();
+		
+		boolean isParticipation = service.eventDupCheck(memberNo1, eventNo);
+		String message = null;
+		
+		
+		if(isParticipation) {
+			//해당 memberNo1, eventNo 가 이미 이벤트 참여 테이블에 존재0
+			return "duplicate";
+		}
+		//해당 memberNo1, eventNo 가 이미 이벤트 참여 테이블에 존재X
 	    eventPopup.setEventNo(eventNo);
 		
 		eventPopup.setMemberNo(loginMember.getMemberNo());
@@ -145,12 +157,7 @@ public class EventController {
 		
 		String webPath = "/resources/images/eventPopup/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-//		String folderPath = "C:\\gibooTake\\back\\Giboo\\src\\main\\webapp\\resources\\images\\eventPopup\\";
 
-//String webPath = "/resources/images/eventPopup/";
-//String folderPath = req.getSession().getServletContext().getRealPath("/resources/images/eventPopup/");
-
-//	    String folderPath = req.getSession().getServletContext().getRealPath("/");
 		
 		map.put("webPath", webPath);
 		map.put("folderPath", folderPath);
@@ -160,7 +167,6 @@ public class EventController {
 
 		int result = service.insertPopup(map, eventPopup);
 		
-		String message = null;
 		String path = null;
     
         logger.info("result: " + result); // 결과값 로그로 출력
@@ -206,14 +212,22 @@ public class EventController {
 		    } else {
 		        // myActiveEventList 삽입 실패 처리
 		    }
+		    return "participation";
 		} else {
 		    message = "실패";
+		    
 		}
 
 
 		ra.addFlashAttribute("message",message);
 		return "redirect:" + path;
+
 	}
+	
+	//============================================================
+	
+
+	
 	
 	
 	
@@ -249,30 +263,54 @@ public class EventController {
 	    return "event/eventDetailBoardPhoto";
 	}
 	
-	//이벤트참여자 중복확인
-	
-	
-	
-	
-	@ResponseBody  // ajax 응답 시 사용!
-	//@PostMapping(value="/eventDetailMain/{eventNo}")
-	@GetMapping("/eventDupCheck")
-	public int eventDupCheck(
-				@PathVariable("eventNo") int eventNo
-				,Model model
-				, HttpSession session,
-				@ModelAttribute("loginMember") Member loginMember
-			) {
-		int memberNo = loginMember.getMemberNo();
 
-		int result = service.eventDupCheck(memberNo, eventNo);
-		
-		 logger.info("이벤트 참여자 중복 result: " + result);
-		
-		return result;
-		
-		
+	
+
+
+	
+	
+	
+	// 즐겨찾기
+	@ResponseBody
+	@PostMapping(value = "/insertEventFav")
+	public String insertEventFav(
+	        @RequestParam("memberNo") int memberNo,
+	        @RequestParam("eventNo") int eventNo,
+	        HttpServletResponse response,
+	        HttpServletRequest req
+	        ,RedirectAttributes ra
+) {
+
+	    boolean isFavorite = service.checkFavorite(memberNo, eventNo);
+		String message = null;
+
+	    if (isFavorite) {
+	        // 해당 eventNo가 이미 즐겨찾기 테이블에 존재하는 경우
+	        return "duplicate";
+	        
+	    }
+		ra.addFlashAttribute("message",message);
+
+	    int result = service.insertFav(memberNo, eventNo);
+
+	    if (result > 0) {
+	        HttpSession session = req.getSession();
+	        session.setAttribute("eventNo", eventNo);
+	        session.setAttribute("memberNo", memberNo);
+	        
+	        // 쿠키 생성 및 추가
+	        Cookie favoriteCookie = new Cookie("favorite", "true");
+	        favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1 year (in seconds)
+	        favoriteCookie.setPath(req.getContextPath() + "/event/eventDetailMain/" + eventNo);
+	        response.addCookie(favoriteCookie);
+	        
+	        return "red";
+	    } else {
+	        return "failed";
+	    }
+
 	}
+
 	
 
 	

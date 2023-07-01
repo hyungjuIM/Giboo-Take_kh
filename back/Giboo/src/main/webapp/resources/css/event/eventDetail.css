@@ -10,6 +10,33 @@
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Open Sans', sans-serif;
 }
+
+
+.edWrap{
+    position: relative;
+}
+
+.eFavBtn{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.eFavBtn:hover{
+    background-color: red;
+}
+
+.dFavSpan{
+    font-size: 20px;
+}
+
+
 /* 프로그래스 바 스타일 수정 */
 progress {
     /* 스타일 속성 설정 */

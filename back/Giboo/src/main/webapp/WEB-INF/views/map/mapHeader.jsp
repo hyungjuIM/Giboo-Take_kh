@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="mhBtnWrap">
                                     <div class="mhBtn">
-                                        <div class="mhBtnHe" id="mhBtnHe">
+                                        <div class="mhBtnHe" id="mhBtnHea">
                                             <a href="" >
                                                 <div class="mhBtnHe_1">
                                                     <span><i class="fa-regular fa-heart"></i></span>
@@ -118,7 +118,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<script src="${pageContext.request.contextPath}/resources/js/map/map.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/map/map2.js"></script>
 </body>
 
 </html>

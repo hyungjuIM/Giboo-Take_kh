@@ -90,12 +90,38 @@ public class EventDAO {
 		return sqlSession.selectList("event-mapper.selectEventDetailBoardPhoto", eventNo);
 	}
 
-	public int eventDupCheck(int memberNo, int eventNo) {
-	    Map<String, Object> paramMap = new HashMap<>();
-	    paramMap.put("memberNo", memberNo);
-	    paramMap.put("eventNo", eventNo);
-	    return sqlSession.selectOne("event-mapper.eventDupCheck", paramMap);
+	public boolean eventDupCheck(int memberNo1, int eventNo) {
+		Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("memberNo1", memberNo1);
+        parameterMap.put("eventNo", eventNo);
+        Boolean result = sqlSession.selectOne("event-mapper.eventDupCheck", parameterMap);
+	    if (result == null) {
+	        return false;
+	    }
+	    return result;
 	}
+
+
+	public boolean checkFavorite(int memberNo, int eventNo) {
+	    Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("memberNo", memberNo);
+        parameterMap.put("eventNo", eventNo);
+        Boolean result = sqlSession.selectOne("event-mapper.checkFavorite", parameterMap);
+	    if (result == null) {
+	        return false;
+	    }
+	    return result;
+	}
+	
+	
+
+	public int insertFav(int memberNo, int eventNo) {
+	    Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("memberNo", memberNo);
+        parameterMap.put("eventNo", eventNo);
+		return sqlSession.insert("map-mapper.insertFav", parameterMap);
+	}
+
 
 	
 

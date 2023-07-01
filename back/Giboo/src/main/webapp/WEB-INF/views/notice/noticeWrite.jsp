@@ -35,14 +35,12 @@
         <div class="page-title">
             <span>공지사항</span>
         </div>
-    
-        
+
         <section class="mainContainer">
             <form action="noticeWrite" method="POST" class="mainContent" onsubmit="return noticeWriteValidate()"> 
                 <!-- 제목 -->
                 <div class="TitleBox">
-                    <div class="title"> <input name="noticeTitle" type="text" placeholder="제목을 입력해 주세요"></div>
-                    
+                    <div class="title"> <input name="noticeTitle" type="text" placeholder="제목을 입력해 주세요" value="${noticeDetail.noticeTitle}"></div>
                 </div>
                 
                 <!-- 본문 -->
@@ -52,8 +50,6 @@
                     
                 </div>
 
-                
-                
                 <!-- 목록 알림 등록 취소 영역 -->
                 <div class="submitContainer">
                     <button class="listBack">목록으로</button>
@@ -71,14 +67,11 @@
             
             <!-- 현재 페이지 -->
             <input type="hidden" name="cp" value="${param.cp}">
-                
-                
+
             </form>
         </section> 
     </main>
-    
-    
-    
+
     <!-- 푸터 영역 -->
 <footer>
     <jsp:include page="/WEB-INF/views/main/footer.jsp" />
@@ -105,9 +98,29 @@ rel="stylesheet">
  integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
  crossorigin="anonymous" referrerpolicy="no-referrer" />
 
- 
-
- 
  <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            const url = new URL(window.location.href);
+            console.log("url" + url);
+
+            const urlParams = url.searchParams;
+            const mode = urlParams.get('mode');
+            console.log(mode);
+
+            const content = "${noticeDetail.noticeContent}";
+
+            switch (mode) {
+                case "insert":
+                    summernote();
+                    break;
+
+                case "update":
+                    updateLoad(content);
+                    break;
+            }
+        });
+    </script>
 </body>
 </html>

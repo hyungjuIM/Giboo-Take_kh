@@ -167,13 +167,24 @@ public class NoticeController {
 			@RequestParam(value="no",required = false, defaultValue = "0")int noticeNo,
 			Model model) {
 		logger.info("공지사항 작성");
+
+		if (mode.equals("update")) {
+			NoticeDetail noticeDetail = service.selectNoticeDetail(noticeNo);
+
+			noticeDetail.setNoticeContent(noticeDetail.getNoticeContent().replaceAll("&quot;", "&#039;"));
+
+			String unescapedContent = StringEscapeUtils.unescapeHtml(noticeDetail.getNoticeContent());
+			noticeDetail.setNoticeContent(unescapedContent);
+
+			model.addAttribute("noticeDetail", noticeDetail);
+		}
+
 		return "notice/noticeWrite";
 	}
 	
 	
 	
 	// 썸머노트 이미지 저장
-
 
 	// 공지사항 등록용 이미지 업로드
 	   @PostMapping("/uploadSNoticeImageFile")
@@ -231,6 +242,7 @@ public class NoticeController {
 		   // 게시글 등록
 		   System.out.println(mode);
 		   if(mode.equals("insert")) {
+
 			   int noticeNo = service.insertNotice(noticeDetail);
 			   path = "../notice/noticeDetail/"+noticeNo;
 			   logger.info("게시글 등록 성공");
@@ -242,16 +254,23 @@ public class NoticeController {
 			   }
 			  path = "../notice/noticeDetail/"+noticeNo;
 			  message ="공지사항이 등록 되었습니다.";
+
 		   }else { //수정
 			   int result = service.updateNotice(noticeDetail);
-			   if(result>0) {
+
+			   if(result > 0) {
 				   path="../notice/noticeDetail"+noticeDetail.getNoticeNo()+"?cp="+cp;
+				   message = "공지사항이 수정 되었습니다.";
+			   } else {
+				   path = req.getHeader("referer");
+				   message = "공지사항 수정이 실패하였습니다. 잠시 후 다시 시도해주세요.";
 			   }
 			   
 		   }
 		   ra.addFlashAttribute("message", message);
 		   return "redirect:"+path;
 	   }
+
 
 //공지사항 삭제
 		@GetMapping("/noticeDelete/{noticeNo}")
@@ -283,6 +302,7 @@ public class NoticeController {
 			return "redirect:/" +path;
 
 		}
+
 
 
 }
