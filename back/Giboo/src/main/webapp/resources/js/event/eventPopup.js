@@ -103,37 +103,37 @@ $(document).ready(function () {
 //동일한 이벤트 참여자 중복검사(ajax)
 
 
-const participationB = document.getElementById("participationB");
+// const participationB = document.getElementById("participationB");
 
-participationB.addEventListener("click", function(){
+// participationB.addEventListener("click", function(){
     
-    $.ajax({
+//     $.ajax({
 
-    url: "/eventDupCheck",
-    data: { "memberNo": loginMemberNo,
-            "eventNo": eventNo },
-    type: "GET",
+//     url: "/eventDupCheck",
+//     data: { "memberNo": loginMemberNo,
+//             "eventNo": eventNo },
+//     type: "GET",
 
-    success: function (result) {
+//     success: function (result) {
 
-        if (result == 0) {// 해당 이벤트참여자No, 이벤트No  중복 X
-            alert("이벤트 참여가능함");
-            console.log("참여가능");
+//         if (result == 0) {// 해당 이벤트참여자No, 이벤트No  중복 X
+//             alert("이벤트 참여가능함");
+//              console.log("참여가능");
             
 
-        } else {// 해당 이벤트참여자No, 이벤트No  중복 o
+//         } else {// 해당 이벤트참여자No, 이벤트No  중복 o
 
-            alert("해당 이벤트 참여했음");
-            console.log("참여불가능");
+//             alert("해당 이벤트 참여했음");
+//             console.log("참여불가능");
 
-        }
-    },
-    error: function () { //비동기 통신 에러
-        console.log("에러 발생");
-    }
-});
+//         }
+//     },
+//     error: function () { //비동기 통신 에러
+//         console.log("에러 발생");
+//     }
+// });
 
-})
+// })
 
 
 
@@ -177,6 +177,4 @@ participationB.addEventListener("click", function(){
 //         console.log("에러 발생");
 //     }
 // });
-
-
 
