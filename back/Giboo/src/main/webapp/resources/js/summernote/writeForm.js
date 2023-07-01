@@ -18,10 +18,7 @@ function summernote() {
             //줄 높이
             ['height', ['height']]],
 
-
-
         height: 400, // 에디터 높이
-
 
         minHeight: null, // 최소 높이
         maxHeight: null, // 최대 높이
@@ -30,15 +27,10 @@ function summernote() {
         disableResizeEditor: true,
         focus: true,                  // 에디터 로딩후 포커스를 맞출지 여부
 
-
-
-
-
         fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', '맑은 고딕', '궁서', '굴림체', '굴림', '돋움체', '바탕체'],
         fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '28', '30', '36', '50', '72'],
         callbacks: {
             onImageUpload: function (files) {
-
                 // 파일 업로드(다중업로드를 위해 반복문 사용)
                 for (var i = files.length - 1; i >= 0; i--) {
                     uploadImageFile(files[i], this);
@@ -68,7 +60,6 @@ function uploadImageFile(file, editor) {
             jsonFn(jsonArray);
 
             console.log("성공 후 반환 메시지11", data);
-
         },
         error: function (e) {
             console.log(e);
@@ -84,30 +75,3 @@ function updateLoad(content) {
     summernote();
     $('#summernote').summernote('code', content);
 }
-$(document).ready(function () {
-    /*const url = new URL(window.location.href);
-    console.log("url" + url);
-
-    const urlParams = url.searchParams;
-    const mode = urlParams.get('mode');
-    console.log(mode);
-
-    switch (mode) {
-        case "insert":
-            summernote();
-            break;
-
-        case "update":
-            updateLoad();
-            break;
-    }*/
-
-
-
-
-
-
-
-});
-
-
