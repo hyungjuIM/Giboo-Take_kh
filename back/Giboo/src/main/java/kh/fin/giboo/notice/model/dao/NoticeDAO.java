@@ -86,4 +86,10 @@ public class NoticeDAO {
 		sqlSession.insert("notice-Mapper.insertAlarm",noticeNo);
 	}
 
+
+
+	public void updateAlarm(int noticeNo) {
+		sqlSession.update("notice-Mapper.updateAlarm",noticeNo);
+	}
+
 }

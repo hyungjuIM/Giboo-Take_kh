@@ -22,5 +22,7 @@ public interface NoticeService {
 
 	void insertAlarm(int noticeNo);
 
+	void updateAlarm(int noticeNo);
+
 
 }
