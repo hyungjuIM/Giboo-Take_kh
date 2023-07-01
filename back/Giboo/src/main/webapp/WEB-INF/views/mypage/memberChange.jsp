@@ -85,9 +85,8 @@
 											</div>
 											<div class="memberChange_title">
 												<span class="memberChange_con1">닉네임</span> <span
-													class="memberChange_con2"> <input type="text"
-													name="updateNickname" id="memberNickname"
-													value="${loginMember.memberNick}" maxlength="10">
+													class="memberChange_con2"> 
+													<div>${loginMember.memberNick}</div>
 												</span>
 											</div>
 											<div class="messageContainer">
@@ -142,12 +141,17 @@
 											 <div class="memberChange_bottom">
                                     <div>
                                         <button class="memberChange_b">수정완료</button>
-                                        <button class="memberChange_b">이전으로</button>
+                                        <button class="memberChange_b">
+                                        <a
+												href="${pageContext.request.contextPath}/main" class="memberChange_b1">이전으로</a></button>
                                     </div>
+                                    </div>
+                               </form>     
                                     <div>
                                         <span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>
                                         <button class="memberChange_w">
-                                            <a href="#none">회원탈퇴</a>
+                                            <a
+												href="${pageContext.request.contextPath}/mypage/withdrawal">회원탈퇴</a>
                                         </button> </span>
                                     </div>
                                 </div>

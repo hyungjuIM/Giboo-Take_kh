@@ -78,11 +78,9 @@ public class EventController {
 			) {
 		
 		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
-		//슬
-	
 	        int percent = (eventDetailTop.getEventPersonCount() * 100) / eventDetailTop.getTargetPeople();
 	        eventDetailTop.setPercent(percent);
-		//슬
+		
 		
 		
 		
@@ -117,7 +115,7 @@ public class EventController {
 	}
 	
 
-		
+	//============================================================		
 	
 	
 	// 이벤트 팝업(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
@@ -138,6 +136,17 @@ public class EventController {
 			,Model model
 		)throws IOException {
 		
+		
+		//if( result < 1 )
+		int memberNo = loginMember.getMemberNo();
+
+		int result = service.eventDupCheck(memberNo, eventNo);
+		
+		if(result < 1){    
+			logger.info("이벤트 참여자 중복X result: " + result);    
+		
+		
+		
 	    eventPopup.setEventNo(eventNo);
 		
 		eventPopup.setMemberNo(loginMember.getMemberNo());
@@ -145,13 +154,7 @@ public class EventController {
 		
 		String webPath = "/resources/images/eventPopup/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-//		String folderPath = "C:\\gibooTake\\back\\Giboo\\src\\main\\webapp\\resources\\images\\eventPopup\\";
 
-//String webPath = "/resources/images/eventPopup/";
-//String folderPath = req.getSession().getServletContext().getRealPath("/resources/images/eventPopup/");
-
-//	    String folderPath = req.getSession().getServletContext().getRealPath("/");
-		
 		map.put("webPath", webPath);
 		map.put("folderPath", folderPath);
 		map.put("uploadImage", uploadImage);
@@ -206,14 +209,26 @@ public class EventController {
 		    } else {
 		        // myActiveEventList 삽입 실패 처리
 		    }
-		} else {
+		} 
+		else {
 		    message = "실패";
 		}
+		/////////
 
+		}
+		//else(result ==1 )
+		else { 
+			logger.info("이벤트 참여자 중복0 result: " + result);		
+				message = "실패";
+			}		
 
 		ra.addFlashAttribute("message",message);
 		return "redirect:" + path;
+	
+	
 	}
+	
+	//============================================================
 	
 	
 	
