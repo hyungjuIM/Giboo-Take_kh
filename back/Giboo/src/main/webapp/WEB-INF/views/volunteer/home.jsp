@@ -43,7 +43,7 @@
 
                 <c:forEach var="parentCategoryList" items="${parentCategoryList}">
                     <li class="subCategoryItem">
-                        <a href="../volunteer/home?category=${parentCategoryList.parentCategoryNo}" id="${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
+                        <a href="../volunteer/home?category=${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
                             <div class="SubCategoryEmojiTheme">${parentCategoryList.parentCategoryThumbnail}</div>
                                 ${parentCategoryList.parentCategoryName}
                         </a>
@@ -155,10 +155,31 @@
     for (let i of favoriteButton) {
         i.addEventListener("click", function() {
             console.log("${loginMember.memberNo}");
-            // $.ajax ({
-            //     url: "addFavorite",
-            //     data: {"memberNo" : ${loginMember.memberNo}}
-            // })
+            console.log(i.id);
+
+             $.ajax ({
+                 url: "addFavorite",
+                 data: {"memberNo" : ${loginMember.memberNo}, "volunteerNo" : i.id},
+                 
+                success: function(result) {
+                    if (result == "success") {
+                        if (i.innerHTML == "🤍") {
+                            i.innerHTML = '❤️'; 
+                           console.log("성공");
+                           
+                        } else {
+                            i.innerHTML = '🤍'; 
+                             
+                            
+                        }
+
+                        
+                    } else {
+                        alert("이미 추가햇음");
+                    
+                    }
+                }
+            })
         })
     }
 </script>

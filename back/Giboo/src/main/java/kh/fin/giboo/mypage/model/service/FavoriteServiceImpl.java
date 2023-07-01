@@ -13,13 +13,30 @@ public class FavoriteServiceImpl implements FavoriteService{
 	@Autowired
 	private FavoriteDAO dao;
 	
+		
+		
+		
+	
+
 	@Override
-	public int addfavorite(Map<String, Object> paramMap) {
+	public int addfavorite(int memberNo, int volunteerNo) {
 		
 		
 		
-		return dao.insertFavorite(paramMap);
-		
+		return dao.insertFavorite(memberNo, volunteerNo);
 	}
+
+
+
+
+
+
+	@Override
+	public boolean checkFavorite(int memberNo, int volunteerNo) {
+		
+		return dao.checkFavorite(memberNo, volunteerNo);
+	}
+	
+	
 
 }

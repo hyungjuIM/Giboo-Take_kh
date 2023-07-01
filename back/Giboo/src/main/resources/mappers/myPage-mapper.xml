@@ -355,9 +355,17 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 		
 	</select>
 	
+	<!-- 즐겨찾기 추가 -->
 	<insert id="insertFavorite">
-	  INSERT INTO FAVORITE (MEMBER_NO, DONATION_NO, VOLUNTEER_NO)
-    VALUES (#{memberNo}, #{donationNo}, #{volunteerNo})
+	  INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, FAV_MEMBER_NO, FAV_VOLUNTEER_NO)
+    VALUES (SEQ_FAVORITE_NO.NEXTVAL, 'Y', #{memberNo}, #{volunteerNo})
 	</insert>
+	
+	<!-- 즐겨찾기 중복 -->
+	<select id="checkFavorite" resultType="boolean">
+		SELECT COUNT(*) AS COUNT
+		FROM FAVORITES f
+		WHERE f.FAV_VOLUNTEER_NO  = #{volunteerNo} AND f.FAV_MEMBER_NO =  #{memberNo}
+	</select>
 	
 </mapper>
