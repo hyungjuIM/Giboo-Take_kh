@@ -40,6 +40,8 @@ public interface MapService {
 
 	int insertFav(int memberNo, int volunteerNo);
 
+	boolean checkFavorite(int memberNo, int volunteerNo);
+
 
 
 
