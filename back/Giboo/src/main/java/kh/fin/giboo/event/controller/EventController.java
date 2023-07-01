@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -127,6 +128,7 @@ public class EventController {
 		    @RequestParam("uploadImage") MultipartFile uploadImage, /* 업로일 파일 */
 		    @RequestParam Map<String, Object> map,
 			@ModelAttribute("loginMember") Member loginMember
+			,@RequestParam("memberNo") int memberNo
 			,EventPopup eventPopup
 			,Stamp stamp
 			,Alarm alarm
@@ -136,6 +138,17 @@ public class EventController {
 			,Model model
 		)throws IOException {
 		
+		int memberNo1 = loginMember.getMemberNo();
+		
+		boolean isParticipation = service.eventDupCheck(memberNo1, eventNo);
+		String message = null;
+		
+		
+		if(isParticipation) {
+			//해당 memberNo1, eventNo 가 이미 이벤트 참여 테이블에 존재0
+			return "duplicate";
+		}
+		//해당 memberNo1, eventNo 가 이미 이벤트 참여 테이블에 존재X
 	    eventPopup.setEventNo(eventNo);
 		
 		eventPopup.setMemberNo(loginMember.getMemberNo());
@@ -153,7 +166,6 @@ public class EventController {
 
 		int result = service.insertPopup(map, eventPopup);
 		
-		String message = null;
 		String path = null;
     
         logger.info("result: " + result); // 결과값 로그로 출력
@@ -199,16 +211,22 @@ public class EventController {
 		    } else {
 		        // myActiveEventList 삽입 실패 처리
 		    }
+		    return "participation";
 		} else {
 		    message = "실패";
+		    
 		}
 
 
 		ra.addFlashAttribute("message",message);
 		return "redirect:" + path;
+
 	}
 	
 	//============================================================
+	
+
+	
 	
 	
 	
@@ -246,28 +264,7 @@ public class EventController {
 	
 	//이벤트참여자 중복확인
 	
-	
-	
-	
-	@ResponseBody  // ajax 응답 시 사용!
-	//@PostMapping(value="/eventDetailMain/{eventNo}")
-	@GetMapping("/eventDupCheck")
-	public int eventDupCheck(
-				@PathVariable("eventNo") int eventNo
-				,Model model
-				, HttpSession session,
-				@ModelAttribute("loginMember") Member loginMember
-			) {
-		int memberNo = loginMember.getMemberNo();
 
-		int result = service.eventDupCheck(memberNo, eventNo);
-		
-		 logger.info("이벤트 참여자 중복 result: " + result);
-		
-		return result;
-		
-		
-	}
 	
 
 	
