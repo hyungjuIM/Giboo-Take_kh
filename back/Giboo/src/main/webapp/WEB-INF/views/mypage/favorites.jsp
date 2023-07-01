@@ -60,6 +60,9 @@
 						<div class="favcategory">
 							<button class="favcategoryBtn">봉사</button>
 						</div>
+						<div class="favcategory">
+							<button class="favcategoryBtn">이벤트</button>
+						</div>
 
 					</div>
 

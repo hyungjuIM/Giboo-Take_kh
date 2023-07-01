@@ -64,8 +64,6 @@
                                 <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span>
                         </div>
                     </div>
-
-                    <%-- ====================================== --%>
                     
                     
                     <div class="edWrapBar">
@@ -125,9 +123,7 @@
                         <div class="edBtnDe">
                             <button id="popupButton">이벤트 함께하기</button>                        
                         </div>
-                        
-                        <button id="participationB">이벤트 참여</button> 
-                        
+                                                
                         <div class="edStamp">
                             <div class="edStampPopup">
                                 <div class="edStampPopDe">
