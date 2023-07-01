@@ -257,9 +257,10 @@ public class NoticeController {
 
 		   }else { //수정
 			   int result = service.updateNotice(noticeDetail);
-
+			  int noticeNo =noticeDetail.getNoticeNo();
 			   if(result > 0) {
-				   path="../notice/noticeDetail"+noticeDetail.getNoticeNo()+"?cp="+cp;
+				   service.updateAlarm(noticeNo);
+				   path="../notice/noticeDetail/"+noticeDetail.getNoticeNo()+"?cp="+cp;
 				   message = "공지사항이 수정 되었습니다.";
 			   } else {
 				   path = req.getHeader("referer");

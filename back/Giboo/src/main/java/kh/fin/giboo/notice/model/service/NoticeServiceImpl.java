@@ -66,6 +66,14 @@ public class NoticeServiceImpl implements NoticeService {
 		dao.insertAlarm(noticeNo);
 	}
 	
+	
+	
+	
+	@Override
+	public void updateAlarm(int noticeNo) {
+		dao.updateAlarm(noticeNo);
+	}
+
 	//수정
 	@Transactional(rollbackFor = { Exception.class })
 	@Override
