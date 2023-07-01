@@ -97,6 +97,11 @@ public class MapServiceImpl implements MapService{
 		return dao.insertFav(memberNo, volunteerNo);
 	}
 
+	@Override
+	public boolean checkFavorite(int memberNo, int volunteerNo) {
+		return dao.checkFavorite(memberNo, volunteerNo);
+	}
+
 
 
 

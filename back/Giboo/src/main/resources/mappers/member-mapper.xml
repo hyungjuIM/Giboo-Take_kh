@@ -143,6 +143,7 @@
 		#{memberTel},
 		#{memberAddr},
 		DEFAULT, DEFAULT, NULL, #{memberType}, 1, NULL,NULL,DEFAULT
+		)
 	</insert>
 
 
