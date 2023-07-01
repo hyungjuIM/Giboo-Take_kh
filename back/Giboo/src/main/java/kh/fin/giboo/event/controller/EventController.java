@@ -263,7 +263,7 @@ public class EventController {
 	    return "event/eventDetailBoardPhoto";
 	}
 	
-	//이벤트참여자 중복확인
+
 	
 
 

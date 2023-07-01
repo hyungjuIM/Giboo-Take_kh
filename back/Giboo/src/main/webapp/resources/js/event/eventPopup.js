@@ -103,37 +103,37 @@ $(document).ready(function () {
 //동일한 이벤트 참여자 중복검사(ajax)
 
 
-const participationB = document.getElementById("participationB");
+// const participationB = document.getElementById("participationB");
 
-participationB.addEventListener("click", function(){
+// participationB.addEventListener("click", function(){
     
-    $.ajax({
+//     $.ajax({
 
-    url: "/eventDupCheck",
-    data: { "memberNo": loginMemberNo,
-            "eventNo": eventNo },
-    type: "GET",
+//     url: "/eventDupCheck",
+//     data: { "memberNo": loginMemberNo,
+//             "eventNo": eventNo },
+//     type: "GET",
 
-    success: function (result) {
+//     success: function (result) {
 
-        if (result == 0) {// 해당 이벤트참여자No, 이벤트No  중복 X
-            alert("이벤트 참여가능함");
-            console.log("참여가능");
+//         if (result == 0) {// 해당 이벤트참여자No, 이벤트No  중복 X
+//             alert("이벤트 참여가능함");
+//              console.log("참여가능");
             
 
-        } else {// 해당 이벤트참여자No, 이벤트No  중복 o
+//         } else {// 해당 이벤트참여자No, 이벤트No  중복 o
 
-            alert("해당 이벤트 참여했음");
-            console.log("참여불가능");
+//             alert("해당 이벤트 참여했음");
+//             console.log("참여불가능");
 
-        }
-    },
-    error: function () { //비동기 통신 에러
-        console.log("에러 발생");
-    }
-});
+//         }
+//     },
+//     error: function () { //비동기 통신 에러
+//         console.log("에러 발생");
+//     }
+// });
 
-})
+// })
 
 
 
@@ -215,4 +215,29 @@ eFavBtn.addEventListener("click", function(event) {
     
     event.preventDefault(); // 이벤트 전파 중지
 }
+})
+
+
+const popupButton = document.getElementById("popupButton");
+popupButton.addEventListener("click", function(event) {
+
+    $.ajax({
+        url: contextPath + "/eventDetailMain/{eventNo}",
+        data: {
+            "memberNo1": loginMemberNo,
+            "eventNo": eventNo
+        },
+        type: "post",
+        success: function(result) {
+            if (result === "participation") { 
+                alert("이벤트 참여를 위해 인증사진 등록이 필요합니다");
+            } else { // 실패
+                alert("이미 추가한 즐겨찾기 입니다.");
+            }
+        },
+        error: function(req, status, error) {
+            console.log("이벤트 참여 인증 등록 실패");
+            console.log(req.responseText);
+        }
+    });
 })
