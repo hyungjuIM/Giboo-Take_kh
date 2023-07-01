@@ -78,11 +78,9 @@ public class EventController {
 			) {
 		
 		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
-		//슬
-	
 	        int percent = (eventDetailTop.getEventPersonCount() * 100) / eventDetailTop.getTargetPeople();
 	        eventDetailTop.setPercent(percent);
-		//슬
+		
 		
 		
 		
@@ -117,7 +115,7 @@ public class EventController {
 	}
 	
 
-		
+	//============================================================		
 	
 	
 	// 이벤트 팝업(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
@@ -145,12 +143,7 @@ public class EventController {
 		
 		String webPath = "/resources/images/eventPopup/";
 		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-//		String folderPath = "C:\\gibooTake\\back\\Giboo\\src\\main\\webapp\\resources\\images\\eventPopup\\";
 
-//String webPath = "/resources/images/eventPopup/";
-//String folderPath = req.getSession().getServletContext().getRealPath("/resources/images/eventPopup/");
-
-//	    String folderPath = req.getSession().getServletContext().getRealPath("/");
 		
 		map.put("webPath", webPath);
 		map.put("folderPath", folderPath);
@@ -214,6 +207,8 @@ public class EventController {
 		ra.addFlashAttribute("message",message);
 		return "redirect:" + path;
 	}
+	
+	//============================================================
 	
 	
 	
