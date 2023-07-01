@@ -248,7 +248,8 @@ span{
   margin-top: 100px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 1.6em;
 }
 
 
@@ -287,8 +288,13 @@ span{
   color: #8071FC;
   border-radius: 50%;
 }
+.writeBtn-container{
+display: flex;
+justify-content: end;
+margin-top: 1.6em;
+}
 .writeBtn{
-  margin-left: 300px;
+ 
   
   border :solid 1px #bdbdbd;
   border-radius: 5px;

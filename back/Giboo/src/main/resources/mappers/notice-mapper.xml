@@ -88,6 +88,13 @@
 		)
 	</insert>
 	
+	<!-- 알림 -->
+	<insert id="insertAlarm" parameterType="Integer">
+		INSERT INTO ALARM (ALARM_NO, ALARM_CONTENT, ALARM_DATE, READ_STATUS, MEMBER_NO, NOTICE_NO)
+SELECT SEQ_ALARM_NO.NEXTVAL, (SELECT NOTICE_TITLE FROM NOTICE WHERE NOTICE_NO = ${noticeNo}), SYSDATE , 'N', MEMBER_NO, ${noticeNo}
+FROM MEMBER
+	</insert>
+	
 	<!-- 수정 -->
 	<update id="updateNotice">
 		UPDATE NOTICE SET
@@ -96,4 +103,10 @@
 		UPDATE_DT = SYSDATE
 		WHERE NOTICE_NO = #{noticeNo}
 	</update>
+	
+	<!-- 삭제 -->
+	<delete id="deleteNotice">
+		DELETE FROM NOTICE
+		WHERE NOTICE_NO = #{noticeNo}
+	</delete>
 </mapper>
