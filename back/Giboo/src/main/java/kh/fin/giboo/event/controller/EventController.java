@@ -6,6 +6,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -264,6 +265,51 @@ public class EventController {
 	
 	//이벤트참여자 중복확인
 	
+
+
+	
+	
+	
+	// 즐겨찾기
+	@ResponseBody
+	@PostMapping(value = "/insertEventFav")
+	public String insertEventFav(
+	        @RequestParam("memberNo") int memberNo,
+	        @RequestParam("eventNo") int eventNo,
+	        HttpServletResponse response,
+	        HttpServletRequest req
+	        ,RedirectAttributes ra
+) {
+
+	    boolean isFavorite = service.checkFavorite(memberNo, eventNo);
+		String message = null;
+
+	    if (isFavorite) {
+	        // 해당 eventNo가 이미 즐겨찾기 테이블에 존재하는 경우
+	        return "duplicate";
+	        
+	    }
+		ra.addFlashAttribute("message",message);
+
+	    int result = service.insertFav(memberNo, eventNo);
+
+	    if (result > 0) {
+	        HttpSession session = req.getSession();
+	        session.setAttribute("eventNo", eventNo);
+	        session.setAttribute("memberNo", memberNo);
+	        
+	        // 쿠키 생성 및 추가
+	        Cookie favoriteCookie = new Cookie("favorite", "true");
+	        favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1 year (in seconds)
+	        favoriteCookie.setPath(req.getContextPath() + "/event/eventDetailMain/" + eventNo);
+	        response.addCookie(favoriteCookie);
+	        
+	        return "red";
+	    } else {
+	        return "failed";
+	    }
+
+	}
 
 	
 
