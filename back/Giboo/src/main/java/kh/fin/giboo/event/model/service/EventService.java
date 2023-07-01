@@ -49,6 +49,10 @@ public interface EventService {
 
 	
 
+	boolean checkFavorite(int memberNo, int eventNo);
+
+	int insertFav(int memberNo, int eventNo);
+
 
 
 }

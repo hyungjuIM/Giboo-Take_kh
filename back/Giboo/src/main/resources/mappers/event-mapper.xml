@@ -175,5 +175,18 @@
 		FROM EVENT_PERSON
 		WHERE MEMBER_NO = #{memberNo} AND EVENT_NO = #{eventNo}
 	</select>
+	
+	<!-- 즐겨찾기 중복 -->
+	<select id="checkFavorite" resultType="boolean">
+		SELECT COUNT(*) AS COUNT
+		FROM FAVORITES f
+		WHERE f.EVENT_NO  = #{eventNo} AND f.MEMBER_NO =  #{memberNo}
+	</select>
+	
+	<!-- 즐겨찾기 추가 -->
+	<insert id="insertFav">
+		INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, MEMBER_NO, EVENT_NO)
+		VALUES (SEQ_FAVORITE_NO.NEXTVAL, 'Y', #{memberNo}, #{eventNo}) 
+	</insert>
 
 </mapper>

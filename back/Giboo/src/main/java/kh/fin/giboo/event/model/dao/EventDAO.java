@@ -102,6 +102,26 @@ public class EventDAO {
 	}
 
 
+	public boolean checkFavorite(int memberNo, int eventNo) {
+	    Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("memberNo", memberNo);
+        parameterMap.put("eventNo", eventNo);
+        Boolean result = sqlSession.selectOne("event-mapper.checkFavorite", parameterMap);
+	    if (result == null) {
+	        return false;
+	    }
+	    return result;
+	}
+	
+	
+
+	public int insertFav(int memberNo, int eventNo) {
+	    Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("memberNo", memberNo);
+        parameterMap.put("eventNo", eventNo);
+		return sqlSession.insert("map-mapper.insertFav", parameterMap);
+	}
+
 
 	
 
