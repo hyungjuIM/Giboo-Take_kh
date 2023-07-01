@@ -263,7 +263,7 @@ public class EventController {
 	    return "event/eventDetailBoardPhoto";
 	}
 	
-	//이벤트참여자 중복확인
+
 	
 
 
@@ -291,23 +291,24 @@ public class EventController {
 	    }
 		ra.addFlashAttribute("message",message);
 
-	    int result = service.insertFav(memberNo, eventNo);
+		int result = service.insertFav(memberNo, eventNo);
 
-	    if (result > 0) {
-	        HttpSession session = req.getSession();
-	        session.setAttribute("eventNo", eventNo);
-	        session.setAttribute("memberNo", memberNo);
-	        
-	        // 쿠키 생성 및 추가
-	        Cookie favoriteCookie = new Cookie("favorite", "true");
-	        favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1 year (in seconds)
-	        favoriteCookie.setPath(req.getContextPath() + "/event/eventDetailMain/" + eventNo);
-	        response.addCookie(favoriteCookie);
-	        
-	        return "red";
-	    } else {
-	        return "failed";
-	    }
+		if (result > 0) {
+		    HttpSession session = req.getSession();
+		    session.setAttribute("eventNo", eventNo);
+		    session.setAttribute("memberNo", memberNo);
+		    
+		    // 쿠키 생성 및 추가
+		    Cookie favoriteCookie = new Cookie("favorite", "true");
+		    favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1 year (in seconds)
+		    favoriteCookie.setPath(req.getContextPath() + "/event/eventDetailMain/" + eventNo);
+		    response.addCookie(favoriteCookie);
+		    
+		    return "red";
+		} else {
+		    return "failed";
+		}
+
 
 	}
 

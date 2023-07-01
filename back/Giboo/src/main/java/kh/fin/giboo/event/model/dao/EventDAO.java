@@ -119,7 +119,7 @@ public class EventDAO {
 	    Map<String, Object> parameterMap = new HashMap<>();
         parameterMap.put("memberNo", memberNo);
         parameterMap.put("eventNo", eventNo);
-		return sqlSession.insert("map-mapper.insertFav", parameterMap);
+		return sqlSession.insert("event-mapper.insertFav", parameterMap);
 	}
 
 

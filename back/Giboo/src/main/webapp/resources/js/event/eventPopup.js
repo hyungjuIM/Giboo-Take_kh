@@ -103,37 +103,37 @@ $(document).ready(function () {
 //동일한 이벤트 참여자 중복검사(ajax)
 
 
-const participationB = document.getElementById("participationB");
+// const participationB = document.getElementById("participationB");
 
-participationB.addEventListener("click", function(){
+// participationB.addEventListener("click", function(){
     
-    $.ajax({
+//     $.ajax({
 
-    url: "/eventDupCheck",
-    data: { "memberNo": loginMemberNo,
-            "eventNo": eventNo },
-    type: "GET",
+//     url: "/eventDupCheck",
+//     data: { "memberNo": loginMemberNo,
+//             "eventNo": eventNo },
+//     type: "GET",
 
-    success: function (result) {
+//     success: function (result) {
 
-        if (result == 0) {// 해당 이벤트참여자No, 이벤트No  중복 X
-            alert("이벤트 참여가능함");
-            console.log("참여가능");
+//         if (result == 0) {// 해당 이벤트참여자No, 이벤트No  중복 X
+//             alert("이벤트 참여가능함");
+//              console.log("참여가능");
             
 
-        } else {// 해당 이벤트참여자No, 이벤트No  중복 o
+//         } else {// 해당 이벤트참여자No, 이벤트No  중복 o
 
-            alert("해당 이벤트 참여했음");
-            console.log("참여불가능");
+//             alert("해당 이벤트 참여했음");
+//             console.log("참여불가능");
 
-        }
-    },
-    error: function () { //비동기 통신 에러
-        console.log("에러 발생");
-    }
-});
+//         }
+//     },
+//     error: function () { //비동기 통신 에러
+//         console.log("에러 발생");
+//     }
+// });
 
-})
+// })
 
 
 
@@ -178,41 +178,3 @@ participationB.addEventListener("click", function(){
 //     }
 // });
 
-
-
-// 즐겨찾기
-const eFavBtn = document.getElementById("eFavBtn");
-
-eFavBtn.addEventListener("click", function(event) {
-
-     // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
-     if (loginMemberNo == "") { // 로그인 X
-        alert("로그인 후 이용해주세요.");
-        event.preventDefault();
-
-    } else { $.ajax({
-        url: contextPath + "/event/insertEventFav",
-        data: {
-            "memberNo": loginMemberNo,
-            "eventNo": eventNo
-        },
-        type: "post",
-        success: function(result) {
-            if (result === "red") { // 색상 변경 성공
-                alert("즐겨찾기에 등록되었습니다.");
-                // mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
-                eFavBtn.style.backgroundColor = "red"; // 색상 변경
-                console.log("즐찾성공")
-            } else { // 실패
-                alert("이미 추가한 즐겨찾기 입니다.");
-            }
-        },
-        error: function(req, status, error) {
-            console.log("즐겨찾기 등록 실패");
-            console.log(req.responseText);
-        }
-    });
-    
-    event.preventDefault(); // 이벤트 전파 중지
-}
-})
