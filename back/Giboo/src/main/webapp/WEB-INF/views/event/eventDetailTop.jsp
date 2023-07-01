@@ -27,6 +27,11 @@ crossorigin="anonymous"></script>
         <main>
             <div class="edWrapBox">
                 <div class="edWrap">
+                    <div class="eFavBtn" id="eFavBtn">
+                        <div class="dFavDiv">
+                            <span class="dFavSpan">❤️</span>
+                        </div>
+                    </div>
                     <img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="">
                 </div>
                 <div class="edWrapDetail">
@@ -159,9 +164,7 @@ crossorigin="anonymous"></script>
 
         // 최상위 주소
         const contextPath = "${pageContext.request.contextPath}";
-        
-        // 게시글 번호
-        const boardNo = "${detail.boardNo}"; // "500"
+
 
         // 로그인한 회원 번호
         const loginMemberNo = "${loginMember.memberNo}";
@@ -173,7 +176,6 @@ crossorigin="anonymous"></script>
 
     </script>
     
-<script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
     </body>
     </html>

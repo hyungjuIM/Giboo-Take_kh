@@ -78,7 +78,6 @@
     </div>
     <div class="E_pop_mask2"></div>
 
-    <script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
 
     </body>
