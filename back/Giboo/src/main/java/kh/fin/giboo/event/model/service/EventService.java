@@ -46,6 +46,10 @@ public interface EventService {
 
 	int eventDupCheck(int memberNo, int eventNo);
 
+	boolean checkFavorite(int memberNo, int eventNo);
+
+	int insertFav(int memberNo, int eventNo);
+
 
 
 }

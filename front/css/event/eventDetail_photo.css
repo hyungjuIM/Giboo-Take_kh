@@ -11,6 +11,27 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+
+.edWrap{
+    position: relative;
+}
+
+.eFavBtn{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.dFavSpan{
+    font-size: 20px;
+}
+
 main{
     display: flex;
     justify-content: center;
