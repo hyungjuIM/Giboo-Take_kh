@@ -109,5 +109,28 @@ rel="stylesheet">
 
  
  <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            const url = new URL(window.location.href);
+            console.log("url" + url);
+
+            const urlParams = url.searchParams;
+            const mode = urlParams.get('mode');
+            console.log(mode);
+
+            const content = "${noticeDetail.noticeContent}";
+
+            switch (mode) {
+                case "insert":
+                    summernote();
+                    break;
+
+                case "update":
+                    updateLoad(content);
+                    break;
+            }
+        });
+    </script>
 </body>
 </html>
