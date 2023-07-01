@@ -57,7 +57,7 @@
                 <!-- 목록 알림 등록 취소 영역 -->
                 <div class="submitContainer">
                     <button class="listBack">목록으로</button>
-                    <div class="alarmCheck"><input type="checkbox" name="sendAlarm"> 알림 보내기</div>
+                    <div class="alarmCheck"><input type="checkbox" name="sendAlarm" value="sendAlarm" checked> 알림 보내기</div>
                     <button type="submit" class="save">등록</button>
                     <button class="cancel">취소</button>
                 </div>

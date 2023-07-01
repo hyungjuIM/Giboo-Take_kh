@@ -106,6 +106,15 @@
                     </tbody>
                   </table>
                 </div>
+                <div class="writeBtn-container">
+                  <c:choose>
+                  <c:when test="${!empty loginManager}">
+                  <button class="writeBtn"
+                    onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite?mode=insert&cp=${pagination.currentPage}'"><i
+                      class="fa-solid fa-pen"></i>_글쓰기</button>
+                    </c:when>
+                  </c:choose>
+                </div>
                 <div class="container4">
                   <nav class="page-nav">
                     <c:set var="url" value="?cp=" />
@@ -131,13 +140,6 @@
                     </ul>
                   </nav>
                  
-                  <div class="writeBtn-container">
-                    <c:if test="${!empty loginManager}">
-                    <button class="writeBtn"
-                      onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite?mode=insert&cp=${pagination.currentPage}'"><i
-                        class="fa-solid fa-pen"></i>_글쓰기</button>
-                      </c:if>
-                  </div>
                 </div>
               </div>
             </section>
