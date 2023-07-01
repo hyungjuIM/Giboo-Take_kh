@@ -105,8 +105,7 @@ public class MapController {
 			logger.info("mapDetailHome" + mapDetailHome);
 		}
 		
-		model.addAttribute("mapDeta"
-				+ "ilTop", mapDetailTop);
+		model.addAttribute("mapDetailTop", mapDetailTop);
 		logger.info("mapDetailTop" + mapDetailTop);
 
 		

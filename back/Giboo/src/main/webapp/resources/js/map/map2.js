@@ -321,41 +321,6 @@ mhBtnHea.addEventListener("click", function(event) {
         alert("로그인 후 이용해주세요.");
         event.preventDefault();
     } else {
-        // 2) 이미 즐겨찾기한 경우 처리
-        // if (mhBtnHe.classList.contains("loggedIn")) {
-        //     alert("이미 즐겨찾기한 항목입니다.");
-        //     event.preventDefault();
-        //     return;
-        // }
-
-        // $.ajax({
-        //     url: contextPath + "/map/insertFav",
-        //     data: {
-        //         "memberNo": loginMemberNo,
-        //         "volunteerNo": volunteerNo
-        //     },
-        //     type: "post",
-        //     success: function(result) {
-        //         // if (result > 0) { // 등록 성공
-        //         //     alert("즐겨찾기에 등록되었습니다.");
-        //         //     mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
-        //         // } else { // 실패
-        //         //     alert("즐겨찾기에 실패했습니다...");
-        //         // }
-        //         if (result === "red") { // 색상 변경 성공
-        //             alert("즐겨찾기에 등록되었습니다.");
-        //             mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
-        //             mhBtnHe.style.backgroundColor = "red"; // 색상 변경
-        //         } else { // 실패
-        //             alert("즐겨찾기에 실패했습니다...");
-        //         }
-        //     },
-        //     error: function(req, status, error) {
-        //         console.log("즐겨찾기 등록 실패");
-        //         console.log(req.responseText);
-        //     }
-        // });
-
         $.ajax({
             url: contextPath + "/map/insertFav",
             data: {
