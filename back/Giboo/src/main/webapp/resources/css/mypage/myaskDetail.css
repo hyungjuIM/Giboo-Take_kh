@@ -26,7 +26,7 @@ body {
 
 /*상단 나의 문의내역 상세페이지 제목 */
 .page-title {
-    background-color: #8071FC;
+    background-color: #00CA61;
 
     width: 100%;
     height: 80px;
@@ -266,8 +266,8 @@ span {
 
 
 .myaskdetail_submitContainer button:hover {
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     border-radius: 50px;
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
 }
