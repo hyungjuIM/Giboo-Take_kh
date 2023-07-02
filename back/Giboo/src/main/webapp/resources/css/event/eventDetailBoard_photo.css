@@ -52,7 +52,7 @@ main{
 }
 
 .edWrapPeriodSpan{
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     border-radius: 100px;
     height: 27px;
     display: flex;
@@ -73,7 +73,7 @@ main{
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .edWrapTitle{
@@ -191,7 +191,7 @@ color: #111111;
 .edBtnDe{
     width: 161px;
     height: 41px;
-    background-color: #8071FC;
+    background-color: #00CA61;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -369,7 +369,7 @@ color: #111111;
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .edHowtoDetail{
@@ -492,7 +492,7 @@ color: #111111;
 .ebpPhotoPro > span{
     font-size: 15px;
     font-weight: 500;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 
@@ -548,7 +548,7 @@ color: #111111;
 
 /* 진행중 */
 .earea_thumb_period_go{
-    background-color: #8071FC;
+    background-color: #00CA61;
     border-radius: 50%;
     width: 38px;
     height: 38px;
@@ -662,7 +662,7 @@ color: #111111;
 
 /* 더보기 버튼 */
 .eMoreBtnBox{
-    background-color: #8071FC;
+    background-color: #00CA61;
     width: 180px;
     height: 40px;
     border-radius: 100px;

@@ -129,7 +129,7 @@ body {
 .alert_detailCategory {
     width: 61px;
     height: 24px;
-    border: 1px solid #8071fc;
+    border: 1px solid #00CA61;
     font-size: 12px;
 
     border-radius: 50px;
@@ -277,7 +277,7 @@ body {
     width: 328px;
     height: 33px;
 
-    background: #8071FC;
+    background: #00CA61;
     border-radius: 500px;
 
     cursor:pointer;
