@@ -139,17 +139,7 @@ public class EventController {
 			,Model model
 		)throws IOException {
 		
-		int memberNo1 = loginMember.getMemberNo();
 		
-		boolean isParticipation = service.eventDupCheck(memberNo1, eventNo);
-		String message = null;
-		
-		
-		if(isParticipation) {
-			//해당 memberNo1, eventNo 가 이미 이벤트 참여 테이블에 존재0
-			return "duplicate";
-		}
-		//해당 memberNo1, eventNo 가 이미 이벤트 참여 테이블에 존재X
 	    eventPopup.setEventNo(eventNo);
 		
 		eventPopup.setMemberNo(loginMember.getMemberNo());
@@ -168,6 +158,7 @@ public class EventController {
 		int result = service.insertPopup(map, eventPopup);
 		
 		String path = null;
+		String message = null;
     
         logger.info("result: " + result); // 결과값 로그로 출력
         logger.info("map: " + map.toString());
@@ -212,7 +203,7 @@ public class EventController {
 		    } else {
 		        // myActiveEventList 삽입 실패 처리
 		    }
-		    return "participation";
+		    
 		} else {
 		    message = "실패";
 		    
@@ -312,6 +303,27 @@ public class EventController {
 	}
 
 	
+	//이벤트참여자 중복검사
+	@ResponseBody
+	@PostMapping(value = "/eventDupCheck")
+	public String eventDupCheck(
+	        @RequestParam("memberNo") int memberNo,
+	        @RequestParam("eventNo") int eventNo,
+	        HttpServletResponse response,
+	        HttpServletRequest req
+	        ,RedirectAttributes ra
+) {
+		
+				boolean isParticipation = service.eventDupCheck(memberNo, eventNo);
+			
+				
+				
+				if(isParticipation) {
+					//해당 memberNo1, eventNo 가 이미 이벤트 참여 테이블에 존재0
+					return "duplicate";
+				
+				}else {
+			        return "failed";   }
+	}
 
-	
 }

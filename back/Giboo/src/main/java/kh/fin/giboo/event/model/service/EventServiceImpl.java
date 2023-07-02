@@ -143,8 +143,8 @@ public class EventServiceImpl implements EventService{
 	}
 
 	@Override
-	public boolean eventDupCheck(int memberNo1, int eventNo) {
-		return dao.eventDupCheck(memberNo1, eventNo);
+	public boolean eventDupCheck(int memberNo, int eventNo) {
+		return dao.eventDupCheck(memberNo, eventNo);
 	}
 
 

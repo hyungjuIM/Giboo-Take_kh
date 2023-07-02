@@ -45,7 +45,7 @@ public interface EventService {
 	List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo);
 
 	//참여자 중복
-	boolean eventDupCheck(int memberNo1, int eventNo);
+	boolean eventDupCheck(int memberNo, int eventNo);
 
 	
 

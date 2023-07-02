@@ -90,9 +90,9 @@ public class EventDAO {
 		return sqlSession.selectList("event-mapper.selectEventDetailBoardPhoto", eventNo);
 	}
 
-	public boolean eventDupCheck(int memberNo1, int eventNo) {
+	public boolean eventDupCheck(int memberNo, int eventNo) {
 		Map<String, Object> parameterMap = new HashMap<>();
-        parameterMap.put("memberNo1", memberNo1);
+        parameterMap.put("memberNo1", memberNo);
         parameterMap.put("eventNo", eventNo);
         Boolean result = sqlSession.selectOne("event-mapper.eventDupCheck", parameterMap);
 	    if (result == null) {
