@@ -14,8 +14,8 @@
 
 <div class="mainCategoryArea">
     <div class="mainCategoryInner">
-        <a href="/donation" class="mainCategoryItem mainCategoryChecked" id="donation">기부 진행중</a>
-        <a href="/donation/donationStory" class="mainCategoryItem" id="donationStory">기부이야기</a>
+        <a href="${pageContext.request.contextPath}/donation/home" class="mainCategoryItem mainCategoryChecked" id="home">기부 진행중</a>
+        <a href="${pageContext.request.contextPath}/donation/storyList" class="mainCategoryItem" id="story">기부이야기</a>
     </div>
 </div>
 
@@ -26,27 +26,48 @@
 
             <ul class="subCategoryList">
                 <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory0" class="SubCategoryTheme" name="SubCategory" checked>
-                    <label for="SubCategory0" class="SubCategoryLabelTheme SubCategoryChecked">
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
                         <div class="SubCategoryEmojiTheme">🧚</div>
                         전체
-                    </label>
+                    </a>
                 </li>
                 <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory1" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory1" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🥳</div>
-                        아동청소년
-                    </label>
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                        <div class="SubCategoryEmojiTheme">🧚</div>
+                        전체
+                    </a>
                 </li>
                 <li class="subCategoryItem">
-                    <input type="radio" id="SubCategory2" class="SubCategoryTheme" name="SubCategory">
-                    <label for="SubCategory2" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🥸</div>
-                        어르신
-                    </label>
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                        <div class="SubCategoryEmojiTheme">🧚</div>
+                        전체
+                    </a>
                 </li>
                 <li class="subCategoryItem">
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                        <div class="SubCategoryEmojiTheme">🧚</div>
+                        전체
+                    </a>
+                </li>
+                <li class="subCategoryItem">
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                        <div class="SubCategoryEmojiTheme">🧚</div>
+                        전체
+                    </a>
+                </li>
+                <li class="subCategoryItem">
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                        <div class="SubCategoryEmojiTheme">🧚</div>
+                        전체
+                    </a>
+                </li>
+                <li class="subCategoryItem">
+                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                        <div class="SubCategoryEmojiTheme">🧚</div>
+                        전체
+                    </a>
+                </li>
+                <!-- <li class="subCategoryItem">
                     <input type="radio" id="SubCategory3" class="SubCategoryTheme" name="SubCategory">
                     <label for="SubCategory3" class="SubCategoryLabelTheme">
                         <div class="SubCategoryEmojiTheme">💖</div>
@@ -87,7 +108,7 @@
                         <div class="SubCategoryEmojiTheme">👻</div>
                         기타
                     </label>
-                </li>
+                </li> -->
             </ul>
         </div>
 
