@@ -30,11 +30,8 @@ body {
 
 
 
-/*상단 나의 문의내역 */
+/*상단 메뉴 title */
 .page-title {
-
-  margin-top: 65px;
-
   
   background-color: var(--mainColor);
 
@@ -45,6 +42,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  position: relative;
+  z-index: 10;
 }
 
 .page-title span {
@@ -284,7 +284,6 @@ transition-duration: 0.2s;
   align-items: center;
   flex-direction: column;
 
-
 }
 
 
@@ -300,16 +299,9 @@ transition-duration: 0.2s;
   justify-content: center;
   background: #FFFFFF;
   border: 1px solid var(--etcColor);
-  /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); */
   border-radius: 20px;
   padding: 24px 30px;
 
-}
-
-.memberChange_mainContainer .memberChange_mainContent {
-
-  width: 100%;
-  
 }
 
 
@@ -407,16 +399,7 @@ transition-duration: 0.2s;
   margin-left: 20px;
 }
 
-/* .memberChange_con3{
-  border: 1px solid red;
-  background-color: #efefef;
-  border-radius: 5px;
-  width : 500px;
-  height : 40px;
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-} */
+
 
 
 input:not(.notInput){
