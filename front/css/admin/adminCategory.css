@@ -112,11 +112,11 @@ a{
 }
 
 .sideMenuFocus > a {
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .sideMenuFocus {
-    border-color: #8071FC;
+    border-color: #00CA61;
 }
 
 .optionArea {
@@ -261,7 +261,7 @@ a{
 }
 
 .focus {
-    background-color: #8071FC;
+    background-color: #00CA61;
     color: white;
 }
 

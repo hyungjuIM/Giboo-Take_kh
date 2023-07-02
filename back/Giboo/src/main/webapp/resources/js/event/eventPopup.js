@@ -67,6 +67,24 @@ $(document).ready(function () {
         $(".E_popup_wrap02").css("display", "none");
         $(".E_pop_mask2").css("display", "none");
 
+        $(".E_popup_wrap01").css("display", "block");
+        $(".E_pop_mask1").css("display", "block");
+    });
+
+    $("#popup_submit1").click(function (event) {
+        event.preventDefault(); // 폼 제출 방지
+        $(".E_popup_wrap01").css("display", "none");
+        $(".E_pop_mask1").css("display", "none");
+
+    });
+
+    $("#popup_close1").click(function (event) {
+        event.preventDefault(); // 폼 제출 방지
+        $(".E_popup_wrap02").css("display", "block");
+        $(".E_pop_mask2").css("display", "block");
+
+        $(".E_popup_wrap01").css("display", "none");
+        $(".E_pop_mask1").css("display", "none");
     });
 
 }); 
@@ -96,37 +114,28 @@ $(document).ready(function () {
 
 
 
+function writeValidate(event) {
+    const fileInput = document.getElementById("E_imgInput");
+
+    if (fileInput.files.length === 0) {
+        alert("사진을 등록해주세요!");
+        event.preventDefault(); // 폼 제출을 막습니다.
+        return false;
+    }
+    // 폼 제출이 성공한 경우 팝업을 표시합니다.
+    // setTimeout(showPopup, 500); // 0.5초 (500ms) 후에 showPopup 함수 호출
+    showPopup();
+    return true;
+}
+
+function showPopup() {
+    const popupWrap = document.querySelector(".E_popup_wrap03");
+    const popMask = document.querySelector(".E_pop_mask3");
 
 
+    // 팝업과 마스크를 보여줍니다.
+    popupWrap.style.display = "block";
+    popMask.style.display = "block";
+}
 
 
-
-
-
-$(document).ready(function () {
-
-const popupButton = document.getElementById("popupButton");
-popupButton.addEventListener("click", function() {
-
-    $.ajax({
-        url: contextPath + "/event/eventDupCheck",
-        data: {
-            "memberNo": loginMemberNo,
-            "eventNo": eventNo
-        },
-        type: "post",
-        success: function(result) {
-            if (result === "duplicate") { 
-                alert("이벤트 참여를 위해 인증사진 등록이 필요합니다");
-            } else { // 실패
-                alert("이미 추가한 즐겨찾기 입니다.");
-            }
-        },
-        error: function(req, status, error) {
-            console.log("이벤트 참여 인증 등록 실패");
-            console.log(req.responseText);
-        }
-    });
-})
-
-});

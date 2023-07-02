@@ -60,6 +60,9 @@
 						<div class="favcategory">
 							<button class="favcategoryBtn">봉사</button>
 						</div>
+						<div class="favcategory">
+							<button class="favcategoryBtn">이벤트</button>
+						</div>
 
 					</div>
 
@@ -81,7 +84,7 @@
 							<!-- 카테고리, 마감일, 메인 -->
 							<div class="categoryUpdateContainer">
 								<div class="detailCategory">
-									<div style="color: #8071fc;">기부</div>
+									<div style="color: #00CA61;">기부</div>
 									&nbsp;어르신
 								</div>
 								<div class="updateDate">2023.05.30</div>
@@ -133,7 +136,7 @@
 							카테고리, 마감일, 메인
 							<div class="categoryUpdateContainer">
 								<div class="detailCategory">
-									<div style="color: #8071fc;">기부</div>
+									<div style="color: #00CA61;">기부</div>
 									&nbsp;어르신
 								</div>
 								<div class="updateDate">2023.05.30</div>

@@ -52,7 +52,7 @@
 }
 
 .eon:nth-child(2) > a > span{
-    color: #8071FC;
+    color: #00CA61;
     font-style: normal;
 
 }
@@ -128,7 +128,7 @@
 
     text-align: center;
 
-    color: #8071FC;
+    color: #00CA61;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,7 +138,7 @@
     width: 107px;        
     height: 27px;
 
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     border-radius: 100px;
     display: flex;
     align-items: center;
@@ -184,7 +184,7 @@
 
 /* 진행중 */
 .earea_thumb_period_go{
-    background-color: #8071FC;
+    background-color: #00CA61;
     border-radius: 50%;
     width: 48px;
     height: 48px;

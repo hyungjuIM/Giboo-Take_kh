@@ -1,3 +1,7 @@
+const volunteerButton = document.getElementById("volunteerButton");
+const grayBox = document.getElementById("grayBox");
+const volunteerSubmitContainer = document.getElementById("volunteerSubmitContainer");
+
 $(function(){
     $('.relatedItemList').slick({
         slide: "div",        //슬라이드 되어야 할 태그
@@ -30,4 +34,10 @@ $(function(){
         ]
 
     });
+})
+
+volunteerButton.addEventListener("click", () => {
+    console.log("test");
+    grayBox.style.display = "flex";
+    volunteerSubmitContainer.style.display = "inline";
 })

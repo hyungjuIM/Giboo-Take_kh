@@ -44,14 +44,13 @@ public interface EventService {
 
 	List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo);
 
-	//참여자 중복
-	boolean eventDupCheck(int memberNo, int eventNo);
 
-	
 
 	boolean checkFavorite(int memberNo, int eventNo);
 
 	int insertFav(int memberNo, int eventNo);
+
+	boolean checkAlreadyJoined(int memberNo, int eventNo);
 
 
 

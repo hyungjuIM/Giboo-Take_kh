@@ -32,7 +32,7 @@ body {
 
 
 /*상단 나의 문의내역 */
-.page-title {
+./* page-title {
 
   
   background-color: var(--mainColor);
@@ -52,7 +52,7 @@ body {
   color: white;
   text-align: center;
   font-family: 'NanumSquareNeo';
-}
+} */
 
 
 /*title 아래 전체 container*/

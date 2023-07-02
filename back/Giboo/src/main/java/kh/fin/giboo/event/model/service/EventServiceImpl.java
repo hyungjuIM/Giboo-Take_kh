@@ -143,12 +143,6 @@ public class EventServiceImpl implements EventService{
 	}
 
 	@Override
-	public boolean eventDupCheck(int memberNo, int eventNo) {
-		return dao.eventDupCheck(memberNo, eventNo);
-	}
-
-
-	@Override
 	public boolean checkFavorite(int memberNo, int eventNo) {
 		return dao.checkFavorite(memberNo, eventNo);
 	}
@@ -156,6 +150,11 @@ public class EventServiceImpl implements EventService{
 	@Override
 	public int insertFav(int memberNo, int eventNo) {
 		return dao.insertFav(memberNo, eventNo);
+	}
+
+	@Override
+	public boolean checkAlreadyJoined(int memberNo, int eventNo) {
+		return dao.checkAlreadyJoined(memberNo, eventNo);
 	}
 
 

@@ -15,10 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- jQuery 라이브러리 추가(CDN) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-crossorigin="anonymous"></script>
+
         <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     </head>
@@ -64,11 +61,9 @@ crossorigin="anonymous"></script>
                                 <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중</span>
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                                <span id="recommendedCount">102</span>명 추천</span>
+                                <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span>
                         </div>
                     </div>
-
-                    <%-- ====================================== --%>
                     
                     
                     <div class="edWrapBar">
@@ -128,9 +123,7 @@ crossorigin="anonymous"></script>
                         <div class="edBtnDe">
                             <button id="popupButton">이벤트 함께하기</button>                        
                         </div>
-                        
-                        <button id="participationB">이벤트 참여</button> 
-                        
+                                                
                         <div class="edStamp">
                             <div class="edStampPopup">
                                 <div class="edStampPopDe">
@@ -176,6 +169,6 @@ crossorigin="anonymous"></script>
 
     </script>
     
-<script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
     </body>
     </html>

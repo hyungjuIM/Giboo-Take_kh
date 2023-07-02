@@ -79,20 +79,27 @@
 	
 	<!-- 이벤트 디테일 TOP -->
 	<select id="selectEventDetailTop" resultMap="eventDetailTop_rm">
-		SELECT 
-		  ATTACHMENT,
+			SELECT 
+		  e.ATTACHMENT,
 		  TRUNC(TO_DATE(END_RECRUIT_DATE, 'YYYY-MM-DD')) - TRUNC(TO_DATE(ENROLL_DATE, 'YYYY-MM-DD')) AS RESULT,
-		  EVENT_TITLE,
+		  e.EVENT_TITLE,
+		  		 		(		
+				SELECT COUNT(*)
+		        FROM FAVORITES F
+		        WHERE F.FAV_EVENT_NO  = e.EVENT_NO
+		    ) AS EVENTFAVCOUNT,
 		  COALESCE(EP.EVENTPERSONCOUNT, 0) AS EVENTPERSONCOUNT,
-		  TARGET_PEOPLE,
-		  EVENT.EVENT_NO
-		FROM EVENT
+		  e.TARGET_PEOPLE,
+		  e.EVENT_NO
+
+		FROM EVENT e
 		LEFT JOIN (
 		  SELECT EVENT_NO, COUNT(EVENT_PERSON_NO) AS EVENTPERSONCOUNT
 		  FROM EVENT_PERSON
 		  GROUP BY EVENT_NO
-		) EP ON EVENT.EVENT_NO = EP.EVENT_NO
-		WHERE EVENT.EVENT_NO = ${eventNo}
+		) EP ON e.EVENT_NO = EP.EVENT_NO
+		WHERE e.EVENT_NO = ${eventNo}
+		
 	</select>
 	
 	<select id="selectEventDetailMember" resultMap="eventDetailMember_rm">
@@ -169,24 +176,25 @@
 		WHERE EP.EVENT_NO = ${eventNo}
 	</select>
 	
-	<!--  이벤트 참여자 중복확인  -->
-	<select id="eventDupCheck" resultType="boolean">
-		SELECT COUNT(*) AS COUNT
-		FROM EVENT_PERSON
-		WHERE MEMBER_NO = #{memberNo} AND EVENT_NO = #{eventNo}
-	</select>
 	
 	<!-- 즐겨찾기 중복 -->
 	<select id="checkFavorite" resultType="boolean">
 		SELECT COUNT(*) AS COUNT
 		FROM FAVORITES f
-		WHERE f.EVENT_NO  = #{eventNo} AND f.MEMBER_NO =  #{memberNo}
+		WHERE f.FAV_EVENT_NO  = #{eventNo} AND f.FAV_MEMBER_NO =  #{memberNo}
 	</select>
 	
 	<!-- 즐겨찾기 추가 -->
 	<insert id="insertFav">
-		INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, MEMBER_NO, EVENT_NO)
+		INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, FAV_MEMBER_NO, FAV_EVENT_NO)
 		VALUES (SEQ_FAVORITE_NO.NEXTVAL, 'Y', #{memberNo}, #{eventNo}) 
 	</insert>
+	
+		<!--  이벤트 참여자 중복확인  -->
+	<select id="checkAlreadyJoined" resultType="boolean">
+		SELECT COUNT(*) AS COUNT
+		FROM EVENT_PERSON
+		WHERE MEMBER_NO = #{memberNo} AND EVENT_NO = #{eventNo}
+	</select>
 
 </mapper>

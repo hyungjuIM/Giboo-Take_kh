@@ -142,8 +142,9 @@
 		#{memberNick},
 		#{memberTel},
 		#{memberAddr},
-		DEFAULT, DEFAULT, NULL, #{memberType}, 1, NULL,NULL,DEFAULT
-		)
+
+		DEFAULT, DEFAULT, NULL, #{memberType}, 1, NULL,NULL,DEFAULT)
+
 	</insert>
 
 
@@ -186,6 +187,7 @@
 
 		SELECT * FROM MEMBER WHERE MEMBER_NICK= #{memberNick} AND MEMBER_EMAIL =
 		#{memberEmail}
+
 	</select>
 
 	

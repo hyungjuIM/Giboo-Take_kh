@@ -46,6 +46,7 @@ public class NoticeServiceImpl implements NoticeService {
 		return dao.updateVieweadCount(noticeNo);
 	}
 
+	// 등록
 	@Transactional(rollbackFor = { Exception.class })
 	@Override
 	public int insertNotice(NoticeDetail noticeDetail) {
@@ -57,6 +58,23 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		return noticeNo;
 	}
+	
+	
+	// 알림
+	@Override
+	public void insertAlarm(int noticeNo) {
+		dao.insertAlarm(noticeNo);
+	}
+	
+	
+	
+	
+	@Override
+	public void updateAlarm(int noticeNo) {
+		dao.updateAlarm(noticeNo);
+	}
+
+	//수정
 	@Transactional(rollbackFor = { Exception.class })
 	@Override
 	public int updateNotice(NoticeDetail noticeDetail) {
@@ -66,6 +84,14 @@ public class NoticeServiceImpl implements NoticeService {
 		int result = dao.updateNotice(noticeDetail);
 		return result;
 	}
+
+	
+	// 공지사항 삭제
+	@Override
+	public int deleteNotice(int noticeNo) {
+		return dao.deleteNotice(noticeNo);
+	}
+	
 	
 
 }

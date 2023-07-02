@@ -57,6 +57,7 @@
 						<div class="mainContent memberChange_mainContent">
 							<section class="notice">
 
+
 								<div class="memberChange_notice">
 									<div class="memberChange_container1">
 										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
@@ -64,6 +65,8 @@
 											알려드립니다 😇
 										</span>
 									</div>
+
+							
 
 
 									<form action="changeProfile" method="POST" name="myPage-form"

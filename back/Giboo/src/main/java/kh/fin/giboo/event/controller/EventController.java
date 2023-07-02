@@ -3,6 +3,7 @@ package kh.fin.giboo.event.controller;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -121,101 +122,99 @@ public class EventController {
 	
 	
 	// 이벤트 팝업(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
-	@PostMapping(value="/eventDetailMain/{eventNo}")
-	@Transactional
-	public String insertPopup(
-		    @PathVariable("eventNo") int eventNo,
-		    @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
-		    @RequestParam("uploadImage") MultipartFile uploadImage, /* 업로일 파일 */
-		    @RequestParam Map<String, Object> map,
-			@ModelAttribute("loginMember") Member loginMember
-			,@RequestParam("memberNo") int memberNo
-			,EventPopup eventPopup
-			,Stamp stamp
-			,Alarm alarm
-			,MyActiveEventList myActiveEventList
-			, HttpServletRequest req
-			,RedirectAttributes ra
-			,Model model
-		)throws IOException {
-		
-		
-	    eventPopup.setEventNo(eventNo);
-		
-		eventPopup.setMemberNo(loginMember.getMemberNo());
-		
-		
-		String webPath = "/resources/images/eventPopup/";
-		String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 
-		
-		map.put("webPath", webPath);
-		map.put("folderPath", folderPath);
-		map.put("uploadImage", uploadImage);
-		map.put("memberNo", loginMember.getMemberNo());
-		
+	   @PostMapping(value="/eventDetailMain/{eventNo}")
+	   @Transactional
+	   public String insertPopup(
+	          @PathVariable("eventNo") int eventNo,
+	          @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
+	          @RequestParam("uploadImage") MultipartFile uploadImage, /* 업로일 파일 */
+	          @RequestParam Map<String, Object> map,
+	         @ModelAttribute("loginMember") Member loginMember
+	         ,EventPopup eventPopup
+	         ,Stamp stamp
+	         ,Alarm alarm
+	         ,MyActiveEventList myActiveEventList
+	         , HttpServletRequest req
+	         ,RedirectAttributes ra
+	         ,Model model
+	      )throws IOException {
+	      
+		  
+		   
+	       eventPopup.setEventNo(eventNo);
+	      
+	      eventPopup.setMemberNo(loginMember.getMemberNo());
+	      
+	      
+	      String webPath = "/resources/images/eventPopup/";
+	      String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 
-		int result = service.insertPopup(map, eventPopup);
-		
-		String path = null;
-		String message = null;
-    
-        logger.info("result: " + result); // 결과값 로그로 출력
-        logger.info("map: " + map.toString());
-        logger.info("eventPopup: " + eventPopup.toString());
-        logger.info("uploadImage: " + uploadImage.toString());
-		
+	      
+	      map.put("webPath", webPath);
+	      map.put("folderPath", folderPath);
+	      map.put("uploadImage", uploadImage);
+	      map.put("memberNo", loginMember.getMemberNo());
+	      
 
-		if (result > 0) {
+	      int result = service.insertPopup(map, eventPopup);
+	      
+	      String message = null;
+	      String path = null;
+	    
+	        logger.info("result: " + result); // 결과값 로그로 출력
+	        logger.info("map: " + map.toString());
+	        logger.info("eventPopup: " + eventPopup.toString());
+	        logger.info("uploadImage: " + uploadImage.toString());
+	      
 
-			// myActiveEventList 객체의 MEMBER_NO 설정
-			myActiveEventList.setMemberNo(loginMember.getMemberNo());
-			
-			int result2 = service.insertMyActiveEventList(myActiveEventList);
-            logger.info("result2: " + result2); // 결과값 로그로 출력
-            logger.info("myActiveEventList: " + myActiveEventList); // 결과값 로그로 출력
+	      if (result > 0) {
 
-			
-		    if (result2 > 0 ) {
-		    	
-	            // Stamp 객체의 MEMBER_NO 설정
-	            stamp.setMemberNo(loginMember.getMemberNo());
-		    	
-		        int result3 = service.insertStamp(stamp);
-	            logger.info("result3: " + result3); // 결과값 로그로 출력
-	            logger.info("stamp: " + stamp); // 결과값 로그로 출력
+	         // myActiveEventList 객체의 MEMBER_NO 설정
+	         myActiveEventList.setMemberNo(loginMember.getMemberNo());
+	         
+	         int result2 = service.insertMyActiveEventList(myActiveEventList);
+	            logger.info("result2: " + result2); // 결과값 로그로 출력
+	            logger.info("myActiveEventList: " + myActiveEventList); // 결과값 로그로 출력
 
-		        if (result3 > 0) {
-		        	   // Alarm 객체의 memberNo 설정
-	                alarm.setMemberNo(loginMember.getMemberNo());
-		        	
-		            int result4 = service.insertAlarm(alarm);
-		            logger.info("result4: " + result4); // 결과값 로그로 출력
-		            logger.info("alarm: " + alarm); // 결과값 로그로 출력
-		            		            
+	         
+	          if (result2 > 0 ) {
+	             
+	               // Stamp 객체의 MEMBER_NO 설정
+	               stamp.setMemberNo(loginMember.getMemberNo());
+	             
+	              int result3 = service.insertStamp(stamp);
+	               logger.info("result3: " + result3); // 결과값 로그로 출력
+	               logger.info("stamp: " + stamp); // 결과값 로그로 출력
 
-		        } else {
-		            // stamp 삽입 실패 처리
-		        }
-		        
-		        message = "사진 업로드 성공";
-		        path = "../eventDetailMain/" + eventNo + "?cp=" + cp;
-		    } else {
-		        // myActiveEventList 삽입 실패 처리
-		    }
-		    
-		} else {
-		    message = "실패";
-		    
-		}
+	              if (result3 > 0) {
+	                    // Alarm 객체의 memberNo 설정
+	                   alarm.setMemberNo(loginMember.getMemberNo());
+	                 
+	                  int result4 = service.insertAlarm(alarm);
+	                  logger.info("result4: " + result4); // 결과값 로그로 출력
+	                  logger.info("alarm: " + alarm); // 결과값 로그로 출력
+	                                    
+
+	              } else {
+	                  // stamp 삽입 실패 처리
+	              }
+	              
+	              message = "사진 업로드 성공";
+	              path = "../eventDetailMain/" + eventNo + "?cp=" + cp;
+	          } else {
+	              // myActiveEventList 삽입 실패 처리
+	          }
+	      } else {
+	          message = "실패";
+	      }
 
 
-		ra.addFlashAttribute("message",message);
-		return "redirect:" + path;
+	      ra.addFlashAttribute("message",message);
+	      return "redirect:" + path;
+	   }
 
-	}
 	
-	//============================================================
 	
 
 	
@@ -277,53 +276,146 @@ public class EventController {
 
 	    if (isFavorite) {
 	        // 해당 eventNo가 이미 즐겨찾기 테이블에 존재하는 경우
-	        return "duplicate";
-	        
+	        return "duplicate";	        
 	    }
 		ra.addFlashAttribute("message",message);
 
-	    int result = service.insertFav(memberNo, eventNo);
+		int result = service.insertFav(memberNo, eventNo);
 
-	    if (result > 0) {
-	        HttpSession session = req.getSession();
-	        session.setAttribute("eventNo", eventNo);
-	        session.setAttribute("memberNo", memberNo);
-	        
-	        // 쿠키 생성 및 추가
-	        Cookie favoriteCookie = new Cookie("favorite", "true");
-	        favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1 year (in seconds)
-	        favoriteCookie.setPath(req.getContextPath() + "/event/eventDetailMain/" + eventNo);
-	        response.addCookie(favoriteCookie);
-	        
-	        return "red";
-	    } else {
-	        return "failed";
-	    }
-
+		if (result > 0) {
+		    HttpSession session = req.getSession();
+		    session.setAttribute("eventNo", eventNo);
+		    session.setAttribute("memberNo", memberNo);
+		    
+		    // 쿠키 생성 및 추가
+		    Cookie favoriteCookie = new Cookie("favorite", "true");
+		    favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1 year (in seconds)
+		    favoriteCookie.setPath(req.getContextPath() + "/event/eventDetailMain/" + eventNo);
+		    response.addCookie(favoriteCookie);
+		    
+		    return "red";
+		} else {
+		    return "failed";
+		}
 	}
-
 	
-	//이벤트참여자 중복검사
+	
+	// 이벤트 참여자 중복 안되게
 	@ResponseBody
-	@PostMapping(value = "/eventDupCheck")
-	public String eventDupCheck(
+	@PostMapping(value = "/checkAlreadyJoined")
+	public Map<String, Object> checkAlreadyJoined(
 	        @RequestParam("memberNo") int memberNo,
 	        @RequestParam("eventNo") int eventNo,
-	        HttpServletResponse response,
-	        HttpServletRequest req
-	        ,RedirectAttributes ra
-) {
-		
-				boolean isParticipation = service.eventDupCheck(memberNo, eventNo);
-			
-				
-				
-				if(isParticipation) {
-					//해당 memberNo1, eventNo 가 이미 이벤트 참여 테이블에 존재0
-					return "duplicate";
-				
-				}else {
-			        return "failed";   }
+	        HttpServletRequest request,
+	        @ModelAttribute("loginMember") Member loginMember
+	        ) {
+	    Map<String, Object> response = new HashMap<>();
+	    
+	    boolean alreadyJoined = service.checkAlreadyJoined(loginMember.getMemberNo(), eventNo);
+	    if (alreadyJoined) {
+	        // 이미 참여한 경우 알림창을 띄워줍니다.
+	        String message = "이미 참여한 이벤트입니다.";
+	        
+	        response.put("alreadyJoined", true);
+	        response.put("message", message);
+	    } else {
+	        response.put("alreadyJoined", false);
+	    }
+	    
+	    return response;
 	}
+
+
+	
+	@PostMapping(value="/eventDetailBoardPhoto/{eventNo}")
+	   @Transactional
+	   public String eventDetailBoardPhotoinsertPopup(
+	          @PathVariable("eventNo") int eventNo,
+	          @RequestParam(value="cp", required = false, defaultValue = "1") int cp,
+	          @RequestParam("uploadImage") MultipartFile uploadImage, /* 업로일 파일 */
+	          @RequestParam Map<String, Object> map,
+	         @ModelAttribute("loginMember") Member loginMember
+	         ,EventPopup eventPopup
+	         ,Stamp stamp
+	         ,Alarm alarm
+	         ,MyActiveEventList myActiveEventList
+	         , HttpServletRequest req
+	         ,RedirectAttributes ra
+	         ,Model model
+	      )throws IOException {
+	      
+		  
+		   
+	       eventPopup.setEventNo(eventNo);
+	      
+	      eventPopup.setMemberNo(loginMember.getMemberNo());
+	      
+	      
+	      String webPath = "/resources/images/eventPopup/";
+	      String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+
+	      
+	      map.put("webPath", webPath);
+	      map.put("folderPath", folderPath);
+	      map.put("uploadImage", uploadImage);
+	      map.put("memberNo", loginMember.getMemberNo());
+	      
+
+	      int result = service.insertPopup(map, eventPopup);
+	      
+	      String message = null;
+	      String path = null;
+	    
+	        logger.info("result: " + result); // 결과값 로그로 출력
+	        logger.info("map: " + map.toString());
+	        logger.info("eventPopup: " + eventPopup.toString());
+	        logger.info("uploadImage: " + uploadImage.toString());
+	      
+
+	      if (result > 0) {
+
+	         // myActiveEventList 객체의 MEMBER_NO 설정
+	         myActiveEventList.setMemberNo(loginMember.getMemberNo());
+	         
+	         int result2 = service.insertMyActiveEventList(myActiveEventList);
+	            logger.info("result2: " + result2); // 결과값 로그로 출력
+	            logger.info("myActiveEventList: " + myActiveEventList); // 결과값 로그로 출력
+
+	         
+	          if (result2 > 0 ) {
+	             
+	               // Stamp 객체의 MEMBER_NO 설정
+	               stamp.setMemberNo(loginMember.getMemberNo());
+	             
+	              int result3 = service.insertStamp(stamp);
+	               logger.info("result3: " + result3); // 결과값 로그로 출력
+	               logger.info("stamp: " + stamp); // 결과값 로그로 출력
+
+	              if (result3 > 0) {
+	                    // Alarm 객체의 memberNo 설정
+	                   alarm.setMemberNo(loginMember.getMemberNo());
+	                 
+	                  int result4 = service.insertAlarm(alarm);
+	                  logger.info("result4: " + result4); // 결과값 로그로 출력
+	                  logger.info("alarm: " + alarm); // 결과값 로그로 출력
+	                                    
+
+	              } else {
+	                  // stamp 삽입 실패 처리
+	              }
+	              
+	              message = "사진 업로드 성공";
+	              path = "../eventDetailBoardPhoto/" + eventNo + "?cp=" + cp;
+	          } else {
+	              // myActiveEventList 삽입 실패 처리
+	          }
+	      } else {
+	          message = "실패";
+	      }
+
+
+	      ra.addFlashAttribute("message",message);
+	      return "redirect:" + path;
+	   }
 
 }

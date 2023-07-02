@@ -90,16 +90,7 @@ public class EventDAO {
 		return sqlSession.selectList("event-mapper.selectEventDetailBoardPhoto", eventNo);
 	}
 
-	public boolean eventDupCheck(int memberNo, int eventNo) {
-		Map<String, Object> parameterMap = new HashMap<>();
-        parameterMap.put("memberNo1", memberNo);
-        parameterMap.put("eventNo", eventNo);
-        Boolean result = sqlSession.selectOne("event-mapper.eventDupCheck", parameterMap);
-	    if (result == null) {
-	        return false;
-	    }
-	    return result;
-	}
+
 
 
 	public boolean checkFavorite(int memberNo, int eventNo) {
@@ -119,7 +110,18 @@ public class EventDAO {
 	    Map<String, Object> parameterMap = new HashMap<>();
         parameterMap.put("memberNo", memberNo);
         parameterMap.put("eventNo", eventNo);
-		return sqlSession.insert("map-mapper.insertFav", parameterMap);
+		return sqlSession.insert("event-mapper.insertFav", parameterMap);
+	}
+
+	public boolean checkAlreadyJoined(int memberNo, int eventNo) {
+	    Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("memberNo", memberNo);
+        parameterMap.put("eventNo", eventNo);
+        Boolean result = sqlSession.selectOne("event-mapper.checkAlreadyJoined", parameterMap);
+	    if (result == null) {
+	        return false;
+	    }
+	    return result;
 	}
 
 

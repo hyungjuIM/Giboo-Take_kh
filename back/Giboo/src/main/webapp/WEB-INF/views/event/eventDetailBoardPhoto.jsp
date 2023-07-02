@@ -93,7 +93,91 @@
     </div>
 </main>
 
+<footer>
+    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
+</footer>
 
+
+<div class="E_popup_wrap02">
+    <div class="E_popup_container02">
+        <div class="E_popup_cont03">
+            <span>참여하기</span>
+        </div>
+        <div class="E_popup_cont04">
+            <span><img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="사진" style="width:50px; height: auto;"></span>
+            <span>${eventDetailTop.eventTitle}</span>
+        </div>
+        <form action="${pageContext.request.contextPath}/event/eventDetailMain/${eventNo}" enctype="multipart/form-data" method="POST" 
+        class="eventPopup-write" onsubmit="return writeValidate(event)">
+            <div class="E_popup_cont05">
+                <div class="E_imgInputInner">               
+                
+                    <input id="E_imgInput" type="file" accept="image/*" name="uploadImage" onchange="handleImagePreview()">
+                    <div type="text" name="uploadImage" id="E_imgInputPlaceholder"></div>
+                    
+                    <label for="E_imgInput" class="E_imgSelectButton"><i class="fa-solid fa-camera"></i>사진 첨부</label>
+                    
+                </div>
+            </div>
+            <div class="E_popup_cont06">
+                <img src="" id="preview-image" name="preview-image">
+            </div>                    
+            <div class="E_popup_cont07">
+                - 사진은 10MB 이내, 최대 5장까지 첨부 가능합니다.<br>
+                - 이벤트 내용에 맞지 않거나 게시글 정책을 위반한 경우 삭제됩니다.
+            </div>
+            <div class="E_popup_cont08">
+                <button id="E_popup1">취소</button>
+                <button id="popup_submit2" type="submit">등록</button>        
+            </div>
+        </form>
+    </div>
+</div>
+<div class="E_pop_mask2"></div>
+
+
+<div class="E_popup_wrap01">
+    <div class="E_popup_container01">
+        <div class="E_popup_cont01">
+            <span style="color: #686868;">작성중인 글 작성을</span> <br>
+            <span style="color: #000000;">취소하시겠습니까? </span>
+        </div>
+
+        <div class="E_popup_cont02">
+            <button id="popup_close1">취소</button>
+            <button id="popup_submit1">확인</a></button>
+        </div>
+    </div>
+</div>
+<div class="E_pop_mask1"></div>
+
+
+<div class="E_popup_wrap03">
+    <div class="E_popup_container03">
+        <div class="E_popup_cont09">
+            <i class="fa-solid fa-x"></i>
+        </div>
+        <div class="E_popup_bottom">
+            <div class="E_popup_cont10">
+                <div class="outCircle">
+                    
+                </div>
+            </div>
+            <div class="E_popup_cont11">
+                함께 참여해주셔서<br>
+                감사합니다.
+            </div>
+            <div class="E_popup_cont12">친구들에게 나의 참여를 공유해보세요.</div>
+            <div class="E_popup_cont13">
+                <div class="smallCircle"></div>
+                <div class="smallCircle"></div>
+                <div class="smallCircle"></div>
+                <div class="smallCircle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="E_pop_mask3"></div>
 <script>
     // 페이지 로드 시 스크롤 이동
     window.onload = function() {
@@ -103,5 +187,7 @@
         }
     };
 </script>
+<script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
+
 </body>
 </html>

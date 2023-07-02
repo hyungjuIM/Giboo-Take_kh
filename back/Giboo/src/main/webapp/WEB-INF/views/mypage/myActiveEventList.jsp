@@ -57,7 +57,7 @@
 								<div class="notice1">
 									<div class="container1">
 										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #8071FC;"> 활동목록</span><span
+											style="color: #00CA61;"> 활동목록</span><span
 											style="color: #767676;">를 알려드립니다 😇</span>
 
 										<div class="container2">

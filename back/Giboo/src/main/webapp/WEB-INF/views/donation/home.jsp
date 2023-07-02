@@ -42,7 +42,7 @@
 
                 <c:forEach var="parentCategoryList" items="${parentCategoryList}">
                     <li class="subCategoryItem">
-                        <a href="../donation/home?category=${parentCategoryList.parentCategoryNo}" id="${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
+                        <a href="../donation/home?category=${parentCategoryList.parentCategoryNo}" id="category${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
                             <div class="SubCategoryEmojiTheme">${parentCategoryList.parentCategoryThumbnail}</div>
                             ${parentCategoryList.parentCategoryName}
                         </a>
@@ -91,10 +91,6 @@
                         </div>
                         <a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
                             <img src="${pageContext.request.contextPath}/resources/images/logo.jpg" class="thumbnail">
-<<<<<<< HEAD
-
-=======
->>>>>>> 3422a4507a2d181702da7d32cbb5a7baf42cd176
                             <div class="mainTitle">${donationList.donationTitle}</div>
                         </a>
                         <div class="progressBar">

@@ -74,7 +74,7 @@
                         </table>
 
                         <button id="sendNotification" class="sendNotification">알림 보내기</button>
-                        <a href="${pageContext.request.contextPath}/admin/memberRate" id="rateBtn" class="rateBtn" method="POST">등급 관리</a>
+                        <a href="${pageContext.request.contextPath}/admin/memberRate" id="rateBtn" class="rateBtn" method="POST">등급 업데이트</a>
 
                     </div>
 

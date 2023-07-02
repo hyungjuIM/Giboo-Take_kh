@@ -18,5 +18,11 @@ public interface NoticeService {
 
 	int updateNotice(NoticeDetail noticeDetail);
 
+	int deleteNotice(int noticeNo);
+
+	void insertAlarm(int noticeNo);
+
+	void updateAlarm(int noticeNo);
+
 
 }
