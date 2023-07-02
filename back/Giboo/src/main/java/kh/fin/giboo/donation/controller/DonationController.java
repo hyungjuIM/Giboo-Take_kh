@@ -8,6 +8,8 @@ import kh.fin.giboo.donation.model.service.DonationService;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.member.model.vo.Member;
+import kh.fin.giboo.mypage.model.vo.Favorite;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,9 +50,21 @@ public class DonationController {
     @GetMapping("/home")
     public String home(@RequestParam(value = "category", required = false, defaultValue = "0") int category,
                        @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
-                       Model model) {
+                       Model model, HttpSession session) {
         logger.info("기부페이지 메인");
 
+        Member loginMember = (Member)session.getAttribute("loginMember");
+        if (loginMember != null) {
+            int memberNo = loginMember.getMemberNo();
+            List<Favorite> favoriteList = service.getFavoriteList(memberNo);
+            System.out.println("asdfg" + favoriteList);
+            model.addAttribute("memberNo", memberNo);
+            model.addAttribute("favoriteList", favoriteList);
+        }
+        
+        
+        
+        
         model.addAttribute("category", category);
 
         Map<String, Object> map = null;

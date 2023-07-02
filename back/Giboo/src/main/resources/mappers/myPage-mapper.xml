@@ -355,17 +355,38 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 		
 	</select>
 	
-	<!-- 즐겨찾기 추가 -->
-	<insert id="insertFavorite">
+	<!-- 봉사 즐겨찾기 추가 -->
+	<insert id="insertFavoriteVolunteer">
 	  INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, FAV_MEMBER_NO, FAV_VOLUNTEER_NO)
     VALUES (SEQ_FAVORITE_NO.NEXTVAL, 'Y', #{memberNo}, #{volunteerNo})
 	</insert>
 	
-	<!-- 즐겨찾기 중복 -->
-	<select id="checkFavorite" resultType="boolean">
+	<!-- 봉사 즐겨찾기 중복 -->
+	<select id="checkFavoriteVolunteer" resultType="boolean">
 		SELECT COUNT(*) AS COUNT
 		FROM FAVORITES f
 		WHERE f.FAV_VOLUNTEER_NO  = #{volunteerNo} AND f.FAV_MEMBER_NO =  #{memberNo}
 	</select>
+	
+	
+	<!-- 기부 즐겨찾기 추가 -->
+	<insert id="insertFavoriteDonation">
+	  INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, FAV_MEMBER_NO, FAV_DONATION_NO)
+    VALUES (SEQ_FAVORITE_NO.NEXTVAL, 'Y', #{memberNo}, #{donationNo})
+	</insert>
+	
+	<!-- 기부 즐겨찾기 중복 -->
+	<select id="checkFavoriteDonation" resultType="boolean">
+		SELECT COUNT(*) AS COUNT
+		FROM FAVORITES f
+		WHERE f.FAV_DONATION_NO  = #{donationNo} AND f.FAV_MEMBER_NO =  #{memberNo}
+	</select>
+	
+	<!-- 기부 즐겨찾기 삭제 -->
+	<delete id="removeFavoriteDonation">
+	    DELETE FROM FAVORITES 
+	    WHERE FAV_MEMBER_NO = #{memberNo} 
+	    AND FAV_DONATION_NO = #{donationNo}
+	</delete>
 	
 </mapper>

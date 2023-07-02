@@ -21,7 +21,6 @@
     <jsp:include page="/WEB-INF/views/main/header.jsp" />
 </header>
 
-
 <div class="mainCategoryArea">
     <div class="mainCategoryInner">
         <a href="${pageContext.request.contextPath}/volunteer/home" class="mainCategoryItem mainCategoryChecked" id="home">봉사 진행중</a>
@@ -163,7 +162,7 @@
     const favoriteButton = document.getElementsByClassName("favoriteButton");
     for (let i of favoriteButton) {
         i.addEventListener("click", function() {
-            console.log("${loginMember.memberNo}");
+            console.log(${loginMember.memberNo});
             console.log(i.id);
 
             

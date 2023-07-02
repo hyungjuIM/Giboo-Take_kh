@@ -6,6 +6,8 @@ import kh.fin.giboo.donation.model.dao.DonationDAO;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
+import kh.fin.giboo.mypage.model.vo.Favorite;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,4 +122,12 @@ public class DonationServiceImpl implements DonationService {
     public int updateAmount(Map<String, Object> map) {
         return dao.updateAmount(map);
     }
+
+	@Override
+	public List<Favorite> getFavoriteList(int memberNo) {
+		
+		return dao.getFavoriteList(memberNo);
+	}
+    
+    
 }
