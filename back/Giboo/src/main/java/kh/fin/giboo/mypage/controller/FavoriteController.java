@@ -31,7 +31,7 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   public class FavoriteController {
   private Logger logger = LoggerFactory.getLogger(FavoriteController.class);
   
-//  @Autowired private FavoriteService service;
+  @Autowired private FavoriteService service;
   
   @ResponseBody
   @GetMapping("/volunteer/addFavorite") 

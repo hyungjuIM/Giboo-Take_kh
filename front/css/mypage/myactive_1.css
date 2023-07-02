@@ -534,7 +534,7 @@ transition-duration: 0.2s;
 }
 
 .notice_table thead{
-  border: 1px solid brown;
+  /* border: 1px solid brown; */
   width: 100%;
   display: flex;
   justify-content: space-around;
@@ -543,7 +543,7 @@ transition-duration: 0.2s;
 }
 
 .notice_table thead tr th{
-  border: 1px solid green;
+  /* border: 1px solid green; */
   padding: 16px 0px;
   border-top: 2px solid var(--etcColor);
   border-bottom: 1px solid var(--etcColor);
@@ -569,16 +569,17 @@ transition-duration: 0.2s;
 .notice_table tbody{
   height: 90%;
   width: 100%;
-  border: 2px solid peru;
+  /* border: 2px solid peru; */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .notice_table tbody tr{
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 100%;
   height: 100%;
+  margin-top: 16px;
 }
 
 .notice_table tbody tr td{
@@ -587,8 +588,8 @@ transition-duration: 0.2s;
   
   text-align: center;
  
-
-  border: 1px solid red;
+  /* width: 100%; */
+  /* border: 1px solid red; */
 }
 
 .notice_table tbody tr td:nth-child(1){
@@ -597,19 +598,41 @@ transition-duration: 0.2s;
   font-size: 16px;
   font-weight: 600;
   font-weight: 500;
-  width: 65px;
+  width: 82px;
 }
 
 .notice_table tbody tr td:nth-child(2){
-  
-  width: 185px;
-
+  width: 246px;
 }
-.notice_table tbody tr td:nth-child(2) a{
+
+
+
+.notice_table tbody tr td:nth-child(2) a,
+.notice_table tbody tr td:nth-child(5) a{
   color: var(--titleColor);
   font-family: 'NanumSquareNeo';
   font-weight: 600;
 }
+.notice_table tbody tr td:nth-child(3),
+.notice_table tbody tr td:nth-child(4){
+  color: var(--titleColor);
+  font-family: 'NanumSquareNeo';
+  font-weight: 500;
+
+}
+
+.notice_table tbody tr td:nth-child(5) a{
+  font-weight: 500;
+}
+
+.notice_table tbody tr td:nth-child(3),
+.notice_table tbody tr td:nth-child(4),
+.notice_table tbody tr td:nth-child(5){
+  width: 125px;
+ 
+}
+
+
 
 
 /* 페이지 네이션 */
