@@ -70,4 +70,26 @@ public class NoticeDAO {
 		return sqlSession.update("notice-Mapper.updateNotice",noticeDetail);
 	}
 
+
+
+	/** 공지사항 삭제
+	 * @param boardNo
+	 * @return
+	 */
+	public int deleteNotice(int noticeNo) {
+		return sqlSession.delete("notice-Mapper.deleteNotice",noticeNo);
+	}
+
+
+
+	public void insertAlarm(int noticeNo) {
+		sqlSession.insert("notice-Mapper.insertAlarm",noticeNo);
+	}
+
+
+
+	public void updateAlarm(int noticeNo) {
+		sqlSession.update("notice-Mapper.updateAlarm",noticeNo);
+	}
+
 }

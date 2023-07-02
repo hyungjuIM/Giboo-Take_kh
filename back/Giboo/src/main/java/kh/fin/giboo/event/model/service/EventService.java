@@ -44,7 +44,12 @@ public interface EventService {
 
 	List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo);
 
-	int eventDupCheck(int memberNo, int eventNo);
+
+	boolean checkFavorite(int memberNo, int eventNo);
+
+	int insertFav(int memberNo, int eventNo);
+
+	boolean checkAlreadyJoined(int memberNo, int eventNo);
 
 
 

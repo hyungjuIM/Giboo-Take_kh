@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.google.gson.Gson;
 
@@ -104,8 +105,7 @@ public class MapController {
 			logger.info("mapDetailHome" + mapDetailHome);
 		}
 		
-		model.addAttribute("mapDeta"
-				+ "ilTop", mapDetailTop);
+		model.addAttribute("mapDetailTop", mapDetailTop);
 		logger.info("mapDetailTop" + mapDetailTop);
 
 		
@@ -157,81 +157,78 @@ public class MapController {
 
 	
 	// 즐겨찾기
-//	@ResponseBody
-//	@PostMapping(value = "/insertFav")
-//	public int insertFav(@RequestParam("memberNo") int memberNo, @RequestParam("volunteerNo") int volunteerNo) {
-//
-//		return service.insertFav(memberNo, volunteerNo);
-//	}
-	
-//	@ResponseBody
-//	@PostMapping(value = "/insertFav")
-//	public int insertFav(
-//			@RequestParam("memberNo") int memberNo, 
-//			@RequestParam("volunteerNo") int volunteerNo, 
-//			HttpServletResponse response,
-//			HttpServletRequest req) {
-//	    // 쿠키 생성 및 추가
-//	    Cookie favoriteCookie = new Cookie("favorite", "true");
-//	    favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1년 설정 (초 단위)
-////	    favoriteCookie.setPath("/map");
-//	    favoriteCookie.setPath(req.getContextPath());
-//
-//	    response.addCookie(favoriteCookie);
-//
-//	    return service.insertFav(memberNo, volunteerNo);
-//	}
-	
 	@ResponseBody
 	@PostMapping(value = "/insertFav")
 	public String insertFav(
 	        @RequestParam("memberNo") int memberNo,
 	        @RequestParam("volunteerNo") int volunteerNo,
 	        HttpServletResponse response,
-	        HttpServletRequest req) {
+	        HttpServletRequest req
+	        ,RedirectAttributes ra
+) {
+
+	    boolean isFavorite = service.checkFavorite(memberNo, volunteerNo);
+		String message = null;
+
+	    if (isFavorite) {
+	        // 해당 volunteerNo가 이미 즐겨찾기 테이블에 존재하는 경우
+	        return "duplicate";
+	        
+	    }
+		ra.addFlashAttribute("message",message);
 
 	    int result = service.insertFav(memberNo, volunteerNo);
 
 	    if (result > 0) {
-	    	
-	    	 HttpSession session = req.getSession();
-	         session.setAttribute("volunteerNo", volunteerNo);
+	        HttpSession session = req.getSession();
+	        session.setAttribute("volunteerNo", volunteerNo);
+	        session.setAttribute("memberNo", memberNo);
+	        
 	        // 쿠키 생성 및 추가
 	        Cookie favoriteCookie = new Cookie("favorite", "true");
-	        favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1년 설정 (초 단위)
-	        favoriteCookie.setPath(req.getContextPath() + "/map/mapHome/" + volunteerNo); // 쿠키의 경로 설정
+	        favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1 year (in seconds)
+	        favoriteCookie.setPath(req.getContextPath() + "/map/mapHome/" + volunteerNo);
 	        response.addCookie(favoriteCookie);
+	        
 	        return "red";
 	    } else {
 	        return "failed";
 	    }
+
 	}
-	
+
 	
 	
 	@ResponseBody
-	@GetMapping(value = "/getFavoriteColor")
+	@GetMapping(value = "/getFavoriteColor/{volunteerNo}")
 	public String getFavoriteColor(
-	        @RequestParam("memberNo") int memberNo,
-	        @RequestParam("volunteerNo") int volunteerNo,
-	        HttpServletRequest request) {
-		// 세션에서 volunteerNo 값을 가져옴
-		HttpSession session = request.getSession();
-		int sessionVolunteerNo = (int) session.getAttribute("volunteerNo");
+	        @PathVariable("volunteerNo") int volunteerNo,
+	        HttpServletRequest req) {
 
-		// 쿠키를 읽어와 비교
-		Cookie[] cookies = request.getCookies();
-		if (cookies != null) {
-		    for (Cookie cookie : cookies) {
-		        if (cookie.getName().equals("favorite") && cookie.getValue().equals("true") && cookie.getPath().equals(request.getContextPath() + "/map/mapHome/" + sessionVolunteerNo)) {
-		            return "red";
-		        }
-		    }
-		}
+	    HttpSession session = req.getSession();
+	    int storedVolunteerNo = (int) session.getAttribute("volunteerNo");
+	    int memberNo = (int) session.getAttribute("memberNo");
 
-		return "none";
+	    if (storedVolunteerNo == volunteerNo && memberNo != 0) {
+	        Cookie[] cookies = req.getCookies();
+	        if (cookies != null) {
+	            for (Cookie cookie : cookies) {
+	                String cookiePath = req.getContextPath() + "/map/mapHome/" + volunteerNo;
+	                if (cookie.getName().equals("favorite") && cookie.getValue().equals("true") && cookie.getPath().equals(cookiePath)) {
+	                    return "red";
+	                }
+	            }
+	        }
+	    }
 
+	    return "none";
 	}
+
+
+
+
+
+
 
 
 	

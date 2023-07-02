@@ -171,7 +171,7 @@
 		(		
 				SELECT COUNT(*)
 		        FROM FAVORITES F
-		        WHERE F.VOLUNTEER_NO = V.VOLUNTEER_NO 
+		        WHERE F.FAV_VOLUNTEER_NO = V.VOLUNTEER_NO 
 		    ) AS VOLUNTEERFAVCOUNT
 		,     
 		(
@@ -250,8 +250,15 @@
 	</select>
 	
 	<insert id="insertFav">
-		INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, MEMBER_NO, VOLUNTEER_NO)
+		INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, FAV_MEMBER_NO, FAV_VOLUNTEER_NO)
 		VALUES (SEQ_FAVORITE_NO.NEXTVAL, 'Y', #{memberNo}, #{volunteerNo})
 	</insert>
+	
+	
+	<select id="checkFavorite" resultType="boolean">
+		SELECT COUNT(*) AS COUNT
+		FROM FAVORITES f
+		WHERE f.FAV_VOLUNTEER_NO = #{volunteerNo} AND f.FAV_MEMBER_NO =  #{memberNo}
+	</select>
 
 </mapper>

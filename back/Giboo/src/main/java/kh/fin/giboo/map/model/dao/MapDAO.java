@@ -91,6 +91,18 @@ public class MapDAO {
 	}
 
 
+	public boolean checkFavorite(int memberNo, int volunteerNo) {
+	    Map<String, Object> parameterMap = new HashMap<>();
+        parameterMap.put("memberNo", memberNo);
+        parameterMap.put("volunteerNo", volunteerNo);
+        Boolean result = sqlSession.selectOne("map-mapper.checkFavorite", parameterMap);
+	    if (result == null) {
+	        return false;
+	    }
+	    return result;
+	}
+
+
 
 
 }

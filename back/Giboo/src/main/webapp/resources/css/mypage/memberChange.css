@@ -269,7 +269,7 @@ input::placeholder {
 .memberChange_bottom div:nth-child(1){
   margin-bottom: 40px;
 }
-.memberChange_b{
+.memberChange_b {
   border: none; 
   background-color: var(--mainColor); 
   border-radius: 5px;
@@ -279,6 +279,14 @@ input::placeholder {
   color : #FFFFFF;
   cursor: pointer;
   margin-right: 20px;
+}
+
+.memberChange_b1{
+  width: 100px;
+  height: 50px;
+
+  color : #FFFFFF;
+  cursor: pointer;
 }
 
 .memberChange_w_c{
@@ -380,6 +388,11 @@ input::placeholder {
   color : #FFFFFF;
   border-radius: 5px;
   cursor: pointer;
+}
+
+
+.memberChange_address{
+  margin-left: 10px;
 }
 
 
