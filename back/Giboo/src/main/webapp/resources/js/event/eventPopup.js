@@ -132,8 +132,10 @@ function showPopup() {
     const popupWrap = document.querySelector(".E_popup_wrap03");
     const popMask = document.querySelector(".E_pop_mask3");
 
+
     // 팝업과 마스크를 보여줍니다.
     popupWrap.style.display = "block";
     popMask.style.display = "block";
 }
+
 
