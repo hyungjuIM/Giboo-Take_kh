@@ -11,7 +11,10 @@ public interface FavoriteService {
 	
 	
 	
-	int addfavorite(Map<String, Object> paramMap);
+
+	int addfavorite(int memberNo, int volunteerNo);
+
+	boolean checkFavorite(int memberNo, int volunteerNo);
 	
 	
 	

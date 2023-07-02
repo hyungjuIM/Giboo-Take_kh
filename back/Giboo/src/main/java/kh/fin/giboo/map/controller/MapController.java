@@ -105,8 +105,7 @@ public class MapController {
 			logger.info("mapDetailHome" + mapDetailHome);
 		}
 		
-		model.addAttribute("mapDeta"
-				+ "ilTop", mapDetailTop);
+		model.addAttribute("mapDetailTop", mapDetailTop);
 		logger.info("mapDetailTop" + mapDetailTop);
 
 		
@@ -158,31 +157,6 @@ public class MapController {
 
 	
 	// 즐겨찾기
-//	@ResponseBody
-//	@PostMapping(value = "/insertFav")
-//	public int insertFav(@RequestParam("memberNo") int memberNo, @RequestParam("volunteerNo") int volunteerNo) {
-//
-//		return service.insertFav(memberNo, volunteerNo);
-//	}
-	
-//	@ResponseBody
-//	@PostMapping(value = "/insertFav")
-//	public int insertFav(
-//			@RequestParam("memberNo") int memberNo, 
-//			@RequestParam("volunteerNo") int volunteerNo, 
-//			HttpServletResponse response,
-//			HttpServletRequest req) {
-//	    // 쿠키 생성 및 추가
-//	    Cookie favoriteCookie = new Cookie("favorite", "true");
-//	    favoriteCookie.setMaxAge(365 * 24 * 60 * 60); // 1년 설정 (초 단위)
-////	    favoriteCookie.setPath("/map");
-//	    favoriteCookie.setPath(req.getContextPath());
-//
-//	    response.addCookie(favoriteCookie);
-//
-//	    return service.insertFav(memberNo, volunteerNo);
-//	}
-	
 	@ResponseBody
 	@PostMapping(value = "/insertFav")
 	public String insertFav(

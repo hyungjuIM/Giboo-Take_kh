@@ -67,6 +67,24 @@ $(document).ready(function () {
         $(".E_popup_wrap02").css("display", "none");
         $(".E_pop_mask2").css("display", "none");
 
+        $(".E_popup_wrap01").css("display", "block");
+        $(".E_pop_mask1").css("display", "block");
+    });
+
+    $("#popup_submit1").click(function (event) {
+        event.preventDefault(); // 폼 제출 방지
+        $(".E_popup_wrap01").css("display", "none");
+        $(".E_pop_mask1").css("display", "none");
+
+    });
+
+    $("#popup_close1").click(function (event) {
+        event.preventDefault(); // 폼 제출 방지
+        $(".E_popup_wrap02").css("display", "block");
+        $(".E_pop_mask2").css("display", "block");
+
+        $(".E_popup_wrap01").css("display", "none");
+        $(".E_pop_mask1").css("display", "none");
     });
 
 }); 
@@ -96,94 +114,26 @@ $(document).ready(function () {
 
 
 
+function writeValidate(event) {
+    const fileInput = document.getElementById("E_imgInput");
 
-const addReply = document.getElementById("popupButton");
-
-addReply.addEventListener("click", function(event){
-    if(loginMemberNo === ""){
-        alert("로그인 후 이용해주세요.");
-        event.preventDefault();
-    } else {
-        $(".E_popup_wrap02").css("display", "block");
-        $(".E_pop_mask2").css("display", "block");
+    if (fileInput.files.length === 0) {
+        alert("사진을 등록해주세요!");
+        event.preventDefault(); // 폼 제출을 막습니다.
+        return false;
     }
-});
+    // 폼 제출이 성공한 경우 팝업을 표시합니다.
+    // setTimeout(showPopup, 500); // 0.5초 (500ms) 후에 showPopup 함수 호출
+    showPopup();
+    return true;
+}
 
+function showPopup() {
+    const popupWrap = document.querySelector(".E_popup_wrap03");
+    const popMask = document.querySelector(".E_pop_mask3");
 
-//동일한 이벤트 참여자 중복검사(ajax)
+    // 팝업과 마스크를 보여줍니다.
+    popupWrap.style.display = "block";
+    popMask.style.display = "block";
+}
 
-
-const participationB = document.getElementById("participationB");
-
-participationB.addEventListener("click", function(){
-    
-    $.ajax({
-
-    url: "/eventDupCheck",
-    data: { "memberNo": loginMemberNo,
-            "eventNo": eventNo },
-    type: "GET",
-
-    success: function (result) {
-
-        if (result == 0) {// 해당 이벤트참여자No, 이벤트No  중복 X
-            alert("이벤트 참여가능함");
-            console.log("참여가능");
-            
-
-        } else {// 해당 이벤트참여자No, 이벤트No  중복 o
-
-            alert("해당 이벤트 참여했음");
-            console.log("참여불가능");
-
-        }
-    },
-    error: function () { //비동기 통신 에러
-        console.log("에러 발생");
-    }
-});
-
-})
-
-
-
-
-
-//동일한 이벤트 참여자 중복검사 (ajax)
-// const loginMemberNo = document.getElementById("");
-// const eventNo = document.getElementById("");
-
-// addReply.addEventListener("click", function(event){
-//     if(loginMemberNo === ""){
-        
-//     } else {
-        
-//     }
-// });
-
-
-
-
-// $.ajax({
-
-//     url: "participationDupCheck",
-//     data: { "memberNo": loginMemberNo,
-//             "eventNo": eventNo },
-//     type: "GET",
-
-//     success: function (result) {
-
-//         if (result == 0) {// 해당 이벤트참여자No, 이벤트No  중복 X
-
-            
-
-//         } else {// 해당 이벤트참여자No, 이벤트No  중복 o
-
-//             alert("해당 이벤트 참여했음");
-
-//         }
-//     },
-//     error: function () { //비동기 통신 에러
-//         console.log("에러 발생");
-//     }
-// });

@@ -190,7 +190,7 @@ cursor: pointer;
 }
 .mypage_content_third button:hover{
 
-color: #8071FC;
+color: #00CA61;
   
 font-weight: 600;
 transition-duration: 0.2s;
@@ -198,7 +198,7 @@ transition-duration: 0.2s;
 
 
 .mypage_content_container a:hover{   
-  color: #8071FC;
+  color: #00CA61;
   
   font-weight: 600;
   transition-duration: 0.2s;
@@ -310,12 +310,12 @@ span{
 .myactive_donation:hover,
 .myactive_volunteer:hover,
 .myactive_event:hover{
-  color : #8071FC;
+  color : #00CA61;
   font-weight: 700;  
 }
 
 .myactive_volunteer{
-  color : #8071FC;
+  color : #00CA61;
   font-weight: 700; 
 }
 
@@ -374,11 +374,11 @@ span{
   transition : background-color 2s ease-out;
 }
 .search-area fieldset:hover{
-border-color: #8071FC;
+border-color: #00CA61;
 }
 
 .search-area fieldset:hover #search-btn {
-color:#8071FC;
+color:#00CA61;
 }
 
 #query{
@@ -493,8 +493,8 @@ color : #767676;
 }
 
 .myactive_print:hover {
-  color : #8071FC;
-  border: 1px solid #8071FC;
+  color : #00CA61;
+  border: 1px solid #00CA61;
   border-radius: 50px;
 }
 
@@ -546,7 +546,7 @@ color : #767676;
 }
 
 .pagination li a:hover {
-  background-color: #8071FC;
+  background-color: #00CA61;
   color: #f2f2f2;
   border-radius: 50%;
 }

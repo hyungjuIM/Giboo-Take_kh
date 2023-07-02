@@ -28,27 +28,60 @@
     </div>
 
     <div class="mypage-container">
+
       <div class="mypage_wrapper"> <!-- 1200*800 -->
 
         <!--왼쪽 네비바 틀-->
         <nav class="mypage_nav_area">
+
           <div class="mypage_summary_container">
 
+            <!-- 프로필 사진 -->
             <div class="mypage_profileEmojiContainer">
-              <div class="mypage_profileEmojiTheme ">🥳</div>
+              <div class="mypage_profileEmojiTheme ">
+
+                <img src="/images/dog.jpeg" alt="">
+
+              </div>
             </div>
-            <div class="mypage_hiuser">고마운분</div>
-            <div class="userName">000님, 안녕하세요🥳 </div>
+
+
+            <!-- 사용자 정보 -->
+
+            <div class="side_user_container">
+
+              <div class="userName">
+                <p>${loginMember.memberNick}님,</p>
+                <p> 안녕하세요🥳</p>
+              </div>
+
+              <div class="rateName">
+
+                <span>LV.3</span>
+                <span>123원</span>
+              </div>
+
+            </div>
 
 
             <!--왼쪽 네비바 메뉴 -->
             <nav class="mypage_content_container">
+
+
+
               <ul class="mypage_content_first">
-                <li><a href="#">회원정보수정</a></li>
-                
-                <li><a href="#">즐겨찾기</a></li>
-                
+                <li><a href="${pageContext.request.contextPath}/mypage/memberChange">회원정보수정</a></li>
+
+                <li class="mypage_content_first_s">
+                  <a href="${pageContext.request.contextPath}/mypage/changePw">- 비밀번호 변경</a>
+                </li>
+                <li class="mypage_content_first_s">
+                  <a href="${pageContext.request.contextPath}/mypage/changeProfile">- 프로필 이미지 변경</a>
+                </li>
+
+                <li class="li_enter"><a href="${pageContext.request.contextPath}/mypage/favorites">즐겨찾기</a></li>
               </ul>
+
               <hr>
               <div class="mypage_content_second">
                 <ul>
@@ -58,175 +91,302 @@
 
                 </ul>
               </div>
+
               <hr>
+
               <div class="mypage_content_third">
                 <button>로그아웃</button>
               </div>
-            </nav> <!--mypage_content_container-->
-          </div> <!-- mypage_summary_container-->
+
+            </nav>
+
+          </div>
+
         </nav> <!--mypage_nav_area-->
 
+
+
+
         <!--오른쪽 나의 문의내역 본문-->
-        <div class="myask_content_area">
-          <section class="mainContainer">
+        <div class="myask_content_area  menu_box_container">
+          <section class="mainContainer main">
             <div class="mainContent">
               <section class="notice">
 
                 <!-- notice seach area -->
                 <div class="notice1">
                   <div class="container1">
-                    <span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span style="color: #8071FC;">
-                      활동목록</span><span style="color: #767676;">를 알려드립니다 😇</span>
+
+                    <span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
+                      <span style="color: #00CA61;">
+                        회원정보수정
+                      </span>에 대해 알려드립니다 😇
+                    </span>
+
 
                     <div class="container2">
                       <div class="container2_title">
-                        <div class="active_title_name">
-                          <div class="myactive_donation">기부</div>
+
+                        <div class="active_title_name title_style">
+                          <div class="myactive_donation">
+                            <a href="${pageContext.request.contextPath}/mypage/myActiveDonationList" class="select_aTag">기부</a>
+                          </div>
                         </div>
-                        <div class="active_title_right">|</div>
-                        <div class="active_title_name">
-                          <div class="myactive_volunteer">봉사</div>
-                        </div>                    
-                        <div class="active_title_right">|</div>
-                        <div class="active_title_name2">
-                          <div class="myactive_event">참여한 이벤트</div>
+
+                        <div class="active_title_name title_style">
+                          <div class="myactive_volunteer">
+                            <a href="${pageContext.request.contextPath}/mypage/myActiveVolunteerList" class="select_aTag">봉사</a>
+                          </div>
                         </div>
+
+                        <div class="active_title_name2 title_style">
+                          <div class="myactive_event">
+                            <a href="${pageContext.request.contextPath}/mypage/myActiveEventList" class="select_aTag">참여한
+                              이벤트</a>
+                          </div>
+                        </div>
+
                       </div>
 
-                      <div class="search-area">
-                        <div class="search-filter"> 
 
-                          <select id="filter" name="filter">
-                            <option value="title">제목</option>
-                            <option value="author">작성자</option>
-                            <option value="views">조회수</option>
-                            <option value="date">등록일</option>
-                          </select>
+
+                      <div class="active_contatiner">
+
+                        <div class="query_result">
+                          "<span>독거</span>" 검색 결과
                         </div>
 
-                        <form action="">
-                          <fieldset>
-                            <input type="text" id="query" name="query" placeholder="검색어를 입력해주세요"
-                              onfocus="this.placeholder = ''" onblur="this.placeholder = '검색어를 입력해주세요'">
-                            <button type="submit" id="search-btn" class="fa-solid fa-magnifying-glass"></button>
-                          </fieldset>
-                        </form>
-                      </div>
 
+                        <div class="search_area">
+                          <form method="get" id="boardSearch" onsubmit="return searchValidate()">
+
+                           
+                            <div class="search-filter">
+
+                              <select id="search-key" name="key">
+                                <option value="t">제목</option>
+                                <option value="c">일자</option>
+                              </select>
+
+
+                            </div>
+
+                            <span class="search_field">
+
+                              <input type="text" id="search-query" name="query"
+                                placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = '검색어를 입력해주세요'">
+                              <button type="submit" id="search-btn"
+                                class="fa-solid fa-magnifying-glass"></button>
+                              
+                            </span>
+
+                          
+
+                          </form>
+                        </div>
+
+                      </div>
                     </div>
-
-
-
                   </div>
-                </div>
 
-                <!-- notice list area -->
-                <div id="myactive_notice-list">
-                  <div class="myactive_container3">
-                    <table class="myactive_notice-table">
+
+
+
+                
+                      
+                </div>
+              </section>
+            </div>
+         
+       
+
+
+
+        <div id="myactive_notice-list" class="notice_box_container_content">
+                  <div class="myactive_container3 notice_index_container">
+                    <table class="myactive_notice-table notice_table">
+
                       <thead>
                         <tr>
                           <th scope="col" class="th_num">번호</th>
-                          <th scope="col" class="th_name">기부내역</th> 
-                          <th scope="col" class="th_date">기부일자</th>
-                          <th scope="col" class="th_print">인증서 출력</th>
+                          <th scope="col" class="th_name">기부 내역</th>
+                          <th scope="col" class="th_date">기부 일자</th>
+                          <th scope="col" class="th_date">기부한 금액</th>
+
+                          <th scope="col" class="th_print">인증서 출력</th> 
                         </tr>
                       </thead>
+
                       <tbody>
-                        <tr>
-                          <td>50</td>
-                          <td>위기가정지원</td>
-                          <td>2023.05.24</td>
-                     
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>49</td>
-                          <td>주거지원</td>
-                          <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>48</td>
-                          <td>생계지원</td>
-                          <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>47</td>
-                          <td>의료지원</td>
-                          <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>46</td>
-                          <td>위기가정지원</td>
-                          <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>45</td>
-                          <td>주거지원</td>
-                          <td>2023.05.24</td>
-                          <td>
-                            <div class="myactive_print">
-                              <a href="/html/mypage/reportPrint.html">발급</a>
-                            </div>
-                          </td>
+                        <!-- <c:choose> -->
+                          <!-- <c:when test="${empty myActiveDonationList}"> -->
+                            <!-- <tr>
+                              <th colspan="4">
+                                <div class="board_no">
+                                  게시글이 존재하지 않습니다.
+                                </div>
+                              </th>
+                            </tr> -->
+                          <!-- </c:when> -->
+
+                   <!-- <c:otherwise>
+                            <c:forEach var="myActiveDonationList" items="${myActiveDonationList}"> -->
+                              <!-- <tr>
+                                <td>1</td>
+                                <td>
+                                  <a href="../donation/detail/${myActiveDonationList.donationNo}?cp=${pagination.currentPage}${sURL}">타이틀</a>
+                                </td>
+
+                                <td>날짜</td>
+                                <td>머니</td>
+                                <td>
+                                  <a href="../detail/${donation.donationNo}?cp=${pagination.currentPage}${sURL}">타아틀</a>
+                                  </td> 
+                              </tr> -->
+                            <!-- </c:forEach>
+
+                          </c:otherwise>  -->
+
+                          <!-- <c:set var="donationCount" value="${myActiveDonationList.size()}" />
+                          <c:forEach var="myActiveDonationList" items="${myActiveDonationList}" varStatus="status">
+                            <c:set var="donationNumber" value="${donationCount - status.count + 1}" />  -->
+                            <tr>
+                              <td>봉사넘버</td>
+                              <td>봉사이름</td>
+                              <td>봉사날짜</td>
+                              <td>돈</td>
+
+                            </tr>
+                        <!-- </c:forEach> -->
+
+                      
 
 
+                        <!-- </c:choose>  -->
 
-                        <!-- 여러 개의 게시글 추가 -->
 
                       </tbody>
                     </table>
                   </div>
-                  <div class="container4">
-                    <nav class="page-nav">
-                      <ul class="pagination">
-                        <li><a href="">&lt;</a></li>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">6</a></li>
-                        <li><a href="">7</a></li>
-                        <!-- 페이지 번호 추가 -->
-                        <li><a href="">&gt;</a></li>
-                      </ul>
-                    </nav>
+                  <!-- <tr>
+                    <td>50</td>
+                    <td>위기가정지원</td>
+                    <td>2023.05.24</td>
 
-                  </div>
-                </div>
-              </section>
-            </div>
-          </section>
+                    <td>
+                      <div class="myactive_print">
+                        <a href="${pageContext.request.contextPath}/mypage/reportPrint">발급</a>
+                      </div>
+                    </td>
+                    </tr>
+                    <tr>
+                      <td>49</td>
+                      <td>주거지원</td>
+                      <td>2023.05.24</td>
+                      <td>
+                        <div class="myactive_print">
+                          <a href="/html/mypage/reportPrint.html">발급</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>48</td>
+                      <td>생계지원</td>
+                      <td>2023.05.24</td>
+                      <td>
+                        <div class="myactive_print">
+                          <a href="/html/mypage/reportPrint.html">발급</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>47</td>
+                      <td>의료지원</td>
+                      <td>2023.05.24</td>
+                      <td>
+                        <div class="myactive_print">
+                          <a href="/html/mypage/reportPrint.html">발급</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>46</td>
+                      <td>위기가정지원</td>
+                      <td>2023.05.24</td>
+                      <td>
+                        <div class="myactive_print">
+                          <a href="/html/mypage/reportPrint.html">발급</a>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>45</td>
+                      <td>주거지원</td>
+                      <td>2023.05.24</td>
+                      <td>
+                        <div class="myactive_print">
+                          <a href="/html/mypage/reportPrint.html">발급</a>
+                        </div>
+                      </td> -->
 
-        </div> <!-- myask_content_area -->
+                      <div class="container4">
+                        <nav class="page-nav">
+                          <ul class="pagination">
+                            <li><a href="">&lt;</a></li>
+                            <li><a href="">1</a></li>
+                            <li><a href="">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">4</a></li>
+                            <li><a href="">5</a></li>
+                            <!-- 페이지 번호 추가 -->
+                            <li><a href="">&gt;</a></li>
+                          </ul>
+                        </nav>
+                      </div>
+               
 
-      </div> <!-- mypage_wrapper -->
-    </div> <!-- mypage-container -->
+
+
+                      <!-- <div class="container4">
+                        <c:set var="url" value="?cp=" />
+                        <ul class="pagination">
+                          <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                          <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                          <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                            <c:choose>
+                              <c:when test="${i == pagination.currentPage}">
+                                <li><a class="current">${i}</a></li>
+                              </c:when>
+
+                              <c:otherwise>
+                                <li><a href="${url}${i}${sURL}">${i}</a></li>
+                              </c:otherwise>
+                            </c:choose>
+
+                          </c:forEach>
+
+
+                          <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+
+
+                          <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+
+                        </ul>
+                      </div> -->
+
+
+
+                </div> 
+            </section>
+          </div>
+
+      </div>
+    </section>
+    </div> <!-- myask_content_area -->
+
+
   </main>
 
 

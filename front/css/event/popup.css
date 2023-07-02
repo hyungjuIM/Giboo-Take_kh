@@ -107,8 +107,8 @@ body {
 
 
 .E_popup_cont02 button:hover {
-    border: 1px solid #8071FC;
-    color: #8071FC;
+    border: 1px solid #00CA61;
+    color: #00CA61;
     cursor: pointer;
 }
 
@@ -300,7 +300,7 @@ textarea::placeholder {
 }
 
 .E_popup_cont08 button:hover{
-    background-color: #8071FC;
+    background-color: #00CA61;
     color: #ffffff;
     cursor: pointer;
 }
@@ -311,7 +311,7 @@ textarea::placeholder {
 .E_popup_wrap03 {
     width: 440px;
     height: 510px;
-    background: #8071fc;
+    background: #00CA61;
     color : #ffffff;
     border: solid 1px #666666;
     border-radius: 15px;

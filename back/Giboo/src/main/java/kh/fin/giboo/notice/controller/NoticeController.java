@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -227,7 +228,8 @@ public class NoticeController {
 	   public String noticeWrite(
 			   NoticeDetail noticeDetail,
 			   @ModelAttribute("loginManager") Manager loginManager,
-			   String mode
+			   String mode,
+			   @RequestParam(value="sendAlarm", required=false, defaultValue="sendAlarm") String sendAlarm
 				, HttpServletRequest req
 				, RedirectAttributes ra
 				,@RequestParam(value="cp", required=false, defaultValue="1") int cp
@@ -236,19 +238,29 @@ public class NoticeController {
 		   
 		   String path =null;
 		   String message =null;
+		
 		   // 게시글 등록
 		   System.out.println(mode);
 		   if(mode.equals("insert")) {
-			   logger.info("게시글 등록 성공");
-			   int noticeNo = service.insertNotice(noticeDetail);
 
+			   int noticeNo = service.insertNotice(noticeDetail);
 			   path = "../notice/noticeDetail/"+noticeNo;
-			   message ="공지사항이 등록 되었습니다.";
+			   logger.info("게시글 등록 성공");
+			   if(sendAlarm.equals(sendAlarm)) {
+				   service.insertAlarm(noticeNo);
+			   }else {
+				   int noticeNo2 = service.insertNotice(noticeDetail);
+				   path = "../notice/noticeDetail/"+noticeNo2;
+			   }
+			  path = "../notice/noticeDetail/"+noticeNo;
+			  message ="공지사항이 등록 되었습니다.";
+
 		   }else { //수정
 			   int result = service.updateNotice(noticeDetail);
-
+			  int noticeNo =noticeDetail.getNoticeNo();
 			   if(result > 0) {
-				   path="../notice/noticeDetail"+noticeDetail.getNoticeNo()+"?cp="+cp;
+				   service.updateAlarm(noticeNo);
+				   path="../notice/noticeDetail/"+noticeDetail.getNoticeNo()+"?cp="+cp;
 				   message = "공지사항이 수정 되었습니다.";
 			   } else {
 				   path = req.getHeader("referer");
@@ -259,5 +271,39 @@ public class NoticeController {
 		   ra.addFlashAttribute("message", message);
 		   return "redirect:"+path;
 	   }
+
+
+//공지사항 삭제
+		@GetMapping("/noticeDelete/{noticeNo}")
+		public String boardDelete(
+				
+				@RequestParam(value="cp", required = false, defaultValue = "1") int cp,
+				@PathVariable("noticeNo") int noticeNo,
+				Model model,
+				RedirectAttributes ra,
+				@RequestHeader("referer") String referer
+				) {
+
+			String path = null;
+			String message = null;
+
+			int result = service.deleteNotice(noticeNo);
+			if(result > 0 ) {
+				logger.info("공지사항 삭제");
+				path = "notice/noticeList/" +"?cp="+cp; 
+				message = "공지사항이 삭제 되었습니다.";
+
+			}else {
+				path = "referer";  
+			}
+
+			ra.addFlashAttribute("message",message);
+
+
+			return "redirect:/" +path;
+
+		}
+
+
 
 }
