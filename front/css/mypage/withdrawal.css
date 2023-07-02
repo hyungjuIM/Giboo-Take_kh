@@ -21,7 +21,7 @@ body {
 
 /*상단 나의 문의내역 */
 .page-title {
-  background-color: #8071FC;
+  background-color: #00CA61;
 
   width: 100%;
   height: 80px;
@@ -191,7 +191,7 @@ cursor: pointer;
 }
 .mypage_content_third button:hover{
 
-color: #8071FC;
+color: #00CA61;
   
 font-weight: 600;
 transition-duration: 0.2s;
@@ -199,7 +199,7 @@ transition-duration: 0.2s;
 
 
 .mypage_content_container a:hover{   
-  color: #8071FC;
+  color: #00CA61;
   
   font-weight: 600;
   transition-duration: 0.2s;
@@ -423,7 +423,7 @@ letter-spacing: -0.05em;
 }
 
 .popupMark{
-border: 1px solid #8071FC;
+border: 1px solid #00CA61;
 border-radius: 100px;
 margin-bottom: 20px;
 }
@@ -436,7 +436,7 @@ font-weight: 100;
 text-align: center;
 
 box-sizing: border-box;
-color: #8071FC;
+color: #00CA61;
 
 width: 80px;
 height: 80px;
@@ -468,7 +468,7 @@ height: 80px;
 
 
 .popup_cont02 button:hover{
-  border: 1px solid #8071FC;
-  color : #8071FC;
+  border: 1px solid #00CA61;
+  color : #00CA61;
   cursor: pointer;
 }

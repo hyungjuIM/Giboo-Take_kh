@@ -2,6 +2,7 @@ package kh.fin.giboo.volunteer.model.dao;
 
 import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
+import kh.fin.giboo.mypage.model.vo.Favorite;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
@@ -74,5 +75,9 @@ public class VolunteerDAO {
 
     public int updateViewCount(int volunteerStoryNo) {
         return sqlSession.update("volunteerMapper.updateViewCount", volunteerStoryNo);
+    }
+
+    public List<Favorite> getFavoriteList(int memberNo) {
+        return sqlSession.selectList("volunteerMapper.getFavoriteList", memberNo);
     }
 }

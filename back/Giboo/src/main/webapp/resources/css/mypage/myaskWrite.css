@@ -217,9 +217,9 @@ color: #BDBDBD;
 }
 
 .ask_write_submitContainer button:hover{
-    color : #8071fc;
+    color : #00CA61;
     border-radius: 5px;
-    border: 1px solid #8071fc;
+    border: 1px solid #00CA61;
     font-weight: 600;
 
 }

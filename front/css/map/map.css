@@ -15,7 +15,7 @@
 }
 
 .MsearchBar > form > input {
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     width: 358px;
     height: 42px;
     border-radius: 10px;
@@ -160,7 +160,7 @@
 }
 
 .mlistCa{
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     /* width: 63px; */
     height: 29px;
     border-radius: 15px;
@@ -170,7 +170,7 @@
 }
 
 .mlistCa > span{
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     font-size: 14px;
     margin-left: 10px;
@@ -191,7 +191,7 @@
 .mlistHe > span{
     font-weight: 400;
     font-size: 12px;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .mlistLi > a > img{

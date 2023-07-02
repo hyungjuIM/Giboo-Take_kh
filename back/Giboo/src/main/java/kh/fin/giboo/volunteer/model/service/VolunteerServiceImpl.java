@@ -2,6 +2,7 @@ package kh.fin.giboo.volunteer.model.service;
 
 import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
+import kh.fin.giboo.mypage.model.vo.Favorite;
 import kh.fin.giboo.volunteer.model.dao.VolunteerDAO;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
@@ -74,6 +75,11 @@ public class VolunteerServiceImpl implements VolunteerService {
         map.put("volunteerListCount", volunteerListCount);
 
         return map;
+    }
+
+    @Override
+    public List<Favorite> getFavoriteList(int memberNo) {
+        return dao.getFavoriteList(memberNo);
     }
 
     @Override
