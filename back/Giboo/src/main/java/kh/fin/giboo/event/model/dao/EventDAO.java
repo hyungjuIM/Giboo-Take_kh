@@ -16,6 +16,7 @@ import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
 import kh.fin.giboo.event.model.vo.EventDetailTop;
 import kh.fin.giboo.event.model.vo.EventList;
+import kh.fin.giboo.event.model.vo.EventMore;
 import kh.fin.giboo.event.model.vo.EventPopup;
 import kh.fin.giboo.event.model.vo.EventStickerBar;
 import kh.fin.giboo.event.model.vo.Pagination;
@@ -122,6 +123,10 @@ public class EventDAO {
 	        return false;
 	    }
 	    return result;
+	}
+
+	public List<EventMore> selectEventMore(int eventNo) {
+		return sqlSession.selectList("event-mapper.selectEventMore", eventNo);
 	}
 
 

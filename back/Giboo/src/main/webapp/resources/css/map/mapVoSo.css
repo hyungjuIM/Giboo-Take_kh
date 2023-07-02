@@ -368,11 +368,17 @@
 }
 
 /* 카테고리별로 색 변경 */
-.mhCa > a:nth-child(3){
-    color: #8071FC;
+.mhCa > a:nth-child(2){
+    color: #8071FC ;
     font-weight: 600;
     border-bottom: 1px solid  #8071FC;
 }
+
+.mapHomee{
+    border: none !important;
+    color: #767676 !important;
+}
+
 
 
 /* 여기서부터 지우고 만들면 됨 */

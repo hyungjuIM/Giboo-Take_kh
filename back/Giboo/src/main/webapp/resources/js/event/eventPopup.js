@@ -52,7 +52,6 @@ function handleImagePreview() {
 // }); 
 
 //팝업2
-$(document).ready(function () {
 
     // $("#popupButton").click(function () {
 
@@ -62,32 +61,32 @@ $(document).ready(function () {
 
     // });
 
-    $("#E_popup1").click(function (event) {
-        event.preventDefault(); // 폼 제출 방지
-        $(".E_popup_wrap02").css("display", "none");
-        $(".E_pop_mask2").css("display", "none");
+    document.getElementById("E_popup1").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.querySelector(".E_popup_wrap02").style.display = "none";
+        document.querySelector(".E_pop_mask2").style.display = "none";
+        
+        document.querySelector(".E_popup_wrap01").style.display = "block";
+        document.querySelector(".E_pop_mask1").style.display = "block";
+      });
+      
+      document.getElementById("popup_submit1").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.querySelector(".E_popup_wrap01").style.display = "none";
+        document.querySelector(".E_pop_mask1").style.display = "none";
+      });
+      
+      document.getElementById("popup_close1").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.querySelector(".E_popup_wrap02").style.display = "block";
+        document.querySelector(".E_pop_mask2").style.display = "block";
+        
+        document.querySelector(".E_popup_wrap01").style.display = "none";
+        document.querySelector(".E_pop_mask1").style.display = "none";
+      });
+      
 
-        $(".E_popup_wrap01").css("display", "block");
-        $(".E_pop_mask1").css("display", "block");
-    });
 
-    $("#popup_submit1").click(function (event) {
-        event.preventDefault(); // 폼 제출 방지
-        $(".E_popup_wrap01").css("display", "none");
-        $(".E_pop_mask1").css("display", "none");
-
-    });
-
-    $("#popup_close1").click(function (event) {
-        event.preventDefault(); // 폼 제출 방지
-        $(".E_popup_wrap02").css("display", "block");
-        $(".E_pop_mask2").css("display", "block");
-
-        $(".E_popup_wrap01").css("display", "none");
-        $(".E_pop_mask1").css("display", "none");
-    });
-
-}); 
 
 
 
