@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="parentCategoryList" value="${map.parentCategoryList}" />
@@ -87,7 +88,15 @@
                         <div class="buttonSection">
                             <a href="" class="button">🍀 봉사하기
                                 <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                            <div class="favoriteButton" id="${volunteerList.volunteerNo}">🤍</div>
+                            <c:choose>
+                                <c:when test="${fn:contains(favoriteList, volunteerList.volunteerNo)}">
+                                    <div class="favoriteButton" id="${volunteerList.volunteerNo}">❤️</div>
+                                </c:when>
+
+                                <c:otherwise>
+                                    <div class="favoriteButton" id="${volunteerList.volunteerNo}">🤍</div>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
 
                         <a href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
@@ -164,19 +173,13 @@
                 success: function(result) {
                     if (result == "success") {
                         if (i.innerHTML == "🤍") {
-                            i.innerHTML = '❤️'; 
+                            i.innerHTML = '❤️';
                            console.log("성공");
-                           
                         } else {
                             i.innerHTML = '🤍'; 
-                             
-                            
                         }
-
-                        
                     } else {
                         alert("이미 추가햇음");
-                    
                     }
                 }
             })
