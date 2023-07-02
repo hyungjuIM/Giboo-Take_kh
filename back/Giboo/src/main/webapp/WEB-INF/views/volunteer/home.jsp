@@ -157,6 +157,8 @@
             console.log("${loginMember.memberNo}");
             console.log(i.id);
 
+            
+
              $.ajax ({
                  url: "addFavorite",
                  data: {"memberNo" : ${loginMember.memberNo}, "volunteerNo" : i.id},
