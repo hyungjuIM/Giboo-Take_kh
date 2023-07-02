@@ -418,23 +418,29 @@ a{
     margin-right: 10px;
 }
 
-/* footer */
-.footerContainer{
-    background-color: #F6F6F6;
-    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
-    height: 244px;
-    display: flex;
-
-    justify-content: center;
-}
-
-.footerContent{
-    width: 1200px;
-    height: 65px;
-    display: flex;
-
-    flex-direction: column;
-
+.grayBox {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5);
+    z-index: 999;
+    position: fixed;
+    display: none;
     justify-content: center;
     align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.volunteerSubmitContainer {
+    width: 800px;
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
 }
