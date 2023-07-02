@@ -1,6 +1,7 @@
 package kh.fin.giboo.volunteer.controller;
 
 import kh.fin.giboo.member.model.vo.Member;
+import kh.fin.giboo.mypage.model.vo.Favorite;
 import kh.fin.giboo.volunteer.model.service.VolunteerService;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
@@ -9,10 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -26,6 +24,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/volunteer")
+@SessionAttributes({ "loginMember" })
 public class VolunteerController {
     private Logger logger = LoggerFactory.getLogger(VolunteerController.class);
 
@@ -35,8 +34,17 @@ public class VolunteerController {
     @GetMapping("/home")
     public String home(@RequestParam(value = "category", required = false, defaultValue = "0") int category,
                        @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
-                       Model model) {
+                       Model model, HttpSession session) {
         logger.info("봉사페이지 메인");
+
+        Member loginMember = (Member)session.getAttribute("loginMember");
+        if (loginMember != null) {
+            int memberNo = loginMember.getMemberNo();
+            List<Favorite> favoriteList = service.getFavoriteList(memberNo);
+            System.out.println("asdfg" + favoriteList);
+            model.addAttribute("memberNo", memberNo);
+            model.addAttribute("favoriteList", favoriteList);
+        }
 
         model.addAttribute("category", category);
 

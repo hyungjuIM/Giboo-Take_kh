@@ -43,7 +43,7 @@
 
                 <c:forEach var="parentCategoryList" items="${parentCategoryList}">
                     <li class="subCategoryItem">
-                        <a href="../volunteer/home?category=${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
+                        <a href="../volunteer/home?category=${parentCategoryList.parentCategoryNo}" id="category${parentCategoryList.parentCategoryNo}" class="SubCategoryLabelTheme">
                             <div class="SubCategoryEmojiTheme">${parentCategoryList.parentCategoryThumbnail}</div>
                                 ${parentCategoryList.parentCategoryName}
                         </a>
