@@ -175,17 +175,11 @@
                         if (i.innerHTML == "🤍") {
                             i.innerHTML = '❤️';
                            console.log("성공");
-                           
                         } else {
                             i.innerHTML = '🤍'; 
-                             
-                            
                         }
-
-                        
                     } else {
                         alert("이미 추가햇음");
-                    
                     }
                 }
             })
