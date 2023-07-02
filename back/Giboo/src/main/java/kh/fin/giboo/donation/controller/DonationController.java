@@ -1,26 +1,33 @@
 package kh.fin.giboo.donation.controller;
 
+import com.google.gson.JsonObject;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
+import kh.fin.giboo.common.Util;
 import kh.fin.giboo.donation.model.service.DonationService;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.member.model.vo.Member;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -197,22 +204,106 @@ public class DonationController {
     }
 
     @GetMapping("/write")
-    public String write() {
+    public String write(String mode, @RequestParam(value = "no", required = false, defaultValue = "0") int no,
+                        Model model) {
         logger.info("기부 작성 페이지");
+
+        if (mode.equals("update")) {
+            DonationDetail detail = service.getDonationDetail(no);
+
+            detail.setDonationContent(detail.getDonationContent().replaceAll("&quot;", "&#039;"));
+
+            String unescapedContent = StringEscapeUtils.unescapeHtml(detail.getDonationContent());
+            detail.setDonationContent(unescapedContent);
+
+            model.addAttribute("detail", detail);
+        }
 
         return "donation/write";
     }
 
-//    @PostMapping("/write")
-//    public String insert(DonationDetail detail, @ModelAttribute("loginMember") Member loginMember,
-//                         RedirectAttributes ra, HttpServletRequest req
-//                         ) {
-//        logger.info("기부 등록");
-//
-//        detail.setMemberNo(loginMember.getMemberNo());
-//
-//        int donationNo = service.insertDonation(detail);
-//
-//        return "redirect:../donation/home";
-//    }
+    @PostMapping("/write")
+    public String write(DonationDetail detail, @ModelAttribute("loginMember") Member loginMember,
+                         RedirectAttributes ra, HttpServletRequest req, String mode,
+                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+        logger.info("기부 등록");
+
+        detail.setMemberNo(loginMember.getMemberNo());
+
+        String path = null;
+        String message = null;
+
+        if (mode.equals("insert")) {
+            int no = service.insertDonation(detail);
+            path = "../donation/detail/" + no;
+            logger.info("게시글 등록 성공");
+        } else {
+            int result = service.updateDonation(detail);
+            path = "../donation/detail/" + detail.getDonationNo() + "?cp=" + cp;
+            message = "게시글이 수정되었습니다.";
+        }
+
+        return "redirect:" + path;
+    }
+
+    @PostMapping("/storyWrite")
+    public String storyWrite(DonationDetail detail, @ModelAttribute("loginMember") Member loginMember,
+                         RedirectAttributes ra, HttpServletRequest req, String mode,
+                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+        logger.info("기부이야기 등록");
+
+        detail.setMemberNo(loginMember.getMemberNo());
+
+        String path = null;
+        String message = null;
+
+        if (mode.equals("insert")) {
+            int no = service.insertStory(detail);
+            path = "../story/" + no;
+            logger.info("게시글 등록 성공");
+        } else {
+            int result = service.updateStory(detail);
+            path = "../story/" + detail.getDonationNo() + "?cp=" + cp;
+            message = "게시글이 수정되었습니다.";
+        }
+
+        return "redirect:" + path;
+    }
+
+    @PostMapping("/uploadSNoticeImageFile")
+    @ResponseBody
+    public String noticeUploadImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
+        JsonObject jsonObject = new JsonObject();
+
+        // String fileRoot = "C:\\Users\\cropr\\Desktop\\test"; // 외부경로로 저장을 희망할때.
+
+        // 내부경로로 저장
+        String webPath = "/resources/images/fileupload/";
+
+        String fileRoot = request.getServletContext().getRealPath(webPath);
+
+        String originalFileName = multipartFile.getOriginalFilename();
+        // String extension =
+        // originalFileName.substring(originalFileName.lastIndexOf("."));
+        String savedFileName = Util.fileRename(originalFileName);
+
+        File targetFile = new File(fileRoot + savedFileName);
+        try {
+            InputStream fileStream = multipartFile.getInputStream();
+            FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
+            jsonObject.addProperty("url", request.getContextPath() + webPath + savedFileName); // contextroot +
+            // resources + 저장할 내부
+            // 폴더명
+            jsonObject.addProperty("responseCode", "success");
+
+        } catch (IOException e) {
+            FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
+            jsonObject.addProperty("responseCode", "error");
+            e.printStackTrace();
+        }
+        String result = jsonObject.toString();
+        System.out.println("================================================= 이미지 는?? : : " + result);
+        return result;
+
+    }
 }
