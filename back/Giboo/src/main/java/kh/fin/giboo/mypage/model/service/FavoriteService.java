@@ -11,7 +11,6 @@ public interface FavoriteService {
 	
 	
 	
-	
 
 	int addfavorite(int memberNo, int volunteerNo);
 

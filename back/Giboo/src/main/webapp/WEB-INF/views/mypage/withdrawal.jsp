@@ -58,7 +58,7 @@
 								<div class="withdrawal_notice1">
 									<div class="withdrawal_container1">
 										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #8071FC;"> 회원탈퇴</span><span
+											style="color: #00CA61;"> 회원탈퇴</span><span
 											style="color: #767676;">에 대해 알려드립니다 😇</span>
 									</div>
 
