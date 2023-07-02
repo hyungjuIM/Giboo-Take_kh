@@ -97,7 +97,7 @@
         <div class="optionArea">
             <a href="" class="list">목록으로</a>
             <div>
-                <a href="" class="edit">수정</a>
+                <a href="${pageContext.request.contextPath}/donation/storyWrite?mode=update&cp=${cp}&no=${story.donationStoryNo}" class="edit">수정</a>
                 <button class="delete">삭제</button>
             </div>
         </div>

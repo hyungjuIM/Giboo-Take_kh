@@ -21,4 +21,12 @@ public interface DonationService {
     int updateViewCount(int donationStoryNo);
 
     int updateAmount(Map<String, Object> map);
+
+    int insertStory(DonationDetail detail);
+
+    int updateStory(DonationDetail detail);
+
+    int insertDonation(DonationDetail detail);
+
+    int updateDonation(DonationDetail detail);
 }
