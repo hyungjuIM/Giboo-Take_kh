@@ -1,4 +1,4 @@
-/*상단 나의 문의내역 */
+/*상단 메뉴 title */
 .page-title {
   
   background-color: var(--mainColor);
@@ -10,6 +10,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  position: relative;
+  z-index: 10;
 }
 
 .page-title span {
@@ -77,12 +80,12 @@
 
 }
 
-.memberChange_mainContainer .memberChange_mainContent {
+/* .memberChange_mainContainer .memberChange_mainContent {
 
   width: 100%;
   height: 100%;
   
-}
+} */
 
 
 .memberChange_notice {

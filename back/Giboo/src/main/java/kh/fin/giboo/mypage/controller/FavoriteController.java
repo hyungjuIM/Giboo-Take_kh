@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.member.model.vo.Member;
-import kh.fin.giboo.mypage.model.service.FavoriteService;
+//import kh.fin.giboo.mypage.model.service.FavoriteService;
 import kh.fin.giboo.volunteer.model.vo.Volunteer; 
   
   //즐겨찾기 컨트롤러
@@ -31,7 +31,7 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   public class FavoriteController {
   private Logger logger = LoggerFactory.getLogger(FavoriteController.class);
   
-  @Autowired private FavoriteService service;
+//  @Autowired private FavoriteService service;
   
   @ResponseBody
   @GetMapping("/volunteer/addFavorite") 
@@ -40,8 +40,10 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
 	         int volunteerNo)
    { 
 	    
+
 	  logger.info("memberNo" , memberNo);
 	  logger.info("volunteerNo" , volunteerNo);
+
 	    
 	  boolean isFavorite = service.checkFavorite(memberNo, volunteerNo);
 	  
