@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 public class EventMore {
 	private int eventNo; // 이벤트no
 	private String attachment; // 첨부파일
+	private String result;
 	private String eventTitle; // 이벤트 제목
 	private String enrollDate; // 등록일
 	private String endRecruitDate; // 마감일
