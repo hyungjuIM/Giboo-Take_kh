@@ -408,7 +408,7 @@ public class EventController {
 	                                    
 
 	              } else {
-	                  // stamp 삽입 실패 처리
+	                  // stamp   삽입 실패 처리
 	              }
 	              
 	              message = "사진 업로드 성공";

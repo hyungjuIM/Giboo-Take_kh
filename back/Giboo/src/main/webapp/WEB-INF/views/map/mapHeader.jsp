@@ -32,7 +32,7 @@
                         <div class="mhBoxTi">
                             <div class="mhTiDe">
                                 <div class="mhTiName">
-                                    <span>${mapDetailTop.agencyName}</span>
+                                    <span class="hagencyName" data-hagencyName="${mapDetailTop.agencyName}">${mapDetailTop.agencyName}</span>
                                     <div class="mhTiCa">
                                         <span>${mapDetailTop.parentCategoryName}</span>
                                     </div>
@@ -67,11 +67,11 @@
                                         </div>
                                         <span>|</span>
                                         <div class="mhBtnHe">
-                                            <a href="">
+                                            <a href="https://map.kakao.com/?sName=${address}&eName=${mapDetailTop.agencyName}" id="addressInput">
                                                 <div class="mhBtnHe_1">
                                                     <span><i class="fa-solid fa-location-dot"></i></span>
                                                 </div>
-                                                <span>위치찾기</span>
+                                                <span>길찾기</span>
                                             </a>
                                         </div>
                                         <span>|</span>
@@ -91,7 +91,9 @@
                     </div>
         
         
-    
+                    <input type="hidden" id="addressInput" value="${address}">
+                    <input type="hidden" id="cpInput" name="cp">
+                    
     
                     <script>
                         // 댓글 관련 JS 코드에 필요한 값을 전역 변수로 선언
