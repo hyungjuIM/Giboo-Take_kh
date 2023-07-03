@@ -36,10 +36,10 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   @Autowired 
   private FavoriteService service;
 
-  
+  // 봉사 즐겨찾기 추가
   @ResponseBody
   @GetMapping("/volunteer/addFavorite") 
-  public String addFavorite(
+  public String addFavoriteVolunteer(
 		  	 int memberNo,
 	         int volunteerNo)
    { 
@@ -48,14 +48,14 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
 	  logger.info("memberNo" , memberNo);
 	  logger.info("volunteerNo" , volunteerNo);
 
-	    
-	  boolean isFavorite = service.checkFavorite(memberNo, volunteerNo);
+	  // 즐겨찾기 중복 제거 
+	  boolean isFavorite = service.checkFavoriteVolunteer(memberNo, volunteerNo);
 	  
 	  if (isFavorite) {
 		  return "duplicate";
 	  }
 	  
-	  int result = service.addfavorite(memberNo,volunteerNo);
+	  int result = service.addFavoriteVolunteer(memberNo,volunteerNo);
 	  if (result > 0 ) {
 	        return "success";
 	    } else {
@@ -67,6 +67,66 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   
 	  
    }
+  
+  // 기부 즐겨찾기 추가
+  @ResponseBody
+  @GetMapping("/donation/addFavorite") 
+  public String addFavoriteDonation(
+		  	 int memberNo,
+	         int donationNo)
+   { 
+	    
+
+//	  logger.info("memberNo" , memberNo);
+//	  logger.info("donationNo" , donationNo);
+
+	    
+	  boolean isFavorite = service.checkFavoriteDonation(memberNo, donationNo);
+	  
+	  if (isFavorite) {
+		  return "duplicate";
+	  }
+	  
+	// 즐겨찾기 중복 제거 
+	  int result = service.addFavoriteDonation(memberNo,donationNo);
+	  if (result > 0 ) {
+	        return "success";
+	    } else {
+	        return "error";
+	    }
+  
+
+  
+  
+	  
+   }
+  	
+  
+  // 기부 즐겨찾기 삭제
+  @ResponseBody
+  @GetMapping("/donation/removeFavorite")
+  public String removeFavoriteDonation(int memberNo, int donationNo) {
+
+      logger.info("memberNo: " + memberNo);
+      logger.info("donationNo: " + donationNo);
+
+      
+
+      int result = service.removeFavoriteDonation(memberNo, donationNo);
+      if (result > 0) {
+          return "success";
+      } else {
+          return "error";
+      }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
   
   }
  

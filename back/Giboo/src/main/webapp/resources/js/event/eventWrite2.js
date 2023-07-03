@@ -1,6 +1,6 @@
-const imgInput = document.getElementById("imgInput");
-const imgInputPlaceholder = document.getElementById("imgInputPlaceholder");
+// const imgInput = document.getElementById("imgInput");
+// const imgInputPlaceholder = document.getElementById("imgInputPlaceholder");
 
-imgInput.addEventListener("change", () => {
-    imgInputPlaceholder.style.opacity = "0";
-});
+// imgInput.addEventListener("change", () => {
+//     imgInputPlaceholder.style.opacity = "0";
+// });

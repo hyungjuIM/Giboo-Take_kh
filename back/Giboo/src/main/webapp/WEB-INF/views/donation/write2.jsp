@@ -28,40 +28,40 @@
                 <li>
                     <div class="titleAreaInner">
                         <div class="listTitle">타이틀</div>
-                        <input type="text" id="titleInput" name="donationTitle" placeholder="제목을 입력해 주세요." value="${detail.donationTitle}">
+                        <input type="text" id="titleInput" name="donationTitle" placeholder="제목을 입력해 주세요.">
                     </div>
                 </li>
 
                 <li>
                     <div>
                         <div class="listTitle">모집일</div>
-                        <input type="date" id="startDate" name="startRecruitDate" data-placeholder="시작일" aria-required="true" value="${detail.startRecruitDate}">
+                        <input type="date" id="startDate" name="startRecruitDate" data-placeholder="시작일" aria-required="true">
                         <div class="margin">~</div>
-                        <input type="date" id="dueDate" name="endRecruitDate" data-placeholder="종료일" aria-required="true" value="${detail.endRecruitDate}">
+                        <input type="date" id="dueDate" name="endRecruitDate" data-placeholder="종료일" aria-required="true">
                     </div>
                 </li>
 
                 <li>
                     <div>
                         <div class="listTitle">진행일</div>
-                        <input type="date" id="beginDate" name="startProgressDate" data-placeholder="시작일" aria-required="true" value="${detail.startProgressDate}">
+                        <input type="date" id="beginDate" name="startProgressDate" data-placeholder="시작일" aria-required="true">
                         <div class="margin">~</div>
-                        <input type="date" id="endDate" name="endProgressDate" data-placeholder="종료일" aria-required="true" value="${detail.endProgressDate}">
+                        <input type="date" id="endDate" name="endProgressDate" data-placeholder="종료일" aria-required="true">
                     </div>
                 </li>
 
                 <li>
                     <div>
                         <div class="listTitle">목표 기부금</div>
-                        <input type="number" id="amount" name="targetAmount" placeholder="목표 기부금을 입력해 주세요." value="${detail.targetAmount}">
+                        <input type="number" id="amount" name="targetAmount" placeholder="목표 기부금을 입력해 주세요.">
                     </div>
                 </li>
 
                 <li>
                     <div>
                         <div class="listTitle">기부 지역</div>
-                        <input type="text" id="address" name="donationAddr" placeholder="주소를 입력해 주세요." readonly value="${detail.donationAddr}">
-                        <button type="button" id="searchAddress" onclick="sample5_execDaumPostcode()">주소검색</button>
+                        <input type="text" id="address" placeholder="주소를 입력해 주세요." readonly>
+                        <button type="button" id="searchAddress" name="donationAddr" onclick="sample5_execDaumPostcode()">주소검색</button>
                     </div>
                 </li>
 
@@ -91,15 +91,6 @@
                     <button class="delete">취소</button>
                 </div>
             </div>
-
-            <!-- 동작 구분 -->
-            <input type="hidden" name="mode" value="${param.mode}">
-
-            <!-- 게시글 번호 (커맨드객체 NoticeDetail.noticeNo 세팅) -->
-            <input type="hidden" name="donationNo" value="${empty param.no ? 0 : param.no}">
-
-            <!-- 현재 페이지 -->
-            <input type="hidden" name="cp" value="${param.cp}">
         </form>
     </div>
 </section>
@@ -125,7 +116,7 @@
         const mode = urlParams.get('mode');
         console.log(mode);
 
-        const content = "${detail.donationContent}";
+        const content = "${noticeDetail.noticeContent}";
 
         switch (mode) {
             case "insert":
