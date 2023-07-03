@@ -261,7 +261,7 @@ a{
 
 .buttonFocus {
     color: #FFFFFF !important;
-    background-color: #8071FC !important;
+    background-color: #00CA61; !important;
     transition-duration: 250ms;
 }
 
@@ -286,7 +286,7 @@ a{
 }
 
 .progressBarValue {
-    background: linear-gradient(to top, #8071FC 50%, #574da1);
+    background: linear-gradient(to top, #00CA61; 50%, #574da1);
     border-radius: 30px;
 
     width: 50%;

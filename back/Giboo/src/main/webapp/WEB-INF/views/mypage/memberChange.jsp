@@ -115,7 +115,7 @@
                                             </div>
 
                                             <div class="memberChange_con2_area memberChange_con2 notAddress">
-                                                <input type="text" name="updateAddress" id="postcode" value="${addr[0]}"
+                                                <input type="text" name="updateAddress" id="postcode" value="${loginMember.memberAddr.split(',,')[0]}"
                                                     maxlength="6" class="">
 
                                             </div>
@@ -125,13 +125,13 @@
                                         </div>
                                         <div class="addr_container_2">
                                             <div class="memberChange_con2">
-                                                <input type="text" name="updateAddress" id="address" value="${addr[1]}">
+                                                <input type="text" name="updateAddress" id="address" value="${loginMember.memberAddr.split(',,')[1]}">
 
                                             </div>
 
                                             <div class="memberChange_con2">
                                                 <input type="text" name="updateAddress" id="detailAddress"
-                                                    value="${addr[2]}">
+                                                    value="${loginMember.memberAddr.split(',,')[2]}">
                                             </div>
                                         </div>
                                     </div>
