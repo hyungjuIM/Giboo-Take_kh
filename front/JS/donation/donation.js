@@ -32,3 +32,21 @@ for (let i of button) {
         i.firstElementChild.src = "/images/chevron-right-solid-gray.svg";
     });
 }
+
+
+// 페이지네이션
+
+$(document).ready(function(){
+    $('.next').click(function(){
+        $('.pagination').find('.num.active').next().addClass('active');
+        $('.pagination').find('.num.active').prev().removeClass('active');
+
+    })
+
+    $('.prev').click(function(){
+        $('.pagination').find('.num.active').prev().addClass('active');
+        $('.pagination').find('.num.active').next().removeClass('active');
+
+    })
+
+})

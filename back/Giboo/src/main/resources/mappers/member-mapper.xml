@@ -79,11 +79,11 @@
 
 	<!-- 이메일 인증 -->
 	<!-- <update id="updateCertification"> UPDATE EMAIL_CERTIFICATION SET CERTIFICATION_NO 
-		= #{cNumber}, ISSUE_DT = SYSDATE WHERE EMAIL = #{email} </update> -->
+		= #{cNumber}, ISSUE_DT = CURRENT_DATE WHERE EMAIL = #{email} </update> -->
 
 	<insert id="insertCertification">
 		INSERT INTO EMAIL_CERTIFICATION (EMAIL, CERTIFICATION_NO, ISSUE_DT)
-		VALUES(#{memberEmail}, #{cNumber}, SYSDATE)
+		VALUES(#{memberEmail}, #{cNumber}, CURRENT_DATE)
 	</insert>
 
 	<select id="checkNumber" resultType="_int">
@@ -98,7 +98,7 @@
 		WHEN EXISTS (
 		SELECT '1' FROM EMAIL_CERTIFICATION
 		WHERE EMAIL = #{memberEmail}
-		AND ISSUE_DT + (INTERVAL '5' MINUTE) >= SYSDATE
+		AND ISSUE_DT + (INTERVAL '5' MINUTE) >= CURRENT_DATE
 		) THEN '1'
 		ELSE '2'
 		END
@@ -152,6 +152,7 @@
 	<update id="memberChange" parameterType="member">
 		UPDATE MEMBER SET
 		MEMBER_NAME = #{updateName},
+
 		MEMBER_TEL = #{updateTel},
 		MEMBER_ADDR = #{memberAddress}
 		WHERE

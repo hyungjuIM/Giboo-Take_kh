@@ -791,7 +791,9 @@ color: #111111;
 }
 
 .progressBarValue {
-    background: linear-gradient(to top, #61fbc2 50%, #00CA61);
+
+    background: linear-gradient(to top, #00CA61; 50%, #574da1);
+
     border-radius: 30px;
 
     width: 50%;

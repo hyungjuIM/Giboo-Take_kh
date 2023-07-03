@@ -105,7 +105,7 @@ public class MypageController {
 
 			// DB - Session의 회원정보 동기화(얕은 복사 활용)
 			loginMember.setMemberName((String) paramMap.get("updateName"));
-//			loginMember.setMemberNick((String) paramMap.get("updateNickname"));
+
 			loginMember.setMemberTel((String) paramMap.get("updateTel"));
 			loginMember.setMemberAddr((String) paramMap.get("memberAddress"));
 

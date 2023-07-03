@@ -103,8 +103,10 @@ public class DonationController {
         donationDetail.setDonationAmount(df.format(Integer.parseInt(donationDetail.getDonationAmount())));
         donationDetail.setTargetAmount(df.format(Integer.parseInt(donationDetail.getTargetAmount())));
 
-        model.addAttribute("donationDetail", donationDetail);
+        String unescapedContent = StringEscapeUtils.unescapeHtml(donationDetail.getDonationContent());
+        donationDetail.setDonationContent(unescapedContent);
 
+        model.addAttribute("donationDetail", donationDetail);
         return "donation/detail";
     }
 
@@ -182,6 +184,9 @@ public class DonationController {
             }
         }
 
+        String unescapedContent = StringEscapeUtils.unescapeHtml(story.getDonationStoryContent());
+        story.setDonationStoryContent(unescapedContent);
+
         model.addAttribute("story", story);
         return "donation/story";
     }
@@ -256,36 +261,53 @@ public class DonationController {
             path = "../donation/detail/" + detail.getDonationNo() + "?cp=" + cp;
             message = "게시글이 수정되었습니다.";
         }
-
         return "redirect:" + path;
     }
 
+    @GetMapping("/storyWrite")
+    public String storyWrite(String mode, @RequestParam(value = "no", required = false, defaultValue = "0") int no,
+                        Model model) {
+        logger.info("기부이야기 작성 페이지");
+
+        if (mode.equals("update")) {
+            DonationStory story = service.selectDonationStory(no);
+
+            story.setDonationStoryContent(story.getDonationStoryContent().replaceAll("&quot;", "&#039;"));
+
+            String unescapedContent = StringEscapeUtils.unescapeHtml(story.getDonationStoryContent());
+            story.setDonationStoryContent(unescapedContent);
+
+            model.addAttribute("story", story);
+        }
+
+        return "donation/storyWrite";
+    }
+
     @PostMapping("/storyWrite")
-    public String storyWrite(DonationDetail detail, @ModelAttribute("loginMember") Member loginMember,
+    public String storyWrite(DonationStory story, @ModelAttribute("loginMember") Member loginMember,
                          RedirectAttributes ra, HttpServletRequest req, String mode,
                          @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
         logger.info("기부이야기 등록");
 
-        detail.setMemberNo(loginMember.getMemberNo());
+        story.setMemberNo(loginMember.getMemberNo());
 
         String path = null;
         String message = null;
 
         if (mode.equals("insert")) {
-            int no = service.insertStory(detail);
-            path = "../story/" + no;
+            int no = service.insertStory(story);
+            path = "story/" + no;
             logger.info("게시글 등록 성공");
         } else {
-            int result = service.updateStory(detail);
-            path = "../story/" + detail.getDonationNo() + "?cp=" + cp;
+            int result = service.updateStory(story);
+            path = "story/" + story.getDonationStoryNo() + "?cp=" + cp;
             message = "게시글이 수정되었습니다.";
         }
-
         return "redirect:" + path;
     }
 
-    @PostMapping("/uploadSNoticeImageFile")
     @ResponseBody
+    @PostMapping("/uploadSNoticeImageFile")
     public String noticeUploadImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
         JsonObject jsonObject = new JsonObject();
 
@@ -318,6 +340,14 @@ public class DonationController {
         String result = jsonObject.toString();
         System.out.println("================================================= 이미지 는?? : : " + result);
         return result;
+    }
 
+    @GetMapping("storyDelete/{storyNo}")
+    public String storyDelete(@PathVariable("storyNo") int storyNo,
+                              @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+
+        service.storyDelete(storyNo);
+
+        return "redirect:../storyList?cp=" + cp;
     }
 }

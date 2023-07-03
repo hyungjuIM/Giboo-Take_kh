@@ -150,20 +150,25 @@ public class DonationServiceImpl implements DonationService {
     }
 
     @Override
-    public int insertStory(DonationDetail detail) {
-        detail.setDonationTitle(Util.XSSHandling(detail.getDonationTitle()));
-        detail.setDonationContent(Util.XSSHandling(detail.getDonationContent()));
-        detail.setDonationContent(Util.newLineHandling(detail.getDonationContent()));
+    public int insertStory(DonationStory story) {
+        story.setDonationStoryTitle(Util.XSSHandling(story.getDonationStoryTitle()));
+        story.setDonationStoryContent(Util.XSSHandling(story.getDonationStoryContent()));
+        story.setDonationStoryContent(Util.newLineHandling(story.getDonationStoryContent()));
 
-        return dao.insertStory(detail);
+        return dao.insertStory(story);
     }
 
     @Override
-    public int updateStory(DonationDetail detail) {
-        detail.setDonationTitle(Util.XSSHandling(detail.getDonationTitle()));
-        detail.setDonationContent(Util.XSSHandling(detail.getDonationContent()));
-        detail.setDonationContent(Util.newLineHandling(detail.getDonationContent()));
+    public int updateStory(DonationStory story) {
+        story.setDonationStoryTitle(Util.XSSHandling(story.getDonationStoryTitle()));
+        story.setDonationStoryContent(Util.XSSHandling(story.getDonationStoryContent()));
+        story.setDonationStoryContent(Util.newLineHandling(story.getDonationStoryContent()));
 
-        return dao.updateStory(detail);
+        return dao.updateStory(story);
+    }
+
+    @Override
+    public void storyDelete(int storyNo) {
+        dao.storyDelete(storyNo);
     }
 }

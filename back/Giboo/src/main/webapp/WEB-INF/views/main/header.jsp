@@ -53,10 +53,10 @@
 
 					<div class="gnb">
 						<div id="horizontal_underline"></div>
-						<a href="${pageContext.request.contextPath}/donation/home">기부하기</a>
-						<a href="${pageContext.request.contextPath}/volunteer/home">봉사하기</a>
-						<a href="${pageContext.request.contextPath}/event/eventList">이벤트</a>
-						<a href="${pageContext.request.contextPath}/map/mapList">위치찾기</a>
+						<a  class="headerACss" href="${pageContext.request.contextPath}/donation/home">기부하기</a>
+						<a class="headerACss" href="${pageContext.request.contextPath}/volunteer/home">봉사하기</a>
+						<a class="headerACss" href="${pageContext.request.contextPath}/event/eventList">이벤트</a>
+						<a class="headerACss" href="${pageContext.request.contextPath}/map/mapList">위치찾기</a>
 					</div>
 					<div class="user_sec">
 
@@ -70,11 +70,13 @@
 									<%-- 관리자로그인 시 --%>
 										<c:when test="${!empty sessionScope.loginManager}">
 											<!-- 관리자로 로그인한 경우에 대한 내용을 추가 -->
+											<div class="loginContainer_box">
 											<div class="nick_container">
-												<span id="nickName">${loginManager.managerNickname}</span>관리자님
+												<span id="nickName">${loginManager.managerNickname} </span>관리자님
 											</div>
 											<a href="${contextPath}/admin/managerlogout"
 														class="logout_Btn"><span>로그아웃</span></a>
+											</div>
 										</c:when>
 										<%-- 로그인 된 후 --%>
 											<c:otherwise>

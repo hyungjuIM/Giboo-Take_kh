@@ -62,8 +62,10 @@
 									</div>
 
 
+
 									<form action="withdrawal" method="POST" name="myPage-form"
 										onsubmit="return secessionValidate()">
+
 
 										<div class="withdrawal_container">
 											<div class="withdrawal_title1">회원탈퇴</div>
