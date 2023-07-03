@@ -178,7 +178,7 @@
 }
 .mypage_content_third button:hover{
 
-  color: #8071FC;
+  color: #00CA61;
     
   font-weight: 600;
   transition-duration: 0.2s;
@@ -186,7 +186,7 @@
 
 
 .mypage_content_container a:hover{   
-    color: #8071FC;
+    color: #00CA61;
     
     font-weight: 600;
     transition-duration: 0.2s;

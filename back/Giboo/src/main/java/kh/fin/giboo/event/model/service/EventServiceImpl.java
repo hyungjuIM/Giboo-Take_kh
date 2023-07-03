@@ -143,7 +143,6 @@ public class EventServiceImpl implements EventService{
 		return dao.selectEventDetailBoardPhoto(eventNo);
 	}
 
-
 	@Override
 	public boolean checkFavorite(int memberNo, int eventNo) {
 		return dao.checkFavorite(memberNo, eventNo);

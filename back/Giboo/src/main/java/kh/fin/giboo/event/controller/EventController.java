@@ -127,6 +127,7 @@ public class EventController {
 	
 	
 	// 이벤트 팝업(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
+
 	   @PostMapping(value="/eventDetailMain/{eventNo}")
 	   @Transactional
 	   public String insertPopup(
@@ -217,6 +218,7 @@ public class EventController {
 	      ra.addFlashAttribute("message",message);
 	      return "redirect:" + path;
 	   }
+
 	
 	
 
@@ -332,7 +334,7 @@ public class EventController {
 	
 	
 	// 참여보드 넘어갔을 때 
-	@PostMapping(value="/eventDetailBoardPhoto/{eventNo}")
+	   @PostMapping(value="/eventDetailBoardPhoto/{eventNo}")
 	   @Transactional
 	   public String eventDetailBoardPhotoinsertPopup(
 	          @PathVariable("eventNo") int eventNo,
@@ -423,7 +425,4 @@ public class EventController {
 	      return "redirect:" + path;
 	   }
 
-	
-
-	
 }

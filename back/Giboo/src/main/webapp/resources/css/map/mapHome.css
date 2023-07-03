@@ -14,7 +14,7 @@
 }
 
 .MsearchBar > form > input {
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     width: 358px;
     height: 42px;
     border-radius: 10px;
@@ -214,7 +214,7 @@
     /* width: 59px; */
     height: 27px;
     background: #F6F6F6;
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     border-radius: 100px;
     display: flex;
     justify-content: center;
@@ -223,7 +223,7 @@
 }
 
 .mhTiCa > span{
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     font-size: 14px;
     margin-left: 10px;
@@ -371,9 +371,9 @@
 /* 여기부터 홈 */
 
 .mhCa > a:nth-child(1){
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 600;
-    border-bottom: 1px solid  #8071FC;
+    border-bottom: 1px solid  #00CA61;
 }
 
 .mhDe{
@@ -408,7 +408,7 @@
 }
 
 .mhDeAddLink > a > span{
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     font-size: 14px;
 }
@@ -421,7 +421,7 @@
 }
 
 .mhDeAddLink_2 > a > span{
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     font-size: 14px;
     margin-right: 5px;

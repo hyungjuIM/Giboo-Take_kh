@@ -66,7 +66,7 @@
 								<div class="myask_notice1">
 									<div class="myask_container1">
 										<span style="color: #767676;">Giboo&Take에</span><span
-											style="color: #8071FC;"> 문의한 내역</span><span
+											style="color: #00CA61;"> 문의한 내역</span><span
 											style="color: #767676;">을 알려드립니다 😇</span>
 
 										<div class="myask_container2">
@@ -118,7 +118,7 @@
 													<td>기부>어르신</td>
 													<td><a href="${pageContext.request.contextPath}/mypage/myaskDetail">기부를 했을 때 연말정산에 반영되나요?</a></td>
 													<td>2023.05.24</td>
-													<td><span style="color: #8071FC;">미답변</span></td>
+													<td><span style="color: #00CA61;">미답변</span></td>
 												</tr>
 												<tr>
 													<td>5</td>

@@ -14,6 +14,7 @@ public class FavoriteDAO {
 	private SqlSessionTemplate sqlSession;
 	
 
+	
 	public int insertFavorite(int memberNo, int volunteerNo) {
 		
 		  Map<String, Object> map = new HashMap<>();

@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회원정보수정</title>
+<title>비밀번호변경</title>
 
 
 
@@ -51,63 +51,63 @@
 
 
 
-				<div class="myask_content_area">
-					<section class="mainContainer">
-						<div class="mainContent">
+				<div class="myask_content_area memberChange_content_area">
+					<section class="mainContainer memberChange_mainContainer">
+						<div class="mainContent memberChange_mainContent">
 							<section class="notice">
 
-								<div class="notice1">
-									<div class="container1">
-										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #8071FC;"> 비밀번호변경</span><span
-											style="color: #767676;">을 알려드립니다 😇</span>
 
-										<div class="changePw_C">
-											<form action="changePw" method="POST" name="myPage-form"
-												onsubmit="return changePwValidate()">
-
-
-												<%-- 
-							<div class="memberChange_title">
-								<label>새 비밀번호</label> <input type="password" name="newPw"
-									maxlength="30">
-							</div>  
-							
-							<div class="memberChange_title">
-								<label>새 비밀번호 확인</label> <input type="password"
-									name="newPwConfirm" maxlength="30">
-							</div>
-							
-							--%>
-
-
-												<div class="memberChange_title">
-													<span class="memberChange_con1">새 비밀번호</span> <span
-														class="memberChange_con2"> <span><i
-															class="fa-solid fa-fingerprint"></i></span> <input
-														type="password" name="newPw" maxlength="30"></span>
-												</div>
-
-
-
-
-												<div class="memberChange_title">
-													<span class="memberChange_con1">새 비밀번호 확인</span> <span
-														class="memberChange_con2"> <span><i
-															class="fa-solid fa-fingerprint"></i></span> <input
-														type="password" name="newPwConfirm" maxlength="30"></span>
-												</div>
-
-												<div class="memberChange_bottom">
-													<button class="memberChange_b">수정완료</button>
-
-
-
-												</div>
-
-											</form>
-										</div>
+								<div class="memberChange_notice">
+									<div class="memberChange_container1">
+										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
+											<span style="color: #00CA61;"> 비밀번호 수정 </span>에 대해 알려드립니다 😇
+										</span>
 									</div>
+
+								
+
+										<form action="changePw" method="POST" name="myPage-form"
+											onsubmit="return changePwValidate()">
+
+
+
+
+											<div class="memberChange_title">
+												<span class="memberChange_con1">새 비밀번호</span> <span
+													class="memberChange_con2"> <span><i
+														class="fa-solid fa-fingerprint"></i></span> <input
+													type="password" name="newPw" maxlength="30"></span>
+											</div>
+											<div class="messageContainer">
+												<span class="changeMessage">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로
+                                    입력해주세요.</span>
+											</div>
+
+
+
+
+											<div class="memberChange_title">
+												<span class="memberChange_con1">새 비밀번호 확인</span> <span
+													class="memberChange_con2"> <span><i
+														class="fa-solid fa-fingerprint"></i></span> <input
+													type="password" name="newPwConfirm" maxlength="30">
+												</span>
+												
+											</div>
+											<div class="messageContainer">
+												<span class="changeMessage">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로
+                                    입력해주세요.</span>
+											</div>
+
+											<div class="memberChange_bottom">
+												<button class="memberChange_b">수정완료</button>
+											</div>
+
+										</form>
+									
+
+
+
 								</div>
 							</section>
 						</div>
@@ -128,7 +128,7 @@
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</footer>
 
-<script>
+	<script>
 		const contextPath = "${contextPath}"; // 최상위 경로를 JS 전역변수로 선언
 	</script>
 

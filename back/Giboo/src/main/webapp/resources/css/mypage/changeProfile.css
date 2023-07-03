@@ -1,28 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
-* {
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-family: 'Open Sans', sans-serif;
-}
-
-
-body {
-  margin: 0;
-  background-color: white;
-  color: #000;
-  line-height: 1.6em;
-
-  display: flex;
-  flex-direction: column;
-}
 
 /*상단 나의 문의내역 */
 .page-title {
-  background-color: #8071FC;
+
+  
+  background-color: var(--mainColor);
+
+
+ 
 
   width: 100%;
   height: 80px;
@@ -33,104 +20,110 @@ body {
 }
 
 .page-title span {
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 22px;
   color: white;
   text-align: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NanumSquareNeo';
 }
 
 /*title 아래 전체 container*/
 .mypage-container {
+
   display: flex;
   justify-content: center;
 }
 
 /*title 아래 전체 container 중 width 1200px*/
 .mypage_wrapper {
+
   width: 1200px;
   display: flex;
   flex-direction: row;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
-
-
-
-/*===========================================*/
-/* 왼쪽 네비바 */
 
 
 
 /*------------------body-content------------------*/
 /* 오른쪽 문의한 내역*/
-.myask_content_area{
-  width : 940px;
+.memberChange_content_area {
+  width : 75%;
   background-color: #f6f6f6;
 
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);   
+
 }
 
 
 
-.mainContainer {
-  width: 860px;
-  height: 720px;
+.memberChange_mainContainer {
 
-  margin-top : 66px;
+  width: 90%;
+  margin :  66px 30px;
 
   display: flex;
   justify-content: center;
-  font-family: 'Noto Sans KR', sans-serif;
-
   background: #FFFFFF;
-    border: 0.5px solid #BDBDBD;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+  border: 1px solid var(--etcColor);
+  border-radius: 20px;
+  padding: 24px 30px;
 
 }
-.notice{
-  margin : 20px;
+
+.memberChange_mainContainer .memberChange_mainContent {
+
+  width: 100%;
+  height: 100%;
+  
+}
+
+
+.memberChange_notice {
   display: flex;
   flex-direction: column;
-}
-
-.mainContent {
-  width: 1080px;
-}
-
-.notice1{
-  margin: 20px;
-}
-
-
-.container1{
-
-    padding-top: 20px;
-    font-size: 20px;
-    font-weight: 500;
-	margin : 0 20px;
-}
-
-span{
-  font-family: 'Noto Sans KR', sans-serif;
-}
-
-.memberChange_Con{
-  margin-top: 100px;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
 }
 
 
+
+
+.memberChange_container1 {
+  margin-top: 10px;
+  margin-bottom: 12px;
+  padding: 12px;
+  
+
+}
+
+.memberChange_container1 span {
+  font-family: 'NanumSquareNeo';
+  font-size: 16px;
+  font-weight: 500;
+
+}
+
+.memberChange_container1 span:nth-child(1){
+  font-weight: 600;
+}
 
 
 /* 프로필 */
 
 /* 프로필 이미지 영역 */
+
+.profileC{
+  display: flex;
+  justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
 .profile-image-area{
     width: 250px;
     height: 250px;
@@ -141,8 +134,7 @@ span{
     justify-content: center;
     align-items: center;
 
-    position : relative;
-    
+    position : relative;   
 }  
 
 /* 프로필 이미지 */
@@ -151,6 +143,9 @@ span{
     height: 100%;
     border-radius: 50%;
 }
+
+
+
 
 /* 프로필 버튼 영역 */
 .profile-btn-area{
@@ -171,7 +166,7 @@ span{
   font-size: 16px;
   font-weight: 600;
   color: #FFFFFF;
-  border-radius: 15px;
+  border-radius: 5px;
   cursor: pointer;
   margin: 0px 10px;
   padding: 8px;
@@ -192,6 +187,63 @@ span{
 }
 
 .myPage-row{
-  display: flex;
+  font-family: 'NanumSquareNeo';
+    color: #828282;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
     justify-content: center;
+}
+
+/* ------------------------ */
+
+.memberChange_bottom{
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin : 30px 0px;
+}
+
+
+.imageS {
+  background-color: var(--etcColor);
+}
+
+.imageS:hover,
+.memberChange_b:hover
+{
+  background-color: var(--mainColor);
+  font-weight: 600;
+}
+
+.imageS,
+.memberChange_b {
+  border: none;
+  font-family: 'NanumSquareNeo';
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--etcColor);
+  width: 130px;
+  height: 46px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.imageS > *{
+  cursor : pointer;
+}
+
+.button_bottom{
+  display: flex;
+  flex-direction: row;
+  margin: 40px 0px;
 }

@@ -1,9 +1,11 @@
 package kh.fin.giboo.volunteer.model.service;
 
+import kh.fin.giboo.mypage.model.vo.Favorite;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
 import org.springframework.ui.Model;
 
+import java.util.List;
 import java.util.Map;
 
 public interface VolunteerService {
@@ -17,4 +19,6 @@ public interface VolunteerService {
     VolunteerStory selectVolunteerStory(int volunteerStoryNo);
 
     int updateViewCount(int volunteerStoryNo);
+
+    List<Favorite> getFavoriteList(int memberNo);
 }

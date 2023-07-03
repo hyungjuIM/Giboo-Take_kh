@@ -5,7 +5,8 @@ const all = document.getElementById("all");
 
 const searchParams = new URLSearchParams(location.search);
 const category = searchParams.get('category');
-const categoryButton = document.getElementById(category);
+const categoryNo = "category" + category;
+const categoryButton = document.getElementById(categoryNo);
 
 $(document).ready(function () {
     if (category == null) {

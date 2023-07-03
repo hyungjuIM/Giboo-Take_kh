@@ -13,8 +13,7 @@ public class FavoriteServiceImpl implements FavoriteService{
 	@Autowired
 	private FavoriteDAO dao;
 	
-		
-		
+			
 		
 	
 

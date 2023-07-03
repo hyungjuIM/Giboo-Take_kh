@@ -61,7 +61,7 @@
                 <section class="cs-faqContainer">
                     <div class="faqContent">
                         <div class="faqNotice">
-                            <span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의 &nbsp;</span><span style="color: #8071FC; font-weight: bold; font-size: 20px;">
+                            <span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의 &nbsp;</span><span style="color: #00CA61; font-weight: bold; font-size: 20px;">
                                  자주 찾으시는 목록 Best 10</span><span style="color: #767676;">을 알려드립니다 😇</span>
                         </div>
 

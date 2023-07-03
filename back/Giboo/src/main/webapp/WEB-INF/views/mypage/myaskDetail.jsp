@@ -61,7 +61,7 @@
 								<div class="myaskdetail_notice1">
 									<div class="myaskdetail_container1">
 										<span style="color: #767676;">Giboo&Take에</span><span
-											style="color: #8071FC;"> 문의한 내역</span><span
+											style="color: #00CA61;"> 문의한 내역</span><span
 											style="color: #767676;">에 대한 상세페이지 입니다 😇</span>
 									</div>
 								</div>

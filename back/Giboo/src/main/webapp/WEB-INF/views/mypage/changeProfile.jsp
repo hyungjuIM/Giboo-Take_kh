@@ -52,65 +52,68 @@
 
 
 
-				<div class="myask_content_area">
-					<section class="mainContainer">
-						<div class="mainContent">
+				<div class="myask_content_area memberChange_content_area">
+					<section class="mainContainer memberChange_mainContainer">
+						<div class="mainContent memberChange_mainContent">
 							<section class="notice">
 
-								<div class="notice1">
-									<div class="container1">
-										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #8071FC;"> 프로필 이미지 변경</span><span
-											style="color: #767676;">에 대해 알려드립니다 😇</span>
 
-						<div class="memberChange_Con">			
-						<form action="changeProfile" method="POST" name="myPage-form"
-							enctype="multipart/form-data" onsubmit="return profileValidate()">
-
-							<%-- =====프로필 이미지====== --%>
-							<div class="profile-image-area">
-
-								<c:if test="${empty loginMember.profileImg}">
-									<img src="${contextPath}/resources/images/11 3.png"
-										id="profile-image">
-								</c:if>
-
-								<c:if test="${!empty loginMember.profileImg}">
-									<img src="${contextPath}${loginMember.profileImg}"
-										id="profile-image">
-								</c:if>
-
-								<%-- 프로필 이미지 삭제 버튼 --%>
-								<span id="delete-image">x</span>
-
-							</div>
-
-
-							<div class="profile-btn-area">
-								<label for="input-image">이미지 선택</label> 
-								<input type="file" name="uploadImg" id="input-image" accept="image/*">
-
-								<button type="submit">변경하기</button>
-							</div>
-
-								
-
-							</div>
-							
-							<div class="myPage-row">
-                        <label>가입일</label>
-                        <span>${loginMember.enrollDt}</span>
-                    </div>
-
-							<!-- 삭제버튼(x)이 눌러짐을 기록하는 숨겨진 input 태그 -->
-							<!-- 0 : 안눌러짐   /   1: 눌러짐 -->
-							<input type="hidden" name="delete" id="delete" value="0">
-						</form>
-								</div>			
-										
-										
-										</div>
+								<div class="memberChange_notice">
+									<div class="memberChange_container1">
+										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
+											<span style="color: #00CA61;"> 회원프로필 이미지 변경 </span>에 대해
+											알려드립니다 😇
+										</span>
 									</div>
+
+							
+
+
+									<form action="changeProfile" method="POST" name="myPage-form"
+										enctype="multipart/form-data"
+										onsubmit="return profileValidate()">
+										<div class="profileC">
+											<div class="profile-image-area">
+
+												<c:if test="${empty loginMember.profileImg}">
+													<img src="${contextPath}/resources/images/11 3.png"
+														id="profile-image">
+												</c:if>
+
+												<c:if test="${!empty loginMember.profileImg}">
+													<img src="${contextPath}${loginMember.profileImg}"
+														id="profile-image">
+												</c:if>
+
+												<span id="delete-image">x</span>
+
+											</div>
+										</div>
+
+
+
+										<div class="memberChange_bottom">
+
+											<div class="button_bottom">
+												<div class="imageS">
+													<label for="input-image">이미지 선택</label> <input type="file"
+														name="uploadImg" id="input-image" accept="image/*">
+												</div>
+												<button class="memberChange_b">수정완료</button>
+											</div>
+										</div>
+
+
+										<div class="myPage-row">
+											<label>가입일</label> <span>${loginMember.enrollDt}</span>
+										</div>
+
+										<input type="hidden" name="delete" id="delete" value="0">
+									</form>
+
+
+
+								</div>
 							</section>
 						</div>
 					</section>
@@ -119,6 +122,9 @@
 
 			</div>
 		</div>
+
+
+
 	</main>
 
 
@@ -126,13 +132,13 @@
 	<footer>
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</footer>
-	
-		<script>
-  const contextPath = "${pageContext.request.contextPath}";
-</script>
-		
-	
-		<script
+
+	<script>
+		const contextPath = "${pageContext.request.contextPath}";
+	</script>
+
+
+	<script
 		src="${pageContext.request.contextPath}/resources/js/mypage/memberChange.js"></script>
 
 

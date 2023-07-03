@@ -4,8 +4,7 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'NanumSquareNeo';
 }
 
 
@@ -133,7 +132,7 @@ body {
 .alert_detailCategory {
     width: 61px;
     height: 24px;
-    border: 1px solid #8071fc;
+    border: 1px solid #00CA61;
     font-size: 12px;
 
     border-radius: 50px;
@@ -148,7 +147,7 @@ body {
     display: flex;
     align-items: center;
 }
-
+  
 
 .alert_updateDate {
     margin-left: 8px;
@@ -164,12 +163,15 @@ body {
 .alert_titleContainerA {
     align-items: center;
     display: flex;
+    font-family: 'NanumSquareNeo';
+    color: #828282;
+    
 }
 
 .alert_titleContainer {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    margin: 0px 20px;
 }
 
 .alertTitle {

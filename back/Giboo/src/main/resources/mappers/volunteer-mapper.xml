@@ -24,6 +24,7 @@
         <result property="memberId" column="MEMBER_ID" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
+        <result property="favVolunteerNo" column="FAV_VOLUNTEER_NO" />
     </resultMap>
 
     <resultMap id="volunteerDetail_rm" type="volunteerDetail">
@@ -69,6 +70,14 @@
         <result property="memberNo" column="MEMBER_NO"/>
     </resultMap>
 
+    <resultMap id="favorite_rm" type="favorite">
+        <id property="favoriteNo" column="FAVORITE_NO" />
+        <result property="favoriteStatus" column="FAVORITE_STATUS" />
+        <result property="memberNo" column="FAV_MEMBER_NO" />
+        <result property="donationNo" column="FAV_DONATION_NO" />
+        <result property="volunteerNo" column="FAV_VOLUNTEER_NO" />
+    </resultMap>
+
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
         FROM PARENT_CATEGORY
@@ -107,8 +116,14 @@
         SELECT VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME
         FROM VOLUNTEER V, AGENCY A
         WHERE VOLUNTEER_NO = ${volunteerNo}
-          AND VOLUNTEER_DELETE_STATUS = 'N'
+        AND VOLUNTEER_DELETE_STATUS = 'N'
         AND V.AGENCY_NO = A.AGENCY_NO
+    </select>
+    
+    <select id="getFavoriteList" resultMap="favorite_rm">
+        SELECT FAV_VOLUNTEER_NO
+        FROM FAVORITES
+        WHERE FAV_MEMBER_NO = ${memberNo}
     </select>
 
     <select id="volunteerListCount" resultType="_int">
