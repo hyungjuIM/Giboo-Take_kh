@@ -4,6 +4,7 @@
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 
 
 
@@ -18,11 +19,15 @@ public interface FavoriteService {
 
 	
 
-	int addFavoriteDonation(int memberNo, int donationNo);
+	int addFavoriteDonation(int memberNo, int donationNo );
 	
 	boolean checkFavoriteDonation(int memberNo, int donationNo);
 
-	int removeFavoriteDonation(int memberNo, int donationNo);
+	int deleteFavoriteDonation(int memberNo, int donationNo);
+
+	Map<String, Object> selectListFavorite(int cp, Model model);
+
+	
 	
 	
 	

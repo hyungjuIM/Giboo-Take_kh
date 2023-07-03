@@ -166,35 +166,29 @@
 
              $.ajax ({
                  url: "addFavorite",
-                 data: {"memberNo" : ${loginMember.memberNo}, "donationNo" : i.id},
+                 data: {"memberNo" : ${loginMember.memberNo}, 
+                        "donationNo" : i.id},
                  
                 success: function(result) {
                     if (result == "success") {
-                        if (i.innerHTML == "🤍") {
-                            i.innerHTML = '❤️';
-                           console.log("성공");
-                        } else {
-                            i.innerHTML = '🤍'; 
-                        }
-                    } else {
                         
+                            i.innerHTML = '❤️';
+                           
+                    } else {
+                        i.innerHTML = '🤍'; 
                     }
                 }
             })
 
             $.ajax ({
-                url: "removeFavorite",
+                url: "deleteFavorite",
                 data: {"memberNo" : ${loginMember.memberNo}, "donationNo" : i.id},
 
                 success: function(result) {
                     if (result == "success") {
-                        if(i.innerHTML =="❤️") {
-                            i.innerHTML = "🤍";
-                        }else {
-                            i.innerHTML = "❤️";
-                        }
+                        i.innerHTML = '🤍'; 
                     } else {
-                       
+                        i.innerHTML = "❤️";
                     }
                 }
             })

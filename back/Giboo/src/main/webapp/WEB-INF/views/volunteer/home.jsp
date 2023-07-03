@@ -169,7 +169,8 @@
 
              $.ajax ({
                  url: "addFavorite",
-                 data: {"memberNo" : ${loginMember.memberNo}, "volunteerNo" : i.id},
+                 data: {"memberNo" : ${loginMember.memberNo}, 
+                        "volunteerNo" : i.id},
                  
                 success: function(result) {
                     if (result == "success") {

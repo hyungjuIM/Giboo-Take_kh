@@ -41,14 +41,15 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   @GetMapping("/volunteer/addFavorite") 
   public String addFavoriteVolunteer(
 		  	 int memberNo,
-	         int volunteerNo)
+	         int volunteerNo
+	         )
    { 
 	    
 
 	  logger.info("memberNo" , memberNo);
 	  logger.info("volunteerNo" , volunteerNo);
 
-	  // 즐겨찾기 중복 제거 
+	  // 봉사 즐겨찾기 중복 제거 
 	  boolean isFavorite = service.checkFavoriteVolunteer(memberNo, volunteerNo);
 	  
 	  if (isFavorite) {
@@ -72,24 +73,26 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   @ResponseBody
   @GetMapping("/donation/addFavorite") 
   public String addFavoriteDonation(
-		  	 int memberNo,
-	         int donationNo)
+		  @RequestParam int memberNo,
+		    @RequestParam int donationNo
+		    )
    { 
 	    
 
-//	  logger.info("memberNo" , memberNo);
-//	  logger.info("donationNo" , donationNo);
+	  logger.info("memberNo" , memberNo);
+	  logger.info("donationNo" , donationNo);
+	 
 
-	    
+	// 기부 즐겨찾기 중복 제거 
 	  boolean isFavorite = service.checkFavoriteDonation(memberNo, donationNo);
 	  
 	  if (isFavorite) {
 		  return "duplicate";
 	  }
 	  
-	// 즐겨찾기 중복 제거 
-	  int result = service.addFavoriteDonation(memberNo,donationNo);
-	  if (result > 0 ) {
+	
+	  int result = service.addFavoriteDonation(memberNo, donationNo);
+	    if (result > 0 ) {
 	        return "success";
 	    } else {
 	        return "error";
@@ -104,15 +107,15 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   
   // 기부 즐겨찾기 삭제
   @ResponseBody
-  @GetMapping("/donation/removeFavorite")
-  public String removeFavoriteDonation(int memberNo, int donationNo) {
+  @GetMapping("/donation/deleteFavorite")
+  public String deleteFavoriteDonation(int memberNo, int donationNo) {
 
       logger.info("memberNo: " + memberNo);
       logger.info("donationNo: " + donationNo);
 
       
 
-      int result = service.removeFavoriteDonation(memberNo, donationNo);
+      int result = service.deleteFavoriteDonation(memberNo, donationNo);
       if (result > 0) {
           return "success";
       } else {
@@ -120,6 +123,26 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
       }
   }
   
+  // 기부, 봉사, 이벤트 조회
+  @GetMapping("/selectListFavorite")
+  public String selectListFavorite (@RequestParam(value= "cp",required = false, defaultValue ="1") int cp, 
+		  Model model ) {
+	  
+	  System.out.println("qwertyuiop--------------");
+	  
+	  Map<String,Object> map = null;
+	  
+	  map = service.selectListFavorite(cp, model);
+	  
+	  logger.info("이거의값은???????" + map);
+	  model.addAttribute("map", map); 
+	  
+	  
+	  return "myPage/favorite"; 
+	  
+	  
+	  
+  }
   
   
   

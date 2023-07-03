@@ -94,7 +94,7 @@ public class DonationDAO {
 
 	public List<Favorite> getFavoriteList(int memberNo) {
 		
-		return sqlSession.selectList("volunteerMapper.getFavoriteList", memberNo);
+		return sqlSession.selectList("donationMapper.getFavoriteList", memberNo);
 	}
 
 	
