@@ -152,7 +152,7 @@
 	<update id="memberChange" parameterType="member">
 		UPDATE MEMBER SET
 		MEMBER_NAME = #{updateName},
-		
+
 		MEMBER_TEL = #{updateTel},
 		MEMBER_ADDR = #{memberAddress}
 		WHERE

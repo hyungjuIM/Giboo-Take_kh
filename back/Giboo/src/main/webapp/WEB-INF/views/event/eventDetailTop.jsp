@@ -99,6 +99,16 @@
                             </c:choose>
                         </div>
                     </div>
+                    <%--     ============================== --%>
+                    <div class="eParMoreWrap">
+           				 <div class="eParMoreBox">
+                			<jsp:include page="/WEB-INF/views/event/eventParticiMore.jsp" />
+           				 </div>
+        			</div>
+                	<%-- ============================== --%>
+                    
+                    
+                    
                     <div class="edBtn">
                         <div class="edBtnDe memberChange_bottom">
                             <button id="popupButton" class="memberChange_b">이벤트 함께하기</button>                        
