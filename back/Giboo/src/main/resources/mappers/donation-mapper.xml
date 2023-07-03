@@ -71,9 +71,9 @@
     <resultMap id="favorite_rm" type="favorite">
         <id property="favoriteNo" column="FAVORITE_NO" />
         <result property="favoriteStatus" column="FAVORITE_STATUS" />
-        <result property="memberNo" column="FAV_MEMBER_NO" />
-        <result property="donationNo" column="FAV_DONATION_NO" />
-        <result property="volunteerNo" column="FAV_VOLUNTEER_NO" />
+        <result property="memberNo" column="MEMBER_NO" />
+        <result property="donationNo" column="DONATION_NO" />
+        <result property="volunteerNo" column="VOLUNTEER_NO" />
     </resultMap>
 
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
@@ -117,9 +117,9 @@
     </select>
     
     <select id="getFavoriteList" resultMap="favorite_rm">
-        SELECT FAV_DNATION_NO
+        SELECT DONATION_NO
         FROM FAVORITES
-        WHERE FAV_MEMBER_NO = ${memberNo}
+        WHERE MEMBER_NO = ${memberNo}
     </select>
 
     <select id="getDonationListCount" resultType="_int">
@@ -183,7 +183,7 @@
             TARGET_AMOUNT = ${targetAmount},
             DONATION_ADDR = #{donationAddr},
             DONATION_CONTENT = #{donationContent},
-            ENROLL_DATE = SYSDATE
+            ENROLL_DATE = CURRENT_DATE
         WHERE DONATION_NO = ${donationNo}
     </update>
     
@@ -195,7 +195,7 @@
 
     <select id="getStoryList" resultMap="donationStory_rm">
         SELECT DONATION_STORY_NO, DONATION_STORY_TITLE, DONATION_STORY_CONTENT, M.MEMBER_NICK, VIEW_COUNT,
-        CASE WHEN SYSDATE - DS.ENROLL_DT &lt; 1
+        CASE WHEN CURRENT_DATE - DS.ENROLL_DT > 1
             THEN TO_CHAR(DS.ENROLL_DT, 'YYYY-MM-DD')
         ELSE TO_CHAR(DS.ENROLL_DT, 'HH:MI')
         END ENROLL_DT
@@ -222,4 +222,34 @@
         SET VIEW_COUNT = VIEW_COUNT + 1
         WHERE DONATION_STORY_NO = ${donationStoryNo}
     </update>
+
+    <insert id="insertStory" parameterType="donationStory" useGeneratedKeys="true">
+        <selectKey keyProperty="donationStoryNo"  resultType="_int"  order="BEFORE">
+            SELECT SEQ_DONATION_STORY_NO.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO DONATION_STORY
+        VALUES (
+                ${donationStoryNo},
+                #{donationStoryTitle},
+                #{donationStoryContent},
+                NULL,
+                DEFAULT,
+                DEFAULT,
+                DEFAULT,
+                ${memberNo}
+        )
+    </insert>
+
+    <update id="updateStory">
+        UPDATE DONATION_STORY
+        SET DONATION_STORY_TITLE = #{donationStoryTitle},
+            DONATION_STORY_CONTENT = #{donationStoryContent},
+            ENROLL_DT = DEFAULT
+        WHERE DONATION_STORY_NO = ${donationStoryNo}
+    </update>
+
+    <delete id="storyDelete">
+        DELETE DONATION_STORY
+        WHERE DONATION_STORY_NO = ${storyNo}
+    </delete>
 </mapper>

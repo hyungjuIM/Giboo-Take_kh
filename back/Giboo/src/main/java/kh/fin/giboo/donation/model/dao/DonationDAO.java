@@ -91,10 +91,9 @@ public class DonationDAO {
         return sqlSession.update("donationMapper.updateAmount", map);
     }
 
-	  public List<Favorite> getFavoriteList(int memberNo) {
-		
-		    return sqlSession.selectList("volunteerMapper.getFavoriteList", memberNo);
-	  }
+    public List<Favorite> getFavoriteList(int memberNo) {
+        return sqlSession.selectList("donationMapper.getFavoriteList", memberNo);
+    }
 
     public int insertDonation(DonationDetail detail) {
         int result = sqlSession.insert("donationMapper.insertDonation", detail);
@@ -110,17 +109,21 @@ public class DonationDAO {
         return sqlSession.update("donationMapper.updateDonation", detail);
     }
 
-    public int insertStory(DonationDetail detail) {
-        int result = sqlSession.insert("donationMapper.insertStory", detail);
+    public int insertStory(DonationStory story) {
+        int result = sqlSession.insert("donationMapper.insertStory", story);
 
         if (result > 0) {
-            result = detail.getDonationNo();
+            result = story.getDonationStoryNo();
         }
 
         return result;
     }
 
-    public int updateStory(DonationDetail detail) {
-        return sqlSession.update("donationMapper.updateStory", detail);
+    public int updateStory(DonationStory story) {
+        return sqlSession.update("donationMapper.updateStory", story);
+    }
+
+    public void storyDelete(int storyNo) {
+        sqlSession.delete("donationMapper.storyDelete", storyNo);
     }
 }
