@@ -38,8 +38,10 @@ body {
 
 /*상단 메뉴 title */
 .page-title {
+
   
   background-color: var(--mainColor);
+
 
 
   width: 100%;

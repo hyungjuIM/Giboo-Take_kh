@@ -296,7 +296,7 @@ color: #111111;
 
 /* ------------카테고리 변경 시마다 색 변경하기----------- */
 .edEventintro:nth-child(2){
-    border-bottom: 2px solid #8071FC !important;
+    border-bottom: 2px solid #00CA61; !important;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -304,7 +304,7 @@ color: #111111;
 }
 
 .edEventintro:nth-child(2) > a > span{
-    color: #8071FC !important;
+    color: #00CA61; !important;
 }
 
 .edEventintro:nth-child(1){
