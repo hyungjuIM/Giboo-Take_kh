@@ -72,6 +72,15 @@ eFavBtn.addEventListener("click", function() {
 })
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+>>>>>>> 7b9f18d3ac535e541df6fc4b1e71ff21633d6a0a
 // 더보기 슬라이드
 jQuery.noConflict();
 
@@ -141,3 +150,10 @@ jQuery(function($) {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+});
+
+>>>>>>> 7b9f18d3ac535e541df6fc4b1e71ff21633d6a0a
