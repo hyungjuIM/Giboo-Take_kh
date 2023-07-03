@@ -124,15 +124,13 @@ public class DonationServiceImpl implements DonationService {
         return dao.updateAmount(map);
     }
 
-
-	@Override
-	public List<Favorite> getFavoriteList(int memberNo) {
+	  @Override
+	  public List<Favorite> getFavoriteList(int memberNo) {
 		
-		return dao.getFavoriteList(memberNo);
-	}
+		  return dao.getFavoriteList(memberNo);
+	  }
     
     
-
     @Override
     public int insertDonation(DonationDetail detail) {
         detail.setDonationTitle(Util.XSSHandling(detail.getDonationTitle()));
@@ -168,5 +166,4 @@ public class DonationServiceImpl implements DonationService {
 
         return dao.updateStory(detail);
     }
-
 }

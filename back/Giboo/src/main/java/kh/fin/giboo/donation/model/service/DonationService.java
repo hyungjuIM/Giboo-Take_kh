@@ -25,9 +25,8 @@ public interface DonationService {
 
     int updateAmount(Map<String, Object> map);
 
-
-	List<Favorite> getFavoriteList(int memberNo);
-
+	  List<Favorite> getFavoriteList(int memberNo);
+  
     int insertStory(DonationDetail detail);
 
     int updateStory(DonationDetail detail);
@@ -35,5 +34,4 @@ public interface DonationService {
     int insertDonation(DonationDetail detail);
 
     int updateDonation(DonationDetail detail);
-
 }
