@@ -25,13 +25,15 @@ public interface DonationService {
 
     int updateAmount(Map<String, Object> map);
 
-	  List<Favorite> getFavoriteList(int memberNo);
+    List<Favorite> getFavoriteList(int memberNo);
   
-    int insertStory(DonationDetail detail);
+    int insertStory(DonationStory story);
 
-    int updateStory(DonationDetail detail);
+    int updateStory(DonationStory story);
 
     int insertDonation(DonationDetail detail);
 
     int updateDonation(DonationDetail detail);
+
+    void storyDelete(int storyNo);
 }
