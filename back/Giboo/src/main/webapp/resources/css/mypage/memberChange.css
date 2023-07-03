@@ -240,11 +240,9 @@ input::placeholder {
 
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   margin-bottom: 5px;
-  /* margin-left: 202px;
-  margin-right: 20px; */
+  margin-left: 140px;
 }
 
 .memberChange_bottom button:not(.memberChange_w){
@@ -294,7 +292,6 @@ input::placeholder {
   font-family: 'NanumSquareNeo';
   font-weight: 500;
   font-size: 14px;
-  margin-left: 24px;
 }
 
 .memberChange_w{
@@ -318,7 +315,7 @@ input::placeholder {
   color : #FFFFFF;
 }
 
-
+.memberChange_w:hover,
 .memberChange_bottom button:hover{
   background-color: var(--mainColor);
   font-weight: 600;
@@ -394,5 +391,8 @@ input::placeholder {
 .memberChange_address{
   margin-left: 10px;
 }
+
+
+.
 
 

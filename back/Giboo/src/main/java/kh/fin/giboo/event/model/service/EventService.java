@@ -13,6 +13,7 @@ import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
 import kh.fin.giboo.event.model.vo.EventDetailTop;
 import kh.fin.giboo.event.model.vo.EventList;
+import kh.fin.giboo.event.model.vo.EventMore;
 import kh.fin.giboo.event.model.vo.EventPopup;
 import kh.fin.giboo.event.model.vo.EventStickerBar;
 import kh.fin.giboo.mypage.model.vo.MyActiveEventList;
@@ -45,11 +46,14 @@ public interface EventService {
 	List<EventDetailBoardPhoto> selectEventDetailBoardPhoto(int eventNo);
 
 
+
 	boolean checkFavorite(int memberNo, int eventNo);
 
 	int insertFav(int memberNo, int eventNo);
 
 	boolean checkAlreadyJoined(int memberNo, int eventNo);
+
+	List<EventMore> selectEventMore(int eventNo);
 
 
 

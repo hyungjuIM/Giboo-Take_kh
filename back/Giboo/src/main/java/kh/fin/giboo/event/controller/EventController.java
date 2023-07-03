@@ -36,6 +36,7 @@ import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
 import kh.fin.giboo.event.model.vo.EventDetailTop;
 import kh.fin.giboo.event.model.vo.EventList;
+import kh.fin.giboo.event.model.vo.EventMore;
 import kh.fin.giboo.event.model.vo.EventPopup;
 import kh.fin.giboo.event.model.vo.EventStickerBar;
 import kh.fin.giboo.event.Util;
@@ -99,6 +100,10 @@ public class EventController {
 			List<EventStickerBar> eventStickerBar = service.selectEventStickerBar(eventNo);
 			model.addAttribute("eventStickerBar",eventStickerBar);
 			logger.info("이벤트스티커바???" + eventStickerBar);
+			
+			List<EventMore> eventMore = service.selectEventMore(eventNo);
+			model.addAttribute("eventMore",eventMore);
+			logger.info("이벤트 더보기???" + eventMore);
 		}
 		
 		model.addAttribute("eventDetailTop",eventDetailTop);
@@ -122,6 +127,7 @@ public class EventController {
 	
 	
 	// 이벤트 팝업(이벤트 펄슨, 이벤트 인증, 나의 활동, 스템프, 알림 테이블)
+
 	   @PostMapping(value="/eventDetailMain/{eventNo}")
 	   @Transactional
 	   public String insertPopup(
@@ -212,6 +218,7 @@ public class EventController {
 	      ra.addFlashAttribute("message",message);
 	      return "redirect:" + path;
 	   }
+
 	
 	
 
@@ -326,8 +333,8 @@ public class EventController {
 	
 	
 	
-	
-	@PostMapping(value="/eventDetailBoardPhoto/{eventNo}")
+	// 참여보드 넘어갔을 때 
+	   @PostMapping(value="/eventDetailBoardPhoto/{eventNo}")
 	   @Transactional
 	   public String eventDetailBoardPhotoinsertPopup(
 	          @PathVariable("eventNo") int eventNo,
@@ -418,7 +425,4 @@ public class EventController {
 	      return "redirect:" + path;
 	   }
 
-	
-
-	
 }

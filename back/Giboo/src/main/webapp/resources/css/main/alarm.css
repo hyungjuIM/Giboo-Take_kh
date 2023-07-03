@@ -4,8 +4,7 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'NanumSquareNeo';
 }
 
 
@@ -36,7 +35,7 @@ body {
     width: 360px;
     height: 791px;
     
-    margin-top: 5px;
+    /* margin-top: 5px; */
 
     position: absolute;
 	background: #f6f6f6;
@@ -148,7 +147,7 @@ body {
     display: flex;
     align-items: center;
 }
-
+  
 
 .alert_updateDate {
     margin-left: 8px;
@@ -164,12 +163,15 @@ body {
 .alert_titleContainerA {
     align-items: center;
     display: flex;
+    font-family: 'NanumSquareNeo';
+    color: #828282;
+    
 }
 
 .alert_titleContainer {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
+    margin: 0px 20px;
 }
 
 .alertTitle {

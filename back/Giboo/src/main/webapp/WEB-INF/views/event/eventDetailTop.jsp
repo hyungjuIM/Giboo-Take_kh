@@ -1,27 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>이벤트 디테일 사진</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventDetail.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
     
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-        <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    </head>
-    <body>
-    
-        <main>
             <div class="edWrapBox">
                 <div class="edWrap">
                     <div class="eFavBtn" id="eFavBtn">
@@ -59,7 +39,7 @@
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                                 <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중</span>
-                            <span>
+                            <span class="fav">
                                 <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                                 <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span>
                         </div>
@@ -120,8 +100,8 @@
                         </div>
                     </div>
                     <div class="edBtn">
-                        <div class="edBtnDe">
-                            <button id="popupButton">이벤트 함께하기</button>                        
+                        <div class="edBtnDe memberChange_bottom">
+                            <button id="popupButton" class="memberChange_b">이벤트 함께하기</button>                        
                         </div>
                                                 
                         <div class="edStamp">
@@ -139,36 +119,9 @@
                     </div> 
                 </div>
             </div>
-    </main>     
 
 
 
 
 
-    <script>
-        // 댓글 관련 JS 코드에 필요한 값을 전역 변수로 선언
 
-        // jsp 파일 : html, css, js, el, jstl 사용 가능
-        // js  파일 : js
-
-        // 코드 해석 순서  :   EL == JSTL > HTML > JS
-
-        // ** JS 코드에서 EL/JSTL을 작성하게 된다면 반드시 ""를 양쪽에 추가 **
-
-        // 최상위 주소
-        const contextPath = "${pageContext.request.contextPath}";
-
-
-        // 로그인한 회원 번호
-        const loginMemberNo = "${loginMember.memberNo}";
-        // -> 로그인 O  : "10";
-        // -> 로그인 X  : "";  (빈문자열)
-        
-        //이벤트페이지의 이벤트번호
-        const eventNo = "${eventDetailTop.eventNo}";
-
-    </script>
-    
-<script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
-    </body>
-    </html>

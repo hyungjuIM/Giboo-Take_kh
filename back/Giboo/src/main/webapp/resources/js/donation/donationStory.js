@@ -32,3 +32,4 @@ for (let i of volunteerButton) {
         i.firstElementChild.src = "/images/chevron-right-solid-gray.svg";
     });
 }
+

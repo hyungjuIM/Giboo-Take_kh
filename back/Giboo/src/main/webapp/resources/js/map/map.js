@@ -120,7 +120,7 @@ geocoder.coord2Address(lon, lat, function(result, status) {
 
 
 
- 
+
 
 
 ////////////////////////////////////////////////////////
@@ -190,7 +190,14 @@ geocoder.coord2Address(lon, lat, function(result, status) {
     //     level: 3
     // };
     // var map = new kakao.maps.Map(mapContainer, mapOption);
+    
     var geocoder = new kakao.maps.services.Geocoder();
+
+    var clusterer = new kakao.maps.MarkerClusterer({
+        map: map, // 클러스터러가 표시될 지도 객체
+        averageCenter: true, // 클러스터의 중심 좌표를 평균값으로 설정
+        minLevel: 7 // 클러스터가 생성되는 최소 지도 레벨
+    });
 
     // 주소를 반복하며 마커를 생성합니다
     for (var i = 0; i < addresses.length; i++) {
@@ -205,6 +212,9 @@ geocoder.coord2Address(lon, lat, function(result, status) {
                         map: map,
                         position: coords,
                     });
+
+                            // 클러스터러에 마커를 추가합니다
+                    clusterer.addMarker(marker);
 
                     var infowindow = new kakao.maps.InfoWindow({
                     content: 
@@ -253,6 +263,7 @@ geocoder.coord2Address(lon, lat, function(result, status) {
 
                     // 지도의 중심을 마커의 위치로 설정합니다
                     // map.setCenter(coords);
+
 
                     // 마커에 클릭 이벤트 리스너를 추가합니다
                     kakao.maps.event.addListener(marker, 'click', function() {

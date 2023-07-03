@@ -1,3 +1,7 @@
+const volunteerButton = document.getElementById("volunteerButton");
+const grayBox = document.getElementById("grayBox");
+const volunteerSubmitContainer = document.getElementById("volunteerSubmitContainer");
+
 $(function(){
     $('.relatedItemList').slick({
         slide: "div",        //슬라이드 되어야 할 태그
@@ -32,6 +36,7 @@ $(function(){
     });
 })
 
+
 //봉사 참여 버튼
 const volunteerButton = document.getElementById("volunteerButton");
 volunteerButton.addEventListener('click',function(){
@@ -40,3 +45,5 @@ volunteerButton.addEventListener('click',function(){
         method : 'POST',
     })
 });
+
+

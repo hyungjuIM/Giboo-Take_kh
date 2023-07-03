@@ -138,14 +138,14 @@
                                 </div>
 
 
-											 <div class="memberChange_bottom">
+								<div class="memberChange_bottom">
                                     <div>
                                         <button class="memberChange_b">수정완료</button>
                                         <button class="memberChange_b">
                                         <a
 												href="${pageContext.request.contextPath}/main" class="memberChange_b1">이전으로</a></button>
                                     </div>
-                                    </div>
+                                </div>
                                </form>     
                                     <div>
                                         <span class="memberChange_w_c">회원탈퇴를 원하시면 회원탈퇴 버튼을 눌러주세요</span>

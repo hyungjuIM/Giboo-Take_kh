@@ -64,7 +64,9 @@
                         기부금 전액 올무에 패인 상처가 평생 낫지 않는 길고양이 1마리의 3개월 치료비와 1년 사료비를 지원합니다.
                     </div>
 
+
                     <button id="volunteerButton" class="volunteerButton">봉사 참여하기</button>
+
                 </div>
             </div>
 
@@ -297,6 +299,12 @@
                 </div>
 
             </section>
+
+            <div class="grayBox" id="grayBox">
+                <div class="volunteerSubmitContainer" id="volunteerSubmitContainer">
+
+                </div>
+            </div>
 
         </div>
     </section>
