@@ -33,7 +33,7 @@ addReply.addEventListener("click", function(){
         
     }
 });
-
+})
 
 
 
@@ -70,12 +70,6 @@ eFavBtn.addEventListener("click", function() {
     });    
 }
 })
-
-
-
-
-
-
 
 
 // 더보기 슬라이드
@@ -144,10 +138,4 @@ jQuery(function($) {
     });
   }
 })();
-
-
-
-
-
-});
 
