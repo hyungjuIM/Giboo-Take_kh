@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>donation</title>
     <link rel="stylesheet" href="../../css/donation/donation.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/xpressengine/xeicon@2.3.1/xeicon.min.css">
+
 </head>
+
 <body>
-<header>
-    <div data-include1="header" id="header"></div>
-</header>
+    <header>
+        <div data-include1="header" id="header"></div>
+    </header>
 
-<div class="mainCategoryArea">
-    <div class="mainCategoryInner">
-        <a href="${pageContext.request.contextPath}/donation/home" class="mainCategoryItem mainCategoryChecked" id="home">기부 진행중</a>
-        <a href="${pageContext.request.contextPath}/donation/storyList" class="mainCategoryItem" id="story">기부이야기</a>
+    <div class="mainCategoryArea">
+        <div class="mainCategoryInner">
+            <a href="${pageContext.request.contextPath}/donation/home" class="mainCategoryItem mainCategoryChecked"
+                id="home">기부 진행중</a>
+            <a href="${pageContext.request.contextPath}/donation/storyList" class="mainCategoryItem"
+                id="story">기부이야기</a>
+        </div>
     </div>
-</div>
 
-<section class="mainContainer">
-    <div class="mainContent">
+    <section class="mainContainer">
+        <div class="mainContent">
 
-        <div class="subCategoryArea">
+            <div class="subCategoryArea">
 
-            <ul class="subCategoryList">
-                <li class="subCategoryItem">
-                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🧚</div>
-                        전체
-                    </a>
-                </li>
-                <li class="subCategoryItem">
-                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🧚</div>
-                        전체
-                    </a>
-                </li>
-                <li class="subCategoryItem">
-                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🧚</div>
-                        전체
-                    </a>
-                </li>
-                <li class="subCategoryItem">
-                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🧚</div>
-                        전체
-                    </a>
-                </li>
-                <li class="subCategoryItem">
-                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🧚</div>
-                        전체
-                    </a>
-                </li>
-                <li class="subCategoryItem">
-                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🧚</div>
-                        전체
-                    </a>
-                </li>
-                <li class="subCategoryItem">
-                    <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
-                        <div class="SubCategoryEmojiTheme">🧚</div>
-                        전체
-                    </a>
-                </li>
-                <!-- <li class="subCategoryItem">
+                <ul class="subCategoryList">
+                    <li class="subCategoryItem">
+                        <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme">🧚</div>
+                            전체
+                        </a>
+                    </li>
+                    <li class="subCategoryItem">
+                        <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme"><span>🧚</span></div>
+                            전체
+                        </a>
+                    </li>
+                    <li class="subCategoryItem">
+                        <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme">🧚</div>
+                            전체
+                        </a>
+                    </li>
+                    <li class="subCategoryItem">
+                        <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme">🧚</div>
+                            전체
+                        </a>
+                    </li>
+                    <li class="subCategoryItem">
+                        <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme">🧚</div>
+                            전체
+                        </a>
+                    </li>
+                    <li class="subCategoryItem">
+                        <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme">🧚</div>
+                            전체
+                        </a>
+                    </li>
+                    <li class="subCategoryItem">
+                        <a href="../donation/home" id="all" class="SubCategoryLabelTheme">
+                            <div class="SubCategoryEmojiTheme">🧚</div>
+                            전체
+                        </a>
+                    </li>
+                    <!-- <li class="subCategoryItem">
                     <input type="radio" id="SubCategory3" class="SubCategoryTheme" name="SubCategory">
                     <label for="SubCategory3" class="SubCategoryLabelTheme">
                         <div class="SubCategoryEmojiTheme">💖</div>
@@ -109,198 +115,316 @@
                         기타
                     </label>
                 </li> -->
-            </ul>
-        </div>
+                </ul>
+            </div>
 
-        <div id="content" class="content">
-            <h4 class="contentTitle">
-                동물 기부
-                <span class="contentCount" id="contentCount">20</span>개
-            </h4>
 
-            <div class="sortingSection">
-                <div id="sortingArea" class="sortingArea">
-                    <select class="sortingButton" id="sortingButton">
-                        종료임박 순
-                        <img src="../../images/chevron-down-solid.svg">
-                        <option value="expired">종료임박 순</option>
-                        <option value="recommended">추천 순</option>
-                        <option value="new">최신 순</option>
-                        <option value="participantsDesc">참여자 많은 순</option>
-                        <option value="participantsAsc">참여자 적은 순</option>
-                    </select>
+            <div id="content" class="content">
+                <div class="sortingSection">
+                    <h4 class="contentTitle">
+                        동물 기부
+                        <span class="contentCount" id="contentCount">20</span> 개
+                    </h4>
+
+
+                    <div id="sortingArea" class="sortingArea">
+                        <select class="sortingButton" id="sortingButton">
+                            종료임박 순
+                            <img src="../../images/chevron-down-solid.svg">
+                            <option value="expired">종료임박 순</option>
+                            <option value="recommended">추천 순</option>
+                            <option value="new">최신 순</option>
+                            <option value="participantsDesc">참여자 많은 순</option>
+                            <option value="participantsAsc">참여자 적은 순</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 콘텐츠 부분 -->
+                <div id="list" class="list">
+
+                    <div class="item">
+                        <!-- 기부하기, 찜 -->
+                        <div class="buttonSection">
+                            <a href="" class="button">기부하기
+                                <i class="xi-angle-right"></i>
+                            </a>
+
+
+                            <div class="favoriteButton">
+                                <img src="/images/btn/like_bth_unclick.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 사진 -->
+
+                        <div class="content_container">
+                            <a href="">
+                                <img src="../../images/dog.jpeg" class="thumbnail">
+                                <div class="text_container">
+                                    <div class="mainTitle">타이틀2</div>
+                                    <span class="subTitle"><span>모집</span>2023. 01. 01 ~ 2023. 01. 02</span>
+
+                                    <div class="progressBar">
+                                        <div class="progressBarValue"></div>
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="D-day">D-180</div>
+                                        <div>달성률
+                                            <span class="progressPercentage">50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <!-- 기부하기, 찜 -->
+                        <div class="buttonSection">
+                            <a href="" class="button">기부하기
+                                <i class="xi-angle-right"></i>
+                            </a>
+
+
+                            <div class="favoriteButton">
+                                <img src="/images/btn/like_bth_unclick.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 사진 -->
+
+                        <div class="content_container">
+                            <a href="">
+                                <img src="../../images/dog.jpeg" class="thumbnail">
+                                <div class="text_container">
+                                    <div class="mainTitle">타이틀2</div>
+                                    <span class="subTitle"><span>모집</span>2023. 01. 01 ~ 2023. 01. 02</span>
+
+                                    <div class="progressBar">
+                                        <div class="progressBarValue"></div>
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="D-day">D-180</div>
+                                        <div>달성률
+                                            <span class="progressPercentage">50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <!-- 기부하기, 찜 -->
+                        <div class="buttonSection">
+                            <a href="" class="button">기부하기
+                                <i class="xi-angle-right"></i>
+                            </a>
+
+
+                            <div class="favoriteButton">
+                                <img src="/images/btn/like_bth_unclick.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 사진 -->
+
+                        <div class="content_container">
+                            <a href="">
+                                <img src="../../images/dog.jpeg" class="thumbnail">
+                                <div class="text_container">
+                                    <div class="mainTitle">타이틀2</div>
+                                    <span class="subTitle"><span>모집</span>2023. 01. 01 ~ 2023. 01. 02</span>
+
+                                    <div class="progressBar">
+                                        <div class="progressBarValue"></div>
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="D-day">D-180</div>
+                                        <div>달성률
+                                            <span class="progressPercentage">50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <!-- 기부하기, 찜 -->
+                        <div class="buttonSection">
+                            <a href="" class="button">기부하기
+                                <i class="xi-angle-right"></i>
+                            </a>
+
+
+                            <div class="favoriteButton">
+                                <img src="/images/btn/like_bth_unclick.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 사진 -->
+
+                        <div class="content_container">
+                            <a href="">
+                                <img src="../../images/dog.jpeg" class="thumbnail">
+                                <div class="text_container">
+                                    <div class="mainTitle">타이틀2</div>
+                                    <span class="subTitle"><span>모집</span>2023. 01. 01 ~ 2023. 01. 02</span>
+
+                                    <div class="progressBar">
+                                        <div class="progressBarValue"></div>
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="D-day">D-180</div>
+                                        <div>달성률
+                                            <span class="progressPercentage">50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <!-- 기부하기, 찜 -->
+                        <div class="buttonSection">
+                            <a href="" class="button">기부하기
+                                <i class="xi-angle-right"></i>
+                            </a>
+
+
+                            <div class="favoriteButton">
+                                <img src="/images/btn/like_bth_unclick.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 사진 -->
+
+                        <div class="content_container">
+                            <a href="">
+                                <img src="../../images/dog.jpeg" class="thumbnail">
+                                <div class="text_container">
+                                    <div class="mainTitle">타이틀2</div>
+                                    <span class="subTitle"><span>모집</span>2023. 01. 01 ~ 2023. 01. 02</span>
+
+                                    <div class="progressBar">
+                                        <div class="progressBarValue"></div>
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="D-day">D-180</div>
+                                        <div>달성률
+                                            <span class="progressPercentage">50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        </a>
+                    </div>
+
+                    <div class="item">
+                        <!-- 기부하기, 찜 -->
+                        <div class="buttonSection">
+                            <a href="" class="button">기부하기
+                                <i class="xi-angle-right"></i>
+                            </a>
+
+
+                            <div class="favoriteButton">
+                                <img src="/images/btn/like_bth_unclick.png" alt="">
+                            </div>
+                        </div>
+
+                        <!-- 사진 -->
+
+                        <div class="content_container">
+                            <a href="">
+                                <img src="../../images/dog.jpeg" class="thumbnail">
+                                <div class="text_container">
+                                    <div class="mainTitle">타이틀2</div>
+                                    <span class="subTitle"><span>모집</span>2023. 01. 01 ~ 2023. 01. 02</span>
+
+                                    <div class="progressBar">
+                                        <div class="progressBarValue"></div>
+                                    </div>
+
+                                    <div class="info">
+                                        <div class="D-day">D-180</div>
+                                        <div>달성률
+                                            <span class="progressPercentage">50%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                    </div>
+
+
+
+
+
+
+                </div>
+
+
+            </div>
+
+            <div class="container4">
+                <!-- <c:set var="url" value="?cp=" /> -->
+                <ul class="pagination">
+                    <li class="first"><a href="${url}1${sURL}" class="first">&lt;&lt;</a></li>
+                    <li class="prev"><a href="${url}${pagination.prevPage}${sURL}" class="left">&lt;</a></li>
+                    <!-- <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1"> -->
+                    <!-- <c:choose> -->
+                    <!-- <c:when test="${i == pagination.currentPage}"> -->
+                    <li class="num active"><a class="current">1<span></span></a></li>
+                    <!-- </c:when> -->
+
+                    <!-- <c:otherwise> -->
+                    <li class="num"><a href="${url}${i}${sURL}" class="num">2</a></li>
+                    <!-- </c:otherwise> -->
+                    <!-- </c:choose> -->
+                    <!-- </c:forEach> -->
+                    <li class="next"><a href="${url}${pagination.nextPage}${sURL}" class="right">&gt;</a></li>
+                    <li class="last"><a href="${url}${pagination.maxPage}${sURL}" class="last">&gt;&gt;</a></li>
+                </ul>
+
+                <div class="writeBtn-container">
+                    <!-- <c:if test="${loginMember.memberType == 'N'}"> -->
+                    <button class="writeBtn"
+                        onclick="location.href='${pageContext.request.contextPath}/donation/write?mode=insert&cp=${pagination.currentPage}'">
+                        <span>📝</span> 기부등록</button>
+                    <!-- </c:if> -->
                 </div>
             </div>
 
-            <div id="list" class="list">
 
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="buttonSection">
-                        <a href="" class="button">🍀 기부하기
-                            <img src="../../images/chevron-right-solid-gray.svg" class="buttonImage"></a>
-                        <div class="button">💖</div>
-                    </div>
-
-                    <a href="">
-                        <img src="../../images/logo.jpg" class="thumbnail">
-                        <div class="subTitle">타이틀</div>
-                        <div class="mainTitle">타이틀2</div>
-                    </a>
-                    <div class="progressBar">
-                        <div class="progressBarValue"></div>
-                    </div>
-
-                    <div class="info">
-                        <div class="D-day">D-180</div>
-                        <div>달성률
-                            <span class="progressPercentage">50%</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
 
         </div>
-
-        <div>페이지네이션</div>
-
-    </div>
-</section>
+    </section>
 
 
-<!-- jQuery 라이브러리 추가 -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    <!-- jQuery 라이브러리 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-    $(function () {
-        var include1 = $('[data-include1="header"]');
-        jQuery.each(include1, function () {
-            $(this).load('../../html/01.header.html');
+    <script>
+        $(function () {
+            var include1 = $('[data-include1="header"]');
+            jQuery.each(include1, function () {
+                $(this).load('../../html/01.header.html');
+            });
         });
-    });
 
-</script>
+    </script>
 
-<script src="../../JS/donation/donation.js"></script>
+    <script src="../../JS/donation/donation.js"></script>
 </body>
+
 </html>
