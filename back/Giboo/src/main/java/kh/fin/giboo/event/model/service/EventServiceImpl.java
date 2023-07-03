@@ -24,6 +24,7 @@ import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
 import kh.fin.giboo.event.model.vo.EventDetailTop;
 import kh.fin.giboo.event.model.vo.EventList;
+import kh.fin.giboo.event.model.vo.EventMore;
 import kh.fin.giboo.event.model.vo.EventPopup;
 import kh.fin.giboo.event.model.vo.EventStickerBar;
 import kh.fin.giboo.event.model.vo.Pagination;
@@ -155,6 +156,11 @@ public class EventServiceImpl implements EventService{
 	@Override
 	public boolean checkAlreadyJoined(int memberNo, int eventNo) {
 		return dao.checkAlreadyJoined(memberNo, eventNo);
+	}
+
+	@Override
+	public List<EventMore> selectEventMore(int eventNo) {
+		return dao.selectEventMore(eventNo);
 	}
 
 

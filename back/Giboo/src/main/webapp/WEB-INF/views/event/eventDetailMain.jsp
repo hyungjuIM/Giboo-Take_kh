@@ -11,7 +11,8 @@
         <title>이벤트 디테일 사진</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventDetail.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
-    
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick-theme.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -34,10 +35,30 @@
                 </div>
 
                 <div class="edDetailRight">
+                    <div class="edHowto">
+                        <div class="edHowtoTitle">  
+                            <span>자전거로 지구를 지키는 건강한 실천 시작해봐요!</span>
+                        </div>
+                        <div class="edHowtoBox">
+                            <div class="edHowtoTi">
+                                <span>How To</span>
+                            </div>
+                            <div class="edHowtoDetail">
+                                <span>① 자전거 주행 사진 혹은 자전거 경로 조회 화면 캡쳐 인증하기</span>
+                                <span>② '함께하기'버튼을 클릭 후, 해당 사진을 올려주세요.</span>
+                                <span>③ 행동 1천 개 달성 시, 기부앤테이크가 숲 조성을 위해 1천만원 기부 약속!</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="edInBar">
                         <jsp:include page="/WEB-INF/views/event/eventStickerBar.jsp" />
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="eMoreWrap">
+            <div class="eMoreBox">
+                <jsp:include page="/WEB-INF/views/event/eventDetailMore.jsp" />
             </div>
         </div>
     </main>     
@@ -46,6 +67,12 @@
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
     
+
+
+
+
+
+
     <div class="E_popup_wrap02">
         <div class="E_popup_container02">
             <div class="E_popup_cont03">
@@ -129,7 +156,36 @@
 
 
 
+    
+
+    <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
+
     <script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
+
+    <script>
+        // 댓글 관련 JS 코드에 필요한 값을 전역 변수로 선언
+
+        // jsp 파일 : html, css, js, el, jstl 사용 가능
+        // js  파일 : js
+
+        // 코드 해석 순서  :   EL == JSTL > HTML > JS
+
+        // ** JS 코드에서 EL/JSTL을 작성하게 된다면 반드시 ""를 양쪽에 추가 **
+
+        // 최상위 주소
+        const contextPath = "${pageContext.request.contextPath}";
+
+
+        // 로그인한 회원 번호
+        const loginMemberNo = "${loginMember.memberNo}";
+        // -> 로그인 O  : "10";
+        // -> 로그인 X  : "";  (빈문자열)
+        
+        //이벤트페이지의 이벤트번호
+        const eventNo = "${eventDetailTop.eventNo}";
+
+    </script>
 
     </body>
     </html>
