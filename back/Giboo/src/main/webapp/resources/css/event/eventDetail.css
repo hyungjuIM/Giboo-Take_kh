@@ -90,11 +90,11 @@ main{
     height: 700px;
 }
 
-.edDoPerImg > img{
+/* .edDoPerImg > img{
     width: 50px;
     height: 45px;
     border-radius: 50%;
-}
+} */
 
 
 
@@ -208,51 +208,19 @@ color: #111111;
     color: #4D4D4D;
 }
 
-.edDoPerson{
-    /* background-color: yellowgreen; */
-    margin-top: 12px;
-    height: 89px;
-    display: flex;
-    align-items: center;
-    max-width: 340px;
-    overflow: hidden;
-}
 
-.edDoPersonUl{
+/* .edDoPersonUl{
     display: flex;
-}
-
+} */
+/* 
 .edDoPersonLi{
     margin-right: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
+} */
 
-.edDoPerImg{
-    width: 60px;
-    height: 60px;
-    background: #D9D9D9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.edPersonName{
-    font-family: 'NanumSquareNeo';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    color: #767676;
-}
-
-.edBtn {
-    display: flex;
-    justify-content: space-between;
-}
 
 
 
@@ -795,6 +763,7 @@ color: #111111;
     padding: 10px 20px;
     margin-bottom: 30px;
     margin-top: 30px;
+    width: 340px;
 }
 
 .progressInfo {
@@ -851,8 +820,150 @@ color: #111111;
 .progressStatus > span > span {
     font-size: 14px;
 }
+
+
+/* 프로필 이미지 슬라이드===================================== */
 /* 
 .fav > img{
     color : red;
     font-size: 20px;
 } */
+
+
+
+.eParMoreTitle > span{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.eParMoreTitle{
+    margin-bottom: 20px;
+}
+
+.edDoPersonLi{
+    /* background-color:#f7f7f7; */
+    width: 180px;
+    height: 110px;
+    border-radius: 20px;
+    border: solid 2px yellow;
+    margin : 0px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edDoPersonUl{
+    overflow: hidden;
+    display: flex;
+    width: 500px;
+    border : solid 1px blue
+}
+
+
+
+/* 더보기 버튼 */
+
+
+
+
+.eParMoreList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    height: 100px;
+    /* border: solid 2px violet; */
+}
+
+.Par_relatedItemListButtonArea {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    border : 1px solid red;
+}
+
+#prev1, #next1 {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #00CA61;
+    border-radius: 100%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: unset;
+    cursor: pointer;
+}
+
+
+
+.edDoPerson{
+    /* background-color: yellowgreen; */
+    margin-top: 12px;
+    height: 89px;
+    display: flex;
+    align-items: center;
+    max-width: 340px;
+    overflow: hidden;
+}
+
+
+.edDoPerImg{
+    width: 70px;
+    height: 70px;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.edDoPerImg > img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+
+.edPersonName{
+    font-family: 'NanumSquareNeo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #767676;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.edBtn {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+.swiper-container {
+    height:200px; 
+    border:5px solid silver;
+    border-radius:7px;
+     /* box-shadow:0 0 20px #ccc inset; */
+ }
+ .swiper-slide { 
+     /* height: 380px;  */
+      /* width: 600px;  */
+     text-align:center; 
+     display:flex;  
+    /* align-items:center;   */
+    /* justify-content:center;  */
+  }
+ .swiper-slide div {
+     /* height: 380px; */
+     /* width: 550px; */
+    /* box-shadow:0 0 5px #555; */
+    /* max-width:100%; 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */
+    /* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+ }
