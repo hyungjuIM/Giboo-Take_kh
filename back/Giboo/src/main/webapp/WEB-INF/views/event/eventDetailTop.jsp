@@ -59,7 +59,7 @@
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                                 <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중</span>
-                            <span>
+                            <span class="fav">
                                 <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                                 <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span>
                         </div>
@@ -120,8 +120,8 @@
                         </div>
                     </div>
                     <div class="edBtn">
-                        <div class="edBtnDe">
-                            <button id="popupButton">이벤트 함께하기</button>                        
+                        <div class="edBtnDe memberChange_bottom">
+                            <button id="popupButton" class="memberChange_b">이벤트 함께하기</button>                        
                         </div>
                                                 
                         <div class="edStamp">

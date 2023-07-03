@@ -315,7 +315,7 @@ input::placeholder {
   color : #FFFFFF;
 }
 
-
+.memberChange_w:hover,
 .memberChange_bottom button:hover{
   background-color: var(--mainColor);
   font-weight: 600;
@@ -391,5 +391,8 @@ input::placeholder {
 .memberChange_address{
   margin-left: 10px;
 }
+
+
+.
 
 
