@@ -67,6 +67,14 @@
         <result property="memberNick" column="MEMBER_NICK" />
         <result property="memberNo" column="MEMBER_NO"/>
     </resultMap>
+    
+    <resultMap id="favorite_rm" type="favorite">
+        <id property="favoriteNo" column="FAVORITE_NO" />
+        <result property="favoriteStatus" column="FAVORITE_STATUS" />
+        <result property="memberNo" column="FAV_MEMBER_NO" />
+        <result property="donationNo" column="FAV_DONATION_NO" />
+        <result property="volunteerNo" column="FAV_VOLUNTEER_NO" />
+    </resultMap>
 
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
@@ -106,6 +114,12 @@
         FROM DONATION D, AGENCY A
         WHERE DONATION_NO = ${donationNo}
         AND D.AGENCY_NO = A.AGENCY_NO
+    </select>
+    
+    <select id="getFavoriteList" resultMap="favorite_rm">
+        SELECT FAV_DNATION_NO
+        FROM FAVORITES
+        WHERE FAV_MEMBER_NO = ${memberNo}
     </select>
 
     <select id="getDonationListCount" resultType="_int">

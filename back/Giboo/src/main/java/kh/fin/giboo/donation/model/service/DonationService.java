@@ -2,8 +2,11 @@ package kh.fin.giboo.donation.model.service;
 
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
+import kh.fin.giboo.mypage.model.vo.Favorite;
+
 import org.springframework.ui.Model;
 
+import java.util.List;
 import java.util.Map;
 
 public interface DonationService {
@@ -22,6 +25,8 @@ public interface DonationService {
 
     int updateAmount(Map<String, Object> map);
 
+	  List<Favorite> getFavoriteList(int memberNo);
+  
     int insertStory(DonationDetail detail);
 
     int updateStory(DonationDetail detail);
