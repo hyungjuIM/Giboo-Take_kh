@@ -360,11 +360,13 @@ h4{
     width: 26px;
 }
 
+
 .item .buttonSection a i {
     /* border: 1px solid red; */
     
     height: 100%;
     margin-left: 8px;
+
     transition-duration: 250ms;
     display: flex;
     justify-content: center;
@@ -432,7 +434,9 @@ h4{
 }
 
 .progressBarValue {
+
     background: linear-gradient(to top, var(--mainColor) 50%, var(--mainColor));
+
     border-radius: 30px;
 
     width: 50%;

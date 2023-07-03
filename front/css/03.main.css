@@ -314,7 +314,7 @@ section:nth-child(odd){
     position: absolute;
     top: 50%;
     width: 100%;
-
+z-index: 50;
 }
 
 .do_next_prev_btn span{
@@ -603,10 +603,10 @@ li .vol_day span{
     align-items: baseline;
     justify-content: center;
 
-    width: 1200;
+    width:100%;
     height: 380px;
     position: relative;
-
+    left: -150px;
     
 }
 
@@ -617,8 +617,8 @@ li .vol_day span{
   
     position: absolute;
     top:270px;
-    left: 660px;
-    z-index: 30;
+    left: 1100px;
+    z-index: 50;
 
    
     
@@ -656,43 +656,107 @@ li .vol_day span{
 .beeImg img{
 
     width: 150px;
-
+    z-index: 50;
     
 }
 
 /* content */
 
 .do_box_container{
-    width: 750px;
+    width: 1920px;
     height: 380px;
     /* margin: 0 auto; */
     overflow: hidden;
     white-space: nowrap;
     position: relative;
-
+  
 
 }
 
-
+.swiper-container {
+	/* height:380px;  */
+	/* border:5px solid silver; */
+	border-radius:7px;
+	 /* box-shadow:0 0 20px #ccc inset; */
+}
+.swiper-slide { 
+    /* height: 380px;  */
+     /* width: 600px;  */
+	 text-align:center; 
+	 display:flex;  
+	/* align-items:center;   */
+	/* justify-content:center;  */
+ }
+.swiper-slide div {
+    /* height: 380px; */
+    /* width: 550px; */
+	/* box-shadow:0 0 5px #555; */
+	/* max-width:100%; 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */
+	/* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+}
 
 
 
 .do_box_container .doAllSlides{
     display: flex;
-    transition: left 0.5s ease-out;
+    /* transition: left 0.5s ease-out; */
     position: absolute;
+    /* flex-wrap: wrap; */
     left: 0;
     top: 0;
-
+   z-index: 10;
+   /* width: 3300px; */
     /* border: 2px solid blue;
     height: 380px;
     width: 1540px; */
+} 
+/* ********************* */
+.do_box_container .doAllSlides.show {
+    transform: translateX(-550px); /* 슬라이드 이동을 위한 transform 속성 */
+  }
+  
+  .do_box_container .doAllSlides.slide-prev {
+    transform: translateX(-1100px); /* 이전 슬라이드 이동을 위한 transform 속성 */
+  }
+  
+  .do_box_container .doAllSlides.slide-next {
+    transform: translateX(0); /* 다음 슬라이드 이동을 위한 transform 속성 */
+  }
+/* 블러처리 영역 */
+.do_blur_box1{
+    /* border: 1px solid var(--etcColor); */
+    height: 400px;
+    width: 480px;
+    border-radius: 20px;
+    padding: 20px;
+    position: absolute;
+    
+    top: 250px;
+    left: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.164);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
+}
+.do_blur_box2{
+    height: 400px;
+    width: 600px;
+    border-radius: 20px;
+    padding: 20px;
+    position: absolute;
+    
+    top: 250px;
+    left: 1140px;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.164);
+  backdrop-filter: blur(1.5px);
+  -webkit-backdrop-filter: blur(1.5px);
 }
 
 .do_box_container .doAllSlides .do_box{
     border: 1px solid var(--etcColor);
     height: 380px;
-    width: 750px;
+    width: 550px;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -701,7 +765,9 @@ li .vol_day span{
 
 .do_box{
     height: 380px;
+   
 }
+
 .do_box .do_right{
     width: 40%;
 }

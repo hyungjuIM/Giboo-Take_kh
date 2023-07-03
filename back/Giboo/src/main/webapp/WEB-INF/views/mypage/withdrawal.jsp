@@ -49,134 +49,111 @@
 				</header>
 
 				<!--오른쪽 회원탈퇴 본문-->
-				<div class="withdrawal_content_area">
-					<section class="withdrawal_mainContainer">
-						<div class="withdrawal_mainContent">
-							<section class="withdrawal_notice">
+				<div class="myask_content_area memberChange_content_area">
+					<section class="mainContainer memberChange_mainContainer">
+						<div class="mainContent memberChange_mainContent">
+							<section class="notice">
 
-								<!-- notice seach area -->
-								<div class="withdrawal_notice1">
-									<div class="withdrawal_container1">
-										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #00CA61;"> 회원탈퇴</span><span
-											style="color: #767676;">에 대해 알려드립니다 😇</span>
+								<div class="memberChange_notice">
+									<div class="memberChange_container1">
+										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
+											<span style="color: #00CA61;"> 회원탈퇴 </span>에 대해 알려드립니다 😇
+										</span>
 									</div>
 
 
-									<form action="withdrawal" method="POST" name="myPage-form" onsubmit="return secessionValidate()"  >
 
-									 <div class="withdrawal_container">
-										<div class="withdrawal_title1">회원탈퇴</div>
-										<div class="withdrawal_content1">
-											Giboo&take 를 아끼고 사랑해주신신 시간에 감사드립니다.<br> 기부자(봉사자)님이 느끼셨을
-											점을 저희에게 공유해주시면 <br> 더욱 건강한 서비스를 제공할 수 있는 Giboo&take 가
-											되도록 노력하겠습니다.<br>
-										</div>
-										
-									
-										
-										<div class="withdrawal_hr">
-											<hr>
-										</div>
-										<div class="withdrawal_title2">회원탈퇴를 원하시는 이유를 모두 골라주세요</div>
-										<div class="withdrawal_content2">
-											<fieldset>
-												<label for="reason1"> <input type="checkbox"
-													id="reason1" name="withdrawal_reason" value="reason1">
-													사이트 방문을 잘 하지 않아요
-												</label><br> <label for="reason2"> <input
-													type="checkbox" id="reason2" name="withdrawal_reason"
-													value="reason2"> 사이트 오류가 생겨서 쓸 수가 없어요
-												</label><br> <label for="reason3"> <input
-													type="checkbox" id="reason3" name="withdrawal_reason"
-													value="reason3"> 개인정보 보안이 걱정돼요
-												</label><br> <label for="reason4"> <input
-													type="checkbox" id="reason4" name="withdrawal_reason"
-													value="reason4"> 사이트 사용법이 어려워요
-												</label><br> <label for="reason5"> <input
-													type="checkbox" id="reason5" name="withdrawal_reason"
-													value="reason5"> 다른 사이트가 더 좋아요
-												</label><br> <label for="reason6"> <input
-													type="checkbox" id="reason6" name="withdrawal_reason"
-													value="reason6"> 사이트 내용이 불만이에요
-												</label><br> <label for="reason7"> <input
-													type="checkbox" id="reason7" name="withdrawal_reason"
-													value="reason7"> 기타
-												</label>
-											</fieldset>
-										</div>
-										<div class="withdrawal_title3_container">
-											<div class="withdrawal_title3">
-												<span style="color: #000000;">회원탈퇴 전 아래</span> <span
-													style="color: #8071FC">안내사항</span> <span
-													style="color: #000000;">을 꼭 확인해주세요</span>
-											</div>
-											<div class="withdrawal_content3">
-												회원탈퇴 후 재가입시에는 신규가입으로 처리되며, 탈퇴 시 적립된 포인트는 소멸됩니다.<br> <span
-													style="color: #8071FC">탈퇴시점 후로부터 30일 이내 재가입이 불가합니다.</span>
-											</div>
-											<div class="withdrawal_content4">
-												<a  class="withdrawal_content4_button" id="back">이전으로</a>
-												<a  class="withdrawal_content4_button" id="withdrawal" onclick="showWithdrawalPopup()">회원탈퇴</a>
+									<form action="withdrawal" method="POST" name="myPage-form"
+										onsubmit="return secessionValidate()">
 
-											</div>
-										</div>
-										<div class="popup_wrap">
 
-											<div class="popup-cont01">
-												<div class="popupMark">
-													<i class="fa-solid fa-exclamation"></i>
-												</div>
-												<div>
-													탈퇴시점으로부터 30일 이내 재가입이 불가합니다<br> 정말 Giboo & take 를 회원탈퇴
-													하시겠습니까?
-												</div>
+										<div class="withdrawal_container">
+											<div class="withdrawal_title1">회원탈퇴</div>
+											<div class="withdrawal_content1">
+												Giboo&take 를 아끼고 사랑해주신신 시간에 감사드립니다.<br> 기부자(봉사자)님이 느끼셨을
+												점을 저희에게 공유해주시면 <br> 더욱 건강한 서비스를 제공할 수 있는 Giboo&take 가
+												되도록 노력하겠습니다.<br>
+											</div>
+
+
+
+											<div class="withdrawal_hr">
 												<hr>
-												<div class="popup_cont02">
-													<a id="popup_close" onclick="closeWithdrawalPopup()" >취소</a>
-													<button type="submit" id="popup_withdrawal" >
-														회원탈퇴
-													</button>
-												</div>
-
-
 											</div>
+											<div class="withdrawal_title2">회원탈퇴를 원하시는 이유를 모두 골라주세요</div>
+											<div class="withdrawal_content2">
+												<fieldset>
+													<label for="reason1"> <input type="checkbox"
+														id="reason1" name="withdrawal_reason" value="reason1">
+														사이트 방문을 잘 하지 않아요
+													</label><br> <label for="reason2"> <input
+														type="checkbox" id="reason2" name="withdrawal_reason"
+														value="reason2"> 사이트 오류가 생겨서 쓸 수가 없어요
+													</label><br> <label for="reason3"> <input
+														type="checkbox" id="reason3" name="withdrawal_reason"
+														value="reason3"> 개인정보 보안이 걱정돼요
+													</label><br> <label for="reason4"> <input
+														type="checkbox" id="reason4" name="withdrawal_reason"
+														value="reason4"> 사이트 사용법이 어려워요
+													</label><br> <label for="reason5"> <input
+														type="checkbox" id="reason5" name="withdrawal_reason"
+														value="reason5"> 다른 사이트가 더 좋아요
+													</label><br> <label for="reason6"> <input
+														type="checkbox" id="reason6" name="withdrawal_reason"
+														value="reason6"> 사이트 내용이 불만이에요
+													</label><br> <label for="reason7"> <input
+														type="checkbox" id="reason7" name="withdrawal_reason"
+														value="reason7"> 기타
+													</label>
+												</fieldset>
+											</div>
+											<div class="withdrawal_title3_container">
+												<div class="withdrawal_title3">
+													<span style="color: #000000;">회원탈퇴 전 아래</span> <span
+														style="color: #00CA61;">안내사항</span> <span
+														style="color: #000000;">을 꼭 확인해주세요</span>
+												</div>
+												<div class="withdrawal_content3">
+													회원탈퇴 후 재가입시에는 신규가입으로 처리되며, 탈퇴 시 적립된 포인트는 소멸됩니다.<br> <span
+														style="color: #00CA61">탈퇴시점 후로부터 30일 이내 재가입이 불가합니다.</span>
+												</div>
+												<div class="memberChange_bottom">
+													<button class="memberChange_b">
+														<a href="${pageContext.request.contextPath}/mypage/memberChange"  class="memberChange_b1" id="back">이전으로</a>
+													</button>
+													<button class="memberChange_b">
+														<a class="memberChange_b1" id="withdrawal"
+															onclick="showWithdrawalPopup()">회원탈퇴</a>
+													</button>
 
-										</div>
 
-										<div class="mask"></div>
-										</form>
-									
 
-									</div>
-								
-
+												</div>
+											</div>
+									</form>
 
 
 								</div>
+							</section>
 						</div>
 					</section>
-
 				</div>
-				</section>
+
 
 			</div>
-			<!-- myask_content_area -->
+		</div>
 
-		</div>
-		<!-- mypage_wrapper -->
-		</div>
-		<!-- mypage-container -->
+
+
 	</main>
 
-
 	<!-- 푸터 영역 -->
-<footer>
-    <jsp:include page="/WEB-INF/views/main/footer.jsp" />
-</footer>
+	<footer>
+		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
+	</footer>
 
 
-<script
+	<script
 		src="${pageContext.request.contextPath}/resources/js/mypage/memberChange.js"></script>
 </body>
 

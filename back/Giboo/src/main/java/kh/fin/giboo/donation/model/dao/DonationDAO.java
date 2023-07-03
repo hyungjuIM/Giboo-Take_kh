@@ -5,6 +5,8 @@ import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
+import kh.fin.giboo.mypage.model.vo.Favorite;
+
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
@@ -87,5 +89,41 @@ public class DonationDAO {
 
     public int updateAmount(Map<String, Object> map) {
         return sqlSession.update("donationMapper.updateAmount", map);
+    }
+
+    public List<Favorite> getFavoriteList(int memberNo) {
+        return sqlSession.selectList("donationMapper.getFavoriteList", memberNo);
+    }
+
+    public int insertDonation(DonationDetail detail) {
+        int result = sqlSession.insert("donationMapper.insertDonation", detail);
+
+        if (result > 0) {
+            result = detail.getDonationNo();
+        }
+
+        return result;
+    }
+
+    public int updateDonation(DonationDetail detail) {
+        return sqlSession.update("donationMapper.updateDonation", detail);
+    }
+
+    public int insertStory(DonationStory story) {
+        int result = sqlSession.insert("donationMapper.insertStory", story);
+
+        if (result > 0) {
+            result = story.getDonationStoryNo();
+        }
+
+        return result;
+    }
+
+    public int updateStory(DonationStory story) {
+        return sqlSession.update("donationMapper.updateStory", story);
+    }
+
+    public void storyDelete(int storyNo) {
+        sqlSession.delete("donationMapper.storyDelete", storyNo);
     }
 }

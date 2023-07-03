@@ -12,10 +12,17 @@ public interface FavoriteService {
 	
 	
 
-	int addfavorite(int memberNo, int volunteerNo);
+	int addFavoriteVolunteer(int memberNo, int volunteerNo);
 
-	boolean checkFavorite(int memberNo, int volunteerNo);
+	boolean checkFavoriteVolunteer(int memberNo, int volunteerNo);
+
 	
+
+	int addFavoriteDonation(int memberNo, int donationNo);
+	
+	boolean checkFavoriteDonation(int memberNo, int donationNo);
+
+	int removeFavoriteDonation(int memberNo, int donationNo);
 	
 	
 	

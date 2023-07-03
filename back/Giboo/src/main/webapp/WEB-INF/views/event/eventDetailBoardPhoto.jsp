@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이벤트 디테일 참여보드 사진</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventDetailBoard_photo.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -187,7 +189,33 @@
         }
     };
 </script>
+<script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
+
 <script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
+<script>
+    // 댓글 관련 JS 코드에 필요한 값을 전역 변수로 선언
+
+    // jsp 파일 : html, css, js, el, jstl 사용 가능
+    // js  파일 : js
+
+    // 코드 해석 순서  :   EL == JSTL > HTML > JS
+
+    // ** JS 코드에서 EL/JSTL을 작성하게 된다면 반드시 ""를 양쪽에 추가 **
+
+    // 최상위 주소
+    const contextPath = "${pageContext.request.contextPath}";
+
+
+    // 로그인한 회원 번호
+    const loginMemberNo = "${loginMember.memberNo}";
+    // -> 로그인 O  : "10";
+    // -> 로그인 X  : "";  (빈문자열)
+    
+    //이벤트페이지의 이벤트번호
+    const eventNo = "${eventDetailTop.eventNo}";
+
+</script>
 
 </body>
 </html>

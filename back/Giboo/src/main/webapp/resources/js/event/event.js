@@ -9,7 +9,7 @@ addReply.addEventListener("click", function(){
         alert("로그인 후 이용해주세요.");
     } else {
         // 서버로 이미 참여한지 확인하는 Ajax 요청을 보냅니다.
-        $.ajax({
+        jQuery.ajax({
           url: contextPath + "/event/checkAlreadyJoined",
           type: "POST",
           data: {
@@ -22,17 +22,18 @@ addReply.addEventListener("click", function(){
               alert(response.message);
             } else {
               // 참여 가능한 경우에만 E_popup_wrap02를 표시합니다.
-              $(".E_popup_wrap02").css("display", "block");
-              $(".E_pop_mask2").css("display", "block");
+              jQuery(".E_popup_wrap02").css("display", "block");
+              jQuery(".E_pop_mask2").css("display", "block");
             }
           },
           error: function(xhr, status, error) {
             console.log("Error:", error);
           }
         });
+        
     }
 });
-
+})
 
 
 
@@ -71,4 +72,70 @@ eFavBtn.addEventListener("click", function() {
 })
 
 
+// 더보기 슬라이드
+jQuery.noConflict();
+
+jQuery(function($) {
+  $('.elist_official').slick({
+      slide: "div",
+      infinite: true,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      speed: 500,
+      arrows: true,
+      dots: false,
+      autoplay: false,
+      autoplaySpeed: 2000,
+      pauseOnHover: true,
+      vertical: false,
+      prevArrow: $("#prev"),
+      nextArrow: $("#next"),
+      draggable: false,
+      responsive: [
+        {
+          breakpoint: 960,
+          settings: {
+            slidesToShow: 4
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 5
+          }
+        }
+      ]
+  });
 });
+
+
+
+
+
+
+
+
+// 목록보기
+(function() {
+  const eMoreBtnBox = document.getElementsByClassName("eMoreBtnBox");
+
+  if (eMoreBtnBox.length > 0) { // 목록으로 버튼이 화면에 있을 때만 이벤트 추가
+    eMoreBtnBox[0].addEventListener("click", function() { // 첫 번째 요소 선택
+      const pathname = location.pathname; // 주소상에서 요청 경로 반환
+      let url = pathname.substring(0, pathname.indexOf("/", 1));
+      url += "/event/eventList";
+
+      const params = new URL(location.href).searchParams;
+      let cp;
+
+      if (params.get("cp") != null) { // 쿼리스트링에 cp가 있을 경우
+        cp = "cp=" + params.get("cp");
+      } else {
+        cp = "cp=1";
+      }
+
+      location.href = url;
+    });
+  }
+})();
+

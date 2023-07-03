@@ -52,8 +52,8 @@
 
 									<!-- 제목 area -->
 									<div class="title-date-container">
-										<div class="detailTitle">${noticeDetail.noticeTitle}</div>
-										<div class="nupdateDT">작성일 ${noticeDetail.enrollDt}</div>
+										<div class="detailTitle">제목 : ${noticeDetail.noticeTitle}</div>
+										<div class="nupdateDT">작성일 : ${noticeDetail.enrollDt}</div>
 									</div>
 
 									<!-- 본문 -->
@@ -63,23 +63,7 @@
 
 									</div>
 
-									<!-- 이전 부분 컨테이너 -->
-									<div class="nextContentContainer">
-										<div class="next">이전</div>
-										<div class="nextTitle">
-											<a href="#">2023년 기부금 영수증 발급을 위해 꼭 확인하세요!</a>
-										</div>
-										<div class="nextDate">2023.05.05</div>
-									</div>
-									<div class="nextContentContainer">
-										<div class="next">다음</div>
-										<div class="nextTitle">
-											<a href="#">Giboo&Take DB작업으로 인한 서비스 일시 중단 안내 (4/30 23시 ~
-												10/6 03시)</a>
-										</div>
-										<div class="nextDate">2023.04.29</div>
-									</div>
-
+									
 									<!-- 목록 알림 등록 취소 영역 -->
 									<div class="submitContainer">
 										<button class="listBack" onclick="history.back();" >목록으로</button>

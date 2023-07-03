@@ -15,27 +15,60 @@ public class FavoriteDAO {
 	
 
 	
-	public int insertFavorite(int memberNo, int volunteerNo) {
+		public int insertFavoriteVolunteer(int memberNo, int volunteerNo) {
 		
 		  Map<String, Object> map = new HashMap<>();
 	        map.put("memberNo", memberNo);
 	        map.put("volunteerNo", volunteerNo);
 		
-		return sqlSession.insert("myPage-mapper.insertFavorite", map);
+		return sqlSession.insert("myPage-mapper.insertFavoriteVolunteer", map);
 	}
 
 
-	public boolean checkFavorite(int memberNo, int volunteerNo) {
+	public boolean checkFavoriteVolunteer(int memberNo, int volunteerNo) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("memberNo", memberNo);
 		map.put("volunteerNo", volunteerNo);
-		Boolean result = sqlSession.selectOne("myPage-mapper.checkFavorite", map);
+		Boolean result = sqlSession.selectOne("myPage-mapper.checkFavoriteVolunteer", map);
 		
 		 if (result == null) {
 		        return false;
 		    }
 		
 		return result;
+	}
+
+
+	public int insertFavoriteDonation(int memberNo, int donationNo) {
+		 
+		Map<String, Object> map = new HashMap<>();
+	        map.put("memberNo", memberNo);
+	        map.put("donationNo", donationNo);
+		
+		return sqlSession.insert("myPage-mapper.insertFavoriteDonation", map);
+	}
+
+
+	public boolean checkFavoriteDonation(int memberNo, int donationNo) {
+		Map<String, Object> map = new HashMap<>();
+		map.put("memberNo", memberNo);
+		map.put("donationNo", donationNo);
+		Boolean result = sqlSession.selectOne("myPage-mapper.checkFavoriteDonation", map);
+		
+		 if (result == null) {
+		        return false;
+		    }
+		
+		return result;
+	}
+
+
+	public int deleteFavoriteDonation(int memberNo, int donationNo) {
+		Map<String, Object> map = new HashMap<>();
+        map.put("memberNo", memberNo);
+        map.put("donationNo", donationNo);
+	
+        return sqlSession.delete("myPage-mapper.insertFavoriteDonation", map);
 	}
 
 }

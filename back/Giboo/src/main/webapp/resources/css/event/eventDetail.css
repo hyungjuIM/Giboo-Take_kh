@@ -2,12 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
+
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+  }
+  
+
+
 *{
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'NanumSquareNeo KR', sans-serif;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -34,6 +45,13 @@
 
 .dFavSpan{
     font-size: 20px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -121,7 +139,7 @@ main{
 }
 
 .edWrapPeriodSpan > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -133,7 +151,7 @@ main{
 }
 
 .edWrapTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
 font-style: normal;
 font-weight: 500;
 font-size: 26px;
@@ -171,7 +189,7 @@ color: #111111;
 }
 
 .edVolDo > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -183,7 +201,7 @@ color: #111111;
 }
 
 .edDoTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
@@ -224,15 +242,23 @@ color: #111111;
 }
 
 .edPersonName{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
     color: #767676;
 }
 
+.edBtn {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+/* 
 .edBtn{
-    /* background-color: violet; */
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -251,12 +277,48 @@ color: #111111;
 }
 
 #popupButton{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
-}
+} */
+
+
+/* .memberChange_bottom{
+
+    width: 100%;
+  } */
+  
+  .memberChange_bottom button{
+    border: none; 
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 500;
+  
+  
+    background-color: var(--etcColor); 
+    width: 150px;
+    height: 46px;
+    
+  
+    color : #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+.memberChange_bottom button:hover{
+  background-color: var(--mainColor);
+  font-weight: 600;
+}    
+
+
+
+
+
+
+
 
 .edStampPopDe {
 	position: relative;
@@ -285,7 +347,7 @@ color: #111111;
 }
 
 .edStampPopDe > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
@@ -360,11 +422,11 @@ color: #111111;
 }
 
 .edEventintro > a > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    color: #4D4D4D;
+    font-size: 20px;
+    color: var(--contentColor);
 }
 
 
@@ -413,7 +475,7 @@ color: #111111;
 }
 
 .edHowtoTi > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -431,7 +493,7 @@ color: #111111;
 }
 
 .edHowtoDetail > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -471,7 +533,7 @@ color: #111111;
 }
 
 .edInTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -506,6 +568,7 @@ color: #111111;
 /* --------------더보기-------------- */
 .eMoreWrap{
     margin-top: 200px;
+    /* background-color: yellowgreen; */
 }
 
 .eMoreTitle > span{
@@ -517,9 +580,9 @@ color: #111111;
     margin-bottom: 20px;
 }
 
-.elist_official > li{
-    background-color:#F6F6F6;
-    width: 224px;
+.elist_official_li{
+    background-color:#f7f7f7;
+    width: 200px;
     height: 270px;
     border-radius: 20px;
     margin-right: 15px;
@@ -529,7 +592,7 @@ color: #111111;
     /* background-color: yellowgreen; */
     overflow: hidden;
     display: flex;
-    width: 71%;
+    /* width: 1050px; */
 }
 
 .earea_thumb{
@@ -654,6 +717,17 @@ color: #111111;
 
 
 /* 더보기 버튼 */
+.eMoreBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.eMoreBtn{
+    /* background-color: yellowgreen; */
+}
+
 .eMoreBtnBox{
     background-color: #00CA61;
     width: 180px;
@@ -672,7 +746,7 @@ color: #111111;
 .eMoreBtnBox > span{
     font-weight: 600;
     font-size: 16px;
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
 }
 
@@ -684,12 +758,39 @@ color: #111111;
     margin-top: 20px;
 }
 
+.eMoreList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+}
+
+.relatedItemListButtonArea {
+    height: 279px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#prev, #next {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #8071FC;
+    border-radius: 100%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: unset;
+    cursor: pointer;
+}
+
 
 /*==============================================*/
 
 
 .progressArea {
-    background-color: #F0EFF9;
+    background-color: #eefce7;
     border-radius: 20px;
     padding: 10px 20px;
     margin-bottom: 30px;
@@ -721,7 +822,9 @@ color: #111111;
 }
 
 .progressBarValue {
-    background: linear-gradient(to top, #8071FC 50%, #574da1);
+
+    background: linear-gradient(to top, #00CA61; 50%, #574da1);
+
     border-radius: 30px;
 
     width: 50%;
@@ -750,3 +853,8 @@ color: #111111;
 .progressStatus > span > span {
     font-size: 14px;
 }
+/* 
+.fav > img{
+    color : red;
+    font-size: 20px;
+} */

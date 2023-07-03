@@ -4,29 +4,11 @@
 
   
 
-
-* {
-  box-sizing: border-box;
-  padding: 0px;
-  margin: 0px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-family: 'Open Sans', sans-serif;
-}
-
-
-body {
-  margin: 0;
-  background-color: white;
-  color: #000;
-  line-height: 1.6em;
-
-  display: flex;
-  flex-direction: column;
-}
-
-/*상단 나의 문의내역 */
+/*상단 메뉴 title */
 .page-title {
-  background-color: #00CA61;
+  
+  background-color: var(--mainColor);
+
 
   width: 100%;
   height: 80px;
@@ -34,97 +16,116 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  position: relative;
+  z-index: 10;
 }
 
 .page-title span {
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 22px;
   color: white;
   text-align: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'NanumSquareNeo';
 }
 
 /*title 아래 전체 container*/
 .mypage-container {
+
   display: flex;
   justify-content: center;
 }
 
 /*title 아래 전체 container 중 width 1200px*/
 .mypage_wrapper {
+
   width: 1200px;
   display: flex;
   flex-direction: row;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+
 }
 
 
 
-/*===========================================*/
-/* 왼쪽 네비바 */
-
-
 /*------------------body-content------------------*/
 /* 오른쪽 문의한 내역*/
-.withdrawal_content_area {
-  width : 940px;
+.memberChange_content_area {
+  width : 75%;
   background-color: #f6f6f6;
 
   display: flex;
   align-items: center;
   flex-direction: column;
 
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); 
+
 }
 
 
 
-.withdrawal_mainContainer {
-  width: 860px;
-  height: 720px;
+.memberChange_mainContainer {
 
-  margin-top : 66px;
+  width: 90%;
+  /* height: 780px; */
+
+  margin :  66px 30px;
+
   display: flex;
   justify-content: center;
-  font-family: 'Noto Sans KR', sans-serif;
-
   background: #FFFFFF;
-  border: 0.5px solid #BDBDBD;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--etcColor);
+  /* box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1); */
   border-radius: 20px;
-
-
-
-
+  padding: 24px 30px;
+  font-family: 'NanumSquareNeo';
 
 }
 
-.withdrawal_notice {
-  margin : 20px;
+/* .memberChange_mainContainer .memberChange_mainContent {
+
+  width: 100%;
+  height: 100%;
+  
+} */
+
+
+.memberChange_notice {
+  /* margin : 20px; */
   display: flex;
   flex-direction: column;
+  font-family: 'NanumSquareNeo';
+
 }
 
 
-.withdrawal_mainContent {
-  width: 1080px;
-}
-
-.withdrawal_notice1{
-  margin-top: 20px;
-}
 
 
-.withdrawal_container1 {
-  margin-bottom: 10px;
+.memberChange_container1 {
+  /* margin-bottom: 10px;
   padding-top: 20px;
   font-size: 20px;
+  font-weight: 500; */
+
+  margin-top: 10px;
+  margin-bottom: 12px;
+  padding: 12px;
+  
+
+}
+
+.memberChange_container1 span {
+  font-family: 'NanumSquareNeo';
+  font-size: 16px;
   font-weight: 500;
 
 }
 
-span {
-  font-family: 'Noto Sans KR', sans-serif;
+.memberChange_container1 span:nth-child(1){
+  font-weight: 600;
 }
+
+
 
 .withdrawal_container{
   margin-top: 30px;
@@ -136,17 +137,14 @@ span {
 
   font-weight: 700;
   font-size: 24px;
-  color: #000000;
+  color: #828282;;
 
-  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .withdrawal_content1 {
   font-size: 14px;
   color: #828282;
   font-weight: 500;
-  font-family: 'Noto Sans KR', sans-serif;
-
   margin-left: 10px;
   margin-bottom: 30px;
 
@@ -166,9 +164,9 @@ span {
   margin: 20px 30px;
 
   font-size: 15px;
-  color: #000000;
+  color: #828282;;
   font-weight: 600;
-  font-family: 'Noto Sans KR', sans-serif;
+  
 }
 
 .withdrawal_content2 {
@@ -176,10 +174,8 @@ span {
   margin: 20px 30px;
 
   font-size: 14px;
-  color: #000000;
+  color: #828282;;
   font-weight: 500;
-  font-family: 'Noto Sans KR', sans-serif;
-
 
   line-height: 25px;
   letter-spacing: -0.05em;
@@ -196,21 +192,52 @@ span {
   font-size: 20px;
   color: #828282;
   font-weight: 500;
-  font-family: 'Noto Sans KR', sans-serif;
   margin-bottom: 15px;
 }
 
 .withdrawal_content3 {
   font-size: 15px;
-  color: #000000;
   font-weight: 400;
-  font-family: 'Noto Sans KR', sans-serif;
-
   line-height: 20px;
   letter-spacing: -0.05em;
 }
 
-.withdrawal_content4 {
+.memberChange_b {
+  border: none; 
+  background-color: var(--etcColor);
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+
+  color : #FFFFFF;
+  cursor: pointer;
+  margin-right: 20px;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.memberChange_b:hover{
+  background-color: var(--mainColor);
+  font-weight: 600;
+}
+
+
+.memberChange_b1{
+  width: 100px;
+  height: 50px;
+
+  color : #FFFFFF;
+  cursor: pointer;
+}
+
+.memberChange_bottom{
+  margin-top: 20px;
+}
+
+
+
+
+/* .withdrawal_content4 {
   display: flex;
   flex-direction: row;
   margin-top: 30px;
@@ -232,12 +259,12 @@ span {
 
 .withdrawal_content4_button:hover {
   font-weight: 600;
-}
+} */
 
 
 
 /*회원탈퇴 팝업-------------------------------------------*/
-.popup_wrap {
+/* .popup_wrap {
   width: 560px;
   height: 290px;
   background: #fff;
@@ -272,8 +299,6 @@ align-items: center;
   
   margin: 40px;
 
-
-  font-family: 'Noto Sans KR', sans-serif;
 font-weight: 500;
 font-size: 16px;
 line-height: 35px;
@@ -288,7 +313,6 @@ margin-bottom: 20px;
 
 .popupMark i{
   font-size: 60px;
-  font-family: 'Noto Sans KR', sans-serif;
 font-weight: 100;
 
 text-align: center;
@@ -314,7 +338,7 @@ height: 80px;
   margin-right: 20px;
   line-height: 36px;
   background: #ffffff;
-  color: #000000;
+  color: ##828282;;
   text-align: center;
   border: 1px solid #AFAFAF ;
   border-radius: 10px;
@@ -329,4 +353,4 @@ height: 80px;
   border: 1px solid #00CA61;
   color : #00CA61;
   cursor: pointer;
-}
+} */

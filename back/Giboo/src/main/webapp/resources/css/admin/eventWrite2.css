@@ -123,22 +123,20 @@ a{
 
 }
 
-.eventCont2{
+/* .eventCont2{
     border : 1px solid #a9a9a9;
     border-radius: 5px;
     height: 300px;
     width: 1078.4px;
     justify-content: center;
-}
+} */
 
-textarea{
+/* textarea{
     outline : none;
-    /* height: 280px;
-    width: 1000px; */
     width: 95%;
     height: 80%;
     resize: none;
-}
+} */
 
 
 

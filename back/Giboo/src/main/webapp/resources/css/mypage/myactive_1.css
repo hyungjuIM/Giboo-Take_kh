@@ -47,8 +47,10 @@ body {
 
 /*상단 메뉴 title */
 .page-title {
+
   
   background-color: var(--mainColor);
+
 
 
   width: 100%;
@@ -354,6 +356,7 @@ body {
 
   display: flex;
   flex-direction: column;
+  padding: 12px 20px 0px 20px;
 
 }
 
@@ -374,20 +377,21 @@ body {
 }
 
 .th_num{
-  width: 100px;
+  width: 50px;
 }
 
 .th_name{
-  width: 300px;
+  width: 350px;
 }
 
 .th_date{
-  width: 150px;
+  width: 200px;
 }
 
-.th_print{
-  width: 150px;
+.th_money{
+  width: 120px;
 }
+
 
 
 .notice_table tbody{
@@ -411,42 +415,56 @@ body {
 /*   border: 1px solid red; */
 }
 
+.notice_table tbody > tr > th {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-weight: 500;
+     font-size: 18px;
+     line-height: 22px;
+     color: var(--contentColor);
+  
+ }
+
+
+/* 
 .notice_table tbody tr td:nth-child(1){
   color: var(--etcColor);
   font-family: 'NanumSquareNeo';
   font-size: 14px;
   font-weight: 600;
   font-weight: 500;
-  width: 150px;
+  width: 50px;
   
  
 }
 
 .notice_table tbody tr td:nth-child(2){
-  width: 260px;
+  width: 350px;
   
-}
+} */
 
 
 
 .notice_table tbody tr td:nth-child(2) a{
   color: var(--titleColor);
   font-family: 'NanumSquareNeo';
-  font-weight: 600;
+  font-weight: 600;}
  
-}
+/* }
 .notice_table tbody tr td:nth-child(3),
 .notice_table tbody tr td:nth-child(4){
   color: var(--titleColor);
   font-family: 'NanumSquareNeo';
   font-weight: 500;
 
-}
+} */
 
-.notice_table tbody tr td:nth-child(5) a{
+/* .notice_table tbody tr td:nth-child(5) a{
   font-weight: 500;
-}
-
+} */
+/* 
 .notice_table tbody tr td:nth-child(3){
  width: 180px;
  
@@ -454,7 +472,7 @@ body {
 .notice_table tbody tr td:nth-child(4){
 	width: 120px;
 }
-
+ */
 
 
 

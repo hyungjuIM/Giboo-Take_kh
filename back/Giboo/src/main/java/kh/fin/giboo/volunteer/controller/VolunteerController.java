@@ -41,7 +41,6 @@ public class VolunteerController {
         if (loginMember != null) {
             int memberNo = loginMember.getMemberNo();
             List<Favorite> favoriteList = service.getFavoriteList(memberNo);
-            System.out.println("asdfg" + favoriteList);
             model.addAttribute("memberNo", memberNo);
             model.addAttribute("favoriteList", favoriteList);
         }

@@ -46,21 +46,29 @@
 					<jsp:include page="/WEB-INF/views/mypage/mypage_side.jsp" />
 				</header>
 
-				<div class="myask_content_area">
-					<section class="mainContainer">
+				<div class="myask_content_area  menu_box_container">
+					<section class="mainContainer main">
 						<div class="mainContent">
 							<section class="notice">
 
+								<!-- notice seach area -->
+								<!--  container1 -->
 								<div class="notice1">
 									<div class="container1">
-										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #00CA61;"> 리뷰목록</span><span
-											style="color: #767676;">를 알려드립니다 😇</span>
 
+										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
+											<span style="color: #00CA61;"> 내가 작성한 리뷰 </span>을(를) 알려드립니다
+											😇
+										</span>
+
+										<!--  container2 -->
 										<div class="container2">
 
 
-											<div class="search-area">
+
+											<!-- active container  -->
+											<div class="active_contatiner">
+												<%--  container2 --%>
 
 												<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
 												<c:if test="${!empty param.key}">
@@ -68,136 +76,132 @@
 														value="&key=${param.key}&query=${param.query}" />
 												</c:if>
 
-												<h1 class="board-name">${boardName}</h1>
-
 												<c:if test="${!empty param.key}">
-													<h3 style="margin-left: 30px;">"${param.query}" 검색 결과
-													</h3>
+
+													<div class="query_result">
+														"<span>${param.query}</span>" 검색 결과
+													</div>
 												</c:if>
 
+												<div class="search_area">
+													<form method="get" id="boardSearch"
+														onsubmit="return searchValidate()">
 
-												<div class="search-filter">
+														<div class="search-filter">
+															<select id="search-key" name="key">
+																<option value="t">제목</option>
+																<option value="c">내용</option>
+																<option value="d">일자</option>
+															</select>
+														</div>
 
-													<select id="filter" name="filter">
-														<option value="title">제목</option>
-														<option value="author">작성자</option>
-														<option value="views">조회수</option>
-														<option value="date">등록일</option>
-													</select>
+
+														<span class="search_field"> <input type="text"
+															id="search-query" name="query" placeholder="검색어를 입력해주세요"
+															onfocus="this.placeholder = ''"
+															onblur="this.placeholder = '검색어를 입력해주세요'">
+															<button type="submit" id="search-btn"
+																class="fa-solid fa-magnifying-glass"></button>
+
+														</span>
+
+
+
+													</form>
 												</div>
 
-												<form action="">
-													<fieldset>
-														<input type="text" id="search-query" name="query"
-															placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
-															onblur="this.placeholder = '검색어를 입력해주세요'">
-														<button type="submit" id="search-btn"
-															class="fa-solid fa-magnifying-glass"></button>
-													</fieldset>
-												</form>
 											</div>
-
 										</div>
-
-
-
-									</div>
-								</div>
-
-
-								<div id="myactive2_notice-list">
-									<div class="myactive2_container3">
-										<table class="myactive2_notice-table">
-											<thead>
-												<tr>
-													<th scope="col" class="th-num">번호</th>
-
-													<th scope="col" class="th-name">참가한 내역</th>
-													<th scope="col" class="th-content">리뷰내용</th>
-													<th scope="col" class="th-date">일자</th>
-												</tr>
-											</thead>
-											<tbody>
-
-												<c:choose>
-													<c:when test="${empty myReview}">
-
-														<tr>
-															<th colspan="4">게시글이 존재하지 않습니다.</th>
-														</tr>
-													</c:when>
-
-													<c:otherwise>
-													
-														<c:forEach var="myReview" items="${myReview}">
-															
-															<tr>
-																<td class="th-num">${myReview.reviewNo}</td>
-																<td class="th-name">${myReview.title}</td>
-																<td class="th-content">${myReview.reviewContent}</td>
-																<td class="th-date">${myReview.enrollDate}</td>
-															</tr>
-
-														</c:forEach>
-													</c:otherwise>
-												</c:choose>
-
-												<%-- 
-											<tr>
-													<td>50</td>
-													<td><a href="#">치매안심센터-기억력 검진 봉사활동</a></td>
-													<td>2023.05.24</td>
-													<td>처음으로 봉사활동 해봤는데 너무 뿌듯해요!....</td>
-												</tr>
-											 --%>
-
-
-											</tbody>
-										</table>
-									</div>
-
-									<div class="container4">
-										<c:set var="url" value="?cp=" />
-										<ul class="pagination">
-											<li><a href="${url}1${sURL}">&lt;&lt;</a></li>
-											<li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
-											<c:forEach var="i" begin="${pagination.startPage}"
-												end="${pagination.endPage}" step="1">
-
-												<c:choose>
-													<c:when test="${i == pagination.currentPage}">
-														<li><a class="current">${i}</a></li>
-													</c:when>
-
-													<c:otherwise>
-														<li><a href="${url}${i}${sURL}">${i}</a></li>
-													</c:otherwise>
-												</c:choose>
-
-											</c:forEach>
-
-
-											<li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
-
-
-											<li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
-
-										</ul>
 									</div>
 
 								</div>
-
 							</section>
 						</div>
-					</section>
 
+						<div id="myactive_notice-list"
+							class="notice_box_container_content">
+							<div class="myactive_container3 notice_index_container">
+								<table class="myactive_notice-table notice_table">
+
+									<thead>
+										<tr>
+											<th scope="col" class="th-num">번호</th>
+
+											<th scope="col" class="th-name">참가한 내역</th>
+											<th scope="col" class="th-content">리뷰내용</th>
+											<th scope="col" class="th-date">일자</th>
+										</tr>
+									</thead>
+									<tbody>
+
+										<c:choose>
+											<c:when test="${empty myReview}">
+
+												<tr>
+													<th colspan="4">게시글이 존재하지 않습니다.</th>
+												</tr>
+											</c:when>
+
+											<c:otherwise>
+
+												<c:forEach var="myReview" items="${myReview}">
+
+													<tr>
+														<td class="th-num">${myReview.reviewNo}</td>
+														<td class="th-name">${myReview.title}</td>
+														<td class="th-content">${myReview.reviewContent}</td>
+														<td class="th-date">${myReview.enrollDate}</td>
+													</tr>
+
+												</c:forEach>
+											</c:otherwise>
+										</c:choose>
+
+
+									</tbody>
+								</table>
+							</div>
+
+							<div class="container4">
+								<c:set var="url" value="?cp=" />
+								<ul class="pagination">
+									<li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+									<li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+									<c:forEach var="i" begin="${pagination.startPage}"
+										end="${pagination.endPage}" step="1">
+
+										<c:choose>
+											<c:when test="${i == pagination.currentPage}">
+												<li><a class="current">${i}</a></li>
+											</c:when>
+
+											<c:otherwise>
+												<li><a href="${url}${i}${sURL}">${i}</a></li>
+											</c:otherwise>
+										</c:choose>
+
+									</c:forEach>
+
+
+									<li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+
+
+									<li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+
+								</ul>
+							</div>
+
+						</div>
+
+					</section>
 				</div>
-				<%-- myask_content_area --%>
+				
 
 			</div>
-			<%-- mypage_wrapper --%>
+			
+
 		</div>
-		<%-- mypage-container --%>
+		
 	</main>
 
 	<!-- 푸터 영역 -->

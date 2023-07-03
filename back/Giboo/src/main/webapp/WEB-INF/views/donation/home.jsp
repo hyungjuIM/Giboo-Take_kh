@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="parentCategoryList" value="${map.parentCategoryList}" />
@@ -64,6 +66,7 @@
 						<c:otherwise>
                         ${donationList[0].parentCategoryName}
                     </c:otherwise>
+
 					</c:choose>
 					기부 <span class="contentCount" id="contentCount">${donationListCount}</span>개
 				</h4>
@@ -164,7 +167,61 @@
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</footer>
 
-	<script
-		src="${pageContext.request.contextPath}/resources/js/donation/donation.js"></script>
+    
+    
+<script>
+    const favoriteButton = document.getElementsByClassName("favoriteButton");
+    for (let i of favoriteButton) {
+        i.addEventListener("click", function() {
+            console.log(${loginMember.memberNo});
+            console.log(i.id);
+
+            
+
+             $.ajax ({
+                 url: "addFavorite",
+                 data: {"memberNo" : ${loginMember.memberNo}, "donationNo" : i.id},
+                 
+                success: function(result) {
+                    if (result == "success") {
+                        if (i.innerHTML == "🤍") {
+                            i.innerHTML = '❤️';
+                           console.log("성공");
+                        } else {
+                            i.innerHTML = '🤍'; 
+                        }
+                    } else {
+                        
+                    }
+                }
+            })
+
+            $.ajax ({
+                url: "removeFavorite",
+                data: {"memberNo" : ${loginMember.memberNo}, "donationNo" : i.id},
+
+                success: function(result) {
+                    if (result == "success") {
+                        if(i.innerHTML =="❤️") {
+                            i.innerHTML = "🤍";
+                        }else {
+                            i.innerHTML = "❤️";
+                        }
+                    } else {
+                       
+                    }
+                }
+            })
+
+
+
+        })
+    }
+</script>
+
+
+
+<script src="${pageContext.request.contextPath}/resources/js/donation/donation.js"></script>
+
 </body>
 </html>
