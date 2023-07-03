@@ -235,7 +235,7 @@ else if (item.donationNo !== null && item.donationNo !== 0) {
 
 } else if (item.noticeNo !== null && item.noticeNo !== 0) {
   const noticeLink = $("<a>")
-    .attr("href", "/Giboo/event/eventDetailMain/" + item.noticeNo)
+    .attr("href", "/Giboo/notice/noticeDetail/" + item.noticeNo)
     .text(item.alarmContent);
   alarmContent.append(noticeLink);
   noticeLink.on('click', function () {

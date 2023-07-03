@@ -16,10 +16,10 @@ public class DonationDetail {
     private int locationY;
     private String donationAddr;
     private String enrollDate;
-    private String startRecruitDate;
+    private Date startRecruitDate;
     private Date endRecruitDate;
-    private String startProgressDate;
-    private String endProgressDate;
+    private Date startProgressDate;
+    private Date endProgressDate;
     private String deleteStatus;
     private String dComStatus;
     private String donationAmount;
