@@ -63,7 +63,10 @@
                         </div>  --%>
                         
                     </div>
-                    <div class="edDoTo">
+                   
+                    
+                    
+                    <%--    <div class="edDoTo">
                         <div class="edDoTitle">
                             <span>함께하고 있어요 😋</span>
                         </div>
@@ -98,8 +101,7 @@
                                 </c:otherwise>
                             </c:choose>
                         </div>
-                    </div>
-                    <%--     ============================== --%>
+                    </div>  ============================== --%>
                     <div class="eParMoreWrap">
            				 <div class="eParMoreBox">
                 			<jsp:include page="/WEB-INF/views/event/eventParticiMore.jsp" />

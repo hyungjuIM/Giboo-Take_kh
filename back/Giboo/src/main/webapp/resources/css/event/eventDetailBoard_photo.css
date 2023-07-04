@@ -89,26 +89,26 @@ line-height: 33px;
 letter-spacing: -0.05em;
 color: #111111;
 }
-
+/* 
 .edWrapBar{
     width: 340px;
     margin-top: 15px;
-    /* background-color: yellow; */
+    background-color: yellow;
     border-bottom: 1px solid #D9D9D9;
 }
 
 .edDoBar > progress{
     width: 339px;
     height: 15px;
-    /* background-color: #7468da; */
-}
-
+    background-color: #7468da;
+} */
+/* 
 .edWrapBar_2{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
+} */
+/* 
 
 .edVolDo{
     display: flex;
@@ -116,7 +116,7 @@ color: #111111;
     justify-content: center;
     margin-top: 13px;
     margin-bottom: 20px;
-}
+} */
 
 .edVolDo > span{
     font-family: 'Noto Sans';
@@ -179,15 +179,38 @@ color: #111111;
     color: #767676;
 }
 
-.edBtn{
-    /* background-color: violet; */
+
+.memberChange_bottom button{
+    border: none; 
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 500;
+  
+  
+    background-color: var(--etcColor); 
+    width: 150px;
+    height: 46px;
+    
+  
+    color : #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+.memberChange_bottom button:hover{
+  background-color: var(--mainColor);
+  font-weight: 600;
+}    
+
+/* .edBtn{
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
+} */
+/* 
 .edBtnDe{
     width: 161px;
     height: 41px;
@@ -196,15 +219,15 @@ color: #111111;
     align-items: center;
     justify-content: center;
     border-radius: 100px;
-}
+} */
 
-.edBtnDe > span{
+/* .edBtnDe > span{
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
-}
+} */
 
 .edStampPopDe {
 	position: relative;
