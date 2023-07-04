@@ -50,6 +50,7 @@ a{
 
 .mainCategoryInner {
     display: flex;
+    align-items: center;
 }
 
 
@@ -102,7 +103,6 @@ a{
 }
 
 .subCategoryArea {
-    border: 1px solid green;
     margin-block: 35px;
 }
 
@@ -112,10 +112,11 @@ a{
     display: flex;
     justify-content: center;
     gap: 40px;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 .subCategoryItem {
-    border: 1px solid pink;
     display: inline-block;
     text-align: center;
    
@@ -123,28 +124,29 @@ a{
 
 .SubCategoryLabelTheme {
     font-family: 'NanumSquareNeo';
-    font-size: 14px;
+    font-size: 16px;
 
     color: var(--contentColor);
     cursor: pointer;
 }
 
 .SubCategoryEmojiTheme {
-    width: 76px;
-    height: 76px;
+    width: 58px;
+    height: 58px;
     background-color: #F6F6F6;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 14px;
+/*     padding-top: 14px; */
+    margin-bottom: 8px;
 
     
 
 }
 
 .SubCategoryEmojiTheme span{
-    font-size: 46px;
+    font-size: 34px;
 }
 
 
@@ -153,7 +155,7 @@ a{
     
     color: #767676;
     font-weight: bold;
-   padding: 8px;
+ /*   padding: 8px; */
 }
 
 .SubCategoryChecked > div {
@@ -209,14 +211,12 @@ h4{
 
 
 .sortingSection .sortingArea {
-    /* border: 1px solid orange; */
     display: inline-block;
     position: relative;
 }
 
 .sortingSection .sortingArea .sortingButton {
 
-    /* border: 3px solid blue; */
     width: 132px;
     height: 40px;
     background-color: unset;
@@ -234,7 +234,6 @@ h4{
 .sortingButton img {
     width: 20px;
     height: 20px;
-    border: 1px solid red;
 }
 
 .sortingListBoxTheme {
@@ -252,7 +251,6 @@ h4{
 }
 /* -------------------- */
 .content .list {
-    /* border: 1px solid #8071FC; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -262,7 +260,6 @@ h4{
 }
 
 .content .list .item {
-    /* border: 1px solid hotpink; */
     width: 378px;
     height: 486px;
     border-radius: 30px;
@@ -298,7 +295,6 @@ h4{
 }
 
 .item .buttonSection {
-    /* border: 1px solid green; */
     width: 300px;
     height: 40px;
 
@@ -378,7 +374,6 @@ h4{
     font-weight: 600;
 }
 .content_container{
-    /* border: 1px solid green; */
     width: 100%;
     height: 100%;
     padding: 12px 16px 12px 16px;
@@ -390,12 +385,12 @@ h4{
     /* margin-top: 10px */
 }
 .content_container .text_container{
-    /* border: 1px solid purple; */
+   /*  border: 1px solid purple; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 8px;
+    margin-top: 12px;
 }
 .content_container .mainTitle {
     font-family: 'NanumSquareNeo';
@@ -404,7 +399,7 @@ h4{
     font-size: 20px;
     text-align: center;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .content_container .subTitle {
@@ -417,7 +412,7 @@ h4{
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .content_container .subTitle span:after{
@@ -455,6 +450,7 @@ h4{
     flex-direction: row;
     justify-content: space-between;
     color: #b5b5b5;
+    margin-top: 4px;
 }
 
 .info * {
@@ -483,6 +479,7 @@ h4{
     position: relative;
 
     margin-bottom: 30px;
+    margin-top: 24px;
  
 }
 .container4 ul{
