@@ -60,4 +60,18 @@ $(function(){
 
 
 
+// 응원하기 버튼
+const cheeringButton = document.getElementById("cheeringButton");
+cheeringButton.addEventListener("click", function() {
+
+    $.ajax({
+        url : 'cheering',
+        method: 'POST',
+        data : "memberNo" : ${loginMember.memberNo},
+                
+    })
+
+
+})
+
 
