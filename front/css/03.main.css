@@ -356,6 +356,7 @@ li{
     margin: 0 auto;
     overflow:hidden;
     white-space: nowrap;
+   
 
 }
 
@@ -365,6 +366,8 @@ li{
     position: absolute;
     left: 0;
     top: 0;
+
+    
 }
 
 
@@ -1226,9 +1229,8 @@ li .vol_day span{
     z-index: 100;
     top: 0;
     right: 0;
-    transform: translate(-30px, 0px);
+    transform: translate(30px, 0px);
 
     width: 360px;
     height: 791px;
-    border-radius: 20px;
 }
