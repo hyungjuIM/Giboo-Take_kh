@@ -155,6 +155,13 @@ public class MapController {
 	    return new Gson().toJson(address); 
 	}
 
+	@GetMapping("/getAddressFromServer")
+	@ResponseBody
+	public String addressToJSP(
+			@RequestParam("currentAddress") String currentAddress) {
+		
+	    return new Gson().toJson(currentAddress); 
+	}
 	
 	// 즐겨찾기
 	@ResponseBody

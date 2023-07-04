@@ -368,7 +368,6 @@
 }
 
 /* 카테고리별로 색 변경 */
-<<<<<<< HEAD
 .mhCa > a:nth-child(2){
     color: #00CA61;
     font-weight: 600;
@@ -465,7 +464,7 @@
 
 /* 작은 카테고리 */
 .mvBtnspan_b{
-    color: #8071FC !important;
+    color: #00CA61; !important;
 }
 
 

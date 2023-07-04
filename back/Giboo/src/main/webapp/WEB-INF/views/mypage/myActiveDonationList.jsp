@@ -57,7 +57,7 @@
 									<div class="container1">
 
 										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
-											<span style="color: #00CA61;"> 활동목록 </span>에 대해 알려드립니다 😇
+											<span style="color: #00CA61;"> 기부내역 </span>을(를) 알려드립니다 😇
 										</span>
 
 										<!--  container2 -->
@@ -155,9 +155,8 @@
 											<th scope="col" class="th_num">번호</th>
 											<th scope="col" class="th_name">기부 내역</th>
 											<th scope="col" class="th_date">기부 일자</th>
-											<th scope="col" class="th_date">기부한 금액</th>
+											<th scope="col" class="th_money">기부한 금액</th>
 
-											<!-- <th scope="col" class="th_print">인증서 출력</th>  -->
 										</tr>
 									</thead>
 
@@ -169,9 +168,7 @@
 											<%--게시글존재하지않 --%>
 											<c:when test="${empty myActiveDonationList}">
 												<tr>
-													<th colspan="4">
-														<div class="board_no">게시글이 존재하지 않습니다.</div>
-													</th>
+													<th colspan="4">게시글이 존재하지 않습니다.</th>
 												</tr>
 											</c:when>
 											
@@ -180,120 +177,23 @@
 												<c:forEach var="myActiveDonationList"
 													items="${myActiveDonationList}">
 													<tr>
-														<td>${myActiveDonationList.myactiveDonationNo}</td>
-														<td><a 
+														<td class="th_num">${myActiveDonationList.myactiveDonationNo}</td>
+														<td class="th_name"><a 
 															href="../donation/detail/${myActiveDonationList.donationNo}?cp=${pagination.currentPage}${sURL}">${myActiveDonationList.donationTitle}</a></td>
 
-														<td>${myActiveDonationList.myactiveDate}</td>
-														<td>${myActiveDonationList.donationMoney}</td>
-														<%-- <td><a href="../detail/${donation.donationNo}?cp=${pagination.currentPage}${sURL}">${donation.donationTitle}</a></td>   --%>
+														<td class="th_date">${myActiveDonationList.myactiveDate}</td>
+														<td class="th_money">${myActiveDonationList.donationMoney}</td>
+														
 													</tr>
 												</c:forEach>
 
 											</c:otherwise>
 
-											<%--
-														<c:set var="donationCount" value="${myActiveDonationList.size()}" />
-														<c:forEach var="myActiveDonationList"
-															items="${myActiveDonationList}"  varStatus="status" >
-															<c:set var="donationNumber" value="${donationCount - status.count + 1}" />
-															<tr>
-																<td>${donationNumber}</td>
-																<td>${myActiveDonationList.donationTitle}</td>
-																<td>${myActiveDonationList.myactiveDate}</td>
-																<td>${myActiveDonationList.donationMoney}</td>
-																
-															</tr>
-														</c:forEach>
-														
-														 --%>
-
-
 										</c:choose>
 									</tbody>
 								</table>
 							</div>
-							<%--
-<tr>
-													<td>50</td>
-													<td>위기가정지원</td>
-													<td>2023.05.24</td>
-
-													<td>
-														<div class="myactive_print">
-															<a href="${pageContext.request.contextPath}/mypage/reportPrint">발급</a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>49</td>
-													<td>주거지원</td>
-													<td>2023.05.24</td>
-													<td>
-														<div class="myactive_print">
-															<a href="/html/mypage/reportPrint.html">발급</a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>48</td>
-													<td>생계지원</td>
-													<td>2023.05.24</td>
-													<td>
-														<div class="myactive_print">
-															<a href="/html/mypage/reportPrint.html">발급</a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>47</td>
-													<td>의료지원</td>
-													<td>2023.05.24</td>
-													<td>
-														<div class="myactive_print">
-															<a href="/html/mypage/reportPrint.html">발급</a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>46</td>
-													<td>위기가정지원</td>
-													<td>2023.05.24</td>
-													<td>
-														<div class="myactive_print">
-															<a href="/html/mypage/reportPrint.html">발급</a>
-														</div>
-													</td>
-												</tr>
-												<tr>
-													<td>45</td>
-													<td>주거지원</td>
-													<td>2023.05.24</td>
-													<td>
-														<div class="myactive_print">
-															<a href="/html/mypage/reportPrint.html">발급</a>
-														</div>
-													</td>
-													
-													<div class="container4">
-										<nav class="page-nav">
-											<ul class="pagination">
-												<li><a href="">&lt;</a></li>
-												<li><a href="">
-</a></li>
-												<li><a href="">2</a></li>
-												<li><a href="">3</a></li>
-												<li><a href="">4</a></li>
-												<li><a href="">5</a></li>
-												 페이지 번호 추가 
-												<li><a href="">&gt;</a></li>
-											</ul>
-										</nav>
-									</div>
- --%>
-
-
-
+							
 							<div class="container4">
 								<c:set var="url" value="?cp=" />
 								<ul class="pagination">

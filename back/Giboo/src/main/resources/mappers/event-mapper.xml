@@ -94,7 +94,7 @@
 		  		 		(		
 				SELECT COUNT(*)
 		        FROM FAVORITES F
-		        WHERE F.FAV_EVENT_NO  = e.EVENT_NO
+		        WHERE F.EVENT_NO  = e.EVENT_NO
 		    ) AS EVENTFAVCOUNT,
 		  COALESCE(EP.EVENTPERSONCOUNT, 0) AS EVENTPERSONCOUNT,
 		  e.TARGET_PEOPLE,
@@ -189,12 +189,12 @@
 	<select id="checkFavorite" resultType="boolean">
 		SELECT COUNT(*) AS COUNT
 		FROM FAVORITES f
-		WHERE f.FAV_EVENT_NO  = #{eventNo} AND f.FAV_MEMBER_NO =  #{memberNo}
+		WHERE f.EVENT_NO  = #{eventNo} AND f.MEMBER_NO =  #{memberNo}
 	</select>
 	
 	<!-- 즐겨찾기 추가 -->
 	<insert id="insertFav">
-		INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, FAV_MEMBER_NO, FAV_EVENT_NO)
+		INSERT INTO FAVORITES (FAVORITE_NO, FAVORITE_STATUS, MEMBER_NO, EVENT_NO)
 		VALUES (SEQ_FAVORITE_NO.NEXTVAL, 'Y', #{memberNo}, #{eventNo}) 
 	</insert>
 	

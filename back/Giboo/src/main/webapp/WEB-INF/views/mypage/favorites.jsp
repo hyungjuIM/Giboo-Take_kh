@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+	<c:set var="pagination" value="${map.pagination}" />
+    <c:set var="favorite" value="${map.selectListFavorite}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -97,11 +99,11 @@
 							    </c:when>
 							    <c:otherwise>
 
-							        <c:forEach var="favorite" items="${favoritesList}">
+							        <c:forEach var="favorite" items="${favorite}">
 							            <!-- Use the 'favorite' object to display each favorite. For example: -->
 							            
 										<div class="titleContainer">
-							                <div class="favTitle">${favorite.mainTitle}</div>
+							                <div class="favTitle">${favorite.favoriteTitle}</div>
 							               
 							            </div>
 							        </c:forEach>
@@ -117,7 +119,36 @@
 				</div>
 
 
-					</div>
+			</div>
+			
+			
+			
+                    <div class="container4">
+                        <nav class="page-nav">
+                            <c:set var="url" value="?cp=" />
+                            <ul class="pagination">
+                                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                                <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                                
+                                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+
+                                    <c:choose>
+                                        <c:when test="${i == pagination.currentPage}">
+                                            <li><a class="current">${i}</a></li>
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
+
+                                </c:forEach>
+
+                                <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+                            </ul>
+                        </nav>
+                    </div>
 					<!-- 즐겨찾기 카드부분 -->
 					<!-- <div class="myfavcard_contaner">
 						이모티콘

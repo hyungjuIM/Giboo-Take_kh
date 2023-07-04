@@ -13,14 +13,15 @@
     <!-- jQuery 라이브러리 추가 -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
 
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/main.css" />
 
 
 </head>
-
-<body>
+<!-- style="overflow-x:hidden; overflow-y:auto;" -->
+<body style="overflow-x:hidden; overflow-y:auto;" >
       <!-- 헤더 영역 -->
             <header>
                 <jsp:include page="/WEB-INF/views/main/header.jsp" />
@@ -257,7 +258,8 @@
                     <p>Donation</p>
                     <h3 class="sub_title">이웃을 향한 아름다운 도움의 손길</h3>
                 </div>
-
+                <div class="do_blur_box1"></div>
+                <div class="do_blur_box2"></div>
 
                 <div class="do_bigContainer">
                     <div class="best_img">
@@ -265,13 +267,13 @@
                         <div class="beeImg"><img src="${pageContext.request.contextPath}/resources/images/main_img/img_bee.png" alt=""></div>
                     </div>
 
-                    <div class="do_box_container">
+                    <div class="swiper-container do_box_container">
 
 
 
-                        <ul class="doAllSlides">
+                        <ul class="swiper-wrapper doAllSlides">
 
-                            <li class="do_box">
+                            <li class="swiper-slide do_box">
 
 
                                 <div class="do_right">
@@ -285,7 +287,7 @@
                                         </div>
                                     </div>
                                     <div class="doTitle">
-                                        <h3>초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <h3>1초등학생 방과 후 학습 멘토링 모집합니다.</h3>
                                         <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
                                     </div>
 
@@ -310,7 +312,7 @@
 
                             </li>
 
-                            <li class="do_box">
+                            <li class="swiper-slide do_box">
 
 
                                 <div class="do_right">
@@ -324,7 +326,7 @@
                                         </div>
                                     </div>
                                     <div class="doTitle">
-                                        <h3>초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <h3>2초등학생 방과 후 학습 멘토링 모집합니다.</h3>
                                         <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
                                     </div>
 
@@ -348,7 +350,7 @@
                                 </div>
 
                             </li>
-                            <li class="do_box">
+                            <li class="swiper-slide do_box">
 
 
                                 <div class="do_right">
@@ -362,7 +364,7 @@
                                         </div>
                                     </div>
                                     <div class="doTitle">
-                                        <h3>초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <h3>3초등학생 방과 후 학습 멘토링 모집합니다.</h3>
                                         <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
                                     </div>
 
@@ -386,7 +388,120 @@
                                 </div>
 
                             </li>
+                            <li class="swiper-slide do_box">
 
+
+                                <div class="do_right">
+                                    <div class="do_tag_container">
+                                        <div class="do_tag">
+                                            <span>#어린이 👧🏻</span>
+                                        </div>
+                                        <div class="do_like">
+                                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png" alt=""></div>
+                                            <span>5.0</span>추천해요!
+                                        </div>
+                                    </div>
+                                    <div class="doTitle">
+                                        <h3>4초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
+                                    </div>
+
+                                    <div class="do_content_per">
+                                        <span class="do_con_bar">
+                                            <span class="do_con_bar_per"></span>
+                                        </span>
+                                        <span class="doTooltip"><span>14</span>/20
+                                        </span>
+                                    </div>
+
+                                    <div class="percent_content">
+                                        <div><img src="${pageContext.request.contextPath}/resources/images/main_img/check_icon.png" alt=""></div>곧 봉사 모집이 마감됩니다.
+                                    </div>
+                                </div>
+
+
+
+                                <div class="do_left">
+                                    <div class="divImg"><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg" alt=""></div>
+                                </div>
+
+                            </li>
+                            <li class="swiper-slide do_box">
+
+
+                                <div class="do_right">
+                                    <div class="do_tag_container">
+                                        <div class="do_tag">
+                                            <span>#어린이 👧🏻</span>
+                                        </div>
+                                        <div class="do_like">
+                                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png" alt=""></div>
+                                            <span>5.0</span>추천해요!
+                                        </div>
+                                    </div>
+                                    <div class="doTitle">
+                                        <h3>5초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
+                                    </div>
+
+                                    <div class="do_content_per">
+                                        <span class="do_con_bar">
+                                            <span class="do_con_bar_per"></span>
+                                        </span>
+                                        <span class="doTooltip"><span>14</span>/20
+                                        </span>
+                                    </div>
+
+                                    <div class="percent_content">
+                                        <div><img src="${pageContext.request.contextPath}/resources/images/main_img/check_icon.png" alt=""></div>곧 봉사 모집이 마감됩니다.
+                                    </div>
+                                </div>
+
+
+
+                                <div class="do_left">
+                                    <div class="divImg"><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg" alt=""></div>
+                                </div>
+
+                            </li>
+                            <li class="swiper-slide do_box">
+
+
+                                <div class="do_right">
+                                    <div class="do_tag_container">
+                                        <div class="do_tag">
+                                            <span>#어린이 👧🏻</span>
+                                        </div>
+                                        <div class="do_like">
+                                            <div><img src="${pageContext.request.contextPath}/resources/images/main_img/star_icon.png" alt=""></div>
+                                            <span>5.0</span>추천해요!
+                                        </div>
+                                    </div>
+                                    <div class="doTitle">
+                                        <h3>6초등학생 방과 후 학습 멘토링 모집합니다.</h3>
+                                        <div> 모집 <span>2023. 06. 12 ~ 2023. 06. 17</span> </div>
+                                    </div>
+
+                                    <div class="do_content_per">
+                                        <span class="do_con_bar">
+                                            <span class="do_con_bar_per"></span>
+                                        </span>
+                                        <span class="doTooltip"><span>14</span>/20
+                                        </span>
+                                    </div>
+
+                                    <div class="percent_content">
+                                        <div><img src="${pageContext.request.contextPath}/resources/images/main_img/check_icon.png" alt=""></div>곧 봉사 모집이 마감됩니다.
+                                    </div>
+                                </div>
+
+
+
+                                <div class="do_left">
+                                    <div class="divImg"><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg" alt=""></div>
+                                </div>
+
+                            </li>
                         </ul>
                     </div>
 
@@ -399,9 +514,10 @@
 
 
                 <div class="do_next_prev_btn">
-                    <span class="do_prev">prev</span>
-                    <span class="do_next">next</span>
+                    <span class="swiper-button-prev do_prev">prev</span>
+                    <span class="swiper-button-next do_next">next</span>
                 </div>
+
             </section>
 
 
@@ -524,7 +640,6 @@
                 </div>
             </section>
         </div>
-        <jsp:include page="/WEB-INF/views/main/qnaBtn.jsp" />
 
     </main>
 
@@ -532,13 +647,13 @@
     
         
              
-		 <jsp:include page="/WEB-INF/views/main/qnaBtn.jsp" />
-		 
-
+    
+    
     <!-- 푸터 영역 -->
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
+    
 <script>
   (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.");}var ch=function(){ch.c(arguments);};ch.q=[];ch.c=function(args){ch.q.push(args);};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return;}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x);}}if(document.readyState==="complete"){l();}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l);}})();
 
@@ -546,6 +661,7 @@
     "pluginKey": "759276e8-069a-4d4a-b4f9-73deebd841e5"
   });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
 </body>
 

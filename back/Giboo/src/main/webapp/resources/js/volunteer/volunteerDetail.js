@@ -36,8 +36,14 @@ $(function(){
     });
 })
 
-volunteerButton.addEventListener("click", () => {
-    console.log("test");
-    grayBox.style.display = "flex";
-    volunteerSubmitContainer.style.display = "inline";
-})
+
+//봉사 참여 버튼
+const volunteerButton = document.getElementById("volunteerButton");
+volunteerButton.addEventListener('click',function(){
+    $.ajax({
+        url : "doVolunteer",
+        method : 'POST',
+    })
+});
+
+

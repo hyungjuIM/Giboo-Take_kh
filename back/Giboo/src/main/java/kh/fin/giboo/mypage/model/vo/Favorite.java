@@ -14,4 +14,5 @@ public class Favorite {
 	private int memberNo;
 	private int donationNo;
 	private int volunteerNo;
+	private String favoriteTitle;
 }

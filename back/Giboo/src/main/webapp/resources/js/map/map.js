@@ -49,6 +49,7 @@ function sendAddressToJSP(address) {
             console.log('주소값이 JSP로 전달되었습니다.');
                 // 주소값을 JSP에 표시
                 $(".myAdress").text(address);
+
         },
         error: function(xhr, status, error) {
             // 요청이 실패한 경우 처리할 내용
@@ -56,6 +57,9 @@ function sendAddressToJSP(address) {
         }
     });
 }
+
+
+
 
 // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
 if (navigator.geolocation) {

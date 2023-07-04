@@ -2,12 +2,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
+
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+  }
+  
+
+
 *{
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'NanumSquareNeo KR', sans-serif;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -79,11 +90,11 @@ main{
     height: 700px;
 }
 
-.edDoPerImg > img{
+/* .edDoPerImg > img{
     width: 50px;
     height: 45px;
     border-radius: 50%;
-}
+} */
 
 
 
@@ -128,7 +139,7 @@ main{
 }
 
 .edWrapPeriodSpan > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
@@ -140,7 +151,7 @@ main{
 }
 
 .edWrapTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
 font-style: normal;
 font-weight: 500;
 font-size: 26px;
@@ -178,7 +189,7 @@ color: #111111;
 }
 
 .edVolDo > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -190,56 +201,32 @@ color: #111111;
 }
 
 .edDoTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     color: #4D4D4D;
 }
 
-.edDoPerson{
-    /* background-color: yellowgreen; */
-    margin-top: 12px;
-    height: 89px;
-    display: flex;
-    align-items: center;
-    max-width: 340px;
-    overflow: hidden;
-}
 
-.edDoPersonUl{
+/* .edDoPersonUl{
     display: flex;
-}
-
+} */
+/* 
 .edDoPersonLi{
     margin-right: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
+} */
 
-.edDoPerImg{
-    width: 60px;
-    height: 60px;
-    background: #D9D9D9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 50%;
-}
 
-.edPersonName{
-    font-family: 'Noto Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    color: #767676;
-}
 
+
+
+/* 
 .edBtn{
-    /* background-color: violet; */
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -258,12 +245,48 @@ color: #111111;
 }
 
 #popupButton{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
-}
+} */
+
+
+/* .memberChange_bottom{
+
+    width: 100%;
+  } */
+  
+  .memberChange_bottom button{
+    border: none; 
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 500;
+  
+  
+    background-color: var(--etcColor); 
+    width: 150px;
+    height: 46px;
+    
+  
+    color : #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+.memberChange_bottom button:hover{
+  background-color: var(--mainColor);
+  font-weight: 600;
+}    
+
+
+
+
+
+
+
 
 .edStampPopDe {
 	position: relative;
@@ -292,7 +315,7 @@ color: #111111;
 }
 
 .edStampPopDe > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
@@ -367,11 +390,11 @@ color: #111111;
 }
 
 .edEventintro > a > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    color: #4D4D4D;
+    font-size: 20px;
+    color: var(--contentColor);
 }
 
 
@@ -420,7 +443,7 @@ color: #111111;
 }
 
 .edHowtoTi > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -438,7 +461,7 @@ color: #111111;
 }
 
 .edHowtoDetail > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -478,7 +501,7 @@ color: #111111;
 }
 
 .edInTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -691,7 +714,7 @@ color: #111111;
 .eMoreBtnBox > span{
     font-weight: 600;
     font-size: 16px;
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
 }
 
@@ -735,11 +758,12 @@ color: #111111;
 
 
 .progressArea {
-    background-color: #F0EFF9;
+    background-color: #eefce7;
     border-radius: 20px;
     padding: 10px 20px;
     margin-bottom: 30px;
     margin-top: 30px;
+    width: 340px;
 }
 
 .progressInfo {
@@ -767,7 +791,9 @@ color: #111111;
 }
 
 .progressBarValue {
-    background: linear-gradient(to top, #8071FC 50%, #574da1);
+
+    background: linear-gradient(to top, #00CA61; 50%, #574da1);
+
     border-radius: 30px;
 
     width: 50%;
@@ -796,3 +822,150 @@ color: #111111;
 .progressStatus > span > span {
     font-size: 14px;
 }
+
+
+/* 프로필 이미지 슬라이드===================================== */
+/* 
+.fav > img{
+    color : red;
+    font-size: 20px;
+} */
+
+
+
+.eParMoreTitle > span{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.eParMoreTitle{
+    margin-bottom: 20px;
+}
+
+.edDoPersonLi{
+    /* background-color:#f7f7f7; */
+    width: 180px;
+    height: 110px;
+    border-radius: 20px;
+    border: solid 2px yellow;
+    margin : 0px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edDoPersonUl{
+    overflow: hidden;
+    display: flex;
+    width: 500px;
+    border : solid 1px blue
+}
+
+
+
+/* 더보기 버튼 */
+
+
+
+
+.eParMoreList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    height: 100px;
+    /* border: solid 2px violet; */
+}
+
+.Par_relatedItemListButtonArea {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    border : 1px solid red;
+}
+
+#prev1, #next1 {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #00CA61;
+    border-radius: 100%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: unset;
+    cursor: pointer;
+}
+
+
+
+.edDoPerson{
+    /* background-color: yellowgreen; */
+    margin-top: 12px;
+    height: 89px;
+    display: flex;
+    align-items: center;
+    max-width: 340px;
+    overflow: hidden;
+}
+
+
+.edDoPerImg{
+    width: 70px;
+    height: 70px;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.edDoPerImg > img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+
+.edPersonName{
+    font-family: 'NanumSquareNeo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #767676;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.edBtn {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+.swiper-container {
+    height:200px; 
+    border:5px solid silver;
+    border-radius:7px;
+     /* box-shadow:0 0 20px #ccc inset; */
+ }
+ .swiper-slide { 
+     /* height: 380px;  */
+      /* width: 600px;  */
+     text-align:center; 
+     display:flex;  
+    /* align-items:center;   */
+    /* justify-content:center;  */
+  }
+ .swiper-slide div {
+     /* height: 380px; */
+     /* width: 550px; */
+    /* box-shadow:0 0 5px #555; */
+    /* max-width:100%; 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */
+    /* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+ }

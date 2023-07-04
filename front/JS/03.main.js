@@ -193,36 +193,181 @@ volPrevBtn.addEventListener('click', function () {
 });
 
 
-var doAllSlides = document.querySelector('.doAllSlides'),
-  doSlide = document.querySelectorAll('.doAllSlides li'),
-  doCurrentIdx = 0, //현재 인덱스 
-  doSlideCount = doSlide.length,
-  doSlideWidth = 750,
-  doSlideMargin = 20,
-  doVolPrevBtn = document.querySelector('.do_prev'),
-  doVolNextBtn = document.querySelector('.do_next');
 
-doAllSlides.style.width = (doSlideWidth + doSlideMargin) * doSlideCount - doSlideMargin + 'px'; // set the width of the ul
 
-function doMoveSlide(num) {
-  doAllSlides.style.left = -num * (doSlideWidth + doSlideMargin) + 'px';
-  doCurrentIdx = num;
-}
+new Swiper('.swiper-container', {
 
-doVolNextBtn.addEventListener('click', function () {
-  if (doCurrentIdx < doSlideCount -2) {
-    doMoveSlide(doCurrentIdx + 1);
-  } else {
-    doMoveSlide(0);
-  }
+	slidesPerView : 3, // 동시에 보여줄 슬라이드 갯수
+	spaceBetween : 30, // 슬라이드간 간격
+	slidesPerGroup : 1, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+
+	// 그룹수가 맞지 않을 경우 빈칸으로 메우기
+	// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+	loopFillGroupWithBlank : false,
+
+	loop : true, // 무한 반복
+
+	pagination : { // 페이징
+		el : '.swiper-pagination',
+		clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+	},
+	navigation : { // 네비게이션
+		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+	},
 });
 
-doVolPrevBtn.addEventListener('click', function () {
-  if (doCurrentIdx > 0) {
-    doMoveSlide(doCurrentIdx - 1);
-  } else {
-    // moveSlide(0);
-  }
 
-});
+// const slides2 = document.querySelector(".doAllSlides");
+// const slideItems2 = document.querySelectorAll(".doAllSlides .do_box");
+// const prevBtn2 = document.querySelector(".do_prev");
+// const nextBtn2 = document.querySelector(".do_next");
+
+// let currentIndex2 = 1; // 수정된 값
+// const slideWidth2 = 500;
+// const totalSlides2 = slideItems2.length;
+
+// // 슬라이드 복제 함수
+// function cloneSlides2() {
+//   // 첫 번째 슬라이드 복제
+//   const firstSlide2 = slideItems2[0].cloneNode(true);
+//   slides2.appendChild(firstSlide2);
+
+//   // 마지막 슬라이드 복제
+//   const lastSlide2 = slideItems2[totalSlides2 - 1].cloneNode(true);
+//   slides2.insertBefore(lastSlide2, slideItems2[0]);
+// }
+
+// // 슬라이드 이동 함수
+// function moveSlides2() {
+//   slides2.style.transition = "left 0.5s ease-out";
+//   slides2.style.left = -(currentIndex2 * slideWidth2) + slideWidth2 + "px";
+// }
+
+// // 이전 버튼 클릭 시 이벤트 핸들러
+// prevBtn2.addEventListener("click", () => {
+//   if (currentIndex2 > 0) {
+//     currentIndex2--;
+//   } else {
+//     currentIndex2 = totalSlides2;
+//   }
+//   moveSlides2();
+// });
+
+// // 다음 버튼 클릭 시 이벤트 핸들러
+// nextBtn2.addEventListener("click", () => {
+//   if (currentIndex2 < totalSlides2 + 1) {
+//     currentIndex2++;
+//   } else {
+//     currentIndex2 = 0;
+//   }
+//   moveSlides2();
+// });
+
+// // 슬라이드 초기화 함수
+// function initSlider2() {
+//   cloneSlides2();
+//   moveSlides2();
+// }
+
+// // 슬라이드 무한루프 처리
+// slides2.addEventListener("transitionend", () => {
+//   if (currentIndex2 === 0) {
+//     slides2.style.transition = "none";
+//     currentIndex2 = totalSlides2;
+//     slides2.style.left = -(currentIndex2 * slideWidth2) + slideWidth2 + "px";
+//   } else if (currentIndex2 === totalSlides2 + 1) {
+//     slides2.style.transition = "none";
+//     currentIndex2 = 1;
+//     slides2.style.left = -(currentIndex2 * slideWidth2) + slideWidth2 + "px";
+//   }
+// });
+
+
+
+// // 슬라이드 초기화 실행
+// initSlider2();
+
+
+
+
+// /// JavaScript 코드
+// const slides2 = document.querySelector(".doAllSlides");
+// const slideItems = document.querySelectorAll(".doAllSlides .do_box");
+// const prevBtn2 = document.querySelector(".do_prev");
+// const nextBtn2 = document.querySelector(".do_next");
+
+// let currentIndex = 0;
+// const slideWidth2 = 600;
+// const totalSlides = slideItems.length;
+
+// // 슬라이드 이동 함수
+// function moveSlides() {
+//   slides2.style.transition = "left 0.5s ease-out";
+//   slides2.style.left = -currentIndex * slideWidth2 + "px";
+// }
+
+// // 이전 버튼 클릭 시 이벤트 핸들러
+// prevBtn2.addEventListener("click", () => {
+//   if (currentIndex > 0) {
+//     currentIndex--;
+//   } else {
+//     currentIndex = totalSlides - 1;
+//   }
+//   moveSlides();
+// });
+
+// // 다음 버튼 클릭 시 이벤트 핸들러
+// nextBtn2.addEventListener("click", () => {
+//   if (currentIndex < totalSlides - 1) {
+//     currentIndex++;
+//   } else {
+//     currentIndex = 0;
+//   }
+//   moveSlides();
+// });
+
+// // 슬라이드 무한루프 처리
+// slides2.addEventListener("transitionend", () => {
+//   if (currentIndex === totalSlides - 1) {
+//     slides2.style.transition = "none";
+//     currentIndex = 0;
+//     slides2.style.left = "0";
+//   }
+// });
+
+
+
+// var doAllSlides = document.querySelector('.doAllSlides'),
+//   doSlide = document.querySelectorAll('.doAllSlides li'),
+//   doCurrentIdx = 0, //현재 인덱스 
+//   doSlideCount = doSlide.length,
+//   doSlideWidth = 750,
+//   doSlideMargin = 20,
+//   doVolPrevBtn = document.querySelector('.do_prev'),
+//   doVolNextBtn = document.querySelector('.do_next');
+
+// doAllSlides.style.width = (doSlideWidth + doSlideMargin) * doSlideCount - doSlideMargin + 'px'; // set the width of the ul
+
+// function doMoveSlide(num) {
+//   doAllSlides.style.left = -num * (doSlideWidth + doSlideMargin) + 'px';
+//   doCurrentIdx = num;
+// }
+
+// doVolNextBtn.addEventListener('click', function () {
+//   if (doCurrentIdx < doSlideCount -2) {
+//     doMoveSlide(doCurrentIdx + 1);
+//   } else {
+//     doMoveSlide(0);
+//   }
+// });
+
+// doVolPrevBtn.addEventListener('click', function () {
+//   if (doCurrentIdx > 0) {
+//     doMoveSlide(doCurrentIdx - 1);
+//   } else {
+//     // moveSlide(0);
+//   }
+
+// });
 
