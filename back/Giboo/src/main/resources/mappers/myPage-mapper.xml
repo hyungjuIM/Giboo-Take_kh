@@ -421,4 +421,11 @@ LEFT JOIN
 		
 	</select>
 	
+	<select id="getVolCount" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER
+	</select>
+	
+	<select id="getVolMoney" resultType="java.lang.Integer">
+		SELECT SUM(PAYMENT_PRICE) FROM PAYMENT
+	</select>
 </mapper>

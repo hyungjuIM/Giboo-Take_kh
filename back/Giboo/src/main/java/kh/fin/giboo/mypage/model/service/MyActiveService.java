@@ -26,6 +26,12 @@ public interface MyActiveService {
 
 		Map<String, Object> searchMyActiveEventList(Map<String, Object> paramMap);
 
+		// 봉사 인원 카운트
+		int getCount();
+
+		// 봉사 금액 카운트
+		int getVolMoney();
+
 
 	
 	

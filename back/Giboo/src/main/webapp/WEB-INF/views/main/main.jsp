@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+    <c:set var="volunteerList" value="${map.volunteerList}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -90,11 +90,11 @@
                     </div>
                     <div class="count_box2">
                         <div class="vol_count_person">
-                            <h3><span>425</span>명</h3>
+                            <h3><span id="volCount"></span>명</h3>
                             <p>2023년 Hunny를 통해 이웃들을 위한<br>봉사활동에 참여한 봉사자들 입니다.</p>
                         </div>
                         <div class="vol_count_money">
-                            <h3><span>5,248,002</span>원</h3>
+                            <h3><span id="volMoney"></span>원</h3>
                             <p>2023년 Hunny에 진행된 기부 활동에<br>모여진 기부금액 입니다.</p>
                         </div>
                     </div>
@@ -660,6 +660,37 @@
   ChannelIO('boot', {
     "pluginKey": "759276e8-069a-4d4a-b4f9-73deebd841e5"
   });
+</script>
+
+<script>
+    function getVolMoney() {
+        var xhr2 = new XMLHttpRequest();
+        xhr2.onreadystatechange = function() {
+            if (xhr2.readyState === 4 && xhr2.status === 200) {
+                var volMoney = JSON.parse(xhr2.responseText);
+                document.getElementById("volMoney").textContent = volMoney;
+            }
+        };
+        xhr2.open("GET", "${pageContext.request.contextPath}/volMoney", true);
+        xhr2.send();
+    }
+
+    getVolMoney();
+    </script>
+<script>
+    function getVolCount() {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var volCount = JSON.parse(xhr.responseText);
+                document.getElementById("volCount").textContent = volCount;
+            }
+        };
+        xhr.open("GET", "${pageContext.request.contextPath}/volCount", true);
+        xhr.send();
+    }
+
+    getVolCount();
 </script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
