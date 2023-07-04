@@ -24,7 +24,7 @@ body {
 /*말풍선부분*/
 
 .alert_container.show {
-	
+   
     display: block !important;
   }
 
@@ -34,13 +34,13 @@ body {
     right: 10%;
     
     width: 360px;
-    height: 791px;
+    height: 805px;
     
     /* margin-top: 5px; */
 
     position: absolute;
-	background: #f6f6f6;
-	border-radius: .4em;
+   background: #f6f6f6;
+   border-radius: .4em;
 /*     box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
  */    
     border-radius: .4em;
@@ -50,20 +50,21 @@ body {
     /* overflow: auto;   */ 
 }
 
+
 .alert_container:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 20px solid transparent;
-	border-bottom-color: #f6f6f6;
-	border-top: 0;
-	margin-left: +54px;
-	margin-top: -20px;
-	
-	border: 1px solid blue;
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 50%;
+   width: 0;
+   height: 0;
+   border: 20px solid transparent;
+   border-bottom-color: #f6f6f6;
+   border-top: 0;
+   margin-left: +54px;
+   margin-top: -20px;
+   
+   border: 1px solid blue;
 }
 
 
@@ -342,6 +343,5 @@ body {
 #alarmList::-webkit-scrollbar-track:hover {
   background-color: transparent; /* 스크롤바 트랙 호버 상태의 색상 설정 (WebKit 기반 브라우저) */
 }
-
 
 
