@@ -20,6 +20,8 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 <body>
      
@@ -67,7 +69,7 @@
                                         </div>
                                         <span>|</span>
                                         <div class="mhBtnHe">
-                                            <a href="https://map.kakao.com/?sName=${address}&eName=${mapDetailTop.agencyName}" id="addressInput">
+                                            <a href="https://map.kakao.com/?sName=%EC%84%9C%EC%9A%B8%EC%8B%9C%EC%B2%AD&eName=${mapDetailTop.agencyName}" id="addressInput">
                                                 <div class="mhBtnHe_1">
                                                     <span><i class="fa-solid fa-location-dot"></i></span>
                                                 </div>
@@ -91,8 +93,6 @@
                     </div>
         
         
-                    <input type="hidden" id="addressInput" value="${address}">
-                    <input type="hidden" id="cpInput" name="cp">
                     
     
                     <script>
@@ -115,12 +115,33 @@
                         const loginMemberNo = "${loginMember.memberNo}";
                         // -> 로그인 O  : "10";
                         // -> 로그인 X  : "";  (빈문자열)
-                                
                     </script>
+
+<script>
+  $(document).ready(function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude; // 위도
+        var lon = position.coords.longitude; // 경도
+        var geocoder = new kakao.maps.services.Geocoder();
+        geocoder.coord2Address(lon, lat, function(result, status) {
+          if (status === kakao.maps.services.Status.OK) {
+            var currentAddress = result[0].address.address_name; // 현재 주소
+            var agencyName = "${mapDetailTop.agencyName}"; // 기관 이름
+
+            var mapLink = "https://map.kakao.com/?sName=" + encodeURIComponent(currentAddress) + "&eName=" + encodeURIComponent(agencyName);
+            $("#addressInput").attr("href", mapLink);
+          }
+        });
+      });
+    }
+  });
+</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/resources/js/map/map2.js"></script>
+
 </body>
 
 </html>

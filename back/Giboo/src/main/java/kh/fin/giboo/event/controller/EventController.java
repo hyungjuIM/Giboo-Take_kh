@@ -31,6 +31,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.event.model.service.EventService;
+import kh.fin.giboo.event.model.vo.EventCertification;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
 import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
@@ -71,6 +72,42 @@ public class EventController {
 		return "event/eventList";
 	}
 	
+	// 종료 이벤트 목록 조회
+	@GetMapping(value="/eventListDone")
+	public String eventListDone(Model model
+				,@RequestParam(value="cp", required = false, defaultValue = "1") int cp 
+				,@RequestParam Map<String, Object> paramMap
+			) {
+		
+		Map<String, Object> map = null;
+		
+		map = service.selectEventListDone(cp, model);
+
+		logger.info("이거의값은???????" + map);
+		model.addAttribute("map", map);
+		logger.info("이벤트 목록");
+		
+		return "event/eventListDone";
+	}
+	
+	// 진행중 이벤트 목록 조회
+	@GetMapping(value="/eventListGoing")
+	public String eventListGoing(Model model
+				,@RequestParam(value="cp", required = false, defaultValue = "1") int cp 
+				,@RequestParam Map<String, Object> paramMap
+			) {
+		
+		Map<String, Object> map = null;
+		
+		map = service.selectEventListGoing(cp, model);
+
+		logger.info("이거의값은???????" + map);
+		model.addAttribute("map", map);
+		logger.info("이벤트 목록");
+		
+		return "event/eventListGoing";
+	}
+	
 	
 	// 이벤트 상세조회
 	@GetMapping(value="/eventDetailMain/{eventNo}")
@@ -86,8 +123,6 @@ public class EventController {
 	        eventDetailTop.setPercent(percent);
 		
 		
-		
-		
 		if(eventDetailTop != null) {
 			List<EventDetailMember> eventDetailMember = service.selectEventDetailMember(eventNo);
 			model.addAttribute("eventDetailMember",eventDetailMember );
@@ -97,6 +132,11 @@ public class EventController {
 			model.addAttribute("eventDetailLeft",eventDetailLeft);
 			logger.info("이벤트디테일소개???" + eventDetailLeft);
 			
+			EventCertification eventCertification = service.selectEventCertification(eventNo);
+			model.addAttribute("eventCertification",eventCertification);
+			logger.info("이벤트인증방법???" + eventCertification);
+			
+
 			List<EventStickerBar> eventStickerBar = service.selectEventStickerBar(eventNo);
 			model.addAttribute("eventStickerBar",eventStickerBar);
 			logger.info("이벤트스티커바???" + eventStickerBar);
@@ -244,6 +284,10 @@ public class EventController {
 
 			List<EventDetailMember> eventDetailMember = service.selectEventDetailMember(eventNo);
 			model.addAttribute("eventDetailMember",eventDetailMember );
+			
+			EventCertification eventCertification = service.selectEventCertification(eventNo);
+			model.addAttribute("eventCertification",eventCertification);
+			logger.info("이벤트인증방법???" + eventCertification);
 			
 			List<EventStickerBar> eventStickerBar = service.selectEventStickerBar(eventNo);
 			model.addAttribute("eventStickerBar",eventStickerBar);
@@ -424,5 +468,9 @@ public class EventController {
 	      ra.addFlashAttribute("message",message);
 	      return "redirect:" + path;
 	   }
+	   
+	   
+	   
+	   
 
 }

@@ -35,6 +35,38 @@ $(document).ready(function(){
   });
   
   
+  // 로그인 유무 
+  const edBtnDe = document.getElementById("edBtnDe");
+  
+  edBtnDe.addEventListener("click", function(){
+      if(loginMemberNo === ""){
+          alert("로그인 후 이용해주세요.");
+      } else {
+          // 서버로 이미 참여한지 확인하는 Ajax 요청을 보냅니다.
+          jQuery.ajax({
+            url: contextPath + "/event/checkAlreadyJoined",
+            type: "POST",
+            data: {
+              "memberNo": loginMemberNo,
+              "eventNo": eventNo
+            },
+            success: function(response) {
+              if (response.alreadyJoined) {
+                // 이미 참여한 경우 알림 메시지를 표시합니다.
+                alert(response.message);
+              } else {
+                // 참여 가능한 경우에만 E_popup_wrap02를 표시합니다.
+                jQuery(".E_popup_wrap02").css("display", "block");
+                jQuery(".E_pop_mask2").css("display", "block");
+              }
+            },
+            error: function(xhr, status, error) {
+              console.log("Error:", error);
+            }
+          });
+          
+      }
+  });
   
   
   

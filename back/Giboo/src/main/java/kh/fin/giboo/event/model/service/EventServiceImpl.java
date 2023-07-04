@@ -19,6 +19,7 @@ import kh.fin.giboo.event.Util;
 import kh.fin.giboo.event.controller.EventController;
 import kh.fin.giboo.event.model.dao.EventDAO;
 import kh.fin.giboo.event.model.exception.InsertFailException;
+import kh.fin.giboo.event.model.vo.EventCertification;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
 import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
@@ -53,6 +54,38 @@ public class EventServiceImpl implements EventService{
 		
 		return map;
 	}
+	
+	// 종료 이벤트 조회
+	@Override
+	public Map<String, Object> selectEventListDone(int cp, Model model) {
+		int listCount = dao.getListCountDone(model);
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<EventList> eventList = dao.selectEventListDone(pagination, model);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("eventList", eventList);
+		
+		return map;
+	}
+	
+	
+	// 진행중 이벤트 조회
+	@Override
+	public Map<String, Object> selectEventListGoing(int cp, Model model) {
+		int listCount = dao.getListCountGoing(model);
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<EventList> eventList = dao.selectEventListGoing(pagination, model);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("eventList", eventList);
+		
+		return map;
+	}
+
 
 	// 이벤트 디테일 top
 	@Override
@@ -162,6 +195,14 @@ public class EventServiceImpl implements EventService{
 	public List<EventMore> selectEventMore(int eventNo) {
 		return dao.selectEventMore(eventNo);
 	}
+
+	@Override
+	public EventCertification selectEventCertification(int eventNo) {
+		return dao.selectEventCertification(eventNo);
+	}
+
+
+
 
 
 

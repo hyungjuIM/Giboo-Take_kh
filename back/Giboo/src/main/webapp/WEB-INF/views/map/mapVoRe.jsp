@@ -60,7 +60,7 @@
                                 <div class="mvBtnSo">
                                     <a href="${pageContext.request.contextPath}/map/mapVoSo/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" class="mvBtnspan_b">
                                         <span><i class="fa-regular fa-heart"></i></span>
-                                        <span mvBtnspan_2>봉사자 소식</span>
+                                        <span mvBtnspan_2>봉사 이야기</span>
                                     </a>
                                 </div>
                             </div> 
@@ -119,7 +119,7 @@
     </div>
 </div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a57d546fefaefbc7ac5bde8a6eb90ec&libraries=services"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4a57d546fefaefbc7ac5bde8a6eb90ec&libraries=services,clusterer,drawing"></script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
