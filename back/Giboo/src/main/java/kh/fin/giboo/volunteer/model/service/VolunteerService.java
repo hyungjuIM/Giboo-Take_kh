@@ -21,4 +21,8 @@ public interface VolunteerService {
     int updateViewCount(int volunteerStoryNo);
 
     List<Favorite> getFavoriteList(int memberNo);
+
+	int insertVolunteer(int volunteerNo, int memberNo);
+
+	int selectVolunteer(int volunteerNo, int memberNo);
 }
