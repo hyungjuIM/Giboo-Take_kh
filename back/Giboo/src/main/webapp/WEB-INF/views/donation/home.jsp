@@ -92,9 +92,16 @@
 						<div class="item">
 							<div class="buttonSection">
 								<a href="" class="button">기부하기 <i class="xi-angle-right"></i>
-									<%--  <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"> --%></a>
-								<div class="favoriteButton"
-									onclick="addFavorite('${donationList.donationTitle}')">🤍</div>
+									  <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"> --%></a>
+                                    <c:choose>
+                                        <c:when test="${fn:contains(favoriteList, donationList.donationNo)}">
+                                            <div class="favoriteButton" id="${donationList.donationNo}" data-title="${donationList.donationTitle}">❤️</div>
+                                        </c:when>
+        
+                                        <c:otherwise>
+                                            <div class="favoriteButton" id="${donationList.donationNo}" data-title="${donationList.donationTitle}">🤍</div>
+                                        </c:otherwise>
+                                    </c:choose>
 							</div>
 
 							<div class="content_container">
@@ -181,7 +188,8 @@
              $.ajax ({
                  url: "addFavorite",
                  data: {"memberNo" : ${loginMember.memberNo}, 
-                        "donationNo" : i.id},
+                        "donationNo" : i.id ,
+                        "donationTitle" : i.dataset.title},
                  
                 success: function(result) {
                     if (result == "success") {
@@ -196,7 +204,9 @@
 
             $.ajax ({
                 url: "deleteFavorite",
-                data: {"memberNo" : ${loginMember.memberNo}, "donationNo" : i.id},
+                data: {"memberNo" : ${loginMember.memberNo}, 
+                       "donationNo" : i.id , 
+                       "donationTitle" : i.dataset.title},
 
                 success: function(result) {
                     if (result == "success") {

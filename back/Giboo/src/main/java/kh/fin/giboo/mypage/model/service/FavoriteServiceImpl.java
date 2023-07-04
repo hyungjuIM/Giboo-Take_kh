@@ -4,17 +4,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import kh.fin.giboo.cs.model.vo.Faq;
 import kh.fin.giboo.cs.model.vo.Pagination;
+import kh.fin.giboo.mypage.controller.FavoriteController;
 import kh.fin.giboo.mypage.model.dao.FavoriteDAO;
+import kh.fin.giboo.mypage.model.vo.Favorite;
 
 @Service
 public class FavoriteServiceImpl implements FavoriteService{
 
+	 private Logger logger = LoggerFactory.getLogger(FavoriteServiceImpl.class);
 	@Autowired
 	private FavoriteDAO dao;
 	
@@ -23,11 +27,11 @@ public class FavoriteServiceImpl implements FavoriteService{
 	
 
 	@Override
-	public int addFavoriteVolunteer(int memberNo, int volunteerNo) {
+	public int addFavoriteVolunteer(int memberNo, int volunteerNo, String volunteerTitle) {
 		
 		
 		
-		return dao.insertFavoriteVolunteer(memberNo, volunteerNo);
+		return dao.insertFavoriteVolunteer(memberNo, volunteerNo, volunteerTitle);
 	}
 
 
@@ -42,14 +46,25 @@ public class FavoriteServiceImpl implements FavoriteService{
 	}
 
 
+	
+
+
+
+	@Override
+	public int deleteFavoriteVolunteer(int memberNo, int volunteerNo) {
+		
+		return dao.deleteFavoriteVolunteer(memberNo, volunteerNo);
+	}
+
+
 
 
 
 
 	@Override
-	public int addFavoriteDonation(int memberNo, int donationNo ) {
+	public int addFavoriteDonation(int memberNo, int donationNo, String donationTitle ) {
 		
-		return dao.insertFavoriteDonation(memberNo, donationNo);
+		return dao.insertFavoriteDonation(memberNo, donationNo, donationTitle);
 	}
 	
 	
@@ -87,11 +102,12 @@ public class FavoriteServiceImpl implements FavoriteService{
 		int listCount = dao.getListCount(model);
 		Pagination pagination = new Pagination(cp, listCount);
 		
-		List<Faq> faqList = dao.selectListFavorite(pagination, model);
+		List<Favorite> favoriteList = dao.selectListFavorite(pagination, model);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("pagination", pagination);
-		map.put("faqList", faqList);
+		map.put("favoriteList", favoriteList);
+		logger.info("favoriteList" + favoriteList);
 		
 		return map;
 	}

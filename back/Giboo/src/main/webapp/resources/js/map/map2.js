@@ -397,7 +397,7 @@ function getAddressFromServer(currentAddress) {
           
           
           
-});
+);
 
     
     // })

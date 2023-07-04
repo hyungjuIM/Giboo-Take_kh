@@ -188,8 +188,9 @@
                                 <div id="comment3" class="comment">123456789</div>
                             </div>
                         </div>
-
-                        <button class="commentSubmit">응원하기</button>
+                       
+                        <button class="commentSubmit" id="cheeringButton">응원하기</button>
+                        
                         <div class="commentInfo">
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="commentCount">1,030</span>
