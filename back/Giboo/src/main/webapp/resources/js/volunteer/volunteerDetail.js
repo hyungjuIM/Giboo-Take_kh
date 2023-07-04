@@ -38,12 +38,26 @@ $(function(){
 
 
 //봉사 참여 버튼
-const volunteerButton = document.getElementById("volunteerButton");
-volunteerButton.addEventListener('click',function(){
-    $.ajax({
-        url : "doVolunteer",
-        method : 'POST',
-    })
-});
+// volunteerButton.addEventListener('click',function(){
+//     if(${!empty loginMember}){
+//         alert("봉사 참여를 하시겠습니까?")
+//         $.ajax({
+//             url : "doVolunteer",
+//             type : "POST",
+//             success : function(){
+//                 console.log("봉사 참여 완료");
+//                 alert("봉사 참여가 완료 되었습니다.")
+//             },
+//             error: function(){
+//                 console.log("봉사참여 실패")
+//             }
+//         })
+//     }else{
+//         alert("로그인이 필요한 서비스 입니다.");
+//         location.href = "../../main/login";
+//     }
+// });
+
+
 
 

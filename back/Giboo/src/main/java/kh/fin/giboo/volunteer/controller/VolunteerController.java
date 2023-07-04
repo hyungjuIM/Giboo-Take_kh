@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -156,4 +158,26 @@ public class VolunteerController {
 
         return "volunteer/write";
     }
+    
+    // 봉사 참여
+    @ResponseBody
+    @PostMapping("/doVolunteer")
+    public Map<String, Object> doVolunteer(@RequestParam("volunteerNo") int volunteerNo,
+                                          HttpSession session) {
+      Map<String, Object> response = new HashMap<>();
+
+      Member loginMember = (Member) session.getAttribute("loginMember");
+      int memberNo = loginMember.getMemberNo();
+      
+      int result = service.selectVolunteer(volunteerNo, memberNo);
+      if (result == 0) {
+        service.insertVolunteer(volunteerNo, memberNo);
+        response.put("message", "봉사 참여가 완료되었습니다.");
+      } else if (result == 1) {
+        response.put("message", "이미 참여한 봉사입니다.");
+      }
+      
+      return response;
+    }
+
 }
