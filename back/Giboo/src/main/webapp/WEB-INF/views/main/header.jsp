@@ -60,7 +60,7 @@
 					</div>
 					<div class="user_sec">
 
-p						<section class="laginArea">
+						<section class="laginArea">
 							<%-- 로그인 하기 전 --%>
 								<c:choose>
 									<c:when

@@ -96,4 +96,9 @@ public class VolunteerDAO {
 		params.put("memberNo", memberNo);
 		return sqlSession.selectOne("volunteerMapper.selectvolunteer",params);
 	}
+
+	public Map<String, Object> selectVolunteerList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("volunteerMapper.mainVol");
+	}
 }

@@ -25,4 +25,7 @@ public interface VolunteerService {
 	int insertVolunteer(int volunteerNo, int memberNo);
 
 	int selectVolunteer(int volunteerNo, int memberNo);
+
+	// 메인 화면용
+	Map<String, Object> selectVolunteerList();
 }
