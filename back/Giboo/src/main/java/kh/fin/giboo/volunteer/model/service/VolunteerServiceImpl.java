@@ -1,6 +1,7 @@
 package kh.fin.giboo.volunteer.model.service;
 
 import kh.fin.giboo.admin.model.vo.ParentCategory;
+import kh.fin.giboo.common.Util;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.mypage.model.vo.Favorite;
 import kh.fin.giboo.volunteer.model.dao.VolunteerDAO;
@@ -80,6 +81,52 @@ public class VolunteerServiceImpl implements VolunteerService {
     @Override
     public List<Favorite> getFavoriteList(int memberNo) {
         return dao.getFavoriteList(memberNo);
+    }
+
+    @Override
+    public int insertVolunteer(VolunteerDetail detail) {
+        detail.setVolunteerTitle(Util.XSSHandling(detail.getVolunteerTitle()));
+        detail.setVolunteerContent(Util.XSSHandling(detail.getVolunteerContent()));
+        detail.setVolunteerContent(Util.newLineHandling(detail.getVolunteerContent()));
+
+        return dao.insertVolunteer(detail);
+    }
+
+    @Override
+    public int updateVolunteer(VolunteerDetail detail) {
+        detail.setVolunteerTitle(Util.XSSHandling(detail.getVolunteerTitle()));
+        detail.setVolunteerContent(Util.XSSHandling(detail.getVolunteerContent()));
+        detail.setVolunteerContent(Util.newLineHandling(detail.getVolunteerContent()));
+
+        return dao.updateVolunteer(detail);
+    }
+
+    @Override
+    public int insertStory(VolunteerStory story) {
+        story.setVolunteerStoryTitle(Util.XSSHandling(story.getVolunteerStoryTitle()));
+        story.setVolunteerStoryContent(Util.XSSHandling(story.getVolunteerStoryContent()));
+        story.setVolunteerStoryContent(Util.newLineHandling(story.getVolunteerStoryContent()));
+
+        return dao.insertStory(story);
+    }
+
+    @Override
+    public int updateStory(VolunteerStory story) {
+        story.setVolunteerStoryTitle(Util.XSSHandling(story.getVolunteerStoryTitle()));
+        story.setVolunteerStoryContent(Util.XSSHandling(story.getVolunteerStoryContent()));
+        story.setVolunteerStoryContent(Util.newLineHandling(story.getVolunteerStoryContent()));
+
+        return dao.updateStory(story);
+    }
+
+    @Override
+    public void storyDelete(int storyNo) {
+        dao.storyDelete(storyNo);
+    }
+
+    @Override
+    public List<ParentCategory> getParentCategoryList() {
+        return dao.getParentCategoryList();
     }
 
     @Override

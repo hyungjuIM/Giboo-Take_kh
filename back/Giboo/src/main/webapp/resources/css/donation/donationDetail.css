@@ -472,3 +472,14 @@ a{
     padding: 10px;
     color: white;
 }
+
+.closeButtonArea {
+    display: flex;
+    justify-content: right;
+}
+
+.closeButton {
+    font-size: 24px;
+    cursor: pointer;
+    transition-duration: 250ms;
+}
