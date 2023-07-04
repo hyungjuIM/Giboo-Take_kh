@@ -235,6 +235,9 @@ public class EventController {
 	) {
 		
 		EventDetailTop eventDetailTop = service.selectEventDetailTop(eventNo);
+        int percent = (eventDetailTop.getEventPersonCount() * 100) / eventDetailTop.getTargetPeople();
+        eventDetailTop.setPercent(percent);
+		
 		
 		if(eventDetailTop != null) {
 			
