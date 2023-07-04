@@ -24,6 +24,7 @@ body {
 /*말풍선부분*/
 
 .alert_container.show {
+	
     display: block !important;
   }
 
@@ -40,9 +41,11 @@ body {
     position: absolute;
 	background: #f6f6f6;
 	border-radius: .4em;
-    box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
-    
+/*     box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
+ */    
     border-radius: .4em;
+    z-index: 100;
+    border: 1px solid var(--etcColor);
 
     /* overflow: auto;   */ 
 }
@@ -59,6 +62,8 @@ body {
 	border-top: 0;
 	margin-left: +54px;
 	margin-top: -20px;
+	
+	border: 1px solid blue;
 }
 
 

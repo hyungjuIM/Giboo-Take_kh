@@ -1217,65 +1217,18 @@ li .vol_day span{
 
 
 
-/* 후기 내용부분 */
-/* .re_box .re_content_container{
-    margin: 20px;
-    height: 80%;
+/* 알람 */
+.alert_container{
+    margin-top: 65px;
+    border: 1px solid red;
+
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    transform: translate(-30px, 0px);
+
+    width: 360px;
+    height: 791px;
+    border-radius: 20px;
 }
-.re_content_container .re_content{
-    font-family: 'NanumSquare', sans-serif;
-    height: 85%;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px;
-    color: var(--titleColor);
-
-    display: flex;
-    justify-content: center;
-    padding-top: 80px;
-
-}
-
-.re_user_name{
-    font-family: 'NanumSquare', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    color: var(--contentColor);
-
-    margin-bottom: 10px;
-} */
-
-/* .re_active_info{
-    font-family: 'NanumSquare', sans-serif;
-
-    height: 65px;
-    border-radius: 0px 0px 12px 12px;
-    background-color: var(--etcColor);
-
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-    padding-right: 30px;
-    gap: 8px;
-    
-}
-.re_active_info span:nth-child(1){
-    font-family: 'NanumSquare', sans-serif;
-    font-weight: 500;
-    color: var(--titleColor);
-
-}
-.re_active_info span:nth-child(2){
-    display: inline-block;
-    font-size: 16px;
-    text-overflow: ellipsis;
-    width: 250px;
-    white-space: nowrap;
-    overflow: hidden;
-
-    font-family: 'NanumSquare', sans-serif;
-    color: var(--contentColor);
-    font-weight: 500;
-} */
-
