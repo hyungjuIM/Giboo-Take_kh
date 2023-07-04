@@ -46,7 +46,9 @@
         <result property="volunteerTitle" column="VOLUNTEER_TITLE" />
         <result property="volunteerContent" column="VOLUNTEER_CONTENT" />
         <result property="volunteerAttachment" column="VOLUNTEER_ATTACHMENT" />
+        <result property="memberNo" column="MEMBER_NO" />
         <result property="memberId" column="MEMBER_ID" />
+        <result property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
     </resultMap>
@@ -119,18 +121,18 @@
             AND V.PARENT_CATEGORY_NO = ${category}
             AND V.PARENT_CATEGORY_NO = PC.PARENT_CATEGORY_NO
         </if>
-        ORDER BY VOLUNTEER_NO ASC
+        ORDER BY VOLUNTEER_NO DESC
     </select>
 
     <select id="getVolunteerListAll" resultMap="volunteer_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
         FROM VOLUNTEER
         WHERE VOLUNTEER_DELETE_STATUS = 'N'
-        ORDER BY VOLUNTEER_NO ASC
+        ORDER BY VOLUNTEER_NO DESC
     </select>
 
     <select id="getVolunteerDetail" resultMap="volunteerDetail_rm">
-        SELECT VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME, PARENT_CATEGORY_NO
         FROM VOLUNTEER V, AGENCY A
         WHERE VOLUNTEER_NO = ${volunteerNo}
         AND VOLUNTEER_DELETE_STATUS = 'N'
@@ -186,6 +188,81 @@
         SET VIEW_COUNT = VIEW_COUNT + 1
         WHERE VOLUNTEER_STORY_NO = ${volunteerStoryNo}
     </update>
+
+    <insert id="insertVolunteer" parameterType="volunteerDetail" useGeneratedKeys="true">
+        <selectKey keyProperty="volunteerNo" resultType="_int" order="BEFORE">
+            SELECT SEQ_VOLUNTEER_NO.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO VOLUNTEER
+        VALUES (
+                ${volunteerNo},
+                ${targetPeople},
+                123,
+                321,
+                #{volunteerAddr},
+                DEFAULT,
+                #{startRecruitDate},
+                #{endRecruitDate},
+                #{startProgressDate},
+                #{endProgressDate},
+                DEFAULT,
+                DEFAULT,
+                DEFAULT,
+                DEFAULT,
+                #{volunteerTitle},
+                #{volunteerContent},
+                NULL,
+                ${memberNo},
+                1,
+                ${parentCategoryNo},
+                1
+               )
+    </insert>
+
+    <update id="updateVolunteer">
+        UPDATE VOLUNTEER
+        SET VOLUNTEER_TITLE = #{volunteerTitle},
+            START_RECRUIT_DATE = #{startRecruitDate},
+            END_RECRUIT_DATE = #{endRecruitDate},
+            START_PROGRESS_DATE = #{startProgressDate},
+            END_PROGRESS_DATE = #{endProgressDate},
+            TARGET_PEOPLE = ${targetPeople},
+            VOLUNTEER_ADDR = #{volunteerAddr},
+            VOLUNTEER_CONTENT = #{volunteerContent},
+            PARENT_CATEGORY_NO = ${parentCategoryNo},
+            ENROLL_DATE = CURRENT_DATE
+        WHERE VOLUNTEER_NO = ${volunteerNo}
+    </update>
+
+    <insert id="insertStory" parameterType="volunteerStory" useGeneratedKeys="true">
+        <selectKey keyProperty="volunteerStoryNo" resultType="_int" order="BEFORE">
+            SELECT SEQ_VOLUNTEER_STORY_NO.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO VOLUNTEER_STORY
+        VALUES (
+                ${volunteerStoryNo},
+                #{volunteerStoryTitle},
+                #{volunteerStoryContent},
+                NULL,
+                DEFAULT,
+                DEFAULT,
+                DEFAULT,
+                ${memberNo}
+               )
+    </insert>
+
+    <update id="updateStory">
+        UPDATE VOLUNTEER_STORY
+        SET VOLUNTEER_STORY_TITLE = #{volunteerStoryTitle},
+            VOLUNTEER_STORY_CONTENT = #{volunteerStoryContent},
+            ENROLL_DT = DEFAULT
+        WHERE VOLUNTEER_STORY_NO = ${volunteerStoryNo}
+    </update>
+
+    <delete id="storyDelete">
+        DELETE VOLUNTEER_STORY
+        WHERE VOLUNTEER_STORY_NO = ${storyNo}
+    </delete>
     
     <insert id="insertvolunteer">
     INSERT INTO MYACTIVE_VOLUNTEER (MYACTIVE_VOLUNTEER_NO,MYACTIVE_DATE,VOLUNTEER_COMPLETE_STATUS,VOLUNTEER_NO,MEMBER_NO)

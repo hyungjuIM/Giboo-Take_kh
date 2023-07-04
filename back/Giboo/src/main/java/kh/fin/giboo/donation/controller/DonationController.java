@@ -5,6 +5,7 @@ import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
+import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.Util;
 import kh.fin.giboo.donation.model.service.DonationService;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
@@ -227,6 +228,8 @@ public class DonationController {
                         Model model) {
         logger.info("기부 작성 페이지");
 
+        List<ParentCategory> parentCategoryList = service.getParentCategoryList();
+
         if (mode.equals("update")) {
             DonationDetail detail = service.getDonationDetail(no);
 
@@ -237,6 +240,8 @@ public class DonationController {
 
             model.addAttribute("detail", detail);
         }
+
+        model.addAttribute("parentCategoryList", parentCategoryList);
 
         return "donation/write";
     }

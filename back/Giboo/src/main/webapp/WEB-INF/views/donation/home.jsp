@@ -164,7 +164,6 @@
 						onclick="location.href='${pageContext.request.contextPath}/donation/write?mode=insert&cp=${pagination.currentPage}'">
 						<span>📝</span> 기부등록
 					</button>
-					
 				</c:if>
 			</div>
 

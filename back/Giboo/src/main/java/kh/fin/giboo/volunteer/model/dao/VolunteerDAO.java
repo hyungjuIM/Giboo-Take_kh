@@ -83,6 +83,38 @@ public class VolunteerDAO {
         return sqlSession.selectList("volunteerMapper.getFavoriteList", memberNo);
     }
 
+    public int insertVolunteer(VolunteerDetail detail) {
+        int result = sqlSession.insert("volunteerMapper.insertVolunteer", detail);
+
+        if(result > 0) {
+            result = detail.getVolunteerNo();
+        }
+
+        return result;
+    }
+
+    public int updateVolunteer(VolunteerDetail detail) {
+        return sqlSession.update("volunteerMapper.updateVolunteer", detail);
+    }
+
+    public int insertStory(VolunteerStory story) {
+        int result = sqlSession.insert("volunteerMapper.insertStory", story);
+
+        if (result > 0) {
+            result = story.getVolunteerStoryNo();
+        }
+
+        return result;
+    }
+
+    public int updateStory(VolunteerStory story) {
+        return sqlSession.update("volunteerMapper.updateStory", story);
+    }
+
+    public void storyDelete(int storyNo) {
+        sqlSession.delete("volunteerMapper.storyDelete", storyNo);
+    }
+  
 	public int insertVolunteer(int volunteerNo, int memberNo) {
 		Map<String, Integer> params = new HashMap<>();
 		params.put("volunteerNo", volunteerNo);
