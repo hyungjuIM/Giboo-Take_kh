@@ -42,6 +42,8 @@ public interface MapService {
 
 	boolean checkFavorite(int memberNo, int volunteerNo);
 
+	MapDetailTop selectMapDetailTop2(int volunteerNo);
+
 
 
 

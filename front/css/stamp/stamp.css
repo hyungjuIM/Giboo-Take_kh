@@ -40,20 +40,10 @@ body{
     border-radius: 50%;
 }
 
-.stampReal{
-    background-color: violet;
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
+
 
 .stampUl{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     width: 700px;
     height: 200px;
     /* background-color: aqua; */
@@ -64,4 +54,8 @@ body{
     margin-right: 40px;
 }
 
-/* 초록색은 원래 있고 분홍색이 찍히는것 */
+.stampImg{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}

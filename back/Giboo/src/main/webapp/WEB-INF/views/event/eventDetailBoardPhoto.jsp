@@ -87,6 +87,20 @@
                 </div>
             </div>
             <div class="edDetailRight">
+                <div class="edHowto">
+                    <div class="edHowtoTitle">  
+                        <span>${eventCertification.eventTitle}</span>
+                        <span>시작해봐요!</span>
+                    </div>
+                    <div class="edHowtoBox">
+                        <div class="edHowtoTi">
+                            <span>How To</span>
+                        </div>
+                        <div class="edHowtoDetail">
+                            <span>${eventCertification.eventCertificationContent}</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="edInBar">
                     <jsp:include page="/WEB-INF/views/event/eventStickerBar.jsp" />
                 </div>

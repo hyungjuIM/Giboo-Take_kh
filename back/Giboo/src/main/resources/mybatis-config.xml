@@ -73,6 +73,7 @@
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailMember" alias="eventDetailMember"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailLeft" alias="eventDetailLeft"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventStickerBar" alias="eventStickerBar"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventCertification" alias="eventCertification"/>
 	
 	<!-- 마이페이지 -->
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveDonationList" alias="myActiveDonationList"/>
