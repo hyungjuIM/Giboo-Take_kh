@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class VolunteerDAO {
@@ -112,4 +114,23 @@ public class VolunteerDAO {
     public void storyDelete(int storyNo) {
         sqlSession.delete("volunteerMapper.storyDelete", storyNo);
     }
+  
+	public int insertVolunteer(int volunteerNo, int memberNo) {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("volunteerNo", volunteerNo);
+		params.put("memberNo", memberNo);
+		return sqlSession.insert("volunteerMapper.insertvolunteer",params);
+	}
+
+	public int selectVolunteer(int volunteerNo, int memberNo) {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("volunteerNo", volunteerNo);
+		params.put("memberNo", memberNo);
+		return sqlSession.selectOne("volunteerMapper.selectvolunteer",params);
+	}
+
+	public Map<String, Object> selectVolunteerList() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList("volunteerMapper.mainVol");
+	}
 }

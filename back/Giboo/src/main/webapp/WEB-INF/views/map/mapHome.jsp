@@ -108,6 +108,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="${pageContext.request.contextPath}/resources/js/map/map.js"></script>
+<script>
 
+$.ajax({
+    url: contextPath + "/map/getFavoriteColor/" + volunteerNo,
+    data: {
+        // "memberNo": loginMemberNo,
+        "volunteerNo": volunteerNo
+    },
+    type: "get",
+    success: function(result) {
+        if (result === "red") {  // 정확한 일치(===)로 비교
+            // mhBtnHe_1.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
+            mhBtnHea.style.backgroundColor = "red"; // 색상 변경
+            console.log("성공");
+        } else {
+            console.log("실패");
+        }
+    },
+    error: function(xhr, status, error) {  // 인수 이름을 req에서 xhr로 변경
+        console.log("오류 메시지:", error);
+        console.log("상태 코드:", status);
+        console.log("응답 내용:", xhr.responseText);  // req.responseText에서 xhr.responseText로 변경
+    }
+});
+</script>
 </body>
 </html>

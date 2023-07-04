@@ -4,9 +4,12 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    font-family: 'Noto Sans KR', sans-serif;
-   
+    font-family: 'NanumSquareNeo';
 }
+
+
+
+
 
 
 body {
@@ -20,76 +23,201 @@ body {
 
 /*말풍선부분*/
 
+.postion_part{
+	position: relative;
+} 
+.alert_container_bigBox{
+	top: 0;
+    transform: translate(10px, 55px);
+	
+	border: 1px solid blue;
+	
+	width: 360px;
+	height: 801px;
+	
+	position: absolute;
+	right: 13.5%;
+	z-index: 200;
+	
+
+	
+}
+.alert_container_bigBox:after {
+
+	content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    right: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    background: #f6f6f6;
+    box-shadow: 0 0px 16px 0px #73737342;
+    
+}
+.alert_container_bigBox:before {
+
+	content: "";
+    display: block;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 2px;
+    right: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    background: #f6f6f6;
+  
+    z-index: 120;
+}
+
+
 .alert_container.show {
+	
     display: block !important;
   }
+ 
+.alert_container_bigBox .alert_container {
+     display: none; 
 
-.alert_container {
-    /* display: none;  */
-    z-index: 99;
-    right: 10%;
-    
     width: 360px;
     height: 791px;
-    
-    margin-top: 20px;
-
+   
+ 	bottom: 0%;
     position: absolute;
 	background: #f6f6f6;
 	border-radius: .4em;
-    box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
-    
+  
     border-radius: .4em;
-
-    /* overflow: auto;   */ 
+    z-index: 100;
+    box-shadow: 0 0px 16px 0px #73737342;
+    
 }
 
-.alert_container:after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 20px solid transparent;
-	border-bottom-color: #f6f6f6;
-	border-top: 0;
-	margin-left: +54px;
-	margin-top: -20px;
-}
 
 
 
 
 /* <!-- 즐겨찾기 카드부분 --> */
+
+.alert_card_container {
+	border: 1px solid green;
+	margin-top: 30px;
+}
+
 .alert_myfavcard_contaner {
     display: flex;
     margin: 15px;
 
     width: 327px;
-    height: 151px;
+    height: 120px;
 
     background-color: #FFFFFF;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
     border-radius: 20px;
+    
+    border: 1px solid var(--etcColor);
 }
 
-.myalert_container {
+.alert_titleContainerA{
+	/* border: 1px solid green; */
+	width: 100%;
+	
+	display: flex;
+	margin:  16px 10px;
+
+	
+}
+
+.alert_titleContainerA .smallC_Container{
+/* 	background-color: pink; */
+	
+	width: 24px;
+	height: 100%;
+	
+	display: flex;
+/*     align-items: center; */
+    justify-content: center;
+	
+	
+}
+
+.smallC_Container .smallC{
+	margin-top: 10px;
+	width: 12px;
+	height: 12px;
+	border-radius: 20px;
+	/* border: 1px solid var(--mainColor); */
+	background-color: var(--mainColor);
+}
+
+/* 알람 내용 */
+.alert_myfavcard_contaner .alert_titleContainer{
+	font-family: 'NanumSquareNeo';
+   
+}
+
+.alert_titleContainer .alarmCategory{
+	font-size: 14px;
+	font-weight: 500;
+	border: 1.5px solid var(--mainColor);
+	padding: 8px 4px ;
+	border-radius: 50px;
+    width: 60%;
+	color: var(--mainColor);
+	text-align: center;
+	
+	margin-bottom: 12px;
+}
+
+.alert_titleContainer .alarm_title_box{
+/* 	border: 1px solid blue;
+ */	padding-left: 4px;
+
+	
+
+}  
+
+.alert_titleContainer .alarm_title_box div:nth-child(1){
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 10px;
+	
+	
+	
+}
+
+.alert_titleContainer .alarm_title_box div:nth-child(2){
+	font-size: 12px;
+	font-weight: 500;
+	color: #a8a8a8;
+}
+
+.alert_titleContainer .alarm_title_box div:nth-child(2) span:before{
+	content: '|';
+	color: #a8a8a8;
+	font-size: 8px;
+	
+} 
+
+/* .myalert_container {
     display: flex;
     margin: 10px 10px 10px 5px;
+    
+    border: 1px solid blue;
 }
-
-
+ */
+/* 
 .alert_categoryImgContainer {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
     margin-left: 5px;
 
-}
+} */
 
 /* <!-- 이모티콘 --> */
-.alert_categoryImg {
+/* .alert_categoryImg {
     width: 30px;
     height: 30px;
     background-color: #D9D9D9;
@@ -98,9 +226,9 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+ */
 /* <!-- 점선 --> */
-.alert_hrpart {
+/* .alert_hrpart {
     width: 35px;
 
 }
@@ -108,11 +236,11 @@ body {
 .alert_hrpart2 {
     width: 14px;
     height: 80px;
-    border-right: 1px dotted #D9D9D9;
+    border-right: 1px dotted #D9D9D9; */
 }
 
 /* <!-- 메인내용 --> */
-.alert_Maincontainer {
+/* .alert_Maincontainer {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -144,7 +272,7 @@ body {
     display: flex;
     align-items: center;
 }
-
+  
 
 .alert_updateDate {
     margin-left: 8px;
@@ -158,12 +286,17 @@ body {
 }
 
 .alert_titleContainerA {
-    margin-top: 20px;
+    align-items: center;
+    display: flex;
+    font-family: 'NanumSquareNeo';
+    color: #828282;
+    
 }
 
 .alert_titleContainer {
     display: flex;
     flex-direction: column;
+    margin: 0px 20px;
 }
 
 .alertTitle {
@@ -197,12 +330,12 @@ body {
     margin-left: -10px;
 }
 
-/*작은 동그라미모양*/
+작은 동그라미모양
 .smallC_Container {
     display: flex;
     flex-direction: row;
-    margin-top: 19px;
-    margin-left: 5px;
+    margin-top: 44px;
+    margin-left: 20px;
     width: 10px;
     height: 10px;
 }
@@ -214,14 +347,22 @@ body {
     border-radius: 100px;
     width: 10px;
     height: 10px;
-    border: 1px solid #6c5fd5;
-    background-color: #6c5fd5;
+    border: 1px solid #00CA61;
+    background-color: #00CA61;
+}
+.smallC.unread{
+     border: 1px solid #00CA61;
+    background-color: #00CA61;
+}
+.smallC.read{
+     border: 1px solid silver;
+    background-color: silver;
 }
 
 
 
-/*알림카드 부분 클릭시 바뀌는 부분*/
-/*작은 동그라미모양*/
+알림카드 부분 클릭시 바뀌는 부분
+작은 동그라미모양
 .smallC_Container_after {
     display: flex;
     flex-direction: row;
@@ -253,51 +394,75 @@ body {
     padding-bottom: 10px;
     margin-left: -10px;
 }
-
+    
 .alertTitle_after a {
     color: #767676;
     font-weight: 600;
     font-size: 16px;
     text-decoration: none;
+}    
+
+
+.alarmCategory{
+    font-size: 14px;
 }
 
-/* 더보기 탭  */
 
-.alert_addTab {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 4px 115px;
-
-    margin: 15px;
+.alarmContent{
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
 
 
-    width: 328px;
-    height: 33px;
-
-    background: #00CA61;
-    border-radius: 500px;
-
-    cursor:pointer;
 }
 
-.alert_addTab_text {
+.alarmContent a {
+    color: inherit; 링크의 기본 색상을 상속받음
+  text-decoration: none;
+}
 
-    font-family: 'Noto Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 25px;
+.alarmDate{
+    font-size: 14px;
+    margin-top: 10px;
+}
 
-    letter-spacing: -0.05em;
-
-    color: #FFFFFF;
-
+.noNotificationText{
+    color: #00CA61;
+    font-size: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    margin-top: 200px;
 }
 
 
+
+
+#alarmList {
+  overflow-y: scroll; 스크롤바 표시
+  scrollbar-width: thin; 스크롤바 너비 조정 (Windows)
+  scrollbar-color: transparent transparent; 스크롤바 색상 설정
+}
+
+#alarmList::-webkit-scrollbar {
+  width: 0em; 스크롤바 너비 (WebKit 기반 브라우저)
+}
+
+#alarmList::-webkit-scrollbar-thumb {
+  background-color: transparent; 스크롤바 색상 설정 (WebKit 기반 브라우저)
+}
+
+#alarmList::-webkit-scrollbar-thumb:hover {
+  background-color: transparent; 스크롤바 호버 상태의 색상 설정 (WebKit 기반 브라우저)
+}
+
+#alarmList::-webkit-scrollbar-track {
+  background-color: transparent; 스크롤바 트랙 색상 설정 (WebKit 기반 브라우저)
+}
+
+#alarmList::-webkit-scrollbar-track:hover {
+  background-color: transparent; 스크롤바 트랙 호버 상태의 색상 설정 (WebKit 기반 브라우저)
+}
+
+
+
+ */

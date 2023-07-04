@@ -79,6 +79,23 @@
         <result property="donationNo" column="DONATION_NO" />
         <result property="volunteerNo" column="VOLUNTEER_NO" />
     </resultMap>
+    
+    	<resultMap type="myActiveVolunteerList"
+		id="myActiveVolunteerList_rm">
+		<id property="myactiveVolunteerNo" column="MYACTIVE_VOLUNTEER_NO" />
+		<result property="myactiveDate" column="MYACTIVE_DATE" />
+		<result property="volunteerCompleteStatus"
+			column="VOLUNTEER_COMPLETE_STATUS" />
+		<result property="volunteerNo" column="VOLUNTEER_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+
+		<result property="volunteerTitle" column="VOLUNTEER_TITLE" />
+		<result property="volunteerContent" column="VOLUNTEER_CONTENT" />
+		<result property="startProgressDate"
+			column="START_PROGRESS_DATE" />
+		<result property="volunteerAddr" column="VOLUNTEER_ADDR" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+	</resultMap>
 
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
@@ -246,4 +263,14 @@
         DELETE VOLUNTEER_STORY
         WHERE VOLUNTEER_STORY_NO = ${storyNo}
     </delete>
+    
+    <insert id="insertvolunteer">
+    INSERT INTO MYACTIVE_VOLUNTEER (MYACTIVE_VOLUNTEER_NO,MYACTIVE_DATE,VOLUNTEER_COMPLETE_STATUS,VOLUNTEER_NO,MEMBER_NO)
+VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${memberNo})
+    </insert>
+    
+    <select id="selectvolunteer" resultType="_int">
+    SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER 
+	WHERE MEMBER_NO = ${memberNo} AND VOLUNTEER_NO = ${volunteerNo}
+    </select>
 </mapper>

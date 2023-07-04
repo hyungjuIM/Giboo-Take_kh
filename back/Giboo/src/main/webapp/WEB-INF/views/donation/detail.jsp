@@ -34,7 +34,7 @@
                 <img class="thumbnail" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
 
                 <div class="info">
-                    <div>
+                    <div class="tag">
                         <span class="hot">HOT</span>
                         <span class="d-day">D-<span id="d-day">${donationDetail.DDay}</span>일</span>
                     </div>

@@ -29,6 +29,7 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -239,7 +240,7 @@ public class VolunteerController {
 
         return "volunteer/write";
     }
-
+  
     @PostMapping("/write")
     public String write(VolunteerDetail detail, @ModelAttribute("loginMember") Member loginMember,
                         RedirectAttributes ra, HttpServletRequest req, String mode,
@@ -298,5 +299,26 @@ public class VolunteerController {
         String result = jsonObject.toString();
         System.out.println("================================================= 이미지 는?? : : " + result);
         return result;
+    }
+    
+    // 봉사 참여
+    @ResponseBody
+    @PostMapping("/doVolunteer")
+    public Map<String, Object> doVolunteer(@RequestParam("volunteerNo") int volunteerNo,
+                                          HttpSession session) {
+      Map<String, Object> response = new HashMap<>();
+
+      Member loginMember = (Member) session.getAttribute("loginMember");
+      int memberNo = loginMember.getMemberNo();
+      
+      int result = service.selectVolunteer(volunteerNo, memberNo);
+      if (result == 0) {
+        service.insertVolunteer(volunteerNo, memberNo);
+        response.put("message", "봉사 참여가 완료되었습니다.");
+      } else if (result == 1) {
+        response.put("message", "이미 참여한 봉사입니다.");
+      }
+      
+      return response;
     }
 }

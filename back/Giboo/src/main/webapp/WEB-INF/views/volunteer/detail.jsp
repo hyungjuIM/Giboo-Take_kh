@@ -127,8 +127,9 @@
                                 <div id="comment3" class="comment">123456789</div>
                             </div>
                         </div>
-
-                        <button class="commentSubmit">응원하기</button>
+                       
+                        <button class="commentSubmit" id="cheeringButton">응원하기</button>
+                        
                         <div class="commentInfo">
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="commentCount">1,030</span>
@@ -253,7 +254,34 @@
     <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
-
+    <script>
+        const volunteerButton = document.getElementById("volunteerButton");
+        volunteerButton.addEventListener('click', function() {
+          const url = window.location.href;
+          const parts = url.split('/');
+          const volunteerNo = parseInt(parts[parts.length - 1]);
+      
+          if (${!empty loginMember}) {
+            alert("봉사 참여를 하시겠습니까?");
+            $.ajax({
+              url: "../doVolunteer",
+              type: "POST",
+              data: { volunteerNo: volunteerNo },
+              success: function(response) {
+               
+                alert(response.message); // 서버에서 반환한 message를 표시
+              },
+              error: function() {
+                console.log("봉사참여 실패");
+              }
+            });
+          } else {
+            alert("로그인이 필요한 서비스 입니다.");
+            location.href = "../../main/login";
+          }
+        });
+      </script>
+      
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
 
     <script src="${pageContext.request.contextPath}/resources/js/volunteer/volunteerDetail.js"></script>

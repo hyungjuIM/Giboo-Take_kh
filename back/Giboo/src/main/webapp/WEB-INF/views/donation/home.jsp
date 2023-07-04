@@ -41,7 +41,7 @@
 				<ul class="subCategoryList">
 					<li class="subCategoryItem"><a href="../donation/home"
 						id="all" class="SubCategoryLabelTheme">
-							<div class="SubCategoryEmojiTheme">🧚</div> 전체
+							<div class="SubCategoryEmojiTheme"><span>🧚</span></div> 전체
 					</a></li>
 
 					<c:forEach var="parentCategoryList" items="${parentCategoryList}">
@@ -49,7 +49,7 @@
 							href="../donation/home?category=${parentCategoryList.parentCategoryNo}"
 							id="category${parentCategoryList.parentCategoryNo}"
 							class="SubCategoryLabelTheme">
-								<div class="SubCategoryEmojiTheme">${parentCategoryList.parentCategoryThumbnail}</div>
+								<div class="SubCategoryEmojiTheme"><span>${parentCategoryList.parentCategoryThumbnail}</span></div>
 								${parentCategoryList.parentCategoryName}
 						</a></li>
 					</c:forEach>
@@ -57,7 +57,9 @@
 				</ul>
 			</div>
 
-			<div id="content" class="content">
+		<div id="content" class="content">
+			<div class="sortingSection">
+			
 				<h4 class="contentTitle">
 					<c:choose>
 						<c:when test="${empty param.category}">
@@ -71,7 +73,6 @@
 					기부 <span class="contentCount" id="contentCount">${donationListCount}</span>개
 				</h4>
 
-				<div class="sortingSection">
 					<div id="sortingArea" class="sortingArea">
 						<select class="sortingButton" id="sortingButton"> 종료임박 순
 							<img
@@ -92,9 +93,16 @@
 						<div class="item">
 							<div class="buttonSection">
 								<a href="" class="button">기부하기 <i class="xi-angle-right"></i>
-									<%--  <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"> --%></a>
-								<div class="favoriteButton"
-									onclick="addFavorite('${donationList.donationTitle}')">🤍</div>
+									  <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"> --%></a>
+                                    <c:choose>
+                                        <c:when test="${fn:contains(favoriteList, donationList.donationNo)}">
+                                            <div class="favoriteButton" id="${donationList.donationNo}" data-title="${donationList.donationTitle}">❤️</div>
+                                        </c:when>
+        
+                                        <c:otherwise>
+                                            <div class="favoriteButton" id="${donationList.donationNo}" data-title="${donationList.donationTitle}">🤍</div>
+                                        </c:otherwise>
+                                    </c:choose>
 							</div>
 
 							<div class="content_container">
@@ -180,7 +188,8 @@
              $.ajax ({
                  url: "addFavorite",
                  data: {"memberNo" : ${loginMember.memberNo}, 
-                        "donationNo" : i.id},
+                        "donationNo" : i.id ,
+                        "donationTitle" : i.dataset.title},
                  
                 success: function(result) {
                     if (result == "success") {
@@ -195,7 +204,9 @@
 
             $.ajax ({
                 url: "deleteFavorite",
-                data: {"memberNo" : ${loginMember.memberNo}, "donationNo" : i.id},
+                data: {"memberNo" : ${loginMember.memberNo}, 
+                       "donationNo" : i.id , 
+                       "donationTitle" : i.dataset.title},
 
                 success: function(result) {
                     if (result == "success") {

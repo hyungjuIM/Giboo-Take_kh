@@ -222,17 +222,17 @@ color: #111111;
 } */
 
 
-
-
-
-/* 
 .edBtn{
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+
+/* 
+
 
 .edBtnDe{
     width: 161px;
@@ -409,7 +409,7 @@ color: #111111;
     /* background-color: wheat; */
     max-width: 800px;
     overflow: hidden;
-    height: 1000px;
+    /* height: 1000px; */
 }
 
 
@@ -788,11 +788,12 @@ color: #111111;
     height: 10px;
     border-radius: 50px;
     background-color: white;
+    margin: 10px 0px;
 }
 
 .progressBarValue {
 
-    background: linear-gradient(to top, #00CA61; 50%, #574da1);
+background: linear-gradient(to top, #61fbc2 50%, #00CA61);
 
     border-radius: 30px;
 
@@ -824,32 +825,25 @@ color: #111111;
 }
 
 
-/* 프로필 이미지 슬라이드===================================== */
-/* 
-.fav > img{
-    color : red;
-    font-size: 20px;
-} */
-
-
-
-.eParMoreTitle > span{
-    font-size: 16px;
-    font-weight: 600;
-}
+/* 프로필 이미지 슬라이드(eventParticiMore)===================================== */
 
 .eParMoreTitle{
-    margin-bottom: 20px;
+    margin: 30px 0px;
+    font-family: 'NanumSquareNeo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #767676;
 }
 
 .edDoPersonLi{
-    /* background-color:#f7f7f7; */
-    width: 180px;
+    /* width: 180px; */
     height: 110px;
     border-radius: 20px;
     border: solid 2px yellow;
-    margin : 0px 30px;
+
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
@@ -857,59 +851,19 @@ color: #111111;
 .edDoPersonUl{
     overflow: hidden;
     display: flex;
-    width: 500px;
+    /* width: 500px; */
     border : solid 1px blue
 }
 
 
-
-/* 더보기 버튼 */
-
-
-
-
-.eParMoreList{
-    display: flex;
+/* .eParMoreList{
+    
     align-items: center;
     justify-content: center;
     width: 340px;
     height: 100px;
-    /* border: solid 2px violet; */
-}
-
-.Par_relatedItemListButtonArea {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-    border : 1px solid red;
-}
-
-#prev1, #next1 {
-    width: 24px;
-    height: 24px;
-    border: 2px solid #00CA61;
-    border-radius: 100%;
-    padding: 4px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: unset;
-    cursor: pointer;
-}
-
-
-
-.edDoPerson{
-    /* background-color: yellowgreen; */
-    margin-top: 12px;
-    height: 89px;
-    display: flex;
-    align-items: center;
-    max-width: 340px;
-    overflow: hidden;
-}
-
+   
+} */
 
 .edDoPerImg{
     width: 70px;
@@ -928,7 +882,6 @@ color: #111111;
     border-radius: 50%;
 }
 
-
 .edPersonName{
     font-family: 'NanumSquareNeo';
     font-style: normal;
@@ -936,36 +889,108 @@ color: #111111;
     font-size: 12px;
     color: #767676;
     margin-top: 10px;
-    margin-left: 10px;
 }
-
-.edBtn {
-    display: flex;
-    justify-content: space-between;
-}
-
-
-
 
 
 .swiper-container {
-    height:200px; 
-    border:5px solid silver;
-    border-radius:7px;
-     /* box-shadow:0 0 20px #ccc inset; */
+    width: 280px;
+    height:150px; 
+    border:1px solid silver;
+    border-radius:7px; 
+    margin-top: 30px;
+    
+    
  }
+
+
  .swiper-slide { 
-     /* height: 380px;  */
-      /* width: 600px;  */
+   
+      display: flex;
      text-align:center; 
-     display:flex;  
-    /* align-items:center;   */
-    /* justify-content:center;  */
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+      
+
   }
  .swiper-slide div {
      /* height: 380px; */
      /* width: 550px; */
     /* box-shadow:0 0 5px #555; */
-    /* max-width:100%; 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */
-    /* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+    max-width:100%; 
+    /* 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */ 
+    /* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다.*/
  }
+
+ .swiper-wrapper{
+    
+ }
+
+.do_next_prev_btn1{
+    position: absolute;
+    left: 832px;
+    top: 408px;
+    width: 350px;
+    height: 50px;
+    z-index: 100;
+}
+ 
+.do_next_prev_btn1 span {
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+}
+
+.do_next{
+    right: 0%;
+    /* background-image: none;    */
+}
+.do_prev{
+    left: 0%;
+    /* background-image: none; */
+}
+.do_prev img,
+.do_next img{
+    width : 20px;
+    height : 20px;
+}
+
+.swiper-button-prev1{
+    background-image: none;
+}
+.swiper-button-next1{
+    background-image: none;
+}
+
+
+/*--이벤트디테일보드의 eventStickerBar*/
+.do_next_prev_btn2{
+    position: absolute;
+    top: 145px;
+    right: 3px;
+    width: 340px;
+    height: 50px;
+    z-index: 100;
+}
+
+.do_next_prev_btn2 span {
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+.swiper-button-prev2{
+    background-image: none;
+}
+.swiper-button-next2{
+    background-image: none;
+}
+
+.second{
+    display: flex;
+    height : 300px;
+    width : 200px;
+    border : 3px solid yellow;
+}
+
