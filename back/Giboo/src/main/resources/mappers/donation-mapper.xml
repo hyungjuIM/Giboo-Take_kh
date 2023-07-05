@@ -23,6 +23,7 @@
         <result property="memberId" column="MEMBER_ID" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
+        <result property="favCount" column="FAVORITE_COUNT" />
     </resultMap>
 
     <resultMap id="donationDetail_rm" type="donationDetail">
@@ -48,6 +49,7 @@
         <result property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
+         <result property="favCount" column="FAVORITE_COUNT" />
     </resultMap>
 
     <resultMap id="parentCategory_rm" type="parentCategory" >
@@ -254,4 +256,76 @@
         DELETE DONATION_STORY
         WHERE DONATION_STORY_NO = ${storyNo}
     </delete>
+    
+    <select id="selectmDontionList" resultMap="donation_rm">
+
+SELECT
+    D.DONATION_NO,
+    D.TARGET_AMOUNT,
+    D.LOCATION_X,
+    D.LOCATION_Y,
+    D.DONATION_ADDR,
+    D.ENROLL_DATE,
+    TO_CHAR(D.START_RECRUIT_DATE, 'YYYY-MM-DD') AS START_RECRUIT_DATE,
+    TO_CHAR(D.END_RECRUIT_DATE, 'YYYY-MM-DD') AS END_RECRUIT_DATE,
+    TO_CHAR(D.START_PROGRESS_DATE, 'YYYY-MM-DD') AS START_PROGRESS_DATE,
+    TO_CHAR(D.END_PROGRESS_DATE, 'YYYY-MM-DD') AS END_PROGRESS_DATE,
+    D.DELETE_STATUS,
+    D.DCOM_STATUS,
+    D.DONATION_AMOUNT,
+    D.VIEW_COUNT,
+    D.DONATION_TITLE,
+    D.DONATION_CONTENT,
+    D.DONATION_ATTACHMENT,
+    D.MEMBER_NO,
+    D.PARENT_CATEGORY_NO,
+    D.AGENCY_NO,
+    C.PARENT_CATEGORY_NAME,
+    COUNT(F.MEMBER_NO) AS FAVORITE_COUNT
+FROM
+    DONATION D
+JOIN
+    PARENT_CATEGORY C ON D.PARENT_CATEGORY_NO = C.PARENT_CATEGORY_NO
+LEFT JOIN
+    FAVORITES F ON D.DONATION_NO = F.DONATION_NO
+GROUP BY
+    D.DONATION_NO,
+    D.TARGET_AMOUNT,
+    D.LOCATION_X,
+    D.LOCATION_Y,
+    D.DONATION_ADDR,
+    D.ENROLL_DATE,
+    D.START_RECRUIT_DATE,
+    D.END_RECRUIT_DATE,
+    D.START_PROGRESS_DATE,
+    D.END_PROGRESS_DATE,
+    D.DELETE_STATUS,
+    D.DCOM_STATUS,
+    D.DONATION_AMOUNT,
+    D.VIEW_COUNT,
+    D.DONATION_TITLE,
+    D.DONATION_CONTENT,
+    D.DONATION_ATTACHMENT,
+    D.MEMBER_NO,
+    D.PARENT_CATEGORY_NO,
+    D.AGENCY_NO,
+    C.PARENT_CATEGORY_NAME
+ORDER BY
+    FAVORITE_COUNT DESC
+
+    	
+    </select>
+    
+    
+    <select id="getDonationDetail2" resultMap="donationDetail_rm">
+    SELECT D.DONATION_NO, D.DONATION_TITLE, D.DONATION_TITLE, D.END_RECRUIT_DATE, D.TARGET_AMOUNT, D.DONATION_AMOUNT, A.AGENCY_NAME, D.DONATION_ATTACHMENT, D.PARENT_CATEGORY_NO,
+    COUNT(F.DONATION_NO) AS FAVORITE_COUNT
+	FROM DONATION D
+	INNER JOIN AGENCY A ON D.AGENCY_NO = A.AGENCY_NO
+	LEFT JOIN FAVORITES F ON D.DONATION_NO = F.DONATION_NO
+	WHERE D.DONATION_NO = ${donationNo2}
+	AND D.DELETE_STATUS = 'N'
+	GROUP BY D.DONATION_NO, D.DONATION_TITLE, D.DONATION_CONTENT, D.END_RECRUIT_DATE, D.TARGET_AMOUNT, D.DONATION_AMOUNT, A.AGENCY_NAME, D.DONATION_ATTACHMENT, D.PARENT_CATEGORY_NO
+    
+    </select>
 </mapper>

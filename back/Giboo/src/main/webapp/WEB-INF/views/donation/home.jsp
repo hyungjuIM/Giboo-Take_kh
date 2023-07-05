@@ -93,7 +93,7 @@
 						<div class="item">
 							<div class="buttonSection">
 								<a href="" class="button">기부하기 <i class="xi-angle-right"></i>
-									  <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"> --%></a>
+									</a>
                                     <c:choose>
                                         <c:when test="${fn:contains(favoriteList, donationList.donationNo)}">
                                             <div class="favoriteButton" id="${donationList.donationNo}" data-title="${donationList.donationTitle}">❤️</div>
