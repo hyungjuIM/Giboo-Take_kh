@@ -75,6 +75,7 @@
 											</div>
 											<a href="${contextPath}/admin/managerlogout"
 														class="logout_Btn"><span>로그아웃</span></a>
+											<a class="logout_Btn" href="${pageContext.request.contextPath}/admin/home"><span>메인페이지</span></a>			
 										</c:when>
 										<%-- 로그인 된 후 --%>
 											<c:otherwise>

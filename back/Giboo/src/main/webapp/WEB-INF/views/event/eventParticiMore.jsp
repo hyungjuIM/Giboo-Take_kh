@@ -10,7 +10,7 @@
 	<c:choose>
 		<c:when test="${empty eventDetailMember}">
 			<ul class="edDoPersonUl">
-				<li class="edDoPersonLi"><span>참여자가 없습니다.</span></li>
+				<li class="edDoPersonLi"><span>함께한 참여자가 없습니다.🥺</span></li>
 			</ul>
 		</c:when>
 		<c:otherwise>
@@ -37,9 +37,7 @@
 				</c:forEach>
 				</div>
 			</div>
-		</c:otherwise>
-	</c:choose>
-	<div class="do_next_prev_btn1">
+			<div class="do_next_prev_btn1">
 		<span class="swiper-button-prev1 do_prev">
 		<img src="${pageContext.request.contextPath}/resources/images/arrow-left-long-solid.svg">
 		</span> 
@@ -47,6 +45,9 @@
 		<img src="${pageContext.request.contextPath}/resources/images/arrow-right-long-solid.svg">
 		</span>
 	</div>
+		</c:otherwise>
+	</c:choose>
+	
 </div>
 
 

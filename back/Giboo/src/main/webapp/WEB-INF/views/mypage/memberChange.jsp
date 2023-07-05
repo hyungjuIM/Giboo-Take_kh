@@ -139,12 +139,9 @@
 
 
 								<div class="memberChange_bottom">
-                                    <div>
                                         <button class="memberChange_b">수정완료</button>
-                                        <button class="memberChange_b">
-                                        <a
-												href="${pageContext.request.contextPath}/main" class="memberChange_b1">이전으로</a></button>
-                                    </div>
+                                        <div>
+                                        <a href="${pageContext.request.contextPath}/main" class="memberChange_b1">이전으로</a></div>
                                 </div>
                                </form>     
                                     <div>

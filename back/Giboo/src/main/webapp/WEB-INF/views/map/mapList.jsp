@@ -46,15 +46,18 @@
                             <c:if test="${!empty param.key}">
                                 <h3 style="margin-left:30px;"> "${param.query}" 검색 결과  </h3>
                             </c:if>
+                             
                         </a>
                     </div>
                 </div>
 
-                <!-- 내 위치 주변 봉사 가능한 곳 -->
+                <!-- 내 위치 주변 봉사 가능한 곳 
+                
                 <div class="mmyloca">
                     <span>현재 위치 주변 봉사 가능한 곳</span>
                     <span></span>
-                </div>
+                </div>-->
+                
 
 
                 <!-- 검색했을 때 & 내 주변 위치 나오는 기본 리스트 영역 -->
