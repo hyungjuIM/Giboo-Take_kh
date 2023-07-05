@@ -93,7 +93,7 @@
     </select>
 
     <select id="getDonationList" resultMap="donation_rm">
-        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, PC.PARENT_CATEGORY_NAME
+        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, PC.PARENT_CATEGORY_NAME, DONATION_ATTACHMENT
         FROM DONATION D, PARENT_CATEGORY PC
         <if test="category != null">
             WHERE D.PARENT_CATEGORY_NO = ${category}
@@ -104,14 +104,15 @@
     </select>
 
     <select id="getDonationListAll" resultMap="donation_rm">
-        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT
+        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, DONATION_ATTACHMENT
         FROM DONATION
         WHERE DELETE_STATUS = 'N'
         ORDER BY DONATION_NO DESC
     </select>
 
     <select id="getDonationDetail" resultMap="donationDetail_rm">
-        SELECT DONATION_NO, DONATION_TITLE, DONATION_CONTENT, START_RECRUIT_DATE, END_RECRUIT_DATE, START_PROGRESS_DATE, END_PROGRESS_DATE, TARGET_AMOUNT, DONATION_AMOUNT, DONATION_ADDR, A.AGENCY_NAME, PARENT_CATEGORY_NO
+        SELECT DONATION_NO, DONATION_TITLE, DONATION_CONTENT, START_RECRUIT_DATE, END_RECRUIT_DATE, START_PROGRESS_DATE, END_PROGRESS_DATE, TARGET_AMOUNT,
+               DONATION_AMOUNT, DONATION_ADDR, A.AGENCY_NAME, PARENT_CATEGORY_NO, DONATION_ATTACHMENT
         FROM DONATION D, AGENCY A
         WHERE DONATION_NO = ${donationNo}
         AND D.AGENCY_NO = A.AGENCY_NO
@@ -167,7 +168,7 @@
                 DEFAULT,
                 #{donationTitle},
                 #{donationContent},
-                NULL,
+                #{donationAttachment},
                 ${memberNo},
                 ${parentCategoryNo},
                 1
@@ -184,6 +185,7 @@
             TARGET_AMOUNT = ${targetAmount},
             DONATION_ADDR = #{donationAddr},
             DONATION_CONTENT = #{donationContent},
+            DONATION_ATTACHMENT = #{donationAttachment},
             PARENT_CATEGORY_NO = ${parentCategoryNo},
             ENROLL_DATE = CURRENT_DATE
         WHERE DONATION_NO = ${donationNo}

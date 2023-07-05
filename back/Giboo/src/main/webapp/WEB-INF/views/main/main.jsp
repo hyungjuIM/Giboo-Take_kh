@@ -635,7 +635,7 @@
         var xhr2 = new XMLHttpRequest();
         xhr2.onreadystatechange = function() {
             if (xhr2.readyState === 4 && xhr2.status === 200) {
-                var volMoney = JSON.parse(xhr2.responseText);
+                var volMoney = xhr2.responseText;
                 document.getElementById("volMoney").textContent = volMoney;
             }
         };

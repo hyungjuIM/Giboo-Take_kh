@@ -1,5 +1,6 @@
 package kh.fin.giboo.main.controller;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -77,8 +78,15 @@ public class MainController {
     }
 	@ResponseBody
 	@GetMapping("/volMoney")
-	public int getVolMoney() {
-		return countService.getVolMoney();
+	public String getVolMoney() {
+		DecimalFormat df = new DecimalFormat("###,###");
+		int result = countService.getVolMoney();
+
+		String res = df.format(result);
+
+		System.out.println(res);
+
+		return res;
 	}
 
 }
