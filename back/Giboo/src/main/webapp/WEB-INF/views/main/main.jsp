@@ -1,61 +1,106 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <c:set var="volunteerList" value="${map.volunteerList}" />
+   
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>main</title>
-    <!-- jQuery 라이브러리 추가 -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>main</title>
+<!-- jQuery 라이브러리 추가 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/main.css" />
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/main/main.css" />
 
 
 </head>
 <!-- style="overflow-x:hidden; overflow-y:auto;" -->
-<body style="overflow-x:hidden; overflow-y:auto;" >
-      <!-- 헤더 영역 -->
-            <header>
-                <jsp:include page="/WEB-INF/views/main/header.jsp" />
-            </header>
-            
-            
+<body style="overflow-x: hidden; overflow-y: auto;">
+	<!-- 헤더 영역 -->
+	<header>
+		<jsp:include page="/WEB-INF/views/main/header.jsp" />
+	</header>
 
 
 
-    
-    <main>
-
-
-        <div class="container">
-
-            <section class="welcome">
-
-                <div class="main_swiper">
 
 
 
-                    <div class="mainImg_wrapper">
-                        <div class="mainImg_slide active"><img src="${pageContext.request.contextPath}/resources/images/main_img/main_img.png" alt=""></div>
+	<main>
+
+
+		<div class="container">
+
+			<section class="welcome">
+
+				<div class="main_swiper">
+
+
+
+					<div class="mainImg_wrapper">
+						<%-- <div class="mainImg_slide active"><img src="${pageContext.request.contextPath}/resources/images/main_img/main_img.png" alt=""></div>
                         <div class="mainImg_slide"><img src="#none" alt=""></div>
                         <div class="mainImg_slide"><img src="${pageContext.request.contextPath}/resources/images/main_img/main_img.png" alt=""></div>
-                    </div>
-                    <!-- 
+                     --%>
+
+
+						<div class="mainImg_slide active">
+							<h1 class="sec1_h1_style">
+								바쁜 현대 사회에서 <br> 혼자라는 느낌이 들 때,
+							</h1>
+							<p class="sec1_p_style">
+								세상에 혼자만 남겨진 것 같은 느낌, <br>
+								사람의 온기가 필요할 때,
+								
+							 </p>
+							<video class="main_video"
+								src="${pageContext.request.contextPath}/resources/images/video/seoul.mp4"
+								autoplay muted loop></video>
+
+						</div>
+
+						<div class="mainImg_slide">
+						
+							<h1 class="sec2_h1_style">우리는 함께 할 때 행복합니다.</h1>
+							<p class="sec2_p_style">
+								외로움을 이기고 새로운 친구와 소중한 인연을 만들기 위해 봉사에 참여합니다.
+								<br>나의 따뜻한 마음과 관심을 나누며 함께하는 봉사 활동은 외로움을 극복하는데 큰 도움이 됩니다.
+							</p>
+							<video class="main_video"
+								src="${pageContext.request.contextPath}/resources/images/video/summer.mp4"
+								autoplay muted loop></video>
+						</div>
+						
+						<div class="mainImg_slide">
+						
+						<h1 class="sec3_h1_style">우리는 언제나<br> 당신과 함께합니다.</h1>
+						<p class="sec3_p_style">Hunny는 다양한 기부, 봉사 프로그램이 준비되어 있습니다. <br>
+						우리는 언제나 가까운 곳에서 여러분을 기다립니다.</p>
+							<video class="main_video"
+								src="${pageContext.request.contextPath}/resources/images/video/hug.mp4"
+								autoplay muted loop></video>
+						</div>
+
+					</div>
+					<!-- 
                     <div class="swiper_pagination">
                         <div class="step active-step"></div>
                         <div class="step"></div>
                         <div class="step"></div>
                     </div> -->
 
-                    <!-- <div class="vol_next_prev_btn">
+					<!-- <div class="vol_next_prev_btn">
                         <button class="vol_swiper_button_prev">prev</button>
                         <button class="vol_swiper_button_next">next</button>
                     </div> -->
@@ -114,26 +159,34 @@
                 <div class="vol_box_container">
 
                     <ul class="allSlides slidesStyle">
+                        <c:forEach var="volunteer" items="${mVolunteerList}" varStatus="status" begin="0" end="5">
+                            <c:set var="volunteerDetail" value="${volunteerDetails[status.index]}" />
                         <li class="vol_box_style vol_box">
-                            <div class="vol_day"><span>9</span>D-day</div>
-                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
+                            <div class="vol_day"><span>${volunteerDetail.DDay}</span>D-day</div>
+                            <div><img src="${pageContext.request.contextPath}${volunteerDetail.volunteerAttachment}"></div>
 
                             <div class="vol_content_part">
                                 <div class="vol_content_per_container">
-                                    <span class="vol_con_bar">
-                                        <span class="vol_con_bar_per"></span>
-                                    </span>
-                                    <span class="tooltip"><span>14</span>/20</span>
+                                    <div class="progressBar">
+                                        <div class="progressBarValue"
+                                            style="width: ${volunteerDetail.percent}%"></div>
+                                    </div>
+
+                                    <!-- <span class="vol_con_bar" style="width: ${volunteerDetail.percent}%"> -->
+                                        <!-- <span class="vol_con_bar_per"></span> -->
+                                        <span class="tooltip"><span>${volunteerDetail.volunteerCount}</span>/${volunteerDetail.targetPeople}</span>
+                                    <!-- </span> -->
                                 </div>
 
                                 <div class="vol_content">
-                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
-                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
+                                    <h3>${volunteer.volunteerTitle}</h3>
+                                    <div><span>모집</span><span>${volunteer.startRecruitDate}~${volunteer.endRecruitDate}</span></div>
                                 </div>
                                 <div class="vol_tag">
                                     <div>
-                                        <span class="vol_tag_child">어린이</span>
-                                        <span class="vol_tag_applyPlay">놀이지원</span>
+                                        
+                                        <span class="vol_tag_child">${volunteer.parentCategoryName}</span>
+                                        
                                     </div>
                                     <div class="vol_like">
                                         <i class="xi-heart-o"></i>
@@ -142,93 +195,8 @@
                                 </div>
                             </div>
                         </li>
-
-                        <li class="vol_box_style vol_box">
-                            <div class="vol_day"><span>9</span>D-day</div>
-                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-
-                            <div class="vol_content_part">
-                                <div class="vol_content_per_container">
-                                    <span class="vol_con_bar">
-                                        <span class="vol_con_bar_per"></span>
-                                    </span>
-                                    <span class="tooltip"><span>14</span>/20</span>
-                                </div>
-
-                                <div class="vol_content">
-                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
-                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
-                                </div>
-                                <div class="vol_tag">
-                                    <div>
-                                        <span class="vol_tag_child">어린이</span>
-                                        <span class="vol_tag_applyPlay">놀이지원</span>
-                                    </div>
-                                    <div class="vol_like">
-                                        <i class="xi-heart-o"></i>
-                                        <p>102</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="vol_box_style vol_box">
-                            <div class="vol_day"><span>9</span>D-day</div>
-                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-
-                            <div class="vol_content_part">
-                                <div class="vol_content_per_container">
-                                    <span class="vol_con_bar">
-                                        <span class="vol_con_bar_per"></span>
-                                    </span>
-                                    <span class="tooltip"><span>14</span>/20</span>
-                                </div>
-
-                                <div class="vol_content">
-                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
-                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
-                                </div>
-                                <div class="vol_tag">
-                                    <div>
-                                        <span class="vol_tag_child">어린이</span>
-                                        <span class="vol_tag_applyPlay">놀이지원</span>
-                                    </div>
-                                    <div class="vol_like">
-                                        <i class="xi-heart-o"></i>
-                                        <p>102</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="vol_box_style">
-                            <div class="vol_day"><span>9</span>D-day</div>
-                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-
-                            <div class="vol_content_part">
-                                <div class="vol_content_per_container">
-                                    <span class="vol_con_bar">
-                                        <span class="vol_con_bar_per"></span>
-                                    </span>
-                                    <span class="tooltip"><span>14</span>/20</span>
-                                </div>
-
-                                <div class="vol_content">
-                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
-                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
-                                </div>
-                                <div class="vol_tag">
-                                    <div>
-                                        <span class="vol_tag_child">어린이</span>
-                                        <span class="vol_tag_applyPlay">놀이지원</span>
-                                    </div>
-                                    <div class="vol_like">
-                                        <i class="xi-heart-o"></i>
-                                        <p>102</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                    </c:forEach>
+                       
 
 
 
@@ -695,6 +663,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
+
 </body>
 
 </html>

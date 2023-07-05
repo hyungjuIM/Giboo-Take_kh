@@ -81,13 +81,13 @@ border: 1px solid red;
 }
 
 .mainContent{
-	border: 2px solid blue;
+/* 	border: 2px solid blue; */
     width: 1200px;
     height: fit-content;
 }
 
 .infoArea {
-	border: 1px solid green;
+	/* border: 1px solid green; */
     position: relative;
     height: 472px;
     border-radius: 20px;
@@ -96,7 +96,7 @@ border: 1px solid red;
 }
 
 .thumbnail {
-	border: 1px solid hotpink;
+/* 	border: 1px solid hotpink; */
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -104,16 +104,16 @@ border: 1px solid red;
 
 .info {
 	
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	
     position: absolute;
     top: 20px;
     right: 20px;
     width: 384px;
-    height: 432px;
+    height: 399px;
     background-color: #fff;
     border-radius: 20px;
-    padding-top: 20px;
+    padding-top: 38px;
     overflow: hidden;
     
    display: flex;
@@ -123,7 +123,7 @@ border: 1px solid red;
 }
 
 .info .tag {
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
     margin-inline: 20px;
 }
 
@@ -163,45 +163,55 @@ border: 1px solid red;
 	
     line-height: 42px;
     margin-block: 10px;
-    
+   	margin-bottom: 20px;
     border: 1px solid green;
 }
 
 .progressArea {
-	border: 1px solid blue;
-	width: 80%;
+/* 	border: 1px solid blue; */
+	width: 90%;
+	height: 95px;
 	
     background-color: #F0EFF9;
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 14px 20px;
     margin-bottom: 10px;
 }
 
 .progressInfo {
-	border: 1px solid green;
+	/* border: 1px solid green; */
+	
 	
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
+/*     margin-top: 10px; */
+    margin-bottom: 10px;
 }
 
 .progressPercentage {
+	font-family: 'NanumSquareNeo';
     color: #00CA61;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
 }
 
 .goal {
+	font-family: 'NanumSquareNeo';
     color: #767676;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
 .progressBar {
+	/* border: 1px solid red; */
     width: 100%;
     height: 10px;
     border-radius: 50px;
     background-color: white;
+    
+    margin-bottom: 10px;
 }
 
 .progressBarValue {
@@ -217,18 +227,20 @@ border: 1px solid red;
 }
 
 .progressStatus > span {
-    color: #767676;
+	font-family: 'NanumSquareNeo';
+   	color: var( --contentColor);
     font-size: 14px;
-    font-weight: bolder;
+    font-weight: 600;
     margin-right: 14px;
     display: flex;
     align-items: center;
 }
 
 .progressStatus > span > img {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     margin-right: 4px;
+   color: var( --contentColor);
 }
 
 .progressStatus > span > span {
@@ -236,28 +248,45 @@ border: 1px solid red;
 }
 
 .description {
+	/* border: 1px solid red; */
+	padding: 6px 20px;
+	font-family: 'NanumSquareNeo';
     color: #767676;
-    padding-inline: 16px;
-    margin-bottom: 10px;
+   /*  padding-inline: 16px; */
+	font-weight: 500;
+    line-height: 24px;
 }
 
 .donationButton {
+	
+	font-family: 'NanumSquareNeo';
     background-color: #00CA61;
     color: white;
     font-size: 18px;
-    font-weight: bolder;
+    font-weight: 600;
     width: 100%;
     padding-block: 20px;
     position: absolute;
     bottom: 0;
     cursor: pointer;
+    border:none;
 }
 
+/*  */
+
 .contentArea {
+	border: 1px solid red;
     display: flex;
 }
 
 .content {
+	border: 1px solid blue;
+	
+	font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	font-weight: 500;
+    line-height: 24px;
+	
     width: 67%;
     margin-right: 3%;
 }
@@ -267,61 +296,90 @@ border: 1px solid red;
     height: 470px;
 }
 
+
 .imageDescription {
+
     text-align: center;
     color: #767676;
 }
 
+/*  */
+
 .nav {
+	border: 1px solid green;
     width: 30%;
 }
 
-.agencyInfoArea {
-    border: 2px solid #D9D9D9;
+.nav .agencyInfoArea {
+
+    border: 1px solid #D9D9D9;
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
 }
 
-.agencyInfo {
+.nav .agencyInfoArea .agencyInfo {
+	
+	border: 1px solid red;
+	
     display: flex;
     margin-bottom: 10px;
     height: 50px;
 }
 
 .agencyImg {
+	border: 1px solid red;
+	
+	display: flex;
+	 justify-content: center;
+    align-items: center;
     margin-right: 10px;
+    padding-bottom: 10px;
 }
 
 .division {
     font-size: 14px;
     color: #7A7A7A;
+    margin-top: 5px;
 }
 
 .agencyName {
-    font-size: 20px;
-    font-weight: bold;
+	font-family: 'NanumSquareNeo';
+	font-size: 18px;
+	font-weight: 700;
+	
+   
 }
 
 .agencyDescription {
+	font-family: 'NanumSquareNeo';
     font-size: 14px;
     color: #7A7A7A;
-    font-weight: bolder;
+   font-weight: 500;
+   line-height: 20px;
+   
+   margin-top: 5px;
+   margin-bottom: 8px;
+  
 }
 
 .agencyLink {
+	font-family: 'NanumSquareNeo';
+	font-weight: 600;
+	
     width: fit-content;
-    font-size: 12px;
+    font-size: 14px;
     color: #00CA61;
-    border-bottom: 2px solid #00CA61;
+/*     border-bottom: 2px solid #00CA61; */
     display: flex;
     align-items: center;
 }
 
 .agencyLinkImg {
     margin-left: 4px;
-    width: 6px;
+    width:10px;
     height: 12px;
+    color: var(--mainColor);
 }
 
 .commentArea {

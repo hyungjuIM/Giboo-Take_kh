@@ -86,7 +86,7 @@
 					</div>
 				</div>
 
-				<%-- 콘텐츠 부분 --%>
+				<!-- 콘텐츠 부분  -->
 				<div id="list" class="list">
 
 					<c:forEach var="donationList" items="${donationList}">
