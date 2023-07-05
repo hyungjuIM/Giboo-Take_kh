@@ -110,6 +110,13 @@
 										href="${pageContext.request.contextPath}/mypage/myReview">나의
 											리뷰</a></li>
 
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/mypage/myStamp">나의 스탬프</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/mypage/myPoint">나의 적립금</a>
+                                    </li>
 								</ul>
 							</div>
 							<hr>

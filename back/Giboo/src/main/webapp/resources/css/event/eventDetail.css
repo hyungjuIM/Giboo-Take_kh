@@ -340,6 +340,7 @@ color: #111111;
     align-items: center;
     justify-content: center;
     border: 1px solid #D9D9D9;
+    cursor: pointer;
 }
 
 .edStampBtn > span{

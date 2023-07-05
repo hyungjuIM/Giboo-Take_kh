@@ -78,10 +78,20 @@
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="donationNo" column="DONATION_NO" />
 		<result property="volunteerNo" column="VOLUNTEER_NO" />
-		<result property="favoriteTitle" column="FAVORITE_TITLE" />
-		
-		
+		<result property="favoriteTitle" column="FAVORITE_TITLE" />	
 		</resultMap>
+		
+		
+		
+		
+		<resultMap type="point" id="point_rm">
+			<id property="pointNo" column="POINT_NO"/>
+			<result property="pointContent" column="POINT_CONTENT" />
+			<result property="pointPrice" column="POINT_PRICE" />
+			<result property="memberNo" column="MEMBER_NO" />
+		</resultMap>
+		
+		
 		
 		<!-- 페이지네이션 목록 조회 -->
 	<select id="getListCount" resultType="_int">
@@ -419,5 +429,26 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 	
 	<select id="getVolMoney" resultType="java.lang.Integer">
 		SELECT SUM(PAYMENT_PRICE) FROM PAYMENT
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	<select id="getListCountPoint" resultType="_int">
+		SELECT COUNT(*) FROM POINT
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	
+	<select id="selectMyPoint" resultMap="point_rm">
+		SELECT 
+		POINT_NO 
+		, POINT_CONTENT 
+		, POINT_PRICE 
+		FROM POINT
+		WHERE MEMBER_NO = 45
 	</select>
 </mapper>

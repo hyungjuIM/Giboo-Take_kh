@@ -11,6 +11,7 @@
         <title>이벤트 디테일 사진</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventDetail.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/stamp/stamp.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick-theme.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -155,6 +156,24 @@
 
 
 
+
+    <div class="stampWrap">
+        <div class="stampBox">
+          <div class="stampCount">
+            <span>총 개수</span>
+            <span class="stampCountValue">0</span>
+          </div>
+            <ul class="stampUl">
+                <li class="stampLi">
+                    <div class="stampDiv">
+                    </div>
+                </li>         
+            </ul>
+        </div>
+    </div>
+    <div class="E_pop_mask11"></div>
+
+      
     
 
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
@@ -188,6 +207,8 @@
 
 
 
-
+<script>
+   
+</script>
     </body>
     </html>
