@@ -19,9 +19,9 @@
             <div class="edInPhotoBar">
                 <c:choose>
                     <c:when test="${empty eventStickerBar}">
-                        <ul class="edInPhotoBarUl">
-                            <li class="edInPhotoBarLi">
-                                <span>존재하는 이벤트 사진이 없습니다.</span>
+                        <ul>
+                            <li>
+                                <span class="noEvent">존재하는 이벤트 사진이 없습니다.</span>
                             </li>
                         </ul>
                     </c:when>

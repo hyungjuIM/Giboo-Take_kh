@@ -236,16 +236,18 @@ input::placeholder {
 
 .memberChange_bottom{
 
-  width: 100%;
+
 
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+
+  flex-direction: row;
   margin-bottom: 5px;
   margin-left: 140px;
+  margin-top: 30px;
 }
 
-.memberChange_bottom button:not(.memberChange_w){
+.memberChange_bottom button:not(.memberChange_w),
+.memberChange_b1{
   border: none; 
   font-family: 'NanumSquareNeo';
   font-size: 16px;
@@ -260,14 +262,19 @@ input::placeholder {
   color : #FFFFFF;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 30px;
+
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+ 
 }
 
 
 .memberChange_bottom div:nth-child(1){
   margin-bottom: 40px;
 }
-.memberChange_b {
+/* .memberChange_b {
   border: none; 
   background-color: var(--mainColor); 
   border-radius: 5px;
@@ -277,15 +284,15 @@ input::placeholder {
   color : #FFFFFF;
   cursor: pointer;
   margin-right: 20px;
-}
+} */
 
-.memberChange_b1{
+/* .memberChange_b1{
   width: 100px;
   height: 50px;
 
   color : #FFFFFF;
   cursor: pointer;
-}
+} */
 
 .memberChange_w_c{
   color: #A9A9A9; 
@@ -316,6 +323,8 @@ input::placeholder {
 }
 
 .memberChange_w:hover,
+.memberChange_b:hover,
+.memberChange_b1:hover,
 .memberChange_bottom button:hover{
   background-color: var(--mainColor);
   font-weight: 600;
@@ -391,8 +400,5 @@ input::placeholder {
 .memberChange_address{
   margin-left: 10px;
 }
-
-
-.
 
 

@@ -118,10 +118,10 @@
 														style="color: #00CA61">탈퇴시점 후로부터 30일 이내 재가입이 불가합니다.</span>
 												</div>
 												<div class="memberChange_bottom">
-													<button class="memberChange_b">
+													<div>
 														<a href="${pageContext.request.contextPath}/mypage/memberChange"  class="memberChange_b1" id="back">이전으로</a>
-													</button>
-													<button class="memberChange_b">
+													</div>
+													<button class="withDrawal">
 														<a class="memberChange_b1" id="withdrawal"
 															onclick="showWithdrawalPopup()">회원탈퇴</a>
 													</button>
