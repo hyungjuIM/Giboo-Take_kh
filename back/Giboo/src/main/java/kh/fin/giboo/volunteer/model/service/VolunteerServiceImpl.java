@@ -168,9 +168,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 		return dao.selectVolunteer(volunteerNo,memberNo);
 	}
 
-	@Override
-	public Map<String, Object> selectVolunteerList() {
-		return dao.selectVolunteerList();
-	}
+//	@Override
+//	public Map<String, Object> selectVolunteerList() {
+//		return dao.selectVolunteerList();
+//	}
     
 }

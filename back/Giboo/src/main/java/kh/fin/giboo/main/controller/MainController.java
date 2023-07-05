@@ -40,8 +40,6 @@ public class MainController {
 		
 		
 		return "main/main";
-				
-	
 }
 	//메인 페이지 봉사인원 카운트
 	@ResponseBody

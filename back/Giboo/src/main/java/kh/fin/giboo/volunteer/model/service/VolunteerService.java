@@ -40,5 +40,5 @@ public interface VolunteerService {
 	int selectVolunteer(int volunteerNo, int memberNo);
 
 	// 메인 화면용
-	Map<String, Object> selectVolunteerList();
+//	Map<String, Object> selectVolunteerList();
 }
