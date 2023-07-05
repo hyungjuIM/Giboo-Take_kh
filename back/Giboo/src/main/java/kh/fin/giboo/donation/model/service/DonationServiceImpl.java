@@ -176,4 +176,15 @@ public class DonationServiceImpl implements DonationService {
     public List<ParentCategory> getParentCategoryList() {
         return dao.getParentCategoryList();
     }
+
+	@Override
+	public List<Donation> selectDonation() {
+		return dao.selectDonation();
+	}
+
+	@Override
+	public DonationDetail getDonationDetail2(int donationNo2) {
+		return dao.getDonationDetail2(donationNo2);
+	}
+    
 }
