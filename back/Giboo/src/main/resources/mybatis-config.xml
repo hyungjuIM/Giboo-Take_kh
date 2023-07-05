@@ -74,6 +74,7 @@
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailLeft" alias="eventDetailLeft"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventStickerBar" alias="eventStickerBar"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventCertification" alias="eventCertification"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetail" alias="eventDetail"/>
 	
 	<!-- 마이페이지 -->
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveDonationList" alias="myActiveDonationList"/>
@@ -81,9 +82,10 @@
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveEventList" alias="myActiveEventList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyReview" alias="myReview"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.Favorite" alias="favorite"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.Point" alias="point"/>
 	
 	
-	<typeAlias type="kh.fin.giboo.stamp.model.vo.Stamp" alias="stamp"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.Stamp" alias="stamp"/>
 
 
 	<!-- 고객센터 -->

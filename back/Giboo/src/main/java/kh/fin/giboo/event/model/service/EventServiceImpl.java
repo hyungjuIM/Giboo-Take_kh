@@ -201,6 +201,34 @@ public class EventServiceImpl implements EventService{
 		return dao.selectEventCertification(eventNo);
 	}
 
+	@Override
+	public boolean checkEventEnded(int eventNo) {
+		return dao.checkEventEnded(eventNo);
+	}
+
+	@Override
+	public Map<String, Object> getStamps(Model model) {
+		List<Stamp> stamp = dao.getStamps(model);
+		Map<String, Object> map = new HashMap<>();
+		map.put("stamp", stamp);
+		return map;
+	}
+
+	@Override
+	public int addReward(int memberNo) {
+		return dao.addReward(memberNo);
+	}
+
+	@Override
+	public int deleteStamps(int memberNo) {
+		return dao.deleteStamps(memberNo);
+	}
+
+//	@Override
+//	public EventList getEventData(int eventNo) {
+//		return dao.getEventData(eventNo);
+//	}
+
 
 
 

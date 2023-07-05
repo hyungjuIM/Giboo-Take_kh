@@ -71,7 +71,7 @@
                             </tbody>
                         </table>
 
-                        <a id="createEvent" class="createEvent" href="${pageContext.request.contextPath}/admin/eventWrite">이벤트 신규 등록</a>
+                        <a id="createEvent" class="createEvent" href="${pageContext.request.contextPath}/admin/eventWrite?mode=insert">이벤트 신규 등록</a>
                     </div>
 
                     <table class="listTable">

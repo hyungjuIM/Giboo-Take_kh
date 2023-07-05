@@ -1,5 +1,7 @@
 package kh.fin.giboo.event.model.vo;
 
+import java.sql.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,11 +12,12 @@ import lombok.NoArgsConstructor;
 public class EventDetail {
 	private int eventNo;
 	private String eventTitle;
+	private Date enrollDate;// 등록일
+	private Date endRecruitDate;// 마감일
+	private int targetPeople;
 	private String eventContent;
-	private String enrollDt;
-	private String modiDt;
-	private int eventViews;
-	private String deleteStatus;
-	private String eventImg;
-	private int mrgNo;
+	private String eventCertificationContent;
+	private String eventAttachment;
+	private int managerNo;
+	
 }
