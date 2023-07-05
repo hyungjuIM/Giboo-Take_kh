@@ -122,11 +122,9 @@
                                     <span>참여하고 스템프 받아요!</span>
                                 </div>
                             </div>
-                            <a href="">
                                 <div class="edStampBtn">
                                     <span>🥰</span>
                                 </div>
-                            </a>
                         </div>
                     </div> 
                 </div>

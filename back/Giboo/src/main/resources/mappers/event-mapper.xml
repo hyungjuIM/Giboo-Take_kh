@@ -9,6 +9,7 @@
 		<result property="eventTitle" column="EVENT_TITLE"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="endRecruitDate" column="END_RECRUIT_DATE"/>
+		<result property="targetPeople" column="TARGET_PEOPLE"/>
 	</resultMap>
 	
 	<!-- 이벤트 디테일 top 조회용 resultMap -->
@@ -54,6 +55,17 @@
 		<result property="endRecruitDate" column="END_RECRUIT_DATE"/>
 	</resultMap>
 	
+	<resultMap type="eventCertification" id="eventCertification_rm">
+		<id property="eventNo" column="EVENT_NO"/>
+		<result property="eventTitle" column="EVENT_TITLE"/>
+		<result property="eventCertificationContent" column="EVENT_CERTIFICATION_CONTENT"/>
+	</resultMap>
+	
+	<resultMap type="stamp" id="stamp_rm">
+		<id property="stampNo" column="STAMP_NO"/>
+		<result property="stampAttachment" column="STAMP_ATTACHMENT"/>
+	</resultMap>
+	
 	
 	<!-- 페이지네이션 목록 조회 -->
 	<select id="getListCount" resultType="_int">
@@ -61,19 +73,34 @@
 		WHERE MODI_STATUS = 'N'
 	</select>
 	
+	<!-- 종료 페이지네이션 목록 조회 -->
+	<select id="getListCountDone" resultType="_int">
+		SELECT COUNT(*) FROM EVENT
+		WHERE MODI_STATUS = 'N'
+		AND TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP)
+	</select>
+	
+	<!-- 진행중 페이지네이션 목록 조회 -->
+	<select id="getListCountGoing" resultType="_int">
+		SELECT COUNT(*) FROM EVENT
+		WHERE MODI_STATUS = 'N'
+ 		AND TRUNC(END_RECRUIT_DATE) - TRUNC(CURRENT_TIMESTAMP) &gt; 0
+ 	</select>
+	
 	<!-- 이벤트 목록 조회 -->
 	<select id="selectEventList" resultMap="eventList_rm">	
- 		SELECT 
+		SELECT 
 		  ATTACHMENT, 
 		  CASE
-		    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD HH24:MI:SS')) &lt;= 0 THEN '종료'
-		    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE , 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE , 'YYYY-MM-DD HH24:MI:SS')) &lt;= 5 THEN '마감임박'
+		    WHEN TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP) THEN '종료'
+		    WHEN TRUNC(END_RECRUIT_DATE) - TRUNC(CURRENT_TIMESTAMP) &lt;= 5 THEN '마감임박'
 		    ELSE '진행중'
 		  END AS RESULT,
 		  EVENT_TITLE,
-		  TO_CHAR(ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE,
-		  TO_CHAR(END_RECRUIT_DATE , 'YYYY-MM-DD') AS END_RECRUIT_DATE,
+		  TO_CHAR(ENROLL_DATE, 'YYYY-MM-DD') AS ENROLL_DATE,
+		  TO_CHAR(END_RECRUIT_DATE, 'YYYY-MM-DD') AS END_RECRUIT_DATE,
 		  COALESCE(EP.EVENTPERSONCOUNT, 0) AS EVENTPERSONCOUNT,
+		  EVENT.TARGET_PEOPLE,
 		  EVENT.EVENT_NO
 		FROM EVENT
 		LEFT JOIN (
@@ -85,11 +112,63 @@
 		ORDER BY EVENT.EVENT_NO DESC
 	</select>
 	
+		<!-- 종료 이벤트 목록 조회 -->
+	<select id="selectEventListDone" resultMap="eventList_rm">	
+ 		SELECT 
+		  ATTACHMENT, 
+		  CASE
+		   	WHEN TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP) THEN '종료'
+		    WHEN TRUNC(END_RECRUIT_DATE) - TRUNC(CURRENT_TIMESTAMP) &lt;= 5 THEN '마감임박'
+		    ELSE '진행중'
+		  END AS RESULT,
+		  EVENT_TITLE,
+		  TO_CHAR(ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE,
+		  TO_CHAR(END_RECRUIT_DATE , 'YYYY-MM-DD') AS END_RECRUIT_DATE,
+		  COALESCE(EP.EVENTPERSONCOUNT, 0) AS EVENTPERSONCOUNT,
+		  		  EVENT.TARGET_PEOPLE ,
+		  EVENT.EVENT_NO
+		FROM EVENT
+		LEFT JOIN (
+		  SELECT EVENT_NO, COUNT(DISTINCT MEMBER_NO) AS EVENTPERSONCOUNT
+		  FROM EVENT_PERSON
+		  GROUP BY EVENT_NO
+		) EP ON EVENT.EVENT_NO = EP.EVENT_NO
+		WHERE MODI_STATUS = 'N'
+		  AND TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP) 
+		ORDER BY EVENT.EVENT_NO DESC
+	</select>
+	
+	<!-- 진행중 이벤트 목록 조회 -->
+	<select id="selectEventListGoing" resultMap="eventList_rm">	
+ 		SELECT 
+		  ATTACHMENT, 
+		  CASE
+		  	WHEN TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP) THEN '종료'
+		    WHEN TRUNC(END_RECRUIT_DATE) - TRUNC(CURRENT_TIMESTAMP) &lt;= 5 THEN '마감임박'
+		    ELSE '진행중'
+		  END AS RESULT,
+		  EVENT_TITLE,
+		  TO_CHAR(ENROLL_DATE , 'YYYY-MM-DD') AS ENROLL_DATE,
+		  TO_CHAR(END_RECRUIT_DATE , 'YYYY-MM-DD') AS END_RECRUIT_DATE,
+		  COALESCE(EP.EVENTPERSONCOUNT, 0) AS EVENTPERSONCOUNT,
+		  		  EVENT.TARGET_PEOPLE ,
+		  EVENT.EVENT_NO
+		FROM EVENT
+		LEFT JOIN (
+		  SELECT EVENT_NO, COUNT(DISTINCT MEMBER_NO) AS EVENTPERSONCOUNT
+		  FROM EVENT_PERSON
+		  GROUP BY EVENT_NO
+		) EP ON EVENT.EVENT_NO = EP.EVENT_NO
+		WHERE MODI_STATUS = 'N'
+		  AND TRUNC(END_RECRUIT_DATE) - TRUNC(CURRENT_TIMESTAMP) &gt; 0
+		ORDER BY EVENT.EVENT_NO DESC
+	</select>
+	
 	<!-- 이벤트 디테일 TOP -->
 	<select id="selectEventDetailTop" resultMap="eventDetailTop_rm">
 			SELECT 
 		  e.ATTACHMENT,
-		  TRUNC(TO_DATE(END_RECRUIT_DATE, 'YYYY-MM-DD')) - TRUNC(TO_DATE(ENROLL_DATE, 'YYYY-MM-DD')) AS RESULT,
+		  TRUNC(END_RECRUIT_DATE) - TRUNC(CURRENT_TIMESTAMP) AS RESULT,
 		  e.EVENT_TITLE,
 		  		 		(		
 				SELECT COUNT(*)
@@ -159,10 +238,11 @@
 		VALUES (MYACTIVE_3_SEQ.NEXTVAL, DEFAULT, 'Y', #{memberNo}, #{eventNo})
 	</insert>
 	
-	<insert id="insertStamp" parameterType="stamp">
-		INSERT INTO STAMP (STAMP_NO, EVENT_NO, MEMBER_NO)
-		VALUES (SEQ_STAMP_NO.NEXTVAL, #{eventNo}, #{memberNo})
-	</insert>
+<insert id="insertStamp" parameterType="stamp">
+  INSERT INTO STAMP (STAMP_NO, EVENT_NO, MEMBER_NO, STAMP_ATTACHMENT)
+  VALUES (SEQ_STAMP_NO.NEXTVAL, #{eventNo}, #{memberNo}, '/resources/images/memberProfile/20230701140342_52647.jpeg')
+</insert>
+
 	
 	<insert id="insertAlarm" parameterType="alarm">
 		INSERT INTO ALARM (ALARM_NO, ALARM_CONTENT, ALARM_DATE, READ_STATUS, MEMBER_NO, EVENT_NO)
@@ -210,8 +290,8 @@
 		SELECT 
 		  ATTACHMENT, 
 		  CASE
-		    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE, 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE, 'YYYY-MM-DD HH24:MI:SS')) &lt;= 0 THEN '종료'
-		    WHEN TRUNC(TO_DATE(END_RECRUIT_DATE, 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE, 'YYYY-MM-DD HH24:MI:SS')) &lt;= 5 THEN '마감임박'
+		   WHEN TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP) THEN '종료'
+		    WHEN TRUNC(END_RECRUIT_DATE) - TRUNC(CURRENT_TIMESTAMP) &lt;= 5 THEN '마감임박'
 		    ELSE '진행중'
 		  END AS RESULT,
 		  EVENT_TITLE,
@@ -220,8 +300,51 @@
 		  EVENT.EVENT_NO
 		FROM EVENT
 		WHERE MODI_STATUS = 'N'
-		  AND TRUNC(TO_DATE(END_RECRUIT_DATE, 'YYYY-MM-DD HH24:MI:SS')) - TRUNC(TO_DATE(ENROLL_DATE, 'YYYY-MM-DD HH24:MI:SS')) &gt; 0
+		  AND TRUNC(END_RECRUIT_DATE) - TRUNC(CURRENT_TIMESTAMP) &gt; 0
 		ORDER BY EVENT.EVENT_NO DESC
 	</select>
+	
+	
+		
+	<select id="selectEventCertification" resultMap="eventCertification_rm">
+		SELECT 
+		EVENT_TITLE 
+		, EVENT_CERTIFICATION_CONTENT 
+		FROM EVENT E
+		WHERE EVENT_NO = #{eventNo}
+	</select>
+	
+	
+	<select id="checkEventEnded" resultType="boolean">
+		SELECT 
+		    CASE
+		        WHEN TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP) THEN 1
+		        ELSE 0
+		    END AS IS_ENDED
+		FROM EVENT
+		WHERE EVENT_NO = #{eventNo}
+	</select>
+	
+	
+	
+	<select id="getStamps" resultMap="stamp_rm">
+		SELECT 
+		STAMP_NO ,
+		STAMP_ATTACHMENT 
+		FROM STAMP
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	
+	<insert id="addReward">
+		INSERT INTO POINT (POINT_NO, POINT_CONTENT , MEMBER_NO, POINT_PRICE)
+		VALUES (SEQ_POINT_NO.NEXTVAL, '이벤트 참여 완료' , #{memberNo}, 2000)
+	</insert>
+	
+<delete id="deleteStamps" parameterType="int">
+    DELETE FROM STAMP
+    WHERE MEMBER_NO = #{memberNo}
+</delete>
+
 
 </mapper>

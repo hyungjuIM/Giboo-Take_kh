@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -112,7 +113,7 @@ public class MapController {
 		return "map/mapHome";	
 	}
 	
-	// ajax로 하고싶은데.............................
+
 	@GetMapping("/mapVoRe/{volunteerNo}")
 	public String mapVoRe(
 			@PathVariable("volunteerNo") int volunteerNo			
@@ -148,6 +149,7 @@ public class MapController {
 	}
 	
 	
+	// 현재 주소값 표시
 	@GetMapping("/map/mapList")
 	@ResponseBody
 	public String handleMapListRequest(@RequestParam("address") String address) {
@@ -155,13 +157,31 @@ public class MapController {
 	    return new Gson().toJson(address); 
 	}
 
-	@GetMapping("/getAddressFromServer")
-	@ResponseBody
-	public String addressToJSP(
-			@RequestParam("currentAddress") String currentAddress) {
-		
-	    return new Gson().toJson(currentAddress); 
-	}
+	// 길찾기 값 넣기
+//	@GetMapping("/map/getAddressFromServer")
+//	@ResponseBody
+//	public String addressFromServer(
+//	    @RequestParam("currentAddress") String currentAddress,
+//	    @RequestParam("name2") String name2
+//	) {
+//	    // 응답 데이터 생성
+//	    Map<String, Object> responseData = new HashMap<>();
+//	    responseData.put("currentAddress", currentAddress);
+//	    responseData.put("name2", name2);
+//
+//	    return new Gson().toJson(responseData);
+//	}
+//
+//
+//
+//	@GetMapping("/map/getName2")
+//	@ResponseBody
+//	public String getName2(int volunteerNo) {
+//		MapDetailTop name2 = service.selectMapDetailTop2(volunteerNo);
+//		return new Gson().toJson(name2);
+//	}
+
+
 	
 	// 즐겨찾기
 	@ResponseBody
@@ -234,7 +254,9 @@ public class MapController {
 
 
 
-
+// 내 현재 위치, 반경 값을 서버로 알려주고 (post)
+//	내 디비에 있는 주소 정보와 내 현재 위치에서의 반경값에 일치하는 것들이 있는지 중복검사하듯이 검사하고
+//	그 값을 조회해서 주변 정보를 보내줌
 
 
 

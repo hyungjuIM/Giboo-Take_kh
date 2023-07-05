@@ -126,4 +126,13 @@ public class DonationDAO {
     public void storyDelete(int storyNo) {
         sqlSession.delete("donationMapper.storyDelete", storyNo);
     }
+
+	public List<Donation> selectDonation() {
+		return sqlSession.selectList("donationMapper.selectmDontionList");
+	}
+
+	public DonationDetail getDonationDetail2(int donationNo2) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("donationMapper.getDonationDetail2", donationNo2);
+	}
 }

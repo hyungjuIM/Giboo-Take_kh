@@ -43,6 +43,7 @@ h3.sub_title{
     /* letter-spacing: 1.2px; */
     margin-bottom: 60px;
     text-align: center;
+    
 }
 
 .container section{
@@ -52,6 +53,8 @@ h3.sub_title{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    
 }
 /* 홀수 section에만 배경색 */
 section:nth-child(odd){
@@ -328,6 +331,8 @@ z-index: 50;
     margin: 50px;
     line-height: 52px;
     cursor: pointer;
+    
+    
 }
 
 
@@ -356,6 +361,7 @@ li{
     margin: 0 auto;
     overflow:hidden;
     white-space: nowrap;
+   
 
 }
 
@@ -365,6 +371,8 @@ li{
     position: absolute;
     left: 0;
     top: 0;
+
+    
 }
 
 
@@ -1226,9 +1234,8 @@ li .vol_day span{
     z-index: 100;
     top: 0;
     right: 0;
-    transform: translate(-30px, 0px);
+    transform: translate(30px, 0px);
 
     width: 360px;
     height: 791px;
-    border-radius: 20px;
 }

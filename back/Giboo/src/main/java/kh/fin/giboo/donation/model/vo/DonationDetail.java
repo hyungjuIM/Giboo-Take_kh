@@ -27,10 +27,13 @@ public class DonationDetail {
     private String donationTitle;
     private String donationContent;
     private String donationAttachment;
+    private String thumbnail;
     private int memberNo;
     private String memberId;
+    private int parentCategoryNo;
     private String parentCategoryName;
     private String agencyName;
     private long dDay;
     private int percent;
+    private int favCount;
 }

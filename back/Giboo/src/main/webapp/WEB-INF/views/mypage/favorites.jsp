@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 	<c:set var="pagination" value="${map.pagination}" />
-    <c:set var="favorite" value="${map.selectListFavorite}" />
+    <c:set var="favoriteList" value="${map.favoriteList}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +69,12 @@
 					</div>
 
 					<!-- 즐겨찾기 카드부분 -->
+				<c:choose>
+						<c:when test="${empty favoriteList}">
+							<p>즐겨 찾는 플렛폼이 없습니다.</p>
+						</c:when>
+					<c:otherwise>
+						<c:forEach var="favoriteList" items="${favoriteList}">
 					<div class="myfavcard_contaner">
 						<!-- 이모티콘 -->
 						<div class="categoryImgContainer">
@@ -93,17 +99,12 @@
 							</div>
 							<div class="titleWrap">
 							<!-- 제목, 작성자, 달성률, 총기부금액 -->
-							<c:choose>
-							    <c:when test="${empty favoritesList}">
-							        <p>즐겨 찾는 플렛폼이 없습니다.</p>
-							    </c:when>
-							    <c:otherwise>
-
-							        <c:forEach var="favorite" items="${favorite}">
+							
+							   
 							            <!-- Use the 'favorite' object to display each favorite. For example: -->
 							            
 										<div class="titleContainer">
-							                <div class="favTitle">${favorite.favoriteTitle}</div>
+							                <div class="favTitle">${favoriteList.favoriteTitle}</div>
 							               
 							            </div>
 							        </c:forEach>

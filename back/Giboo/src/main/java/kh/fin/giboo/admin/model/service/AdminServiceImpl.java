@@ -3,9 +3,11 @@ package kh.fin.giboo.admin.model.service;
 import kh.fin.giboo.admin.model.dao.AdminDAO;
 import kh.fin.giboo.admin.model.vo.Category;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
+import kh.fin.giboo.common.Util;
 import kh.fin.giboo.cs.model.vo.Faq;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Event;
+import kh.fin.giboo.event.model.vo.EventDetail;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
@@ -113,5 +115,33 @@ public class AdminServiceImpl implements AdminService {
     public int removeFaq(int id) {
         return dao.removeFaq(id);
     }
+
+	@Override
+	public EventDetail selectEventDetail(int eventNo) {
+        return dao.selectEventDetail(eventNo);
+	}
+
+	
+	@Override
+	public int insertEvent(EventDetail eventDetail) {
+		eventDetail.setEventTitle(Util.XSSHandling(eventDetail.getEventTitle()));
+		eventDetail.setEventContent(Util.XSSHandling(eventDetail.getEventContent()));
+		eventDetail.setEventContent(Util.newLineHandling(eventDetail.getEventContent()));
+//		eventDetail.setEventCertificationContent(Util.XSSHandling(eventDetail.getEventCertificationContent()));
+//		eventDetail.setEventCertificationContent(Util.newLineHandling(eventDetail.getEventCertificationContent()));
+
+        return dao.insertEvent(eventDetail);
+	}
+
+	@Override
+	public int updateEvent(EventDetail eventDetail) {
+		eventDetail.setEventTitle(Util.XSSHandling(eventDetail.getEventTitle()));
+		eventDetail.setEventContent(Util.XSSHandling(eventDetail.getEventContent()));
+		eventDetail.setEventContent(Util.newLineHandling(eventDetail.getEventContent()));
+//		eventDetail.setEventCertificationContent(Util.XSSHandling(eventDetail.getEventCertificationContent()));
+//		eventDetail.setEventCertificationContent(Util.newLineHandling(eventDetail.getEventCertificationContent()));
+
+        return dao.updateEvent(eventDetail);
+	}
 
 }

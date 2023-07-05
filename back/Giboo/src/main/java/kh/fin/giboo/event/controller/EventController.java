@@ -3,6 +3,7 @@ package kh.fin.giboo.event.controller;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,8 +30,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
+
 import kh.fin.giboo.alarm.model.vo.Alarm;
 import kh.fin.giboo.event.model.service.EventService;
+import kh.fin.giboo.event.model.vo.EventCertification;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
 import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
@@ -71,6 +75,42 @@ public class EventController {
 		return "event/eventList";
 	}
 	
+	// 종료 이벤트 목록 조회
+	@GetMapping(value="/eventListDone")
+	public String eventListDone(Model model
+				,@RequestParam(value="cp", required = false, defaultValue = "1") int cp 
+				,@RequestParam Map<String, Object> paramMap
+			) {
+		
+		Map<String, Object> map = null;
+		
+		map = service.selectEventListDone(cp, model);
+
+		logger.info("이거의값은???????" + map);
+		model.addAttribute("map", map);
+		logger.info("이벤트 목록");
+		
+		return "event/eventListDone";
+	}
+	
+	// 진행중 이벤트 목록 조회
+	@GetMapping(value="/eventListGoing")
+	public String eventListGoing(Model model
+				,@RequestParam(value="cp", required = false, defaultValue = "1") int cp 
+				,@RequestParam Map<String, Object> paramMap
+			) {
+		
+		Map<String, Object> map = null;
+		
+		map = service.selectEventListGoing(cp, model);
+
+		logger.info("이거의값은???????" + map);
+		model.addAttribute("map", map);
+		logger.info("이벤트 목록");
+		
+		return "event/eventListGoing";
+	}
+	
 	
 	// 이벤트 상세조회
 	@GetMapping(value="/eventDetailMain/{eventNo}")
@@ -86,8 +126,6 @@ public class EventController {
 	        eventDetailTop.setPercent(percent);
 		
 		
-		
-		
 		if(eventDetailTop != null) {
 			List<EventDetailMember> eventDetailMember = service.selectEventDetailMember(eventNo);
 			model.addAttribute("eventDetailMember",eventDetailMember );
@@ -97,6 +135,11 @@ public class EventController {
 			model.addAttribute("eventDetailLeft",eventDetailLeft);
 			logger.info("이벤트디테일소개???" + eventDetailLeft);
 			
+			EventCertification eventCertification = service.selectEventCertification(eventNo);
+			model.addAttribute("eventCertification",eventCertification);
+			logger.info("이벤트인증방법???" + eventCertification);
+			
+
 			List<EventStickerBar> eventStickerBar = service.selectEventStickerBar(eventNo);
 			model.addAttribute("eventStickerBar",eventStickerBar);
 			logger.info("이벤트스티커바???" + eventStickerBar);
@@ -248,6 +291,10 @@ public class EventController {
 			List<EventDetailMember> eventDetailMember = service.selectEventDetailMember(eventNo);
 			model.addAttribute("eventDetailMember",eventDetailMember );
 			
+			EventCertification eventCertification = service.selectEventCertification(eventNo);
+			model.addAttribute("eventCertification",eventCertification);
+			logger.info("이벤트인증방법???" + eventCertification);
+			
 			List<EventStickerBar> eventStickerBar = service.selectEventStickerBar(eventNo);
 			model.addAttribute("eventStickerBar",eventStickerBar);
 		}
@@ -309,31 +356,52 @@ public class EventController {
 	
 	
 	// 이벤트 참여자 중복 안되게
-	@ResponseBody
-	@PostMapping(value = "/checkAlreadyJoined")
-	public Map<String, Object> checkAlreadyJoined(
-	        @RequestParam("memberNo") int memberNo,
-	        @RequestParam("eventNo") int eventNo,
-	        HttpServletRequest request,
-	        @ModelAttribute("loginMember") Member loginMember
-	        ) {
-	    Map<String, Object> response = new HashMap<>();
-	    
-	    boolean alreadyJoined = service.checkAlreadyJoined(loginMember.getMemberNo(), eventNo);
-	    if (alreadyJoined) {
-	        // 이미 참여한 경우 알림창을 띄워줍니다.
-	        String message = "이미 참여한 이벤트입니다.";
-	        
-	        response.put("alreadyJoined", true);
-	        response.put("message", message);
-	    } else {
-	        response.put("alreadyJoined", false);
-	    }
-	    
-	    return response;
-	}
+		@ResponseBody
+		@PostMapping(value = "/checkAlreadyJoined")
+		public Map<String, Object> checkAlreadyJoined(
+		        @RequestParam("memberNo") int memberNo,
+		        @RequestParam("eventNo") int eventNo,
+		        HttpServletRequest request,
+		        @ModelAttribute("loginMember") Member loginMember
+		        ) {
+		    Map<String, Object> response = new HashMap<>();
+		    
+		    boolean alreadyJoined = service.checkAlreadyJoined(loginMember.getMemberNo(), eventNo);
+		    if (alreadyJoined) {
+		        // 이미 참여한 경우 알림창을 띄워줍니다.
+		        String message = "이미 참여한 이벤트입니다.";
+		        
+		        response.put("alreadyJoined", true);
+		        response.put("message", message);
+		    } else {
+		        response.put("alreadyJoined", false);
+		    }
+		    
+		    return response;
+		}
 
-	
+	   
+	   // 종료된 이벤트는 참여못하게
+//	   @ResponseBody
+//	   @GetMapping(value="/event/getEventData")
+//	    public Map<String, Object> getEventData(@RequestParam("eventNo") int eventNo
+//	    		,HttpServletRequest request) {
+//
+//		   
+//		   Map<String, Object> response = new HashMap<>();
+//
+//			EventList eventList = service.getEventData(eventNo);
+//	        
+//			if(eventList != null) {
+//				String message = "종료된 이벤트입니다.";
+//		        response.put("getEventData", true);
+//		        response.put("message", message);	
+//			}else {
+//				response.put("getEventData", true);
+//			}
+//	        return response;
+//	    }
+//	
 	
 	
 	// 참여보드 넘어갔을 때 
@@ -427,5 +495,34 @@ public class EventController {
 	      ra.addFlashAttribute("message",message);
 	      return "redirect:" + path;
 	   }
+	   
+	   
+	   // 스템프
+	   @SuppressWarnings("unchecked")
+	@ResponseBody
+	   @GetMapping("/getStamps")
+	   public List<Stamp> getStamps(
+			   Model model
+				,HttpSession session,
+				Stamp stamp,
+				@ModelAttribute("loginMember") Member loginMember
+			   ) {
+
+			int memberNo = loginMember.getMemberNo();
+			model.addAttribute("memberNo", memberNo);
+			Map<String, Object> map = service.getStamps(model);
+			model.addAttribute("map", map);
+//			return (List<Stamp>) map.get("stamp");
+		    List<Stamp> stamps = (List<Stamp>) map.get("stamp");
+		    if (stamps.size() == 10) {
+		        service.addReward(memberNo);  // 적립금 추가
+		        service.deleteStamps(memberNo);  // 스템프 삭제
+		        stamps.clear();  // 스템프 리스트 비우기
+		    }
+		    return stamps;
+	   }
+	   
+	   
+
 
 }

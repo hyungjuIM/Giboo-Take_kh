@@ -11,6 +11,7 @@
         <title>이벤트 디테일 사진</title>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventDetail.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/stamp/stamp.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick-theme.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -37,16 +38,15 @@
                 <div class="edDetailRight">
                     <div class="edHowto">
                         <div class="edHowtoTitle">  
-                            <span>자전거로 지구를 지키는 건강한 실천 시작해봐요!</span>
+                            <span>${eventCertification.eventTitle}</span>
+                            <span>시작해봐요!</span>
                         </div>
                         <div class="edHowtoBox">
                             <div class="edHowtoTi">
                                 <span>How To</span>
                             </div>
                             <div class="edHowtoDetail">
-                                <span>① 자전거 주행 사진 혹은 자전거 경로 조회 화면 캡쳐 인증하기</span>
-                                <span>② '함께하기'버튼을 클릭 후, 해당 사진을 올려주세요.</span>
-                                <span>③ 행동 1천 개 달성 시, 기부앤테이크가 숲 조성을 위해 1천만원 기부 약속!</span>
+                                <span>${eventCertification.eventCertificationContent}</span>
                             </div>
                         </div>
                     </div>
@@ -156,6 +156,24 @@
 
 
 
+
+    <div class="stampWrap">
+        <div class="stampBox">
+          <div class="stampCount">
+            <span>총 개수</span>
+            <span class="stampCountValue">0</span>
+          </div>
+            <ul class="stampUl">
+                <li class="stampLi">
+                    <div class="stampDiv">
+                    </div>
+                </li>         
+            </ul>
+        </div>
+    </div>
+    <div class="E_pop_mask11"></div>
+
+      
     
 
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
@@ -189,6 +207,8 @@
 
 
 
-
+<script>
+   
+</script>
     </body>
     </html>
