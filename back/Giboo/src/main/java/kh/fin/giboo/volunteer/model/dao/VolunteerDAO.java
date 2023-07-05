@@ -137,6 +137,4 @@ public class VolunteerDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("volunteerMapper.getVolunteerDetail2", volunteerNo2);
 	}
-
-
 }

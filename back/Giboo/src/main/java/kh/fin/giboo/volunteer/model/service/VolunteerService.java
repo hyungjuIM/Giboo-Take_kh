@@ -43,5 +43,4 @@ public interface VolunteerService {
 	List<Volunteer> selectVolunteer();
 
 	VolunteerDetail getVolunteerDetail2(int volunteerNo2);
-
 }

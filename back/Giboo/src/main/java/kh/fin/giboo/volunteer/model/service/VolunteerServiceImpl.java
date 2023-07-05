@@ -181,7 +181,5 @@ public class VolunteerServiceImpl implements VolunteerService {
 		// TODO Auto-generated method stub
 		return dao.getVolunteerDetail2(volunteerNo2);
 	}
-
-
     
 }

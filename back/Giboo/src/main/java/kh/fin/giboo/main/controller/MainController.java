@@ -65,8 +65,6 @@ public class MainController {
 		System.out.println(mVolunteerList);
 		
 		return "main/main";
-				
-	
 }
 	
   
