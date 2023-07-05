@@ -355,23 +355,31 @@ border: 1px solid red;
 	font-family: 'NanumSquareNeo';
     font-size: 14px;
     color: #7A7A7A;
-   font-weight: 700;
+   font-weight: 500;
+   line-height: 20px;
+   
    margin-top: 5px;
+   margin-bottom: 8px;
+  
 }
 
 .agencyLink {
+	font-family: 'NanumSquareNeo';
+	font-weight: 600;
+	
     width: fit-content;
-    font-size: 12px;
+    font-size: 14px;
     color: #00CA61;
-    border-bottom: 2px solid #00CA61;
+/*     border-bottom: 2px solid #00CA61; */
     display: flex;
     align-items: center;
 }
 
 .agencyLinkImg {
     margin-left: 4px;
-    width: 6px;
+    width:10px;
     height: 12px;
+    color: var(--mainColor);
 }
 
 .commentArea {
