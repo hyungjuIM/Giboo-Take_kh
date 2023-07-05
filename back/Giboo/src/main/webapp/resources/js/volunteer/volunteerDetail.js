@@ -38,6 +38,13 @@ $(function(){
 
 
 //봉사 참여 버튼
+//const volunteerButton = document.getElementById("volunteerButton");
+volunteerButton.addEventListener('click',function(){
+    $.ajax({
+        url : "doVolunteer",
+        method : 'POST',
+    })
+});
 // volunteerButton.addEventListener('click',function(){
 //     if(${!empty loginMember}){
 //         alert("봉사 참여를 하시겠습니까?")
@@ -60,18 +67,8 @@ $(function(){
 
 
 
-// 응원하기 버튼
-const cheeringButton = document.getElementById("cheeringButton");
-cheeringButton.addEventListener("click", function() {
-
-    $.ajax({
-        url : 'cheering',
-        method: 'POST',
-        data : "memberNo" : ${loginMember.memberNo},
-                
-    })
 
 
-})
+
 
 
