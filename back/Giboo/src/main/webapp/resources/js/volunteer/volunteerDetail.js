@@ -38,7 +38,7 @@ $(function(){
 
 
 //봉사 참여 버튼
-const volunteerButton = document.getElementById("volunteerButton");
+//const volunteerButton = document.getElementById("volunteerButton");
 volunteerButton.addEventListener('click',function(){
     $.ajax({
         url : "doVolunteer",
@@ -50,14 +50,21 @@ volunteerButton.addEventListener('click',function(){
 const cheeringButton = document.getElementById("cheeringButton");
 cheeringButton.addEventListener("click", function() {
 
-    $.ajax({
-        url : 'cheering',
-        method: 'POST',
-        data : "memberNo" : ${loginMember.memberNo},
+//     $.ajax({
+//         url : 'cheering',
+//         method: 'POST',
+//         data : {"memberNo" : ${loginMember.memberNo},
                 
-    })
+//     },
+//       success : function(result) {
+
+//       }, error : function(result) {
+
+//       }         
+//     });
 
 
-})
+ })
+
 
 
