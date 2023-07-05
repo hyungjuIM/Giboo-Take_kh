@@ -114,26 +114,34 @@
                 <div class="vol_box_container">
 
                     <ul class="allSlides slidesStyle">
+                        <c:forEach var="volunteer" items="${mVolunteerList}" varStatus="status" begin="0" end="5">
+                            <c:set var="volunteerDetail" value="${volunteerDetails[status.index]}" />
                         <li class="vol_box_style vol_box">
-                            <div class="vol_day"><span>9</span>D-day</div>
-                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
+                            <div class="vol_day"><span>${volunteerDetail.DDay}</span>D-day</div>
+                            <div><img src="${pageContext.request.contextPath}${volunteerDetail.volunteerAttachment}"></div>
 
                             <div class="vol_content_part">
                                 <div class="vol_content_per_container">
-                                    <span class="vol_con_bar">
-                                        <span class="vol_con_bar_per"></span>
-                                    </span>
-                                    <span class="tooltip"><span>14</span>/20</span>
+                                    <div class="progressBar">
+                                        <div class="progressBarValue"
+                                            style="width: ${volunteerDetail.percent}%"></div>
+                                    </div>
+
+                                    <!-- <span class="vol_con_bar" style="width: ${volunteerDetail.percent}%"> -->
+                                        <!-- <span class="vol_con_bar_per"></span> -->
+                                        <span class="tooltip"><span>${volunteerDetail.volunteerCount}</span>/${volunteerDetail.targetPeople}</span>
+                                    <!-- </span> -->
                                 </div>
 
                                 <div class="vol_content">
-                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
-                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
+                                    <h3>${volunteer.volunteerTitle}</h3>
+                                    <div><span>모집</span><span>${volunteer.startRecruitDate}~${volunteer.endRecruitDate}</span></div>
                                 </div>
                                 <div class="vol_tag">
                                     <div>
-                                        <span class="vol_tag_child">어린이</span>
-                                        <span class="vol_tag_applyPlay">놀이지원</span>
+                                        
+                                        <span class="vol_tag_child">${volunteer.parentCategoryName}</span>
+                                        
                                     </div>
                                     <div class="vol_like">
                                         <i class="xi-heart-o"></i>
@@ -142,93 +150,8 @@
                                 </div>
                             </div>
                         </li>
-
-                        <li class="vol_box_style vol_box">
-                            <div class="vol_day"><span>9</span>D-day</div>
-                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-
-                            <div class="vol_content_part">
-                                <div class="vol_content_per_container">
-                                    <span class="vol_con_bar">
-                                        <span class="vol_con_bar_per"></span>
-                                    </span>
-                                    <span class="tooltip"><span>14</span>/20</span>
-                                </div>
-
-                                <div class="vol_content">
-                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
-                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
-                                </div>
-                                <div class="vol_tag">
-                                    <div>
-                                        <span class="vol_tag_child">어린이</span>
-                                        <span class="vol_tag_applyPlay">놀이지원</span>
-                                    </div>
-                                    <div class="vol_like">
-                                        <i class="xi-heart-o"></i>
-                                        <p>102</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="vol_box_style vol_box">
-                            <div class="vol_day"><span>9</span>D-day</div>
-                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-
-                            <div class="vol_content_part">
-                                <div class="vol_content_per_container">
-                                    <span class="vol_con_bar">
-                                        <span class="vol_con_bar_per"></span>
-                                    </span>
-                                    <span class="tooltip"><span>14</span>/20</span>
-                                </div>
-
-                                <div class="vol_content">
-                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
-                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
-                                </div>
-                                <div class="vol_tag">
-                                    <div>
-                                        <span class="vol_tag_child">어린이</span>
-                                        <span class="vol_tag_applyPlay">놀이지원</span>
-                                    </div>
-                                    <div class="vol_like">
-                                        <i class="xi-heart-o"></i>
-                                        <p>102</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="vol_box_style">
-                            <div class="vol_day"><span>9</span>D-day</div>
-                            <div><img src="${pageContext.request.contextPath}/resources/images/childimg.jpeg"></div>
-
-                            <div class="vol_content_part">
-                                <div class="vol_content_per_container">
-                                    <span class="vol_con_bar">
-                                        <span class="vol_con_bar_per"></span>
-                                    </span>
-                                    <span class="tooltip"><span>14</span>/20</span>
-                                </div>
-
-                                <div class="vol_content">
-                                    <h3>아동 놀이 치료 봉사자 및 보조 봉사자를 모집합니다.</h3>
-                                    <div><span>모집</span><span>2023. 06. 12 ~ 2023. 06. 17</span></div>
-                                </div>
-                                <div class="vol_tag">
-                                    <div>
-                                        <span class="vol_tag_child">어린이</span>
-                                        <span class="vol_tag_applyPlay">놀이지원</span>
-                                    </div>
-                                    <div class="vol_like">
-                                        <i class="xi-heart-o"></i>
-                                        <p>102</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                    </c:forEach>
+                       
 
 
 
