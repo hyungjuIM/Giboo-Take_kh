@@ -23,7 +23,7 @@ const alarmList = $("#alarmList");
 alarmList.empty();
 for (let item of list) {
 const alertContainer = $("<div>").addClass("alert_card_container");
-const alertTitleContainerA = $("<div>").addClass("alert_titleContainerA");
+const alertTitleContainerA = $("<div>").addClass("alert_titleContainer");
 const smallCContainer = $("<div>").addClass("smallC_Container");
 const smallC = $("<div>").addClass("smallC").attr("id", "readStatus");
 smallCContainer.append(smallC);

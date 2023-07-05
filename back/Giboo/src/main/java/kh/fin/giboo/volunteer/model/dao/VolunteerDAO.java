@@ -147,8 +147,12 @@ public class VolunteerDAO {
 		return sqlSession.selectList("volunteerMapper.selectReplyList", volunteerNo);
 	}
 
-//	public Map<String, Object> selectVolunteerList() {
-//		// TODO Auto-generated method stub
-//		return sqlSession.selectList("volunteerMapper.mainVol");
-//	}
+	public List<Volunteer> selectVolunteer() {
+		return sqlSession.selectList("volunteerMapper.selectmVolunteerList");
+	}
+
+	public VolunteerDetail getVolunteerDetail2(int volunteerNo2) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("volunteerMapper.getVolunteerDetail2", volunteerNo2);
+	}
 }

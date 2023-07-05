@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 @Service
 public class VolunteerServiceImpl implements VolunteerService {
 
@@ -28,6 +29,8 @@ public class VolunteerServiceImpl implements VolunteerService {
 
     @Autowired
     private VolunteerDAO dao;
+    
+
 
     @Override
     public Map<String, Object> selectVolunteerList(int category, int cp, Model model) {
@@ -170,6 +173,7 @@ public class VolunteerServiceImpl implements VolunteerService {
 	}
 
 	@Override
+
 	public int insertReply(Reply reply) {
 		// XSS, 개행문자 처리
 		reply.setReplyContent(  Util.XSSHandling( reply.getReplyContent() )  );
@@ -197,5 +201,16 @@ public class VolunteerServiceImpl implements VolunteerService {
 //	public Map<String, Object> selectVolunteerList() {
 //		return dao.selectVolunteerList();
 //	}
+
+	public List<Volunteer> selectVolunteer() {
+		return dao.selectVolunteer();
+	}
+
+	@Override
+	public VolunteerDetail getVolunteerDetail2(int volunteerNo2) {
+		// TODO Auto-generated method stub
+		return dao.getVolunteerDetail2(volunteerNo2);
+	}
+
     
 }
