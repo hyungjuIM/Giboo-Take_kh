@@ -124,7 +124,7 @@ main{
 .edWrapPeriodSpan{
     border: 1px solid #00CA61;
     border-radius: 5px;
-    height: 27px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
