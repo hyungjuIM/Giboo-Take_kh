@@ -32,17 +32,17 @@
                         <div class="ewrap_tab">
                             <ul class="elist_tab">
                                 <li class="eon">
-                                    <a href="" class="elink_tab">
-                                        <span class="etxt_tab">전체</span>
-                                    </a>
-                                </li>
-                                <li class="eon">
-                                    <a href="" class="elink_tab">
+                                    <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab">
                                         <span class="etxt_tab">진행중</span>
                                     </a>
                                 </li>
                                 <li class="eon">
-                                    <a href="" class="elink_tab">
+                                    <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab">
+                                        <span class="etxt_tab">전체</span>
+                                    </a>
+                                </li>
+                                <li class="eon">
+                                    <a href="${pageContext.request.contextPath}/event/eventListDone" class="elink_tab">
                                         <span class="etxt_tab">종료</span>
                                     </a>
                                 </li>
@@ -59,33 +59,62 @@
                                 </c:when>
                                 <c:otherwise>
                                     <ul class="elist_official">
-                                        <c:forEach var="eventList" items="${eventList}">
-                                            <li class="elist_officialLi">  
-                                                <a href="../event/eventDetailMain/${eventList.eventNo}?cp=${pagination.currentPage}${sURL}" class="elink_official">
-                                                    <span class="earea_thumb">
-                                                        <img src="${pageContext.request.contextPath}${eventList.attachment}" alt="썸네일이미지">
+                                        <c:forEach var="event" items="${eventList}">
+                                            <c:choose>
+                                                <c:when test="${event.eventPersonCount >= event.targetPeople}">
+                                                    <li class="eother">
+                                                        <a href="../event/eventDetailMain/${Integer.parseInt(event.eventNo)}?cp=${pagination.currentPage}${sURL}" class="elink_official_2">
+                                                            <span class="earea_thumb_2">
+                                                                <img src="${pageContext.request.contextPath}${event.attachment}" alt="썸네일이미지">
+                                                            </span>
+                                                            <span class="etxt_official_2">
+                                                                <span>${event.eventTitle}</span>
+                                                            </span>
+                                                            <span class="ereg_2">
+                                                                <span>🎉</span>
+                                                                <span>${event.targetPeople}</span>
+                                                                <span>명 달성!</span>
+                                                                <span>🎊</span>
+                                                            </span>
+                                                        </a>
+                                                        <div class="edetail">
+                                                            <a href="../event/eventDetailMain/${Integer.parseInt(event.eventNo)}?cp=${pagination.currentPage}${sURL}">
+                                                                <span>자세히보기</span>
+                                                            </a>
+                                                        </div>
+                                                    </li>    
+                                                </c:when>
 
-                                                        <div class="earea_thumb_period ${eventList.result}">
-                                                            <span>${eventList.result}</span>
-                                                        </div>
-                                                    </span>
-                                                    <span class="etxt_official">
-                                                        <div class="etxt_officialTi">
-                                                            <span>${eventList.eventTitle}</span>
-                                                        </div>
-                                                        <span class="edate_official">
-                                                            <span class="escrean_out">${eventList.enrollDate}</span>
-                                                            <span class="escrean_out">~</span>
-                                                            <span class="escrean_out">${eventList.endRecruitDate}</span>
-                                                        </span>
-                                                    </span>
-                                                    <span class="ereg">
-                                                        <span>✔️</span>
-                                                        <span>${eventList.eventPersonCount}</span>
-                                                        <span>명 참여중</span>
-                                                    </span>
-                                                </a>
-                                            </li>
+                                                     
+                                                <c:otherwise>                          
+                                                    <li class="elist_officialLi">  
+                                                        <a href="../event/eventDetailMain/${Integer.parseInt(event.eventNo)}?cp=${pagination.currentPage}${sURL}" class="elink_official">
+                                                            <span class="earea_thumb">
+                                                                <img src="${pageContext.request.contextPath}${event.attachment}" alt="썸네일이미지">
+
+                                                                <div class="earea_thumb_period ${event.result}">
+                                                                    <span>${event.result}</span>
+                                                                </div>
+                                                            </span>
+                                                            <span class="etxt_official">
+                                                                <div class="etxt_officialTi">
+                                                                    <span>${event.eventTitle}</span>
+                                                                </div>
+                                                                <span class="edate_official">
+                                                                    <span class="escrean_out">${event.enrollDate}</span>
+                                                                    <span class="escrean_out">~</span>
+                                                                    <span class="escrean_out">${event.endRecruitDate}</span>
+                                                                </span>
+                                                            </span>
+                                                            <span class="ereg">
+                                                                <span>✔️</span>
+                                                                <span>${event.eventPersonCount}</span>
+                                                                <span>명 참여중</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </c:forEach>
                                     </ul>
                                 </c:otherwise>

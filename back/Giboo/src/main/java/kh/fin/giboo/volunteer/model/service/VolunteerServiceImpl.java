@@ -1,6 +1,7 @@
 package kh.fin.giboo.volunteer.model.service;
 
 import kh.fin.giboo.admin.model.vo.ParentCategory;
+import kh.fin.giboo.common.Util;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.mypage.model.vo.Favorite;
 import kh.fin.giboo.volunteer.model.dao.VolunteerDAO;
@@ -83,6 +84,52 @@ public class VolunteerServiceImpl implements VolunteerService {
     }
 
     @Override
+    public int insertVolunteer(VolunteerDetail detail) {
+        detail.setVolunteerTitle(Util.XSSHandling(detail.getVolunteerTitle()));
+        detail.setVolunteerContent(Util.XSSHandling(detail.getVolunteerContent()));
+        detail.setVolunteerContent(Util.newLineHandling(detail.getVolunteerContent()));
+
+        return dao.insertVolunteer(detail);
+    }
+
+    @Override
+    public int updateVolunteer(VolunteerDetail detail) {
+        detail.setVolunteerTitle(Util.XSSHandling(detail.getVolunteerTitle()));
+        detail.setVolunteerContent(Util.XSSHandling(detail.getVolunteerContent()));
+        detail.setVolunteerContent(Util.newLineHandling(detail.getVolunteerContent()));
+
+        return dao.updateVolunteer(detail);
+    }
+
+    @Override
+    public int insertStory(VolunteerStory story) {
+        story.setVolunteerStoryTitle(Util.XSSHandling(story.getVolunteerStoryTitle()));
+        story.setVolunteerStoryContent(Util.XSSHandling(story.getVolunteerStoryContent()));
+        story.setVolunteerStoryContent(Util.newLineHandling(story.getVolunteerStoryContent()));
+
+        return dao.insertStory(story);
+    }
+
+    @Override
+    public int updateStory(VolunteerStory story) {
+        story.setVolunteerStoryTitle(Util.XSSHandling(story.getVolunteerStoryTitle()));
+        story.setVolunteerStoryContent(Util.XSSHandling(story.getVolunteerStoryContent()));
+        story.setVolunteerStoryContent(Util.newLineHandling(story.getVolunteerStoryContent()));
+
+        return dao.updateStory(story);
+    }
+
+    @Override
+    public void storyDelete(int storyNo) {
+        dao.storyDelete(storyNo);
+    }
+
+    @Override
+    public List<ParentCategory> getParentCategoryList() {
+        return dao.getParentCategoryList();
+    }
+
+    @Override
     public VolunteerDetail getVolunteerDetail(int volunteerNo) {
         return dao.getVolunteerDetail(volunteerNo);
     }
@@ -110,4 +157,20 @@ public class VolunteerServiceImpl implements VolunteerService {
     public int updateViewCount(int volunteerStoryNo) {
         return dao.updateViewCount(volunteerStoryNo);
     }
+
+	@Override
+	public int insertVolunteer(int volunteerNo, int memberNo) {
+		return dao.insertVolunteer(volunteerNo,memberNo);
+	}
+
+	@Override
+	public int selectVolunteer(int volunteerNo, int memberNo) {
+		return dao.selectVolunteer(volunteerNo,memberNo);
+	}
+
+//	@Override
+//	public Map<String, Object> selectVolunteerList() {
+//		return dao.selectVolunteerList();
+//	}
+    
 }
