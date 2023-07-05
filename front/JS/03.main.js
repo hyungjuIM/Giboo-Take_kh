@@ -373,7 +373,7 @@ new Swiper('.swiper-container', {
 
 
 
-let mainText = document.querySelector("h1")
+let mainVideo = document.querySelector("h1")
 
 window.addEventListener('scroll', function(){
 	let value = window.scrollY;
@@ -381,8 +381,8 @@ window.addEventListener('scroll', function(){
 
 	
 	if(value > 400){
-		mainText.style.animation='disappear 1s ease-out forwards';
+		mainVideo.style.animation='disappear 1s ease-out forwards';
 	}else{
-	mainText.style.animation='slide 1s ease-out';
+    mainVideo.style.animation='slide 1s ease-out';
 	}
 })

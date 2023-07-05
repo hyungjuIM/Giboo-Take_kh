@@ -151,6 +151,39 @@ new Swiper('.swiper-container', {
   });
 
 
+var allSlides = document.querySelector('.allSlides'),
+  slide = document.querySelectorAll('.allSlides li'),
+  currentIdx = 0, //현재 인덱스 
+  slideCount = slide.length,
+  slideWidth = 350,
+  slideMargin = 20,
+  volPrevBtn = document.querySelector('.vol_prev'),
+  volNextBtn = document.querySelector('.vol_next');
+
+allSlides.style.width = (slideWidth + slideMargin) * slideCount - slideMargin + 'px'; // set the width of the ul
+
+function moveSlide(num) {
+  allSlides.style.left = -num * (slideWidth + slideMargin) + 'px';
+  currentIdx = num;
+}
+
+volNextBtn.addEventListener('click', function () {
+  if (currentIdx < slideCount - 3) {
+    moveSlide(currentIdx + 1);
+  } else {
+    moveSlide(0);
+  }
+});
+
+volPrevBtn.addEventListener('click', function () {
+  if (currentIdx > 0) {
+    moveSlide(currentIdx - 1);
+  } else {
+    // moveSlide(0);
+  }
+
+});
+
 
 
 
