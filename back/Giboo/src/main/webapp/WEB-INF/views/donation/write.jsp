@@ -53,7 +53,7 @@
                 <li>
                     <div>
                         <div class="listTitle">목표 기부금</div>
-                        <input type="number" id="amount" name="targetAmount" placeholder="목표 기부금을 입력해 주세요." value="${detail.targetAmount}">
+                        <input type="number" id="amount" name="targetAmount" placeholder="목표 기부금을 입력해 주세요." min="100" value="${detail.targetAmount}">
                     </div>
                 </li>
 
@@ -62,6 +62,17 @@
                         <div class="listTitle">기부 지역</div>
                         <input type="text" id="address" name="donationAddr" placeholder="주소를 입력해 주세요." readonly value="${detail.donationAddr}">
                         <button type="button" id="searchAddress" onclick="sample5_execDaumPostcode()">주소검색</button>
+                    </div>
+                </li>
+
+                <li>
+                    <div>
+                        <div class="listTitle">카테고리 선택</div>
+                        <select name="parentCategoryNo">
+                            <c:forEach var="parentCategory" items="${parentCategoryList}">
+                                <option value="${parentCategory.parentCategoryNo}" class="selectCategory">${parentCategory.parentCategoryName}</option>
+                            </c:forEach>
+                        </select>
                     </div>
                 </li>
 
@@ -118,6 +129,14 @@
 
 <script>
     $(document).ready(function () {
+        const selectCategory = document.getElementsByClassName("selectCategory");
+
+        for (const i of selectCategory) {
+            if (i.value == ${detail.parentCategoryNo}) {
+                i.setAttribute("selected", "selected");
+            }
+        }
+
         const url = new URL(window.location.href);
         console.log("url" + url);
 

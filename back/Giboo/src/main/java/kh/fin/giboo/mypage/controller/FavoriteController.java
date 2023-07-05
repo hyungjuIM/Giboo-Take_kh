@@ -1,11 +1,7 @@
 
   package kh.fin.giboo.mypage.controller;
   
-  import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+  import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,17 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import kh.fin.giboo.donation.model.vo.Donation;
-import kh.fin.giboo.member.model.vo.Member;
-import kh.fin.giboo.mypage.model.service.FavoriteService;
-//import kh.fin.giboo.mypage.model.service.FavoriteService;
-import kh.fin.giboo.volunteer.model.vo.Volunteer; 
+import kh.fin.giboo.mypage.model.service.FavoriteService; 
   
   //즐겨찾기 컨트롤러
   
@@ -41,13 +31,16 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   @GetMapping("/volunteer/addFavorite") 
   public String addFavoriteVolunteer(
 		  	 int memberNo,
-	         int volunteerNo
+	         int volunteerNo,
+	         String volunteerTitle
 	         )
    { 
 	    
 
 	  logger.info("memberNo" , memberNo);
 	  logger.info("volunteerNo" , volunteerNo);
+	  logger.info("volunteerTitle" , volunteerTitle);
+	 
 
 	  // 봉사 즐겨찾기 중복 제거 
 	  boolean isFavorite = service.checkFavoriteVolunteer(memberNo, volunteerNo);
@@ -56,31 +49,50 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
 		  return "duplicate";
 	  }
 	  
-	  int result = service.addFavoriteVolunteer(memberNo,volunteerNo);
+	  int result = service.addFavoriteVolunteer(memberNo,volunteerNo,volunteerTitle);
 	  if (result > 0 ) {
 	        return "success";
 	    } else {
 	        return "error";
 	    }
-  
+   }
+	  
+	// 봉사 즐겨찾기 삭제
+	  @ResponseBody
+	  @GetMapping("/volunteer/deleteFavorite")
+	  public String deleteFavoriteVolunteer(int memberNo, int volunteerNo) {
 
+	      logger.info("memberNo:::::::::: " + memberNo);
+	      logger.info("volunteerNo: " + volunteerNo);
+
+	      
+
+	      int result = service.deleteFavoriteVolunteer(memberNo, volunteerNo);
+	      if (result > 0) {
+	          return "success";
+	      } else {
+	          return "error";
+	      }
+	  }
   
   
 	  
-   }
+   
   
   // 기부 즐겨찾기 추가
   @ResponseBody
   @GetMapping("/donation/addFavorite") 
   public String addFavoriteDonation(
 		  @RequestParam int memberNo,
-		    @RequestParam int donationNo
+		    @RequestParam int donationNo,
+		    @RequestParam String donationTitle
 		    )
    { 
 	    
 
 	  logger.info("memberNo" , memberNo);
 	  logger.info("donationNo" , donationNo);
+	  logger.info("donationTitle" , donationTitle);
 	 
 
 	// 기부 즐겨찾기 중복 제거 
@@ -91,7 +103,7 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
 	  }
 	  
 	
-	  int result = service.addFavoriteDonation(memberNo, donationNo);
+	  int result = service.addFavoriteDonation(memberNo, donationNo,donationTitle);
 	    if (result > 0 ) {
 	        return "success";
 	    } else {
@@ -124,7 +136,7 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
   }
   
   // 기부, 봉사, 이벤트 조회
-  @GetMapping("/selectListFavorite")
+  @GetMapping("/mypage/favorites")
   public String selectListFavorite (@RequestParam(value= "cp",required = false, defaultValue ="1") int cp, 
 		  Model model ) {
 	  
@@ -138,7 +150,7 @@ import kh.fin.giboo.volunteer.model.vo.Volunteer;
 	  model.addAttribute("map", map); 
 	  
 	  
-	  return "myPage/favorite"; 
+	  return "mypage/favorites"; 
 	  
 	  
 	  

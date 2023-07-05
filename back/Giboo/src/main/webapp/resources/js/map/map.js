@@ -200,7 +200,7 @@ geocoder.coord2Address(lon, lat, function(result, status) {
     var clusterer = new kakao.maps.MarkerClusterer({
         map: map, // 클러스터러가 표시될 지도 객체
         averageCenter: true, // 클러스터의 중심 좌표를 평균값으로 설정
-        minLevel: 7 // 클러스터가 생성되는 최소 지도 레벨
+        minLevel: 5 // 클러스터가 생성되는 최소 지도 레벨
     });
 
     // 주소를 반복하며 마커를 생성합니다
