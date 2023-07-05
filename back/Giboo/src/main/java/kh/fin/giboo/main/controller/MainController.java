@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kh.fin.giboo.donation.model.service.DonationService;
+import kh.fin.giboo.donation.model.vo.Donation;
+import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.mypage.model.service.MyActiveService;
 import kh.fin.giboo.volunteer.model.service.VolunteerService;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
@@ -36,6 +39,8 @@ public class MainController {
 	
 	 @Autowired
 	private VolunteerService volService;
+	 @Autowired
+	 private DonationService doService;
 	 
 
 	 
@@ -61,8 +66,27 @@ public class MainController {
         System.out.println(untilDay);
         volunteerDetails.add(volunteerDetail);
 	}
+	List<Donation> mDonationList = doService.selectDonation();
+	List<Donation> subList2 = mDonationList.subList(0, 6); // 0부터 5번째 인덱스까지의 서브리스트
+	List<DonationDetail> donationDetails = new ArrayList<>();
+	for (Donation donation : subList2) {
+		int donationNo2 = donation.getDonationNo();
+		DonationDetail donationDetail = doService.getDonationDetail2(donationNo2);
+		LocalDate currentDate = LocalDate.now();
+		LocalDate dDay = LocalDate.of(donationDetail.getEndRecruitDate().getYear() + 1900, donationDetail.getEndRecruitDate().getMonth() + 1, donationDetail.getEndRecruitDate().getDate());
+        long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
+        donationDetail.setDDay(untilDay);
+        int percent = (Integer.parseInt(donationDetail.getDonationAmount()) * 100) / Integer.parseInt(donationDetail.getTargetAmount());
+        donationDetail.setPercent(percent);
+        System.out.println(percent);
+       System.out.println("count"+donationDetail.getFavCount());
+        System.out.println(untilDay);
+        donationDetails.add(donationDetail);
+	}
 	model.addAttribute("volunteerDetails", volunteerDetails);
 		model.addAttribute("mVolunteerList",subList);
+		model.addAttribute("donationDetails",donationDetails);
+		model.addAttribute("mDonationList",subList2);
 		System.out.println(mVolunteerList);
 		
 		return "main/main";
@@ -80,13 +104,14 @@ public class MainController {
 	@GetMapping("/volMoney")
 	public String getVolMoney() {
 		DecimalFormat df = new DecimalFormat("###,###");
-		int result = countService.getVolMoney();
+    
+	      int result = countService.getVolMoney();
 
-		String res = df.format(result);
+	      String res = df.format(result);
 
-		System.out.println(res);
+	      System.out.println(res);
 
-		return res;
+	      return res;
 	}
 
 }

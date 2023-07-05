@@ -432,6 +432,7 @@ section:nth-child(odd) {
 	font-weight: 800;
 	color: var(--mainColor);
 	margin-bottom: 16px;
+    white-space: nowrap;
 }
 
 .count_box2 div p {
@@ -439,6 +440,7 @@ section:nth-child(odd) {
 	font-size: 18px;
 	color: var(--contentColor);
 	line-height: 1.5;
+    white-space: nowrap;
 }
 
 /* ***************** 3번째 section ***************** */
@@ -845,7 +847,7 @@ li .vol_day span {
 	border-radius: 20px;
 	padding: 20px;
 	position: absolute;
-	top: 290px;
+	top: 240px;
 	left: 0;
 	z-index: 20;
 	background: rgba(255, 255, 255, 0.164);
@@ -859,7 +861,7 @@ li .vol_day span {
 	border-radius: 20px;
 	padding: 20px;
 	position: absolute;
-	top: 290px;
+	top: 240px;
 	left: 1140px;
 	z-index: 20;
 	background: rgba(255, 255, 255, 0.164);
@@ -950,14 +952,14 @@ li .vol_day span {
 	margin-left: 2px;
 }
 
-.do_tag_container .do_like span:after {
+/* .do_tag_container .do_like span:after {
 	content: '|';
 	padding: 0px 4px;
 	margin: 2px 0px;
 	font-weight: 500;
 	color: #767676;
 	font-size: 14px;
-}
+} */
 
 .do_right .doTitle {
 	width: 100%;
@@ -1260,3 +1262,6 @@ li .vol_day span {
 	font-weight: 500;
 }
 
+#volMoney{
+    white-space: nowrap;
+}
