@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
 import kh.fin.giboo.alarm.model.vo.Alarm;
+import kh.fin.giboo.event.model.vo.EventCertification;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
 import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
@@ -40,6 +41,32 @@ public class EventDAO {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		return sqlSession.selectList("event-mapper.selectEventList", model, rowBounds);
 	}
+	
+	// 종료 이벤트 조회 페이지네이션
+	public int getListCountDone(Model model) {
+		return sqlSession.selectOne("event-mapper.getListCountDone", model);
+	}
+
+	// 종료 이벤트 조회
+	public List<EventList> selectEventListDone(Pagination pagination, Model model) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		return sqlSession.selectList("event-mapper.selectEventListDone", model, rowBounds);
+	}
+
+	// 진행중 이벤트 조회 페이지네이션
+	public int getListCountGoing(Model model) {
+		return sqlSession.selectOne("event-mapper.getListCountGoing", model);
+	}
+	
+	// 진행중 이벤트 조회
+	public List<EventList> selectEventListGoing(Pagination pagination, Model model) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		return sqlSession.selectList("event-mapper.selectEventListGoing", model, rowBounds);
+	}
+
+
 
 	public EventDetailTop selectEventDetailTop(int eventNo) {
 		return sqlSession.selectOne("event-mapper.selectEventDetailTop", eventNo);
@@ -128,6 +155,13 @@ public class EventDAO {
 	public List<EventMore> selectEventMore(int eventNo) {
 		return sqlSession.selectList("event-mapper.selectEventMore", eventNo);
 	}
+
+	public EventCertification selectEventCertification(int eventNo) {
+		return sqlSession.selectOne("event-mapper.selectEventCertification", eventNo);
+	}
+
+	
+
 
 
 	

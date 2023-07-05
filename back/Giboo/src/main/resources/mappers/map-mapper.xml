@@ -261,4 +261,19 @@
 		WHERE f.FAV_VOLUNTEER_NO = #{volunteerNo} AND f.FAV_MEMBER_NO =  #{memberNo}
 	</select>
 
+
+	<select id="selectMapDetailTop2" resultMap="mapDetailTop_rm">
+		   SELECT 
+		   		V.VOLUNTEER_NO ,
+	    A.AGENCY_NAME
+		FROM VOLUNTEER V
+		JOIN AGENCY A ON A.AGENCY_NO = V.AGENCY_NO
+		WHERE V.AGENCY_NO &gt; 0
+	</select>
+	
+	
+	
+	
+	
+	
 </mapper>

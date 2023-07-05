@@ -138,6 +138,18 @@ public class MyActiveServiceImpl implements MyActiveService {
 
 
 	}
+
+	@Override
+	public int getCount() {
+		 return dao.getCount();
+	}
+
+	@Override
+	public int getVolMoney() {
+		// TODO Auto-generated method stub
+		return dao.getVolMoney();
+	}
+	
 	
 	
 

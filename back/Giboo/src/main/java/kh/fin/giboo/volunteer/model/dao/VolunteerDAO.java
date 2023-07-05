@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class VolunteerDAO {
@@ -80,4 +82,61 @@ public class VolunteerDAO {
     public List<Favorite> getFavoriteList(int memberNo) {
         return sqlSession.selectList("volunteerMapper.getFavoriteList", memberNo);
     }
+
+    public int insertVolunteer(VolunteerDetail detail) {
+        int result = sqlSession.insert("volunteerMapper.insertVolunteer", detail);
+
+        if(result > 0) {
+            result = detail.getVolunteerNo();
+        }
+
+        return result;
+    }
+
+    public int updateVolunteer(VolunteerDetail detail) {
+        return sqlSession.update("volunteerMapper.updateVolunteer", detail);
+    }
+
+    public int insertStory(VolunteerStory story) {
+        int result = sqlSession.insert("volunteerMapper.insertStory", story);
+
+        if (result > 0) {
+            result = story.getVolunteerStoryNo();
+        }
+
+        return result;
+    }
+
+    public int updateStory(VolunteerStory story) {
+        return sqlSession.update("volunteerMapper.updateStory", story);
+    }
+
+    public void storyDelete(int storyNo) {
+        sqlSession.delete("volunteerMapper.storyDelete", storyNo);
+    }
+  
+	public int insertVolunteer(int volunteerNo, int memberNo) {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("volunteerNo", volunteerNo);
+		params.put("memberNo", memberNo);
+		return sqlSession.insert("volunteerMapper.insertvolunteer",params);
+	}
+
+	public int selectVolunteer(int volunteerNo, int memberNo) {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("volunteerNo", volunteerNo);
+		params.put("memberNo", memberNo);
+		return sqlSession.selectOne("volunteerMapper.selectvolunteer",params);
+	}
+
+	public List<Volunteer> selectVolunteer() {
+		return sqlSession.selectList("volunteerMapper.selectmVolunteerList");
+	}
+
+	public VolunteerDetail getVolunteerDetail2(int volunteerNo2) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("volunteerMapper.getVolunteerDetail2", volunteerNo2);
+	}
+
+
 }

@@ -19,11 +19,12 @@ function animateNumber(element, targetNumber) {
 }
 
 var isAnimating = false;
-
+var volCount = document.getElementById("volCount").value;
+var volMoney =document.getElementById("volMoney").value
 $(window).scroll(function () {
   if (!isAnimating && window.scrollY >= 621) {
-    animateNumber(".vol_count_person h3 span", 425);
-    animateNumber(".vol_count_money h3 span", 5248002);
+    animateNumber(".vol_count_person h3 span", volCount);
+    animateNumber(".vol_count_money h3 span", volMoney);
     isAnimating = true;
   }
 });

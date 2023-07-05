@@ -576,12 +576,7 @@ opacity
 }
 
 /* d-day 박스 */
-.vol_box_style div img {
-	width: 348px;
-	border-radius: 20px 20px 0px 0px;
-	background-color: var(--etcColor);
-	object-fit: cover;
-}
+
 
 ul li div.vol_day {
 	position: absolute;
@@ -609,11 +604,15 @@ li .vol_day span {
 	color: var(- -redColor);
 }
 
-.vol_box_style div img {
-	width: 348px;
-	border-radius: 20px 20px 0px 0px;
-	background-color: var(--etcColor);
-	object-fit: cover;
+
+
+.vol_box_style div img{
+    width: 348px;
+ height: 250px;
+    border-radius: 20px 20px 0px 0px;
+    background-color: var(--etcColor);
+
+    object-fit: cover;
 }
 
 /* vol_box 내용 부분 */
@@ -662,12 +661,33 @@ opacity
 :
 1;
 }
+
+
+.progressBar {
+    width: 80%;
+    height: 10px;
+    border-radius: 30px;
+    background-color: #e5e5e5;
+
+    margin-bottom: 4px;
 }
-.vol_content_part div .tooltip {
-	font-family: 'NanumSquareNeo';
-	font-size: 14px;
-	font-weight: 400;
-	color: var(- -etcColor);
+
+.progressBarValue {
+
+    background: linear-gradient(to top, var(--mainColor) 50%, var(--mainColor));
+
+    border-radius: 30px;
+
+    width: 50%;
+    height: 100%;
+    
+}
+
+.vol_content_part div .tooltip{
+    font-family: 'NanumSquareNeo';
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--etcColor);
 }
 
 .vol_content_part div .tooltip span {

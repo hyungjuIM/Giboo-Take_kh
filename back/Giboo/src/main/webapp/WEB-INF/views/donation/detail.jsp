@@ -247,11 +247,11 @@
 
     <div class="grayBox" id="grayBox">
         <div class="donationContainer" id="donationContainer">
+            <span class="closeButtonArea"><i class="fa-solid fa-xmark closeButton" id="closeButton"></i></span>
             <div>기부자님의 소중한 마음이 세상을 아름답게 변화시킵니다.</div>
             <div>
                 <input type="number" id="donationValue">
                 <button id="donationConfirm" onclick="requestPay()">기부하기</button>
-                <div></div>
             </div>
         </div>
     </div>
@@ -261,7 +261,7 @@
     </footer>
 
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
-
+    <script src="https://kit.fontawesome.com/144bd71f16.js" crossorigin="anonymous"></script>
     <script src="${pageContext.request.contextPath}/resources/js/donation/donationDetail.js"></script>
 
     <script>

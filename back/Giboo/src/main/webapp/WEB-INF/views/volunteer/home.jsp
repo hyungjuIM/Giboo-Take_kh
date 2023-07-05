@@ -89,11 +89,11 @@
                                 <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"></a>
                             <c:choose>
                                 <c:when test="${fn:contains(favoriteList, volunteerList.volunteerNo)}">
-                                    <div class="favoriteButton" id="${volunteerList.volunteerNo}">❤️</div>
+                                    <div class="favoriteButton" id="${volunteerList.volunteerNo}" data-title="${volunteerList.volunteerTitle}">❤️</div>
                                 </c:when>
 
                                 <c:otherwise>
-                                    <div class="favoriteButton" id="${volunteerList.volunteerNo}">🤍</div>
+                                    <div class="favoriteButton" id="${volunteerList.volunteerNo}" data-title="${volunteerList.volunteerTitle}">🤍</div>
                                 </c:otherwise>
                             </c:choose>
                         </div>
@@ -170,21 +170,36 @@
              $.ajax ({
                  url: "addFavorite",
                  data: {"memberNo" : ${loginMember.memberNo}, 
-                        "volunteerNo" : i.id},
+                        "volunteerNo" : i.id ,
+                        "volunteerTitle" : i.dataset.title},
                  
                 success: function(result) {
                     if (result == "success") {
-                        if (i.innerHTML == "🤍") {
-                            i.innerHTML = '❤️';
-                           console.log("성공");
-                        } else {
-                            i.innerHTML = '🤍'; 
-                        }
+                        
+                        i.innerHTML = '❤️';
+                       
+                } else {
+                    i.innerHTML = '🤍'; 
+                }
+                }
+            })
+
+
+            $.ajax ({
+                url: "deleteFavorite",
+                data: {"memberNo" : ${loginMember.memberNo}, 
+                       "volunteerNo" : i.id , 
+                       "volunteerTitle" : i.dataset.title},
+
+                success: function(result) {
+                    if (result == "success") {
+                        i.innerHTML = '🤍'; 
                     } else {
-                        alert("이미 추가햇음");
+                        i.innerHTML = "❤️";
                     }
                 }
             })
+
         })
     }
 </script>

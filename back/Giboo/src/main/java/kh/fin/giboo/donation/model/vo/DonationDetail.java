@@ -29,6 +29,7 @@ public class DonationDetail {
     private String donationAttachment;
     private int memberNo;
     private String memberId;
+    private int parentCategoryNo;
     private String parentCategoryName;
     private String agencyName;
     private long dDay;

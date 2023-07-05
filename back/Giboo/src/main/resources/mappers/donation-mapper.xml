@@ -45,6 +45,7 @@
         <result property="donationAttachment" column="DONATION_ATTACHMENT" />
         <result property="memberNo" column="MEMBER_NO" />
         <result property="memberId" column="MEMBER_ID" />
+        <result property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
     </resultMap>
@@ -110,7 +111,7 @@
     </select>
 
     <select id="getDonationDetail" resultMap="donationDetail_rm">
-        SELECT DONATION_NO, DONATION_TITLE, DONATION_CONTENT, START_RECRUIT_DATE, END_RECRUIT_DATE, START_PROGRESS_DATE, END_PROGRESS_DATE, TARGET_AMOUNT, DONATION_AMOUNT, DONATION_ADDR, A.AGENCY_NAME
+        SELECT DONATION_NO, DONATION_TITLE, DONATION_CONTENT, START_RECRUIT_DATE, END_RECRUIT_DATE, START_PROGRESS_DATE, END_PROGRESS_DATE, TARGET_AMOUNT, DONATION_AMOUNT, DONATION_ADDR, A.AGENCY_NAME, PARENT_CATEGORY_NO
         FROM DONATION D, AGENCY A
         WHERE DONATION_NO = ${donationNo}
         AND D.AGENCY_NO = A.AGENCY_NO
@@ -146,7 +147,7 @@
 
     <insert id="insertDonation" parameterType="donationDetail" useGeneratedKeys="true">
         <selectKey keyProperty="donationNo"  resultType="_int"  order="BEFORE">
-            SELECT SEQ_NOTICE_NO.NEXTVAL FROM DUAL
+            SELECT SEQ_DONATION_NO.NEXTVAL FROM DUAL
         </selectKey>
         INSERT INTO DONATION
         VALUES (
@@ -168,7 +169,7 @@
                 #{donationContent},
                 NULL,
                 ${memberNo},
-                11,
+                ${parentCategoryNo},
                 1
                )
     </insert>
@@ -183,6 +184,7 @@
             TARGET_AMOUNT = ${targetAmount},
             DONATION_ADDR = #{donationAddr},
             DONATION_CONTENT = #{donationContent},
+            PARENT_CATEGORY_NO = ${parentCategoryNo},
             ENROLL_DATE = CURRENT_DATE
         WHERE DONATION_NO = ${donationNo}
     </update>
