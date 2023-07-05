@@ -108,9 +108,7 @@
 							<div class="content_container">
 								<a
 									href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
-									<img
-									src="${pageContext.request.contextPath}/resources/images/logo.jpg"
-									class="thumbnail">
+									<img src="${pageContext.request.contextPath}${donationList.donationAttachment}" class="thumbnail">
 									<div class="text_container">
 										<div class="mainTitle">${donationList.donationTitle}</div>
 										<span class="subTitle"><span>모집</span>2023. 01. 01 ~

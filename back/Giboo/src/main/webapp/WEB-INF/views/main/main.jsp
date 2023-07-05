@@ -494,5 +494,4 @@
             <script src="${pageContext.request.contextPath}/resources/js/main/main.js"></script>
 
         </body>
-
         </html>

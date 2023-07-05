@@ -104,6 +104,7 @@ public class MainController {
 	@GetMapping("/volMoney")
 	public String getVolMoney() {
 		DecimalFormat df = new DecimalFormat("###,###");
+    
 	      int result = countService.getVolMoney();
 
 	      String res = df.format(result);
