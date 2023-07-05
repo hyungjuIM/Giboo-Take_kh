@@ -171,4 +171,20 @@ public class DonationServiceImpl implements DonationService {
     public void storyDelete(int storyNo) {
         dao.storyDelete(storyNo);
     }
+
+    @Override
+    public List<ParentCategory> getParentCategoryList() {
+        return dao.getParentCategoryList();
+    }
+
+	@Override
+	public List<Donation> selectDonation() {
+		return dao.selectDonation();
+	}
+
+	@Override
+	public DonationDetail getDonationDetail2(int donationNo2) {
+		return dao.getDonationDetail2(donationNo2);
+	}
+    
 }

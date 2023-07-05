@@ -20,7 +20,7 @@
                 <div class="elist_official">
                     <c:forEach var="eventMore" items="${eventMore}">
                         <div class="elist_official_li">  
-                            <a href="../event/eventDetailMain/${eventList.eventNo}?cp=${pagination.currentPage}${sURL}" class="elink_official">
+                            <a href="../eventDetailMain/${eventMore.eventNo}?cp=${pagination.currentPage}${sURL}" class="elink_official">
                                 <span class="earea_thumb">
                                     <img src="${pageContext.request.contextPath}${eventMore.attachment}" alt="썸네일이미지">
                                     <div class="earea_thumb_period_go">

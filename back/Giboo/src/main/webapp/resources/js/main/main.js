@@ -19,11 +19,12 @@ function animateNumber(element, targetNumber) {
 }
 
 var isAnimating = false;
-
+var volCount = document.getElementById("volCount").value;
+var volMoney =document.getElementById("volMoney").value
 $(window).scroll(function () {
   if (!isAnimating && window.scrollY >= 621) {
-    animateNumber(".vol_count_person h3 span", 425);
-    animateNumber(".vol_count_money h3 span", 5248002);
+    animateNumber(".vol_count_person h3 span", volCount);
+    animateNumber(".vol_count_money h3 span", volMoney);
     isAnimating = true;
   }
 });
@@ -68,69 +69,27 @@ $(window).scroll(function () {
 
 let curPos = 0; // 현재 보이는 이미지 인덱스 번호
 let intervalId; // setInterval 함수의 반환값을 저장하기 위한 변수
-const INTERVAL_DURATION = 3000; // 이미지가 자동으로 넘어가는 간격 (ms)
+const INTERVAL_DURATION = 5000; // 이미지가 자동으로 넘어가는 간격 (ms)
 
 // 요소 선택
-const nextBtn = $(".swiper_button_next");
-const prevBtn = $(".swiper_button_prev");
 const slides = $(".mainImg_slide");
-
-function prev() {
-  if (curPos > 0) {
-    $("button").removeAttr("disabled");
-
-    $(slides[curPos]).toggleClass("active");
-    $(slides[curPos]).hide();
-    curPos -= 1;
-    $(slides[curPos]).toggleClass("active");
-    $(slides[curPos]).fadeIn(800);
-  } else {
-    // 첫 번째 슬라이드일 경우 이전 버튼을 누르면 마지막 슬라이드로 이동
-    $(slides[curPos]).toggleClass("active");
-    $(slides[curPos]).hide();
-    curPos = slides.length - 1;
-    $(slides[curPos]).toggleClass("active");
-    $(slides[curPos]).fadeIn(800);
-  }
-
-  if (curPos === 0) {
-    $(".swiper_button_prev").attr("disabled", "true");
-  }
-}
-
-function next() {
-  if (curPos < slides.length - 1) {
-    $("button").removeAttr("disabled");
-    $(slides[curPos]).toggleClass("active");
-    $(slides[curPos]).hide();
-    curPos += 1;
-    $(slides[curPos]).toggleClass("active");
-    $(slides[curPos]).fadeIn(800);
-  } else if (curPos === slides.length - 1) {
-    // 마지막 슬라이드일 경우 다음 버튼을 누르면 두 번째 슬라이드로 이동
-    $(slides[curPos]).toggleClass("active");
-    $(slides[curPos]).hide();
-    curPos = 1;
-    $(slides[curPos]).toggleClass("active");
-    $(slides[curPos]).fadeIn(800);
-  }
-
-  if (curPos === slides.length - 1) {
-    $(".swiper_button_next").attr("disabled", "true");
-  }
-}
 
 function startAutoSlide() {
   intervalId = setInterval(function () {
     if (curPos === slides.length - 1) {
-      // 마지막 슬라이드일 경우 다음 버튼을 누르면 두 번째 슬라이드로 이동
+      // 마지막 슬라이드일 경우 첫 번째 슬라이드로 이동
       $(slides[curPos]).toggleClass("active");
       $(slides[curPos]).hide();
-      curPos = 1;
+      curPos = 0;
       $(slides[curPos]).toggleClass("active");
       $(slides[curPos]).fadeIn(800);
     } else {
-      next();
+      // 다음 슬라이드로 이동
+      $(slides[curPos]).toggleClass("active");
+      $(slides[curPos]).hide();
+      curPos += 1;
+      $(slides[curPos]).toggleClass("active");
+      $(slides[curPos]).fadeIn(800);
     }
   }, INTERVAL_DURATION);
 }
@@ -142,8 +101,6 @@ function stopAutoSlide() {
 function init() {
   slides.hide();
   $(slides[curPos]).show();
-  $(".swiper_button_prev").click(prev);
-  $(".swiper_button_next").click(next);
   startAutoSlide(); // 자동 슬라이드 시작
 }
 
@@ -157,6 +114,41 @@ $(".main_swiper").mouseover(stopAutoSlide);
 // 마우스가 이미지 밖으로 나갈 때 자동 슬라이드 다시 시작
 $(".main_swiper").mouseout(startAutoSlide);
 
+
+
+
+new Swiper('.swiper-container', {
+
+	slidesPerView : 3, // 동시에 보여줄 슬라이드 갯수
+	spaceBetween : 30, // 슬라이드간 간격
+	slidesPerGroup : 1, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
+
+	// 그룹수가 맞지 않을 경우 빈칸으로 메우기
+	// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
+	loopFillGroupWithBlank : false,
+  // loopAdditionalSlides : 1,
+	loop : true, // 무한 반복
+
+	pagination : { // 페이징
+		el : '.swiper-pagination',
+		clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
+	},
+	navigation : { // 네비게이션
+		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
+		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
+	},
+});
+
+
+
+//3번째 비디오 3초부터 5초까지만 
+ const videoElement = document.querySelector('.main_video');
+  
+  videoElement.addEventListener('timeupdate', function() {
+    if (this.currentTime < 3 || this.currentTime > 8) {
+      this.currentTime = 3;
+    }
+  });
 
 
 var allSlides = document.querySelector('.allSlides'),
@@ -193,58 +185,6 @@ volPrevBtn.addEventListener('click', function () {
 });
 
 
-// var doAllSlides = document.querySelector('.doAllSlides'),
-//   doSlide = document.querySelectorAll('.doAllSlides li'),
-//   doCurrentIdx = 0, //현재 인덱스 
-//   doSlideCount = doSlide.length,
-//   doSlideWidth = 750,
-//   doSlideMargin = 20,
-//   doVolPrevBtn = document.querySelector('.do_prev'),
-//   doVolNextBtn = document.querySelector('.do_next');
-
-// doAllSlides.style.width = (doSlideWidth + doSlideMargin) * doSlideCount - doSlideMargin + 'px'; // set the width of the ul
-
-// function doMoveSlide(num) {
-//   doAllSlides.style.left = -num * (doSlideWidth + doSlideMargin) + 'px';
-//   doCurrentIdx = num;
-// }
-
-// doVolNextBtn.addEventListener('click', function () {
-//   if (doCurrentIdx < doSlideCount -2) {
-//     doMoveSlide(doCurrentIdx + 1);
-//   } else {
-//     doMoveSlide(0);
-//   }
-// });
-
-// doVolPrevBtn.addEventListener('click', function () {
-//   if (doCurrentIdx > 0) {
-//     doMoveSlide(doCurrentIdx - 1);
-//   } else {
-//     // moveSlide(0);
-//   }
-
-// });
 
 
-new Swiper('.swiper-container', {
 
-	slidesPerView : 3, // 동시에 보여줄 슬라이드 갯수
-	spaceBetween : 30, // 슬라이드간 간격
-	slidesPerGroup : 1, // 그룹으로 묶을 수, slidesPerView 와 같은 값을 지정하는게 좋음
-
-	// 그룹수가 맞지 않을 경우 빈칸으로 메우기
-	// 3개가 나와야 되는데 1개만 있다면 2개는 빈칸으로 채워서 3개를 만듬
-	loopFillGroupWithBlank : false,
-  // loopAdditionalSlides : 1,
-	loop : true, // 무한 반복
-
-	pagination : { // 페이징
-		el : '.swiper-pagination',
-		clickable : true, // 페이징을 클릭하면 해당 영역으로 이동, 필요시 지정해 줘야 기능 작동
-	},
-	navigation : { // 네비게이션
-		nextEl : '.swiper-button-next', // 다음 버튼 클래스명
-		prevEl : '.swiper-button-prev', // 이번 버튼 클래스명
-	},
-});

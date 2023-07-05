@@ -69,6 +69,7 @@
 							<c:otherwise>
                         ${volunteerList[0].parentCategoryName}
                     </c:otherwise>
+
 						</c:choose>
 						봉사 <span class="contentCount" id="contentCount">${volunteerListCount}</span>개
 					</h4>
@@ -177,32 +178,48 @@
 	</footer>
 
 	<script>
+
     const favoriteButton = document.getElementsByClassName("favoriteButton");
     for (let i of favoriteButton) {
         i.addEventListener("click", function() {
-            console.log(${loginMember.memberNo});
+            console.log("${loginMember.memberNo}");
             console.log(i.id);
 
             
 
              $.ajax ({
                  url: "addFavorite",
-                 data: {"memberNo" : ${loginMember.memberNo}, 
-                        "volunteerNo" : i.id},
+                 data: {"memberNo" : "${loginMember.memberNo}", 
+                        "volunteerNo" : i.id ,
+                        "volunteerTitle" : i.dataset.title},
                  
                 success: function(result) {
                     if (result == "success") {
-                        if (i.innerHTML == "🤍") {
-                            i.innerHTML = '❤️';
-                           console.log("성공");
-                        } else {
-                            i.innerHTML = '🤍'; 
-                        }
+                        
+                        i.innerHTML = '❤️';
+                       
+                } else {
+                    i.innerHTML = '🤍'; 
+                }
+                }
+            })
+
+
+            $.ajax ({
+                url: "deleteFavorite",
+                data: {"memberNo" : "${loginMember.memberNo}", 
+                       "volunteerNo" : i.id , 
+                       "volunteerTitle" : i.dataset.title},
+
+                success: function(result) {
+                    if (result == "success") {
+                        i.innerHTML = '🤍'; 
                     } else {
-                        alert("이미 추가햇음");
+                        i.innerHTML = "❤️";
                     }
                 }
             })
+
         })
     }
 </script>

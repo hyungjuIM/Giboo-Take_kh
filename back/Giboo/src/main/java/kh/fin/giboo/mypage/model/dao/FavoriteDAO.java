@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
-import kh.fin.giboo.cs.model.vo.Faq;
 import kh.fin.giboo.cs.model.vo.Pagination;
+import kh.fin.giboo.mypage.model.vo.Favorite;
 
 @Repository
 public class FavoriteDAO {
@@ -20,17 +20,18 @@ public class FavoriteDAO {
 	private SqlSessionTemplate sqlSession;
 	
 
-	
-		public int insertFavoriteVolunteer(int memberNo, int volunteerNo) {
+	// 봉사 즐겨찾기 추가
+	public int insertFavoriteVolunteer(int memberNo, int volunteerNo, String volunteerTitle) {
 		
 		  Map<String, Object> map = new HashMap<>();
 	        map.put("memberNo", memberNo);
 	        map.put("volunteerNo", volunteerNo);
+	        map.put("volunteerTitle", volunteerTitle);
 		
 		return sqlSession.insert("myPage-mapper.insertFavoriteVolunteer", map);
 	}
 
-
+	// 봉사 즐겨찾기 중복 체크
 	public boolean checkFavoriteVolunteer(int memberNo, int volunteerNo) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("memberNo", memberNo);
@@ -43,19 +44,29 @@ public class FavoriteDAO {
 		
 		return result;
 	}
-
-
-	public int insertFavoriteDonation(int memberNo, int donationNo ) {
-		 
+	
+	// 봉사 즐겨찾기 삭제
+	public int deleteFavoriteVolunteer(int memberNo, int volunteerNo) {
+		Map<String, Object> map = new HashMap<>();
+        map.put("memberNo", memberNo);
+        map.put("volunteerNo", volunteerNo);
+	
+        return sqlSession.delete("myPage-mapper.deleteFavoriteVolunteer", map);
+	}
+	
+	
+	// 기부 즐겨찾기 추가
+	public int insertFavoriteDonation(int memberNo, int donationNo, String donationTitle ) {	 
 		Map<String, Object> map = new HashMap<>();
 	        map.put("memberNo", memberNo);
 	        map.put("donationNo", donationNo);
+	        map.put("donationTitle", donationTitle);
 	        
 		
 		return sqlSession.insert("myPage-mapper.insertFavoriteDonation", map);
 	}
 
-
+	// 기부 즐겨찾기 중복 체크
 	public boolean checkFavoriteDonation(int memberNo, int donationNo) {
 		Map<String, Object> map = new HashMap<>();
 		map.put("memberNo", memberNo);
@@ -69,7 +80,8 @@ public class FavoriteDAO {
 		return result;
 	}
 
-
+	
+	// 기부 즐겨찾기 삭제
 	public int deleteFavoriteDonation(int memberNo, int donationNo) {
 		Map<String, Object> map = new HashMap<>();
         map.put("memberNo", memberNo);
@@ -90,11 +102,14 @@ public class FavoriteDAO {
 		return sqlSession.selectOne("myPage-mapper.getListCount", model);
 	}
 
-
-	public List<Faq> selectListFavorite(Pagination pagination, Model model) {
+	// 기부 봉사 이벤트 목록 조회
+	public List<Favorite> selectListFavorite(Pagination pagination, Model model) {
 		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		return sqlSession.selectList("myPage-mapper.selectListFavorite", model, rowBounds);
 	}
+
+
+	
 
 }

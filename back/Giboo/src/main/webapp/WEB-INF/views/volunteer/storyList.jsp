@@ -134,7 +134,7 @@
                   <div class="writeBtn-container">
                     <c:if test="${!empty loginMember}">
                     <button class="writeBtn"
-                      onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite?mode=insert&cp=${pagination.currentPage}'"><i
+                      onclick="location.href='${pageContext.request.contextPath}/volunteer/storyWrite?mode=insert&cp=${pagination.currentPage}'"><i
                         class="fa-solid fa-pen"></i>_글쓰기</button>
                       </c:if>
                   </div>

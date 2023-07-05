@@ -121,6 +121,15 @@ int offset = ( pagination.getCurrentPage() - 1 ) * pagination.getLimit();
 
 		return sqlSession.selectList("myPage-mapper.searchMyActiveEventList", paramMap, rowBounds);
 	}
+
+	public int getCount() {
+		return sqlSession.selectOne("myPage-mapper.getVolCount");
+	}
+
+	public int getVolMoney() {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne("myPage-mapper.getVolMoney");
+	}
 	
 	
 

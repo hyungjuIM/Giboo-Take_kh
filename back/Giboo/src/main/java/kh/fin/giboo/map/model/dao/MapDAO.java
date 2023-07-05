@@ -103,6 +103,11 @@ public class MapDAO {
 	}
 
 
+	public MapDetailTop selectMapDetailTop2(int volunteerNo) {
+		return sqlSession.selectOne("map-mapper.selectMapDetailTop2", volunteerNo);
+	}
+
+
 
 
 }

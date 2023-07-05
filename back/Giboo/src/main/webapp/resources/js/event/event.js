@@ -35,6 +35,148 @@ $(document).ready(function(){
   });
   
   
+  // 로그인 유무 
+  const edBtnDe = document.getElementById("edBtnDe");
+  
+  edBtnDe.addEventListener("click", function(){
+      if(loginMemberNo === ""){
+          alert("로그인 후 이용해주세요.");
+      } else {
+          // 서버로 이미 참여한지 확인하는 Ajax 요청을 보냅니다.
+          jQuery.ajax({
+            url: contextPath + "/event/checkAlreadyJoined",
+            type: "POST",
+            data: {
+              "memberNo": loginMemberNo,
+              "eventNo": eventNo
+            },
+            success: function(response) {
+              if (response.alreadyJoined) {
+                // 이미 참여한 경우 알림 메시지를 표시합니다.
+                alert(response.message);
+              } else {
+                // 참여 가능한 경우에만 E_popup_wrap02를 표시합니다.
+                jQuery(".E_popup_wrap02").css("display", "block");
+                jQuery(".E_pop_mask2").css("display", "block");
+              }
+            },
+            error: function(xhr, status, error) {
+              console.log("Error:", error);
+            }
+          });
+          
+      }
+  });
+  
+  
+  // jQuery(document).ready(function($) {
+    $(".edStampBtn").on("click", function() {
+      if (loginMemberNo === "") {
+        alert("로그인 후 이용해주세요.");
+      } else {
+        // 서버로 스템프 조회하는 Ajax 요청을 보냅니다.
+        jQuery.ajax({
+          url: contextPath + "/event/getStamps",
+          // type: "GET",
+          data: {
+              // "memberNo": loginMemberNo
+            },
+            dataType : "JSON", // JSON 형태의 문자열 응답 데이터를 JS 객체로 자동 변환
+          success: function(stamps) {
+            // 팝업을 표시합니다.
+            // 스템프 조회 성공 시 동작
+            // stamps 변수에 스템프 데이터가 포함됩니다.
+            // 원하는 동작을 수행하세요.
+            console.log(stamps);
+  
+            // 팝업 내에서 스템프를 표시하는 코드를 작성하세요.
+            // 예시: 스템프 목록을 동적으로 생성하여 팝업에 표시
+            var stampList = stamps;
+            var stampContainer = jQuery(".stampUl");
+  
+            // 이미지를 추가합니다.
+
+// stampList.forEach(function(stamp) {
+//   var stampItem = jQuery("<li>").addClass("stampLi"); // 새로운 li 요소 생성
+//   var stampDiv = jQuery("<div>").addClass("stampDiv"); // 새로운 div 요소 생성
+
+//   // 스템프 이미지를 표시하는 img 태그를 생성하여 추가합니다.
+//   var stampImg = jQuery("<img>").attr("src", contextPath + stamp.stampAttachment).addClass("stampImg");
+//   stampDiv.append(stampImg); // 스템프 이미지를 div 요소에 추가합니다.
+
+//   stampItem.append(stampDiv); // div 요소를 li 요소에 추가합니다.
+//   stampContainer.append(stampItem); // li 요소를 ul 요소에 추가합니다.
+// });
+// 스탬프 이미지를 동적으로 추가하는 코드
+stampContainer.empty();
+
+stampList.forEach(function(stamp) {
+  var stampItem = jQuery("<li>").addClass("stampLi"); // 새로운 li 요소 생성
+  var stampDiv = jQuery("<div>").addClass("stampDiv"); // 새로운 div 요소 생성
+
+  // 스템프 이미지를 표시하는 img 태그를 생성하여 추가합니다.
+  var stampImg = jQuery("<img>").attr("src", contextPath + stamp.stampAttachment).addClass("stampImg");
+  stampDiv.append(stampImg); // 스템프 이미지를 div 요소에 추가합니다.
+
+  stampItem.append(stampDiv); // div 요소를 li 요소에 추가합니다.
+  stampContainer.append(stampItem); // li 요소를 ul 요소에 추가합니다.
+});
+
+
+  
+            // 스템프 개수를 업데이트합니다.
+            var stampCountValue = jQuery(".stampCount span").eq(1);
+            stampCountValue.text(stampList.length);
+  
+            jQuery(".stampWrap").css("display", "block");
+            jQuery(".E_pop_mask1").css("display", "block");
+
+            jQuery(".E_pop_mask1").on("click", function() {
+              jQuery(".stampWrap").css("display", "none");
+              jQuery(".E_pop_mask1").css("display", "none");
+              });
+          },
+          error: function(xhr, status, error) {
+            // 스템프 조회 실패 시 동작
+            console.log("Error:", error);
+          }
+        });
+      }
+    });
+  // });
+      
+  
+
+
+    // // 종료된 이벤트는 참여 못하게
+    // $(document).ready(function() {
+    //   // 버튼 클릭 이벤트 처리
+    //   $('#popupButton').click(function() {
+    //     // 데이터 가져오기
+    //     $.ajax({
+    //       url: contextPath + '/event/getEventData', 
+    //       method: 'GET',
+    //       dataType: 'json',
+    //       data:{
+    //         "eventNo": eventNo
+    //       },
+    //       success: function(response) {
+  
+    //         if (response.getEventData) {
+    //           // 이미 참여한 경우 알림 메시지를 표시합니다.
+    //           alert(response.message);
+    //         } else {
+    //           // 참여 가능한 경우에만 E_popup_wrap02를 표시합니다.
+    //           jQuery(".E_popup_wrap02").css("display", "block");
+    //           jQuery(".E_pop_mask2").css("display", "block");
+    //         }
+    //       },
+    //       error: function(xhr, status, error) {
+    //         console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
+    //       }
+    //     });
+    //   });
+    // });
   
   
   
@@ -73,6 +215,8 @@ $(document).ready(function(){
   
   
   
+
+
   
   
   
@@ -231,7 +375,7 @@ new Swiper('.first', {
   })();
   
   
-  
+ 
   
   
   });

@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
 
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 *{
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
-    border: 0;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
+     box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
 }
 
 body{
@@ -21,42 +19,63 @@ body{
     flex-direction: column;
 }
 
+:root{
+  --mainColor: #00CA61;
+  --titleColor: #252525;
+  --redColor: #FF5D5E;
+  --contentColor: #767676;
+  --etcColor: #d9d9d9;
+  --mainSubColor:#cfebdc;
+}
+
 a{
     text-decoration: none;
     color: #000;
 }
 
 .mainCategoryArea {
+
     background-color: #00CA61;;
+
     height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .mainCategoryInner {
-    display: flex;
+     display: flex;
+    align-items: center;
 }
 
 .mainCategoryItem {
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mainSubColor);
+
     padding: 4px 12px;
     margin-inline: 8px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    color: #D6D3F4;
 }
 
 .mainCategoryChecked {
+     font-family: 'NanumSquareNeo';
+    height: 40px;
+    line-height: 30px;
+    font-size: 16px;
     background-color: #fff;
-    color: #978AFF;
-    font-weight: bold;
+    color: var(--mainColor);
 }
 
 /* section mainContainer */
 .mainContainer{
+border: 1px solid red;
+
+	padding: 24px;
     height: fit-content;
 
     display: flex;
@@ -64,11 +83,13 @@ a{
 }
 
 .mainContent{
+/* 	border: 2px solid blue; */
     width: 1200px;
     height: fit-content;
 }
 
 .infoArea {
+	/* border: 1px solid green; */
     position: relative;
     height: 472px;
     border-radius: 20px;
@@ -77,41 +98,59 @@ a{
 }
 
 .thumbnail {
+/* 	border: 1px solid hotpink; */
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 .info {
+	
+	/* border: 1px solid red; */
+	
     position: absolute;
     top: 20px;
     right: 20px;
     width: 384px;
-    height: 432px;
+    height: 399px;
     background-color: #fff;
     border-radius: 20px;
-    padding-top: 20px;
+    padding-top: 38px;
     overflow: hidden;
+    
+   display: flex;
+    flex-direction: column;
+  /*   justify-content: center; */
+    align-items: center;
 }
 
-.info > div {
+.info .tag {
+	/* border: 1px solid blue; */
     margin-inline: 20px;
 }
 
+
 .hot {
+	font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	font-weight: 600;
+	
     background-color: #FA5555;
     border-radius: 20px;
     color: white;
-    padding: 2px 12px;
-    font-size: 18px;
+    padding: 4px 12px;
+    
 }
 
 .d-day {
+	font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	font-weight: 600;
+	
     background-color: #00CA61;
     border-radius: 20px;
     color: white;
-    padding: 2px 12px;
-    font-size: 18px;
+    padding: 4px 12px;
 }
 
 .d-day > span {
@@ -119,41 +158,62 @@ a{
 }
 
 .title {
-    font-size: 28px;
-    font-weight: bold;
+	
+	font-family: 'NanumSquareNeo';
+	font-size: 28px;
+	font-weight: 700;
+	
     line-height: 42px;
     margin-block: 10px;
+   	margin-bottom: 20px;
+    border: 1px solid green;
 }
 
 .progressArea {
+/* 	border: 1px solid blue; */
+	width: 90%;
+	height: 95px;
+	
     background-color: #F0EFF9;
     border-radius: 20px;
-    padding: 10px 20px;
+    padding: 14px 20px;
     margin-bottom: 10px;
 }
 
 .progressInfo {
+	/* border: 1px solid green; */
+	
+	
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    
+/*     margin-top: 10px; */
+    margin-bottom: 10px;
 }
 
 .progressPercentage {
+	font-family: 'NanumSquareNeo';
     color: #00CA61;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
 }
 
 .goal {
+	font-family: 'NanumSquareNeo';
     color: #767676;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
 .progressBar {
+	/* border: 1px solid red; */
     width: 100%;
     height: 10px;
     border-radius: 50px;
     background-color: white;
+    
+    margin-bottom: 10px;
 }
 
 .progressBarValue {
@@ -169,18 +229,20 @@ a{
 }
 
 .progressStatus > span {
-    color: #767676;
+	font-family: 'NanumSquareNeo';
+   	color: var( --contentColor);
     font-size: 14px;
-    font-weight: bolder;
+    font-weight: 600;
     margin-right: 14px;
     display: flex;
     align-items: center;
 }
 
 .progressStatus > span > img {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
     margin-right: 4px;
+   color: var( --contentColor);
 }
 
 .progressStatus > span > span {
@@ -188,28 +250,45 @@ a{
 }
 
 .description {
+	/* border: 1px solid red; */
+	padding: 6px 20px;
+	font-family: 'NanumSquareNeo';
     color: #767676;
-    padding-inline: 16px;
-    margin-bottom: 10px;
+   /*  padding-inline: 16px; */
+	font-weight: 500;
+    line-height: 24px;
 }
 
 .donationButton {
+	
+	font-family: 'NanumSquareNeo';
     background-color: #00CA61;
     color: white;
     font-size: 18px;
-    font-weight: bolder;
+    font-weight: 600;
     width: 100%;
     padding-block: 20px;
     position: absolute;
     bottom: 0;
     cursor: pointer;
+    border:none;
 }
 
+/*  */
+
 .contentArea {
+	border: 1px solid red;
     display: flex;
 }
 
 .content {
+	border: 1px solid blue;
+	
+	font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	font-weight: 500;
+    line-height: 24px;
+	
     width: 67%;
     margin-right: 3%;
 }
@@ -219,61 +298,90 @@ a{
     height: 470px;
 }
 
+
 .imageDescription {
+
     text-align: center;
     color: #767676;
 }
 
+/*  */
+
 .nav {
+	border: 1px solid green;
     width: 30%;
 }
 
-.agencyInfoArea {
-    border: 2px solid #D9D9D9;
+.nav .agencyInfoArea {
+
+    border: 1px solid #D9D9D9;
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
 }
 
-.agencyInfo {
+.nav .agencyInfoArea .agencyInfo {
+	
+	border: 1px solid red;
+	
     display: flex;
     margin-bottom: 10px;
     height: 50px;
 }
 
 .agencyImg {
+	border: 1px solid red;
+	
+	display: flex;
+	 justify-content: center;
+    align-items: center;
     margin-right: 10px;
+    padding-bottom: 10px;
 }
 
 .division {
     font-size: 14px;
     color: #7A7A7A;
+    margin-top: 5px;
 }
 
 .agencyName {
-    font-size: 20px;
-    font-weight: bold;
+	font-family: 'NanumSquareNeo';
+	font-size: 18px;
+	font-weight: 700;
+	
+   
 }
 
 .agencyDescription {
+	font-family: 'NanumSquareNeo';
     font-size: 14px;
     color: #7A7A7A;
-    font-weight: bolder;
+   font-weight: 500;
+   line-height: 20px;
+   
+   margin-top: 5px;
+   margin-bottom: 8px;
+  
 }
 
 .agencyLink {
+	font-family: 'NanumSquareNeo';
+	font-weight: 600;
+	
     width: fit-content;
-    font-size: 12px;
+    font-size: 14px;
     color: #00CA61;
-    border-bottom: 2px solid #00CA61;
+/*     border-bottom: 2px solid #00CA61; */
     display: flex;
     align-items: center;
 }
 
 .agencyLinkImg {
     margin-left: 4px;
-    width: 6px;
+    width:10px;
     height: 12px;
+    color: var(--mainColor);
 }
 
 .commentArea {
@@ -471,4 +579,15 @@ a{
     border-radius: 20px;
     padding: 10px;
     color: white;
+}
+
+.closeButtonArea {
+    display: flex;
+    justify-content: right;
+}
+
+.closeButton {
+    font-size: 24px;
+    cursor: pointer;
+    transition-duration: 250ms;
 }

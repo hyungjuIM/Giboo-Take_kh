@@ -102,6 +102,11 @@ public class MapServiceImpl implements MapService{
 		return dao.checkFavorite(memberNo, volunteerNo);
 	}
 
+	@Override
+	public MapDetailTop selectMapDetailTop2(int volunteerNo) {
+		return dao.selectMapDetailTop2(volunteerNo);
+	}
+
 
 
 

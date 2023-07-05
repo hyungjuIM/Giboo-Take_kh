@@ -65,11 +65,11 @@ public class MypageController {
 	}
 
 	// 즐겨찾기
-	@GetMapping(value = "/favorites")
-	public String favorites() {
-		logger.info("즐겨찾기");
-		return "mypage/favorites";
-	}
+//	@GetMapping(value = "/favorites")
+//	public String favorites() {
+//		logger.info("즐겨찾기");
+//		return "mypage/favorites";
+//	}
 	
 	
 	// 회원탈퇴

@@ -31,10 +31,10 @@
         <div class="mainContent">
 
             <div class="infoArea">
-                <img class="thumbnail" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
+                <img class="thumbnail" src="${pageContext.request.contextPath}${donationDetail.donationAttachment}">
 
                 <div class="info">
-                    <div>
+                    <div class="tag">
                         <span class="hot">HOT</span>
                         <span class="d-day">D-<span id="d-day">${donationDetail.DDay}</span>일</span>
                     </div>
@@ -247,11 +247,11 @@
 
     <div class="grayBox" id="grayBox">
         <div class="donationContainer" id="donationContainer">
+            <span class="closeButtonArea"><i class="fa-solid fa-xmark closeButton" id="closeButton"></i></span>
             <div>기부자님의 소중한 마음이 세상을 아름답게 변화시킵니다.</div>
             <div>
                 <input type="number" id="donationValue">
                 <button id="donationConfirm" onclick="requestPay()">기부하기</button>
-                <div></div>
             </div>
         </div>
     </div>
@@ -261,7 +261,7 @@
     </footer>
 
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>
-
+    <script src="https://kit.fontawesome.com/144bd71f16.js" crossorigin="anonymous"></script>
     <script src="${pageContext.request.contextPath}/resources/js/donation/donationDetail.js"></script>
 
     <script>

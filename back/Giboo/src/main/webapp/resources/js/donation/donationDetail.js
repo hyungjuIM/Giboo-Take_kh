@@ -6,6 +6,7 @@ window.onload = function () {
 const grayBox = document.getElementById("grayBox");
 const donationContainer = document.getElementById("donationContainer");
 const donationValue = document.getElementById("donationValue");
+const closeButton = document.getElementById("closeButton");
 
 $(function(){
     $('.relatedItemList').slick({
@@ -41,3 +42,13 @@ $(function(){
     });
 })
 
+closeButton.addEventListener("mouseover", (e) => {
+    e.target.style.color = "#00CA61";
+})
+
+closeButton.addEventListener("mouseleave", (e) => {
+    e.target.style.color = "#000000";
+})
+closeButton.addEventListener("click", () => {
+    grayBox.style.display = "none";
+})

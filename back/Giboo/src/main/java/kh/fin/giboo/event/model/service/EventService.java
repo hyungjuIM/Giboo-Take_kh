@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import kh.fin.giboo.alarm.model.vo.Alarm;
+import kh.fin.giboo.event.model.vo.EventCertification;
 import kh.fin.giboo.event.model.vo.EventDetailBoardPhoto;
 import kh.fin.giboo.event.model.vo.EventDetailLeft;
 import kh.fin.giboo.event.model.vo.EventDetailMember;
@@ -23,6 +24,10 @@ public interface EventService {
 
 	//	이벤트 목록 조회
 	Map<String, Object> selectEventList(int cp, Model model);
+
+	Map<String, Object> selectEventListDone(int cp, Model model);
+
+	Map<String, Object> selectEventListGoing(int cp, Model model);
 
 	EventDetailTop selectEventDetailTop(int eventNo);
 
@@ -54,6 +59,20 @@ public interface EventService {
 	boolean checkAlreadyJoined(int memberNo, int eventNo);
 
 	List<EventMore> selectEventMore(int eventNo);
+
+	EventCertification selectEventCertification(int eventNo);
+
+//	EventList getEventData(int eventNo);
+
+	boolean checkEventEnded(int eventNo);
+
+	Map<String, Object> getStamps(Model model);
+
+	int addReward(int memberNo);
+
+	int deleteStamps(int memberNo);
+
+
 
 
 

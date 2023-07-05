@@ -38,11 +38,9 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-            <a href="">
-                <div class="edBtnDe">
-                    <span>이벤트 참여하기</span>
-                </div>
-            </a>
+            <div class="edBtnDe memberChange_bottom">
+                <button id="edBtnDe" class="memberChange_b">이벤트 함께하기</button>                        
+            </div>
         </div>
     </div>
 </body>

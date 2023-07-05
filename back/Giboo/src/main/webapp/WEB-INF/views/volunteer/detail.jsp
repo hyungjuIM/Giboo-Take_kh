@@ -16,6 +16,7 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css">
 </head>
 <body>
+
 	<header>
 		<jsp:include page="/WEB-INF/views/main/header.jsp" />
 	</header>
@@ -348,6 +349,7 @@
 	</footer>
 	<script>
         const volunteerButton = document.getElementById("volunteerButton");
+
         volunteerButton.addEventListener('click', function() {
           const url = window.location.href;
           const parts = url.split('/');
@@ -372,6 +374,82 @@
             location.href = "../../main/login";
           }
         });
+
+
+    // 응원 버튼
+        const cheeringButton = document.getElementById("cheeringButton");
+        const replyContent1 = document.getElementById("replyContent");
+
+        const loginMemberNo = ${loginMember.memberNo};
+        const volunteerNo1 = ${volunteerDetail.volunteerNo};
+        
+        cheeringButton.addEventListener("click", function () {
+            console.log("버튼 클릭");
+            if (loginMemberNo == "") { // 로그인 X
+                alert("로그인 후 사용해 주세요.");
+                return;
+            }
+
+            if (replyContent1.value.trim().length == 0) {
+                alert("응원 댓글을 작성하고 버튼을 클릭해 주세요.");
+
+                replyContent1.value = "";
+                replyContent1.focus();
+                return;
+            }
+
+            //console.log(${reply.replyContent});
+            console.log(${volunteerDetail.volunteerNo});
+            // 댓글 DB에 저장
+            $.ajax({
+                url: contextPath + "/volunteer/insertReply",
+                type: "POST",
+                data: {
+                    "replyContent":  replyContent1.value,
+                    "memberNo": ${loginMember.memberNo},
+                    "volunteerNo": ${volunteerDetail.volunteerNo}
+                    
+                },
+
+                success: function (result) {
+                    if (result > 0) {
+                        alert("댓글이 추가되었습니다.")
+                        replyContent1.value = "";
+                        selectReplyList(result); // 새로운 댓글 추가
+                    } else {
+                        alert("댓글 등록에 실패했습니다.");
+                    }
+                }
+            });
+        });
+
+        function selectReplyList() {
+    $.ajax({
+        url: contextPath + "/volunteer/selectReplyList",
+        type: "GET",
+        data: { volunteerNo: volunteerNo1 }, // Make sure the volunteerNo1 variable is defined
+
+        success: function(response) {
+        console.log("selectReplyList success:", response);
+
+        // Update the HTML elements with the received data
+        if (response && response.length > 0) {
+            const reply = response[0]; // Assuming the first reply is sufficient
+
+            const memberName1 = document.getElementById("memberName1");
+            const comment1 = document.getElementById("comment1");
+
+            memberName1.textContent = "유저" + reply.memberNo;
+            comment1.textContent = reply.replyContent;
+        }
+        },
+
+        error: function(req, status, error) {
+        console.log("selectReplyList error:", error);
+        }
+    });
+}
+
       </script>
 	<%-- <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>  --%>
 

@@ -5,6 +5,7 @@ import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
 import com.siot.IamportRestClient.response.IamportResponse;
 import com.siot.IamportRestClient.response.Payment;
+import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.Util;
 import kh.fin.giboo.donation.model.service.DonationService;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
@@ -227,8 +228,13 @@ public class DonationController {
                         Model model) {
         logger.info("기부 작성 페이지");
 
+        List<ParentCategory> parentCategoryList = service.getParentCategoryList();
+
         if (mode.equals("update")) {
             DonationDetail detail = service.getDonationDetail(no);
+
+            detail.setDonationAttachment(detail.getDonationAttachment().replaceAll("/Giboo/resources/images/fileupload/", ""));
+            System.out.println(detail.getDonationAttachment());
 
             detail.setDonationContent(detail.getDonationContent().replaceAll("&quot;", "&#039;"));
 
@@ -237,6 +243,8 @@ public class DonationController {
 
             model.addAttribute("detail", detail);
         }
+
+        model.addAttribute("parentCategoryList", parentCategoryList);
 
         return "donation/write";
     }
@@ -251,6 +259,12 @@ public class DonationController {
 
         String path = null;
         String message = null;
+        String webPath = "/resources/images/eventPopup/";
+//        String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+//        String renameImage = kh.fin.giboo.main.controller.Util.fileRename((MultipartFile)detail.getThumbnail().getOriginalFilename());
+//        (MultipartFile)detail.getThumbnail().transferTo( new File( folderPath + renameImage) );
+
+        detail.setDonationAttachment(detail.getDonationAttachment().replace("C:\\fakepath\\", "/resources/images/fileupload/"));
 
         if (mode.equals("insert")) {
             int no = service.insertDonation(detail);
@@ -319,8 +333,6 @@ public class DonationController {
         String fileRoot = request.getServletContext().getRealPath(webPath);
 
         String originalFileName = multipartFile.getOriginalFilename();
-        // String extension =
-        // originalFileName.substring(originalFileName.lastIndexOf("."));
         String savedFileName = Util.fileRename(originalFileName);
 
         File targetFile = new File(fileRoot + savedFileName);

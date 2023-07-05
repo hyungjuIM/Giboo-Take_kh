@@ -1,6 +1,12 @@
 package kh.fin.giboo.volunteer.model.service;
 
+import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+
+import kh.fin.giboo.volunteer.model.vo.Reply;
+
+import kh.fin.giboo.volunteer.model.vo.Volunteer;
+
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
 import org.springframework.ui.Model;
@@ -22,7 +28,34 @@ public interface VolunteerService {
 
     List<Favorite> getFavoriteList(int memberNo);
 
+    int insertVolunteer(VolunteerDetail detail);
+
+    int updateVolunteer(VolunteerDetail detail);
+
+    int insertStory(VolunteerStory story);
+
+    int updateStory(VolunteerStory story);
+
+    void storyDelete(int storyNo);
+
+    List<ParentCategory> getParentCategoryList();
+  
 	int insertVolunteer(int volunteerNo, int memberNo);
 
 	int selectVolunteer(int volunteerNo, int memberNo);
+
+
+	int insertReply(Reply reply);
+
+	Reply getReply(String replyContent);
+
+	List<Reply> selectReplyList(int volunteerNo);
+
+	// 메인 화면용
+//	Map<String, Object> selectVolunteerList();
+
+	List<Volunteer> selectVolunteer();
+
+	VolunteerDetail getVolunteerDetail2(int volunteerNo2);
+
 }
