@@ -2,6 +2,7 @@ package kh.fin.giboo.volunteer.model.service;
 
 import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
 import org.springframework.ui.Model;
@@ -38,6 +39,12 @@ public interface VolunteerService {
 	int insertVolunteer(int volunteerNo, int memberNo);
 
 	int selectVolunteer(int volunteerNo, int memberNo);
+
+	int insertReply(Reply reply);
+
+	Reply getReply(String replyContent);
+
+	List<Reply> selectReplyList(int volunteerNo);
 
 	// 메인 화면용
 //	Map<String, Object> selectVolunteerList();

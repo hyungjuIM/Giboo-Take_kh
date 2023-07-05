@@ -101,33 +101,13 @@
                             </div>
 
                             <div class="commentInner">
-                                <div id="memberName1" class="memberName">유저1</div>
-                                <div id="comment1" class="comment">123456789</div>
+                                <div id="memberName1" class="memberName">유저${reply.memberNo}</div>
+                                <div id="comment1" class="comment">${reply.replyContent}</div>
                             </div>
                         </div>
 
-                        <div class="commentItem">
-                            <div class="memberImgArea">
-                                <img id="memberImg2" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
-                            </div>
-
-                            <div class="commentInner">
-                                <div id="memberName2" class="memberName">유저1</div>
-                                <div id="comment2" class="comment">123456789</div>
-                            </div>
-                        </div>
-
-                        <div class="commentItem">
-                            <div class="memberImgArea">
-                                <img id="memberImg3" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
-                            </div>
-
-                            <div class="commentInner">
-                                <div id="memberName3" class="memberName">유저1</div>
-                                <div id="comment3" class="comment">123456789</div>
-                            </div>
-                        </div>
-                       
+                        
+                        <textarea id="replyContent"></textarea>
                         <button class="commentSubmit" id="cheeringButton">응원하기</button>
                         
                         <div class="commentInfo">
@@ -170,69 +150,7 @@
                             </div>
                         </div>
 
-                        <div class="relatedItem">
-                            <a href="">
-                                <img id="relatedImg2" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/news_1486098867_610387_m_1.jpg">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
-                            <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relatedVolunteerCount2">1,030</span>명 참여중</span>
-
-                                <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount2">102</span>명 추천</span>
-                            </div>
-                        </div>
-
-                        <div class="relatedItem">
-                            <a href="">
-                                <img id="relatedImg3" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
-                            <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relatedVolunteerCount3">1,030</span>명 참여중</span>
-
-                                <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount3">102</span>명 추천</span>
-                            </div>
-                        </div>
-
-                        <div class="relatedItem">
-                            <a href="">
-                                <img id="relatedImg4" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/1E3A3E62-B3CA-434A-8C3B3ED0C982FB69_source.webp">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
-                            <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relatedVolunteerCount4">1,030</span>명 참여중</span>
-
-                                <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount4">102</span>명 추천</span>
-                            </div>
-                        </div>
-
-                        <div class="relatedItem">
-                            <a href="">
-                                <img id="relatedImg5" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/Cat_August_2010-4.jpg">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
-                            <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relatedVolunteerCount5">1,030</span>명 참여중</span>
-
-                                <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount5">102</span>명 추천</span>
-                            </div>
-                        </div>
+                        
 
                     </div>
                     <div class="relatedItemListButtonArea">
@@ -255,7 +173,8 @@
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
     </footer>
     <script>
-        const volunteerButton = document.getElementById("volunteerButton");
+          var contextPath = "${pageContext.request.contextPath}";
+        //const volunteerButton = document.getElementById("volunteerButton");
         volunteerButton.addEventListener('click', function() {
           const url = window.location.href;
           const parts = url.split('/');
@@ -280,6 +199,82 @@
             location.href = "../../main/login";
           }
         });
+
+
+    // 응원 버튼
+        const cheeringButton = document.getElementById("cheeringButton");
+        const replyContent1 = document.getElementById("replyContent");
+
+        const loginMemberNo = ${loginMember.memberNo};
+        const volunteerNo1 = ${volunteerDetail.volunteerNo};
+        
+        cheeringButton.addEventListener("click", function () {
+            console.log("버튼 클릭");
+            if (loginMemberNo == "") { // 로그인 X
+                alert("로그인 후 사용해 주세요.");
+                return;
+            }
+
+            if (replyContent1.value.trim().length == 0) {
+                alert("응원 댓글을 작성하고 버튼을 클릭해 주세요.");
+
+                replyContent1.value = "";
+                replyContent1.focus();
+                return;
+            }
+
+            //console.log(${reply.replyContent});
+            console.log(${volunteerDetail.volunteerNo});
+            // 댓글 DB에 저장
+            $.ajax({
+                url: contextPath + "/volunteer/insertReply",
+                type: "POST",
+                data: {
+                    "replyContent":  replyContent1.value,
+                    "memberNo": ${loginMember.memberNo},
+                    "volunteerNo": ${volunteerDetail.volunteerNo}
+                    
+                },
+
+                success: function (result) {
+                    if (result > 0) {
+                        alert("댓글이 추가되었습니다.")
+                        replyContent1.value = "";
+                        selectReplyList(result); // 새로운 댓글 추가
+                    } else {
+                        alert("댓글 등록에 실패했습니다.");
+                    }
+                }
+            });
+        });
+
+        function selectReplyList() {
+    $.ajax({
+        url: contextPath + "/volunteer/selectReplyList",
+        type: "GET",
+        data: { volunteerNo: volunteerNo1 }, // Make sure the volunteerNo1 variable is defined
+
+        success: function(response) {
+        console.log("selectReplyList success:", response);
+
+        // Update the HTML elements with the received data
+        if (response && response.length > 0) {
+            const reply = response[0]; // Assuming the first reply is sufficient
+
+            const memberName1 = document.getElementById("memberName1");
+            const comment1 = document.getElementById("comment1");
+
+            memberName1.textContent = "유저" + reply.memberNo;
+            comment1.textContent = reply.replyContent;
+        }
+        },
+
+        error: function(req, status, error) {
+        console.log("selectReplyList error:", error);
+        }
+    });
+}
+
       </script>
       
     <script src="${pageContext.request.contextPath}/resources/js/slick/slick.js"></script>

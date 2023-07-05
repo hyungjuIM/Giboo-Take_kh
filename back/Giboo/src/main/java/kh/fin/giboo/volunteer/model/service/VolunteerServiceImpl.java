@@ -5,6 +5,7 @@ import kh.fin.giboo.common.Util;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.mypage.model.vo.Favorite;
 import kh.fin.giboo.volunteer.model.dao.VolunteerDAO;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
@@ -168,6 +169,30 @@ public class VolunteerServiceImpl implements VolunteerService {
 		return dao.selectVolunteer(volunteerNo,memberNo);
 	}
 
+	@Override
+	public int insertReply(Reply reply) {
+		// XSS, 개행문자 처리
+		reply.setReplyContent(  Util.XSSHandling( reply.getReplyContent() )  );
+		reply.setReplyContent(  Util.newLineHandling( reply.getReplyContent() )  );
+				
+		return dao.insertReply(reply);
+	}
+	
+	// 응원 등록 서비스 구현
+	@Override
+	public Reply getReply(String replyContent) {
+		// TODO Auto-generated method stub
+		return dao.getReply(replyContent);
+	}
+	
+	// 응원 목록 조회 서비스 구현
+	@Override
+	public List<Reply> selectReplyList(int volunteerNo) {
+		
+		return dao.selectReplyList(volunteerNo);
+	}
+	
+	
 //	@Override
 //	public Map<String, Object> selectVolunteerList() {
 //		return dao.selectVolunteerList();

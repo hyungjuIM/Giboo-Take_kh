@@ -50,6 +50,7 @@
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Volunteer" alias="volunteer"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerDetail" alias="volunteerDetail"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerStory" alias="volunteerStory" />
+	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Reply" alias="reply" />
 
 	<!-- 맵 -->
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapList" alias="mapList"/>

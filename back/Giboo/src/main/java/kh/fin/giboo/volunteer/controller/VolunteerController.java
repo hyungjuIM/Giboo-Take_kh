@@ -1,28 +1,5 @@
 package kh.fin.giboo.volunteer.controller;
 
-import com.google.gson.JsonObject;
-import kh.fin.giboo.admin.model.vo.ParentCategory;
-import kh.fin.giboo.common.Util;
-import kh.fin.giboo.member.model.vo.Member;
-import kh.fin.giboo.mypage.model.vo.Favorite;
-import kh.fin.giboo.volunteer.model.service.VolunteerService;
-import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
-import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringEscapeUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +9,40 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringEscapeUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.google.gson.JsonObject;
+
+import kh.fin.giboo.admin.model.vo.ParentCategory;
+import kh.fin.giboo.common.Util;
+import kh.fin.giboo.member.model.vo.Member;
+import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.volunteer.model.service.VolunteerService;
+import kh.fin.giboo.volunteer.model.vo.Reply;
+import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
+import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
 
 @Controller
 @RequestMapping("/volunteer")
@@ -196,12 +207,14 @@ public class VolunteerController {
 
     @GetMapping("/detail/{volunteerNo}")
     public String detail(@PathVariable("volunteerNo") int volunteerNo,
+    					@RequestParam(value= "replyContent", required = false) String replyContent,
                          @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
                          Model model) {
         logger.info("봉사 상세 페이지");
 
         VolunteerDetail volunteerDetail = service.getVolunteerDetail(volunteerNo);
-
+        List<Reply> rList = service.selectReplyList(volunteerNo);
+        
         LocalDate currentDate = LocalDate.now();
         LocalDate dDay = LocalDate.of(volunteerDetail.getEndRecruitDate().getYear() + 1900, volunteerDetail.getEndRecruitDate().getMonth() + 1, volunteerDetail.getEndRecruitDate().getDate());
         long untilDay = ChronoUnit.DAYS.between(currentDate, dDay);
@@ -214,7 +227,8 @@ public class VolunteerController {
         volunteerDetail.setVolunteerContent(unescapedContent);
 
         model.addAttribute("volunteerDetail", volunteerDetail);
-
+        model.addAttribute("rList", rList);
+        
         return "volunteer/detail";
     }
 
@@ -321,4 +335,28 @@ public class VolunteerController {
       
       return response;
     }
+    
+    // 댓글등록
+    @ResponseBody
+    @PostMapping("/insertReply")
+	public int insertReply(@RequestParam("memberNo") int memberNo,
+            @RequestParam("volunteerNo") int volunteerNo,
+            @RequestParam("replyContent") String replyContent) {
+		Reply reply = new Reply();
+		
+		reply.setMemberNo(memberNo);
+		reply.setVolunteerNo(volunteerNo);
+		reply.setReplyContent(replyContent);
+		logger.info("reply :" + reply);
+		return service.insertReply(reply);
+	}
+
+
+		@GetMapping("/selectReplyList")
+		@ResponseBody
+		public List<Reply> selectReplyList(@RequestParam("volunteerNo") int volunteerNo) {
+		    return service.selectReplyList(volunteerNo);
+		}
+
+
 }
