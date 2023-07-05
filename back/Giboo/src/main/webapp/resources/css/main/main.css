@@ -416,7 +416,7 @@ li{
 
 .vol_box_style div img{
     width: 348px;
- 
+ height: 250px;
     border-radius: 20px 20px 0px 0px;
     background-color: var(--etcColor);
 
@@ -509,6 +509,26 @@ li .vol_day span{
     100%{
         opacity: 1;
     }
+}
+
+.progressBar {
+    width: 80%;
+    height: 10px;
+    border-radius: 30px;
+    background-color: #e5e5e5;
+
+    margin-bottom: 4px;
+}
+
+.progressBarValue {
+
+    background: linear-gradient(to top, var(--mainColor) 50%, var(--mainColor));
+
+    border-radius: 30px;
+
+    width: 50%;
+    height: 100%;
+    
 }
 
 .vol_content_part div .tooltip{
