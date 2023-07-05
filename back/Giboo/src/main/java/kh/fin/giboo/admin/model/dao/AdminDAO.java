@@ -5,6 +5,7 @@ import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.cs.model.vo.Faq;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.event.model.vo.Event;
+import kh.fin.giboo.event.model.vo.EventDetail;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
@@ -100,5 +101,23 @@ public class AdminDAO {
 
 	public int removeFaq(int id) {
 		return sqlSession.delete("adminMapper.removeFaq", id);
+	}
+
+	public EventDetail selectEventDetail(int eventNo) {
+        return sqlSession.selectOne("adminMapper.selectEventDetail", eventNo);
+	}
+
+	public int insertEvent(EventDetail eventDetail) {
+        int result = sqlSession.insert("adminMapper.insertEvent", eventDetail);
+
+        if (result > 0) {
+            result = eventDetail.getEventNo();
+        }
+
+        return result;
+	}
+
+	public int updateEvent(EventDetail eventDetail) {
+		return sqlSession.update("notice-adminMapper.updateEvent",eventDetail);
 	}
 }

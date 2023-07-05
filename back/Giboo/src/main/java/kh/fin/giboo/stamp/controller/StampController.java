@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import kh.fin.giboo.member.model.vo.Member;
+import kh.fin.giboo.mypage.model.vo.Stamp;
 import kh.fin.giboo.stamp.model.service.StampService;
-import kh.fin.giboo.stamp.model.vo.Stamp;
 
 
 @Controller

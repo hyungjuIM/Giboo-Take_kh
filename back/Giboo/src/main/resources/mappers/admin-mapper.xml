@@ -127,6 +127,20 @@
 		<result property="minpoint" column="MINPOINT" />
 		<result property="point" column="POINT" />
 	</resultMap>
+	
+	
+	<!-- 이벤트 -->
+	<resultMap type="eventDetail" id="eventDetail_rm">
+		<id property="eventNo" column="EVENT_NO"/>
+		<result property="eventTitle" column="EVENT_TITLE"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="endRecruitDate" column="END_RECRUIT_DATE"/>
+		<result property="targetPeople" column="TARGET_PEOPLE"/>
+		<result property="eventContent" column="EVENT_CONTENT"/>
+		<result property="eventCertificationContent" column="EVENT_CERTIFICATION_CONTENT"/>
+		<result property="eventAttachment" column="ATTACHMENT"/>
+		<result property="managerNo" column="MGR_NO"/>
+	</resultMap>
 
 	<select id="selectMemberList" resultMap="member_rm">
 		SELECT MEMBER_NO,
@@ -298,6 +312,66 @@
 		DELETE FROM FAQ
 		WHERE FAQ_NO = ${id}
 	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<select id="selectEventDetail" resultMap="eventDetail_rm">
+		SELECT 
+		EVENT_NO
+		, EVENT_TITLE 
+		, ENROLL_DATE 
+		, END_RECRUIT_DATE 
+		, TARGET_PEOPLE 
+		, EVENT_CONTENT
+		, EVENT_CERTIFICATION_CONTENT 
+		, ATTACHMENT 
+		FROM EVENT
+		WHERE EVENT_NO = ${eventNo}
+    </select>
+    
+    
+    
+    <insert id="insertEvent" parameterType="eventDetail" useGeneratedKeys="true">
+        <selectKey keyProperty="eventNo"  resultType="_int"  order="BEFORE">
+            SELECT SEQ_EVENT_NO.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO EVENT
+        VALUES (
+                ${eventNo},
+                #{eventTitle},
+                #{eventContent},
+                #{eventCertificationContent},
+                ${targetPeople},
+                #{enrollDate},
+                #{endRecruitDate},
+                DEFAULT,
+                #{eventAttachment},
+                1
+               )
+    </insert>
+    
+    
+    
+    <update id="updateEvent">
+		UPDATE EVENT
+		SET 
+		EVENT_TITLE = #{eventTitle},
+		ENROLL_DATE = #{enrollDate},
+		END_RECRUIT_DATE = #{endRecruitDate},
+		TARGET_PEOPLE = ${targetPeople},
+		EVENT_CONTENT = #{eventContent},
+		EVENT_CERTIFICATION_CONTENT = #{eventCertificationContent},
+		ATTACHMENT = #{eventAttachment}
+		WHERE EVENT_NO = ${eventNo}
+    </update>
 
 </mapper>
 	

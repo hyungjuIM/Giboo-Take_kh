@@ -162,14 +162,14 @@
     const favoriteButton = document.getElementsByClassName("favoriteButton");
     for (let i of favoriteButton) {
         i.addEventListener("click", function() {
-            console.log(${loginMember.memberNo});
+            console.log("${loginMember.memberNo}");
             console.log(i.id);
 
             
 
              $.ajax ({
                  url: "addFavorite",
-                 data: {"memberNo" : ${loginMember.memberNo}, 
+                 data: {"memberNo" : "${loginMember.memberNo}", 
                         "volunteerNo" : i.id ,
                         "volunteerTitle" : i.dataset.title},
                  
@@ -187,7 +187,7 @@
 
             $.ajax ({
                 url: "deleteFavorite",
-                data: {"memberNo" : ${loginMember.memberNo}, 
+                data: {"memberNo" : "${loginMember.memberNo}", 
                        "volunteerNo" : i.id , 
                        "volunteerTitle" : i.dataset.title},
 
