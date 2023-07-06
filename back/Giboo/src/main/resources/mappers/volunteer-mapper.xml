@@ -181,7 +181,7 @@
 
     <select id="getStoryList" resultMap="volunteerStory_rm">
         SELECT VOLUNTEER_STORY_NO, VOLUNTEER_STORY_TITLE, VOLUNTEER_STORY_CONTENT, M.MEMBER_NICK, VIEW_COUNT,
-        CASE WHEN SYSDATE - VS.ENROLL_DT &lt; 1
+        CASE WHEN SYSDATE - VS.ENROLL_DT > 1
         THEN TO_CHAR(VS.ENROLL_DT, 'YYYY-MM-DD')
         ELSE TO_CHAR(VS.ENROLL_DT, 'HH:MI')
         END ENROLL_DT
@@ -284,25 +284,25 @@
     </delete>
     
     <insert id="insertvolunteer">
-    INSERT INTO MYACTIVE_VOLUNTEER (MYACTIVE_VOLUNTEER_NO,MYACTIVE_DATE,VOLUNTEER_COMPLETE_STATUS,VOLUNTEER_NO,MEMBER_NO)
-VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${memberNo})
+        INSERT INTO MYACTIVE_VOLUNTEER (MYACTIVE_VOLUNTEER_NO,MYACTIVE_DATE,VOLUNTEER_COMPLETE_STATUS,VOLUNTEER_NO,MEMBER_NO)
+        VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${memberNo})
     </insert>
     
     <select id="selectvolunteer" resultType="_int">
-    SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER 
-	WHERE MEMBER_NO = ${memberNo} AND VOLUNTEER_NO = ${volunteerNo}
+        SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER
+	    WHERE MEMBER_NO = ${memberNo} AND VOLUNTEER_NO = ${volunteerNo}
     </select>
     
 
     <insert id="insertReply">
-    INSERT INTO REPLY (REPLY_NO, REPLY_CONTENT, MEMBER_NO, VOLUNTEER_NO) 
-    VALUES (SEQ_REPLY_NO_S.NEXTVAL, #{replyContent}, #{memberNo}, #{volunteerNo})
+        INSERT INTO REPLY (REPLY_NO, REPLY_CONTENT, MEMBER_NO, VOLUNTEER_NO)
+        VALUES (SEQ_REPLY_NO.NEXTVAL, #{replyContent}, #{memberNo}, #{volunteerNo})
     </insert>
     
     <select id="selectReplyList" resultMap="reply_rm">
-    SELECT *
-    FROM REPLY
-    WHERE VOLUNTEER_NO = #{volunteerNo}
+        SELECT *
+        FROM REPLY
+        WHERE VOLUNTEER_NO = #{volunteerNo}
 	</select>
 
     <select id="selectmVolunteerList" resultMap="volunteer_rm">
