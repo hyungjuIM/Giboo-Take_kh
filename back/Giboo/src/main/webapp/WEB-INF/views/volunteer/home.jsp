@@ -189,7 +189,7 @@
 
              $.ajax ({
                  url: "addFavorite",
-                 data: {"memberNo" : "${loginMember.memberNo}", 
+                 data: {"memberNo" : ${loginMember.memberNo}, 
                         "volunteerNo" : i.id ,
                         "volunteerTitle" : i.dataset.title},
                  
@@ -207,7 +207,7 @@
 
             $.ajax ({
                 url: "deleteFavorite",
-                data: {"memberNo" : "${loginMember.memberNo}", 
+                data: {"memberNo" : ${loginMember.memberNo}, 
                        "volunteerNo" : i.id , 
                        "volunteerTitle" : i.dataset.title},
 

@@ -30,9 +30,9 @@ import kh.fin.giboo.mypage.model.service.FavoriteService;
   @ResponseBody
   @GetMapping("/volunteer/addFavorite") 
   public String addFavoriteVolunteer(
-		  	 int memberNo,
-	         int volunteerNo,
-	         String volunteerTitle
+		  @RequestParam int memberNo,
+		    @RequestParam int volunteerNo,
+		    @RequestParam String volunteerTitle
 	         )
    { 
 	    
