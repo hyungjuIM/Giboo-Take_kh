@@ -46,8 +46,10 @@
         <div class="optionArea">
             <a href="${pageContext.request.contextPath}/volunteer/storyList?cp=${param.cp}" class="list">목록으로</a>
             <div>
-                <a href="${pageContext.request.contextPath}/volunteer/storyWrite?mode=update&cp=${param.cp}&no=${story.volunteerStoryNo}" class="edit">수정</a>
-                <button class="delete" id="storyDelete">삭제</button>
+                <c:if test="${story.memberNo == loginMember.memberNo}">
+                    <a href="${pageContext.request.contextPath}/volunteer/storyWrite?mode=update&cp=${param.cp}&no=${story.volunteerStoryNo}" class="edit">수정</a>
+                    <button class="delete" id="storyDelete">삭제</button>
+                </c:if>
             </div>
         </div>
 
