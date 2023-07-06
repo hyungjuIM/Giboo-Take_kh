@@ -58,7 +58,7 @@ public class AlarmController {
 //		return new ReadStatusResponse(readStatus);
 //	}
 	
-	@SuppressWarnings("unchecked")
+//	@SuppressWarnings("unchecked")
 	@ResponseBody
 	@GetMapping(value = { "/Giboo/notifications", "/notifications", ""  })
 	public List<Alarm> selectAll(	Model model
@@ -77,7 +77,7 @@ public class AlarmController {
 	
 
 	@ResponseBody
-	@PostMapping(value ="/updateReadStatus", consumes = "application/json")
+	@PostMapping(value ="/updateReadStatus")
     public int updateReadStatus(
 
     		@RequestBody Map<String, Object> data,
