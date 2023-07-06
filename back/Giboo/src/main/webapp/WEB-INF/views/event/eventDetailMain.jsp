@@ -135,19 +135,20 @@
             <div class="E_popup_bottom">
                 <div class="E_popup_cont10">
                     <div class="outCircle">
-                        
+                        <img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="">
                     </div>
                 </div>
                 <div class="E_popup_cont11">
-                    함께 참여해주셔서<br>
-                    감사합니다.
+                    <span>함께 참여해주셔서</span>
+                    <span>감사합니다.</span>
                 </div>
-                <div class="E_popup_cont12">친구들에게 나의 참여를 공유해보세요.</div>
+                <div class="E_popup_cont12">
+                    <span>😊</span>
+                    <span>스탬프 1개 적립 완료!</span>
+                    <span>😘</span>
+                </div>
                 <div class="E_popup_cont13">
-                    <div class="smallCircle"></div>
-                    <div class="smallCircle"></div>
-                    <div class="smallCircle"></div>
-                    <div class="smallCircle"></div>
+ 
                 </div>
             </div>
         </div>

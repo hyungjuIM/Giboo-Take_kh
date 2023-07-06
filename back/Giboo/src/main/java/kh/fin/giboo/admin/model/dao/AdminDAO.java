@@ -118,6 +118,6 @@ public class AdminDAO {
 	}
 
 	public int updateEvent(EventDetail eventDetail) {
-		return sqlSession.update("notice-adminMapper.updateEvent",eventDetail);
+		return sqlSession.update("adminMapper.updateEvent",eventDetail);
 	}
 }

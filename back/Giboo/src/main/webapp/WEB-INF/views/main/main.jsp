@@ -195,10 +195,10 @@
                                                 <span class="vol_tag_child">${volunteer.parentCategoryName}</span>
 
                                             </div>
-                                            <div class="vol_like">
+                                           <!--  <div class="vol_like">
                                                 <i class="xi-heart-o"></i>
                                                 <p>102</p>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </li>
@@ -243,7 +243,23 @@
 
 
                                     <div class="do_right">
-                                        <div class="do_tag_container">
+                                       
+                                        <div class="doTitle">
+                                            <h3>${donation.donationTitle}</h3>
+                                            <div> 모집 <span>${donation.startRecruitDate} ~ ${donation.endRecruitDate}</span> </div>
+                                        </div>
+
+                                        <div class="vol_content_per_container do_content_per ">
+                                            <div class="progressBar do_con_bar">
+                                                <div class="progressBarValue do_con_bar_per "
+                                                    style="width: ${donationDetail.percent}%"></div>
+                                            </div>
+
+                                         
+                                             <span class="progressPercentage doTooltip">달성률 ${donationDetail.percent}% </span>
+                                        </div>
+                                        
+                                         <div class="do_tag_container">
                                             <div class="do_tag">
                                                 <span>${donation.parentCategoryName}</span>
                                             </div>
@@ -252,26 +268,12 @@
                                                 <span>${donationDetail.favCount}명이 추천해요!</span>
                                             </div>
                                         </div>
-                                        <div class="doTitle">
-                                            <h3>${donation.donationTitle}</h3>
-                                            <div> 모집 <span>${donation.startRecruitDate} ~ ${donation.endRecruitDate}</span> </div>
-                                        </div>
 
-                                        <div class="vol_content_per_container">
-                                            <div class="progressBar">
-                                                <div class="progressBarValue"
-                                                    style="width: ${donationDetail.percent}%"></div>
-                                            </div>
-
-                                         
-                                             <span class="progressPercentage">달성률 : ${donationDetail.percent}% </span>
-                                        </div>
-
-                                        <div class="percent_content">
+                                       <%--  <div class="percent_content">
                                             <div><img
                                                     src="${pageContext.request.contextPath}/resources/images/main_img/check_icon.png"
                                                     alt=""></div>곧 기부 마감일입니다.
-                                        </div>
+                                        </div> --%>
                                     </div>
 
 

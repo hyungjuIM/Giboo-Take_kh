@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -132,6 +133,8 @@ public class EventController {
 			logger.info("멤버의 값???????" + eventDetailMember );
 			
 			EventDetailLeft eventDetailLeft = service.selectEventDetailLeft(eventNo);
+			String unescapedContent = StringEscapeUtils.unescapeHtml(eventDetailLeft.getEventContent());
+			eventDetailLeft.setEventContent(unescapedContent);
 			model.addAttribute("eventDetailLeft",eventDetailLeft);
 			logger.info("이벤트디테일소개???" + eventDetailLeft);
 			
