@@ -233,7 +233,7 @@ public class DonationController {
         if (mode.equals("update")) {
             DonationDetail detail = service.getDonationDetail(no);
 
-            detail.setDonationAttachment(detail.getDonationAttachment().replaceAll("/Giboo/resources/images/fileupload/", ""));
+            detail.setDonationAttachment(detail.getDonationAttachment().replaceAll("/resources/images/fileupload/", ""));
             System.out.println(detail.getDonationAttachment());
 
             detail.setDonationContent(detail.getDonationContent().replaceAll("&quot;", "&#039;"));
