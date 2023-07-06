@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -96,6 +97,8 @@ public class DonationDAO {
     }
 
     public int insertDonation(DonationDetail detail) {
+    	
+    	
         int result = sqlSession.insert("donationMapper.insertDonation", detail);
 
         if (result > 0) {
@@ -134,5 +137,10 @@ public class DonationDAO {
 	public DonationDetail getDonationDetail2(int donationNo2) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("donationMapper.getDonationDetail2", donationNo2);
+	}
+
+	public int insertImg(DonationDetail img) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("donationMapper.insertImage", img);
 	}
 }

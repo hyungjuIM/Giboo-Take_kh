@@ -306,9 +306,9 @@ VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${member
 	</select>
 
     <select id="selectmVolunteerList" resultMap="volunteer_rm">
-			   SELECT *
-FROM (
-    SELECT
+		SELECT *
+		FROM (
+		    SELECT
         V.VOLUNTEER_NO,
         V.TARGET_PEOPLE,
         V.LOCATION_X,
@@ -339,7 +339,7 @@ WHERE ROWNUM &lt;= 6
     
     </select>
     
-       <select id="getVolunteerDetail2" resultMap="volunteerDetail_rm">
+    <select id="getVolunteerDetail2" resultMap="volunteerDetail_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME,VOLUNTEER_ATTACHMENT, PARENT_CATEGORY_NO
         FROM VOLUNTEER V, AGENCY A
         WHERE VOLUNTEER_NO = ${volunteerNo2}

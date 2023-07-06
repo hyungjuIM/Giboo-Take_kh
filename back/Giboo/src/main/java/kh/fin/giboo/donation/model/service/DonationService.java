@@ -7,7 +7,9 @@ import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.mypage.model.vo.Favorite;
 
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +35,8 @@ public interface DonationService {
 
     int updateStory(DonationStory story);
 
-    int insertDonation(DonationDetail detail);
+//    int insertDonation(DonationDetail detail, String webPath, String folderPath, MultipartFile uploadImage) throws IOException;
+    int insertDonation(DonationDetail detail) ;
 
     int updateDonation(DonationDetail detail);
 
