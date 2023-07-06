@@ -11,42 +11,40 @@ jQuery('.tooltip[data-text="알림"]').on('click', function () {
 
 jQuery('#alarm').click(function () {
   jQuery.ajax({
-url: getContextPath() + "/notifications",
-dataType: "json",
-async:false,
-success: function (list) {
-const alarmList = jQuery("#alarmList");
-alarmList.empty();
-for (let item of list) {
-const alertContainer = jQuery("<div>").addClass("alert_myfavcard_contaner");
-const alertTitleContainerA = jQuery("<div>").addClass("alert_titleContainerA");
-const smallCContainer = jQuery("<div>").addClass("smallC_Container");
-const smallC = jQuery("<div>").addClass("smallC").attr("id", "readStatus");
-smallCContainer.append(smallC);
-alertTitleContainerA.append(smallCContainer);
-const alertTitleContainer = jQuery("<div>").addClass("alert_titleContainer");
+    url: "/notifications",
+    dataType: "json",
+    async:false,
+    success: function (list) {
+      const alarmList = jQuery("#alarmList");
+      alarmList.empty();
+      for (let item of list) {
+        const alertContainer = jQuery("<div>").addClass("alert_myfavcard_contaner");
+        const alertTitleContainerA = jQuery("<div>").addClass("alert_titleContainerA");
+        const smallCContainer = jQuery("<div>").addClass("smallC_Container");
+        const smallC = jQuery("<div>").addClass("smallC").attr("id", "readStatus");
+        smallCContainer.append(smallC);
+        alertTitleContainerA.append(smallCContainer);
+        const alertTitleContainer = jQuery("<div>").addClass("alert_titleContainer");
 //
 //const alarmCategory = jQuery("<div>").addClass("alarmCategory").text(item.category);
 //        alertTitleContainer.append(alarmCategory);
 //
-const alarmContent = jQuery("<div>").addClass("alarmContent");
-const alarmDate = jQuery("<div>").addClass("alarmDate").text("등록일자: " + item.alarmDate);
+        const alarmContent = jQuery("<div>").addClass("alarmContent");
+        const alarmDate = jQuery("<div>").addClass("alarmDate").text("등록일자: " + item.alarmDate);
 
-if (item.volunteerNo !== null && item.volunteerNo !== 0) {
-  const volunteerLink = jQuery("<a>")
-    .attr("href", "/Giboo/volunteer/detail/" + item.volunteerNo)
-    .text(item.alarmContent);
-  alarmContent.append(volunteerLink);
-  volunteerLink.on('click', function () {
-    updateReadStatus(item.alarmNo);
-    smallC.addClass("read");
-  });
+        if (item.volunteerNo !== null && item.volunteerNo !== 0) {
+          const volunteerLink = jQuery("<a>").attr("href", "/volunteer/detail/" + item.volunteerNo).text(item.alarmContent);
+          alarmContent.append(volunteerLink);
+          volunteerLink.on('click', function () {
+          updateReadStatus(item.alarmNo);
+          smallC.addClass("read");
+        });
   const alarmCategory = jQuery("<div>").addClass("alarmCategory").text("<봉사>");
   alertTitleContainer.append(alarmCategory);
 
 } else if (item.eventNo !== null && item.eventNo !== 0) {
   const eventLink = jQuery("<a>")
-    .attr("href", "/Giboo/event/eventDetailMain/" + item.eventNo)
+    .attr("href", "/event/eventDetailMain/" + item.eventNo)
     .text(item.alarmContent);
   alarmContent.append(eventLink);
   eventLink.on('click', function () {
@@ -59,7 +57,7 @@ if (item.volunteerNo !== null && item.volunteerNo !== 0) {
 } 
 else if (item.donationNo !== null && item.donationNo !== 0) {
   const donationtLink = jQuery("<a>")
-    .attr("href", "/Giboo/donation/detail/" + item.donationNo)
+    .attr("href", "/donation/detail/" + item.donationNo)
     .text(item.alarmContent);
   alarmContent.append(donationtLink);
   donationtLink.on('click', function () {
@@ -72,7 +70,7 @@ else if (item.donationNo !== null && item.donationNo !== 0) {
 
 } else if (item.noticeNo !== null && item.noticeNo !== 0) {
   const noticeLink = jQuery("<a>")
-    .attr("href", "/Giboo/notice/noticeDetail/" + item.noticeNo)
+    .attr("href", "/notice/noticeDetail/" + item.noticeNo)
     .text(item.alarmContent);
   alarmContent.append(noticeLink);
   noticeLink.on('click', function () {
@@ -84,7 +82,7 @@ else if (item.donationNo !== null && item.donationNo !== 0) {
 
 } else if (item.reviewNo !== null && item.reviewNo !== 0) {
   const reviewLink = jQuery("<a>")
-    .attr("href", "/Giboo/event/eventDetailMain/" + item.reviewNo)
+    .attr("href", "/event/eventDetailMain/" + item.reviewNo)
     .text(item.alarmContent);
   alarmContent.append(reviewLink);
   reviewLink.on('click', function () {
@@ -126,7 +124,7 @@ if (list.length === 0) {
 
 function updateReadStatus(alarmNo) {
 jQuery.ajax({
-  url: "/Giboo/updateReadStatus",
+  url: "/updateReadStatus",
   method: "POST",
   async:false,
   // cache: "false", // ajax 캐시 처리
@@ -148,8 +146,10 @@ jQuery.ajax({
 }
 
 },
-error: function () {
+error: function (req, status, error) {
 console.log("에러 발생");
+  console.log(error);
+
 }
 });
 });
