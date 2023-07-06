@@ -392,6 +392,7 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 	
 	<!-- 봉사 즐겨찾기 중복 -->
 	<select id="checkFavoriteVolunteer" resultType="boolean">
+	
 		SELECT COUNT(*) AS COUNT
 		FROM FAVORITES f
 		WHERE f.VOLUNTEER_NO  = #{volunteerNo} AND f.MEMBER_NO =  #{memberNo}
