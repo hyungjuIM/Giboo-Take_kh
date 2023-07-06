@@ -19,6 +19,7 @@
 <typeAliases>
 	<!-- 사용자 -->
 	<typeAlias type="kh.fin.giboo.member.model.vo.Member" alias="member"/>
+	<typeAlias type="kh.fin.giboo.member.model.vo.Agency" alias="agency"/>
 
 	<!-- 관리자 -->
 	<typeAlias type="kh.fin.giboo.member.model.vo.Manager" alias="manager" />
@@ -84,6 +85,7 @@
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyReview" alias="myReview"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.Favorite" alias="favorite"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.Point" alias="point"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.FavoriteList" alias="favoriteList"/>
 	
 	
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.Stamp" alias="stamp"/>

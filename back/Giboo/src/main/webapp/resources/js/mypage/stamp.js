@@ -36,7 +36,7 @@
         });
   
         // 스템프 개수를 업데이트합니다.
-        var stampCountValue = jQuery(".stampCount span").eq(1);
+        var stampCountValue = jQuery(".stampCount div").eq(1);
         stampCountValue.text(stampList.length);
   
         jQuery(".stampWrap").css("display", "block");

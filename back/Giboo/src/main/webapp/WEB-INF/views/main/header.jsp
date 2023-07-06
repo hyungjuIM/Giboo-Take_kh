@@ -70,12 +70,12 @@
 									<%-- 관리자로그인 시 --%>
 										<c:when test="${!empty sessionScope.loginManager}">
 											<!-- 관리자로 로그인한 경우에 대한 내용을 추가 -->
-											<div class="nick_container">
-												<span id="nickName">${loginManager.managerNickname}</span>관리자님
+											<div class="nick_container manager">
+												<span id="nickName">${loginManager.managerNickname}</span> 관리자님
+												<a href="${contextPath}/admin/managerlogout"
+															class="logout_Btn"><span>로그아웃</span></a>
+												<a class="logout_Btn" href="${pageContext.request.contextPath}/admin/home"><span>관리자페이지</span></a>			
 											</div>
-											<a href="${contextPath}/admin/managerlogout"
-														class="logout_Btn"><span>로그아웃</span></a>
-											<a class="logout_Btn" href="${pageContext.request.contextPath}/admin/home"><span>메인페이지</span></a>			
 										</c:when>
 										<%-- 로그인 된 후 --%>
 											<c:otherwise>

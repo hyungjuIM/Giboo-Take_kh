@@ -73,13 +73,13 @@
 	</resultMap>
 
 
-	<resultMap type="favorite" id="favorite_rm">
+<!-- 	<resultMap type="favorite" id="favorite_rm">
 		<id property="favoriteNo" column="FAVORITE_NO"/>
 		<result property="memberNo" column="MEMBER_NO" />
 		<result property="donationNo" column="DONATION_NO" />
 		<result property="volunteerNo" column="VOLUNTEER_NO" />
 		<result property="favoriteTitle" column="FAVORITE_TITLE" />	
-		</resultMap>
+		</resultMap> -->
 		
 		
 		
@@ -90,6 +90,17 @@
 			<result property="pointPrice" column="POINT_PRICE" />
 			<result property="memberNo" column="MEMBER_NO" />
 		</resultMap>
+		
+		<resultMap type="favoriteList" id="favoriteList_rm">
+			<id property="favoriteNo" column="FAVORITE_NO"/>
+			<result property="categoryName" column="CATEGORY_NAME" />
+			<result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
+			<result property="favoriteTitle" column="FAVORITE_TITLE" />
+		</resultMap>
+		
+		
+		
+		
 		
 		
 		
@@ -381,6 +392,7 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 	
 	<!-- 봉사 즐겨찾기 중복 -->
 	<select id="checkFavoriteVolunteer" resultType="boolean">
+	
 		SELECT COUNT(*) AS COUNT
 		FROM FAVORITES f
 		WHERE f.VOLUNTEER_NO  = #{volunteerNo} AND f.MEMBER_NO =  #{memberNo}
@@ -416,12 +428,12 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 	</delete> 
 	
 	<!-- 기부 즐겨찾기 목록 조회 -->
-	<select id="selectListFavorite" resultMap="favorite_rm">
+<!-- 	<select id="selectListFavorite" resultMap="favorite_rm">
 		SELECT FAVORITE_NO, MEMBER_NO, DONATION_NO, VOLUNTEER_NO, 
 		EVENT_NO,FAVORITE_TITLE
 		FROM FAVORITES
 		
-	</select>
+	</select> -->
 	
 	<select id="getVolCount" resultType="java.lang.Integer">
 		SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER
@@ -449,6 +461,32 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 		, POINT_CONTENT 
 		, POINT_PRICE 
 		FROM POINT
-		WHERE MEMBER_NO = 45
+		WHERE MEMBER_NO = #{memberNo}
 	</select>
+	
+	
+	<select id="getListCountFavorites" resultType="_int">
+		SELECT COUNT(*) FROM FAVORITES
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+
+	
+	
+	<!-- 즐겨찾기 목록 전체 조회 -->
+	<select id="selectFavoritesList" resultMap="favoriteList_rm">
+		SELECT
+	    F.FAVORITE_NO,
+	    C.CATEGORY_NAME,
+	    PC.PARENT_CATEGORY_NAME,
+	    F.FAVORITE_TITLE
+	FROM
+	    FAVORITES F
+	    LEFT JOIN DONATION D ON D.DONATION_NO = F.DONATION_NO
+	    LEFT JOIN VOLUNTEER V ON V.VOLUNTEER_NO = F.VOLUNTEER_NO
+	    LEFT JOIN PARENT_CATEGORY PC ON (PC.PARENT_CATEGORY_NO = D.PARENT_CATEGORY_NO OR PC.PARENT_CATEGORY_NO = V.PARENT_CATEGORY_NO)
+	    LEFT JOIN CATEGORY C ON C.CATEGORY_NO = PC.CATEGORY_NO
+	WHERE
+	    F.MEMBER_NO = #{memberNo}
+	</select>
+	
 </mapper>

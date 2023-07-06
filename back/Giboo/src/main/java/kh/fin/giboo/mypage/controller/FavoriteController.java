@@ -3,17 +3,23 @@
   
   import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import kh.fin.giboo.mypage.model.service.FavoriteService; 
+import kh.fin.giboo.member.model.vo.Member;
+import kh.fin.giboo.mypage.model.service.FavoriteService;
+import kh.fin.giboo.mypage.model.vo.FavoriteList;
+import kh.fin.giboo.mypage.model.vo.MyActiveDonationList; 
   
   //즐겨찾기 컨트롤러
   
@@ -30,14 +36,14 @@ import kh.fin.giboo.mypage.model.service.FavoriteService;
   @ResponseBody
   @GetMapping("/volunteer/addFavorite") 
   public String addFavoriteVolunteer(
-		  	 int memberNo,
-	         int volunteerNo,
-	         String volunteerTitle
+		  @RequestParam int memberNo,
+		    @RequestParam int volunteerNo,
+		    @RequestParam("volunteerTitle") String volunteerTitle
 	         )
    { 
 	    
 
-	  logger.info("memberNo" , memberNo);
+	  logger.info("memberNo......." , memberNo);
 	  logger.info("volunteerNo" , volunteerNo);
 	  logger.info("volunteerTitle" , volunteerTitle);
 	 
@@ -136,25 +142,47 @@ import kh.fin.giboo.mypage.model.service.FavoriteService;
   }
   
   // 기부, 봉사, 이벤트 조회
-  @GetMapping("/mypage/favorites")
-  public String selectListFavorite (@RequestParam(value= "cp",required = false, defaultValue ="1") int cp, 
-		  Model model ) {
-	  
-	  System.out.println("qwertyuiop--------------");
-	  
-	  Map<String,Object> map = null;
-	  
-	  map = service.selectListFavorite(cp, model);
-	  
-	  logger.info("이거의값은???????" + map);
-	  model.addAttribute("map", map); 
-	  
-	  
-	  return "mypage/favorites"; 
-	  
-	  
-	  
-  }
+//  @GetMapping("/mypage/favorites")
+//  public String selectListFavorite (@RequestParam(value= "cp",required = false, defaultValue ="1") int cp, 
+//		  Model model ) {
+//	  
+//	  System.out.println("qwertyuiop--------------");
+//	  
+//	  Map<String,Object> map = null;
+//	  
+//	  map = service.selectListFavorite(cp, model);
+//	  
+//	  logger.info("이거의값은???????" + map);
+//	  model.addAttribute("map", map); 
+//	  
+//	  
+//	  return "mypage/favorites"; 
+//	  
+//	  
+//	  
+//  }
+  
+  
+  
+  // 즐겨찾기 목록 전체 조회
+  @GetMapping(value = "/mypage/favorites")
+	public String selectFavoritesList(@RequestParam(value = "cp", required = false, defaultValue = "1") int cp
+	, Model model
+	,HttpSession session,
+	@ModelAttribute("loginMember") Member loginMember,
+	@RequestParam Map<String, Object> paramMap
+	, FavoriteList favoriteList
+	) {
+	
+		int memberNo = loginMember.getMemberNo();
+
+		Map<String, Object> map = null;
+		
+		map = service.selectFavoritesList(cp, memberNo);
+		model.addAttribute("map", map);
+	
+		return "mypage/favorites";
+	}
   
   
   

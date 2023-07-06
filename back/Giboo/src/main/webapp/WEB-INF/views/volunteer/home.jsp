@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>03.main</title>
+<title>hunny</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/volunteer/volunteer.css">
 </head>
@@ -96,11 +96,11 @@
 									<c:choose>
 										<c:when
 											test="${fn:contains(favoriteList, volunteerList.volunteerNo)}">
-											<div class="favoriteButton" id="${volunteerList.volunteerNo}">❤️</div>
+											<div class="favoriteButton" id="${volunteerList.volunteerNo}" data-title="${volunteerList.volunteerTitle}">❤️</div>
 										</c:when>
 
 										<c:otherwise>
-											<div class="favoriteButton" id="${volunteerList.volunteerNo}">🤍</div>
+											<div class="favoriteButton" id="${volunteerList.volunteerNo}"  data-title="${volunteerList.volunteerTitle}">🤍</div>
 										</c:otherwise>
 									</c:choose>
 								</div>
@@ -189,7 +189,7 @@
 
              $.ajax ({
                  url: "addFavorite",
-                 data: {"memberNo" : "${loginMember.memberNo}", 
+                 data: {"memberNo" : ${loginMember.memberNo}, 
                         "volunteerNo" : i.id ,
                         "volunteerTitle" : i.dataset.title},
                  
@@ -207,7 +207,7 @@
 
             $.ajax ({
                 url: "deleteFavorite",
-                data: {"memberNo" : "${loginMember.memberNo}", 
+                data: {"memberNo" : ${loginMember.memberNo}, 
                        "volunteerNo" : i.id , 
                        "volunteerTitle" : i.dataset.title},
 

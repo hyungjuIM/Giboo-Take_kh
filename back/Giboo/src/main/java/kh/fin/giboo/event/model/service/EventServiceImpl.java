@@ -15,7 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
 import kh.fin.giboo.alarm.model.vo.Alarm;
-import kh.fin.giboo.event.Util;
+import kh.fin.giboo.common.Util;
 import kh.fin.giboo.event.controller.EventController;
 import kh.fin.giboo.event.model.dao.EventDAO;
 import kh.fin.giboo.event.model.exception.InsertFailException;
@@ -98,8 +98,23 @@ public class EventServiceImpl implements EventService{
 		return dao.selectEventDetailMember(eventNo);
 	}
 
+//	@Transactional(rollbackFor = { Exception.class })
+//	@Override
+//	public EventDetailLeft selectEventDetailLeft(EventDetailLeft eventDetailLeft, int eventNo) {
+//	    if (eventDetailLeft != null) {
+//	        String eventContent = eventDetailLeft.getEventContent();
+//	        if (eventContent != null) {
+//	            eventDetailLeft.setEventContent(Util.XSSHandling(eventContent));
+//	            eventDetailLeft.setEventContent(Util.newLineHandling(eventContent));
+//	        }
+//	    }
+//	    return dao.selectEventDetailLeft(eventDetailLeft, eventNo);
+//	}
+//	@Transactional(rollbackFor = { Exception.class })
 	@Override
 	public EventDetailLeft selectEventDetailLeft(int eventNo) {
+//		eventDetailLeft.setEventContent(Util.XSSHandling(eventDetailLeft.getEventContent()));
+//		eventDetailLeft.setEventContent(Util.newLineHandling(eventDetailLeft.getEventContent()));
 		return dao.selectEventDetailLeft(eventNo);
 	}
 

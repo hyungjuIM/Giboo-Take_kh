@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<c:set var="donationList" value="${map.donationList}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +22,7 @@
 
 </head>
 <body>
+
 	<header>
 		<jsp:include page="/WEB-INF/views/main/header.jsp" />
 	</header>
@@ -287,6 +290,7 @@
 		src="${pageContext.request.contextPath}/resources/js/donation/donationDetail.js"></script>
 
 	<script>
+
         function donationInput() {
             grayBox.style.display = "flex";
             donationContainer.style.display = "inline";
@@ -302,49 +306,54 @@
         }
 
         function requestPay() {
-            const today = new Date();
-            const hours = today.getHours();
-            const minutes = today.getMinutes();
-            const seconds = today.getSeconds();
-            const milliseconds = today.getMilliseconds();
-            const makeMerchantUid = hours + minutes + seconds + milliseconds;
-            donationContainer.style.display = "none";
-            console.log(donationValue.value);
+            if (donationValue.value >= 100) {
+                const today = new Date();
+                const hours = today.getHours();
+                const minutes = today.getMinutes();
+                const seconds = today.getSeconds();
+                const milliseconds = today.getMilliseconds();
+                const makeMerchantUid = hours + minutes + seconds + milliseconds;
+                donationContainer.style.display = "none";
+                console.log(donationValue.value);
 
-            IMP.request_pay({
-                pg : 'nice.{store-25334d4e-e97d-471c-a263-d93b21592ad8}',
-                pay_method : 'card',
-                merchant_uid: "IMP2" + makeMerchantUid,
-                name : "${donationDetail.donationTitle}",
-                amount : donationValue.value,
-                buyer_email : 'Iamport@chai.finance',
-                buyer_name : '아임포트 기술지원팀',
-                buyer_tel : '010-1234-5678',
-            }, function (rsp) { // callback
-                grayBox.style.display = "none";
-                if (rsp.success) {
-                    console.log(rsp);
-                    $.ajax({
-                        type: "POST",
-                        url: "../verify/" + rsp.imp_uid
-                    }).done(function (data) {
-                        if (rsp.paid_amount == data.response.amount) {
-                            alert("성공");
+                IMP.request_pay({
+                    pg : 'nice.{store-25334d4e-e97d-471c-a263-d93b21592ad8}',
+                    pay_method : 'card',
+                    merchant_uid: "IMP2" + makeMerchantUid,
+                    name : "${donationDetail.donationTitle}",
+                    amount : donationValue.value,
+                    buyer_email : 'Iamport@chai.finance',
+                    buyer_name : '아임포트 기술지원팀',
+                    buyer_tel : '010-1234-5678',
+                }, function (rsp) { // callback
+                    grayBox.style.display = "none";
+                    if (rsp.success) {
+                        console.log(rsp);
+                        $.ajax({
+                            type: "POST",
+                            url: "../verify/" + rsp.imp_uid
+                        }).done(function (data) {
+                            if (rsp.paid_amount == data.response.amount) {
+                                alert("성공");
 
-                            $.ajax({
-                                type: "POST",
-                                url: "../sync",
-                                data: {"impUid" : rsp.imp_uid, "payMethod" : rsp.pay_method, "paidAmount" : rsp.paid_amount, "donationNo" : ${donationDetail.donationNo}}
-                            })
-                        } else {
-                            alert("실패");
-                        }
-                    })
-                } else {
-                    console.log(rsp);
-                }
-            });
+                                $.ajax({
+                                    type: "POST",
+                                    url: "../sync",
+                                    data: {"impUid" : rsp.imp_uid, "payMethod" : rsp.pay_method, "paidAmount" : rsp.paid_amount, "donationNo" : ${donationDetail.donationNo}}
+                                })
+                            } else {
+                                alert("실패");
+                            }
+                        })
+                    } else {
+                        console.log(rsp);
+                    }
+                });
+            } else {
+                alert("기부금액이 최소 금액보다 적습니다. 기부 금액을 100원 이상 입력해주세요.")
+            }
         }
+
     </script>
 </body>
 </html>

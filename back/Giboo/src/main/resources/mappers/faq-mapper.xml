@@ -36,7 +36,13 @@
 	WHERE FAQ_CATEGORY = '봉사'
 	ORDER BY FAQ_NO
     </select>
-
+	
+	<select id="selectFaqDonation" resultMap="faq_rm">
+   	SELECT FAQ_NO, FAQ_CATEGORY, FAQ_TITLE, FAQ_CONTENT
+	FROM FAQ
+	WHERE FAQ_CATEGORY = '기부'
+	ORDER BY FAQ_NO
+    </select>
 	
   
 </mapper>

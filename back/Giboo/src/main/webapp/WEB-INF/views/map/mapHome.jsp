@@ -36,7 +36,8 @@
             	  <a class="mapMainHome_a" href="${pageContext.request.contextPath}/map/mapList">
             	  	<img src="${pageContext.request.contextPath}/resources/images/dog.jpeg">
             	  
-            	  </a></div>
+            	  </a>
+                </div>
             
                 <div class="mhBox">
                     
@@ -48,7 +49,6 @@
                         <div class="mhCa">
                             <a href="${pageContext.request.contextPath}/map/mapHome/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" id="mapVoRe">홈</a>
                             <a href="${pageContext.request.contextPath}/map/mapVoRe/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" id="mapVoRe">리뷰</a>
-                            <a href="">사진</a>
                         </div>
                     </div>
                 </div>
@@ -74,8 +74,12 @@
                     <div class="mhDeAdd">
                         <div class="mhDeAddIc">
                             <span>🏠</span>
-                        </div>
-                        <div class="mhDeAddLink">
+                        </div>    
+                            <div><a href="${pageContext.request.contextPath}/volunteer/detail/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" class="elink_official">
+                            <span>봉사페이지 이동하기</span></a>
+                            </div>
+                        
+                       <!--  <div class="mhDeAddLink">
                             <a href="">
                                 <span>https://www.instagram.com/bongsaplace</span>
                             </a>
@@ -88,7 +92,7 @@
                                     <span>블로그</span>
                                 </a>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- 설명 -->
                     <div class="mhDeAddCh">

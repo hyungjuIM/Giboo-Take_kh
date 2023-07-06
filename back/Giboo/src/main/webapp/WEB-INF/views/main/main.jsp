@@ -10,7 +10,7 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>main</title>
+            <title>hunny</title>
             <!-- jQuery 라이브러리 추가 -->
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"
                 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -163,7 +163,7 @@
                         <ul class="allSlides slidesStyle">
                             <c:forEach var="volunteer" items="${mVolunteerList}" varStatus="status" begin="0" end="5">
                                 <c:set var="volunteerDetail" value="${volunteerDetails[status.index]}" />
-                                <li class="vol_box_style vol_box">
+                                <li class="vol_box_style vol_box" >
                                     <div class="vol_day"><span>${volunteerDetail.DDay}</span>D-day</div>
                                     <div><img
                                             src="${pageContext.request.contextPath}${volunteerDetail.volunteerAttachment}">
@@ -219,7 +219,7 @@
                 <section class="donationContainer">
                     <div class="main_sub_title title_style">
                         <p>Donation</p>
-                        <h3 class="sub_title">이웃을 향한 아름다운 도움의 손길</h3>
+                        <h3 class="sub_title">당신의 관심 한번이 많은 사람을 구합니다.</h3>
                     </div>
                     <div class="do_blur_box1"></div>
                     <div class="do_blur_box2"></div>

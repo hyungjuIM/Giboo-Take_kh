@@ -520,11 +520,13 @@ a{
 }
 
 
+
 .modify_tag{
 	 font-family: 'NanumSquareNeo';
 	font-size: 16px;
 	color: var(--etcColor);
 	font-weight: 600;
+
 }
 
 /*  */

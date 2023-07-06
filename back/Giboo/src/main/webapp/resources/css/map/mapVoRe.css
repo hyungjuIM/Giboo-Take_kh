@@ -286,7 +286,7 @@
 .mhBtnWrap{
     display: flex;
     /* background-color: yellowgreen; */
-    width: 360px;
+    width: 320px;
     height: 80px;
     align-items: center;
     justify-content: center;
@@ -412,7 +412,7 @@
 }
 
 .mvBtnRe{
-    width: 129px;
+    width: 309px;
     height: 32px;
     background-color: white;
     border-radius: 15px;
@@ -490,7 +490,7 @@
 
 .mvRelili{
 	position: relative;
-    background: #EAE8FC;
+    background: #f0f0f0;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);    
     border-radius: .4em;
     border-radius: 12px;
@@ -509,7 +509,7 @@
 	width: 0;
 	height: 0;
 	border: 14px solid transparent;
-	border-bottom-color: #EAE8FC;
+	border-bottom-color: #f0f0f0;
 	border-top: 0;
 	margin-left: -12px;
 	margin-top: -12px;
@@ -558,4 +558,15 @@
     font-weight: 400;
     font-size: 12px;
     color: #767676;
+}
+
+
+
+.mapMainHome_a img{
+    width : 50px;
+    height: 50px;
+}
+
+.mhBox{
+    margin-top: 20px;
 }

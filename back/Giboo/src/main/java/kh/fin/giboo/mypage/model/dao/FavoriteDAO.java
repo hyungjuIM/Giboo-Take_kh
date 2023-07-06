@@ -12,6 +12,8 @@ import org.springframework.ui.Model;
 
 import kh.fin.giboo.cs.model.vo.Pagination;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.mypage.model.vo.FavoriteList;
+import kh.fin.giboo.mypage.model.vo.Point;
 
 @Repository
 public class FavoriteDAO {
@@ -108,6 +110,21 @@ public class FavoriteDAO {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 		return sqlSession.selectList("myPage-mapper.selectListFavorite", model, rowBounds);
 	}
+
+	public int getListCountFavorites(int memberNo) {
+		return sqlSession.selectOne("myPage-mapper.getListCountFavorites", memberNo);
+	}
+
+	public List<FavoriteList> selectFavoritesList(Pagination pagination, int memberNo) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+
+
+		return sqlSession.selectList("myPage-mapper.selectFavoritesList", memberNo, rowBounds);
+	}
+
 
 
 	
