@@ -27,7 +27,7 @@
     position: relative;
 }
 
-.eFavBtn{
+/* .eFavBtn{
     position: absolute;
     width: 80px;
     height: 80px;
@@ -41,11 +41,11 @@
 
 .eFavBtn:hover{
     background-color: red;
-}
+} */
 
-.dFavSpan{
+/* .dFavSpan{
     font-size: 20px;
-}
+} */
 
 main{
     display: flex;
