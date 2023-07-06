@@ -34,31 +34,8 @@ public class AlarmController {
 	@Autowired
 	private AlarmService service;
 	
-//	public class ReadStatusResponse {
-//	    private String readStatus;
-//
-//	    public ReadStatusResponse(String readStatus) {
-//	        this.readStatus = readStatus;
-//	    }
-//
-//	    public String getReadStatus() {
-//	        return readStatus;
-//	    }
-//
-//	    public void setReadStatus(String readStatus) {
-//	        this.readStatus = readStatus;
-//	    }
-//	}
-//
-//
-//	@GetMapping("/Giboo/getReadStatus")
-//	@ResponseBody
-//	public ReadStatusResponse getReadStatus() {
-//		String readStatus = service.getReadStatus();
-//		return new ReadStatusResponse(readStatus);
-//	}
 	
-//	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	@ResponseBody
 	@GetMapping(value = { "/Giboo/notifications", "/notifications", ""  })
 	public List<Alarm> selectAll(	Model model
@@ -72,12 +49,11 @@ public class AlarmController {
 		model.addAttribute("map", map);
 		return (List<Alarm>) map.get("alarms");
 
-		//return service.selectAll(model);
 	}
 	
 
 	@ResponseBody
-	@PostMapping(value ="/updateReadStatus")
+	@PostMapping(value ="/updateReadStatus", consumes = "application/json")
     public int updateReadStatus(
 
     		@RequestBody Map<String, Object> data,
