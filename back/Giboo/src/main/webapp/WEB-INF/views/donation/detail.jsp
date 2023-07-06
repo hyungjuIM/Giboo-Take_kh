@@ -140,7 +140,9 @@
                         </div>
                     </div>
 
-                    <a href="${pageContext.request.contextPath}/donation/write?mode=update&no=${donationDetail.donationNo}">수정</a>
+                        <c:if test="${donationDetail.memberNo} == ${loginMember.memberNo}">
+                            <a href="${pageContext.request.contextPath}/donation/write?mode=update&no=${donationDetail.donationNo}">수정</a>
+                        </c:if>
 
                 </div>
             </section>

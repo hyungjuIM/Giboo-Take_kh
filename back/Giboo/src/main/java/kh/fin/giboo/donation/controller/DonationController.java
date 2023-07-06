@@ -70,9 +70,6 @@ public class DonationController {
             model.addAttribute("favoriteList", favoriteList);
         }
         
-        
-        
-        
         model.addAttribute("category", category);
 
         Map<String, Object> map = null;
