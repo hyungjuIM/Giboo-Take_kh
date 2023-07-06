@@ -6,7 +6,7 @@
                 <div class="edWrap">
                     <div class="eFavBtn" id="eFavBtn">
                         <div class="dFavDiv">
-                            <span class="dFavSpan">❤️</span>
+                            <span class="dFavSpan"></span>
                         </div>
                     </div>
                     <img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="">
@@ -39,9 +39,9 @@
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                                 <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중</span>
-                            <span class="fav">
+                            <%-- <span class="fav">
                                 <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                                <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span>
+                                <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span> --%>
                         </div>
                     </div>
                     

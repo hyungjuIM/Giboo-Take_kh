@@ -34,29 +34,6 @@ public class AlarmController {
 	@Autowired
 	private AlarmService service;
 	
-//	public class ReadStatusResponse {
-//	    private String readStatus;
-//
-//	    public ReadStatusResponse(String readStatus) {
-//	        this.readStatus = readStatus;
-//	    }
-//
-//	    public String getReadStatus() {
-//	        return readStatus;
-//	    }
-//
-//	    public void setReadStatus(String readStatus) {
-//	        this.readStatus = readStatus;
-//	    }
-//	}
-//
-//
-//	@GetMapping("/Giboo/getReadStatus")
-//	@ResponseBody
-//	public ReadStatusResponse getReadStatus() {
-//		String readStatus = service.getReadStatus();
-//		return new ReadStatusResponse(readStatus);
-//	}
 	
 	@SuppressWarnings("unchecked")
 	@ResponseBody
@@ -72,7 +49,6 @@ public class AlarmController {
 		model.addAttribute("map", map);
 		return (List<Alarm>) map.get("alarms");
 
-		//return service.selectAll(model);
 	}
 	
 

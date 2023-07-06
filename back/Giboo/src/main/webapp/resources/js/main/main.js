@@ -145,7 +145,7 @@ new Swiper('.swiper-container', {
  const videoElement = document.querySelector('.main_video');
   
   videoElement.addEventListener('timeupdate', function() {
-    if (this.currentTime < 3 || this.currentTime > 8) {
+    if (this.currentTime < 2 || this.currentTime > 9) {
       this.currentTime = 3;
     }
   });
