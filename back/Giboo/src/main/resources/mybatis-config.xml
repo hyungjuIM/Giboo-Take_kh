@@ -84,6 +84,7 @@
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyReview" alias="myReview"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.Favorite" alias="favorite"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.Point" alias="point"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.FavoriteList" alias="favoriteList"/>
 	
 	
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.Stamp" alias="stamp"/>

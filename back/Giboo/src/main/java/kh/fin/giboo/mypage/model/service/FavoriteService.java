@@ -27,6 +27,8 @@ public interface FavoriteService {
 
 	Map<String, Object> selectListFavorite(int cp, Model model);
 
+	Map<String, Object> selectFavoritesList(int cp, int memberNo);
+
 	
 
 	
