@@ -32,12 +32,12 @@ import kh.fin.giboo.mypage.model.service.FavoriteService;
   public String addFavoriteVolunteer(
 		  @RequestParam int memberNo,
 		    @RequestParam int volunteerNo,
-		    @RequestParam String volunteerTitle
+		    @RequestParam("volunteerTitle") String volunteerTitle
 	         )
    { 
 	    
 
-	  logger.info("memberNo" , memberNo);
+	  logger.info("memberNo......." , memberNo);
 	  logger.info("volunteerNo" , volunteerNo);
 	  logger.info("volunteerTitle" , volunteerTitle);
 	 

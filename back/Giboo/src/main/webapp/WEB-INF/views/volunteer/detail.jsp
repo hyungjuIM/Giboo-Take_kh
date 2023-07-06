@@ -91,34 +91,41 @@
                             <img class="agencyLinkImg" src="${pageContext.request.contextPath}/resources/images/chevron-right-solid.svg"></a>
                     </div>
 
-                    <div class="commentArea">
-                        <div>
-                            <img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="name">마리</span>에게 응원의 메시지를 남겨주세요</div>
-                        <div class="commentItem">
-                            <div class="memberImgArea">
-                                <img id="memberImg1" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
-                            </div>
-
-                            <div class="commentInner">
-                                <div id="memberName1" class="memberName">유저${reply.memberNo}</div>
-                                <div id="comment1" class="comment">${reply.replyContent}</div>
-                            </div>
-                        </div>
-
-                        
-                        <textarea id="replyContent"></textarea>
-                        <button class="commentSubmit" id="cheeringButton">응원하기</button>
-                        
-                        <div class="commentInfo">
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="commentCount">1,030</span>
-                            <span>명 응원중｜</span>
-                            <img src="${pageContext.request.contextPath}/resources/images/share-from-square-regular.svg">
-                            <span id="shareCount">508</span>
-                            <span>명 공유</span>
-                        </div>
-                    </div>
+					<div class="commentArea">
+						<div>
+							<img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+							<span id="name">Marie를 위한 응원 메시지를 남겨주세요</span>
+						</div>
+						<c:choose>
+							<c:when test="${empty reply}">
+								<span>응원 메시지가 없습니다. 여러분의 응원이 필요합니다.</span>
+							</c:when>
+							<c:otherwise>
+								<c:forEach var="reply" items="${reply}">
+									<div class="commentItem">
+										<div class="memberImgArea">
+											<img id="memberImg1" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
+										</div>
+										<div class="commentInner">
+											<div id="memberName1" class="memberName">User${reply.memberNo}</div>
+											<div id="comment1" class="comment">${reply.replyContent}</div>
+										</div>
+									</div>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
+						<textarea id="replyContent"></textarea>
+						<button class="commentSubmit" id="cheeringButton">응원하기</button>
+						<div class="commentInfo">
+							<img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+							<span id="commentCount">1,030</span>
+							<span>명이 응원하고 있습니다｜</span>
+							<img src="${pageContext.request.contextPath}/resources/images/share-from-square-regular.svg">
+							<span id="shareCount">508</span>
+							<span>명이 공유하였습니다</span>
+						</div>
+					</div>
+					
 
                     <a href="${pageContext.request.contextPath}/volunteer/write?mode=update&no=${volunteerDetail.volunteerNo}">수정</a>
 
@@ -264,8 +271,17 @@
             const memberName1 = document.getElementById("memberName1");
             const comment1 = document.getElementById("comment1");
 
-            memberName1.textContent = "유저" + reply.memberNo;
-            comment1.textContent = reply.replyContent;
+			if (memberName1 === null) {
+				console.log('memberName is null');
+				} else {
+				memberName1.innerText = "유저" + reply.replyNo;
+				}
+
+			if (comment1 === null) {
+				console.log('comment is null');
+				} else {
+				comment1.innerText = reply.replyContent;
+				}
         }
         },
 

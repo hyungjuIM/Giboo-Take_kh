@@ -96,11 +96,11 @@
 									<c:choose>
 										<c:when
 											test="${fn:contains(favoriteList, volunteerList.volunteerNo)}">
-											<div class="favoriteButton" id="${volunteerList.volunteerNo}">❤️</div>
+											<div class="favoriteButton" id="${volunteerList.volunteerNo}" data-title="${volunteerList.volunteerTitle}">❤️</div>
 										</c:when>
 
 										<c:otherwise>
-											<div class="favoriteButton" id="${volunteerList.volunteerNo}">🤍</div>
+											<div class="favoriteButton" id="${volunteerList.volunteerNo}"  data-title="${volunteerList.volunteerTitle}">🤍</div>
 										</c:otherwise>
 									</c:choose>
 								</div>
