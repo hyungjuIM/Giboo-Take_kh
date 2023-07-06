@@ -27,6 +27,7 @@
             <div class="textArea">
                 <div>사이트에 문제가 생겼어요</div>
                 <div>잠시 후 다시 시도해주세요</div>
+                ${e}
             </div>
         </div>
         <div class="buttonArea">
