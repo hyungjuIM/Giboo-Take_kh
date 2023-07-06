@@ -14,6 +14,8 @@ import kh.fin.giboo.cs.model.vo.Pagination;
 import kh.fin.giboo.mypage.controller.FavoriteController;
 import kh.fin.giboo.mypage.model.dao.FavoriteDAO;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.mypage.model.vo.FavoriteList;
+import kh.fin.giboo.mypage.model.vo.Point;
 
 @Service
 public class FavoriteServiceImpl implements FavoriteService{
@@ -108,6 +110,30 @@ public class FavoriteServiceImpl implements FavoriteService{
 		map.put("pagination", pagination);
 		map.put("favoriteList", favoriteList);
 		logger.info("favoriteList" + favoriteList);
+		
+		return map;
+	}
+
+
+
+
+
+
+	@Override
+	public Map<String, Object> selectFavoritesList(int cp, int memberNo) {
+		int listCount = dao.getListCountFavorites(memberNo);
+		Pagination pagination = new Pagination(cp, listCount);
+
+		
+		// 3)나의기부내역 게시글 목록 조회
+		List<FavoriteList> favoriteList = dao.selectFavoritesList(pagination, memberNo);
+
+		
+		
+		// map 만들어서 담기
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("pagination", pagination);
+		map.put("favoriteList", favoriteList);
 		
 		return map;
 	}
