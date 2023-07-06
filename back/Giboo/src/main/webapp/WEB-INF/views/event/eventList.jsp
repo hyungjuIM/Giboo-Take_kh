@@ -29,25 +29,36 @@
             <div class="eventContent">
                 <div class="eventBody">
                     <div class="eventList_main">
+                    
+                    
+                   <!--이벤트 상 메뉴 -->
                         <div class="ewrap_tab">
                             <ul class="elist_tab">
-                                <li class="eon">
-                                    <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab">
-                                        <span class="etxt_tab">진행중</span>
-                                    </a>
-                                </li>
+                            
                                 <li class="eon">
                                     <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab">
                                         <span class="etxt_tab">전체</span>
                                     </a>
                                 </li>
+                                
+                                <li class="eon">
+                                <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab">
+                                        <span class="etxt_tab">진행중</span>
+                                    </a>
+                                    
+                                </li>
+                                
                                 <li class="eon">
                                     <a href="${pageContext.request.contextPath}/event/eventListDone" class="elink_tab">
                                         <span class="etxt_tab">종료</span>
                                     </a>
                                 </li>
+                                
                             </ul>
                         </div>
+                        
+                        
+                        <!--  -->
                         <div class="egroup_catalog">
                             <c:choose>
                                 <c:when test="${empty eventList}">
@@ -136,11 +147,11 @@
 
                         <c:choose>
                             <c:when test="${i == pagination.currentPage}">
-                                <li><a class="current">${i}</a></li>
+                                <li class="num"><a class="current">${i}</a></li>
                             </c:when>
 
                             <c:otherwise>
-                                <li><a href="${url}${i}${sURL}">${i}</a></li>        
+                                <li class="num"><a href="${url}${i}${sURL}">${i}</a></li>        
                             </c:otherwise>
                         </c:choose>
 
