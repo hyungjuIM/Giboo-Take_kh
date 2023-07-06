@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+body{
+    margin: 0;
+    background-color: white;
+    color: #000;
+    line-height: 1.6em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+/* section mainContainer */
+.mainContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.mainContent{
+    width: 1200px;
+    height: fit-content;
+}
+
+.mainTitleArea {
+    background-color: #5D55FA;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 44px;
+}
+
+.mainTitle {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.writeArea > li {
+    color: #5D55FA;
+    margin-bottom: 16px;
+}
+
+.writeArea > li > div > input {
+    border: 2px solid #5D55FA;
+    border-radius: 10px;
+    padding: 10px 15px;
+    outline: none;
+}
+
+.writeArea > li > div > label{
+    padding : 10px;
+    cursor: pointer;
+}
+
+.writeArea > li > div {
+    display: flex;
+    align-items: center;
+}
+
+#titleInput::placeholder,
+#targetInput::placeholder {
+    color: #D6D3F4;
+}
+
+.listTitle {
+    width: 100px;
+    font-weight: bold;
+}
+
+#titleInput {
+    width: 90%;
+}
+
+#beginDate, #endDate {
+    width: 250px;
+    text-align: center;
+    color: black;
+}
+
+#beginDate[data-placeholder],#endDate[data-placeholder] {
+    color: #D6D3F4;
+}
+
+#beginDate:before ,#endDate:before {
+    content: attr(data-placeholder);
+    width: 100%;
+}
+
+#beginDate:focus:before, #beginDate:valid:before,
+#endDate:focus:before, #endDate:valid:before
+{
+    display: none;
+}
+
+.margin {
+    margin-inline: 22px;
+}
+
+.contentArea {
+    align-items: start !important;
+}
+
+
+.eventWrite2{
+    display: flex;
+
+}
+
+/* .eventCont2{
+    border : 1px solid #a9a9a9;
+    border-radius: 5px;
+    height: 300px;
+    width: 1078.4px;
+    justify-content: center;
+} */
+
+textarea{
+    outline : none;
+    width: 95%;
+    height: 80%;
+    resize: none;
+}
+
+
+
+
+
+.imgSelectButton {
+    font-size: 18px;
+    font-weight: bolder;
+    color: white;
+    background-color: #5D55FA;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-left: 10px;
+    height: 46px;
+    cursor: pointer;
+}
+
+
+.imgInputInner {
+    display: flex;
+    position: relative;
+}
+
+#imgInput {
+    border: 2px solid #5D55FA;
+    border-radius: 10px;
+    padding: 10px 15px;
+    width: 390px;
+    display: flex;
+    align-items: center;
+}
+
+#imgInput::file-selector-button {
+    display: none;
+}
+
+#imgInputPlaceholder {
+    width: 380px;
+    height: 27px;
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    top: 10px;
+    left: 7px;
+    opacity: 1;
+}
+
+.optionArea {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 30px;
+    border-top: 2px solid #D9D9D9;
+}
+
+.optionArea > div {
+    display: flex;
+}
+
+.list, .edit, .delete {
+    height: 38px;
+    background-color: unset;
+    font-weight: normal;
+    font-size: 14px;
+    color: #767676;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin-bottom: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit {
+    margin-right: 32px;
+}
+

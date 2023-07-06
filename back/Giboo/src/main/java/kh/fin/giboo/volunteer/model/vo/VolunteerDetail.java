@@ -16,11 +16,11 @@ public class VolunteerDetail {
     private int locationY;
     private String volunteerAddr;
     private String volunteerTime;
-    private String enrollDate;
-    private String startRecruitDate;
+    private Date enrollDate;
+    private Date startRecruitDate;
     private Date endRecruitDate;
-    private String startProgressDate;
-    private String endProgressDate;
+    private Date startProgressDate;
+    private Date endProgressDate;
     private String volunteerDeleteStatus;
     private String volunteerCompleteStatus;
     private int volunteerCount;
@@ -28,9 +28,11 @@ public class VolunteerDetail {
     private String volunteerTitle;
     private String volunteerContent;
     private String volunteerAttachment;
+    private int memberNo;
     private String memberId;
+    private int parentCategoryNo;
     private String parentCategoryName;
-    private int agencyName;
+    private String agencyName;
     private long dDay;
     private int percent;
 }

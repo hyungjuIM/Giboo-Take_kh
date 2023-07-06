@@ -8,14 +8,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Stamp {
-	
-	// 등급
-				private int stampNo;
-				private int stampCount;
-				private int eventNo;
-				private int memberNo;
+	private int stampNo;
+	private int eventNo;
+	private String stampAttachment;
+	private int memberNo;
+//	private int stampCount;
 
 }
-
-
-	

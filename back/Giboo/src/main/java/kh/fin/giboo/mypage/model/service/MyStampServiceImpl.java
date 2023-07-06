@@ -1,5 +1,8 @@
 package kh.fin.giboo.mypage.model.service;
 
-public class MyStampServiceImpl {
+import org.springframework.stereotype.Service;
+
+@Service
+public class MyStampServiceImpl implements MyStampService {
 
 }

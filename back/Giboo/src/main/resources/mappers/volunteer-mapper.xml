@@ -24,6 +24,7 @@
         <result property="memberId" column="MEMBER_ID" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
+        <result property="favVolunteerNo" column="VOLUNTEER_NO" />
     </resultMap>
 
     <resultMap id="volunteerDetail_rm" type="volunteerDetail">
@@ -45,7 +46,9 @@
         <result property="volunteerTitle" column="VOLUNTEER_TITLE" />
         <result property="volunteerContent" column="VOLUNTEER_CONTENT" />
         <result property="volunteerAttachment" column="VOLUNTEER_ATTACHMENT" />
+        <result property="memberNo" column="MEMBER_NO" />
         <result property="memberId" column="MEMBER_ID" />
+        <result property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
     </resultMap>
@@ -57,6 +60,56 @@
         <result property="categoryName" column="CATEGORY_NAME" />
     </resultMap>
 
+    <resultMap id="volunteerStory_rm" type="volunteerStory" >
+        <id property="volunteerStoryNo" column="VOLUNTEER_STORY_NO" />
+        <result property="volunteerStoryTitle" column="VOLUNTEER_STORY_TITLE" />
+        <result property="volunteerStoryContent" column="VOLUNTEER_STORY_CONTENT" />
+        <result property="attachment" column="ATTACHMENT" />
+        <result property="enrollDt" column="ENROLL_DT" />
+        <result property="viewCount" column="VIEW_COUNT" />
+        <result property="deleteStatus" column="DELETE_STATUS" />
+        <result property="memberNick" column="MEMBER_NICK" />
+        <result property="memberNo" column="MEMBER_NO"/>
+    </resultMap>
+
+    <resultMap id="favorite_rm" type="favorite">
+        <id property="favoriteNo" column="FAVORITE_NO" />
+        <result property="favoriteStatus" column="FAVORITE_STATUS" />
+        <result property="memberNo" column="MEMBER_NO" />
+        <result property="donationNo" column="DONATION_NO" />
+        <result property="volunteerNo" column="VOLUNTEER_NO" />
+    </resultMap>
+    
+    	<resultMap type="myActiveVolunteerList"
+		id="myActiveVolunteerList_rm">
+		<id property="myactiveVolunteerNo" column="MYACTIVE_VOLUNTEER_NO" />
+		<result property="myactiveDate" column="MYACTIVE_DATE" />
+		<result property="volunteerCompleteStatus"
+			column="VOLUNTEER_COMPLETE_STATUS" />
+		<result property="volunteerNo" column="VOLUNTEER_NO" />
+		<result property="memberNo" column="MEMBER_NO" />
+
+		<result property="volunteerTitle" column="VOLUNTEER_TITLE" />
+		<result property="volunteerContent" column="VOLUNTEER_CONTENT" />
+		<result property="startProgressDate"
+			column="START_PROGRESS_DATE" />
+		<result property="volunteerAddr" column="VOLUNTEER_ADDR" />
+		<result property="enrollDate" column="ENROLL_DATE" />
+	</resultMap>
+	
+	<resultMap type="reply" id="reply_rm">
+	
+		<id property="replyNo" column="REPLY_NO"/>
+		
+		<result property="replyContent" column="REPLY_CONTENT"/>
+		<result property="createDate" column="CREATE_DT"/>
+		<result property="volunteerNo" column="VOLUNTEER_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="volunteerNo" column="DONATION_NO"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="secessionFl" column="SECESSION_FL"/>	
+	</resultMap>
+
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
         FROM PARENT_CATEGORY
@@ -67,38 +120,231 @@
     <select id="getListCount" resultType="_int">
         SELECT COUNT(*)
         FROM VOLUNTEER
+        WHERE VOLUNTEER_DELETE_STATUS = 'N'
         <if test="category != null">
-            WHERE PARENT_CATEGORY_NO = ${category}
+            AND PARENT_CATEGORY_NO = ${category}
         </if>
     </select>
 
     <select id="getVolunteerList" resultMap="volunteer_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, PC.PARENT_CATEGORY_NAME
         FROM VOLUNTEER V, PARENT_CATEGORY PC
+        WHERE VOLUNTEER_DELETE_STATUS = 'N'
         <if test="category != null">
-            WHERE V.PARENT_CATEGORY_NO = ${category}
+            AND V.PARENT_CATEGORY_NO = ${category}
             AND V.PARENT_CATEGORY_NO = PC.PARENT_CATEGORY_NO
         </if>
-        ORDER BY VOLUNTEER_NO ASC
+        ORDER BY VOLUNTEER_NO DESC
     </select>
 
     <select id="getVolunteerListAll" resultMap="volunteer_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
         FROM VOLUNTEER
-        ORDER BY VOLUNTEER_NO ASC
+        WHERE VOLUNTEER_DELETE_STATUS = 'N'
+        ORDER BY VOLUNTEER_NO DESC
     </select>
 
     <select id="getVolunteerDetail" resultMap="volunteerDetail_rm">
-        SELECT VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
-        FROM VOLUNTEER
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME, PARENT_CATEGORY_NO
+        FROM VOLUNTEER V, AGENCY A
         WHERE VOLUNTEER_NO = ${volunteerNo}
+        AND VOLUNTEER_DELETE_STATUS = 'N'
+        AND V.AGENCY_NO = A.AGENCY_NO
+    </select>
+    
+    <select id= "getReply" resultMap="reply_rm">
+    SELECT REPLY_CONTENT
+    FROM REPLY
+    WHERE REPLY_CONTENT = #{replyContent}
+    </select>
+    
+    <select id="getFavoriteList" resultMap="favorite_rm">
+        SELECT VOLUNTEER_NO
+        FROM FAVORITES
+        WHERE MEMBER_NO = ${memberNo}
     </select>
 
     <select id="volunteerListCount" resultType="_int">
         SELECT COUNT(*)
         FROM VOLUNTEER
+        WHERE VOLUNTEER_DELETE_STATUS = 'N'
         <if test="category != null">
-            WHERE PARENT_CATEGORY_NO = ${category}
+            AND PARENT_CATEGORY_NO = ${category}
         </if>
     </select>
+
+    <select id="getStoryListCount" resultType="_int">
+        SELECT COUNT(*)
+        FROM VOLUNTEER_STORY
+        WHERE DELETE_STATUS = 'N'
+    </select>
+
+    <select id="getStoryList" resultMap="volunteerStory_rm">
+        SELECT VOLUNTEER_STORY_NO, VOLUNTEER_STORY_TITLE, VOLUNTEER_STORY_CONTENT, M.MEMBER_NICK, VIEW_COUNT,
+        CASE WHEN SYSDATE - VS.ENROLL_DT &lt; 1
+        THEN TO_CHAR(VS.ENROLL_DT, 'YYYY-MM-DD')
+        ELSE TO_CHAR(VS.ENROLL_DT, 'HH:MI')
+        END ENROLL_DT
+
+        FROM VOLUNTEER_STORY VS, MEMBER M
+        WHERE M.MEMBER_NO = VS.MEMBER_NO
+        AND DELETE_STATUS = 'N'
+        ORDER BY VOLUNTEER_STORY_NO DESC
+    </select>
+
+    <select id="selectVolunteerStory" resultMap="volunteerStory_rm">
+        SELECT VOLUNTEER_STORY_NO, VOLUNTEER_STORY_TITLE, VOLUNTEER_STORY_CONTENT,
+               TO_CHAR(VS.ENROLL_DT, 'YYYY. MM. DD') ENROLL_DT,
+               VIEW_COUNT, M.MEMBER_NICK, VS.MEMBER_NO
+        FROM VOLUNTEER_STORY VS, MEMBER M
+        WHERE VOLUNTEER_STORY_NO = ${volunteerStoryNo}
+        AND VS.MEMBER_NO = M.MEMBER_NO
+        AND DELETE_STATUS = 'N'
+    </select>
+
+    <update id="updateViewCount">
+        UPDATE VOLUNTEER_STORY
+        SET VIEW_COUNT = VIEW_COUNT + 1
+        WHERE VOLUNTEER_STORY_NO = ${volunteerStoryNo}
+    </update>
+
+    <insert id="insertVolunteer" parameterType="volunteerDetail" useGeneratedKeys="true">
+        <selectKey keyProperty="volunteerNo" resultType="_int" order="BEFORE">
+            SELECT SEQ_VOLUNTEER_NO.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO VOLUNTEER
+        VALUES (
+                ${volunteerNo},
+                ${targetPeople},
+                123,
+                321,
+                #{volunteerAddr},
+                DEFAULT,
+                #{startRecruitDate},
+                #{endRecruitDate},
+                #{startProgressDate},
+                #{endProgressDate},
+                DEFAULT,
+                DEFAULT,
+                DEFAULT,
+                DEFAULT,
+                #{volunteerTitle},
+                #{volunteerContent},
+                NULL,
+                ${memberNo},
+                1,
+                ${parentCategoryNo},
+                1
+               )
+    </insert>
+
+    <update id="updateVolunteer">
+        UPDATE VOLUNTEER
+        SET VOLUNTEER_TITLE = #{volunteerTitle},
+            START_RECRUIT_DATE = #{startRecruitDate},
+            END_RECRUIT_DATE = #{endRecruitDate},
+            START_PROGRESS_DATE = #{startProgressDate},
+            END_PROGRESS_DATE = #{endProgressDate},
+            TARGET_PEOPLE = ${targetPeople},
+            VOLUNTEER_ADDR = #{volunteerAddr},
+            VOLUNTEER_CONTENT = #{volunteerContent},
+            PARENT_CATEGORY_NO = ${parentCategoryNo},
+            ENROLL_DATE = CURRENT_DATE
+        WHERE VOLUNTEER_NO = ${volunteerNo}
+    </update>
+
+    <insert id="insertStory" parameterType="volunteerStory" useGeneratedKeys="true">
+        <selectKey keyProperty="volunteerStoryNo" resultType="_int" order="BEFORE">
+            SELECT SEQ_VOLUNTEER_STORY_NO.NEXTVAL FROM DUAL
+        </selectKey>
+        INSERT INTO VOLUNTEER_STORY
+        VALUES (
+                ${volunteerStoryNo},
+                #{volunteerStoryTitle},
+                #{volunteerStoryContent},
+                NULL,
+                DEFAULT,
+                DEFAULT,
+                DEFAULT,
+                ${memberNo}
+               )
+    </insert>
+
+    <update id="updateStory">
+        UPDATE VOLUNTEER_STORY
+        SET VOLUNTEER_STORY_TITLE = #{volunteerStoryTitle},
+            VOLUNTEER_STORY_CONTENT = #{volunteerStoryContent},
+            ENROLL_DT = DEFAULT
+        WHERE VOLUNTEER_STORY_NO = ${volunteerStoryNo}
+    </update>
+
+    <delete id="storyDelete">
+        DELETE VOLUNTEER_STORY
+        WHERE VOLUNTEER_STORY_NO = ${storyNo}
+    </delete>
+    
+    <insert id="insertvolunteer">
+    INSERT INTO MYACTIVE_VOLUNTEER (MYACTIVE_VOLUNTEER_NO,MYACTIVE_DATE,VOLUNTEER_COMPLETE_STATUS,VOLUNTEER_NO,MEMBER_NO)
+VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${memberNo})
+    </insert>
+    
+    <select id="selectvolunteer" resultType="_int">
+    SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER 
+	WHERE MEMBER_NO = ${memberNo} AND VOLUNTEER_NO = ${volunteerNo}
+    </select>
+    
+
+    <insert id="insertReply">
+    INSERT INTO REPLY (REPLY_NO, REPLY_CONTENT, MEMBER_NO, VOLUNTEER_NO) 
+    VALUES (SEQ_REPLY_NO_S.NEXTVAL, #{replyContent}, #{memberNo}, #{volunteerNo})
+    </insert>
+    
+    <select id="selectReplyList" resultMap="reply_rm">
+    SELECT *
+    FROM REPLY
+    WHERE VOLUNTEER_NO = #{volunteerNo}
+	</select>
+
+    <select id="selectmVolunteerList" resultMap="volunteer_rm">
+			   SELECT *
+FROM (
+    SELECT
+        V.VOLUNTEER_NO,
+        V.TARGET_PEOPLE,
+        V.LOCATION_X,
+        V.LOCATION_Y,
+        V.VOLUNTEER_ADDR,
+        V.ENROLL_DATE,
+        TO_CHAR(V.START_RECRUIT_DATE, 'YYYY-MM-DD') AS START_RECRUIT_DATE,
+        TO_CHAR(V.END_RECRUIT_DATE, 'YYYY-MM-DD') AS END_RECRUIT_DATE,
+        TO_CHAR(V.START_PROGRESS_DATE, 'YYYY-MM-DD') AS START_PROGRESS_DATE,
+        TO_CHAR(V.END_PROGRESS_DATE, 'YYYY-MM-DD') AS END_PROGRESS_DATE,
+        V.VOLUNTEER_DELETE_STATUS,
+        V.VOLUNTEER_COMPLETE_STATUS,
+        V.VOLUNTEER_COUNT,
+        V.VIEW_COUNT,
+        V.VOLUNTEER_TITLE,
+        V.VOLUNTEER_CONTENT,
+        V.VOLUNTEER_ATTACHMENT,
+        V.MEMBER_NO,
+        V.PARENT_CATEGORY_NO,
+        V.AGENCY_NO,
+        V.VOLUNTEER_TIME,
+        C.PARENT_CATEGORY_NAME
+    FROM VOLUNTEER V
+    JOIN PARENT_CATEGORY C ON V.PARENT_CATEGORY_NO = C.PARENT_CATEGORY_NO
+    ORDER BY V.ENROLL_DATE DESC
+)
+WHERE ROWNUM &lt;= 6
+    
+    </select>
+    
+       <select id="getVolunteerDetail2" resultMap="volunteerDetail_rm">
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME,VOLUNTEER_ATTACHMENT, PARENT_CATEGORY_NO
+        FROM VOLUNTEER V, AGENCY A
+        WHERE VOLUNTEER_NO = ${volunteerNo2}
+        AND VOLUNTEER_DELETE_STATUS = 'N'
+        AND V.AGENCY_NO = A.AGENCY_NO
+    </select>
+
 </mapper>

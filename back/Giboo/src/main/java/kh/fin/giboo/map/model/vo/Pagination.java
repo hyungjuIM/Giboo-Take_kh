@@ -124,6 +124,13 @@ public class Pagination {
 		this.nextPage = nextPage;
 	}
 
+    // 기존 속성 정의
+    private String query;
+
+    // 'query' 속성에 대한 getter 메소드 추가
+    public String getQuery() {
+        return query;
+    }
 
 	@Override
 	public String toString() {

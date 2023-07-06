@@ -16,57 +16,51 @@
     integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-     <!-- jQuery 라이브러리 추가(CDN) -->
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-
      <!-- fontawesome -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 </head>
 <body>
-
-
-    
-            
+     
                     <div class="mhBox">
                         <div class="mhBoxImg">
                             <a href="">
-                                <img src="/images/doCenter.jpg" alt="">
+                                <img src="${pageContext.request.contextPath}${mapDetailTop.volunteerAttachement}" alt="">
                             </a>
                         </div>
                         <div class="mhBoxTi">
                             <div class="mhTiDe">
                                 <div class="mhTiName">
-                                    <span>서울시립장애인행복플러스센터</span>
+                                    <span class="hagencyName" data-hagencyName="${mapDetailTop.agencyName}">${mapDetailTop.agencyName}</span>
                                     <div class="mhTiCa">
-                                        <span>장애인</span>
+                                        <span>${mapDetailTop.parentCategoryName}</span>
                                     </div>
                                 </div>
                                 <div class="mhTiRe">
                                     <div class="mhTiHe">
                                         <span><i class="fa-regular fa-heart"></i></span>
-                                        <span class="mhRe">14</span>
+                                        <span class="mhRe">${mapDetailTop.volunteerFavCount}</span>
                                     </div>
                                     <span class="mhBar">|</span>
                                     <div class="mhTiReDe">
                                         <a href="">
                                             <span>봉사자 리뷰</span>
-                                            <span class="mhRe">135</span>
+                                            <span class="mhRe">${mapDetailTop.replyCount}</span>
                                         </a>
                                         <span>|</span>
                                         <a href="">
                                             <span>봉사자</span>
-                                            <span class="mhRe">432</span>
+                                            <span class="mhRe">${mapDetailTop.volunteerCount}</span>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="mhBtnWrap">
                                     <div class="mhBtn">
-                                        <div class="mhBtnHe">
-                                            <a href="">
+                                        <div class="mhBtnHe" id="mhBtnHea">
+                                            <a href="" >
                                                 <div class="mhBtnHe_1">
                                                     <span><i class="fa-regular fa-heart"></i></span>
                                                 </div>
@@ -75,16 +69,16 @@
                                         </div>
                                         <span>|</span>
                                         <div class="mhBtnHe">
-                                            <a href="">
+                                            <a href="https://map.kakao.com/?sName=%EC%84%9C%EC%9A%B8%EC%8B%9C%EC%B2%AD&eName=${mapDetailTop.agencyName}" id="addressInput">
                                                 <div class="mhBtnHe_1">
                                                     <span><i class="fa-solid fa-location-dot"></i></span>
                                                 </div>
-                                                <span>위치찾기</span>
+                                                <span>길찾기</span>
                                             </a>
                                         </div>
                                         <span>|</span>
                                         <div class="mhBtnHe">
-                                            <a href="">
+                                            <a href="" onclick="copyToClipboard(); return false;">
                                                 <div class="mhBtnHe_1">
                                                     <span><i class="fa-regular fa-share-from-square"></i></span>
                                                 </div>
@@ -99,8 +93,55 @@
                     </div>
         
         
+                    
     
-    
-            
+                    <script>
+                        // 댓글 관련 JS 코드에 필요한 값을 전역 변수로 선언
+                
+                        // jsp 파일 : html, css, js, el, jstl 사용 가능
+                        // js  파일 : js
+                
+                        // 코드 해석 순서  :   EL == JSTL > HTML > JS
+                
+                        // ** JS 코드에서 EL/JSTL을 작성하게 된다면 반드시 ""를 양쪽에 추가 **
+                
+                        // 최상위 주소
+                        const contextPath = "${pageContext.request.contextPath}";
+                        
+                        // 게시글 번호
+                        const volunteerNo = "${mapDetailHome.volunteerNo}"; // "500"
+                
+                        // 로그인한 회원 번호
+                        const loginMemberNo = "${loginMember.memberNo}";
+                        // -> 로그인 O  : "10";
+                        // -> 로그인 X  : "";  (빈문자열)
+                    </script>
+
+<script>
+  $(document).ready(function() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude; // 위도
+        var lon = position.coords.longitude; // 경도
+        var geocoder = new kakao.maps.services.Geocoder();
+        geocoder.coord2Address(lon, lat, function(result, status) {
+          if (status === kakao.maps.services.Status.OK) {
+            var currentAddress = result[0].address.address_name; // 현재 주소
+            var agencyName = "${mapDetailTop.agencyName}"; // 기관 이름
+
+            var mapLink = "https://map.kakao.com/?sName=" + encodeURIComponent(currentAddress) + "&eName=" + encodeURIComponent(agencyName);
+            $("#addressInput").attr("href", mapLink);
+          }
+        });
+      });
+    }
+  });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="${pageContext.request.contextPath}/resources/js/map/map2.js"></script>
+
 </body>
+
 </html>

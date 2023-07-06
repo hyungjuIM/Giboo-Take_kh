@@ -27,7 +27,7 @@ body {
 
 /*상단 나의 문의내역 */
 .page-title {
-	background-color: #8071FC;
+	background-color: #00CA61;
 	width: 100%;
 	height: 80px;
 	display: flex;
@@ -162,11 +162,11 @@ span {
 }
 
 .myask_search-area fieldset:hover {
-	border-color: #8071FC;
+	border-color: #00CA61;
 }
 
 .myask_search-area fieldset:hover #search-btn {
-	color: #8071FC;
+	color: #00CA61;
 }
 
 #myask_query {
@@ -308,7 +308,7 @@ span {
 }
 
 .myask_pagination li a:hover {
-	background-color: #8071FC;
+	background-color: #00CA61;
 	color: #f2f2f2;
 	border-radius: 50%;
 }
@@ -340,8 +340,8 @@ span {
 }
 
 .myask_writeBtn:hover {
-	color: #8071FC;
+	color: #00CA61;
 	font-weight: 600;
-	border: solid 1px #8071FC;
+	border: solid 1px #00CA61;
 	border-radius: 5px;
 }

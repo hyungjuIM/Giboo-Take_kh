@@ -2,9 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
+
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+  }
+
+
 .option{
     width: 358px;
-    height:42px;
+    height:0px;
 }
 
 .MsearchBar > form{
@@ -14,7 +24,7 @@
 }
 
 .MsearchBar > form > input {
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     width: 358px;
     height: 42px;
     border-radius: 10px;
@@ -51,7 +61,7 @@
 
 #menu_wrap::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
-    background: #d4cfff; /* 스크롤바의 색상 */
+    background-color: rgb(197, 197, 197);
     
     border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -86,8 +96,8 @@
     top:0;
     left:0;
     bottom:0;
-    width:390px;
-    height: 867px;
+    width:350px;
+    height: 600px;
 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -96,7 +106,7 @@
     font-size:12px;
     box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.306);
 
-    border-radius: 25px;
+    border-radius: 5px;
     margin-bottom: 24px;
     margin-left: 23px;
     margin-top: 24px;
@@ -179,15 +189,16 @@
 }
 
 .mhBoxImg > a > img{
-    width: 358px;
+    width: 320px;
     height: 180px;
     border-radius: 12px;
+    margin-right: 10px;
     overflow: hidden;
 }
 
 .mhwrapBox{
     /* background-color: yellow; */
-    margin-top: 40px;
+    margin-top: 10px;
     margin-left: 10px;
     margin-left: 10px;
 }
@@ -214,7 +225,7 @@
     /* width: 59px; */
     height: 27px;
     background: #F6F6F6;
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     border-radius: 100px;
     display: flex;
     justify-content: center;
@@ -223,7 +234,7 @@
 }
 
 .mhTiCa > span{
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     font-size: 14px;
     margin-left: 10px;
@@ -371,9 +382,9 @@
 /* 여기부터 홈 */
 
 .mhCa > a:nth-child(1){
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 600;
-    border-bottom: 1px solid  #8071FC;
+    border-bottom: 1px solid  #00CA61;
 }
 
 .mhDe{
@@ -408,7 +419,7 @@
 }
 
 .mhDeAddLink > a > span{
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     font-size: 14px;
 }
@@ -421,7 +432,7 @@
 }
 
 .mhDeAddLink_2 > a > span{
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     font-size: 14px;
     margin-right: 5px;
@@ -433,7 +444,7 @@
 
 .mhDeAdd:nth-child(3){
     /* background-color: violet; */
-    height: 65px;
+    /* height: 65px; */
 }
 
 .mhDeAddCh{
@@ -459,3 +470,38 @@
     border: none;
     cursor: pointer;
 } */
+
+
+.popup{
+    width: 200px;
+    height: 50px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    border-radius: 5px;
+}
+
+.popup-content h3{
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    font-weight: 800;
+}
+
+.popup-content p{
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    font-weight: 500;
+    color : #767676;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+
+.mapMainHome_a img{
+    width : 50px;
+    height: 50px;
+}
+
+.mhBox{
+    margin-top: 20px;
+}

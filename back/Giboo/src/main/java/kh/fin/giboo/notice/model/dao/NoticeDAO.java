@@ -51,7 +51,45 @@ public class NoticeDAO {
 	 * @return
 	 */
 	public int updateVieweadCount(int noticeNo) {
-		return sqlSession.update("notice-Mapper.updateViewCount", noticeNo);
+		return sqlSession.update("notice-Mapper.updateReadCount", noticeNo);
+	}
+
+
+
+	public int insertNotice(NoticeDetail noticeDetail) {
+		int result = sqlSession.insert("notice-Mapper.insertNotice", noticeDetail);
+		if(result>0) result = noticeDetail.getNoticeNo();
+		System.out.println(result);
+		return result;
+	}
+
+
+
+	public int updateNotice(NoticeDetail noticeDetail) {
+		// TODO Auto-generated method stub
+		return sqlSession.update("notice-Mapper.updateNotice",noticeDetail);
+	}
+
+
+
+	/** 공지사항 삭제
+	 * @param boardNo
+	 * @return
+	 */
+	public int deleteNotice(int noticeNo) {
+		return sqlSession.delete("notice-Mapper.deleteNotice",noticeNo);
+	}
+
+
+
+	public void insertAlarm(int noticeNo) {
+		sqlSession.insert("notice-Mapper.insertAlarm",noticeNo);
+	}
+
+
+
+	public void updateAlarm(int noticeNo) {
+		sqlSession.update("notice-Mapper.updateAlarm",noticeNo);
 	}
 
 }

@@ -1,7 +1,9 @@
 package kh.fin.giboo.member.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,10 +22,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kh.fin.giboo.member.model.service.KakaoLoginService;
 import kh.fin.giboo.member.model.service.MemberService;
 import kh.fin.giboo.member.model.vo.Manager;
 import kh.fin.giboo.member.model.vo.Member;
-
+  
 @Controller
 @RequestMapping("/main")
 @SessionAttributes({ "loginMember" })
@@ -36,6 +39,9 @@ public class MemberController {
 	// 서비스 불러오기
 	@Autowired
 	private MemberService service;
+	
+	@Autowired
+	private KakaoLoginService kakaoservice;
 
 	// 로그인 페이지 이동
 	@GetMapping(value = "/login")
@@ -51,14 +57,29 @@ public class MemberController {
 	public String login(@ModelAttribute Member inputMember,
 			@ModelAttribute Manager inputManager,
 			Model model,
-			RedirectAttributes ra, HttpServletResponse resp, HttpServletRequest req) {
+			RedirectAttributes ra, HttpServletResponse resp, HttpServletRequest req,
+			@RequestParam(value="saveId", required = false) String saveId) {
 
 
 		// 아이디, 비밀번호가 일치하는 회원 정보를 조회하는 service 호출 후 결과 받기
 		Member loginMember = service.loginMember(inputMember);
 		if(loginMember != null) { //로그인 성공 
 			model.addAttribute("loginMember", loginMember);
+
+			Cookie cookie = new Cookie("saveId", loginMember.getMemberId());
 			
+			if(saveId != null) { // 아이디 저장이 체크 되었을 때
+				cookie.setMaxAge(60 * 60 * 24 * 365); 
+			} else { // 체크 되지 않았을 때
+				cookie.setMaxAge(0); 
+			}
+			// 쿠키가 적용될 범위(경로) 지정
+			cookie.setPath(req.getContextPath());
+			
+			resp.addCookie(cookie);	
+			
+			
+
 			logger.info("로그인 기능 수행됨");
 	} else {
 		logger.info("로그인 실패.");
@@ -110,13 +131,21 @@ public class MemberController {
 	//회원가입 
 	
 	@PostMapping("/signUp")
-	public String signUp(Member inputMember, RedirectAttributes ra, String[] memberAddr) {
+	public String signUp(Member inputMember, RedirectAttributes ra, String[] memberAddr,
+			@RequestParam("memberType") String memberType) {
 		
 		inputMember.setMemberAddr(String.join(",,", memberAddr));
 		
 		if(inputMember.getMemberAddr().equals(",,,,")) {
 			inputMember.setMemberAddr(null);
 		}
+		//radio 버튼값에 따라 memberType DB 설정
+		if (memberType.equals("user")) {
+	        inputMember.setMemberType("Y");
+	    } else if (memberType.equals("admin")) {
+	        inputMember.setMemberType("N");
+	    }
+
 		//회원 가입 서비스 호출
 		int result = service.signUp(inputMember);
 		
@@ -141,8 +170,19 @@ public class MemberController {
 	
 	// 로그아웃
 	@GetMapping("/logout")
-	public String logout(SessionStatus status) {
+	public String logout(SessionStatus status,HttpSession session) {
 		logger.info("로그아웃 수행됨");
+		 String access_Token = (String)session.getAttribute("access_Token");
+
+	        if(access_Token != null && !"".equals(access_Token)){
+	            kakaoservice.kakaoLogout(access_Token);
+	            session.removeAttribute("access_Token");
+	            session.removeAttribute("loginMember");
+	            session.invalidate();
+	        }else{
+	            System.out.println("access_Token is null");
+	            //return "redirect:/";
+	        }
 		status.setComplete();
 		return "redirect:/";
 	}

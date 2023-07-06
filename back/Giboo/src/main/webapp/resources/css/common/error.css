@@ -1,0 +1,91 @@
+.mainContent {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.errorBox {
+    width: 70%;
+    height: 60%;
+    box-shadow: 0 0 15px 0px #0000002B;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.titleBar {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 10%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.dotArea {
+    position: absolute;
+    width: 12%;
+    height: 100%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dotArea > img {
+    width: 16%;
+    height: 100%;
+    margin-inline: 2px;
+}
+
+.content {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textArea {
+    width: 70%;
+    font-weight: bold;
+}
+
+.textArea > div {
+    font-size: 36px;
+    margin-block: 40px;
+}
+
+.textArea > div:last-child {
+    font-size: 24px;
+    color: grey;
+}
+
+.errorImage {
+    width: 30%;
+    height: 50%;
+}
+
+.buttonArea {
+    height: 10%;
+    display: flex;
+    justify-content: right;
+    padding-bottom: 20px;
+    padding-right: 20px;
+}
+
+.button {
+    cursor: pointer;
+    background-color: #00CA61;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+}

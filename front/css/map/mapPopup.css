@@ -74,7 +74,7 @@
 .mpopCa{
     /* width: 66px; */
     height: 24px;
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     border-radius: 100px;
     display: flex;
     align-items: center;
@@ -86,7 +86,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
-    color: #8071FC;
+    color: #00CA61;
     padding-left: 16px;
     padding-right: 16px;
 }
@@ -277,7 +277,7 @@
 .Marker{cursor: pointer;}
 
 .mpopWrap {
-    display: none;
+    /* display: none; */
   }
 
 .mpopWrap.show {

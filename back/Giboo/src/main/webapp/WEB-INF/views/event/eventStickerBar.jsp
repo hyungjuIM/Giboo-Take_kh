@@ -14,14 +14,14 @@
         <div class="edInBarBox">
             <div class="edInTitle">
                 <span>🥰</span>
-                <span>자전거로 탄소 감축 인증</span>
+                <span>${eventDetailTop.eventTitle}</span>
             </div>
             <div class="edInPhotoBar">
                 <c:choose>
                     <c:when test="${empty eventStickerBar}">
-                        <ul class="edInPhotoBarUl">
-                            <li class="edInPhotoBarLi">
-                                <span>존재하는 이벤트 사진이 없습니다.</span>
+                        <ul>
+                            <li>
+                                <span class="noEvent">존재하는 이벤트 사진이 없습니다.</span>
                             </li>
                         </ul>
                     </c:when>
@@ -38,11 +38,9 @@
                     </c:otherwise>
                 </c:choose>
             </div>
-            <a href="">
-                <div class="edBtnDe">
-                    <span>이벤트 참여하기</span>
-                </div>
-            </a>
+            <div class="edBtnDe memberChange_bottom">
+                <button id="edBtnDe" class="memberChange_b">이벤트 함께하기</button>                        
+            </div>
         </div>
     </div>
 </body>

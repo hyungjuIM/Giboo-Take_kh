@@ -12,7 +12,7 @@
     margin: 0;
     /* line-height: 1.6em; */
 }
-a:not(.logout_Btn){
+.headerACss{
     text-decoration: none;
     font-weight: 500;
 }

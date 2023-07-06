@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
+	<properties>
+		<property name="time" value="Asia/Seoul" />
+	</properties>
 <!-- SqlSessionTemplate 생성 시 적용될 설정 작성 부분 -->
 <settings>
 <!-- insert 또는 update에 사용되는 값 중 null이 있을 경우에 대한 설정
@@ -41,10 +44,13 @@
 	<!-- 기부 -->
 	<typeAlias type="kh.fin.giboo.donation.model.vo.Donation" alias="donation"/>
 	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationDetail" alias="donationDetail"/>
+	<typeAlias type="kh.fin.giboo.donation.model.vo.DonationStory" alias="donationStory" />
 
 	<!-- 봉사 -->
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Volunteer" alias="volunteer"/>
 	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerDetail" alias="volunteerDetail"/>
+	<typeAlias type="kh.fin.giboo.volunteer.model.vo.VolunteerStory" alias="volunteerStory" />
+	<typeAlias type="kh.fin.giboo.volunteer.model.vo.Reply" alias="reply" />
 
 	<!-- 맵 -->
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapList" alias="mapList"/>
@@ -54,6 +60,7 @@
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailReviewStory" alias="mapDetailReviewStory"/>
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapDetailImg" alias="mapDetailImg"/>
 	<typeAlias type="kh.fin.giboo.map.model.vo.MapPopup" alias="mapPopup"/>
+	<typeAlias type="kh.fin.giboo.map.model.vo.Marker" alias="marker"/>
   
 	<!-- 이벤트 -->
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventList" alias="eventList"/>
@@ -67,12 +74,19 @@
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailMember" alias="eventDetailMember"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetailLeft" alias="eventDetailLeft"/>
 	<typeAlias type="kh.fin.giboo.event.model.vo.EventStickerBar" alias="eventStickerBar"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventCertification" alias="eventCertification"/>
+	<typeAlias type="kh.fin.giboo.event.model.vo.EventDetail" alias="eventDetail"/>
 	
 	<!-- 마이페이지 -->
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveDonationList" alias="myActiveDonationList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveVolunteerList" alias="myActiveVolunteerList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyActiveEventList" alias="myActiveEventList"/>
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.MyReview" alias="myReview"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.Favorite" alias="favorite"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.Point" alias="point"/>
+	<typeAlias type="kh.fin.giboo.mypage.model.vo.FavoriteList" alias="favoriteList"/>
+	
+	
 	<typeAlias type="kh.fin.giboo.mypage.model.vo.Stamp" alias="stamp"/>
 
 
@@ -96,6 +110,7 @@
 	<mapper resource="/mappers/donation-mapper.xml" />
 	<mapper resource="/mappers/volunteer-mapper.xml" />
 	<mapper resource="/mappers/faq-mapper.xml" />
+	<mapper resource="/mappers/stamp-mapper.xml" />
 </mappers>
 
 

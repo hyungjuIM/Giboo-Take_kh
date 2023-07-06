@@ -25,7 +25,7 @@ body{
 
 /*상단 나의 문의내역 */
 .page-title {
-  background-color: #8071FC ;
+  background-color: #00CA61; ;
  
   width: 100%;
   height: 80px;
@@ -437,8 +437,8 @@ color: #767676;
 
 .mypage_down2_2 button:hover{
   cursor: pointer;
-  color : #8071FC;
-  border: 1px solid #8071FC;
+  color : #00CA61;
+  border: 1px solid #00CA61;
 }
 
 
@@ -509,8 +509,8 @@ width: 45px;
 height: 17px;
 margin-right: 10px;
 
-color: #8071FC;
-border : 1px solid #8071FC; 
+color: #00CA61;
+border : 1px solid #00CA61; 
 border-radius: 10px;
 padding : 0px 5px;
 }

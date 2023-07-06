@@ -14,5 +14,15 @@ public interface NoticeService {
 
 	int updateViewCount(int noticeNo);
 
+	int insertNotice(NoticeDetail noticeDetail);
+
+	int updateNotice(NoticeDetail noticeDetail);
+
+	int deleteNotice(int noticeNo);
+
+	void insertAlarm(int noticeNo);
+
+	void updateAlarm(int noticeNo);
+
 
 }

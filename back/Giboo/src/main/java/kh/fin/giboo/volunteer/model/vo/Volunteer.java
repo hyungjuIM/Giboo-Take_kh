@@ -13,8 +13,8 @@ import java.sql.Date;
 public class Volunteer {
     private int volunteerNo;
     private int targetPeople;
-    private int locationX;
-    private int locationY;
+    private double locationX;
+    private double locationY;
     private String volunteerAddr;
     private String volunteerTime;
     private String enrollDate;
@@ -34,4 +34,5 @@ public class Volunteer {
     private int agencyName;
     private long dDay;
     private int percent;
+    private String favVolunteerNo;
 }

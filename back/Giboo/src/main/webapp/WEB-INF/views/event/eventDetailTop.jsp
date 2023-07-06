@@ -1,32 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>이벤트 디테일 사진</title>
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventDetail.css">
-        <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
     
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- jQuery 라이브러리 추가(CDN) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-crossorigin="anonymous"></script>
-        <script src="https://kit.fontawesome.com/50a1d35924.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    </head>
-    <body>
-    
-        <main>
             <div class="edWrapBox">
                 <div class="edWrap">
+                    <div class="eFavBtn" id="eFavBtn">
+                        <div class="dFavDiv">
+                            <span class="dFavSpan"></span>
+                        </div>
+                    </div>
                     <img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="">
                 </div>
                 <div class="edWrapDetail">
@@ -39,9 +21,34 @@ crossorigin="anonymous"></script>
                     <div class="edWrapTitle">
                         <span>${eventDetailTop.eventTitle}</span>
                     </div>
+                    <%-- ====================================== --%>
+                    <div class="progressArea">
+                        <div class="progressInfo">
+                            <span class="progressPercentage">${eventDetailTop.percent}%</span>
+                                <span class="goal">
+                                    목표
+                                    <span class="goal" id="goalValue">${eventDetailTop.targetPeople}</span>명
+                            </span>
+                        </div>
+
+                        <div class="progressBar">
+                             <div class="progressBarValue" style="width: ${Math.min(eventDetailTop.percent.longValue(), 100)}%"></div>
+                        </div>
+
+                        <div class="progressStatus">
+                            <span>
+                                <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+                                <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중</span>
+                            <%-- <span class="fav">
+                                <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
+                                <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span> --%>
+                        </div>
+                    </div>
+                    
+                    
                     <div class="edWrapBar">
-                        <div class="edDoBar">
-                            <progress value="80" max="100"></progress>
+                        <%--  <div class="edDoBar">
+                            <progress value="${eventDetailTop.eventPersonCount}" max="${eventDetailTop.targetPeople}"></progress>
                         </div>
                         <div class="edWrapBar_2">
                             <div class="edVolDo">
@@ -53,9 +60,13 @@ crossorigin="anonymous"></script>
                                 <span>${eventDetailTop.targetPeople}</span>
                                 <span>명 목표</span>
                             </div>
-                        </div>
+                        </div>  --%>
+                        
                     </div>
-                    <div class="edDoTo">
+                   
+                    
+                    
+                    <%--    <div class="edDoTo">
                         <div class="edDoTitle">
                             <span>함께하고 있어요 😋</span>
                         </div>
@@ -72,8 +83,13 @@ crossorigin="anonymous"></script>
                                     <ul class="edDoPersonUl">
                                         <c:forEach var="eventDetailMember" items="${eventDetailMember}">
                                             <li class="edDoPersonLi">
-                                                <div class="edDoPerImg">
-                                                    <img src="${pageContext.request.contextPath}${eventDetailMember.profileImg}" alt="">
+                                                <div class="edDoPerImg">                        
+                                                    <c:if test="${empty eventDetailMember.profileImg}">
+                                                        <span>🥰</span>
+                                                    </c:if>
+                                                    <c:if test="${!empty eventDetailMember.profileImg}">
+                                                        <img src="${pageContext.request.contextPath}${eventDetailMember.profileImg}" alt="">
+                                                    </c:if>
                                                 </div>
                                                 <div class="edPersonName">
                                                     <span>${eventDetailMember.memberNick}</span>
@@ -85,28 +101,37 @@ crossorigin="anonymous"></script>
                                 </c:otherwise>
                             </c:choose>
                         </div>
-                    </div>
+                    </div>  ============================== --%>
+                    <div class="eParMoreWrap">
+           				 <div class="eParMoreBox">
+                			<jsp:include page="/WEB-INF/views/event/eventParticiMore.jsp" />
+           				 </div>
+        			</div>
+                	<%-- ============================== --%>
+                    
+                    
+                    
                     <div class="edBtn">
-                        <div class="edBtnDe">
-                            <a id="popupButton" href="${pageContext.request.contextPath}/${eventPopupUrl}">이벤트 함께하기</a>                        </div>
+                        <div class="edBtnDe memberChange_bottom">
+                            <button id="popupButton" class="memberChange_b">이벤트 함께하기</button>                        
+                        </div>
+                                                
                         <div class="edStamp">
                             <div class="edStampPopup">
                                 <div class="edStampPopDe">
                                     <span>참여하고 스템프 받아요!</span>
                                 </div>
                             </div>
-                            <a href="">
                                 <div class="edStampBtn">
                                     <span>🥰</span>
                                 </div>
-                            </a>
                         </div>
                     </div> 
                 </div>
             </div>
-    </main>     
 
-<script src="${pageContext.request.contextPath}/resources/js/event/event.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/event/eventPopup.js"></script>
-    </body>
-    </html>
+
+
+
+
+

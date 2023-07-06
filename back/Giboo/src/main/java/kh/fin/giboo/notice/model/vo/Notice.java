@@ -17,5 +17,5 @@ public class Notice {
 	private String deleteStatus;
 	
 	private String mgrNickname;
-	private int mgrNo;
+	private int managerNo;
 }

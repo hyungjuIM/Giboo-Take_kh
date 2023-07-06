@@ -36,7 +36,7 @@ body{
   margin-top: 3px;
   margin-bottom: 100px;
 
-  background-color: #8071FC ;
+  background-color: #00CA61; ;
 
  
   width: 100%;
@@ -114,11 +114,11 @@ body{
   transition : background-color 2s ease-out;
 }
 .search-area fieldset:hover{
-border-color: #8071FC;
+border-color: #00CA61;
 }
 
 .search-area fieldset:hover #search-btn {
-color:#8071FC;
+color:#00CA61;
 }
 
 #query{
@@ -253,10 +253,11 @@ span{
 
 .container4{
   width: 1080px;
-  margin-top: 100px;
+  margin-top: 1.6em;
   display: flex;
+  justify-content: center;
   flex-direction: row;
-  justify-content: flex-end;
+ 
 }
 
 
@@ -266,6 +267,7 @@ span{
   text-align: center;
   display: flex;
   align-items: center;
+ 
 }
 
 .pagination {
@@ -292,11 +294,16 @@ span{
 
 .pagination li a:hover {
   background-color: #f2f2f2;
-  color: #8071FC;
+  color: #00CA61;
   border-radius: 50%;
 }
+.writeBtn-container{
+  display: flex;
+  justify-content: end;
+  margin-top: 1.6em;
+  }
 .writeBtn{
-  margin-left: 300px;
+
   
   border :solid 1px #bdbdbd;
   border-radius: 5px;

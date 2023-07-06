@@ -52,7 +52,7 @@ main{
 }
 
 .edWrapPeriodSpan{
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     border-radius: 100px;
     height: 27px;
     display: flex;
@@ -73,7 +73,7 @@ main{
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .edWrapTitle{
@@ -89,26 +89,26 @@ line-height: 33px;
 letter-spacing: -0.05em;
 color: #111111;
 }
-
+/* 
 .edWrapBar{
     width: 340px;
     margin-top: 15px;
-    /* background-color: yellow; */
+    background-color: yellow;
     border-bottom: 1px solid #D9D9D9;
 }
 
 .edDoBar > progress{
     width: 339px;
     height: 15px;
-    /* background-color: #7468da; */
-}
-
+    background-color: #7468da;
+} */
+/* 
 .edWrapBar_2{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
+} */
+/* 
 
 .edVolDo{
     display: flex;
@@ -116,7 +116,7 @@ color: #111111;
     justify-content: center;
     margin-top: 13px;
     margin-bottom: 20px;
-}
+} */
 
 .edVolDo > span{
     font-family: 'Noto Sans';
@@ -179,32 +179,55 @@ color: #111111;
     color: #767676;
 }
 
-.edBtn{
-    /* background-color: violet; */
+
+.memberChange_bottom button{
+    border: none; 
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 500;
+  
+  
+    background-color: var(--etcColor); 
+    width: 150px;
+    height: 46px;
+    
+  
+    color : #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+.memberChange_bottom button:hover{
+  background-color: var(--mainColor);
+  font-weight: 600;
+}    
+
+/* .edBtn{
     display: flex;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: space-between;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
+} */
+/* 
 .edBtnDe{
     width: 161px;
     height: 41px;
-    background-color: #8071FC;
+    background-color: #00CA61;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 100px;
-}
+} */
 
-.edBtnDe > span{
+/* .edBtnDe > span{
     font-family: 'Noto Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
-}
+} */
 
 .edStampPopDe {
 	position: relative;
@@ -295,16 +318,16 @@ color: #111111;
 
 
 /* ------------카테고리 변경 시마다 색 변경하기----------- */
-.edEventintro:nth-child(3){
-    border-bottom: 2px solid #8071FC;
+.edEventintro:nth-child(2){
+    border-bottom: 2px solid #00CA61; !important;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
 }
 
-.edEventintro:nth-child(3) > a > span{
-    color: #8071FC !important;
+.edEventintro:nth-child(2) > a > span{
+    color: #00CA61; !important;
 }
 
 .edEventintro:nth-child(1){
@@ -369,7 +392,7 @@ color: #111111;
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .edHowtoDetail{
@@ -492,7 +515,7 @@ color: #111111;
 .ebpPhotoPro > span{
     font-size: 15px;
     font-weight: 500;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 
@@ -548,7 +571,7 @@ color: #111111;
 
 /* 진행중 */
 .earea_thumb_period_go{
-    background-color: #8071FC;
+    background-color: #00CA61;
     border-radius: 50%;
     width: 38px;
     height: 38px;
@@ -662,7 +685,7 @@ color: #111111;
 
 /* 더보기 버튼 */
 .eMoreBtnBox{
-    background-color: #8071FC;
+    background-color: #00CA61;
     width: 180px;
     height: 40px;
     border-radius: 100px;

@@ -10,9 +10,17 @@
     text-decoration: none;
     font-family: 'Noto Sans KR', sans-serif;
     font-family: 'Open Sans', sans-serif;}
+    .status {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    
 
+    
 .ewrap_tab{
-    background-color: #978AFF;
+    background-color: #00CA61;
     height: 80px;
     display: flex;
     align-items: center;
@@ -52,7 +60,7 @@
 }
 
 .eon:nth-child(2) > a > span{
-    color: #8071FC;
+    color: #00CA61;
     font-style: normal;
 
 }
@@ -166,7 +174,7 @@
 
     text-align: center;
 
-    color: #8071FC;
+    color: #00CA61;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -176,7 +184,7 @@
     width: 107px;        
     height: 27px;
 
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     border-radius: 100px;
     display: flex;
     align-items: center;
@@ -192,8 +200,8 @@
     flex-direction: column;
 }
 
-/* 종료임박 */
-.earea_thumb_period{
+/* 마감임박 */
+/* .earea_thumb_period{
     background-color: #FC71A3;
     border-radius: 50%;
     width: 48px;
@@ -204,10 +212,10 @@
     position: relative;
     right: 95px;
     bottom: 233px;
-}
+} */
 
 /* 종료 */
-.earea_thumb_period_end{
+/* .earea_thumb_period_end{
     background-color: #767676;
     border-radius: 50%;
     width: 48px;
@@ -218,11 +226,24 @@
     position: relative;
     right: 95px;
     bottom: 233px;
-}
+} */
 
 /* 진행중 */
-.earea_thumb_period_go{
-    background-color: #8071FC;
+/* .earea_thumb_period_go{
+    background-color: #00CA61;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 95px;
+    bottom: 233px;
+} */
+
+
+.earea_thumb_period {
     border-radius: 50%;
     width: 48px;
     height: 48px;
@@ -233,6 +254,19 @@
     right: 95px;
     bottom: 233px;
 }
+
+.earea_thumb_period.마감임박 {
+    background-color: #FC71A3;
+}
+
+.earea_thumb_period.종료 {
+    background-color: #767676;
+}
+
+.earea_thumb_period.진행중 {
+    background-color: #00CA61;
+}
+
 
 .earea_thumb_period > span{
     font-style: normal;

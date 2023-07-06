@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+	<c:set var="pagination" value="${map.pagination}" />
+    <c:set var="favoriteList" value="${map.favoriteList}" />
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,122 +56,83 @@
 						<div class="favcategory">
 							<button class="favcategoryBtn">전체</button>
 						</div>
-						<div class="favcategory">
-							<button class="favcategoryBtn">기부</button>
-						</div>
-						<div class="favcategory">
-							<button class="favcategoryBtn">봉사</button>
-						</div>
-
 					</div>
 
 					<!-- 즐겨찾기 카드부분 -->
-					<div class="myfavcard_contaner">
-						<!-- 이모티콘 -->
-						<div class="categoryImgContainer">
-							<div class="categoryImg">
-								<i class="fa-solid fa-person-cane"></i>
-							</div>
-							<!-- 점선 -->
-							<div class="hrpart">
-								<div class="hrpart2"></div>
-							</div>
-						</div>
+					<c:choose>
+						<c:when test="${empty favoriteList}">
+							<p>즐겨 찾는 플렛폼이 없습니다.</p>
+						</c:when>
+						<c:otherwise>
+							<c:forEach var="favoriteList" items="${favoriteList}">
+								<div class="myfavcard_contaner">
+									<div class="categoryImgContainer">
+										<div class="categoryImg">
+											<i class="fa-solid fa-person-cane"></i>
+										</div>
+										<!-- 점선 -->
+										<div class="hrpart">
+											<div class="hrpart2"></div>
+										</div>
+									</div>
 
-						<!-- 메인내용 -->
-						<div class="favMaincontainer">
-							<!-- 카테고리, 마감일, 메인 -->
-							<div class="categoryUpdateContainer">
-								<div class="detailCategory">
-									<div style="color: #8071fc;">기부</div>
-									&nbsp;어르신
+									<!-- 메인내용 -->
+									<div class="favMaincontainer">
+										<!-- 카테고리, 마감일, 메인 -->
+										<div class="categoryUpdateContainer">
+											<div class="detailCategory">
+												<div style="color: #00CA61;">${favoriteList.categoryName}</div>
+												&nbsp;${favoriteList.parentCategoryName}
+											</div>
+										</div>
+										<div class="titleContainer">
+											<div class="favTitle">${favoriteList.favoriteTitle}</div>
+										</div>
+									</div>
+									<div class="favmarkContainer">
+										<div class="favMark"><i class="fa-regular fa-heart heartIcon" ></i></div>
+									</div>
 								</div>
-								<div class="updateDate">2023.05.30</div>
-							</div>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
 
-							<!-- 제목, 작성자, 달성률, 총기부금액 -->
-							<div class="titleContainer">
-								<div class="favTitle">강릉 산불 피해 주민분들을 위한 모금</div>
-								<div class="favWriter">밀알 복지 재단</div>
-								<div class="achieveFav">달성률 60% | 총 기부 금액 1,358,000원</div>
-							</div>
-						</div>
+					<div class="container4">
+                        <nav class="page-nav">
+                            <c:set var="url" value="?cp=" />
+                            <ul class="pagination">
+                                <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                                <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                                
+                                <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
 
-						<div class="favmarkContainer">
-							<div class="favMark">
-								<i class="fa-regular fa-heart heartIcon"></i>
-							</div>
+                                    <c:choose>
+                                        <c:when test="${i == pagination.currentPage}">
+                                            <li><a class="current">${i}</a></li>
+                                        </c:when>
 
-						</div>
+                                        <c:otherwise>
+                                            <li><a href="${url}${i}${sURL}">${i}</a></li>
+                                        </c:otherwise>
+                                    </c:choose>
 
+                                </c:forEach>
 
-					</div>
-					<!-- 즐겨찾기 카드부분 -->
-					<div class="myfavcard_contaner">
-						<!-- 이모티콘 -->
-						<div class="categoryImgContainer">
-							<div class="categoryImg">
-								<i class="fa-solid fa-person-cane"></i>
-							</div>
-							<!-- 점선 -->
-							<div class="hrpart">
-								<div class="hrpart2"></div>
-							</div>
-						</div>
-
-						<!-- 메인내용 -->
-						<div class="favMaincontainer">
-							<!-- 카테고리, 마감일, 메인 -->
-							<div class="categoryUpdateContainer">
-								<div class="detailCategory">
-									<div style="color: #8071fc;">기부</div>
-									&nbsp;어르신
-								</div>
-								<div class="updateDate">2023.05.30</div>
-							</div>
-
-							<!-- 제목, 작성자, 달성률, 총기부금액 -->
-							<div class="titleContainer">
-								<div class="favTitle">강릉 산불 피해 주민분들을 위한 모금</div>
-								<div class="favWriter">밀알 복지 재단</div>
-								<div class="achieveFav">달성률 60% | 총 기부 금액 1,358,000원</div>
-							</div>
-						</div>
-
-						<!-- 하트모양 -->
-						<div class="favmarkContainer">
-							<div class="favMark">
-								<i class="fa-regular fa-heart heartIcon"></i>
-							</div>
-
-						</div>
-
-
-					</div>
-
+                                <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                                <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+                            </ul>
+                        </nav>
+                    </div>
 				</div>
-
-
-
 			</div>
-			<!-- mypage_wrapper -->
 		</div>
-		<!-- mypage-container -->
 	</main>
+	<footer>
+		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
+	</footer>
 
 	<script src="/JS/mypage/favorites.js"></script>
-	<!-- jQuery 라이브러리 추가 -->
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		crossorigin="anonymous"></script>
-	<script>
-		$(function() {
-			var include1 = $('[data-include1="header"]');
-			jQuery.each(include1, function() {
-				$(this).load('/html/01.header.html');
-			});
-		});
-	</script>
+
 </body>
 
 </html>

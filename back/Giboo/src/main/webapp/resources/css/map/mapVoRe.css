@@ -21,7 +21,7 @@
 }
 
 .MsearchBar > form > input {
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     width: 358px;
     height: 42px;
     border-radius: 10px;
@@ -217,7 +217,7 @@
     /* width: 59px; */
     height: 27px;
     background: #F6F6F6;
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
     border-radius: 100px;
     display: flex;
     justify-content: center;
@@ -226,7 +226,7 @@
 }
 
 .mhTiCa > span{
-    color: #8071FC;
+    color: #00CA61;
     font-weight: 400;
     font-size: 14px;
     margin-left: 10px;
@@ -286,7 +286,7 @@
 .mhBtnWrap{
     display: flex;
     /* background-color: yellowgreen; */
-    width: 360px;
+    width: 320px;
     height: 80px;
     align-items: center;
     justify-content: center;
@@ -371,10 +371,15 @@
 }
 
 /* 카테고리별로 색 변경 */
-.mhCa > a:nth-child(3){
-    color: #8071FC;
+.mhCa > a:nth-child(2){
+    color: #00CA61;
     font-weight: 600;
-    border-bottom: 1px solid  #8071FC;
+    border-bottom: 1px solid  #00CA61;
+}
+
+.mapHomee{
+    border: none !important;
+    color: #767676 !important;
 }
 
 
@@ -407,14 +412,14 @@
 }
 
 .mvBtnRe{
-    width: 129px;
+    width: 309px;
     height: 32px;
     background-color: white;
     border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #8071FC;
+    border: 1px solid #00CA61;
 }
 
 .mvBtnSo{
@@ -435,7 +440,7 @@
 }
 
 .mvBtnspan_1{
-    color: #8071FC !important;
+    color: #00CA61; !important;
 }
 
 .mvBtnspan_b{
@@ -466,7 +471,7 @@
 }
 
 .mvRe > span:nth-child(2){
-    color: #8071FC;
+    color: #00CA61;
 }
 
 
@@ -485,7 +490,7 @@
 
 .mvRelili{
 	position: relative;
-    background: #EAE8FC;
+    background: #f0f0f0;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);    
     border-radius: .4em;
     border-radius: 12px;
@@ -504,7 +509,7 @@
 	width: 0;
 	height: 0;
 	border: 14px solid transparent;
-	border-bottom-color: #EAE8FC;
+	border-bottom-color: #f0f0f0;
 	border-top: 0;
 	margin-left: -12px;
 	margin-top: -12px;
@@ -553,4 +558,15 @@
     font-weight: 400;
     font-size: 12px;
     color: #767676;
+}
+
+
+
+.mapMainHome_a img{
+    width : 50px;
+    height: 50px;
+}
+
+.mhBox{
+    margin-top: 20px;
 }

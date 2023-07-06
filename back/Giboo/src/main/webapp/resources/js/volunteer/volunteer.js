@@ -1,13 +1,15 @@
 const item = document.getElementsByClassName("item");
 const button = document.getElementsByClassName("button");
-const favoriteButton = document.getElementsByClassName("favoriteButton");
+// const favoriteButton = document.getElementsByClassName("favoriteButton");
 const all = document.getElementById("all");
 
 const searchParams = new URLSearchParams(location.search);
 const category = searchParams.get('category');
-const categoryButton = document.getElementById(category);
+const categoryNo = "category" + category;
+const categoryButton = document.getElementById(categoryNo);
 
 $(document).ready(function () {
+    console.log(category)
     if (category == null) {
         all.classList.add("SubCategoryChecked");
     } else {
@@ -28,7 +30,7 @@ for (let i of item) {
 function getContextPath() {
     var hostIndex = location.href.indexOf( location.host ) + location.host.length;
     return location.href.substring( hostIndex, location.href.indexOf('/', hostIndex + 1) );
-};
+}
 
 for (let i of button) {
     i.addEventListener("mouseenter", () => {
@@ -51,3 +53,20 @@ for (let i of favoriteButton) {
         i.classList.remove("buttonFocus");
     });
 }
+
+// window.onload = function() {
+//     var favoriteButton = document.querySelector(".favoriteButton");
+//     var favorited = false; // State of the button
+
+//     favoriteButton.addEventListener('click', function() {
+//         if (favorited) {
+//             favoriteButton.innerHTML = '🤍'; 
+//             favoriteButton.style.color = 'black'; 
+//             favorited = false;
+//         } else {
+//             favoriteButton.innerHTML = '❤️'; 
+//             favoriteButton.style.color = 'red'; 
+//             favorited = true;
+//         }
+//     });
+// }

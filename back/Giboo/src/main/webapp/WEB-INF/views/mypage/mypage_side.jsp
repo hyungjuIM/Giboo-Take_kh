@@ -3,6 +3,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,41 +44,87 @@
 					<div class="mypage_summary_container">
 
 						<div class="mypage_profileEmojiContainer">
-							<div class="mypage_profileEmojiTheme ">🥳</div>
+							<div class="mypage_profileEmojiTheme ">
+							
+					
+								
+								<%--회원프로필 이미지 --%>
+								<a href="${pageContext.request.contextPath}/mypage/changeProfile">
+                                
+                                <c:if test="${empty loginMember.profileImg}">
+                                    <img src="${contextPath}/resources/images/11 3.png" id="member-profile">
+                                </c:if>
+
+                                <c:if test="${!empty loginMember.profileImg}">
+                                    <img src="${contextPath}${loginMember.profileImg}" id="member-profile">
+                                </c:if>
+		
+            					</a>
+					
+							</div>
 						</div>
-						<div class="mypage_hiuser">고마운분</div>
-						<div class="userName">${loginMember.memberNick}님, 안녕하세요🥳</div>
+						
+						
+						<!-- 사용자 정보 -->
+						 <div class="side_user_container">
+                            <div class="userName">
+                                <p>${loginMember.memberNick}님,</p>
+                                <p> 안녕하세요🥳</p>
+                            </div>
+
+                            <div class="rateName">
+                                <span>${loginMember.rateName}</span>
+                                <span>${loginMember.pointPrice} 원</span>
+                            </div>
+                        </div>
 
 
 						<!--왼쪽 네비바 메뉴 -->
 						<nav class="mypage_content_container">
 							<ul class="mypage_content_first">
-								<li><a
-									href="${pageContext.request.contextPath}/mypage/memberChange">회원정보수정</a>
-								</li>
+                                <li><a href="${pageContext.request.contextPath}/mypage/memberChange">회원정보수정</a></li>
 
-								<li><a
-									href="${pageContext.request.contextPath}/mypage/favorites">즐겨찾기</a></li>
+                                <li class="mypage_content_first_s">
+                                    <a href="${pageContext.request.contextPath}/mypage/changePw">- 비밀번호 변경</a>
+                                </li>
+                                 <li class="mypage_content_first_s">
+                                    <a href="${pageContext.request.contextPath}/mypage/changeProfile">- 프로필 이미지 변경</a>
+                                </li>
 
-							</ul>
+                                <li class="li_enter"><a href="${pageContext.request.contextPath}/mypage/favorites">즐겨찾기</a></li>
+                            </ul>
+                            
 							<hr>
+							
 							<div class="mypage_content_second">
 								<ul>
 									<li><a
 										href="${pageContext.request.contextPath}/mypage/myActiveDonationList">나의
 											활동</a></li>
-									<li><a
+									<%--   <li><a
 										href="${pageContext.request.contextPath}/mypage/myask">나의
-											문의</a></li>
+											문의</a></li>  --%>
+									
+									
 									<li><a
 										href="${pageContext.request.contextPath}/mypage/myReview">나의
 											리뷰</a></li>
 
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/mypage/myStamp">나의 스탬프</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/mypage/myPoint">나의 적립금</a>
+                                    </li>
 								</ul>
 							</div>
 							<hr>
 							<div class="mypage_content_third">
-								<button>로그아웃</button>
+								<ul>
+									<li><a href="${contextPath}/main/logout">로그아웃</a></li>
+								</ul>
+								
 							</div>
 						</nav>
 						<!--mypage_content_container-->

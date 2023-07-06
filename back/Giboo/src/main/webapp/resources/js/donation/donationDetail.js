@@ -1,3 +1,13 @@
+window.onload = function () {
+    const IMP = window.IMP;
+    IMP.init("imp43674535");
+}
+
+const grayBox = document.getElementById("grayBox");
+const donationContainer = document.getElementById("donationContainer");
+const donationValue = document.getElementById("donationValue");
+const closeButton = document.getElementById("closeButton");
+
 $(function(){
     $('.relatedItemList').slick({
         slide: "div",        //슬라이드 되어야 할 태그
@@ -30,4 +40,15 @@ $(function(){
         ]
 
     });
+})
+
+closeButton.addEventListener("mouseover", (e) => {
+    e.target.style.color = "#00CA61";
+})
+
+closeButton.addEventListener("mouseleave", (e) => {
+    e.target.style.color = "#000000";
+})
+closeButton.addEventListener("click", () => {
+    grayBox.style.display = "none";
 })

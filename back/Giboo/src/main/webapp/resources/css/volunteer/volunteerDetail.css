@@ -2,13 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 *{
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
-    border: 0;
     margin: 0;
     padding: 0;
-    font-size: 16px;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body{
@@ -21,13 +20,22 @@ body{
     flex-direction: column;
 }
 
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+  }
+
+
 a{
     text-decoration: none;
     color: #000;
 }
 
 .mainCategoryArea {
-    background-color: #978AFF;
+    background-color: #00CA61;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -51,7 +59,7 @@ a{
 
 .mainCategoryChecked {
     background-color: #fff;
-    color: #978AFF;
+    color: #00CA61;
     font-weight: bold;
 }
 
@@ -107,7 +115,7 @@ a{
 }
 
 .d-day {
-    background-color: #8071FC;
+    background-color: #00CA61;
     border-radius: 20px;
     color: white;
     padding: 2px 12px;
@@ -138,7 +146,7 @@ a{
 }
 
 .progressPercentage {
-    color: #8071FC;
+    color: #00CA61;
     font-weight: bold;
     font-size: 18px;
 }
@@ -157,7 +165,7 @@ a{
 }
 
 .progressBarValue {
-    background: linear-gradient(to top, #8071FC 50%, #574da1);
+    background: linear-gradient(to top, #61fbc2 50%, #00CA61);
     border-radius: 30px;
 
     width: 50%;
@@ -194,7 +202,7 @@ a{
 }
 
 .volunteerButton {
-    background-color: #8071FC;
+    background-color: #00CA61;
     color: white;
     font-size: 18px;
     font-weight: bolder;
@@ -203,6 +211,7 @@ a{
     position: absolute;
     bottom: 0;
     cursor: pointer;
+    border : none;
 }
 
 .contentArea {
@@ -264,8 +273,8 @@ a{
 .agencyLink {
     width: fit-content;
     font-size: 12px;
-    color: #8071FC;
-    border-bottom: 2px solid #8071FC;
+    color: #00CA61;
+    border-bottom: 2px solid #00CA61;
     display: flex;
     align-items: center;
 }
@@ -320,14 +329,15 @@ a{
 
 .commentSubmit {
     width: 100%;
-    background-color: #8071FC;
-    border-radius: 20px;
+    background-color: #00CA61;
+    border-radius: 5px;
     color: white;
     font-size: 18px;
     font-weight: bold;
     padding-block: 10px;
     margin-bottom: 8px;
     cursor: pointer;
+    border: none;
 }
 
 .commentInfo {
@@ -356,10 +366,11 @@ a{
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 18px;
+    margin-left: 30px;
 }
 
 .relatedItemList {
-    width: 749px;
+    width: 500px;
 }
 
 .relatedImg {
@@ -401,7 +412,7 @@ a{
 #prev, #next {
     width: 24px;
     height: 24px;
-    border: 2px solid #8071FC;
+    border: 2px solid #00CA61;
     border-radius: 100%;
     padding: 4px;
     display: flex;
@@ -418,23 +429,114 @@ a{
     margin-right: 10px;
 }
 
-/* footer */
-.footerContainer{
-    background-color: #F6F6F6;
-    box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
-    height: 244px;
-    display: flex;
-
-    justify-content: center;
-}
-
-.footerContent{
-    width: 1200px;
-    height: 65px;
-    display: flex;
-
-    flex-direction: column;
-
+.grayBox {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5);
+    z-index: 999;
+    position: fixed;
+    display: none;
     justify-content: center;
     align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
+
+.volunteerSubmitContainer {
+    width: 800px;
+    height: 300px;
+    background-color: white;
+    border-radius: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+/* ----------------------------------------------------- */
+
+
+.swiper-container {
+	/* height:380px;  */
+	/* border:5px solid silver; */
+	border-radius:7px;
+	 /* box-shadow:0 0 20px #ccc inset; */
+     width: 749px;
+    height:279px;
+     
+}
+.swiper-slide { 
+    /* height: 380px;  */
+     /* width: 600px;  */
+	 text-align:center; 
+	 display:flex;  
+	/* align-items:center;   */
+	/* justify-content:center;  */
+ }
+.swiper-slide div {
+    /* height: 380px; */
+    /* width: 550px; */
+	/* box-shadow:0 0 5px #555; */
+	/* max-width:100%; 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */
+	/* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다. */
+}
+
+
+.do_next_prev_btn1{
+    position: absolute;
+    left: 163px;
+    bottom: -3100px;
+    /* top: 908px; */
+    width: 800px;
+    height: 50px;
+    z-index: 100;
+}
+ 
+.do_next_prev_btn1 span {
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+}
+
+.do_next2{
+    right: 0%;
+    /* background-image: none;    */
+}
+.do_prev2{
+    left: 0%;
+    /* background-image: none; */
+}
+.do_prev2 img,
+.do_next2 img{
+    width : 20px;
+    height : 20px;
+}
+
+/* .swiper-button-prev1{
+    background-image: none;
+}
+.swiper-button-next1{
+    background-image: none;
+} */
+
+.relatedItem{
+    display: flex;
+    flex-direction: column;
+    /* border : 2px solid violet; */
+    width : 100px;
+    
+}
+
+.relatedArea{
+    width: 810px;
+}
+
+/* 
+.relatedItemList{
+    width : 700px;
+    border: 2px solid blue;
+} */

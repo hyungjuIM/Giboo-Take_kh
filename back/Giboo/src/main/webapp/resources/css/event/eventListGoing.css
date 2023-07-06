@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;}
+    .status {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    
+
+    
+.ewrap_tab{
+    background-color: #978AFF;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elist_tab{
+    display: flex;
+    /* background-color: aliceblue; */
+    height: 32px;
+    width: 265px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.etxt_tab{
+    color: #D6D3F4;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 30px;
+    /* identical to box height, or 188% */
+    
+    display: flex;
+    align-items: center;   
+    text-align: center;
+    letter-spacing: -0.05em;
+}
+
+.eon:nth-child(1){
+    background-color: #F0F0F0 !important;
+    border-radius: 100px;
+    width: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 32px;
+}
+
+.eon:nth-child(1) > a > span{
+    color: #00CA61 !important;
+    font-style: normal;
+
+}
+
+
+/* ------------------------- */
+.eventList_main{
+    /* background-color: rgb(151, 130, 89); */
+    height: 100%;
+}
+
+.event-pagination-area{
+    /* background-color: yellowgreen; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+}
+
+.event-pagination{
+    display: flex;
+    /* background-color: wheat; */
+    width: 300px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.event-pagination > li > a{
+    color: black;
+}
+
+.elist_official{
+    /* background-color: yellowgreen; */
+    height: auto;
+}
+
+/* .elist_official > li{
+    background-color:#F6F6F6;
+    width: 284px;
+    height: 380px;
+    border-radius: 20px;
+} */
+
+.elist_officialLi{
+    background-color:#F6F6F6;
+    width: 284px;
+    height: 380px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+/* 두번째 상자 다른 스타일로 - 시작 */
+.eother{
+    background-color:#ffffff !important;
+    width: 284px;
+    height: 380px;
+    border-radius: 20px;
+    border: 1px solid #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.elink_official_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.earea_thumb_2 > img{
+    width: 90px;
+    height: 90px;
+    margin-bottom: 40px;
+    border-radius: 50%;
+}
+
+.etxt_official_2{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: -0.05em;
+
+    color: #4D4D4D;
+    margin-bottom: 4px;
+}
+
+.ereg_2{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #9D9D9D;
+    margin-bottom: 20px;
+}
+
+.edetail > a > span{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #00CA61;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edetail{
+    width: 107px;        
+    height: 27px;
+
+    border: 1px solid #00CA61;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 두번째 상자 다른 스타일로 - 끝 */
+
+.earea_thumb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 마감임박 */
+/* .earea_thumb_period{
+    background-color: #FC71A3;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 95px;
+    bottom: 233px;
+} */
+
+/* 종료 */
+/* .earea_thumb_period_end{
+    background-color: #767676;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 95px;
+    bottom: 233px;
+} */
+
+/* 진행중 */
+/* .earea_thumb_period_go{
+    background-color: #00CA61;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 95px;
+    bottom: 233px;
+} */
+
+
+.earea_thumb_period {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 95px;
+    bottom: 233px;
+}
+
+.earea_thumb_period.마감임박 {
+    background-color: #FC71A3;
+}
+
+.earea_thumb_period.종료 {
+    background-color: #767676;
+}
+
+.earea_thumb_period.진행중 {
+    background-color: #00CA61;
+}
+
+
+.earea_thumb_period > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb_period_end > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb_period_go > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #FFFFFF;
+}
+
+.earea_thumb > img{
+    width: 260.57px;
+    height: 246.43px;
+    border-radius: 20px;
+    margin-top: 16px;
+}
+
+.etxt_official{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: yellowgreen; */
+    position: relative;
+    bottom: 30px;
+}
+
+.etxt_officialTi{
+    width: 250px;
+    max-height: 45px;
+    /* background-color: yellow; */
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.etxt_officialTi > span{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+    
+    text-align: center;
+    letter-spacing: -0.05em;
+    
+    color: #4D4D4D;
+}
+
+.escrean_out{
+    color: #9D9D9D;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+}
+
+.ereg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: yellowgreen; */
+    width: 238px;
+    height: 43px;
+    position: relative;
+    bottom: 15px;
+    border-top: 1px solid #D9D9D9;
+}
+
+.elink_official{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ereg > span{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.05em;
+
+    color: #767676;
+}
+
+.elist_official{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1199px;
+    height: 780px;
+    /* background-color: yellowgreen; */
+}
+
+
+
+.egroup_catalog{
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+    /* background-color: yellowgreen; */
+}
+
+
+
+/* 페이지네이션 */
+
+.epnation{
+    display: flex;
+    justify-content: center;
+}
+
+.epnation{
+    margin-top: 48px;
+}
+
+.epnation_wrap{
+    display: flex;      
+    align-items: center;
+    justify-content: center;
+}
+
+.epnation_ul{
+    display: flex;
+    width: 388px;
+    align-items: center;
+    justify-content: center;
+}
+
+.epnation_ul > li{
+    display: flex;
+    width: 340px;
+    height: 28px;
+    align-items: center;
+    /* background-color: rgb(134, 175, 45); */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    color: #767676;
+}
+

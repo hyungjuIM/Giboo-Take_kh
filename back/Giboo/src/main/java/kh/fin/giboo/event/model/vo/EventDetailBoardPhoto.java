@@ -13,6 +13,6 @@ public class EventDetailBoardPhoto {
 	private String eventCertificationAttachment; // 첨부파일
 	private String memberNick; // 사용자 별명
 	private String eventCertiEnrollDate; // 이벤트 인증 등록일
-	private String timeDifference;
+	private String time_Difference;
 	private String eventNo;
 }

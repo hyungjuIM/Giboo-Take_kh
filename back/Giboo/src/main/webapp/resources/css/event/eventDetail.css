@@ -2,15 +2,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
+
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+  }
+  
+
+
 *{
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'NanumSquareNeo KR', sans-serif;
     font-family: 'Open Sans', sans-serif;
 }
 
+
+.edWrap{
+    position: relative;
+}
+
+/* .eFavBtn{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.eFavBtn:hover{
+    background-color: red;
+} */
+
+/* .dFavSpan{
+    font-size: 20px;
+} */
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* 프로그래스 바 스타일 수정 */
+progress {
+    /* 스타일 속성 설정 */
+    background-color: #ffffff;
+    border: none;
+    height: 10px;
+    border-radius: 12px;
+  }
+
+  /* 프로그래스 바 채워진 부분의 스타일 수정 */
+  progress::-webkit-progress-value {
+    background-color: #00c3ff;
+    border-radius: 12px;
+
+  }
+  /*  Mozilla Firefox 브라우저 */
+  progress::-moz-progress-bar {
+    background-color: #00c3ff;
+  }
+  /*  Microsoft Edge 브라우저 */
+  progress::-ms-fill {
+    background-color: #00c3ff;
+  }
+  
 main{
     display: flex;
     justify-content: center;
@@ -19,14 +87,14 @@ main{
 
 .edWrap > img{
     width: 813px;
-    height: 700px;
+    height: 650px;
 }
 
-.edDoPerImg > img{
+/* .edDoPerImg > img{
     width: 50px;
     height: 45px;
     border-radius: 50%;
-}
+} */
 
 
 
@@ -42,7 +110,7 @@ main{
 }
 
 .edWrapDetail{
-    margin-top: 22px;
+    margin-top: 42px;
     margin-left: 24px;
 }
 
@@ -54,9 +122,9 @@ main{
 }
 
 .edWrapPeriodSpan{
-    border: 1px solid #8071FC;
-    border-radius: 100px;
-    height: 27px;
+    border: 1px solid #00CA61;
+    border-radius: 5px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,11 +139,11 @@ main{
 }
 
 .edWrapPeriodSpan > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .edWrapTitle{
@@ -83,7 +151,7 @@ main{
 }
 
 .edWrapTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
 font-style: normal;
 font-weight: 500;
 font-size: 26px;
@@ -121,7 +189,7 @@ color: #111111;
 }
 
 .edVolDo > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -133,67 +201,43 @@ color: #111111;
 }
 
 .edDoTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     color: #4D4D4D;
 }
 
-.edDoPerson{
-    /* background-color: yellowgreen; */
-    margin-top: 12px;
-    height: 89px;
-    display: flex;
-    align-items: center;
-    max-width: 340px;
-    overflow: hidden;
-}
 
-.edDoPersonUl{
+/* .edDoPersonUl{
     display: flex;
-}
-
+} */
+/* 
 .edDoPersonLi{
     margin-right: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
+} */
 
-.edDoPerImg{
-    width: 60px;
-    height: 60px;
-    background: #D9D9D9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 50%;
-}
-
-.edPersonName{
-    font-family: 'Noto Sans';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    color: #767676;
-}
 
 .edBtn{
-    /* background-color: violet; */
     display: flex;
     align-items: flex-end;
-    justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    position: absolute;
+    top: 560px;
 }
+
+
+/* 
+
 
 .edBtnDe{
     width: 161px;
     height: 41px;
-    background-color: #8071FC;
+    background-color: #00CA61;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -201,12 +245,48 @@ color: #111111;
 }
 
 #popupButton{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
-}
+} */
+
+
+/* .memberChange_bottom{
+
+    width: 100%;
+  } */
+  
+  .memberChange_bottom button{
+    border: none; 
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 500;
+  
+  
+    background-color: var(--etcColor); 
+    width: 150px;
+    height: 46px;
+    
+  
+    color : #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+  }
+
+.memberChange_bottom button:hover{
+  background-color: var(--mainColor);
+  font-weight: 600;
+}    
+
+
+
+
+
+
+
 
 .edStampPopDe {
 	position: relative;
@@ -235,7 +315,7 @@ color: #111111;
 }
 
 .edStampPopDe > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 400;
     font-size: 10px;
@@ -260,6 +340,7 @@ color: #111111;
     align-items: center;
     justify-content: center;
     border: 1px solid #D9D9D9;
+    cursor: pointer;
 }
 
 .edStampBtn > span{
@@ -298,7 +379,7 @@ color: #111111;
 
 /* ------------카테고리 변경 시마다 색 변경하기----------- */
 .edEventintro:nth-child(1){
-    border-bottom: 2px solid #8071FC;
+    border-bottom: 2px solid #00CA61;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -306,15 +387,15 @@ color: #111111;
 }
 
 .edEventintro:nth-child(1) > a > span{
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .edEventintro > a > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    color: #4D4D4D;
+    font-size: 20px;
+    color: var(--contentColor);
 }
 
 
@@ -326,10 +407,10 @@ color: #111111;
 }
 
 .edDetailWrite{
-    background-color: wheat;
+    /* background-color: wheat; */
     max-width: 800px;
     overflow: hidden;
-    height: 1000px;
+    /* height: 1000px; */
 }
 
 
@@ -363,12 +444,12 @@ color: #111111;
 }
 
 .edHowtoTi > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .edHowtoDetail{
@@ -381,7 +462,7 @@ color: #111111;
 }
 
 .edHowtoDetail > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -421,7 +502,7 @@ color: #111111;
 }
 
 .edInTitle > span{
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -451,25 +532,35 @@ color: #111111;
     margin-top: 12px;
 }
 
+.noEvent{
+    font-size: 16px;
+    font-weight: 500px;
+    color : #767676;
+    margin-top: 30px;
+}
+
 
 
 /* --------------더보기-------------- */
 .eMoreWrap{
     margin-top: 200px;
+    /* background-color: yellowgreen; */
 }
 
 .eMoreTitle > span{
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
+    color: #767676;
+    font-family: 'NanumSquare';
 }
 
 .eMoreTitle{
     margin-bottom: 20px;
 }
 
-.elist_official > li{
-    background-color:#F6F6F6;
-    width: 224px;
+.elist_official_li{
+    background-color:#f7f7f7;
+    width: 200px;
     height: 270px;
     border-radius: 20px;
     margin-right: 15px;
@@ -479,7 +570,7 @@ color: #111111;
     /* background-color: yellowgreen; */
     overflow: hidden;
     display: flex;
-    width: 71%;
+    /* width: 1050px; */
 }
 
 .earea_thumb{
@@ -491,7 +582,7 @@ color: #111111;
 
 /* 진행중 */
 .earea_thumb_period_go{
-    background-color: #8071FC;
+    background-color: #00CA61;
     border-radius: 50%;
     width: 38px;
     height: 38px;
@@ -604,15 +695,28 @@ color: #111111;
 
 
 /* 더보기 버튼 */
+.eMoreBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.eMoreBtn{
+    /* background-color: yellowgreen; */
+}
+
 .eMoreBtnBox{
-    background-color: #8071FC;
+    background-color: #00CA61;
     width: 180px;
     height: 40px;
-    border-radius: 100px;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
+    border: none;
+    padding: 30px;
 }
 
 .eMoreBtnBox > span:nth-child(1){
@@ -622,7 +726,7 @@ color: #111111;
 .eMoreBtnBox > span{
     font-weight: 600;
     font-size: 16px;
-    font-family: 'Noto Sans';
+    font-family: 'NanumSquareNeo';
     font-style: normal;
 }
 
@@ -633,3 +737,277 @@ color: #111111;
     width: 71%;
     margin-top: 20px;
 }
+
+.eMoreList{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1000px;
+}
+
+.relatedItemListButtonArea {
+    height: 279px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+#prev, #next {
+    width: 24px;
+    height: 24px;
+    border: none;
+    /* border: 2px solid #8071FC; */
+    border-radius: 100%;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: unset;
+    cursor: pointer;
+}
+
+
+/*==============================================*/
+
+
+.progressArea {
+    background-color: #eefce7;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 340px;
+}
+
+.progressInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progressPercentage {
+    color: #00CA61;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.goal {
+    color: #767676;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.progressBar {
+    width: 100%;
+    height: 10px;
+    border-radius: 50px;
+    background-color: white;
+    margin: 10px 0px;
+}
+
+.progressBarValue {
+
+background: linear-gradient(to top, #61fbc2 50%, #00CA61);
+
+    border-radius: 30px;
+
+    width: 50%;
+    height: 100%;
+}
+
+.progressStatus {
+    display: flex;
+}
+
+.progressStatus > span {
+    color: #767676;
+    font-size: 14px;
+    font-weight: bolder;
+    margin-right: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.progressStatus > span > img {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+}
+
+.progressStatus > span > span {
+    font-size: 14px;
+}
+
+
+/* 프로필 이미지 슬라이드(eventParticiMore)===================================== */
+
+.eParMoreTitle{
+    margin: 30px 0px;
+    font-family: 'NanumSquareNeo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #767676;
+}
+
+.edDoPersonLi{
+    width: 100%;
+    height: 110px;
+    border-radius: 20px;
+    /* border: solid 2px yellow; */
+
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    font-size: 18px;
+    color:#767676;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.edDoPersonUl{
+    overflow: hidden;
+    display: flex;
+    /* width: 500px; */
+    /* border : solid 1px blue */
+}
+
+
+/* .eParMoreList{
+    
+    align-items: center;
+    justify-content: center;
+    width: 340px;
+    height: 100px;
+   
+} */
+
+.edDoPerImg{
+    width: 70px;
+    height: 70px;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.edDoPerImg > img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.edPersonName{
+    font-family: 'NanumSquareNeo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    color: #767676;
+    margin-top: 10px;
+}
+
+
+.swiper-container {
+    width: 280px;
+    height:150px; 
+    /* border:1px solid silver; */
+    border-radius:7px; 
+    margin-top: 30px;
+    
+    
+ }
+
+
+ .swiper-slide { 
+   
+      display: flex;
+     text-align:center; 
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+      
+
+  }
+ .swiper-slide div {
+     /* height: 380px; */
+     /* width: 550px; */
+    /* box-shadow:0 0 5px #555; */
+    max-width:100%; 
+    /* 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */ 
+    /* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다.*/
+ }
+
+ .swiper-wrapper{
+    
+ }
+
+.do_next_prev_btn1{
+    position: absolute;
+    left: 832px;
+    top: 428px;
+    width: 350px;
+    height: 50px;
+    z-index: 100;
+}
+ 
+.do_next_prev_btn1 span {
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+}
+
+.do_next{
+    right: 0%;
+    /* background-image: none;    */
+}
+.do_prev{
+    left: 0%;
+    /* background-image: none; */
+}
+.do_prev img,
+.do_next img{
+    width : 20px;
+    height : 20px;
+}
+
+.swiper-button-prev1{
+    background-image: none;
+}
+.swiper-button-next1{
+    background-image: none;
+}
+
+
+/*--이벤트디테일보드의 eventStickerBar*/
+.do_next_prev_btn2{
+    position: absolute;
+    top: 145px;
+    right: 3px;
+    width: 340px;
+    height: 50px;
+    z-index: 100;
+}
+
+.do_next_prev_btn2 span {
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+.swiper-button-prev2{
+    background-image: none;
+}
+.swiper-button-next2{
+    background-image: none;
+}
+
+.second{
+    display: flex;
+    height : 300px;
+    width : 200px;
+    border : 3px solid yellow;
+}
+

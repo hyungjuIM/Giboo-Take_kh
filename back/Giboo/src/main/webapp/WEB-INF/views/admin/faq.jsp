@@ -94,7 +94,7 @@
                                     <td>${faqList.faqCategory}</td>
                                     <td>${faqList.faqTitle}</td>
                                     <td><button class="detail">상세 정보</button></td>
-                                    <td><button class="remove">삭제</button></td>
+                                    <td><button id="faqRemove${faqList.faqNo}" class="remove">삭제</button></td>
                                 </tr>
                             </c:forEach>
                         </tbody>

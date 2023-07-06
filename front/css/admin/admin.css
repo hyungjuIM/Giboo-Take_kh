@@ -112,11 +112,11 @@ a{
 }
 
 .sideMenuFocus > a {
-    color: #8071FC;
+    color: #00CA61;
 }
 
 .sideMenuFocus {
-    border-color: #8071FC;
+    border-color: #00CA61;
 }
 
 .optionArea {
@@ -158,7 +158,7 @@ a{
 
 .managerNotificationTitle {
     width: fit-content;
-    background-color: #8071FC;
+    background-color: #00CA61;
     padding: 4px 16px;
     border-radius: 20px;
     color: white;
@@ -190,7 +190,7 @@ a{
 
 .menuButtonFocus {
     /*background: linear-gradient(135deg, #978AFF, #6659D1);*/
-    background-color: #8071FC;
+    background-color: #00CA61;
     color: white;
 }
 

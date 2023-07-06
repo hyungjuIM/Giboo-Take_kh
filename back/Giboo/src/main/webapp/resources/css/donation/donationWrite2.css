@@ -53,7 +53,6 @@ a{
 }
 
 .writeArea > li {
-    color: #5D55FA;
     margin-bottom: 16px;
 }
 
@@ -114,6 +113,14 @@ a{
     align-items: start !important;
 }
 
+#amount {
+    width: 90%;
+}
+
+#amount::placeholder {
+    color: #D6D3F4;
+}
+
 #address {
     width: 828px;
     height: 42px;
@@ -155,6 +162,7 @@ a{
     width: 390px;
     display: flex;
     align-items: center;
+    outline: none;
 }
 
 #imgInput::file-selector-button {
@@ -167,9 +175,11 @@ a{
     background-color: white;
     z-index: 1;
     position: absolute;
-    top: 10px;
+    top: 9px;
     left: 7px;
     opacity: 1;
+    display: flex;
+    align-items: center;
 }
 
 .optionArea {

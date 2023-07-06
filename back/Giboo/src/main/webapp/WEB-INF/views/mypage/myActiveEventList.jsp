@@ -43,83 +43,112 @@
 
 		<div class="mypage-container">
 			<div class="mypage_wrapper">
-
 				<header>
 					<jsp:include page="/WEB-INF/views/mypage/mypage_side.jsp" />
 				</header>
 
-				<div class="myask_content_area">
-					<section class="mainContainer">
+				<div class="myask_content_area  menu_box_container">
+					<section class="mainContainer main">
 						<div class="mainContent">
 							<section class="notice">
 
-
+								<!-- notice seach area -->
+								<!--  container1 -->
 								<div class="notice1">
 									<div class="container1">
-										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의</span><span
-											style="color: #8071FC;"> 활동목록</span><span
-											style="color: #767676;">를 알려드립니다 😇</span>
 
+										<span style="color: #767676;">Giboo&Take서비스의 봉사자(기부자)님의
+											<span style="color: #00CA61;">참여한 이벤트 내역 </span>을(를) 알려드립니다 😇
+										</span>
+
+										<!--  container2 -->
 										<div class="container2">
 											<div class="container2_title">
-												<div class="active_title_name">
-													<div class="myactive_donation">
+
+												<div class="active_title_name title_style">
+													<div class="myactive_donation click_hover">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myActiveDonationList">기부</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveDonationList"
+															class="select_aTag">기부</a>
 													</div>
 												</div>
-												<div class="active_title_right">|</div>
-												<div class="active_title_name">
-													<div class="myactive_volunteer">
+
+												<div class="active_title_name title_style">
+													<div class="myactive_volunteer click_hover">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myActiveVolunteerList">봉사</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveVolunteerList"
+															class="select_aTag">봉사</a>
 													</div>
 												</div>
-												<div class="active_title_right">|</div>
-												<div class="active_title_name2">
-													<div class="myactive_event">
+
+												<div class="active_title_name2 title_style">
+													<div class="myactive_event click_hover">
 														<a
-															href="${pageContext.request.contextPath}/mypage/myActiveEventList">참여한
-															이벤트</a>
+															href="${pageContext.request.contextPath}/mypage/myActiveEventList"
+															class="select_aTag">참여한 이벤트</a>
 													</div>
 												</div>
+
 											</div>
 
-											<div class="search-area">
-												<div class="search-filter">
 
-													<select id="filter" name="filter">
-														<option value="title">제목</option>
-														<option value="author">작성자</option>
-														<option value="views">조회수</option>
-														<option value="date">등록일</option>
-													</select>
-												</div>
+											<!-- active container  -->
+											<div class="active_contatiner">
+												<%--  container2 --%>
 
-												<form action="">
-													<fieldset>
-														<input type="text" id="query" name="query"
-															placeholder="검색어를 입력해주세요" onfocus="this.placeholder = ''"
+												<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
+												<c:if test="${!empty param.key}">
+													<c:set var="sURL"
+														value="&key=${param.key}&query=${param.query}" />
+												</c:if>
+
+												<c:if test="${!empty param.key}">
+
+													<div class="query_result">
+														"<span>${param.query}</span>" 검색 결과
+													</div>
+												</c:if>
+
+												<div class="search_area">
+													<form method="get" id="boardSearch"
+														onsubmit="return searchValidate()">
+
+														<div class="search-filter">
+															<select id="search-key" name="key">
+																<option value="t">제목</option>
+																<option value="c">일자</option>
+															</select>
+														</div>
+
+
+														<span class="search_field"> <input type="text"
+															id="search-query" name="query" placeholder="검색어를 입력해주세요"
+															onfocus="this.placeholder = ''"
 															onblur="this.placeholder = '검색어를 입력해주세요'">
-														<button type="submit" id="search-btn"
-															class="fa-solid fa-magnifying-glass"></button>
-													</fieldset>
-												</form>
+															<button type="submit" id="search-btn"
+																class="fa-solid fa-magnifying-glass"></button>
+
+														</span>
+
+
+
+													</form>
+												</div>
+
 											</div>
-
 										</div>
-
-
-
 									</div>
+
 								</div>
+							</section>
+						</div>
+<div id="myactive_notice-list"
+							class="notice_box_container_content">
+							<div class="myactive_container3 notice_index_container">
+								<table class="myactive_notice-table notice_table">
 
-
-								<div id="myactive_notice-list">
-									<div class="myactive_container3">
-										<table class="myactive_notice-table">
-											<thead>
-												<tr>
+									<thead>
+										<tr>
 													<th scope="col" class="th_num">번호</th>
 													<th scope="col" class="th_name">참여한 이벤트 내역</th>
 													<th scope="col" class="th-date">이벤트 참여일자</th>
@@ -132,33 +161,29 @@
 													<c:when test="${empty myActiveEventList}">
 
 														<tr>
-															<th colspan="3">게시글이 존재하지 않습니다.</th>
+															<th colspan="4">
+															 <div class="board_no">
+															  	게시글이 존재하지 않습니다.
+															 </div>
+															</th>
 														</tr>
 													</c:when>
 
 													<c:otherwise>
-														<c:set var="eventCount" value="${myActiveEventList.size()}" />
+														
 														<c:forEach var="myActiveEventList"
-															items="${myActiveEventList}" varStatus="status">
-															
-															 <c:set var="eventNumber" value="${eventCount - status.count + 1}" />
+															items="${myActiveEventList}">
 															<tr>
-																<td>${eventNumber}</td>
-																<td><a
+																<td class="th_num">${myActiveEventList.myactiveEventNo}</td>
+																<td class="th_name"><a
 																	href="../event/eventDetailMain/${myActiveEventList.eventNo}?cp=${pagination.currentPage}${sURL}">${myActiveEventList.eventTitle}</a></td>
-																<td>${myActiveEventList.myactiveDate}</td>
+																<td class="th-date">${myActiveEventList.myactiveDate}</td>
 															</tr>
 															
 														</c:forEach>
 													</c:otherwise>
 												</c:choose>
-												<%--
-												<tr>
-													<td>50</td>
-													<td><a href="#">참여한 이벤트 내역 참여한 이벤트 내역</a></td>
-													<td>2023.05.23</td>
-													</tr>
-												 --%>
+												
 											</tbody>
 										</table>
 									</div>
@@ -212,6 +237,8 @@
 	<footer>
 		<jsp:include page="/WEB-INF/views/main/footer.jsp" />
 	</footer>
+
+<script src="${pageContext.request.contextPath}/resources/js/mypage/mypageBoard.js"></script>
 
 
 </body>

@@ -33,8 +33,8 @@
               <!-- notice seach area -->
               <div class="notice">
                 <div class="container1">
-                  <span style="color: #767676;">Giboo&Take 서비스의</span><span style="color: #8071FC;"> 신규</span><span
-                    style="color: #767676;"> 및</span> <span style="color: #8071FC;"> 업데이트 소식</span><span
+                  <span style="color: #767676;">Giboo&Take 서비스의</span><span style="color: #00CA61;"> 신규</span><span
+                    style="color: #767676;"> 및</span> <span style="color: #00CA61;"> 업데이트 소식</span><span
                     style="color: #767676;">을 알려드립니다 😇</span>
                 </div>
                 <div class="nothing"></div>
@@ -106,6 +106,15 @@
                     </tbody>
                   </table>
                 </div>
+                <div class="writeBtn-container">
+                  <c:choose>
+                  <c:when test="${!empty loginManager}">
+                  <button class="writeBtn"
+                    onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite?mode=insert&cp=${pagination.currentPage}'"><i
+                      class="fa-solid fa-pen"></i>_글쓰기</button>
+                    </c:when>
+                  </c:choose>
+                </div>
                 <div class="container4">
                   <nav class="page-nav">
                     <c:set var="url" value="?cp=" />
@@ -130,11 +139,7 @@
                       <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
                     </ul>
                   </nav>
-                  <div class="writeBtn-container">
-                    <button class="writeBtn"
-                      onclick="location.href='${pageContext.request.contextPath}/notice/noticeWrite'"><i
-                        class="fa-solid fa-pen"></i>_글쓰기</button>
-                  </div>
+                 
                 </div>
               </div>
             </section>

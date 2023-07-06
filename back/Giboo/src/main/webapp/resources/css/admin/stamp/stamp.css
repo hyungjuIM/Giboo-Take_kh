@@ -1,0 +1,88 @@
+*{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+:root{
+    --mainColor: #00CA61;
+    --titleColor: #252525;
+    --redColor: #FF5D5E;
+    --contentColor: #767676;
+    --etcColor: #d9d9d9;
+  }
+  
+/* 
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.E_pop_mask11 {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.7) repeat;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    display: none;
+}
+
+.stampWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(49, 63, 21);
+    width: 800px;
+    height: 300px;
+    display: none;
+    top: 40%;
+    z-index: 9999;
+    position: fixed;
+}
+
+.stampBox{
+    background-color: wheat;
+    width: 750px;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.stampDiv{
+    background-color: yellowgreen;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+
+
+.stampUl{
+    display: flex;
+    width: 700px;
+    height: 200px;
+    /* background-color: aqua; */
+    flex-wrap: wrap;
+}
+
+.stampLi{
+    margin-right: 40px;
+}
+
+.stampImg{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}

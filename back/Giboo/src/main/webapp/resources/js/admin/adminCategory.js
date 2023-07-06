@@ -61,13 +61,18 @@ for (const i of remove) {
     i.addEventListener("click", () => {
         const type = i.id.replace(/[^a-z]/gi, "");
         const id = i.id.replace(/[^0-9]/g, "");
-        console.log(type);
-        console.log(id);
         $.ajax({
             url : "category/removeCategory",
             data: {"type": type, "id": id},
             success: function (result) {
-
+                if (result == 1) {
+                    alert("카테고리가 삭제되었습니다.");
+                    test();
+                    location.reload();
+                } else {
+                    alert("카테고리 삭제에 실패했습니다. 잠시후 다시 시도해주세요.");
+                    location.reload();
+                }
             },
 
             error: function () {
