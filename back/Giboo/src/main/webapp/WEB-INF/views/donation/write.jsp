@@ -98,10 +98,10 @@
             </ul>
 
             <div class="optionArea">
-                <a href="" class="list">목록으로</a>
+                <a type="button" class="list" onclick="history.back();">목록으로</a>
                 <div>
                     <button type="submit" class="edit">등록</button>
-                    <button class="delete">취소</button>
+                    <button class="delete" type="button" onclick="history.back();">취소</button>
                 </div>
             </div>
 

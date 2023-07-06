@@ -69,17 +69,17 @@
                                         <div class="AAiWrap">
                                             <div class="AAiBox">
                                                 <div class="AAiBox_1">
-                                                	<a href="http://localhost:8081/giboo/volunteer/home" target="_blank">
+                                                	<a href="${pageContext.request.contextPath}/volunteer/home" target="_blank">
                                                     	<span>봉사 신청 바로가기😆</span>
                                                     </a>
                                                 </div>
                                                 <div class="AAiBox_1">
-                                                	<a href="http://localhost:8081/giboo/donation/home" target="_blank">
+                                                	<a href="${pageContext.request.contextPath}/donation/home" target="_blank">
                                                     	<span>기부 신청 바로가기😋</span>
                                                     </a>
                                                 </div>
                                                 <div class="AAiBox_1">
-                                                	<a href="http://localhost:8081/giboo/event/eventList" target="_blank">
+                                                	<a href="${pageContext.request.contextPath}/event/eventList" target="_blank">
                                                     	<span>이벤트❤️</span>
                                                     </a>
                                                 </div>

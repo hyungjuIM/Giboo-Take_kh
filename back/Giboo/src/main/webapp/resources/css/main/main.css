@@ -566,18 +566,18 @@ ul li div.vol_day {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: var(- -contentColor);
-	font-weight: 500;
-	font-size: 16px;
+	color: var(--contentColor);
+	font-weight: 600;
+	font-size: 14px;
 	line-height: 15px;
-}
+ }
 
 li .vol_day span {
 	font-family: 'NanumSquareNeo';
 	font-size: 22px;
-	font-weight: 600;
+	font-weight: 800;
 	line-height: 24px;
-	color: var(- -redColor);
+	color: var(--mainColor);
 }
 
 
@@ -602,7 +602,7 @@ li .vol_day span {
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
-	gap: 16px;
+	gap: 8px;
 }
 
 .vol_content_part div .vol_con_bar {
@@ -616,7 +616,7 @@ li .vol_day span {
 .vol_con_bar .vol_con_bar_per {
 	position: relative;
 	display: block;
-	width: 70%;
+	width: 75%;
 	height: 100%;
 	background-color: var(--mainColor);
 	box-shadow: insert 0px 2px 3px rgba(0, 0, 0, 0.3);
@@ -631,7 +631,7 @@ li .vol_day span {
 }
 
 .progressBar {
-    width: 80%;
+    width: 85%;
     height: 10px;
     border-radius: 30px;
     background-color: #e5e5e5;
@@ -666,14 +666,14 @@ li .vol_day span {
 /* vol_content 내용 */
 .vol_content {
 	padding-top: 14px;
-	padding-bottom: 35px;
+	padding-bottom: 19px;
 }
 
 .vol_content h3 {
 	padding-bottom: 8px;
 	font-size: 18px;
-	font-weight: 500;
-	line-height: 28px;
+	font-weight: 600;
+	line-height: 24px;
 	color: var(--titleColor);
 	white-space: wrap;
 }
@@ -895,23 +895,24 @@ li .vol_day span {
 .do_tag_container {
 	display: flex;
 	align-items: center;
-	margin-bottom: 35px;
+/* 	margin-bottom: 35px; */
+margin-top: 130px;
 }
 
 .do_tag_container .do_tag {
-	background-color: var(--mainColor);
-	height: 35px;
-	width: 120px;
+	background-color: #E1F4EA;
+	height: 30px;
+	width: 88px;
 	border-radius: 50px;
 	text-align: center;
 	line-height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: white;
+	color: var(--mainColor);
 	font-family: 'NanumSquareNeo';
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
 
 }
 
@@ -919,6 +920,8 @@ li .vol_day span {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	width: 20px;
+	font-size: 14px;
 }
 
 .do_like div:nth-child(1) img {
@@ -929,6 +932,7 @@ li .vol_day span {
 	width: 20px;
 	height: 20px;
 	font-weight: 300;
+	font-size
 }
 
 .do_tag_container .do_like {
@@ -945,11 +949,12 @@ li .vol_day span {
 }
 
 .do_tag_container .do_like span {
-	color: var(--titleColor);
-	font-size: 15px;
+	color: var(--contentColor);
+	font-size: 14px;
 	font-family: 'NanumSquareNeo';
-	font-weight: 600;
+	font-weight: 500;
 	margin-left: 2px;
+	
 }
 
 /* .do_tag_container .do_like span:after {
@@ -961,23 +966,42 @@ li .vol_day span {
 	font-size: 14px;
 } */
 
-.do_right .doTitle {
+.do_right{
 	width: 100%;
-	/* padding: 20px; */
-	font-family: 'NanumSquareNeo';
+	 display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.do_right .doTitle {
+	width: 100%;
+	height: 30%;
+	/* padding: 20px; */
+/* 	border: 1px solid red;
+ */}
+
 .do_right .doTitle h3 {
+		font-family: 'NanumSquareNeo';
+	
 	font-size: 23px;
 	white-space: wrap;
 	line-height: 32px;
 	margin-bottom: 10px;
-	font-weight: 500;
+	font-weight: 600;
 	color: var(--titleColor);
+	
+	
+	
+/* 	border: 1px solid green;
+ */	
 }
 
 .do_right .doTitle div {
-	font-size: 14px;
+		font-family: 'NanumSquareNeo';
+	
+/* 	border: 1px solid blue;
+ */	font-size: 14px;
 	font-weight: 400;
 	display: flex;
 	/* justify-content: center;*/
@@ -1002,11 +1026,19 @@ li .vol_day span {
 	line-height: 18px;
 }
 
+/* .do_per_container{
+	width: 100%;
+	border: 1px solid green;
+} */
+
 .do_content_per {
-	width: 95%;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	padding: 5px 0px;
+	
+	/* border: 1px solid red; */
 }
 
 .do_content_per .do_con_bar {
@@ -1026,18 +1058,23 @@ li .vol_day span {
 	position: absolute;
 	z-index: 10;
 	display: flex;
+	
 }
 
 .do_content_per .doTooltip {
 	font-family: 'NanumSquareNeo';
 	font-size: 12px;
 	color: var(--contentColor);
+	font-weight: 500;
+	/* border: 1px solid pink; */
+	margin-left: 4px;
+	margin-bottom: 1px;
 }
 
-.do_content_per .doTooltip span {
+.do_content_per span {
 	font-family: 'NanumSquareNeo';
 	font-size: 12px;
-	font-weight: 800;
+	font-weight: 600;
 	color: var(--mainColor);
 }
 

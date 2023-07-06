@@ -7,7 +7,7 @@
   padding: 0px;
   margin: 0px;
 }
-}
+
 
 body{
     margin: 0;
@@ -73,7 +73,7 @@ a{
 
 /* section mainContainer */
 .mainContainer{
-border: 1px solid red;
+
 
 	padding: 24px;
     height: fit-content;
@@ -166,7 +166,7 @@ border: 1px solid red;
     line-height: 42px;
     margin-block: 10px;
    	margin-bottom: 20px;
-    border: 1px solid green;
+
 }
 
 .progressArea {
@@ -217,7 +217,7 @@ border: 1px solid red;
 }
 
 .progressBarValue {
-    background: linear-gradient(to top, #00CA61; 50%, #574da1);
+    background: linear-gradient(to top, #00CA61 50%, #574da1);
     border-radius: 30px;
 
     width: 50%;
@@ -277,12 +277,12 @@ border: 1px solid red;
 /*  */
 
 .contentArea {
-	border: 1px solid red;
+	
     display: flex;
 }
 
 .content {
-	border: 1px solid blue;
+
 	
 	font-family: 'NanumSquareNeo';
 	font-size: 16px;
@@ -308,7 +308,7 @@ border: 1px solid red;
 /*  */
 
 .nav {
-	border: 1px solid green;
+
     width: 30%;
 }
 
@@ -322,7 +322,7 @@ border: 1px solid red;
 
 .nav .agencyInfoArea .agencyInfo {
 	
-	border: 1px solid red;
+
 	
     display: flex;
     margin-bottom: 10px;
@@ -330,7 +330,7 @@ border: 1px solid red;
 }
 
 .agencyImg {
-	border: 1px solid red;
+
 	
 	display: flex;
 	 justify-content: center;
@@ -410,7 +410,7 @@ border: 1px solid red;
 /*  */
 
 .commentInner{
-	border: 1px solid skyblue;
+	
 	
 }
 
@@ -418,14 +418,14 @@ border: 1px solid red;
 	font-family: 'NanumSquareNeo';
 	font-size: 16px;
 	font-weight: 600;
-	border: 1px solid orange;
+
 	margin-bottom: 4px;
 	color: var(--titleColor);
 	
 }
 
 .commentItem {
-	border: 1px solid blue;
+	
 	
  	font-family: 'NanumSquareNeo';
 	
@@ -440,8 +440,7 @@ border: 1px solid red;
 
 .memberImgArea {
 	
-	border: 1px solid red;
-	
+
     border-radius: 100%;
     background-color: #D9D9D9;
     width: 50px;
@@ -492,7 +491,7 @@ border: 1px solid red;
  font-family: 'NanumSquareNeo';
 	
     font-size: 14px;
-    color: #767676;500;
+    color: #767676;
 }
 
 .commentInfo .commentCount:after{
@@ -507,24 +506,88 @@ border: 1px solid red;
     margin-right: 6px;
 }
 
+.modify_tag_box{
+	width: 100%;
+	height: 20px;
+	margin-top: 10px;
+	
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 10px;
+    margin-bottom: 8px;
+}
+
+
 
 .modify_tag{
-	border: 1px solid blue;
+	 font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	color: var(--etcColor);
+	font-weight: 600;
+
+}
 
 /*  */
 
-.relatedAreaInner {
-    display: flex;
+.relatedArea{
+
+	 flex-direction: column;
 }
 
-.relatedArea >span:first-child {
+.relatedArea .relatedTitle{
+	
+	
+	
+    font-family: 'NanumSquareNeo';
+	font-size: 18px;
+	font-weight: 600;
+	
+	margin-top: 10px;
+	margin-bottom: 8px;
+	
+}
+
+.relatedArea .relatedAreaInner {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+}
+.relatedItemListButtonArea{
+
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+	
+
+}
+
+
+.relatedItemListButtonArea .do_button img{
+	
+	width: 50px;
+}
+
+.do_button{
+	display: visibility !important;
+}
+
+/* 
+
+.relatedArea > span:first-child {
+	border: 1px solid green;
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 18px;
+    font-family: 'NanumSquareNeo';
+    
 }
 
 .relatedItemList {
-    width: 749px;
+    width: 80%;
+   	border: 1px solid orange;
 }
 
 .relatedImg {
@@ -576,14 +639,18 @@ border: 1px solid red;
     cursor: pointer;
 }
 
+
 .relatedItemListButtonArea {
+	width: 100%;
     height: 279px;
     display: flex;
     align-items: center;
     margin-right: 10px;
+   position: absolute;
+   border: 2px solid blue;
 }
-
-.grayBox {
+ */
+/* .grayBox {
     width: 100%;
     height: 100%;
     background-color: rgba(128, 128, 128, 0.5);
@@ -647,4 +714,4 @@ border: 1px solid red;
     font-size: 24px;
     cursor: pointer;
     transition-duration: 250ms;
-}
+} */

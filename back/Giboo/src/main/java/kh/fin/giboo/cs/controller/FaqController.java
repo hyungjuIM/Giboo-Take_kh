@@ -58,9 +58,19 @@ public class FaqController {
 	
 	// 기부 카테고리만 생성
 	@GetMapping("/faqDonation")
-	public String faqDonation()  {
+	public String faqDonation(@RequestParam(value= "cp", required = false, defaultValue ="1") int cp,
+			Model model)  {
 		
-	return "cs/faqDonation";
+		Map<String,Object> map = null;
+		
+		map = service.selectFaqDanation(cp, model);
+		
+		model.addAttribute("map", map);
+		logger.info("이거의값은???????" + map);
+		logger.info("기부!!");
+	   
+		
+		return "cs/faqDonation";
 	}
 	
 	// 이벤트 카테고리만 생성
