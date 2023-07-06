@@ -216,7 +216,7 @@ border: 1px solid red;
 }
 
 .progressBarValue {
-    background: linear-gradient(to top, #00CA61; 50%, #574da1);
+    background: linear-gradient(to top, #00CA61 50%, #574da1);
     border-radius: 30px;
 
     width: 50%;
@@ -491,7 +491,7 @@ border: 1px solid red;
  font-family: 'NanumSquareNeo';
 	
     font-size: 14px;
-    color: #767676;500;
+    color: #767676;
 }
 
 .commentInfo .commentCount:after{
@@ -507,8 +507,9 @@ border: 1px solid red;
 }
 
 
-.modify_tag{
-	border: 1px solid blue;
+.modify_tag {
+    border: 1px solid blue;
+}
 
 /*  */
 

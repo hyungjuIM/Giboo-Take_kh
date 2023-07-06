@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<c:set var="donationList" value="${map.donationList}" />
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,7 +142,13 @@
                         </div>
                     </div>
 
-                        <c:if test="${donationDetail.memberNo} == ${loginMember.memberNo}">
+                    <script>
+                        console.log(${donationDetail.memberNo});
+                        console.log(${loginMember.memberNo});
+                        console.log(${donationDetail.memberNo} == ${loginMember.memberNo})
+                    </script>
+
+                        <c:if test="${donationDetail.memberNo == loginMember.memberNo}">
                             <a class="modify_tag" href="${pageContext.request.contextPath}/donation/write?mode=update&no=${donationDetail.donationNo}">수정</a>
                         </c:if>
 
@@ -156,85 +164,23 @@
                     </div>
                     <div class="relatedItemList">
 
-                        <div class="relatedItem">
-                            <a href="">
-                                <img class="relatedImg" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
+                        <c:forEach var="donation" items="${donationList}">
+                            <div class="relatedItem">
+                                <a href="">
+                                    <img class="relatedImg" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
+                                    <div class="relatedItemTitle">${donation.donationTitle}</div>
+                                </a>
+                                <div class="relatedItemStatus">
                             <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+                            <img src="${pageContext.request.contextPath}${donation.donationAttachment}">
                             <span>1,030</span>명 참여중</span>
 
-                                <span>
+                                    <span>
                             <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
                             <span>102</span>명 추천</span>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="relatedItem">
-                            <a href="">
-                                <img id="relatedImg2" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/news_1486098867_610387_m_1.jpg">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
-                            <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount2">1,030</span>명 참여중</span>
-
-                                <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount2">102</span>명 추천</span>
-                            </div>
-                        </div>
-
-                        <div class="relatedItem">
-                            <a href="">
-                                <img id="relatedImg3" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
-                            <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount3">1,030</span>명 참여중</span>
-
-                                <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount3">102</span>명 추천</span>
-                            </div>
-                        </div>
-
-                        <div class="relatedItem">
-                            <a href="">
-                                <img id="relatedImg4" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/1E3A3E62-B3CA-434A-8C3B3ED0C982FB69_source.webp">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
-                            <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount4">1,030</span>명 참여중</span>
-
-                                <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount4">102</span>명 추천</span>
-                            </div>
-                        </div>
-
-                        <div class="relatedItem">
-                            <a href="">
-                                <img id="relatedImg5" class="relatedImg" src="${pageContext.request.contextPath}/resources/images/Cat_August_2010-4.jpg">
-                                <div class="relatedItemTitle">타이틀</div>
-                            </a>
-                            <div class="relatedItemStatus">
-                            <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="relateddonationCount5">1,030</span>명 참여중</span>
-
-                                <span>
-                            <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                            <span id="relatedRecommendedCount5">102</span>명 추천</span>
-                            </div>
-                        </div>
+                        </c:forEach>
 
                     </div>
                     <div class="relatedItemListButtonArea">
@@ -282,49 +228,54 @@
         }
 
         function requestPay() {
-            const today = new Date();
-            const hours = today.getHours();
-            const minutes = today.getMinutes();
-            const seconds = today.getSeconds();
-            const milliseconds = today.getMilliseconds();
-            const makeMerchantUid = hours + minutes + seconds + milliseconds;
-            donationContainer.style.display = "none";
-            console.log(donationValue.value);
+            if (donationValue.value >= 100) {
+                const today = new Date();
+                const hours = today.getHours();
+                const minutes = today.getMinutes();
+                const seconds = today.getSeconds();
+                const milliseconds = today.getMilliseconds();
+                const makeMerchantUid = hours + minutes + seconds + milliseconds;
+                donationContainer.style.display = "none";
+                console.log(donationValue.value);
 
-            IMP.request_pay({
-                pg : 'nice.{store-25334d4e-e97d-471c-a263-d93b21592ad8}',
-                pay_method : 'card',
-                merchant_uid: "IMP2" + makeMerchantUid,
-                name : "${donationDetail.donationTitle}",
-                amount : donationValue.value,
-                buyer_email : 'Iamport@chai.finance',
-                buyer_name : '아임포트 기술지원팀',
-                buyer_tel : '010-1234-5678',
-            }, function (rsp) { // callback
-                grayBox.style.display = "none";
-                if (rsp.success) {
-                    console.log(rsp);
-                    $.ajax({
-                        type: "POST",
-                        url: "../verify/" + rsp.imp_uid
-                    }).done(function (data) {
-                        if (rsp.paid_amount == data.response.amount) {
-                            alert("성공");
+                IMP.request_pay({
+                    pg : 'nice.{store-25334d4e-e97d-471c-a263-d93b21592ad8}',
+                    pay_method : 'card',
+                    merchant_uid: "IMP2" + makeMerchantUid,
+                    name : "${donationDetail.donationTitle}",
+                    amount : donationValue.value,
+                    buyer_email : 'Iamport@chai.finance',
+                    buyer_name : '아임포트 기술지원팀',
+                    buyer_tel : '010-1234-5678',
+                }, function (rsp) { // callback
+                    grayBox.style.display = "none";
+                    if (rsp.success) {
+                        console.log(rsp);
+                        $.ajax({
+                            type: "POST",
+                            url: "../verify/" + rsp.imp_uid
+                        }).done(function (data) {
+                            if (rsp.paid_amount == data.response.amount) {
+                                alert("성공");
 
-                            $.ajax({
-                                type: "POST",
-                                url: "../sync",
-                                data: {"impUid" : rsp.imp_uid, "payMethod" : rsp.pay_method, "paidAmount" : rsp.paid_amount, "donationNo" : ${donationDetail.donationNo}}
-                            })
-                        } else {
-                            alert("실패");
-                        }
-                    })
-                } else {
-                    console.log(rsp);
-                }
-            });
+                                $.ajax({
+                                    type: "POST",
+                                    url: "../sync",
+                                    data: {"impUid" : rsp.imp_uid, "payMethod" : rsp.pay_method, "paidAmount" : rsp.paid_amount, "donationNo" : ${donationDetail.donationNo}}
+                                })
+                            } else {
+                                alert("실패");
+                            }
+                        })
+                    } else {
+                        console.log(rsp);
+                    }
+                });
+            } else {
+                alert("기부금액이 최소 금액보다 적습니다. 기부 금액을 100원 이상 입력해주세요.")
+            }
         }
+
     </script>
 
 </body>

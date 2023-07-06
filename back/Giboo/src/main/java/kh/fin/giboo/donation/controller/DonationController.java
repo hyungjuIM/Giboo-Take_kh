@@ -8,6 +8,7 @@ import com.siot.IamportRestClient.response.Payment;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.Util;
 import kh.fin.giboo.donation.model.service.DonationService;
+import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.member.model.vo.Member;
@@ -88,6 +89,8 @@ public class DonationController {
         logger.info("기부 상세 페이지");
 
         DonationDetail donationDetail = service.getDonationDetail(donationNo);
+        int category = donationDetail.getParentCategoryNo();
+        Map<String, Object> map = service.selectDonationList(category, cp, model);
 
         LocalDate currentDate = LocalDate.now();
         LocalDate dDay = LocalDate.of(donationDetail.getEndRecruitDate().getYear() + 1900, donationDetail.getEndRecruitDate().getMonth() + 1, donationDetail.getEndRecruitDate().getDate());
@@ -104,7 +107,9 @@ public class DonationController {
         String unescapedContent = StringEscapeUtils.unescapeHtml(donationDetail.getDonationContent());
         donationDetail.setDonationContent(unescapedContent);
 
+
         model.addAttribute("donationDetail", donationDetail);
+        model.addAttribute("map", map);
         return "donation/detail";
     }
 
@@ -256,8 +261,8 @@ public class DonationController {
 
         String path = null;
         String message = null;
-        String webPath = "/resources/images/eventPopup/";
-//        String folderPath = req.getSession().getServletContext().getRealPath(webPath);
+        String webPath = "/resources/images/fileupload/";
+        String folderPath = req.getSession().getServletContext().getRealPath(webPath);
 //        String renameImage = kh.fin.giboo.main.controller.Util.fileRename((MultipartFile)detail.getThumbnail().getOriginalFilename());
 //        (MultipartFile)detail.getThumbnail().transferTo( new File( folderPath + renameImage) );
 
