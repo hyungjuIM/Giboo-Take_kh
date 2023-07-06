@@ -11,7 +11,7 @@ jQuery('.tooltip[data-text="알림"]').on('click', function () {
 
 jQuery('#alarm').click(function () {
   jQuery.ajax({
-url: getContextPath() + "/notifications",
+url:  "/notifications",
 dataType: "json",
 async:false,
 success: function (list) {
