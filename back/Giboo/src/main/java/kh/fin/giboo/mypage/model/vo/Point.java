@@ -14,7 +14,7 @@ public class Point {
 
 		private String pointContent;
 		private int memberNo;
-		private int rateNo;
+//		private int rateNo;
 		private int pointPrice;
-		private int eventNo;
+//		private int eventNo;
 }

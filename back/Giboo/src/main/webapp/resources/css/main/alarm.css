@@ -30,7 +30,7 @@ body {
 
 .alert_container {
      display: none;
-    z-index: 99;
+    z-index: 98;
     right: 10%;
     
     width: 360px;
@@ -44,7 +44,6 @@ body {
 /*     box-shadow: 3px 3px 10px 5px rgb(231, 231, 231);
  */    
     border-radius: .4em;
-    z-index: 100;
     border: 1px solid var(--etcColor);
 
     /* overflow: auto;   */ 
@@ -125,7 +124,7 @@ body {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    font-family: 'Noto Sans KR', sans-serif;
+    
 }
 
 

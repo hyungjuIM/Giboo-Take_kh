@@ -16,7 +16,7 @@ public class EventList {
 	private String eventTitle; // 이벤트 제목
 	private String enrollDate; // 등록일
 	private String endRecruitDate; // 마감일
-	private int eventPersonCount; // 이벤트 참여자 no(이벤트 참여 인원)
-	private int targetPeople; // 이벤트 참여자 no(이벤트 참여 인원)
+	private int eventPersonCount; // 
+	private int targetPeople; // 
 	
 }

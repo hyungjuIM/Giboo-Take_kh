@@ -2,17 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
-
+*{
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
 
 .option{
-    width: 358px;
-    height:42px;
+    width: 340px;
+    height:60px;
     display: flex;
     background-color: yellowgreen;
     /* position: relative; */
     /* background-color: yellowgreen; */
     align-items: center;
     justify-content: center;
+    position: sticky;
+    top: 0px;
 }
 
 
@@ -20,26 +25,27 @@
 #MsearchBar{
 /* position: absolute; */
 display: flex;
+    width: 340px;
+    /* border: 1px solid red; */
 }
 
 #mapSearch{
     display: flex;
+    margin: 10px;
 }
 
 #search-key{
     /* position: absolute; */
+    margin-right: 5px;
 }
 
 
 #searchArea {
     border: 1px solid #686868;
-    width: 300px;
-    height: 42px;
-    border-radius: 10px;
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
     color: #000; 
-    border-radius: 100px;
-    margin-top: 17px;
-    /* margin-left: 10px; */
     padding-left: 50px;
     position: relative;
 }
@@ -64,10 +70,16 @@ display: flex;
 .myLoca{
     border-bottom: 1px solid #D9D9D9;
     height: 40px;
-    width: 355px;
-    top: 35px;
-    left: 12px;
-    position: relative;
+    width: 340px;
+    top: 149px;
+    left: 22px;
+    /* position: fixed; */
+    background-color: white;
+    /* border: solid 1px red; */
+    padding-top: 10px;
+    padding-left: 10px;
+    position: sticky;
+    top: 60px;
 }
 
 
@@ -85,6 +97,7 @@ display: flex;
     font-weight: 500;
     font-size: 18px;
     color: #252525;
+    /* display: flex; */
 }
 
 
@@ -95,7 +108,7 @@ display: flex;
 
 #menu_wrap::-webkit-scrollbar-thumb {
     height: 30%; /* 스크롤바의 길이 */
-    background: #686868; /* 스크롤바의 색상 */
+    background-color: rgb(197, 197, 197);
     
     border-radius: 10px;
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -131,8 +144,8 @@ display: flex;
     top:0;
     left:0;
     bottom:0;
-    width:450px;
-    height: 867px;
+    width:350px;
+    height: 600px;
 
     overflow-y: scroll;
     overflow-x: hidden;
@@ -141,7 +154,7 @@ display: flex;
     font-size:12px;
     box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.306);
 
-    border-radius: 25px;
+    border-radius: 5px;
     margin-bottom: 24px;
     margin-left: 23px;
     margin-top: 24px;
@@ -151,7 +164,7 @@ display: flex;
 
 .mlistbox{
     display: flex;
-    margin-top: 95px;
+    margin-top: 50px;
     margin-left: 12px;
     justify-content: center;
 
@@ -207,10 +220,11 @@ display: flex;
 }
 
 .mlistLi > a > img{
-    width: 358px;
+    width: 310px;
     height: 180px;
     border-radius: 12px;
     overflow: hidden;
+    margin-right: 10px;
 }
 
 .mlistLi{
@@ -278,6 +292,7 @@ display: flex;
     width: 30px;
     height: 30px;
     background-color: rgb(197, 197, 197);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     z-index: 99;
     cursor: pointer;
     display: flex;
@@ -473,7 +488,10 @@ display: flex;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 30px;
+    font-size: 20px;
 }
+
 
 .pagination{
     /* background-color: yellowgreen; */
@@ -488,4 +506,33 @@ display: flex;
     width: 200px;
     height: 50px;
     background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    border-radius: 5px;
+}
+
+.popup-content h3{
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    font-weight: 800;
+}
+
+.popup-content p{
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    font-weight: 500;
+    color : #767676;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+
+
+#searchArea:focus,
+#search-key:focus {
+    outline: none;
+  }
+
+.myLoDetail h3{
+    margin-top: 30px;
 }

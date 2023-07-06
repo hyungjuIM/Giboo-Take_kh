@@ -151,6 +151,17 @@ public class EventDAO {
 	    }
 	    return result;
 	}
+	
+	
+	public boolean checkEventEnded(int eventNo) {
+        Boolean result = sqlSession.selectOne("event-mapper.checkEventEnded", eventNo);
+	    if (result != true) {
+	        return false;
+	    }
+	    return result;
+	}
+
+	
 
 	public List<EventMore> selectEventMore(int eventNo) {
 		return sqlSession.selectList("event-mapper.selectEventMore", eventNo);
@@ -159,6 +170,23 @@ public class EventDAO {
 	public EventCertification selectEventCertification(int eventNo) {
 		return sqlSession.selectOne("event-mapper.selectEventCertification", eventNo);
 	}
+
+	public List<Stamp> getStamps(Model model) {
+		return sqlSession.selectList("event-mapper.getStamps", model);
+	}
+
+	public int addReward(int memberNo) {
+		return sqlSession.insert("event-mapper.addReward", memberNo);
+	}
+
+	public int deleteStamps(int memberNo) {
+		return sqlSession.delete("event-mapper.deleteStamps", memberNo);
+	}
+
+//	public EventList getEventData(int eventNo) {
+//		return sqlSession.selectOne("event-mapper.getEventData", eventNo);
+//	}
+
 
 	
 

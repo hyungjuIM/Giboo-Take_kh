@@ -87,9 +87,11 @@
                     <div class="imgInputArea">
                         <div class="listTitle">썸네일</div>
                         <div class="imgInputInner">
-                            <input id="imgInput" name="donationAttachment" type="file" accept="image/*">
-                            <label for="imgInput" class="imgSelectButton">찾아보기</label>
-                            <div id="imgInputPlaceholder"></div>
+                            <input id="imgInput" type="file" accept="image/*">
+                            <label for="imgInput" class="imgSelectButton">찾아보기
+                                <input id="img1" name="donationAttachment" value="${imgInput}" hidden="hidden"></label>
+                            <div id="imgInputPlaceholder">${detail.donationAttachment}</div>
+
                         </div>
                     </div>
                 </li>
@@ -132,7 +134,7 @@
         const selectCategory = document.getElementsByClassName("selectCategory");
 
         for (const i of selectCategory) {
-            if (i.value == ${detail.parentCategoryNo}) {
+            if (i.value == "${detail.parentCategoryNo}") {
                 i.setAttribute("selected", "selected");
             }
         }

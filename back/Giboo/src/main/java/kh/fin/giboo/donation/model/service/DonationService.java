@@ -1,6 +1,7 @@
 package kh.fin.giboo.donation.model.service;
 
 import kh.fin.giboo.admin.model.vo.ParentCategory;
+import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.mypage.model.vo.Favorite;
@@ -39,4 +40,8 @@ public interface DonationService {
     void storyDelete(int storyNo);
 
     List<ParentCategory> getParentCategoryList();
+
+	List<Donation> selectDonation();
+
+	DonationDetail getDonationDetail2(int donationNo2);
 }

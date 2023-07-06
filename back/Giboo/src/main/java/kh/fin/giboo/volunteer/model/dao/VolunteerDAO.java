@@ -3,6 +3,7 @@ package kh.fin.giboo.volunteer.model.dao;
 import kh.fin.giboo.admin.model.vo.ParentCategory;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 import kh.fin.giboo.volunteer.model.vo.Volunteer;
 import kh.fin.giboo.volunteer.model.vo.VolunteerDetail;
 import kh.fin.giboo.volunteer.model.vo.VolunteerStory;
@@ -128,6 +129,23 @@ public class VolunteerDAO {
 		params.put("memberNo", memberNo);
 		return sqlSession.selectOne("volunteerMapper.selectvolunteer",params);
 	}
+	
+	
+		
+	public int insertReply(Reply reply) {
+		
+		return sqlSession.insert("volunteerMapper.insertReply", reply);
+	}
+
+	public Reply getReply(String replyContent) {
+		
+		return sqlSession.selectOne("volunteerMapper.getReply", replyContent);
+	}
+
+	public List<Reply> selectReplyList(int volunteerNo) {
+		// 
+		return sqlSession.selectList("volunteerMapper.selectReplyList", volunteerNo);
+	}
 
 	public List<Volunteer> selectVolunteer() {
 		return sqlSession.selectList("volunteerMapper.selectmVolunteerList");
@@ -137,6 +155,4 @@ public class VolunteerDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("volunteerMapper.getVolunteerDetail2", volunteerNo2);
 	}
-
-
 }

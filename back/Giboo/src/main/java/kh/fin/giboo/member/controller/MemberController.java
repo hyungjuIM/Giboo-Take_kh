@@ -79,8 +79,6 @@ public class MemberController {
 			resp.addCookie(cookie);	
 			
 			
-			
-			
 
 			logger.info("로그인 기능 수행됨");
 	} else {

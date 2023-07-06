@@ -202,7 +202,7 @@
   letter-spacing: -0.05em;
 }
 
-.memberChange_b {
+.memberChange_b1{
   border: none; 
   background-color: var(--etcColor);
   border-radius: 5px;
@@ -214,143 +214,32 @@
   margin-right: 20px;
   font-weight: 500;
   font-size: 16px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.memberChange_b:hover{
+.memberChange_b1:hover{
   background-color: var(--mainColor);
   font-weight: 600;
 }
 
 
-.memberChange_b1{
+/* .memberChange_b1{
   width: 100px;
   height: 50px;
 
   color : #FFFFFF;
   cursor: pointer;
-}
+} */
 
 .memberChange_bottom{
   margin-top: 20px;
-}
-
-
-
-
-/* .withdrawal_content4 {
   display: flex;
   flex-direction: row;
-  margin-top: 30px;
 }
 
-.withdrawal_content4_button {
-  background-color: #978AFF;
-  color: #FFFFFF;
-  font-weight: 500;
-
-  margin: 10px 30px;
-  width: 84px;
-  height: 35px;
+.withDrawal {
   border: none;
-  border-radius: 50px;
-  cursor: pointer;
-
+  background-color: white; 
 }
-
-.withdrawal_content4_button:hover {
-  font-weight: 600;
-} */
-
-
-
-/*회원탈퇴 팝업-------------------------------------------*/
-/* .popup_wrap {
-  width: 560px;
-  height: 290px;
-  background: #fff;
-  border: solid 1px #666666;
-  border-radius: 10px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin: -250px 0 0 -250px;
-  z-index: 9999;
-  display: none;
-}
-
-.mask {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background: rgba(0, 0, 0, 0.7) repeat;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  display: none;
-}
-
-.popup-cont01 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-align-items: center;
-  
-  width: 478px;
-  
-  margin: 40px;
-
-font-weight: 500;
-font-size: 16px;
-line-height: 35px;
-letter-spacing: -0.05em;
-}
-
-.popupMark{
-border: 1px solid #00CA61;
-border-radius: 100px;
-margin-bottom: 20px;
-}
-
-.popupMark i{
-  font-size: 60px;
-font-weight: 100;
-
-text-align: center;
-
-box-sizing: border-box;
-color: #00CA61;
-
-width: 80px;
-height: 80px;
-}
-
-
-.popup_cont02{
-  margin-top:10px;
-}
-
-
-
-.popup_cont02 button{
-  width: 108px;
-  height: 36px;
-  
-  margin-right: 20px;
-  line-height: 36px;
-  background: #ffffff;
-  color: ##828282;;
-  text-align: center;
-  border: 1px solid #AFAFAF ;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;  
-}
-
-
-
-
-.popup_cont02 button:hover{
-  border: 1px solid #00CA61;
-  color : #00CA61;
-  cursor: pointer;
-} */

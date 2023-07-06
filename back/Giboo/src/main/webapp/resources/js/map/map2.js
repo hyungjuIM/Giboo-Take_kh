@@ -212,7 +212,7 @@ $(document).ready(function(){
           
           
           
-);
+
 
     
     
@@ -243,7 +243,7 @@ $(document).ready(function(){
     }
     
     
-    
+}
     
     //------------------
     
@@ -269,7 +269,7 @@ mhBtnHea.addEventListener("click", function(event) {
                     alert("즐겨찾기에 등록되었습니다.");
                     // mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
                     mhBtnHea.style.backgroundColor = "red"; // 색상 변경
-                    console.log("즐찾성공")
+                    console.log("즐찾성공");
                 } else { // 실패
                     alert("이미 추가한 즐겨찾기 입니다.");
                 }
@@ -292,4 +292,6 @@ mhBtnHea.addEventListener("click", function(event) {
 //     var name2 = $(".hagencyName").data("hagencyName");
 //     console.log("name2:", name2);
 //   });
-  
+
+})
+

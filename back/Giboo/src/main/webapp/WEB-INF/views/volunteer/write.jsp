@@ -132,7 +132,7 @@
         const selectCategory = document.getElementsByClassName("selectCategory");
 
         for (const i of selectCategory) {
-            if (i.value == ${detail.parentCategoryNo}) {
+            if (i.value == "${detail.parentCategoryNo}") {
                 i.setAttribute("selected", "selected");
             }
         }

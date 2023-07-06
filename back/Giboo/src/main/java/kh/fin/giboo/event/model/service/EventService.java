@@ -62,6 +62,16 @@ public interface EventService {
 
 	EventCertification selectEventCertification(int eventNo);
 
+//	EventList getEventData(int eventNo);
+
+	boolean checkEventEnded(int eventNo);
+
+	Map<String, Object> getStamps(Model model);
+
+	int addReward(int memberNo);
+
+	int deleteStamps(int memberNo);
+
 
 
 

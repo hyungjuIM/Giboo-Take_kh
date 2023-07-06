@@ -96,6 +96,19 @@
 		<result property="volunteerAddr" column="VOLUNTEER_ADDR" />
 		<result property="enrollDate" column="ENROLL_DATE" />
 	</resultMap>
+	
+	<resultMap type="reply" id="reply_rm">
+	
+		<id property="replyNo" column="REPLY_NO"/>
+		
+		<result property="replyContent" column="REPLY_CONTENT"/>
+		<result property="createDate" column="CREATE_DT"/>
+		<result property="volunteerNo" column="VOLUNTEER_NO"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="volunteerNo" column="DONATION_NO"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="secessionFl" column="SECESSION_FL"/>	
+	</resultMap>
 
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
@@ -137,6 +150,12 @@
         WHERE VOLUNTEER_NO = ${volunteerNo}
         AND VOLUNTEER_DELETE_STATUS = 'N'
         AND V.AGENCY_NO = A.AGENCY_NO
+    </select>
+    
+    <select id= "getReply" resultMap="reply_rm">
+    SELECT REPLY_CONTENT
+    FROM REPLY
+    WHERE REPLY_CONTENT = #{replyContent}
     </select>
     
     <select id="getFavoriteList" resultMap="favorite_rm">
@@ -274,6 +293,18 @@ VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${member
 	WHERE MEMBER_NO = ${memberNo} AND VOLUNTEER_NO = ${volunteerNo}
     </select>
     
+
+    <insert id="insertReply">
+    INSERT INTO REPLY (REPLY_NO, REPLY_CONTENT, MEMBER_NO, VOLUNTEER_NO) 
+    VALUES (SEQ_REPLY_NO_S.NEXTVAL, #{replyContent}, #{memberNo}, #{volunteerNo})
+    </insert>
+    
+    <select id="selectReplyList" resultMap="reply_rm">
+    SELECT *
+    FROM REPLY
+    WHERE VOLUNTEER_NO = #{volunteerNo}
+	</select>
+
     <select id="selectmVolunteerList" resultMap="volunteer_rm">
 		SELECT
 		V.VOLUNTEER_NO,
@@ -312,4 +343,5 @@ VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${member
         AND VOLUNTEER_DELETE_STATUS = 'N'
         AND V.AGENCY_NO = A.AGENCY_NO
     </select>
+
 </mapper>

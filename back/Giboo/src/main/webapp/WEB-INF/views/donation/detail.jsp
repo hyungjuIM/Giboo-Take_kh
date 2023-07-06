@@ -31,7 +31,7 @@
         <div class="mainContent">
 
             <div class="infoArea">
-                <img class="thumbnail" src="${pageContext.request.contextPath}/resources/images/220726-cat-theo-elise-ew-636p-6cd3b0.webp">
+                <img class="thumbnail" src="${pageContext.request.contextPath}${donationDetail.donationAttachment}">
 
                 <div class="info">
                     <div class="tag">
