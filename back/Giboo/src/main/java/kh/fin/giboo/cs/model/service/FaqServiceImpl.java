@@ -59,6 +59,24 @@ public class FaqServiceImpl implements FaqService{
 
 
 
+		@Override
+		public Map<String, Object> selectFaqDanation(int cp, Model model) {
+			int listCount = dao.getListCount(model);
+			Pagination pagination = new Pagination(cp, listCount);
+			
+			List<Faq> faqDonation = dao.selectFaqDanation(pagination, model);
+			
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("pagination", pagination);
+			map.put("faqDonation", faqDonation);
+			
+			return map;
+		}
+		
+		
+		
+
+
 		
 		
 	    
