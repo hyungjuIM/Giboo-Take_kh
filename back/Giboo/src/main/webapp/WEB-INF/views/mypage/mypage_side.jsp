@@ -73,8 +73,8 @@
                             </div>
 
                             <div class="rateName">
-                                <span>LV.3</span>
-                                <span>123원</span>
+                                <span>${loginMember.rateName}</span>
+                                <span>${loginMember.pointPrice} 원</span>
                             </div>
                         </div>
 

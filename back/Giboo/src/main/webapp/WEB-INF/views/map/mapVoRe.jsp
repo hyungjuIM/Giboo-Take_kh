@@ -31,6 +31,14 @@
 
         <div class="mhwrap">
             <div class="mhwrapBox">
+            	<div class="mapMainHome">
+            	  <a class="mapMainHome_a" href="${pageContext.request.contextPath}/map/mapList">
+            	  	<img src="${pageContext.request.contextPath}/resources/images/dog.jpeg">
+            	  
+            	  </a>
+                </div>
+            
+            
                 <div class="mhBox">
                     
                     <jsp:include page="/WEB-INF/views/map/mapHeader.jsp" />
@@ -56,6 +64,7 @@
                                         <span class="mvBtnspan_1">봉사자 리뷰</span>
                                     </a>
                                 </div>
+
                             </div> 
                         </div>
                         <div class="mvReNo">
