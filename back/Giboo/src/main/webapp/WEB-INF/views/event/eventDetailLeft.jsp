@@ -36,7 +36,7 @@
             <div class="edDetailWrite">
                 <!-- 그냥 글 예시 -->
                 <span>
-                    ${eventDetailLeft.eventContent}
+                    <c:out value="${eventDetailLeft.eventContent}" escapeXml="false" />
                 </span>
             </div>
         </div>
