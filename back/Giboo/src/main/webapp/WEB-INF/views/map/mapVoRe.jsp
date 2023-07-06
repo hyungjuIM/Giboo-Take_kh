@@ -48,7 +48,6 @@
                         <div class="mhCa">
                             <a href="${pageContext.request.contextPath}/map/mapHome/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" class="mapHomee">홈</a>
                             <a href="${pageContext.request.contextPath}/map/mapVoRe/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" id="mapVoRe">리뷰</a>
-                            <a href="/html/map/mapPic.html">사진</a>
                         </div>
                     </div>
                 </div>
@@ -65,12 +64,7 @@
                                         <span class="mvBtnspan_1">봉사자 리뷰</span>
                                     </a>
                                 </div>
-                                <%-- <div class="mvBtnSo">
-                                    <a href="${pageContext.request.contextPath}/map/mapVoSo/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" class="mvBtnspan_b">
-                                        <span><i class="fa-regular fa-heart"></i></span>
-                                        <span mvBtnspan_2>봉사 이야기</span>
-                                    </a>
-                                </div> --%>
+
                             </div> 
                         </div>
                         <div class="mvReNo">

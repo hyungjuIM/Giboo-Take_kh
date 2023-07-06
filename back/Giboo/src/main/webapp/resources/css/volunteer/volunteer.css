@@ -546,7 +546,7 @@ ul li.next{
 
 
 .writeBtn{
-    margin-left: 300px;
+    margin-left: 1077px;
 
     border :solid 1px #bdbdbd;
     border-radius: 8px;
@@ -560,7 +560,7 @@ ul li.next{
     background-color: transparent;
 
     padding: 10px;
-    position: absolute;
+    /* position: absolute; */
     margin-top: 5px;
     top: 0;
 

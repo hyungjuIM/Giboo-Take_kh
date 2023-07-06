@@ -51,14 +51,6 @@
                     </div>
                 </div>
 
-                <!-- 내 위치 주변 봉사 가능한 곳 
-                
-                <div class="mmyloca">
-                    <span>현재 위치 주변 봉사 가능한 곳</span>
-                    <span></span>
-                </div>-->
-                
-
 
                 <!-- 검색했을 때 & 내 주변 위치 나오는 기본 리스트 영역 -->
                 <div class="mlistwrap">
