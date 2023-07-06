@@ -74,9 +74,9 @@
 				</h4>
 
 					<div id="sortingArea" class="sortingArea">
-						<select class="sortingButton" id="sortingButton"> 종료임박 순
-							<img
-							src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
+						<select class="sortingButton" id="sortingButton">
+						종료임박 순
+							<img src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
 							<option value="expired">종료임박 순</option>
 							<option value="recommended">추천 순</option>
 							<option value="new">최신 순</option>
@@ -93,7 +93,11 @@
 						<div class="item">
 							<div class="buttonSection">
 								<a href="" class="button">기부하기 <i class="xi-angle-right"></i>
+
+									  <%-- <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"> --%></a>
+
 									</a>
+
                                     <c:choose>
                                         <c:when test="${fn:contains(favoriteList, donationList.donationNo)}">
                                             <div class="favoriteButton" id="${donationList.donationNo}" data-title="${donationList.donationTitle}">❤️</div>
@@ -155,12 +159,12 @@
 					<li class="last"><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
 				</ul>
 			</div>
-
+	
 			<div class="writeBtn-container">
 				<c:if test="${loginMember.memberType == 'N'}">
 					<button class="writeBtn"
 						onclick="location.href='${pageContext.request.contextPath}/donation/write?mode=insert&cp=${pagination.currentPage}'">
-						<span>📝</span> 기부등록
+						<i class="fa-solid fa-pen"></i>_기부등록
 					</button>
 				</c:if>
 			</div>

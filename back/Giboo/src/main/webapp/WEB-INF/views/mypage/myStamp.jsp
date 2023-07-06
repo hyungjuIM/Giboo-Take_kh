@@ -63,8 +63,8 @@
                             <div class="stampWrap">
                                 <div class="stampBox">
                                   <div class="stampCount">
-                                    <span>총 개수</span>
-                                    <span class="stampCountValue">0</span>
+                                    <div>총 개수</div>
+                                    <div class="stampCountValue">0</div>
                                   </div>
                                     <ul class="stampUl">
                                         <li class="stampLi">

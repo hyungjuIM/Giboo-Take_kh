@@ -93,8 +93,8 @@
                     </div>
 
                     <div class="commentArea">
-                        <div>
-                            <img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+                        <div class="">
+                            <img class="commentTitleImg iconImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="name">마리</span>에게 응원의 메시지를 남겨주세요</div>
                         <div class="commentItem">
                             <div class="memberImgArea">
@@ -132,8 +132,8 @@
                         <button class="commentSubmit">응원하기</button>
                         <div class="commentInfo">
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="commentCount">1,030</span>
-                            <span>명 응원중｜</span>
+                           <div class="commentCount"> <span id="commentCount">1,030</span>
+                            명 응원</div>
                             <img src="${pageContext.request.contextPath}/resources/images/share-from-square-regular.svg">
                             <span id="shareCount">508</span>
                             <span>명 공유</span>
@@ -141,7 +141,7 @@
                     </div>
 
                         <c:if test="${donationDetail.memberNo} == ${loginMember.memberNo}">
-                            <a href="${pageContext.request.contextPath}/donation/write?mode=update&no=${donationDetail.donationNo}">수정</a>
+                            <a class="modify_tag" href="${pageContext.request.contextPath}/donation/write?mode=update&no=${donationDetail.donationNo}">수정</a>
                         </c:if>
 
                 </div>

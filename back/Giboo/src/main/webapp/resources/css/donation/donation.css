@@ -543,10 +543,15 @@ ul li.next{
     font-size: 14px;
 }
 
+.writeBtn-container{
+	position: relative;
+}
 
 
 .writeBtn{
-    margin-left: 300px;
+
+    margin-left: 1077px;
+
 
     border :solid 1px #bdbdbd;
     border-radius: 8px;
@@ -560,7 +565,7 @@ ul li.next{
     background-color: transparent;
 
     padding: 10px;
-    position: absolute;
+
     margin-top: 5px;
     top: 0;
 
@@ -569,8 +574,10 @@ ul li.next{
     height: 38px; */
 }
 
+
 .writeBtn span{
  font-size: 22px; 
+ 
 }
 
 .writeBtn:hover{
