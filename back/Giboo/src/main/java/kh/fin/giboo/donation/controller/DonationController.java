@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -250,25 +251,59 @@ public class DonationController {
     }
 
     @PostMapping("/write")
-    public String write(DonationDetail detail, @ModelAttribute("loginMember") Member loginMember,
+    public String write(DonationDetail detail,
+    		  @RequestParam(value="file", required = false) MultipartFile uploadImage,
+    		@ModelAttribute("loginMember") Member loginMember,
+    		
                          RedirectAttributes ra, HttpServletRequest req, String mode,
-                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp
+                       ) throws IOException {
         logger.info("기부 등록");
-
+        System.out.println(uploadImage);
         detail.setMemberNo(loginMember.getMemberNo());
 
+//        String webPath = "/resources/images/fileupload/";
+//	      String folderPath = req.getSession().getServletContext().getRealPath(webPath);
         String path = null;
         String message = null;
-        String webPath = "/resources/images/eventPopup/";
-//        String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-//        String renameImage = kh.fin.giboo.main.controller.Util.fileRename((MultipartFile)detail.getThumbnail().getOriginalFilename());
-//        (MultipartFile)detail.getThumbnail().transferTo( new File( folderPath + renameImage) );
+        JsonObject jsonObject = new JsonObject();
 
-        detail.setDonationAttachment(detail.getDonationAttachment().replace("C:\\fakepath\\", "/resources/images/fileupload/"));
+
+	      // 내부경로로 저장
+	      String webPath = "/resources/images/fileupload/";
+
+	      String fileRoot = req.getServletContext().getRealPath(webPath);
+
+	      String originalFileName = uploadImage.getOriginalFilename();
+	      // String extension =
+	      // originalFileName.substring(originalFileName.lastIndexOf("."));
+	      String savedFileName = Util.fileRename(originalFileName);
+
+	      File targetFile = new File(fileRoot + savedFileName);
+	      try {
+	         InputStream fileStream = uploadImage.getInputStream();
+	         FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
+	         jsonObject.addProperty("url", req.getContextPath() + webPath + savedFileName); // contextroot +
+	                                                                        // resources + 저장할 내부
+	                                                                        // 폴더명
+	         jsonObject.addProperty("responseCode", "success");
+
+	      } catch (IOException e) {
+	         FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
+	         jsonObject.addProperty("responseCode", "error");
+	         e.printStackTrace();
+	      }
+	      String don = jsonObject.toString();
+	      String donationAttachment = jsonObject.get("url").getAsString();
+    System.out.println(donationAttachment);
+    detail.setDonationAttachment(donationAttachment);
+
+//        detail.setDonationAttachment(detail.getDonationAttachment().replace("C:\\fakepath\\", "/resources/images/fileupload/"));
 
         if (mode.equals("insert")) {
-            int no = service.insertDonation(detail);
-            path = "../donation/detail/" + no;
+//            int donationNo = service.insertDonation(detail,webPath,folderPath,uploadImage);
+            int donationNo = service.insertDonation(detail);
+            path = "../donation/detail/" + donationNo;
             logger.info("게시글 등록 성공");
         } else {
             int result = service.updateDonation(detail);

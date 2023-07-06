@@ -1,20 +1,25 @@
 package kh.fin.giboo.donation.model.service;
 
 import kh.fin.giboo.admin.model.vo.ParentCategory;
-import kh.fin.giboo.common.Util;
+import kh.fin.giboo.event.Util;
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.donation.model.dao.DonationDAO;
 import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
+import kh.fin.giboo.event.model.exception.InsertFailException;
 import kh.fin.giboo.mypage.model.vo.Favorite;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -130,8 +135,36 @@ public class DonationServiceImpl implements DonationService {
 		  return dao.getFavoriteList(memberNo);
 	  }
     
-    
-    @Override
+//	@Transactional(rollbackFor = { Exception.class })
+//    @Override
+//	public int insertDonation(DonationDetail detail, String webPath, String folderPath, MultipartFile uploadImage) throws IOException {
+//    	 detail.setDonationTitle(Util.XSSHandling(detail.getDonationTitle()));
+//         detail.setDonationContent(Util.XSSHandling(detail.getDonationContent()));
+//         detail.setDonationContent(Util.newLineHandling(detail.getDonationContent()));
+//         
+//         int donationNo = dao.insertDonation(detail);
+//         if(donationNo > 0) {
+//        	 
+//        	 String renameImage = null; // 변경된 파일명 저장 변수
+// 			
+//			 renameImage = Util.fileRename(uploadImage.getOriginalFilename());
+//        	 System.out.println(renameImage);
+//        	 DonationDetail img = new DonationDetail();
+//        	 img.setDonationNo(donationNo);
+//        	 img.setDonationAttachment(webPath + renameImage);
+//        	 
+//        	 int result =dao.insertImg(img);
+//        	 if(result > 0 && img.getDonationAttachment()!=null) {
+//        		 uploadImage.transferTo( new File(folderPath + renameImage) );
+//        	 }else { // 이미지 삽입 실패 시
+//				 
+//				throw new InsertFailException();
+//			}
+//         }
+//		return donationNo;
+//	}
+
+	@Override
     public int insertDonation(DonationDetail detail) {
         detail.setDonationTitle(Util.XSSHandling(detail.getDonationTitle()));
         detail.setDonationContent(Util.XSSHandling(detail.getDonationContent()));

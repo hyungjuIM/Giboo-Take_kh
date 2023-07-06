@@ -531,6 +531,7 @@ li {
 	height: 450px;
 	width: 350px;
 	border-radius: 20px;
+	cursor: pointer;
 }
 
 .slidesStyle li:not(:last-child) {
@@ -876,6 +877,7 @@ li .vol_day span {
 	border-radius: 20px;
 	padding: 20px;
 	display: flex;
+	cursor: pointer;
 }
 
 .do_box {

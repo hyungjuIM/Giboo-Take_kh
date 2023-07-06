@@ -47,7 +47,7 @@ public class KakaoLoginImpl implements KakaoLoginService{
 			sb.append("grant_type=authorization_code");
             
 			sb.append("&client_id=ca354a1ec30c6c06ea4746d8610afdf8"); //본인이 발급받은 key
-			sb.append("&redirect_uri=http://hunny.today/oauth/kakao"); // 본인이 설정한 주소
+			sb.append("&redirect_uri=https://hunny.today/oauth/kakao"); // 본인이 설정한 주소
             
 			sb.append("&code=" + authorize_code);
 			bw.write(sb.toString());

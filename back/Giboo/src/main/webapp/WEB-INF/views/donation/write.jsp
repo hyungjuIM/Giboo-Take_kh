@@ -23,7 +23,7 @@
 
 <section class="mainContainer">
     <div class="mainContent">
-        <form action="write" method="post" class="contentContainer">
+        <form action="write" method="POST" enctype="multipart/form-data" class="contentContainer">
             <ul class="writeArea">
                 <li>
                     <div class="titleAreaInner">
@@ -87,10 +87,10 @@
                     <div class="imgInputArea">
                         <div class="listTitle">썸네일</div>
                         <div class="imgInputInner">
-                            <input id="imgInput" type="file" accept="image/*">
+                            <input id="imgInput" type="file" name="file" accept="image/*">
                             <label for="imgInput" class="imgSelectButton">찾아보기
-                                <input id="img1" name="donationAttachment" value="${imgInput}" hidden="hidden"></label>
-                            <div id="imgInputPlaceholder">${detail.donationAttachment}</div>
+                                <!-- <input id="img1" type="file" name="donationAttachment"  ></label> -->
+                            <!-- <div id="imgInputPlaceholder">${detail.donationAttachment}</div> -->
 
                         </div>
                     </div>
@@ -98,10 +98,10 @@
             </ul>
 
             <div class="optionArea">
-                <a href="" class="list">목록으로</a>
+                <a type="button" class="list">목록으로</a>
                 <div>
                     <button type="submit" class="edit">등록</button>
-                    <button class="delete">취소</button>
+                    <button type="button" class="delete">취소</button>
                 </div>
             </div>
 
