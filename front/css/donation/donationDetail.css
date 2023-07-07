@@ -222,10 +222,15 @@ border: 1px solid red;
 
     width: 50%;
     height: 100%;
+
 }
 
 .progressStatus {
     display: flex;
+    justify-content: flex-start;
+
+    
+    
 }
 
 .progressStatus > span {
@@ -236,6 +241,9 @@ border: 1px solid red;
     margin-right: 14px;
     display: flex;
     align-items: center;
+   
+    
+ 
 }
 
 .progressStatus > span > img {

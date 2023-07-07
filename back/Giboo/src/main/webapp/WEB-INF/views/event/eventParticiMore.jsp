@@ -4,7 +4,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 
 <div class="eParMoreTitle">
-	<span>🥰함께하고 있어요</span>
+	함께하고 있어요 <span>🧚</span>️
 </div>
 <div class="eParMoreList">
 	<c:choose>

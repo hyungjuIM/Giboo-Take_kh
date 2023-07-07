@@ -26,6 +26,8 @@
                         </ul>
                     </c:when>
                     <c:otherwise>
+                    
+                    
                         <ul class="edInPhotoBarUl">
                             <c:forEach var="eventStickerBar" items="${eventStickerBar}">
                                 <li class="edInPhotoBarLi">
@@ -35,6 +37,8 @@
                                 </li>
                             </c:forEach>
                         </ul>
+                        
+                        
                     </c:otherwise>
                 </c:choose>
             </div>
@@ -42,6 +46,6 @@
                 <button id="edBtnDe" class="memberChange_b">이벤트 함께하기</button>                        
             </div>
         </div>
-    </div>
+
 </body>
 </html>

@@ -33,8 +33,54 @@ a{
 }
 
 /*이벤트 상단 메뉴*/
+
+.mainCategoryArea {
+    background-color: var(--mainColor);
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;	
+
+	border: 1px solid red;
+}
     
-.ewrap_tab{
+
+.elink_tab{
+	width: 80px;
+	
+	font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mainSubColor);
+
+    padding: 4px 12px;
+    margin-inline: 8px;
+    border-radius: 20px;
+    
+    border: 1px solid blue;
+     display: flex;
+    justify-content: center;
+    align-items: center;	
+    
+    
+	
+}
+
+.mainCategoryArea a{
+	font-weight: 700;
+}
+
+.mainCategoryChecked{
+	   font-family: 'NanumSquareNeo';
+    height: 40px;
+    line-height: 30px;
+    font-size: 16px;
+    background-color: #fff;
+    color: var(--mainColor);
+   
+}
+    
+/* .ewrap_tab{
 
      background-color: var(--mainColor);
 
@@ -66,17 +112,7 @@ a{
     border-top-right-radius: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-	/* border: 1px solid blue;
-    color: #D6D3F4;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 30px; */
-    /* identical to box height, or 188% */
-    
-  /*   display: flex;
-    align-items: center;   
-    text-align: center;
-    letter-spacing: -0.05em; */
+	
 }
 
 .eon:nth-child(2){
@@ -94,15 +130,7 @@ a{
     font-size: 16px;
     background-color: #fff;
     color: var(--mainColor);
-  /*   background-color: #F0F0F0;
-    border-radius: 100px;
-    width: 95px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 32px;
-    
-    border: 1px solid green; */
+ 
 }
 
 .eon:nth-child(2) > a > span{
@@ -111,24 +139,17 @@ a{
     font-style: normal;
 
 }
+ */
 
-
-/* ------------------------- */
+/* -----------페이지 네이션-------------- */
 .eventList_main{
 
-    /* background-color: rgb(151, 130, 89); */
+  
     height: 100%;
 }
 
 .event-pagination-area{
-/* 	border: 1px solid green; */
-    /* background-color: yellowgreen; */
-   /*  display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
- */
- 
+
  display: flex;
     justify-content: center;
     align-items: center;
@@ -141,11 +162,7 @@ a{
 }
 
 .event-pagination{
- /*    display: flex; */
-    /* background-color: wheat; */
- /*    width: 300px;
-    align-items: center;
-    justify-content: space-between; */
+
     
       position: relative;
     display: flex;
@@ -200,11 +217,15 @@ ul li.prev{
 
 /*  */
 .egroup_catalog{
+	
+	
+   border: 1px solid red;
 }
 
 .elist_official{
     /* background-color: yellowgreen; */
     height: auto;
+  border: 1px solid blue;
 }
 
 /* .elist_official > li{
@@ -383,7 +404,7 @@ ul li.prev{
 }
 
 .earea_thumb_period.마감임박 {
-    background-color: #FC71A3;
+    background-color: var(--redColor);
 }
 
 .earea_thumb_period.종료 {
