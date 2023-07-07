@@ -25,7 +25,7 @@
 
         <body style="overflow-x: hidden; overflow-y: auto;">
             <!-- 헤더 영역 -->
-            <header>
+            <header style="z-index: 200;">
                 <jsp:include page="/WEB-INF/views/main/header.jsp" />
             </header>
 
