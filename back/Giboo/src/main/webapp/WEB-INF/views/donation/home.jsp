@@ -115,8 +115,8 @@
 									<img src="${pageContext.request.contextPath}${donationList.donationAttachment}" class="thumbnail">
 									<div class="text_container">
 										<div class="mainTitle">${donationList.donationTitle}</div>
-										<span class="subTitle"><span>모집</span>2023. 01. 01 ~
-											2023. 01. 02</span>
+										<span class="subTitle"><span>모집</span>${donationList.startRecruitDate} ~
+												${donationList.endRecruitDate}</span>
 										<div class="progressBar">
 											<div class="progressBarValue"
 												style="width: ${donationList.percent}%"></div>
@@ -217,11 +217,8 @@
                         i.innerHTML = "❤️";
                     }
                 }
-            })
-
-
-
-        })
+            });
+        });
     }
 </script>
 
