@@ -304,7 +304,7 @@
 		(STAMP_NO, EVENT_NO, MEMBER_NO, STAMP_ATTACHMENT)
 		VALUES
 		(SEQ_STAMP_NO.NEXTVAL, #{eventNo}, #{memberNo},
-		'/resources/images/memberProfile/20230701140342_52647.jpeg')
+		'/resources/images/hunnyLogo/hunnyLogo.png')
 	</insert>
 
 

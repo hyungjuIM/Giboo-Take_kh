@@ -377,7 +377,7 @@ public class VolunteerController {
         List<Reply> replyList = service.selectReplyList(volunteerNo);
         return new Gson().toJson(replyList);
     }
-
+    
 	// 댓글 등록
 	@PostMapping("/replyInsert")
     @ResponseBody

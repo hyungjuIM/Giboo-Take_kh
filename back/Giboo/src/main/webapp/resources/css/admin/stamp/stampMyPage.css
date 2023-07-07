@@ -44,6 +44,7 @@
     align-items: center;
     flex-direction: column;
     margin-top: 40px;
+    border-radius: 20px;
 }
 
 .stampDiv{
@@ -93,3 +94,7 @@
     flex-direction: row;
     margin: 20px 0px;
 }
+
+/* .stampDe > span:nth-child(2){
+    margin-top: 10px;
+} */
