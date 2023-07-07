@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,41 +91,43 @@
                             <img class="agencyLinkImg" src="${pageContext.request.contextPath}/resources/images/chevron-right-solid.svg"></a>
                     </div>
 
-					<div class="commentArea">
-						<div>
-							<img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-							<span id="name">Marie를 위한 응원 메시지를 남겨주세요</span>
-						</div>
-						<c:choose>
-							<c:when test="${empty reply}">
-								<span>응원 메시지가 없습니다. 여러분의 응원이 필요합니다.</span>
-							</c:when>
-							<c:otherwise>
-								<c:forEach var="reply" items="${reply}">
-									<div class="commentItem">
-										<div class="memberImgArea">
-											<img id="memberImg1" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
-										</div>
-										<div class="commentInner">
-											<div id="memberName1" class="memberName">User${reply.memberNo}</div>
-											<div id="comment1" class="comment">${reply.replyContent}</div>
-										</div>
-									</div>
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
-						<textarea id="replyContent"></textarea>
-						<button class="commentSubmit" id="cheeringButton">응원하기</button>
-						<div class="commentInfo">
-							<img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-							<span id="commentCount">1,030</span>
-							<span>명이 응원하고 있습니다｜</span>
-							<img src="${pageContext.request.contextPath}/resources/images/share-from-square-regular.svg">
-							<span id="shareCount">508</span>
-							<span>명이 공유하였습니다</span>
-						</div>
-					</div>
-					
+                    <div class="commentArea">
+                        <div class="commentHeader">
+                            <img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+                            <span id="name">${volunteerDetail.volunteerTitle}</span>에게 응원의 메시지를 남겨주세요
+                        </div>
+                        <ul class="commentUl">
+                            <c:forEach var="replyList" items="${reply}">
+                                <li class="commentLi">
+                                    <div class="commentItem">
+                                        <div class="memberImgArea">
+                                            <c:choose>
+                                                <c:when test="${empty replyList.profileImg}">
+                                                    <img id="memberImg1" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <img id="memberImg1" class="memberImg" src="${pageContext.request.contextPath}${replyList.profileImg}">
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </div>
+
+                                        <div class="commentInner">
+                                            <div id="memberNick" class="memberNick">${replyList.memberNick}</div>
+                                            <div id="comment1" class="comment">${replyList.replyContent}</div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                        <textarea id="replyContent"></textarea>
+                        <button class="commentSubmit" id="cheeringButton">응원하기</button>
+                        
+                        <div class="commentInfo">
+                            <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+                            <span id="commentCount">${memberCount}</span>
+                            <span>명 응원중</span>
+                        </div>
+                    </div>
 
                     <a href="${pageContext.request.contextPath}/volunteer/write?mode=update&no=${volunteerDetail.volunteerNo}">수정</a>
 
@@ -187,7 +189,7 @@
           const parts = url.split('/');
           const volunteerNo = parseInt(parts[parts.length - 1]);
       
-          if (${!empty loginMember}) {
+          if ("${!empty loginMember}") {
             alert("봉사 참여를 하시겠습니까?");
             $.ajax({
               url: "../doVolunteer",
@@ -207,89 +209,8 @@
           }
         });
 
-
-    // 응원 버튼
-        const cheeringButton = document.getElementById("cheeringButton");
-        const replyContent1 = document.getElementById("replyContent");
-
-        const loginMemberNo = ${loginMember.memberNo};
-        const volunteerNo1 = ${volunteerDetail.volunteerNo};
-        
-        cheeringButton.addEventListener("click", function () {
-            console.log("버튼 클릭");
-            if (loginMemberNo == "") { // 로그인 X
-                alert("로그인 후 사용해 주세요.");
-                return;
-            }
-
-            if (replyContent1.value.trim().length == 0) {
-                alert("응원 댓글을 작성하고 버튼을 클릭해 주세요.");
-
-                replyContent1.value = "";
-                replyContent1.focus();
-                return;
-            }
-
-            //console.log(${reply.replyContent});
-            console.log(${volunteerDetail.volunteerNo});
-            // 댓글 DB에 저장
-            $.ajax({
-                url: contextPath + "/volunteer/insertReply",
-                type: "POST",
-                data: {
-                    "replyContent":  replyContent1.value,
-                    "memberNo": ${loginMember.memberNo},
-                    "volunteerNo": ${volunteerDetail.volunteerNo}
-                    
-                },
-
-                success: function (result) {
-                    if (result > 0) {
-                        alert("댓글이 추가되었습니다.")
-                        replyContent1.value = "";
-                        selectReplyList(result); // 새로운 댓글 추가
-                    } else {
-                        alert("댓글 등록에 실패했습니다.");
-                    }
-                }
-            });
-        });
-
-        function selectReplyList() {
-    $.ajax({
-        url: contextPath + "/volunteer/selectReplyList",
-        type: "GET",
-        data: { volunteerNo: volunteerNo1 }, // Make sure the volunteerNo1 variable is defined
-
-        success: function(response) {
-        console.log("selectReplyList success:", response);
-
-        // Update the HTML elements with the received data
-        if (response && response.length > 0) {
-            const reply = response[0]; // Assuming the first reply is sufficient
-
-            const memberName1 = document.getElementById("memberName1");
-            const comment1 = document.getElementById("comment1");
-
-			if (memberName1 === null) {
-				console.log('memberName is null');
-				} else {
-				memberName1.innerText = "유저" + reply.replyNo;
-				}
-
-			if (comment1 === null) {
-				console.log('comment is null');
-				} else {
-				comment1.innerText = reply.replyContent;
-				}
-        }
-        },
-
-        error: function(req, status, error) {
-        console.log("selectReplyList error:", error);
-        }
-    });
-}
+        const volunteerNo = "${volunteerDetail.volunteerNo}"; // "500"
+        const loginMemberNo = "${loginMember.memberNo}";
 
       </script>
       

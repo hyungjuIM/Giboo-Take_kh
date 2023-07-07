@@ -33,6 +33,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import kh.fin.giboo.admin.model.vo.ParentCategory;
@@ -336,27 +337,24 @@ public class VolunteerController {
       return response;
     }
     
-    // 댓글등록
+
+
+    // 댓글 조회
+    @GetMapping("/selectReplyList")
     @ResponseBody
-    @PostMapping("/insertReply")
-	public int insertReply(@RequestParam("memberNo") int memberNo,
-            @RequestParam("volunteerNo") int volunteerNo,
-            @RequestParam("replyContent") String replyContent) {
-		Reply reply = new Reply();
-		
-		reply.setMemberNo(memberNo);
-		reply.setVolunteerNo(volunteerNo);
-		reply.setReplyContent(replyContent);
-		logger.info("reply :" + reply);
+    public String selectReplyList(int volunteerNo) {
+        List<Reply> replyList = service.selectReplyList(volunteerNo);
+        return new Gson().toJson(replyList);
+    }
+
+	// 댓글 등록
+	@PostMapping("/replyInsert")
+    @ResponseBody
+	public int insertReply(Reply reply) {
 		return service.insertReply(reply);
 	}
-
-
-		@GetMapping("/selectReplyList")
-		@ResponseBody
-		public List<Reply> selectReplyList(@RequestParam("volunteerNo") int volunteerNo) {
-		    return service.selectReplyList(volunteerNo);
-		}
+	
+	
 
 
 }

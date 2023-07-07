@@ -19,6 +19,7 @@ import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.mypage.model.service.MyActiveService;
 import kh.fin.giboo.mypage.model.service.MyReviewService;
 import kh.fin.giboo.mypage.model.vo.MyActiveDonationList;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 
 @Controller
 @RequestMapping("/mypage")
@@ -36,20 +37,15 @@ public class MyReviewController {
 				,HttpSession session,
 				MyActiveDonationList myActiveEventList,
 				@ModelAttribute("loginMember") Member loginMember
+				, Reply reply
 				) {
 
 			int memberNo = loginMember.getMemberNo();
-			
-			 model.addAttribute("memberNo", memberNo);
-			 
+
 			Map<String, Object> map = null;
-
-			map = service.selectMyReview(cp, model);
+			
+			map = service.selectMyreview(cp, memberNo);
 			model.addAttribute("map", map);
-
-			logger.info("리뷰 목록조회로 이동");
-			logger.info("memberNo" + memberNo);
-			logger.info("map" + map.toString());
 			return "mypage/myReview";
 		}
 }
