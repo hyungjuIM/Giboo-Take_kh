@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>봉사 등록</title>
+    <title>hunny</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/volunteer/volunteerWrite2.css">
@@ -23,7 +23,7 @@
 
 <section class="mainContainer">
     <div class="mainContent">
-        <form action="write" method="post" class="contentContainer">
+        <form action="write" method="post" enctype="multipart/form-data" class="contentContainer">
             <ul class="writeArea">
                 <li>
                     <div class="titleAreaInner">
@@ -87,19 +87,19 @@
                     <div class="imgInputArea">
                         <div class="listTitle">썸네일</div>
                         <div class="imgInputInner">
-                            <input id="imgInput" name="volunteerAttachment" type="file" accept="image/*">
+                            <input id="imgInput" name="file" type="file" accept="image/*">
                             <label for="imgInput" class="imgSelectButton">찾아보기</label>
-                            <div id="imgInputPlaceholder"></div>
+                            
                         </div>
                     </div>
                 </li>
             </ul>
 
             <div class="optionArea">
-                <a href="" class="list">목록으로</a>
+                <a type="button" class="list" onclick="history.back();">목록으로</a>
                 <div>
                     <button type="submit" class="edit">등록</button>
-                    <button class="delete">취소</button>
+                    <button class="delete" type="button" onclick="history.back();">취소</button>
                 </div>
             </div>
 

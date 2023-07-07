@@ -3,14 +3,19 @@
 
     
             <div class="edWrapBox">
+            
+            	<!-- 이미지 -->
                 <div class="edWrap">
-                    <div class="eFavBtn" id="eFavBtn">
+                
+              <!--   <div class="eFavBtn" id="eFavBtn">
                         <div class="dFavDiv">
                             <span class="dFavSpan"></span>
                         </div>
-                    </div>
+                    </div> -->
+                    
                     <img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="">
                 </div>
+                
                 <div class="edWrapDetail">
                     <div class=edWrapPeriod>
                         <div class="edWrapPeriodSpan">
@@ -18,31 +23,42 @@
                             <span>일 남음</span>
                         </div>
                     </div>
+                    
                     <div class="edWrapTitle">
                         <span>${eventDetailTop.eventTitle}</span>
                     </div>
                     <%-- ====================================== --%>
+                    
+                    
                     <div class="progressArea">
-                        <div class="progressInfo">
+                    <div class="progressInfo">
                             <span class="progressPercentage">${eventDetailTop.percent}%</span>
-                                <span class="goal">
+                              
+                        </div>
+                    
+                    <div class="progressBar">
+                             <div class="progressBarValue" style="width: ${Math.min(eventDetailTop.percent.longValue(), 100)}%"></div>
+                        </div> 
+                        
+                        <div class="progressStatus">
+                            <span>
+                                <img src="${pageContext.request.contextPath}/resources/images/icon/check.png">
+                                <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중 입니다.</span>
+                            <%-- <span class="fav">
+                                <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
+                                <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span> --%>
+                                  <span class="goal">
+                                
                                     목표
                                     <span class="goal" id="goalValue">${eventDetailTop.targetPeople}</span>명
                             </span>
                         </div>
+                        
+                        
 
-                        <div class="progressBar">
-                             <div class="progressBarValue" style="width: ${Math.min(eventDetailTop.percent.longValue(), 100)}%"></div>
-                        </div>
+                        
 
-                        <div class="progressStatus">
-                            <span>
-                                <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                                <span id="volunteerCount">${eventDetailTop.eventPersonCount}</span>명 참여중</span>
-                            <%-- <span class="fav">
-                                <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                                <span id="recommendedCount">${eventDetailTop.eventFavCount}</span>명 추천</span> --%>
-                        </div>
+                        
                     </div>
                     
                     
@@ -102,13 +118,20 @@
                             </c:choose>
                         </div>
                     </div>  ============================== --%>
+                    
+
                     <div class="eParMoreWrap">
            				 <div class="eParMoreBox">
                 			<jsp:include page="/WEB-INF/views/event/eventParticiMore.jsp" />
            				 </div>
         			</div>
                 	<%-- ============================== --%>
-                    
+                     <div class="event_btn_container">
+                    <div class="edStampPopup">
+                                <div class="edStampPopDe">
+                                    <span>참여하고 스템프 받아요!</span>
+                                </div>
+                            </div>
                     
                     
                     <div class="edBtn">
@@ -117,16 +140,14 @@
                         </div>
                                                 
                         <div class="edStamp">
-                            <div class="edStampPopup">
-                                <div class="edStampPopDe">
-                                    <span>참여하고 스템프 받아요!</span>
-                                </div>
-                            </div>
+                            
                                 <div class="edStampBtn">
                                     <span>🥰</span>
                                 </div>
                         </div>
                     </div> 
+                    
+                    </div>
                 </div>
             </div>
 

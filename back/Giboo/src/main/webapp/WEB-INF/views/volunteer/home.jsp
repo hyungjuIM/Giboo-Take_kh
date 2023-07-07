@@ -107,11 +107,8 @@
 
 
 								<div class="content_container">
-									<a
-										href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
-										<img
-										src="${pageContext.request.contextPath}/resources/images/logo.jpg"
-										class="thumbnail">
+									<a href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
+										<img src="${pageContext.request.contextPath}${volunteerList.volunteerAttachment}" class="thumbnail">
 										<div class="text_container">
 											<div class="mainTitle">${volunteerList.volunteerTitle}</div>
 

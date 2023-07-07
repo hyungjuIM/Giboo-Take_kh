@@ -131,9 +131,8 @@ public class VolunteerDAO {
 	}
 	
 	
-		
-	public int insertReply(Reply reply) {
-		
+	// 댓글 등록
+	public int insertReply(Reply reply) {		
 		return sqlSession.insert("volunteerMapper.insertReply", reply);
 	}
 
@@ -142,8 +141,8 @@ public class VolunteerDAO {
 		return sqlSession.selectOne("volunteerMapper.getReply", replyContent);
 	}
 
+	// 댓글 조회
 	public List<Reply> selectReplyList(int volunteerNo) {
-		// 
 		return sqlSession.selectList("volunteerMapper.selectReplyList", volunteerNo);
 	}
 

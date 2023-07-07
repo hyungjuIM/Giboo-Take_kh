@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <c:set var="pagination" value="${map.pagination}" />
-<c:set var="myReview" value="${map.myReview}" />
+<c:set var="reply" value="${map.reply}" />
 
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>나의 리뷰목록</title>
+<title>hunny</title>
 
 
 
@@ -62,55 +62,7 @@
 										</span>
 
 										<!--  container2 -->
-										<div class="container2">
-
-
-
-											<!-- active container  -->
-											<div class="active_contatiner">
-												<%--  container2 --%>
-
-												<%-- 검색을 진행한 경우 key, query를 쿼리스트링 형태로 저장한 변수 생성 --%>
-												<c:if test="${!empty param.key}">
-													<c:set var="sURL"
-														value="&key=${param.key}&query=${param.query}" />
-												</c:if>
-
-												<c:if test="${!empty param.key}">
-
-													<div class="query_result">
-														"<span>${param.query}</span>" 검색 결과
-													</div>
-												</c:if>
-
-												<div class="search_area">
-													<form method="get" id="boardSearch"
-														onsubmit="return searchValidate()">
-
-														<div class="search-filter">
-															<select id="search-key" name="key">
-																<option value="t">제목</option>
-																<option value="c">내용</option>
-																<option value="d">일자</option>
-															</select>
-														</div>
-
-
-														<span class="search_field"> <input type="text"
-															id="search-query" name="query" placeholder="검색어를 입력해주세요"
-															onfocus="this.placeholder = ''"
-															onblur="this.placeholder = '검색어를 입력해주세요'">
-															<button type="submit" id="search-btn"
-																class="fa-solid fa-magnifying-glass"></button>
-
-														</span>
-
-
-
-													</form>
-												</div>
-
-											</div>
+										<div class="container2">											
 										</div>
 									</div>
 
@@ -126,8 +78,7 @@
 									<thead>
 										<tr>
 											<th scope="col" class="th-num">번호</th>
-
-											<th scope="col" class="th-name">참가한 내역</th>
+											<th scope="col" class="th-title">봉사 제목</th>
 											<th scope="col" class="th-content">리뷰내용</th>
 											<th scope="col" class="th-date">일자</th>
 										</tr>
@@ -135,7 +86,7 @@
 									<tbody>
 
 										<c:choose>
-											<c:when test="${empty myReview}">
+											<c:when test="${empty reply}">
 
 												<tr>
 													<th colspan="4">게시글이 존재하지 않습니다.</th>
@@ -144,13 +95,13 @@
 
 											<c:otherwise>
 
-												<c:forEach var="myReview" items="${myReview}">
+												<c:forEach var="reply" items="${reply}">
 
 													<tr>
-														<td class="th-num">${myReview.reviewNo}</td>
-														<td class="th-name">${myReview.title}</td>
-														<td class="th-content">${myReview.reviewContent}</td>
-														<td class="th-date">${myReview.enrollDate}</td>
+														<td class="th-num">${reply.replyNo}</td>
+														<td class="th-name">${reply.volunteerTitle}</td>
+														<td class="th-content">${reply.replyContent}</td>
+														<td class="th-date">${reply.enrollDate} ${reply.enrollDay}</td>
 													</tr>
 
 												</c:forEach>

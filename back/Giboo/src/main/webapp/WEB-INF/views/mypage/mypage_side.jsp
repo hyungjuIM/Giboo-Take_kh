@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>마이페이지_사이드바</title>
+  <title>hunny</title>
 
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/mypage/mypage_side.css" />
   <link rel="stylesheet"href="${pageContext.request.contextPath}/resources/css/main/reset.css">
@@ -114,9 +114,9 @@
                                         <a href="${pageContext.request.contextPath}/mypage/myStamp">나의 스탬프</a>
                                     </li>
 
-                                    <li>
+                                    <!-- <li>
                                         <a href="${pageContext.request.contextPath}/mypage/myPoint">나의 적립금</a>
-                                    </li>
+                                    </li> -->
 								</ul>
 							</div>
 							<hr>

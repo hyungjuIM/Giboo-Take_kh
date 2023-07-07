@@ -7,6 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
      <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cs/csMain.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css">
@@ -122,8 +123,4 @@
     	<script src="${pageContext.request.contextPath}/resources/js/cs/csMain.js"></script>
     </body>
 </html>
-</head>
-<body>
-    
-</body>
-</html>
+
