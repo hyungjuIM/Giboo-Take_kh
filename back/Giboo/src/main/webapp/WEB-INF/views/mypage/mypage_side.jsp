@@ -114,9 +114,9 @@
                                         <a href="${pageContext.request.contextPath}/mypage/myStamp">나의 스탬프</a>
                                     </li>
 
-                                    <li>
+                                    <!-- <li>
                                         <a href="${pageContext.request.contextPath}/mypage/myPoint">나의 적립금</a>
-                                    </li>
+                                    </li> -->
 								</ul>
 							</div>
 							<hr>
