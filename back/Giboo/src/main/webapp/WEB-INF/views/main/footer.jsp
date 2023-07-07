@@ -15,7 +15,7 @@
 </head>
 <body>
 	<footer>
-		<section class="footerContainer">
+		<div class="footerContainer">
 			<div class="footerContent">
 				<div class="footerContent1">
 					<!-- 로고 -->
@@ -73,7 +73,7 @@
 				</div>
 
 			</div>
-		</section>
+		</div>
 	</footer>
 
 </body>

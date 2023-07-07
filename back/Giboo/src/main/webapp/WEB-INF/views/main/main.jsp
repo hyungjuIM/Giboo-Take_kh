@@ -163,7 +163,7 @@
                         <ul class="allSlides slidesStyle">
                             <c:forEach var="volunteer" items="${mVolunteerList}" varStatus="status" begin="0" end="5">
                                 <c:set var="volunteerDetail" value="${volunteerDetails[status.index]}" />
-                                <li class="vol_box_style vol_box" >
+                                <li class="vol_box_style vol_box" onclick="location.href='/volunteer/detail/${volunteerDetail.volunteerNo}';">
                                     <div class="vol_day"><span>${volunteerDetail.DDay}</span>D-day</div>
                                     <div><img
                                             src="${pageContext.request.contextPath}${volunteerDetail.volunteerAttachment}">
@@ -239,7 +239,7 @@
                             <ul class="swiper-wrapper doAllSlides">
                                 <c:forEach var="donation" items="${mDonationList}" varStatus="status" begin="0" end="5">
                                     <c:set var="donationDetail" value="${donationDetails[status.index]}" />
-                                <li class="swiper-slide do_box">
+                                <li class="swiper-slide do_box" onclick="location.href='/donation/detail/${donationDetail.donationNo}';">
 
 
                                     <div class="do_right">

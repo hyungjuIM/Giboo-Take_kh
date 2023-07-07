@@ -68,7 +68,7 @@
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/summernote/writeForm.js" ></script>
 
-<script src="${pageContext.request.contextPath}/resources/js/donation/donationWrite2.js"></script>
+<%--<script src="${pageContext.request.contextPath}/resources/js/donation/donationWrite2.js"></script>--%>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
