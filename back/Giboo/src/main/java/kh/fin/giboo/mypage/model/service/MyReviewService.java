@@ -15,6 +15,8 @@ public interface MyReviewService {
 	//나의 리뷰 목록 조회
 
 	Map<String, Object> selectMyReview(int cp, Model model);
+
+	Map<String, Object> selectMyreview(int cp, int memberNo);
 	
 	
 
