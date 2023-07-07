@@ -28,7 +28,7 @@
         <div class="mainContent">
 
             <div class="infoArea">
-                <img class="thumbnail" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
+                <img class="thumbnail" src="${pageContext.request.contextPath}${volunteerDetail.volunteerAttachment}">
 
                 <div class="info">
                     <div>

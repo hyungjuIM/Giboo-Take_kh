@@ -226,11 +226,11 @@
                 DEFAULT,
                 #{volunteerTitle},
                 #{volunteerContent},
-                NULL,
+                #{volunteerAttachment},
                 ${memberNo},
-                1,
                 ${parentCategoryNo},
-                1
+                1,
+                30
                )
     </insert>
 
@@ -245,6 +245,7 @@
             VOLUNTEER_ADDR = #{volunteerAddr},
             VOLUNTEER_CONTENT = #{volunteerContent},
             PARENT_CATEGORY_NO = ${parentCategoryNo},
+            VOLUNTEER_ATTACHMENT = #{volunteerAttachment},
             ENROLL_DATE = CURRENT_DATE
         WHERE VOLUNTEER_NO = ${volunteerNo}
     </update>

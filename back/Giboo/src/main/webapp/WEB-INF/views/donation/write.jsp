@@ -89,8 +89,6 @@
                         <div class="imgInputInner">
                             <input id="imgInput" type="file" name="file" accept="image/*">
                             <label for="imgInput" class="imgSelectButton">찾아보기
-                                <!-- <input id="img1" type="file" name="donationAttachment"  ></label> -->
-                            <!-- <div id="imgInputPlaceholder">${detail.donationAttachment}</div> -->
 
                         </div>
                     </div>
