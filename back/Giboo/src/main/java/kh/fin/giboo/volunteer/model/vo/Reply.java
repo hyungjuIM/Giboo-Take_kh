@@ -11,11 +11,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Reply {
 	private int replyNo;
+	private String profileImg;
+	private String memberNick;
 	private String replyContent;
+//	private Date enrollDate;
+//	private String secessionFl;
+//	private int donationNo;
 	private int memberNo;
-	private Date enrollDate;
-	private String secessionFl;
-	private int donationNo;
 	private int volunteerNo;
+
 	
 }
