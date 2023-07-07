@@ -15,7 +15,7 @@ public class Reply {
 	private String memberNick;
 	private String replyContent;
 //	private String secessionFl;
-//	private int donationNo;
+	private int donationNo;
 	private int memberNo;
 	private int volunteerNo;
 	private String volunteerTitle;

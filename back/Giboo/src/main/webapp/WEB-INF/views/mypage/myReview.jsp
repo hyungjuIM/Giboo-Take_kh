@@ -77,10 +77,10 @@
 
 									<thead>
 										<tr>
-											<th scope="col" class="th-num">번호</th>
-											<th scope="col" class="th-title">봉사 제목</th>
-											<th scope="col" class="th-content">리뷰내용</th>
-											<th scope="col" class="th-date">일자</th>
+											<th scope="col" class="th_num">번호</th>
+											<th scope="col" class="th_name">봉사 제목</th>
+											<th scope="col" class="th_content">리뷰내용</th>
+											<th scope="col" class="th_date">일자</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -98,10 +98,10 @@
 												<c:forEach var="reply" items="${reply}">
 
 													<tr>
-														<td class="th-num">${reply.replyNo}</td>
-														<td class="th-name">${reply.volunteerTitle}</td>
-														<td class="th-content">${reply.replyContent}</td>
-														<td class="th-date">${reply.enrollDate} ${reply.enrollDay}</td>
+														<td class="th_num">${reply.replyNo}</td>
+														<td class="th_name">${reply.volunteerTitle}</td>
+														<td class="th_content">${reply.replyContent}</td>
+														<td class="th_date">${reply.enrollDate} ${reply.enrollDay}</td>
 													</tr>
 
 												</c:forEach>

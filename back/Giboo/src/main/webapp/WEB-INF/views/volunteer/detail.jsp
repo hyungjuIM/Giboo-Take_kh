@@ -60,9 +60,9 @@
                         </div>
                     </div>
 
-                    <div class="description">
+                    <!-- <div class="description">
                         기부금 전액 올무에 패인 상처가 평생 낫지 않는 길고양이 1마리의 3개월 치료비와 1년 사료비를 지원합니다.
-                    </div>
+                    </div> -->
 
 
                     <button id="volunteerButton" class="volunteerButton">봉사 참여하기</button>
@@ -90,12 +90,13 @@
                         <a class="agencyLink" href="">사이트 방문하기
                             <img class="agencyLinkImg" src="${pageContext.request.contextPath}/resources/images/chevron-right-solid.svg"></a>
                     </div>
-
+                <div class="big_Con">
+                    <div class="commentHeader">
+                        <img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+                        <span id="name">${volunteerDetail.volunteerTitle}</span>에게 응원의 메시지를 남겨주세요
+                    </div>
                     <div class="commentArea">
-                        <div class="commentHeader">
-                            <img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
-                            <span id="name">${volunteerDetail.volunteerTitle}</span>에게 응원의 메시지를 남겨주세요
-                        </div>
+                        
                         <ul class="commentUl">
                             <c:forEach var="replyList" items="${reply}">
                                 <li class="commentLi">
@@ -119,22 +120,32 @@
                                 </li>
                             </c:forEach>
                         </ul>
-                        <textarea id="replyContent"></textarea>
-                        <button class="commentSubmit" id="cheeringButton">응원하기</button>
+                        
+                    </div>
+                    <div class="textarea-wrapper">
+                        <textarea id="replyContent" placeholder="응원의 댓글을 남겨주세요"></textarea>
+                    </div>
+                      <button class="commentSubmit" id="cheeringButton">응원하기</button>
+                    <!-- <textarea id="replyContent"></textarea>
+                        <button class="commentSubmit" id="cheeringButton">응원하기</button> -->
                         
                         <div class="commentInfo">
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="commentCount">${memberCount}</span>
                             <span>명 응원중</span>
                         </div>
+                       
                     </div>
+    
 
-                    <a href="${pageContext.request.contextPath}/volunteer/write?mode=update&no=${volunteerDetail.volunteerNo}">수정</a>
-
-                </div>
+                    <div class="modify_tag_box">
+						<a class="modify_tag"
+							href="${pageContext.request.contextPath}/volunteer/write?mode=update&no=${volunteerDetail.volunteerNo}">수정</a>
+					</div>
+                
             </section>
 
-            <section class="relatedArea">
+            <!-- <section class="relatedArea">
                 <div>관련된 동물 봉사</div>
 
                 <div class="relatedAreaInner">
@@ -167,7 +178,7 @@
                     </div>
                 </div>
 
-            </section>
+            </section> -->
 
             <div class="grayBox" id="grayBox">
                 <div class="volunteerSubmitContainer" id="volunteerSubmitContainer">

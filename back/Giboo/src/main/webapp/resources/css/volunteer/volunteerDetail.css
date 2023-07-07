@@ -92,7 +92,7 @@ a{
 }
 
 .info {
-    position: absolute;
+    /* position: absolute;
     top: 20px;
     right: 20px;
     width: 384px;
@@ -100,7 +100,24 @@ a{
     background-color: #fff;
     border-radius: 20px;
     padding-top: 20px;
+    overflow: hidden; */
+
+    /* border: 1px solid red; */
+	
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 384px;
+    height: 399px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding-top: 38px;
     overflow: hidden;
+    
+   display: flex;
+    flex-direction: column;
+  /*   justify-content: center; */
+    align-items: center;
 }
 
 .info > div {
@@ -128,33 +145,57 @@ a{
 }
 
 .title {
-    font-size: 28px;
+    /* font-size: 28px;
     font-weight: bold;
     line-height: 42px;
+    margin-block: 10px; */
+    font-family: 'NanumSquareNeo';
+	font-size: 28px;
+	font-weight: 700;
+	
+    line-height: 42px;
     margin-block: 10px;
+   	margin-bottom: 20px;
+       margin-right: 30px;
+    margin-left: 30px;
 }
 
 .progressArea {
-    background-color: #F0EFF9;
+    /* background-color: #F0EFF9;
     border-radius: 20px;
     padding: 10px 20px;
+    margin-bottom: 10px; */
+    width: 90%;
+	height: 95px;
+	
+    background-color: #F0EFF9;
+    border-radius: 20px;
+    padding: 14px 20px;
     margin-bottom: 10px;
 }
 
 .progressInfo {
+    /* display: flex;
+    justify-content: space-between; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    
+/*     margin-top: 10px; */
+    margin-bottom: 10px;
 }
 
 .progressPercentage {
+    font-family: 'NanumSquareNeo';
     color: #00CA61;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
 }
 
 .goal {
+    font-family: 'NanumSquareNeo';
     color: #767676;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
 }
 
@@ -163,6 +204,8 @@ a{
     height: 10px;
     border-radius: 50px;
     background-color: white;
+
+    margin-bottom: 10px;
 }
 
 .progressBarValue {
@@ -239,7 +282,7 @@ a{
 }
 
 .agencyInfoArea {
-    border: 2px solid #D9D9D9;
+    border: 1px solid #D9D9D9;
     border-radius: 20px;
     padding: 20px;
     margin-bottom: 20px;
@@ -252,7 +295,12 @@ a{
 }
 
 .agencyImg {
+    /* margin-right: 10px; */
+    display: flex;
+	 justify-content: center;
+    align-items: center;
     margin-right: 10px;
+    padding-bottom: 10px;
 }
 
 .division {
@@ -261,45 +309,51 @@ a{
 }
 
 .agencyName {
-    font-size: 20px;
-    font-weight: bold;
+    font-family: 'NanumSquareNeo';
+	font-size: 18px;
+	font-weight: 700;
 }
 
 .agencyDescription {
+    font-family: 'NanumSquareNeo';
     font-size: 14px;
     color: #7A7A7A;
-    font-weight: bolder;
+   font-weight: 500;
+   line-height: 20px;
+   
+   margin-top: 5px;
+   margin-bottom: 8px;
 }
 
 .agencyLink {
+    font-family: 'NanumSquareNeo';
+	font-weight: 600;
+	
     width: fit-content;
-    font-size: 12px;
+    font-size: 14px;
     color: #00CA61;
-    border-bottom: 2px solid #00CA61;
+/*     border-bottom: 2px solid #00CA61; */
     display: flex;
     align-items: center;
 }
 
 .agencyLinkImg {
     margin-left: 4px;
-    width: 6px;
+    width:10px;
     height: 12px;
+    color: var(--mainColor);
 }
 
 .commentArea {
     border: 2px solid #D9D9D9;
     border-radius: 20px;
-    padding: 20px;
-    height: 600px;
+    padding: 10px;
+    height: 400px;
     overflow: scroll;
     position: relative;
 }
 
-/* .commentHeader{
-    background-color: #00CA61;
-    width: 100%;
-    position: sticky;
-} */
+
 
 .commentArea::-webkit-scrollbar{
     width: 10px;  /* 스크롤바의 너비 */
@@ -318,10 +372,12 @@ a{
 }
 
 .commentTitleImg {
-    width: 14px;
-    height: 14px;
+    width: 18px;
+    height: 18px;
+    color: var(--contentColor);
+    margin-right: 4px;
 }
-
+/* 
 .commentItem {
     margin-top: 10px;
     border-radius: 20px;
@@ -329,7 +385,7 @@ a{
     background-color: #F0EFF9;
     display: flex;
     margin-bottom: 8px;
-}
+} */
 
 .memberImgArea {
     border-radius: 100%;
@@ -350,6 +406,8 @@ a{
 
 .commentInner{
     /* background-color: violet; */
+    width: 220px;
+    overflow: hidden;
 }
 
 .memberNick {
@@ -364,7 +422,7 @@ a{
 }
 
 .commentSubmit {
-    width: 100%;
+    /* width: 100%;
     background-color: #00CA61;
     border-radius: 5px;
     color: white;
@@ -373,7 +431,22 @@ a{
     padding-block: 10px;
     margin-bottom: 8px;
     cursor: pointer;
+    border: none; */
+    font-family: 'NanumSquareNeo';
+	
+    width: 100%;
+    background-color: #00CA61;
+    border-radius: 100px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding-block: 16px;
+    margin-bottom: 8px;
+    cursor: pointer;
     border: none;
+    
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .commentInfo {
@@ -383,9 +456,18 @@ a{
 }
 
 .commentInfo > * {
+    font-family: 'NanumSquareNeo';
+	
     font-size: 14px;
+
     color: #767676;
-    font-weight: bolder;
+}
+
+
+.commentInfo .commentCount:after{
+	content:'|';
+	color: var(--etcColor);
+	margin: 4px;
 }
 
 .commentInfo > img {
@@ -393,6 +475,32 @@ a{
     height: 14px;
     margin-right: 6px;
 }
+
+.modify_tag_box{
+	width: 100%;
+	height: 20px;
+	margin-top: 10px;
+	
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 10px;
+    margin-bottom: 8px;
+}
+
+
+
+.modify_tag{
+    font-family: 'NanumSquareNeo';
+   font-size: 16px;
+   color: var(--etcColor);
+   font-weight: 600;
+
+}
+
+
+
 
 .relatedAreaInner {
     display: flex;
@@ -576,3 +684,60 @@ a{
     width : 700px;
     border: 2px solid blue;
 } */
+
+.textarea-wrapper textarea {
+    width: 330px;
+    height: 50px;
+    resize: none;
+    overflow: hidden ;
+    border: 2px solid #D9D9D9;
+    border-radius: 5px;
+    margin: 0px 5px;
+}
+
+  .textarea-wrapper{
+    margin : 10px 0px;
+  }
+
+
+  .big_Con{
+    border-radius: 20px;
+    border: 1px solid #D9D9D9;
+    padding : 10px;
+  }
+
+
+  .commentHeader{
+    margin : 10px;
+}
+
+
+.commentInner .memberName{
+	font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	font-weight: 600;
+
+	margin-bottom: 4px;
+	color: var(--titleColor);
+	
+}
+
+
+.commentItem {
+	
+	
+    font-family: 'NanumSquareNeo';
+   
+   margin-top: 10px;
+   border-radius: 20px;
+   padding: 10px;
+   background-color: #F0EFF9;
+   display: flex;
+   margin-bottom: 8px;
+   color: var(--contentColor);
+}
+  
+  
+  
+  
+  

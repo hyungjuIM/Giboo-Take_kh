@@ -1,5 +1,6 @@
 package kh.fin.giboo.donation.controller;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
@@ -13,6 +14,7 @@ import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringEscapeUtils;
@@ -401,4 +403,22 @@ public class DonationController {
 
         return "redirect:../storyList?cp=" + cp;
     }
+    
+    
+    // 댓글 조회
+    @GetMapping("/selectReplyList2")
+    @ResponseBody
+    public String selectReplyList(int donationNo) {
+        List<Reply> replyList = service.selectReplyList(donationNo);
+        return new Gson().toJson(replyList);
+    }
+
+	// 댓글 등록
+	@PostMapping("/replyInsert2")
+    @ResponseBody
+	public int insertReply(Reply reply) {
+		return service.insertReply(reply);
+	}
+    
+    
 }

@@ -364,20 +364,20 @@ body {
   border-bottom: 1px solid var(--etcColor);
 }
 
-.th-num{
+.th_num{
   width: 50px;
 }
 
-.th-name{
-  width: 200px;
+.th_name{
+  width: 250px;
 }
 
-.th-content{
-  width: 300px;
+.th_content{
+  width: 350px;
 }
 
-.th-date{
-  width: 170px;
+.th_date{
+  width: 180px;
 }
 
 

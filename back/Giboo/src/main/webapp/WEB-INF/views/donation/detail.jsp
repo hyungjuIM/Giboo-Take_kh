@@ -74,8 +74,8 @@
 						</div>
 					</div>
 
-					<div class="description">기부금 전액 올무에 패인 상처가 평생 낫지 않는 길고양이 1마리의
-						3개월 치료비와 1년 사료비를 지원합니다.</div>
+					<!-- <div class="description">기부금 전액 올무에 패인 상처가 평생 낫지 않는 길고양이 1마리의
+						3개월 치료비와 1년 사료비를 지원합니다.</div> -->
 
 					<button class="donationButton" onclick="clickPayButton()">모금함
 						기부하기</button>
@@ -107,7 +107,55 @@
 							src="${pageContext.request.contextPath}/resources/images/chevron-right-solid.svg"></a>
 					</div>
 
-					<div class="commentArea">
+					<div class="big_Con">
+						<div class="commentHeader">
+							<img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+							<span id="name">${donationDetail.donationTitle}</span>에게 응원의 메시지를 남겨주세요
+						</div>
+						<div class="commentArea">
+							
+							<ul class="commentUl">
+								<c:forEach var="replyList" items="${reply}">
+									<li class="commentLi">
+										<div class="commentItem">
+											<div class="memberImgArea">
+												<c:choose>
+													<c:when test="${empty replyList.profileImg}">
+														<img id="memberImg1" class="memberImg" src="${pageContext.request.contextPath}/resources/images/dog_emoji.png">
+													</c:when>
+													<c:otherwise>
+														<img id="memberImg1" class="memberImg" src="${pageContext.request.contextPath}${replyList.profileImg}">
+													</c:otherwise>
+												</c:choose>
+											</div>
+	
+											<div class="commentInner">
+												<div id="memberNick" class="memberNick">${replyList.memberNick}</div>
+												<div id="comment1" class="comment">${replyList.replyContent}</div>
+											</div>
+										</div>
+									</li>
+								</c:forEach>
+							</ul>
+							
+						</div>
+						<div class="textarea-wrapper">
+							<textarea id="replyContent" placeholder="응원의 댓글을 남겨주세요"></textarea>
+						</div>
+						  <button class="commentSubmit" id="cheeringButton">응원하기</button>
+							
+							<div class="commentInfo">
+								<img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
+								<span id="commentCount">${memberCount}</span>
+								<span>명 응원중</span>
+							</div>
+						   
+						</div>
+						
+	
+					
+
+					<!-- <div class="commentArea">
 						<div class="">
 							<img class="commentTitleImg iconImg"
 								src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
@@ -160,7 +208,7 @@
 								src="${pageContext.request.contextPath}/resources/images/share-from-square-regular.svg">
 							<span id="shareCount">508</span> <span>명 공유</span>
 						</div>
-					</div>
+					</div> -->
 					<div class="modify_tag_box">
 						<a class="modify_tag"
 							href="${pageContext.request.contextPath}/donation/write?mode=update&no=${donationDetail.donationNo}">수정</a>
@@ -291,13 +339,17 @@
 
 	<script>
 
+var contextPath = "${pageContext.request.contextPath}";
+		const donationNo = "${donationDetail.donationNo}"; // "500"
+        const loginMemberNo = "${loginMember.memberNo}";
+
         function donationInput() {
             grayBox.style.display = "flex";
             donationContainer.style.display = "inline";
         }
 
         function clickPayButton() {
-            if (${!empty loginMember}) {
+            if ("${!empty loginMember}") {
                 donationInput();
             } else {
                 alert("로그인이 필요한 서비스 입니다.");
@@ -353,6 +405,8 @@
                 alert("기부금액이 최소 금액보다 적습니다. 기부 금액을 100원 이상 입력해주세요.")
             }
         }
+
+		
 
     </script>
 </body>

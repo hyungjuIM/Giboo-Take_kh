@@ -5,6 +5,7 @@ import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,4 +48,10 @@ public interface DonationService {
 	List<Donation> selectDonation();
 
 	DonationDetail getDonationDetail2(int donationNo2);
+
+	List<Reply> selectReplyList(int donationNo);
+
+	int insertReply(Reply reply);
+	
+	Reply getReply(String replyContent);
 }
