@@ -75,10 +75,37 @@ public class FaqController {
 	
 	// 이벤트 카테고리만 생성
 	@GetMapping("/faqEvent")
-	public String faqEvent()  {
+	public String faqEvent(@RequestParam(value= "cp", required = false, defaultValue ="1") int cp,
+			Model model)  {
 		
-	return "cs/faqEvent";
+		Map<String,Object> map = null;
+		
+		map = service.selectFaqEvent(cp, model);
+		
+		model.addAttribute("map", map);
+		logger.info("이거의값은???????" + map);
+		logger.info("이벤트!!");
+	   
+		
+		return "cs/faqEvent";
 	}
+	
+		// 일반 카테고리만 생성
+		@GetMapping("/faqCommon")
+		public String faqCommon(@RequestParam(value= "cp", required = false, defaultValue ="1") int cp,
+				Model model)  {
+			
+			Map<String,Object> map = null;
+			
+			map = service.selectFaqCommon(cp, model);
+			
+			model.addAttribute("map", map);
+			logger.info("이거의값은???????" + map);
+			logger.info("일반!!");
+		   
+			
+			return "cs/faqCommon";
+		}
 }
 	
 	

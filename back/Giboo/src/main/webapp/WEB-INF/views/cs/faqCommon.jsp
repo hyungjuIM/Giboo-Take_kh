@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+	
 	<c:set var="pagination" value="${map.pagination}" />
-    <c:set var="faqVolunteer" value="${map.faqVolunteer}" />
-
+    <c:set var="faqCommon" value="${map.faqCommon}" />
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>faq Volunteer page</title>
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cs/csMain.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cs/csMain.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css">
     
 	 	<script src="https://code.jquery.com/jquery-latest.min.js"></script>
@@ -22,7 +18,8 @@
 	    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
 	    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+
+ <body>
     	<header>
             <jsp:include page="/WEB-INF/views/main/header.jsp" />
         </header>
@@ -59,16 +56,16 @@
                         <!-- faq list -->
                         <div id="Accordion_wrap">
                                 <c:choose>
-                                    <c:when test="${empty faqVolunteer}">
+                                    <c:when test="${empty faqCommon}">
                                         <span>자주찾는질문이 존재하지 않습니다.</span>
                                     </c:when>
                                     <c:otherwise>
-                                        <c:forEach var="faqVolunteer" items="${faqVolunteer}">
+                                        <c:forEach var="faqCommon" items="${faqCommon}">
                                             <div class="que">
                                                 <div class="queCategory">
-                                                    <span>${faqVolunteer.faqCategory}</span>
+                                                    <span>${faqCommon.faqCategory}</span>
                                                 </div>
-                                                <span>${faqVolunteer.faqTitle}</span>
+                                                <span>${faqCommon.faqTitle}</span>
                                                 <div class="arrow-wrap">
                                                     <span class="arrow-top">></span>
                                                     <span class="arrow-bottom">></span>
@@ -76,7 +73,7 @@
                                             </div>
                                             <div class="anw">
                                                 <div class="anw2">
-                                                    <span id="anw-content">${faqVolunteer.faqContent}</span>
+                                                    <span id="anw-content">${faqCommon.faqContent}</span>
                                                     <div class="dontAnw">
                                                         <span id="dontAnw-span">* 원하시는 답을 찾지 못하셨나요?</span>
                                                         <a href=""><span id="dontAnw-span2">1:1 문의</span></a>
