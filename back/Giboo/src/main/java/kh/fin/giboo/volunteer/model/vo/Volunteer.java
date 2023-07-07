@@ -18,10 +18,10 @@ public class Volunteer {
     private String volunteerAddr;
     private String volunteerTime;
     private String enrollDate;
-    private String startRecruitDate;
+    private Date startRecruitDate;
     private Date endRecruitDate;
-    private String startProgressDate;
-    private String endProgressDate;
+    private Date startProgressDate;
+    private Date endProgressDate;
     private String volunteerDeleteStatus;
     private String volunteerCompleteStatus;
     private int volunteerCount;

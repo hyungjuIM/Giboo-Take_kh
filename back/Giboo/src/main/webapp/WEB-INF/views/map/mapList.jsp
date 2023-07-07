@@ -7,7 +7,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>맵 기본리스트</title>
+        <title>hunny</title>
 
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/map/map.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/map/mapPopup.css">

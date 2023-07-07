@@ -123,7 +123,7 @@
     </select>
 
     <select id="getVolunteerList" resultMap="volunteer_rm">
-        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, PC.PARENT_CATEGORY_NAME
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_ATTACHMENT, START_RECRUIT_DATE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, PC.PARENT_CATEGORY_NAME
         FROM VOLUNTEER V, PARENT_CATEGORY PC
         WHERE VOLUNTEER_DELETE_STATUS = 'N'
         <if test="category != null">
@@ -134,14 +134,15 @@
     </select>
 
     <select id="getVolunteerListAll" resultMap="volunteer_rm">
-        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_ATTACHMENT, START_RECRUIT_DATE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
         FROM VOLUNTEER
         WHERE VOLUNTEER_DELETE_STATUS = 'N'
         ORDER BY VOLUNTEER_NO DESC
     </select>
 
     <select id="getVolunteerDetail" resultMap="volunteerDetail_rm">
-        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME, PARENT_CATEGORY_NO
+        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_CONTENT, START_RECRUIT_DATE, END_RECRUIT_DATE, START_PROGRESS_DATE, END_PROGRESS_DATE,
+               TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME, PARENT_CATEGORY_NO, VOLUNTEER_ADDR, VOLUNTEER_ATTACHMENT
         FROM VOLUNTEER V, AGENCY A
         WHERE VOLUNTEER_NO = ${volunteerNo}
         AND VOLUNTEER_DELETE_STATUS = 'N'
@@ -226,11 +227,11 @@
                 DEFAULT,
                 #{volunteerTitle},
                 #{volunteerContent},
-                NULL,
+                #{volunteerAttachment},
                 ${memberNo},
-                1,
                 ${parentCategoryNo},
-                1
+                1,
+                30
                )
     </insert>
 
@@ -245,6 +246,7 @@
             VOLUNTEER_ADDR = #{volunteerAddr},
             VOLUNTEER_CONTENT = #{volunteerContent},
             PARENT_CATEGORY_NO = ${parentCategoryNo},
+            VOLUNTEER_ATTACHMENT = #{volunteerAttachment},
             ENROLL_DATE = CURRENT_DATE
         WHERE VOLUNTEER_NO = ${volunteerNo}
     </update>

@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>03.main</title>
+    <title>hunny</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/volunteer/volunteerDetail.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/slick/slick-theme.css">
@@ -28,7 +28,7 @@
         <div class="mainContent">
 
             <div class="infoArea">
-                <img class="thumbnail" src="${pageContext.request.contextPath}/resources/images/all-about-tabby-cats-552489-hero-a23a9118af8c477b914a0a1570d4f787.jpg">
+                <img class="thumbnail" src="${pageContext.request.contextPath}${volunteerDetail.volunteerAttachment}">
 
                 <div class="info">
                     <div>

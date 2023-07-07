@@ -257,23 +257,54 @@ public class VolunteerController {
     }
   
     @PostMapping("/write")
-    public String write(VolunteerDetail detail, @ModelAttribute("loginMember") Member loginMember,
+    public String write(VolunteerDetail detail,
+    		@RequestParam(value="file", required = false) MultipartFile uploadImage,
+    		@ModelAttribute("loginMember") Member loginMember,
                         RedirectAttributes ra, HttpServletRequest req, String mode,
-                        @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+                        @RequestParam(value = "cp", required = false, defaultValue = "1") int cp)throws IOException {
         logger.info("봉사 등록");
 
         detail.setMemberNo(loginMember.getMemberNo());
 
         String path = null;
         String message = null;
+        JsonObject jsonObject = new JsonObject();
 
+
+	      // 내부경로로 저장
+	      String webPath = "/resources/images/fileupload/";
+
+	      String fileRoot = req.getServletContext().getRealPath(webPath);
+
+	      String originalFileName = uploadImage.getOriginalFilename();
+	      // String extension =
+	      // originalFileName.substring(originalFileName.lastIndexOf("."));
+	      String savedFileName = Util.fileRename(originalFileName);
+
+	      File targetFile = new File(fileRoot + savedFileName);
+	      try {
+	         InputStream fileStream = uploadImage.getInputStream();
+	         FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
+	         jsonObject.addProperty("url", req.getContextPath() + webPath + savedFileName); // contextroot +
+	                                                                        // resources + 저장할 내부
+	                                                                        // 폴더명
+	         jsonObject.addProperty("responseCode", "success");
+
+	      } catch (IOException e) {
+	         FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
+	         jsonObject.addProperty("responseCode", "error");
+	         e.printStackTrace();
+	      }
+	      String vol = jsonObject.toString();
+	      String volunteerAttachment = jsonObject.get("url").getAsString();
+	      detail.setVolunteerAttachment(volunteerAttachment);
         if (mode.equals("insert")) {
-            int no = service.insertVolunteer(detail);
-            path = "../volunteer/detail/" + no;
+            int volunteerNo = service.insertVolunteer(detail);
+            path = "../volunteer/detail/" + volunteerNo;
             logger.info("게시글 등록 성공");
         } else {
             int result = service.updateVolunteer(detail);
-            path = "../volunteer/detail" + detail.getVolunteerNo() + "?cp=" + cp;
+            path = "../volunteer/detail/" + detail.getVolunteerNo() + "?cp=" + cp;
             logger.info("게시글 수정 성공");
         }
 
