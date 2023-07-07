@@ -29,25 +29,12 @@
             <div class="eventContent">
                 <div class="eventBody">
                     <div class="eventList_main">
-                        <div class="ewrap_tab">
-                            <ul class="elist_tab">
-                                <li class="eon">
-                                    <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab">
-                                        <span class="etxt_tab">진행중</span>
-                                    </a>
-                                </li>
-                                <li class="eon">
-                                    <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab">
-                                        <span class="etxt_tab">전체</span>
-                                    </a>
-                                </li>
-                                <li class="eon">
-                                    <a href="${pageContext.request.contextPath}/event/eventListDone" class="elink_tab">
-                                        <span class="etxt_tab">종료</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                          <div class="ewrap_tab mainCategoryArea">
+                       
+                         <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab "> 전체</a>
+                         <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab">진행중</a>  
+                         <a href="${pageContext.request.contextPath}/event/eventListDone" class="elink_tab mainCategoryChecked">종료</a>    
+                         </div>
                         <div class="egroup_catalog">
                             <c:choose>
                                 <c:when test="${empty eventList}">

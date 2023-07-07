@@ -32,8 +32,12 @@
                     
                     
                    <!--이벤트 상 메뉴 -->
-                        <div class="ewrap_tab">
-                            <ul class="elist_tab">
+                        <div class="ewrap_tab mainCategoryArea">
+                       
+                         <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab mainCategoryChecked"> 전체</a>
+                         <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab">진행중</a>  
+                         <a href="${pageContext.request.contextPath}/event/eventListDone" class="elink_tab">종료</a>    
+                           <%--  <ul class="elist_tab">
                             
                                 <li class="eon">
                                     <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab">
@@ -54,7 +58,7 @@
                                     </a>
                                 </li>
                                 
-                            </ul>
+                            </ul> --%>
                         </div>
                         
                         
@@ -139,15 +143,15 @@
                 <c:set var="url" value="?cp="/>
 
                 <ul class="event-pagination">
-                    <li><a href="${url}1${sURL}">&lt;&lt;</a></li>
+                    <li lass="first"><a href="${url}1${sURL}">&lt;&lt;</a></li>
 
-                    <li><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
+                    <li class="prev"><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
 
                     <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
 
                         <c:choose>
                             <c:when test="${i == pagination.currentPage}">
-                                <li class="num"><a class="current">${i}</a></li>
+                                <li class="num active"><a class="current">${i}</a></li>
                             </c:when>
 
                             <c:otherwise>
@@ -157,9 +161,9 @@
 
                     </c:forEach>
                     
-                    <li><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
+                    <li class="next"><a href="${url}${pagination.nextPage}${sURL}">&gt;</a></li>
 
-                    <li><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
+                    <li class="last"><a href="${url}${pagination.maxPage}${sURL}">&gt;&gt;</a></li>
                 </ul>
             </div>
     </main>
