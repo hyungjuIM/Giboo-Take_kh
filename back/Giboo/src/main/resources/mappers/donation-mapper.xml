@@ -371,6 +371,7 @@ ORDER BY
 	   FROM REPLY R
 	   JOIN MEMBER M ON M.MEMBER_NO = R.MEMBER_NO 
 	   WHERE DONATION_NO = #{donationNo}
+	   ORDER BY R.REPLY_NO DESC 
 	</select>
     
     
