@@ -292,11 +292,10 @@ h4{
 }
 
 .item .buttonSection {
-    width: 300px;
     height: 40px;
 
     position: absolute;
-    transform: translate(0%, 720%);
+    transform: translate(300%, 720%);
 
 
     z-index: 1;

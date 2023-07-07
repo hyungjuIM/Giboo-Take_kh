@@ -92,12 +92,6 @@
 					<c:forEach var="donationList" items="${donationList}">
 						<div class="item">
 							<div class="buttonSection">
-								<a href="" class="button">기부하기 <i class="xi-angle-right"></i>
-
-									  <%-- <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"> --%></a>
-
-									</a>
-
                                     <c:choose>
                                         <c:when test="${fn:contains(favoriteList, donationList.donationNo)}">
                                             <div class="favoriteButton" id="${donationList.donationNo}" data-title="${donationList.donationTitle}">❤️</div>
@@ -110,8 +104,7 @@
 							</div>
 
 							<div class="content_container">
-								<a
-									href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
+								<a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
 									<img src="${pageContext.request.contextPath}${donationList.donationAttachment}" class="thumbnail">
 									<div class="text_container">
 										<div class="mainTitle">${donationList.donationTitle}</div>
