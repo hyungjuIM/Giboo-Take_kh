@@ -39,17 +39,12 @@
                      	<a href="${contextPath}/cs/faqVolunteer"><span>봉사</span></a> 
                         <a href="${contextPath}/cs/faqDonation"><span>기부</span></a> 
                         <a href="${contextPath}/cs/faqEvent"><span>이벤트</span></a> 
-                        <a href="#"><span>지도</span></a>
-                        <a href="#"><span>적립금</span></a>
-                        <a href="#"><span>스탬프</span></a>
+                        <a href="${contextPath}/cs/faqCommon"><span>일반</span></a>
+                        
 
                     </div>
 
-                    <div class="cs-inquryBtn" id="cs-inquryBtn">
-                        <a href="#"><span>환불문의</span></a>
-                        <a href="#"><span>신청문의</span></a>
-                        <a href="#"><span>취소문의</span></a>
-                    </div>
+                  
                 </div>
             </div>
       
