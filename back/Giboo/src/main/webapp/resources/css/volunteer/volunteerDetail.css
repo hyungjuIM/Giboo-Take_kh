@@ -350,6 +350,8 @@ a{
 
 .commentInner{
     /* background-color: violet; */
+    width: 220px;
+    overflow: hidden;
 }
 
 .memberNick {

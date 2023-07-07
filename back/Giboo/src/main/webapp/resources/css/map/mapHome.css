@@ -505,3 +505,7 @@
 .mhBox{
     margin-top: 20px;
 }
+
+.elink_official > span{
+    color: #00CA61;
+}

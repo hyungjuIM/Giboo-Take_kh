@@ -31,14 +31,6 @@
 
         <div class="mhwrap">
             <div class="mhwrapBox">
-            	<div class="mapMainHome">
-            	  <a class="mapMainHome_a" href="${pageContext.request.contextPath}/map/mapList">
-            	  	<img src="${pageContext.request.contextPath}/resources/images/hunny.png">
-            	  
-            	  </a>
-                </div>
-            
-            
                 <div class="mhBox">
                     
                     <jsp:include page="/WEB-INF/views/map/mapHeader.jsp" />

@@ -32,12 +32,6 @@
 
         <div class="mhwrap">
             <div class="mhwrapBox">
-            	<div class="mapMainHome">
-            	  <a class="mapMainHome_a" href="${pageContext.request.contextPath}/map/mapList">
-            	  	<img src="${pageContext.request.contextPath}/resources/images/hunny.png">
-            	  
-            	  </a>
-                </div>
             
                 <div class="mhBox">
                     
@@ -75,24 +69,13 @@
                         <div class="mhDeAddIc">
                             <span>🏠</span>
                         </div>    
-                            <div><a href="${pageContext.request.contextPath}/volunteer/detail/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" class="elink_official">
-                            <span>봉사페이지 이동하기</span></a>
-                            </div>
-                        
-                       <!--  <div class="mhDeAddLink">
-                            <a href="">
-                                <span>https://www.instagram.com/bongsaplace</span>
-                            </a>
-                            <div class="mhDeAddLink_2">
-                                <a href="">
-                                    <span>인스타그램</span>
-                                </a>
-                                <span>|</span>
-                                <a href="">
-                                    <span>블로그</span>
+                            <div>
+                                <a href="${pageContext.request.contextPath}/volunteer/detail/${mapDetailTop.volunteerNo}?cp=${pagination.currentPage}${sURL}" class="elink_official">
+                                    <span>
+                                        봉사페이지 이동하기
+                                    </span>
                                 </a>
                             </div>
-                        </div> -->
                     </div>
                     <!-- 설명 -->
                     <div class="mhDeAddCh">

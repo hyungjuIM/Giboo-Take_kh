@@ -59,12 +59,12 @@
                                 </div>
                                 <div class="mhBtnWrap">
                                     <div class="mhBtn">
-                                        <div class="mhBtnHe" id="mhBtnHea">
-                                            <a href="" >
-                                                <div class="mhBtnHe_1">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
+                                        <div class="mapMainHomeGo">
+                                            <a href="${pageContext.request.contextPath}/map/mapList" class="mapMainHome_a">
+                                                <div class="mapMainHome">
+                                                    <img src="${pageContext.request.contextPath}/resources/images/hunnyLogo/hunnyLogo.png">
                                                 </div>
-                                                <span>즐겨찾기</span>
+                                                <span>홈 이동</span>
                                             </a>
                                         </div>
                                         <span>|</span>

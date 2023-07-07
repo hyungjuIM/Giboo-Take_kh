@@ -153,7 +153,9 @@ function selectReplyList() {
                 const comment = document.createElement("div");
                 comment.id = "comment1";
                 comment.classList.add("comment");
-                comment.textContent = reply.replyContent;
+                // comment.textContent = reply.replyContent;
+                comment.innerHTML = reply.replyContent.replace(/\n/g, "<br>"); // 문자처리
+
     
                 commentInner.appendChild(memberNick);
                 commentInner.appendChild(comment);

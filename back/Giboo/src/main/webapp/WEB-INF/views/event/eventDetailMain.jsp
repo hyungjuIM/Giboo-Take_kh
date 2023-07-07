@@ -98,7 +98,7 @@
                     <img src="" id="preview-image" name="preview-image">
                 </div>                    
                 <div class="E_popup_cont07">
-                    - 사진은 10MB 이내, 최대 5장까지 첨부 가능합니다.<br>
+                    - 사진은 10MB 이내, 최대 1장까지 첨부 가능합니다.<br>
                     - 이벤트 내용에 맞지 않거나 게시글 정책을 위반한 경우 삭제됩니다.
                 </div>
                 <div class="E_popup_cont08">
@@ -158,18 +158,20 @@
 
 
 
-    <div class="stampWrap">
-        <div class="stampBox">
-          <div class="stampCount">
-            <span>총 개수</span>
-            <span class="stampCountValue">0</span>
-          </div>
-            <ul class="stampUl">
-                <li class="stampLi">
-                    <div class="stampDiv">
-                    </div>
-                </li>         
-            </ul>
+    <div class="stampArea">
+        <div class="stampWrap">
+            <div class="stampBox">
+            <div class="stampCount">
+                <div>총 개수</div>
+                <div class="stampCountValue">0</div>
+            </div>
+                <ul class="stampUl">
+                    <li class="stampLi">
+                        <div class="stampDiv">
+                        </div>
+                    </li>         
+                </ul>
+            </div>
         </div>
     </div>
     <div class="E_pop_mask11"></div>

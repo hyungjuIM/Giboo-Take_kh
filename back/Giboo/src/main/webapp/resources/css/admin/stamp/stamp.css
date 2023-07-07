@@ -16,12 +16,12 @@
     --etcColor: #d9d9d9;
   }
   
-/* 
-body{
+
+.stampArea{
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
 
 .E_pop_mask11 {
     width: 100%;
@@ -34,11 +34,12 @@ body{
     display: none;
 }
 
+/* 스템프 css */
 .stampWrap{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(49, 63, 21);
+    /* background-color: rgb(49, 63, 21); */
     width: 800px;
     height: 300px;
     display: none;
@@ -48,13 +49,14 @@ body{
 }
 
 .stampBox{
-    background-color: wheat;
+    background-color: #f1eded;
     width: 750px;
-    height: 260px;
+    height: 340px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 20px;
 }
 
 .stampDiv{
@@ -71,10 +73,11 @@ body{
 
 .stampUl{
     display: flex;
-    width: 700px;
+    width: 600px;
     height: 200px;
     /* background-color: aqua; */
     flex-wrap: wrap;
+    margin: 30px 0px;
 }
 
 .stampLi{
@@ -85,4 +88,18 @@ body{
     width: 70px;
     height: 70px;
     border-radius: 50%;
+}
+
+.stampCount > div{
+    font-family: 'NanumSquareNeo KR', sans-serif;
+    color : #767676;
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.stampCount{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
 }
