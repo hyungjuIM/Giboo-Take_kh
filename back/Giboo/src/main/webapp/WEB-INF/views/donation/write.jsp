@@ -88,7 +88,7 @@
                         <div class="listTitle">썸네일</div>
                         <div class="imgInputInner">
                             <input id="imgInput" type="file" name="file" accept="image/*">
-                            <label for="imgInput" class="imgSelectButton">찾아보기
+                            <label for="imgInput" class="imgSelectButton">찾아보기</label>
 
                         </div>
                     </div>
