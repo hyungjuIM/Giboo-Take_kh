@@ -78,6 +78,16 @@
         <result property="donationNo" column="DONATION_NO" />
         <result property="volunteerNo" column="VOLUNTEER_NO" />
     </resultMap>
+    
+    
+    <resultMap type="reply" id="reply_rm">	
+		<id property="replyNo" column="REPLY_NO"/>		
+		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+		<result property="replyContent" column="REPLY_CONTENT"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="donationNo" column="DONATION_NO"/>
+	</resultMap>
 
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
@@ -335,4 +345,35 @@ ORDER BY
     	INSERT INTO DONATION (DONATION_ATTACHMENT)
    		VALUES (#{donationAttachment})
     </insert>
+    
+     <select id= "getReply" resultMap="reply_rm">
+    SELECT REPLY_CONTENT
+    FROM REPLY
+    WHERE REPLY_CONTENT = #{replyContent}
+    </select>
+    
+    
+     
+    <insert id="insertReply">
+    INSERT INTO REPLY (REPLY_NO, REPLY_CONTENT, MEMBER_NO, DONATION_NO) 
+    VALUES (SEQ_REPLY_NO_S.NEXTVAL, #{replyContent}, ${memberNo}, ${donationNo})
+    </insert>
+    
+    
+    <select id="selectReplyList" resultMap="reply_rm">
+	   SELECT 
+	   R.REPLY_NO ,
+	   M.PROFILE_IMG ,
+	   M.MEMBER_NICK,
+	   R.REPLY_CONTENT,
+	   R.MEMBER_NO,
+	   R.DONATION_NO
+	   FROM REPLY R
+	   JOIN MEMBER M ON M.MEMBER_NO = R.MEMBER_NO 
+	   WHERE DONATION_NO = #{donationNo}
+	</select>
+    
+    
+    
+    
 </mapper>

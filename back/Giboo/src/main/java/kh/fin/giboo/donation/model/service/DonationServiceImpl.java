@@ -9,6 +9,7 @@ import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.event.model.exception.InsertFailException;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -219,5 +220,28 @@ public class DonationServiceImpl implements DonationService {
 	public DonationDetail getDonationDetail2(int donationNo2) {
 		return dao.getDonationDetail2(donationNo2);
 	}
+
+	// 댓글 등록
+		@Override
+		public int insertReply(Reply reply) {
+			// XSS, 개행문자 처리
+			reply.setReplyContent(  Util.XSSHandling( reply.getReplyContent() )  );
+			reply.setReplyContent(  Util.newLineHandling( reply.getReplyContent() )  );
+					
+			return dao.insertReply(reply);
+		}
+		
+		// 응원 등록 서비스 구현
+		@Override
+		public Reply getReply(String replyContent) {
+			// TODO Auto-generated method stub
+			return dao.getReply(replyContent);
+		}
+		
+		// 응원 목록 조회 서비스 구현
+		@Override
+		public List<Reply> selectReplyList(int donationNo) {	
+			return dao.selectReplyList(donationNo);
+		}
     
 }
