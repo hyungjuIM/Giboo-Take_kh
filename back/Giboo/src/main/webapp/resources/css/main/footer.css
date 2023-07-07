@@ -17,7 +17,7 @@
 
 .footerContainer{
     height: 244px;
-    /* background-color: rgb(255, 218, 218); */
+    background-color: rgb(240, 251, 237);
 
     display: flex;
     justify-content: center;
@@ -29,7 +29,7 @@
     display: flex;
     flex-direction: row;
 
-    background-color: white;
+    background-color: rgb(240, 251, 237);
     
 }
 
@@ -49,6 +49,7 @@
     display: flex;
     flex-direction: row;
     margin-bottom: 25.14px;
+    z-index: 50;
 }
 
 .footerMain a{
@@ -58,6 +59,11 @@
     font-weight: bold;
     color: #252525;
     margin-right: 33px;
+    cursor: pointer;
+    z-index: 50;
+}
+.footerContent2{
+    z-index: 1;
 }
 .footerMain a:hover{
     color: #00CA61;
@@ -87,6 +93,30 @@
     justify-content: center;
     /* margin-bottom: 5px; */
 }
+.ceo a:link {
+    text-decoration: none;
+    color: black;
+}
+
+.ceo a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.ceo a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.ceo a:active {
+    text-decoration: none;
+    color: black;
+}
+
+.ceo a:link {
+    text-decoration: none;
+    color: black;
+}
 .emp{
     display: flex;
     align-items: center;
@@ -114,12 +144,14 @@
     
   }
   .femail{
+    margin-top: 5px;
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
   }
   .ftel{
+    margin-top: 5px;
     display: flex;
     align-items: center;
     text-align: center;

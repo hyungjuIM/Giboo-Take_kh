@@ -240,9 +240,13 @@ public class EventServiceImpl implements EventService{
 	}
 
 //	@Override
-//	public EventList getEventData(int eventNo) {
-//		return dao.getEventData(eventNo);
+//	public boolean getEventStatus(int eventNo) {
+//		return dao.getEventStatus(eventNo);
 //	}
+
+
+
+
 
 
 

@@ -491,7 +491,9 @@ a{
  font-family: 'NanumSquareNeo';
 	
     font-size: 14px;
+
     color: #767676;
+
 }
 
 .commentInfo .commentCount:after{
@@ -529,7 +531,7 @@ a{
 
 }
 
-/*  */
+}
 
 .relatedArea{
 
@@ -562,6 +564,7 @@ a{
 	justify-content: space-between;
 	
 
+
 }
 
 
@@ -578,6 +581,7 @@ a{
 
 .relatedArea > span:first-child {
 	border: 1px solid green;
+
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 18px;
@@ -650,7 +654,7 @@ a{
    border: 2px solid blue;
 }
  */
-/* .grayBox {
+ .grayBox {
     width: 100%;
     height: 100%;
     background-color: rgba(128, 128, 128, 0.5);
@@ -660,6 +664,7 @@ a{
     justify-content: center;
     align-items: center;
 }
+
 
 .donationContainer {
     width: 800px;
@@ -714,4 +719,6 @@ a{
     font-size: 24px;
     cursor: pointer;
     transition-duration: 250ms;
-} */
+
+} 
+

@@ -11,7 +11,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>기부이야기</title>
+      <title>hunny</title>
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/storyList.css" />
       <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css" />
 

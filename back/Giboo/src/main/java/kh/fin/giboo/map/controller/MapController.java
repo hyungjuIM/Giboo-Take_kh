@@ -54,7 +54,6 @@ public class MapController {
 //   }
    
 //	@ResponseBody
-   // ajax로 하려했는데 잘 모르겠어서 이걸로. 기부 검색 안됨. 기부 검색도 넣을 예정. 
 	@GetMapping("/mapList")
 	public String selectMapList(
 			@RequestParam Map<String, Object> paramMap

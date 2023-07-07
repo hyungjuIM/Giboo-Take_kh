@@ -9,13 +9,13 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>footer</title>
+<title>hunny</title>
 
 
 </head>
 <body>
 	<footer>
-		<section class="footerContainer">
+		<div class="footerContainer">
 			<div class="footerContent">
 				<div class="footerContent1">
 					<!-- 로고 -->
@@ -73,7 +73,7 @@
 				</div>
 
 			</div>
-		</section>
+		</div>
 	</footer>
 
 </body>

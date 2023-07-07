@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기부 등록</title>
+    <title>hunny</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/donationWrite2.css">
@@ -23,7 +23,7 @@
 
 <section class="mainContainer">
     <div class="mainContent">
-        <form action="write" method="post" class="contentContainer">
+        <form action="write" method="POST" enctype="multipart/form-data" class="contentContainer">
             <ul class="writeArea">
                 <li>
                     <div class="titleAreaInner">
@@ -87,10 +87,8 @@
                     <div class="imgInputArea">
                         <div class="listTitle">썸네일</div>
                         <div class="imgInputInner">
-                            <input id="imgInput" type="file" accept="image/*">
+                            <input id="imgInput" type="file" name="file" accept="image/*">
                             <label for="imgInput" class="imgSelectButton">찾아보기
-                                <input id="img1" name="donationAttachment" value="${imgInput}" hidden="hidden"></label>
-                            <div id="imgInputPlaceholder">${detail.donationAttachment}</div>
 
                         </div>
                     </div>
@@ -98,10 +96,12 @@
             </ul>
 
             <div class="optionArea">
+
                 <a type="button" class="list" onclick="history.back();">목록으로</a>
                 <div>
                     <button type="submit" class="edit">등록</button>
                     <button class="delete" type="button" onclick="history.back();">취소</button>
+
                 </div>
             </div>
 

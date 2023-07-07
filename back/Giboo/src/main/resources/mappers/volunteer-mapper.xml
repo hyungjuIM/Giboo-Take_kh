@@ -97,17 +97,13 @@
 		<result property="enrollDate" column="ENROLL_DATE" />
 	</resultMap>
 	
-	<resultMap type="reply" id="reply_rm">
-	
-		<id property="replyNo" column="REPLY_NO"/>
-		
+	<resultMap type="reply" id="reply_rm">	
+		<id property="replyNo" column="REPLY_NO"/>		
+		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
 		<result property="replyContent" column="REPLY_CONTENT"/>
-		<result property="createDate" column="CREATE_DT"/>
-		<result property="volunteerNo" column="VOLUNTEER_NO"/>
 		<result property="memberNo" column="MEMBER_NO"/>
-		<result property="volunteerNo" column="DONATION_NO"/>
-		<result property="enrollDate" column="ENROLL_DATE"/>
-		<result property="secessionFl" column="SECESSION_FL"/>	
+		<result property="volunteerNo" column="VOLUNTEER_NO"/>
 	</resultMap>
 
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
@@ -181,7 +177,7 @@
 
     <select id="getStoryList" resultMap="volunteerStory_rm">
         SELECT VOLUNTEER_STORY_NO, VOLUNTEER_STORY_TITLE, VOLUNTEER_STORY_CONTENT, M.MEMBER_NICK, VIEW_COUNT,
-        CASE WHEN SYSDATE - VS.ENROLL_DT &lt; 1
+        CASE WHEN SYSDATE - VS.ENROLL_DT > 1
         THEN TO_CHAR(VS.ENROLL_DT, 'YYYY-MM-DD')
         ELSE TO_CHAR(VS.ENROLL_DT, 'HH:MI')
         END ENROLL_DT
@@ -230,11 +226,11 @@
                 DEFAULT,
                 #{volunteerTitle},
                 #{volunteerContent},
-                NULL,
+                #{volunteerAttachment},
                 ${memberNo},
-                1,
                 ${parentCategoryNo},
-                1
+                1,
+                30
                )
     </insert>
 
@@ -249,6 +245,7 @@
             VOLUNTEER_ADDR = #{volunteerAddr},
             VOLUNTEER_CONTENT = #{volunteerContent},
             PARENT_CATEGORY_NO = ${parentCategoryNo},
+            VOLUNTEER_ATTACHMENT = #{volunteerAttachment},
             ENROLL_DATE = CURRENT_DATE
         WHERE VOLUNTEER_NO = ${volunteerNo}
     </update>
@@ -284,31 +281,38 @@
     </delete>
     
     <insert id="insertvolunteer">
-    INSERT INTO MYACTIVE_VOLUNTEER (MYACTIVE_VOLUNTEER_NO,MYACTIVE_DATE,VOLUNTEER_COMPLETE_STATUS,VOLUNTEER_NO,MEMBER_NO)
-VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${memberNo})
+        INSERT INTO MYACTIVE_VOLUNTEER (MYACTIVE_VOLUNTEER_NO,MYACTIVE_DATE,VOLUNTEER_COMPLETE_STATUS,VOLUNTEER_NO,MEMBER_NO)
+        VALUES(MYACTIVE_VOLUNTEER_NO_SEQ.NEXTVAL,DEFAULT,DEFAULT,${volunteerNo},${memberNo})
     </insert>
     
     <select id="selectvolunteer" resultType="_int">
-    SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER 
-	WHERE MEMBER_NO = ${memberNo} AND VOLUNTEER_NO = ${volunteerNo}
+        SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER
+	    WHERE MEMBER_NO = ${memberNo} AND VOLUNTEER_NO = ${volunteerNo}
     </select>
     
 
     <insert id="insertReply">
     INSERT INTO REPLY (REPLY_NO, REPLY_CONTENT, MEMBER_NO, VOLUNTEER_NO) 
-    VALUES (SEQ_REPLY_NO_S.NEXTVAL, #{replyContent}, #{memberNo}, #{volunteerNo})
+    VALUES (SEQ_REPLY_NO_S.NEXTVAL, #{replyContent}, ${memberNo}, ${volunteerNo})
     </insert>
     
     <select id="selectReplyList" resultMap="reply_rm">
-    SELECT *
-    FROM REPLY
-    WHERE VOLUNTEER_NO = #{volunteerNo}
+	   SELECT 
+	   R.REPLY_NO ,
+	   M.PROFILE_IMG ,
+	   M.MEMBER_NICK,
+	   R.REPLY_CONTENT,
+	   R.MEMBER_NO,
+	   R.VOLUNTEER_NO
+	   FROM REPLY R
+	   JOIN MEMBER M ON M.MEMBER_NO = R.MEMBER_NO 
+	   WHERE VOLUNTEER_NO = #{volunteerNo}
 	</select>
 
     <select id="selectmVolunteerList" resultMap="volunteer_rm">
-			   SELECT *
-FROM (
-    SELECT
+		SELECT *
+		FROM (
+		    SELECT
         V.VOLUNTEER_NO,
         V.TARGET_PEOPLE,
         V.LOCATION_X,
@@ -339,7 +343,7 @@ WHERE ROWNUM &lt;= 6
     
     </select>
     
-       <select id="getVolunteerDetail2" resultMap="volunteerDetail_rm">
+    <select id="getVolunteerDetail2" resultMap="volunteerDetail_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_CONTENT, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME,VOLUNTEER_ATTACHMENT, PARENT_CATEGORY_NO
         FROM VOLUNTEER V, AGENCY A
         WHERE VOLUNTEER_NO = ${volunteerNo2}

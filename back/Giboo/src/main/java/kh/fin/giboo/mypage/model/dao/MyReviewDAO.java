@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 
 import kh.fin.giboo.common.model.vo.Pagination;
 import kh.fin.giboo.mypage.model.vo.MyReview;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 
 @Repository
 public class MyReviewDAO {
@@ -31,6 +32,20 @@ public class MyReviewDAO {
 		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
 
 		return sqlSession.selectList("myPage-mapper.selectMyReview", model, rowBounds);
+	}
+
+	public int getListCountReply(int memberNo) {
+		return sqlSession.selectOne("myPage-mapper.getListCountReply", memberNo);
+	}
+
+	public List<Reply> selectMyreview(Pagination pagination, int memberNo) {
+		int offset = (pagination.getCurrentPage() - 1) * pagination.getLimit();
+
+		RowBounds rowBounds = new RowBounds(offset, pagination.getLimit());
+		
+
+
+		return sqlSession.selectList("myPage-mapper.selectMyreview", memberNo, rowBounds);
 	}
 
 }

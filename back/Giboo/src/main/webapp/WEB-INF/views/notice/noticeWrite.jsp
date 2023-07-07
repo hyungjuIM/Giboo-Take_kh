@@ -9,7 +9,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>noticeWrite</title>
+        <title>hunny</title>
         
        
          
@@ -52,10 +52,10 @@
 
                 <!-- 목록 알림 등록 취소 영역 -->
                 <div class="submitContainer">
-                    <button class="listBack">목록으로</button>
+                    <button type="button" class="listBack" onclick="history.back();">목록으로</button>
                     <div class="alarmCheck"><input type="checkbox" name="sendAlarm" value="sendAlarm" checked> 알림 보내기</div>
                     <button type="submit" class="save">등록</button>
-                    <button class="cancel">취소</button>
+                    <button type="button" class="cancel" onclick="history.back();">취소</button>
                 </div>
                 
                    <!-- 숨겨진 값(hidden) -->

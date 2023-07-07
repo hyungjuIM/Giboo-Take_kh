@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>로그인</title>
+<title>hunny</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/main/reset.css">
 <link rel="stylesheet"
@@ -90,7 +90,7 @@
 					<span>3초만에 시작하기</span> <a href="" class="loginKakaoLink">
 						<div class="social_icon_Container">
 							<a class="loginKakao icon_Style"
-								href="https://kauth.kakao.com/oauth/authorize?client_id=ca354a1ec30c6c06ea4746d8610afdf8&redirect_uri=http://hunny.today/oauth/kakao&response_type=code">
+								href="https://kauth.kakao.com/oauth/authorize?client_id=ca354a1ec30c6c06ea4746d8610afdf8&redirect_uri=https://hunny.today/oauth/kakao&response_type=code">
 								<img
 								src="${pageContext.request.contextPath}/resources/images/kakao_icon.png"
 								class="kakaoIcon01" alt=""> <img
