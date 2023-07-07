@@ -382,29 +382,29 @@ public class EventController {
 		    
 		    return response;
 		}
+		
 
 	   
 	   // 종료된 이벤트는 참여못하게
 //	   @ResponseBody
-//	   @GetMapping(value="/event/getEventData")
-//	    public Map<String, Object> getEventData(@RequestParam("eventNo") int eventNo
+//	   @PostMapping(value = "/getEventStatus")
+//	    public Map<String, Object> getEventStatus(@RequestParam("eventNo") int eventNo
 //	    		,HttpServletRequest request) {
 //
-//		   
 //		   Map<String, Object> response = new HashMap<>();
 //
-//			EventList eventList = service.getEventData(eventNo);
+//		   boolean eventStatus = service.getEventStatus(eventNo);
 //	        
-//			if(eventList != null) {
-//				String message = "종료된 이벤트입니다.";
-//		        response.put("getEventData", true);
-//		        response.put("message", message);	
+//			if(eventStatus) {
+//				String message = "종료된 이벤트 입니다";
+//				response.put("eventStatus", true);
+//				response.put("message", message);    
 //			}else {
-//				response.put("getEventData", true);
+//				response.put("getEventStatus", false);
 //			}
 //	        return response;
 //	    }
-//	
+	
 	
 	
 	// 참여보드 넘어갔을 때 

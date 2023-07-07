@@ -34,7 +34,7 @@
             <div class="mhwrapBox">
             	<div class="mapMainHome">
             	  <a class="mapMainHome_a" href="${pageContext.request.contextPath}/map/mapList">
-            	  	<img src="${pageContext.request.contextPath}/resources/images/dog.jpeg">
+            	  	<img src="${pageContext.request.contextPath}/resources/images/hunny.png">
             	  
             	  </a>
                 </div>
