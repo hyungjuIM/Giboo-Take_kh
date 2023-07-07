@@ -110,10 +110,7 @@ body {
   flex-direction: column;
   justify-content: center;
   background: #FFFFFF;
-  border: 1px  
-  solid var(--etcColor);
-
-  border: 2px solid skyblue;
+  border: 1px solid var(--etcColor);
   border-radius: 20px;
   padding: 24px 30px;
 
