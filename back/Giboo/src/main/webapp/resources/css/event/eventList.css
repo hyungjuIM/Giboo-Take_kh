@@ -22,6 +22,10 @@ a{
 
 }
 
+.event-pagination-area{
+    margin-bottom: 50px;
+}
+
 
 :root{
   --mainColor: #00CA61;
