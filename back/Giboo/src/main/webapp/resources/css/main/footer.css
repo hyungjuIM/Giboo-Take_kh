@@ -16,7 +16,7 @@
 
 
 .footerContainer{
-    height: 244px;
+    /* height: 244px; */
     background-color: rgb(240, 251, 237);
 
     display: flex;
@@ -213,4 +213,10 @@
     height: 40.83px;
     background-color: #d9d9d9;
     cursor: pointer;
+}
+
+.footerLogoContainer img{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
 }
