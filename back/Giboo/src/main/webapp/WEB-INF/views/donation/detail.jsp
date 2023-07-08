@@ -350,7 +350,7 @@ var contextPath = "${pageContext.request.contextPath}";
         }
 
         function clickPayButton() {
-            if ("${!empty loginMember}") {
+            if (!empty loginMember) {
                 donationInput();
             } else {
                 alert("로그인이 필요한 서비스 입니다.");
