@@ -36,7 +36,8 @@
             <div class="edDetailWrite">
                 <!-- 그냥 글 예시 -->
                 <span>
-                    <c:out value="${eventDetailLeft.eventContent}" escapeXml="false" />
+                    <%--<c:out value="${eventDetailLeft.eventContent}" escapeXml="false" />--%>
+                    <img src="${pageContext.request.contextPath}${eventDetailLeft.eventContent}" alt="">
                 </span>
             </div>
         </div>

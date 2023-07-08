@@ -209,6 +209,7 @@
 							<span id="shareCount">508</span> <span>명 공유</span>
 						</div>
 					</div> -->
+					<c:if test=""></c:if>
 					<div class="modify_tag_box">
 						<a class="modify_tag"
 							href="${pageContext.request.contextPath}/donation/write?mode=update&no=${donationDetail.donationNo}">수정</a>
@@ -349,7 +350,7 @@ var contextPath = "${pageContext.request.contextPath}";
         }
 
         function clickPayButton() {
-            if ("${!empty loginMember}") {
+            if (${!empty loginMember}) {
                 donationInput();
             } else {
                 alert("로그인이 필요한 서비스 입니다.");

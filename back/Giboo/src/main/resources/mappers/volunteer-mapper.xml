@@ -132,14 +132,14 @@
             AND V.PARENT_CATEGORY_NO = ${category}
             AND V.PARENT_CATEGORY_NO = PC.PARENT_CATEGORY_NO
         </if>
-        ORDER BY VOLUNTEER_NO DESC
+        ORDER BY ENROLL_DATE ASC
     </select>
 
     <select id="getVolunteerListAll" resultMap="volunteer_rm">
         SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_ATTACHMENT, START_RECRUIT_DATE, END_RECRUIT_DATE, TARGET_PEOPLE, VOLUNTEER_COUNT
         FROM VOLUNTEER
         WHERE VOLUNTEER_DELETE_STATUS = 'N'
-        ORDER BY VOLUNTEER_NO DESC
+        ORDER BY ENROLL_DATE ASC
     </select>
 
     <select id="getVolunteerDetail" resultMap="volunteerDetail_rm">
@@ -320,7 +320,7 @@
 	   FROM REPLY R
 	   JOIN MEMBER M ON M.MEMBER_NO = R.MEMBER_NO 
 	   WHERE VOLUNTEER_NO = #{volunteerNo}
-	   ORDER BY R.REPLY_NO DESC
+	    ORDER BY R.REPLY_NO DESC
 	</select>
 
     <select id="selectmVolunteerList" resultMap="volunteer_rm">
