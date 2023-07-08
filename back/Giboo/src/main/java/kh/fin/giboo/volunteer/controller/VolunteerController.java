@@ -360,6 +360,7 @@ public class VolunteerController {
       int result = service.selectVolunteer(volunteerNo, memberNo);
       if (result == 0) {
         service.insertVolunteer(volunteerNo, memberNo);
+        service.updateVolunteerCount(volunteerNo, memberNo);
         response.put("message", "봉사 참여가 완료되었습니다.");
       } else if (result == 1) {
         response.put("message", "이미 참여한 봉사입니다.");
