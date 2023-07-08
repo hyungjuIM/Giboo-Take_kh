@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mapHeader</title>
+    <title>hunny</title>
     
     <script src="https://kit.fontawesome.com/a06d7ad725.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/map/mapHeader.css">
@@ -59,12 +59,12 @@
                                 </div>
                                 <div class="mhBtnWrap">
                                     <div class="mhBtn">
-                                        <div class="mhBtnHe" id="mhBtnHea">
-                                            <a href="" >
-                                                <div class="mhBtnHe_1">
-                                                    <span><i class="fa-regular fa-heart"></i></span>
+                                        <div class="mapMainHomeGo">
+                                            <a href="${pageContext.request.contextPath}/map/mapList" class="mapMainHome_a">
+                                                <div class="mapMainHome">
+                                                    <img src="${pageContext.request.contextPath}/resources/images/hunnyLogo/hunnyLogo.png">
                                                 </div>
-                                                <span>즐겨찾기</span>
+                                                <span>홈 이동</span>
                                             </a>
                                         </div>
                                         <span>|</span>

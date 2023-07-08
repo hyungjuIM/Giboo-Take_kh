@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>admin</title>
+    <title>hunny</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/admin/admin.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
                     <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/home">대쉬보드</a></li>
                     <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/member">회원 관리</a></li>
                     <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/manager">관리자 관리</a></li>
-                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/notice/">공지사항 관리</a></li>
+                    <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항 관리</a></li>
                     <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/chat">1 대 1 채팅 상담</a></li>
                     <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/volunteerDonation">기부 / 봉사 관리</a></li>
                     <li class="sideMenuItem"><a href="${pageContext.request.contextPath}/admin/event">이벤트 관리</a></li>
@@ -84,7 +84,7 @@
                                 <div>🚧</div>
                                 <div>관리자 관리</div>
                             </a>
-                            <a href="${pageContext.request.contextPath}/admin/notice" class="menuButton">
+                            <a href="${pageContext.request.contextPath}/notice/noticeList" class="menuButton">
                                 <div>📢</div>
                                 <div>공지사항 관리</div>
                             </a>

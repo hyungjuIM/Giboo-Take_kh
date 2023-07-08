@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>csMain page</title>
+    <title>hunny</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cs/csMain.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/main/reset.css">
@@ -39,16 +39,11 @@
                 <a href="${pageContext.request.contextPath}/cs/faqVolunteer"><span>봉사</span></a> 
                 <a href="${pageContext.request.contextPath}/cs/faqDonation"><span>기부</span></a> 
                 <a href="${contextPath}/cs/faqEvent"><span>이벤트</span></a> 
-                <a href="#"><span>지도</span></a>
-                <a href="#"><span>적립금</span></a>
-                <a href="#"><span>스탬프</span></a>
+                <a href="${contextPath}/cs/faqCommon"><span>일반</span></a>
+                
             </div>
 
-            <div class="cs-inquryBtn" id="cs-inquryBtn">
-                <a href="#"><span>환불문의</span></a>
-                <a href="#"><span>신청문의</span></a>
-                <a href="#"><span>취소문의</span></a>
-            </div>
+            
         </div>
     </div>
     
@@ -83,7 +78,7 @@
                                                     <span id="anw-content">${faqList.faqContent}</span>
                                                     <div class="dontAnw">
                                                         <span id="dontAnw-span">* 원하시는 답을 찾지 못하셨나요?</span>
-                                                        <a href=""><span id="dontAnw-span2">1:1 문의</span></a>
+                                                        <a href="#"><span id="dontAnw-span2">1:1 문의</span></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,7 +123,30 @@
         <footer>
         <jsp:include page="/WEB-INF/views/main/footer.jsp" />
         </footer>
-
+        <script>
+            // 채널톡 스크립트
+            (function () 
+            { var w = window; 
+                if (w.ChannelIO) { return w.console.error("ChannelIO script included twice."); } 
+                var ch = function () { ch.c(arguments); }; 
+                ch.q = []; 
+                ch.c = function (args) { ch.q.push(args); }; w.ChannelIO = ch; function l() { if (w.ChannelIOInitialized) { return; } w.ChannelIOInitialized = true; var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js"; var x = document.getElementsByTagName("script")[0]; if (x.parentNode) { x.parentNode.insertBefore(s, x); } } if (document.readyState === "complete") { l(); } else { w.addEventListener("DOMContentLoaded", l); w.addEventListener("load", l); } })();
+        
+            ChannelIO('boot', {
+                "pluginKey": "759276e8-069a-4d4a-b4f9-73deebd841e5"
+            });
+        
+            // 이벤트 위임
+            document.body.addEventListener('click', function(event) {
+                // 클릭된 요소의 ID가 'dontAnw-span2' 인지 확인
+                if (event.target.id === 'dontAnw-span2') {
+                    event.preventDefault(); // 기본 동작 방지
+                    ChannelIO('show'); // Channel.io 오픈
+                }
+            });
+        </script>
+        
+        <a href="#"><span id="dontAnw-span2">1:1 문의</span></a>
     	<script src="${pageContext.request.contextPath}/resources/js/cs/csMain.js"></script>
     </body>
 </html>

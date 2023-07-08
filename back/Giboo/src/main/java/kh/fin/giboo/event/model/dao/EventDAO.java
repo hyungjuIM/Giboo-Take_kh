@@ -79,7 +79,10 @@ public class EventDAO {
 	public EventDetailLeft selectEventDetailLeft(int eventNo) {
 		return sqlSession.selectOne("event-mapper.selectEventDetailLeft", eventNo);
 	}
+	public EventDetailLeft selectEventDetailLeft(EventDetailLeft eventDetailLeft, int eventNo) {
 
+		return sqlSession.selectOne("event-mapper.selectEventDetailLeft", eventNo);
+	}
 	public List<EventStickerBar> selectEventStickerBar(int eventNo) {
 		return sqlSession.selectList("event-mapper.selectEventStickerBar", eventNo);
 	}
@@ -183,9 +186,24 @@ public class EventDAO {
 		return sqlSession.delete("event-mapper.deleteStamps", memberNo);
 	}
 
-//	public EventList getEventData(int eventNo) {
-//		return sqlSession.selectOne("event-mapper.getEventData", eventNo);
+	public boolean getEventStatus(int eventNo) {
+		Boolean result = sqlSession.selectOne("event-mapper.getEventStatus", eventNo);
+	    if (result == null) {
+	        return false;
+	    }
+	    return result;
+	}
+
+//	public boolean getEventStatus(int eventNo) {
+//		Boolean result = sqlSession.selectOne("event-mapper.getEventStatus", eventNo);
+//	    if (result == null) {
+//	        return false;
+//	    }
+//	    return result;
 //	}
+
+
+
 
 
 	

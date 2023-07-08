@@ -53,23 +53,10 @@
 	</resultMap>
 
 	<!-- 댓글 목록 조회 resultMap -->
-	<resultMap type="myReview" id="myReview_rm">
-		<id property="reviewNo" column="REVIEW_NO" />
-		<result property="donationTitle" column="DONATION_TITLE" />
+	<resultMap type="reply" id="reply_rm">
+		<id property="replyNo" column="REPLY_NO" />
 		<result property="volunteerTitle" column="VOLUNTEER_TITLE" />
-		<result property="reviewContent" column="REVIEW_CONTENT" />
-		<result property="enrollDate" column="ENROLL_DATE" />
-
-
-		<result property="memberNo" column="MEMBER_NO" />
-		<result property="donationNo" column="DONATION_NO" />
-		<result property="volunteerNo" column="VOLUNTEER_NO" />
-		<result property="secessionFl" column="SECESSION_FL" />
-		
-		
-	
-		
-
+		<result property="replyContent" column="REPLY_CONTENT" />
 	</resultMap>
 
 
@@ -176,7 +163,7 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 	<!-- ==================================================== -->
 
 	<!-- 리뷰 목록 조회 -->
-	<select id="selectMyReview" resultMap="myReview_rm">
+<!-- 	<select id="selectMyReview" resultMap="myReview_rm">
 SELECT R.REVIEW_NO,
 		CASE
 		WHEN R.DONATION_NO IS NOT NULL THEN D.DONATION_TITLE
@@ -200,7 +187,7 @@ SELECT R.REVIEW_NO,
 		ORDER BY
 		R.REVIEW_NO DESC
 
-	</select>
+	</select> -->
 	
 <!-- 기부금 검색 게시글 목록 전체 개수 조회 -->	
 	
@@ -392,6 +379,7 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 	
 	<!-- 봉사 즐겨찾기 중복 -->
 	<select id="checkFavoriteVolunteer" resultType="boolean">
+	
 		SELECT COUNT(*) AS COUNT
 		FROM FAVORITES f
 		WHERE f.VOLUNTEER_NO  = #{volunteerNo} AND f.MEMBER_NO =  #{memberNo}
@@ -434,9 +422,7 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 		
 	</select> -->
 	
-	<select id="getVolCount" resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM MYACTIVE_VOLUNTEER
-	</select>
+	
 	
 	<select id="getVolMoney" resultType="java.lang.Integer">
 		SELECT SUM(PAYMENT_PRICE) FROM PAYMENT
@@ -488,4 +474,25 @@ ORDER BY M.MYACTIVE_EVENT_NO DESC
 	    F.MEMBER_NO = #{memberNo}
 	</select>
 	
+	
+	<select id="getListCountReply" resultType="_int">
+		SELECT COUNT(*) FROM REPLY
+		WHERE MEMBER_NO = #{memberNo}
+	</select>
+	
+	
+	<select id="selectMyreview" resultMap="reply_rm">
+		SELECT 
+		R.REPLY_NO,
+		V.VOLUNTEER_TITLE,
+		R.REPLY_CONTENT,
+		TO_CHAR(R.ENROLL_DATE, 'YYYY.MM.DD') AS ENROLLDATE,
+		TO_CHAR(R.ENROLL_DATE, 'DAY') AS ENROLLDAY
+		FROM REPLY R
+		JOIN MEMBER M ON M.MEMBER_NO = R.MEMBER_NO
+		JOIN VOLUNTEER V ON V.VOLUNTEER_NO = R.VOLUNTEER_NO  
+		WHERE R.MEMBER_NO = #{memberNo}
+	</select>
+	
+
 </mapper>

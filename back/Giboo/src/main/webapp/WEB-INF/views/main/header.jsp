@@ -13,7 +13,7 @@
 			<meta charset="UTF-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<title>header</title>
+			<title>hunny</title>
 			<!-- jQuery 라이브러리 추가(CDN) -->
 			<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 				integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -46,7 +46,9 @@
 				<div class="headerContent">
 					<div class="logo">
 						<a href="${pageContext.request.contextPath}/main">
-							<div>여기는 로고자리올시다</div>
+
+							<div class="logoImg"><img src="${pageContext.request.contextPath}/resources/images/hunnyLogo/hunnyLogoFlat.png"></div>
+
 						</a>
 
 					</div>

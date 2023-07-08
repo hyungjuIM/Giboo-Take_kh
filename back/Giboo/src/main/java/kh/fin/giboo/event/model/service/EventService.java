@@ -72,6 +72,7 @@ public interface EventService {
 
 	int deleteStamps(int memberNo);
 
+	boolean getEventStatus(int memberNo, int eventNo);
 
 
 

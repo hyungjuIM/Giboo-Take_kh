@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -132,6 +133,8 @@ public class EventController {
 			logger.info("멤버의 값???????" + eventDetailMember );
 			
 			EventDetailLeft eventDetailLeft = service.selectEventDetailLeft(eventNo);
+			String unescapedContent = StringEscapeUtils.unescapeHtml(eventDetailLeft.getEventContent());
+			eventDetailLeft.setEventContent(unescapedContent);
 			model.addAttribute("eventDetailLeft",eventDetailLeft);
 			logger.info("이벤트디테일소개???" + eventDetailLeft);
 			
@@ -379,29 +382,31 @@ public class EventController {
 		    
 		    return response;
 		}
+		
 
 	   
 	   // 종료된 이벤트는 참여못하게
-//	   @ResponseBody
-//	   @GetMapping(value="/event/getEventData")
-//	    public Map<String, Object> getEventData(@RequestParam("eventNo") int eventNo
-//	    		,HttpServletRequest request) {
-//
-//		   
-//		   Map<String, Object> response = new HashMap<>();
-//
-//			EventList eventList = service.getEventData(eventNo);
-//	        
-//			if(eventList != null) {
-//				String message = "종료된 이벤트입니다.";
-//		        response.put("getEventData", true);
-//		        response.put("message", message);	
-//			}else {
-//				response.put("getEventData", true);
-//			}
-//	        return response;
-//	    }
-//	
+	   @ResponseBody
+	   @PostMapping(value = "/getEventStatus")
+	    public Map<String, Object> getEventStatus(@RequestParam("memberNo") int memberNo,
+		        @RequestParam("eventNo") int eventNo,
+		        HttpServletRequest request,
+		        @ModelAttribute("loginMember") Member loginMember) {
+
+		   Map<String, Object> response = new HashMap<>();
+
+		   boolean eventStatus = service.getEventStatus(loginMember.getMemberNo(), eventNo);
+	        
+			if(eventStatus) {
+				String message = "종료된 이벤트 입니다";
+				response.put("eventStatus", true);
+				response.put("message", message);    
+			}else {
+				response.put("eventStatus", false);
+			}
+	        return response;
+	    }
+	
 	
 	
 	// 참여보드 넘어갔을 때 

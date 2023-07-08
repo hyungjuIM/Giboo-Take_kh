@@ -1,25 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
+
 @import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	background-color: white;
+	color: #000;
+	line-height: 1.6em;
+	display: flex;
+	flex-direction: column;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
 
 :root{
-    --mainColor: #00CA61;
-    --titleColor: #252525;
-    --redColor: #FF5D5E;
-    --contentColor: #767676;
-    --etcColor: #d9d9d9;
-  }
-  
+  --mainColor: #00CA61;
+  --titleColor: #252525;
+  --redColor: #FF5D5E;
+  --contentColor: #767676;
+  --etcColor: #d9d9d9;
+  --mainSubColor:#cfebdc;
+}
 
-
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    font-family: 'NanumSquareNeo KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;
+/*  */
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 
@@ -27,94 +46,53 @@
     position: relative;
 }
 
-/* .eFavBtn{
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.eFavBtn:hover{
-    background-color: red;
-} */
-
-/* .dFavSpan{
-    font-size: 20px;
-} */
-
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
 
-/* 프로그래스 바 스타일 수정 */
-progress {
-    /* 스타일 속성 설정 */
-    background-color: #ffffff;
-    border: none;
-    height: 10px;
-    border-radius: 12px;
-  }
-
-  /* 프로그래스 바 채워진 부분의 스타일 수정 */
-  progress::-webkit-progress-value {
-    background-color: #00c3ff;
-    border-radius: 12px;
-
-  }
-  /*  Mozilla Firefox 브라우저 */
-  progress::-moz-progress-bar {
-    background-color: #00c3ff;
-  }
-  /*  Microsoft Edge 브라우저 */
-  progress::-ms-fill {
-    background-color: #00c3ff;
-  }
-  
-main{
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.edWrap > img{
-    width: 813px;
-    height: 650px;
-}
-
-/* .edDoPerImg > img{
-    width: 50px;
-    height: 45px;
-    border-radius: 50%;
-} */
 
 
+
+
+/* ~~~~~~~ eventDetailTop ~~~~~~~ */
+/* 메인 이미지 */
 
 .edWrapBox{
     display: flex;
     background: #FFFFFF;
-    border: 1px solid #D9D9D9;
+    /* border: 1px solid #D9D9D9; */
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
     width: 1200px;
     overflow: hidden;
     margin-top: 30px;
+    
+
+    
 }
 
+/* 이미지*/
+.edWrapBox .edWrap{
+	
+}
+
+
+
+.edWrap > img{
+    width: 813px;
+    height: 650px;
+    
+
+}
+
+/* top영역 _ 이벤트 정보  */
+
 .edWrapDetail{
-    margin-top: 42px;
-    margin-left: 24px;
+
+   margin: 24px 42px 24px 24px;
 }
 
 .edWrapPeriod{
+	
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -123,11 +101,14 @@ main{
 
 .edWrapPeriodSpan{
     border: 1px solid #00CA61;
-    border-radius: 5px;
-    height: 40px;
+    border-radius: 100px;
+    height: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
+    
+	font-family: 'NanumSquareNeo';
+
 }
 
 .edWrapPeriodSpan > span:nth-child(1){
@@ -140,61 +121,414 @@ main{
 
 .edWrapPeriodSpan > span{
     font-family: 'NanumSquareNeo';
+
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     color: #00CA61;
 }
 
+/* 이벤트 타이틀 */
+
 .edWrapTitle{
-    width: 208px;
+   /*  width: 208px; */
 }
 
 .edWrapTitle > span{
-    font-family: 'NanumSquareNeo';
-font-style: normal;
-font-weight: 500;
+ font-family: 'NanumSquareNeo';
+/* font-style: normal; */
+font-weight: 600;
 font-size: 26px;
-line-height: 33px;
-letter-spacing: -0.05em;
-color: #111111;
+line-height: 36px;
+/* letter-spacing: -0.05em; */
+color: var(--titleColor);
 }
 
-.edWrapBar{
+
+/*==============================================*/
+
+/* 프로그래스 바  */
+.progressArea {
+
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    margin-top: 30px;
     width: 340px;
-    margin-top: 15px;
-    /* background-color: yellow; */
-    border-bottom: 1px solid #D9D9D9;
+    
+    
 }
 
-.edDoBar > progress{
-    width: 339px;
-    height: 15px;
-    /* background-color: #7468da; */
-}
-
-.edWrapBar_2{
+.progressInfo {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+  
+}
+
+.progressPercentage {
+
+	font-family: 'NanumSquareNeo';
+
+    color: #00CA61;
+    font-weight: 600;
+    font-size: 18px;
+    width: 100%;
+    
+     display: flex;
+    justify-content: flex-end;
+    
+ 
+}
+
+.goal {
+    color: #767676;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.progressBar {
+    width: 100%;
+    height: 10px;
+    border-radius: 50px;
+    background-color: #F0F0F0;
+    margin: 10px 0px;
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.30) inset;
+    
+  
+   
+}
+
+.progressBarValue {
+
+background-color: var(--mainColor);
+box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.30) inset;
+
+
+    border-radius: 30px;
+
+    width: 50%;
+    height: 100%;
+   
+}
+
+.progressStatus {
+    display: flex;
     justify-content: space-between;
 }
 
-
-.edVolDo{
+.progressStatus > span {
+    color: #767676;
+    font-size: 14px;
+    font-weight: bolder;
+    /* margin-right: 14px; */
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin-top: 13px;
-    margin-bottom: 20px;
+    font-family: 'NanumSquareNeo';
 }
 
-.edVolDo > span{
+.progressStatus > span > img {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+}
+
+.progressStatus > span > span {
+	font-family: 'NanumSquareNeo';
+	
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mainColor);
+}
+
+
+
+/* 함께하고 있어요 부분! */
+
+.eParMoreWrap{
+	border-top: 1px solid var(--etcColor);
+}
+
+.eParMoreBox{
+/* 	border: 1px solid red;
+ */	padding: 16px;
+}
+
+
+/* eventDetailMore.jsp 로 넘어감  */
+
+
+.eParMoreTitle{
+   /*  margin: 30px 0px; */
     font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
+    font-size: 16px;
+    color: #767676;
+    
+     display: flex;
+     align-items: center;
+    
+    
+}
+
+.eParMoreTitle span{
+	margin-top: 2px;
+	font-size: 22px;
+}
+
+.eParMoreList{
+/* 	border: 1px solid red;
+ */}
+
+/* 함께하고 있어요 swiper  */
+.swiper-container {
+    width: 80%;
+    height:100%; 
+    margin-top: 16px;
+    
+    
+    
+ }
+
+ .swiper-slide { 
+   
+     display: flex;
+     text-align:center; 
+     flex-direction: column;
+      justify-content: center;
+     align-items:center;
+     width: 70px;
+     
+
+  }
+ .swiper-slide div {
+     /* height: 380px; */
+     /* width: 550px; */
+    /* box-shadow:0 0 5px #555; */
+    max-width:100%; 
+    /* 이미지 최대너비를 제한, 슬라이드에 이미지가 여러개가 보여질때 필요 */ 
+    /* 이 예제에서 필요해서 설정했습니다. 상황에따라 다를 수 있습니다.*/
+ }
+
+
+.edDoPerImg{
+    width: 70px;
+    height: 70px;
+    background: #D9D9D9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.edDoPerImg > img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.edPersonName{
+    font-family: 'NanumSquareNeo';
+    font-style: normal;
+    font-weight: 600;
     font-size: 14px;
     color: #767676;
+    margin-top: 2px;
 }
+
+
+
+
+
+/* 다시 event Detail.jsp  */
+.event_btn_container{
+
+	/* margin-top: 100px; */
+}
+
+.edWrapBox {
+	/* border: 2px solid gray; */
+}
+
+.edBtn{
+	
+	
+    display: flex;
+/*     align-items: flex-end; */
+    justify-content: center;
+    top: 560px;
+    width: 100%;
+    
+    margin-top: 36px;
+  
+}
+
+
+
+
+
+
+.edStampBtn{
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+  /*   margin-top: 15px;
+    margin-left: 50px; */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D9D9D9;
+    cursor: pointer;
+
+}
+
+.edStampBtn > span{
+    font-size: 20px;
+}
+
+
+
+/*참여하고 스템프 받아요! 문구  */
+.edStampPopup{
+		position: relative;
+		border: 1px solid transparent;
+}
+
+.edStampPopDe {
+		position: absolute;
+
+	background: #4b4b4b;
+	border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 130px;
+    left: 150px;
+    /* border: 1px solid #9D9D9D; */
+}
+
+.edStampPopDe:after {
+	content: '';
+position: absolute;
+	bottom: 0;
+	left: 80%;
+	width: 0;
+	height: 0;
+	border: 13px solid transparent;
+	border-top-color: #4b4b4b;
+	border-bottom: 0;
+	margin-left: -20px;
+	margin-bottom: -9px;
+}
+
+.edStampPopDe > span{
+    font-family: 'NanumSquareNeo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    color: #ffffff;
+}
+
+.edStamp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.elist_official{
+	
+    /* background-color: yellowgreen; */
+    overflow: hidden;
+    display: flex;
+    /* width: 1050px; */
+}
+
+.elist_official_li{
+    background-color:#f7f7f7;
+    width: 200px;
+    height: 100%;
+    border-radius: 20px;
+    margin-right: 15px;
+    
+
+    display: flex;
+      display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   
+   /* border: 1px solid orange; */
+   position: relative;
+}
+
+
+.earea_thumb_period_go{
+	
+	position: absolute;
+	/* border: 1px solid green; */
+	
+	z-index: 50;
+
+    background-color: #00CA61;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 75px;
+    bottom: 173px;
+} 
+
+
+.earea_thumb{
+	
+	/* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* 함께해요 버튼 */
+  .memberChange_bottom button{
+    border: none; 
+    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 500;
+  
+  
+    background-color: var(--etcColor); 
+    width: 150px;
+    height: 46px;
+    
+  
+    color : #FFFFFF;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-right: 4px;
+  
+/*    margin-top: 24px;
+ */  }
+
+.memberChange_bottom button:hover{
+  background-color: var(--mainColor);
+  font-weight: 600;
+}    
+
+
+
+
+
+
+
+
+
 
 .edDoTo{
     margin-top: 17px;
@@ -207,6 +541,7 @@ color: #111111;
     font-size: 16px;
     color: #4D4D4D;
 }
+
 
 
 /* .edDoPersonUl{
@@ -222,13 +557,6 @@ color: #111111;
 } */
 
 
-.edBtn{
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    position: absolute;
-    top: 560px;
-}
 
 
 /* 
@@ -258,28 +586,6 @@ color: #111111;
     width: 100%;
   } */
   
-  .memberChange_bottom button{
-    border: none; 
-    font-family: 'NanumSquareNeo';
-    font-size: 16px;
-    font-weight: 500;
-  
-  
-    background-color: var(--etcColor); 
-    width: 150px;
-    height: 46px;
-    
-  
-    color : #FFFFFF;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 30px;
-  }
-
-.memberChange_bottom button:hover{
-  background-color: var(--mainColor);
-  font-weight: 600;
-}    
 
 
 
@@ -287,65 +593,6 @@ color: #111111;
 
 
 
-
-.edStampPopDe {
-	position: relative;
-	background: #4b4b4b;
-	border-radius: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 24px;
-    width: 130px;
-    /* border: 1px solid #9D9D9D; */
-}
-
-.edStampPopDe:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 80%;
-	width: 0;
-	height: 0;
-	border: 13px solid transparent;
-	border-top-color: #4b4b4b;
-	border-bottom: 0;
-	margin-left: -20px;
-	margin-bottom: -9px;
-}
-
-.edStampPopDe > span{
-    font-family: 'NanumSquareNeo';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    color: #ffffff;
-}
-
-.edStamp{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.edStampBtn{
-    width: 40px;
-    height: 40px;
-    background-color: rgb(255, 255, 255);
-    margin-top: 15px;
-    margin-left: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #D9D9D9;
-    cursor: pointer;
-}
-
-.edStampBtn > span{
-    font-size: 20px;
-}
 
 /* ------------카테고리------------ */
 .edDetail{
@@ -359,6 +606,7 @@ color: #111111;
 }
 
 .edCategory{
+
     display: flex;
     /* background-color: yellow; */
     border-bottom: 1px solid #D9D9D9;
@@ -367,7 +615,11 @@ color: #111111;
 }
 
 .edCategoryWidth{
-    width: 400px;
+
+	
+	
+	
+    width: 200px;
     display: flex;
     /* background-color: wheat; */
     height: 50px;
@@ -394,7 +646,7 @@ color: #111111;
     font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     color: var(--contentColor);
 }
 
@@ -415,38 +667,52 @@ color: #111111;
 
 
 /* -----------오른쪽 영역-------------- */
+
+
+/* eventDetailMore 파일!!!!!  */
 .edDetailRight{
     /* background-color: yellowgreen; */
     margin-top: 50px;
     margin-left: 30px;
+    padding: 16px;
 }
 
+
+.edHowto{
+}
+
+
 .edHowtoTitle{
-    font-size: 14px;
-    font-weight: 500;
+	font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .edHowtoBox{
+	padding: 16px;
+
     width: 347px;
     background: #F0F0F0;
     border-radius: 12px;
     margin-top: 8px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+   /*  justify-content: center; */
     flex-direction: column;
+    
+    
 }
 
 .edHowtoTi{
-    margin-top: 10px;
+    /* margin-top: 10px;
     margin-right: 260px;
-    margin-bottom: 4px;
+    margin-bottom: 4px; */
 }
 
 .edHowtoTi > span{
-    font-family: 'NanumSquareNeo';
-    font-style: normal;
-    font-weight: 600;
+    font-family: 'NanumSquareNeo';/* 
+    font-style: normal; */
+    font-weight: 800;
     font-size: 16px;
     line-height: 22px;
     color: #00CA61;
@@ -454,22 +720,27 @@ color: #111111;
 
 .edHowtoDetail{
     /* background-color: yellow; */
-    width: 340px;
+   
+   
+   
+    width: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     margin-bottom: 10px;
+    
 }
 
 .edHowtoDetail > span{
     font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 22px;
     letter-spacing: -0.025em;
     color: #767676;
 }
+
 
 
 /* ------------인증 fixed 된 바(사진)------------ */
@@ -538,6 +809,8 @@ color: #111111;
     color : #767676;
     margin-top: 30px;
 }
+
+
 
 
 

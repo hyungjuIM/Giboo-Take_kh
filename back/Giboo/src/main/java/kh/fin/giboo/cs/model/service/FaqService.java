@@ -16,4 +16,16 @@ public interface FaqService {
 
 	Map<String, Object> selectFaqVolunteer(int cp, Model model);
 
+
+
+	Map<String, Object> selectFaqDanation(int cp, Model model);
+
+
+
+	Map<String, Object> selectFaqEvent(int cp, Model model);
+
+
+
+	Map<String, Object> selectFaqCommon(int cp, Model model);
+
 }

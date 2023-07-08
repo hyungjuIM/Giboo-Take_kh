@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+      <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+         <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+            <%@ page session="false" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +10,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이벤트 등록</title>
+    <title>hunny</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/volunteer/volunteerWrite2.css">
@@ -23,7 +26,7 @@
 
 <section class="mainContainer">
     <div class="mainContent">
-        <form action="write" method="post" class="contentContainer" onsubmit="return noticeWriteValidate()">
+        <form action="write" method="post" class="contentContainer">
             <ul class="writeArea">
                 <li>
                     <div class="titleAreaInner">
@@ -61,7 +64,7 @@
                 <li>
                     <div class="contentArea">
                         <div class="listTitle">인증방법</div>
-                        <input type="text" name="eventContentCerti" placeholder="사진 첨부하면 안돼요" value="${eventDetail.eventCertificationContent}">
+                        <textarea name="eventCertificationContent" placeholder="사진 첨부하면 안돼요" value="${eventDetail.eventCertificationContent}"></textarea>
                     </div>
                 </li>
 
@@ -78,10 +81,10 @@
             </ul>
 
             <div class="optionArea">
-                <a href="" class="list">목록으로</a>
+                <a href="" class="list" type="button">목록으로</a>
                 <div>
                     <button type="submit" class="edit">등록</button>
-                    <button class="delete">취소</button>
+                    <button class="delete" type="button">취소</button>
                 </div>
             </div>
 
@@ -111,14 +114,6 @@
 
 <script>
 $(document).ready(function () {
-    // const selectCategory = document.getElementsByClassName("selectCategory");
-
-    // for (const i of selectCategory) {
-    //     if (i.value == "${eventDetail.parentCategoryNo}") {
-    //         i.setAttribute("selected", "selected");
-    //     }
-    // }
-
     const url = new URL(window.location.href);
     console.log("url: " + url);
 
@@ -139,17 +134,6 @@ $(document).ready(function () {
     }
 });
 
-
-    // function sample5_execDaumPostcode() {
-    //     new daum.Postcode({
-    //         oncomplete: function(data) {
-    //             var addr = data.address; // 최종 주소 변수
-
-    //             // 주소 정보를 해당 필드에 넣는다.
-    //             document.getElementById("address").value = addr;
-    //         }
-    //     }).open();
-    // }
 </script>
 
 </body>

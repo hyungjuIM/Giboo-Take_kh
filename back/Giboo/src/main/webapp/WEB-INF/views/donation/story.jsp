@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>donationStory</title>
+    <title>hunny</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/donation/donationStory.css">
 </head>
 <body>
@@ -46,8 +46,10 @@
         <div class="optionArea">
             <a href="${pageContext.request.contextPath}/donation/storyList?cp=${param.cp}" class="list">목록으로</a>
             <div>
-                <a href="${pageContext.request.contextPath}/donation/storyWrite?mode=update&cp=${param.cp}&no=${story.donationStoryNo}" class="edit">수정</a>
-                <button class="delete" id="storyDelete">삭제</button>
+                <c:if test="${story.memberNo == loginMember.memberNo}">
+                    <a href="${pageContext.request.contextPath}/donation/storyWrite?mode=update&cp=${param.cp}&no=${story.donationStoryNo}" class="edit">수정</a>
+                    <button class="delete" id="storyDelete">삭제</button>
+                </c:if>
             </div>
         </div>
 

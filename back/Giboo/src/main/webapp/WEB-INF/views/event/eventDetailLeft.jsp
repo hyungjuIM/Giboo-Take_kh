@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>    
+    <title>hunny</title>    
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventDetail.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -36,7 +36,8 @@
             <div class="edDetailWrite">
                 <!-- 그냥 글 예시 -->
                 <span>
-                    ${eventDetailLeft.eventContent}
+                    <%--<c:out value="${eventDetailLeft.eventContent}" escapeXml="false" />--%>
+                    <img src="${pageContext.request.contextPath}${eventDetailLeft.eventContent}" alt="">
                 </span>
             </div>
         </div>

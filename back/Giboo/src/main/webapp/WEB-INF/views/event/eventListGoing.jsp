@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>hunny</title>
     
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventListGoing.css">
         
@@ -29,17 +29,27 @@
             <div class="eventContent">
                 <div class="eventBody">
                     <div class="eventList_main">
-                        <div class="ewrap_tab">
+                    
+                      <div class="ewrap_tab mainCategoryArea">
+                       
+                         <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab "> 전체</a>
+                         <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab mainCategoryChecked" >진행중</a>  
+                         <a href="${pageContext.request.contextPath}/event/eventListDone" class="elink_tab">종료</a>    
+                    	</div>
+                        <%-- <div class="ewrap_tab">
                             <ul class="elist_tab">
                                 <li class="eon">
-                                    <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab">
-                                        <span class="etxt_tab">진행중</span>
-                                    </a>
-                                </li>
-                                <li class="eon">
-                                    <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab">
+                                
+                                 <a href="${pageContext.request.contextPath}/event/eventList" class="elink_tab">
                                         <span class="etxt_tab">전체</span>
                                     </a>
+                                    
+                                </li>
+                                <li class="eon">
+                                <a href="${pageContext.request.contextPath}/event/eventListGoing" class="elink_tab">
+                                        <span class="etxt_tab">진행중</span>
+                                    </a>
+                                   
                                 </li>
                                 <li class="eon">
                                     <a href="${pageContext.request.contextPath}/event/eventListDone" class="elink_tab">
@@ -47,7 +57,9 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div>
+                        </div> --%>
+                        
+                        
                         <div class="egroup_catalog">
                             <c:choose>
                                 <c:when test="${empty eventList}">

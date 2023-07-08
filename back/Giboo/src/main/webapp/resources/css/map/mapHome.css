@@ -200,7 +200,7 @@
     /* background-color: yellow; */
     margin-top: 10px;
     margin-left: 10px;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .mhTiDe{
@@ -349,7 +349,7 @@
 
 .mhCaWrap{
     margin-top: 7px;
-    width: 370px;
+    width: 320px;
     height: 40px;
     /* background-color: yellowgreen; */
     display: flex;
@@ -360,7 +360,7 @@
 
 .mhCa{
    /* background-color: yellow; */
-   width: 304px;
+   width: 200px;
    height: 40px;
    display: flex;
    align-items: center;
@@ -504,4 +504,8 @@
 
 .mhBox{
     margin-top: 20px;
+}
+
+.elink_official > span{
+    color: #00CA61;
 }

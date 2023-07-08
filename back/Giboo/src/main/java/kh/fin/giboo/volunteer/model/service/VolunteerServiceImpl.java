@@ -167,13 +167,14 @@ public class VolunteerServiceImpl implements VolunteerService {
 		return dao.insertVolunteer(volunteerNo,memberNo);
 	}
 
+	// 댓글 조회
 	@Override
 	public int selectVolunteer(int volunteerNo, int memberNo) {
 		return dao.selectVolunteer(volunteerNo,memberNo);
 	}
 
+	// 댓글 등록
 	@Override
-
 	public int insertReply(Reply reply) {
 		// XSS, 개행문자 처리
 		reply.setReplyContent(  Util.XSSHandling( reply.getReplyContent() )  );
@@ -191,8 +192,7 @@ public class VolunteerServiceImpl implements VolunteerService {
 	
 	// 응원 목록 조회 서비스 구현
 	@Override
-	public List<Reply> selectReplyList(int volunteerNo) {
-		
+	public List<Reply> selectReplyList(int volunteerNo) {	
 		return dao.selectReplyList(volunteerNo);
 	}
 	
@@ -212,5 +212,15 @@ public class VolunteerServiceImpl implements VolunteerService {
 		return dao.getVolunteerDetail2(volunteerNo2);
 	}
 
+	@Override
+	public void updateVolunteerCount(int volunteerNo, int memberNo) {
+		dao.updateVolunteerCount(volunteerNo,memberNo);
+		
+	}
+
+	@Override
+	public int getCount() {
+		 return dao.getCount();
+	}
     
 }

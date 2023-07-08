@@ -1,5 +1,6 @@
 package kh.fin.giboo.donation.controller;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.siot.IamportRestClient.IamportClient;
 import com.siot.IamportRestClient.exception.IamportResponseException;
@@ -12,6 +13,7 @@ import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.member.model.vo.Member;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringEscapeUtils;
@@ -58,6 +60,7 @@ public class DonationController {
     @GetMapping("/home")
     public String home(@RequestParam(value = "category", required = false, defaultValue = "0") int category,
                        @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                       @RequestParam(value = "sort", required = false) String sort,
                        Model model, HttpSession session) {
         logger.info("기부페이지 메인");
 
@@ -69,11 +72,9 @@ public class DonationController {
             model.addAttribute("memberNo", memberNo);
             model.addAttribute("favoriteList", favoriteList);
         }
-        
-        
-        
-        
+
         model.addAttribute("category", category);
+        model.addAttribute("sort", sort);
 
         Map<String, Object> map = null;
         map = service.selectDonationList(category, cp, model);
@@ -233,7 +234,7 @@ public class DonationController {
         if (mode.equals("update")) {
             DonationDetail detail = service.getDonationDetail(no);
 
-            detail.setDonationAttachment(detail.getDonationAttachment().replaceAll("/Giboo/resources/images/fileupload/", ""));
+            detail.setDonationAttachment(detail.getDonationAttachment().replaceAll("/resources/images/fileupload/", ""));
             System.out.println(detail.getDonationAttachment());
 
             detail.setDonationContent(detail.getDonationContent().replaceAll("&quot;", "&#039;"));
@@ -250,25 +251,54 @@ public class DonationController {
     }
 
     @PostMapping("/write")
-    public String write(DonationDetail detail, @ModelAttribute("loginMember") Member loginMember,
+    public String write(DonationDetail detail,
+    		  @RequestParam(value="file", required = false) MultipartFile uploadImage,
+    		@ModelAttribute("loginMember") Member loginMember,
+    		
                          RedirectAttributes ra, HttpServletRequest req, String mode,
-                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp) {
+                         @RequestParam(value = "cp", required = false, defaultValue = "1") int cp
+                       ) throws IOException {
         logger.info("기부 등록");
-
+        System.out.println(uploadImage);
         detail.setMemberNo(loginMember.getMemberNo());
 
         String path = null;
         String message = null;
-        String webPath = "/resources/images/eventPopup/";
-//        String folderPath = req.getSession().getServletContext().getRealPath(webPath);
-//        String renameImage = kh.fin.giboo.main.controller.Util.fileRename((MultipartFile)detail.getThumbnail().getOriginalFilename());
-//        (MultipartFile)detail.getThumbnail().transferTo( new File( folderPath + renameImage) );
+        JsonObject jsonObject = new JsonObject();
 
-        detail.setDonationAttachment(detail.getDonationAttachment().replace("C:\\fakepath\\", "/resources/images/fileupload/"));
+
+	      // 내부경로로 저장
+	      String webPath = "/resources/images/fileupload/";
+
+	      String fileRoot = req.getServletContext().getRealPath(webPath);
+
+	      String originalFileName = uploadImage.getOriginalFilename();
+	      // String extension =
+	      // originalFileName.substring(originalFileName.lastIndexOf("."));
+	      String savedFileName = Util.fileRename(originalFileName);
+
+	      File targetFile = new File(fileRoot + savedFileName);
+	      try {
+	         InputStream fileStream = uploadImage.getInputStream();
+	         FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
+	         jsonObject.addProperty("url", req.getContextPath() + webPath + savedFileName); // contextroot +
+	                                                                        // resources + 저장할 내부
+	                                                                        // 폴더명
+	         jsonObject.addProperty("responseCode", "success");
+
+	      } catch (IOException e) {
+	         FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
+	         jsonObject.addProperty("responseCode", "error");
+	         e.printStackTrace();
+	      }
+	      String don = jsonObject.toString();
+	      String donationAttachment = jsonObject.get("url").getAsString();
+	      detail.setDonationAttachment(donationAttachment);
+
 
         if (mode.equals("insert")) {
-            int no = service.insertDonation(detail);
-            path = "../donation/detail/" + no;
+            int donationNo = service.insertDonation(detail);
+            path = "../donation/detail/" + donationNo;
             logger.info("게시글 등록 성공");
         } else {
             int result = service.updateDonation(detail);
@@ -362,4 +392,22 @@ public class DonationController {
 
         return "redirect:../storyList?cp=" + cp;
     }
+    
+    
+    // 댓글 조회
+    @GetMapping("/selectReplyList2")
+    @ResponseBody
+    public String selectReplyList(int donationNo) {
+        List<Reply> replyList = service.selectReplyList(donationNo);
+        return new Gson().toJson(replyList);
+    }
+
+	// 댓글 등록
+	@PostMapping("/replyInsert2")
+    @ResponseBody
+	public int insertReply(Reply reply) {
+		return service.insertReply(reply);
+	}
+    
+    
 }

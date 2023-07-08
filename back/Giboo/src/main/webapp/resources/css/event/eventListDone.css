@@ -1,70 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
 
 
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	background-color: white;
+	color: #000;
+	line-height: 1.6em;
+	display: flex;
+	flex-direction: column;
+}
+
+a{
     text-decoration: none;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;}
-    .status {
-        display: inline-block;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-weight: bold;
-    }
-    
 
-    
-.ewrap_tab{
-    background-color: #978AFF;
+}
+
+
+:root{
+  --mainColor: #00CA61;
+  --titleColor: #252525;
+  --redColor: #FF5D5E;
+  --contentColor: #767676;
+  --etcColor: #d9d9d9;
+  --mainSubColor:#cfebdc;
+}
+
+/*이벤트 상단 메뉴*/
+
+.mainCategoryArea {
+    background-color: var(--mainColor);
     height: 80px;
     display: flex;
-    align-items: center;
     justify-content: center;
-}
+    align-items: center;	
 
-.elist_tab{
-    display: flex;
-    /* background-color: aliceblue; */
-    height: 32px;
-    width: 265px;
-    justify-content: space-between;
-    align-items: center;
+	/* border: 1px solid red; */
 }
-
-.etxt_tab{
-    color: #D6D3F4;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 30px;
-    /* identical to box height, or 188% */
     
-    display: flex;
-    align-items: center;   
-    text-align: center;
-    letter-spacing: -0.05em;
-}
 
-.eon:nth-child(3){
-    background-color: #F0F0F0 !important;
-    border-radius: 100px;
-    width: 95px;
-    display: flex;
+.elink_tab{
+	width: 80px;
+	
+	font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mainSubColor);
+
+    padding: 4px 12px;
+    margin-inline: 8px;
+    border-radius: 20px;
+    
+    /* border: 1px solid blue; */
+     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 32px;
+    align-items: center;	
+    
+    
+	
 }
 
-.eon:nth-child(3) > a > span{
-    color: #00CA61 !important;
-    font-style: normal;
-
+.mainCategoryArea a{
+	font-weight: 700;
 }
 
+.mainCategoryChecked{
+	   font-family: 'NanumSquareNeo';
+    height: 40px;
+    line-height: 30px;
+    font-size: 16px;
+    background-color: #fff;
+    color: var(--mainColor);
+   
+}
 
 /* ------------------------- */
 .eventList_main{
@@ -198,6 +212,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+   
 }
 
 /* 마감임박 */

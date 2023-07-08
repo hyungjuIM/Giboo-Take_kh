@@ -1,38 +1,93 @@
 $(document).ready(function(){
 
-
-  // 로그인 유무 
-  const addReply = document.getElementById("popupButton");
+//로그인여부 -> 이벤트 종료여부 -> 중복참여여부 확인
+const addReply = document.getElementById("popupButton");
   
-  addReply.addEventListener("click", function(){
-      if(loginMemberNo === ""){
-          alert("로그인 후 이용해주세요.");
-      } else {
-          // 서버로 이미 참여한지 확인하는 Ajax 요청을 보냅니다.
-          jQuery.ajax({
-            url: contextPath + "/event/checkAlreadyJoined",
-            type: "POST",
-            data: {
-              "memberNo": loginMemberNo,
-              "eventNo": eventNo
-            },
-            success: function(response) {
-              if (response.alreadyJoined) {
-                // 이미 참여한 경우 알림 메시지를 표시합니다.
-                alert(response.message);
-              } else {
-                // 참여 가능한 경우에만 E_popup_wrap02를 표시합니다.
-                jQuery(".E_popup_wrap02").css("display", "block");
-                jQuery(".E_pop_mask2").css("display", "block");
+addReply.addEventListener("click", function(){
+  
+    if(loginMemberNo === ""){
+        alert("로그인 후 이용해주세요.");
+    } else {
+
+      jQuery.ajax({
+        url: contextPath + "/event/getEventStatus",
+        type: "POST",
+        data: {
+          "memberNo": loginMemberNo,
+          "eventNo": eventNo
+        },
+        success: function(response) {
+          if (response.eventStatus) {
+            // 종료된 이벤트인 경우 알림 메시지를 표시합니다.
+            console.log("종료")
+            alert(response.message);
+          } else {
+            // 서버로 이미 참여한지 확인하는 Ajax 요청을 보냅니다.
+            jQuery.ajax({
+              url: contextPath + "/event/checkAlreadyJoined",
+              type: "POST",
+              data: {
+                "memberNo": loginMemberNo,
+                "eventNo": eventNo
+              },
+              success: function(response) {
+                if (response.alreadyJoined) {
+                  // 이미 참여한 경우 알림 메시지를 표시합니다.
+                  alert(response.message);
+                } else {
+                  // 참여 가능한 경우에만 E_popup_wrap02를 표시합니다.
+                  jQuery(".E_popup_wrap02").css("display", "block");
+                  jQuery(".E_pop_mask2").css("display", "block");
+                }
+              },
+              error: function(xhr, status, error) {
+                console.log("Error:", error);
               }
-            },
-            error: function(xhr, status, error) {
-              console.log("Error:", error);
-            }
-          });
-          
-      }
+            });
+          }
+        },
+        error: function(xhr, status, error) {
+          console.log("Error:", error);
+          console.log("성공")
+        }
+      });
+    }
   });
+
+
+
+  // // 로그인 유무 
+  // const addReply = document.getElementById("popupButton");
+  
+  // addReply.addEventListener("click", function(){
+  //     if(loginMemberNo === ""){
+  //         alert("로그인 후 이용해주세요.");
+  //     } else {
+  //         // 서버로 이미 참여한지 확인하는 Ajax 요청을 보냅니다.
+  //         jQuery.ajax({
+  //           url: contextPath + "/event/checkAlreadyJoined",
+  //           type: "POST",
+  //           data: {
+  //             "memberNo": loginMemberNo,
+  //             "eventNo": eventNo
+  //           },
+  //           success: function(response) {
+  //             if (response.alreadyJoined) {
+  //               // 이미 참여한 경우 알림 메시지를 표시합니다.
+  //               alert(response.message);
+  //             } else {
+  //               // 참여 가능한 경우에만 E_popup_wrap02를 표시합니다.
+  //               jQuery(".E_popup_wrap02").css("display", "block");
+  //               jQuery(".E_pop_mask2").css("display", "block");
+  //             }
+  //           },
+  //           error: function(xhr, status, error) {
+  //             console.log("Error:", error);
+  //           }
+  //         });
+          
+  //     }
+  // });
   
   
   // 로그인 유무 
@@ -94,19 +149,6 @@ $(document).ready(function(){
             var stampList = stamps;
             var stampContainer = jQuery(".stampUl");
   
-            // 이미지를 추가합니다.
-
-// stampList.forEach(function(stamp) {
-//   var stampItem = jQuery("<li>").addClass("stampLi"); // 새로운 li 요소 생성
-//   var stampDiv = jQuery("<div>").addClass("stampDiv"); // 새로운 div 요소 생성
-
-//   // 스템프 이미지를 표시하는 img 태그를 생성하여 추가합니다.
-//   var stampImg = jQuery("<img>").attr("src", contextPath + stamp.stampAttachment).addClass("stampImg");
-//   stampDiv.append(stampImg); // 스템프 이미지를 div 요소에 추가합니다.
-
-//   stampItem.append(stampDiv); // div 요소를 li 요소에 추가합니다.
-//   stampContainer.append(stampItem); // li 요소를 ul 요소에 추가합니다.
-// });
 // 스탬프 이미지를 동적으로 추가하는 코드
 stampContainer.empty();
 
@@ -125,7 +167,7 @@ stampList.forEach(function(stamp) {
 
   
             // 스템프 개수를 업데이트합니다.
-            var stampCountValue = jQuery(".stampCount span").eq(1);
+            var stampCountValue = jQuery(".stampCount div").eq(1);
             stampCountValue.text(stampList.length);
   
             jQuery(".stampWrap").css("display", "block");
@@ -181,37 +223,37 @@ stampList.forEach(function(stamp) {
   
   
   // 즐겨찾기
-  const eFavBtn = document.getElementById("eFavBtn");
+  // const eFavBtn = document.getElementById("eFavBtn");
   
-  eFavBtn.addEventListener("click", function() {
-       // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
-       if (loginMemberNo == "") { // 로그인 X
-          alert("로그인 후 이용해주세요.");
-      } else {
-      $.ajax({
-          url: contextPath + "/event/insertEventFav",
-          data: {
-              "memberNo": loginMemberNo,
-              "eventNo": eventNo
-          },
-          type: "post",
-          success: function(result) {
-              if (result === "red") { // 색상 변경 성공
-                  alert("즐겨찾기에 등록되었습니다.");
-                  // mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
-                  eFavBtn.style.backgroundColor = "red"; // 색상 변경
-                  console.log("즐찾성공")
-              } else { // 실패
-                  alert("이미 추가한 즐겨찾기 입니다.");
-              }
-          },
-          error: function(req, status, error) {
-              console.log("즐겨찾기 등록 실패");
-              console.log(req.responseText);
-          }
-      });    
-  }
-  })
+  // eFavBtn.addEventListener("click", function() {
+  //      // 1) 로그인이 되어있나? -> 전역변수 loginMemberNo 이용
+  //      if (loginMemberNo == "") { // 로그인 X
+  //         alert("로그인 후 이용해주세요.");
+  //     } else {
+  //     $.ajax({
+  //         url: contextPath + "/event/insertEventFav",
+  //         data: {
+  //             "memberNo": loginMemberNo,
+  //             "eventNo": eventNo
+  //         },
+  //         type: "post",
+  //         success: function(result) {
+  //             if (result === "red") { // 색상 변경 성공
+  //                 alert("즐겨찾기에 등록되었습니다.");
+  //                 // mhBtnHe.classList.add("loggedIn"); // 버튼에 클래스 추가 (예: "loggedIn")
+  //                 eFavBtn.style.backgroundColor = "red"; // 색상 변경
+  //                 console.log("즐찾성공")
+  //             } else { // 실패
+  //                 alert("이미 추가한 즐겨찾기 입니다.");
+  //             }
+  //         },
+  //         error: function(req, status, error) {
+  //             console.log("즐겨찾기 등록 실패");
+  //             console.log(req.responseText);
+  //         }
+  //     });    
+  // }
+  // })
   
   
   
@@ -358,7 +400,7 @@ new Swiper('.first', {
       eMoreBtnBox[0].addEventListener("click", function() { // 첫 번째 요소 선택
         const pathname = location.pathname; // 주소상에서 요청 경로 반환
         let url = pathname.substring(0, pathname.indexOf("/", 1));
-        url += "/event/eventList";
+        url += "/eventList";
   
         const params = new URL(location.href).searchParams;
         let cp;

@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>donation</title>
+<title>hunny</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/donation/donation.css">
 </head>
@@ -73,15 +73,16 @@
 					기부 <span class="contentCount" id="contentCount">${donationListCount}</span>개
 				</h4>
 
+				<script>
+					console.log("${param.sort}");
+				</script>
+
 					<div id="sortingArea" class="sortingArea">
 						<select class="sortingButton" id="sortingButton">
-						종료임박 순
 							<img src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
-							<option value="expired">종료임박 순</option>
-							<option value="recommended">추천 순</option>
 							<option value="new">최신 순</option>
-							<option value="participantsDesc">참여자 많은 순</option>
-							<option value="participantsAsc">참여자 적은 순</option>
+							<option value="old" <c:if test="${param.sort} == old">selected</c:if>>오래된 순</option>
+							<option value="favorite">즐겨찾기 순</option>
 						</select>
 					</div>
 				</div>
@@ -92,12 +93,6 @@
 					<c:forEach var="donationList" items="${donationList}">
 						<div class="item">
 							<div class="buttonSection">
-								<a href="" class="button">기부하기 <i class="xi-angle-right"></i>
-
-									  <%-- <img src="${pageContext.request.contextPath}/resources/images/chevron-right-solid-gray.svg" class="buttonImage"> --%></a>
-
-									</a>
-
                                     <c:choose>
                                         <c:when test="${fn:contains(favoriteList, donationList.donationNo)}">
                                             <div class="favoriteButton" id="${donationList.donationNo}" data-title="${donationList.donationTitle}">❤️</div>
@@ -110,13 +105,12 @@
 							</div>
 
 							<div class="content_container">
-								<a
-									href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
+								<a href="../donation/detail/${donationList.donationNo}?cp=${pagination.currentPage}">
 									<img src="${pageContext.request.contextPath}${donationList.donationAttachment}" class="thumbnail">
 									<div class="text_container">
 										<div class="mainTitle">${donationList.donationTitle}</div>
-										<span class="subTitle"><span>모집</span>2023. 01. 01 ~
-											2023. 01. 02</span>
+										<span class="subTitle"><span>모집</span>${donationList.startRecruitDate} ~
+												${donationList.endRecruitDate}</span>
 										<div class="progressBar">
 											<div class="progressBarValue"
 												style="width: ${donationList.percent}%"></div>
@@ -139,7 +133,7 @@
 			</div>
 
 			<div class="container4">
-				<c:set var="url" value="?cp=" />
+				<c:set var="url" value="?category=${param.category}&cp=" />
 				<ul class="pagination">
 					 <li class="first"><a href="${url}1${sURL}">&lt;&lt;</a></li>
 					<li class="prev"><a href="${url}${pagination.prevPage}${sURL}">&lt;</a></li>
@@ -217,11 +211,8 @@
                         i.innerHTML = "❤️";
                     }
                 }
-            })
-
-
-
-        })
+            });
+        });
     }
 </script>
 

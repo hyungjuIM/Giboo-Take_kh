@@ -7,9 +7,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이벤트 디테일 참여보드 사진</title>
+    <title>hunny</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventDetailBoard_photo.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
+    <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/event/eventDetail.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/event/eventPopup.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/admin/stamp/stamp.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -87,20 +92,21 @@
                 </div>
             </div>
             <div class="edDetailRight">
-                <div class="edHowto">
-                    <div class="edHowtoTitle">  
-                        <span>${eventCertification.eventTitle}</span>
-                        <span>시작해봐요!</span>
-                    </div>
-                    <div class="edHowtoBox">
-                        <div class="edHowtoTi">
-                            <span>How To</span>
-                        </div>
-                        <div class="edHowtoDetail">
-                            <span>${eventCertification.eventCertificationContent}</span>
-                        </div>
-                    </div>
-                </div>
+					<div class="edHowto">
+			
+						<div class="edHowtoTitle">
+							<span>${eventCertification.eventTitle}</span> <span>시작해봐요!</span>
+						</div>
+						
+						<div class="edHowtoBox">
+							<div class="edHowtoTi">
+								<span>HOW TO</span>
+							</div>
+							<div class="edHowtoDetail">
+								<span>${eventCertification.eventCertificationContent}</span>
+							</div>
+						</div>
+					</div>
                 <div class="edInBar">
                     <jsp:include page="/WEB-INF/views/event/eventStickerBar.jsp" />
                 </div>
@@ -176,7 +182,7 @@
         <div class="E_popup_bottom">
             <div class="E_popup_cont10">
                 <div class="outCircle">
-                    
+                    <img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="">
                 </div>
             </div>
             <div class="E_popup_cont11">
@@ -194,6 +200,28 @@
     </div>
 </div>
 <div class="E_pop_mask3"></div>
+
+
+<div class="stampArea">
+    <div class="stampWrap">
+        <div class="stampBox">
+        <div class="stampCount">
+            <div>총 개수</div>
+            <div class="stampCountValue">0</div>
+        </div>
+            <ul class="stampUl">
+                <li class="stampLi">
+                    <div class="stampDiv">
+                    </div>
+                </li>         
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="E_pop_mask11"></div>
+
+
+
 <script>
     // 페이지 로드 시 스크롤 이동
     window.onload = function() {

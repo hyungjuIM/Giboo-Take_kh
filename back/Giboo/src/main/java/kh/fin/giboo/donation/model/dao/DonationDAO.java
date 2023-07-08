@@ -6,6 +6,7 @@ import kh.fin.giboo.donation.model.vo.Donation;
 import kh.fin.giboo.donation.model.vo.DonationDetail;
 import kh.fin.giboo.donation.model.vo.DonationStory;
 import kh.fin.giboo.mypage.model.vo.Favorite;
+import kh.fin.giboo.volunteer.model.vo.Reply;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -96,6 +98,8 @@ public class DonationDAO {
     }
 
     public int insertDonation(DonationDetail detail) {
+    	
+    	
         int result = sqlSession.insert("donationMapper.insertDonation", detail);
 
         if (result > 0) {
@@ -134,5 +138,22 @@ public class DonationDAO {
 	public DonationDetail getDonationDetail2(int donationNo2) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("donationMapper.getDonationDetail2", donationNo2);
+	}
+
+	public int insertImg(DonationDetail img) {
+		// TODO Auto-generated method stub
+		return sqlSession.insert("donationMapper.insertImage", img);
+	}
+
+	public int insertReply(Reply reply) {
+		return sqlSession.insert("donationMapper.insertReply", reply);
+	}
+
+	public Reply getReply(String replyContent) {
+		return sqlSession.selectOne("donationMapper.getReply", replyContent);
+	}
+
+	public List<Reply> selectReplyList(int donationNo) {
+		return sqlSession.selectList("donationMapper.selectReplyList", donationNo);
 	}
 }

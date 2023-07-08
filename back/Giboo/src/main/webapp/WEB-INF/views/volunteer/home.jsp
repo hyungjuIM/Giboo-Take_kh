@@ -75,14 +75,10 @@
 					</h4>
 
 					<div id="sortingArea" class="sortingArea">
-						<select class="sortingButton" id="sortingButton"> 종료임박 순
-							<img
-							src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
-							<option value="expired">종료임박 순</option>
-							<option value="recommended">추천 순</option>
+						<select class="sortingButton" id="sortingButton"> 최신 순
+							<img src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
 							<option value="new">최신 순</option>
-							<option value="participantsDesc">참여자 많은 순</option>
-							<option value="participantsAsc">참여자 적은 순</option>
+							<option value="favorite">즐겨찾기 순</option>
 						</select>
 					</div>
 					</div>
@@ -96,22 +92,19 @@
 									<c:choose>
 										<c:when
 											test="${fn:contains(favoriteList, volunteerList.volunteerNo)}">
-											<div class="favoriteButton" id="${volunteerList.volunteerNo}">❤️</div>
+											<div class="favoriteButton" id="${volunteerList.volunteerNo}" data-title="${volunteerList.volunteerTitle}">❤️</div>
 										</c:when>
 
 										<c:otherwise>
-											<div class="favoriteButton" id="${volunteerList.volunteerNo}">🤍</div>
+											<div class="favoriteButton" id="${volunteerList.volunteerNo}"  data-title="${volunteerList.volunteerTitle}">🤍</div>
 										</c:otherwise>
 									</c:choose>
 								</div>
 
 
 								<div class="content_container">
-									<a
-										href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
-										<img
-										src="${pageContext.request.contextPath}/resources/images/logo.jpg"
-										class="thumbnail">
+									<a href="../volunteer/detail/${volunteerList.volunteerNo}?cp=${pagination.currentPage}">
+										<img src="${pageContext.request.contextPath}${volunteerList.volunteerAttachment}" class="thumbnail">
 										<div class="text_container">
 											<div class="mainTitle">${volunteerList.volunteerTitle}</div>
 
@@ -138,7 +131,7 @@
 				</div>
 
 				<div class="container4">
-					<c:set var="url" value="?cp=" />
+					<c:set var="url" value="?category=${param.category}&cp=" />
 					<ul class="pagination">
 						<li class="first"><a href="${url}1${sURL}">&lt;&lt;</a></li>
 						<li class="prev"><a
@@ -178,7 +171,6 @@
 	</footer>
 
 	<script>
-
     const favoriteButton = document.getElementsByClassName("favoriteButton");
     for (let i of favoriteButton) {
         i.addEventListener("click", function() {
@@ -189,7 +181,7 @@
 
              $.ajax ({
                  url: "addFavorite",
-                 data: {"memberNo" : "${loginMember.memberNo}", 
+                 data: {"memberNo" : ${loginMember.memberNo}, 
                         "volunteerNo" : i.id ,
                         "volunteerTitle" : i.dataset.title},
                  
@@ -207,7 +199,7 @@
 
             $.ajax ({
                 url: "deleteFavorite",
-                data: {"memberNo" : "${loginMember.memberNo}", 
+                data: {"memberNo" : ${loginMember.memberNo}, 
                        "volunteerNo" : i.id , 
                        "volunteerTitle" : i.dataset.title},
 

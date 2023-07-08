@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>나의 활동목록(기부)</title>
+<title>나의 스템프</title>
 
 
 
@@ -74,6 +74,13 @@
                                     </ul>
                                 </div>
                             </div>
+							<div class="stampDe">
+								<span>😆 이벤트 참여시 스템프 1개 적립!</span>
+								<br><br>
+								<span>🙆‍♀️ 스템프 10개 모으면 포인트 적립!</span>
+								<br><br>
+								<span>🙆 스템프 목록은 이벤트 상세 페이지와 마이페이지 '나의 스템프'에서 확인할 수 있어요.</span>
+							</div>
 						</div>
 					</section>
 				</div>

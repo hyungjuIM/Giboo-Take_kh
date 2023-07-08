@@ -7,7 +7,7 @@
   padding: 0px;
   margin: 0px;
 }
-}
+
 
 body{
     margin: 0;
@@ -73,7 +73,7 @@ a{
 
 /* section mainContainer */
 .mainContainer{
-border: 1px solid red;
+
 
 	padding: 24px;
     height: fit-content;
@@ -166,7 +166,9 @@ border: 1px solid red;
     line-height: 42px;
     margin-block: 10px;
    	margin-bottom: 20px;
-    border: 1px solid green;
+       margin-right: 30px;
+       margin-left: 30px;
+
 }
 
 .progressArea {
@@ -217,7 +219,7 @@ border: 1px solid red;
 }
 
 .progressBarValue {
-    background: linear-gradient(to top, #00CA61; 50%, #574da1);
+    background: linear-gradient(to top, #61fbc2 50%, #00CA61);
     border-radius: 30px;
 
     width: 50%;
@@ -277,12 +279,12 @@ border: 1px solid red;
 /*  */
 
 .contentArea {
-	border: 1px solid red;
+	
     display: flex;
 }
 
 .content {
-	border: 1px solid blue;
+
 	
 	font-family: 'NanumSquareNeo';
 	font-size: 16px;
@@ -308,7 +310,7 @@ border: 1px solid red;
 /*  */
 
 .nav {
-	border: 1px solid green;
+
     width: 30%;
 }
 
@@ -322,7 +324,7 @@ border: 1px solid red;
 
 .nav .agencyInfoArea .agencyInfo {
 	
-	border: 1px solid red;
+
 	
     display: flex;
     margin-bottom: 10px;
@@ -330,7 +332,7 @@ border: 1px solid red;
 }
 
 .agencyImg {
-	border: 1px solid red;
+
 	
 	display: flex;
 	 justify-content: center;
@@ -385,10 +387,34 @@ border: 1px solid red;
 }
 
 .commentArea {
-    border: 1px solid #D9D9D9;
+    /* border: 1px solid #D9D9D9;
     border-radius: 20px;
-    padding: 20px;
+    padding: 20px; */
+    border: 2px solid #D9D9D9;
+    border-radius: 20px;
+    padding: 10px;
+    height: 400px;
+    overflow: scroll;
+    position: relative;
 }
+
+.commentArea::-webkit-scrollbar{
+    width: 10px;  /* 스크롤바의 너비 */
+}
+
+
+.commentArea::-webkit-scrollbar-thumb {
+    height: 30%; /* 스크롤바의 길이 */
+    background-color: rgb(197, 197, 197);
+    
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.commentArea::-webkit-scrollbar-track {
+    background: rgba(227, 227, 227, 0);  /*스크롤바 뒷 배경 색상*/
+}
+
 
 .commentTitleImg {
     width: 18px;
@@ -410,22 +436,37 @@ border: 1px solid red;
 /*  */
 
 .commentInner{
-	border: 1px solid skyblue;
-	
+    /* background-color: violet; */
+    width: 220px;
+    overflow: hidden;
 }
+
+.memberNick {
+    font-size: 12px;
+    color: #767676;
+    font-weight: bolder;
+}
+
+
+.comment{
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+
 
 .commentInner .memberName{
 	font-family: 'NanumSquareNeo';
 	font-size: 16px;
 	font-weight: 600;
-	border: 1px solid orange;
+
 	margin-bottom: 4px;
 	color: var(--titleColor);
 	
 }
 
 .commentItem {
-	border: 1px solid blue;
+	
 	
  	font-family: 'NanumSquareNeo';
 	
@@ -440,8 +481,16 @@ border: 1px solid red;
 
 .memberImgArea {
 	
-	border: 1px solid red;
-	
+
+    /* border-radius: 100%;
+    background-color: #D9D9D9;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+
     border-radius: 100%;
     background-color: #D9D9D9;
     width: 50px;
@@ -450,17 +499,29 @@ border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .memberImg {
-    width: 80%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
 }
 
-.memberName {
+/* .memberName {
     font-size: 12px;
     color: #767676;
     font-weight: bolder;
+} */
+
+
+.commentInner .memberName{
+	font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	font-weight: 600;
+
+	margin-bottom: 4px;
+	color: var(--titleColor);
+	
 }
 
 .commentSubmit {
@@ -492,7 +553,9 @@ border: 1px solid red;
  font-family: 'NanumSquareNeo';
 	
     font-size: 14px;
-    color: #767676;500;
+
+    color: #767676;
+
 }
 
 .commentInfo .commentCount:after{
@@ -507,24 +570,89 @@ border: 1px solid red;
     margin-right: 6px;
 }
 
-
-.modify_tag{
-	border: 1px solid blue;
-
-/*  */
-
-.relatedAreaInner {
-    display: flex;
+.modify_tag_box{
+	width: 100%;
+	height: 20px;
+	margin-top: 10px;
+	
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 10px;
+    margin-bottom: 8px;
 }
 
-.relatedArea >span:first-child {
+
+
+.modify_tag{
+	 font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	color: var(--etcColor);
+	font-weight: 600;
+
+}
+
+
+.relatedArea{
+
+	 flex-direction: column;
+}
+
+.relatedArea .relatedTitle{
+	
+	
+	
+    font-family: 'NanumSquareNeo';
+	font-size: 18px;
+	font-weight: 600;
+	
+	margin-top: 10px;
+	margin-bottom: 8px;
+	
+}
+
+.relatedArea .relatedAreaInner {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid red;
+}
+.relatedItemListButtonArea{
+
+	width: 100%;
+	height: 50px;
+	display: flex;
+	justify-content: space-between;
+	
+
+
+}
+
+
+.relatedItemListButtonArea .do_button img{
+	
+	width: 50px;
+}
+
+.do_button{
+	display: visibility !important;
+}
+
+/* 
+
+.relatedArea > span:first-child {
+	border: 1px solid green;
+
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 18px;
+    font-family: 'NanumSquareNeo';
+    
 }
 
 .relatedItemList {
-    width: 749px;
+    width: 80%;
+   	border: 1px solid orange;
 }
 
 .relatedImg {
@@ -576,13 +704,17 @@ border: 1px solid red;
     cursor: pointer;
 }
 
+
 .relatedItemListButtonArea {
+	width: 100%;
     height: 279px;
     display: flex;
     align-items: center;
     margin-right: 10px;
+   position: absolute;
+   border: 2px solid blue;
 }
-
+ */
 .grayBox {
     width: 100%;
     height: 100%;
@@ -592,7 +724,12 @@ border: 1px solid red;
     display: none;
     justify-content: center;
     align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
+
 
 .donationContainer {
     width: 800px;
@@ -647,4 +784,58 @@ border: 1px solid red;
     font-size: 24px;
     cursor: pointer;
     transition-duration: 250ms;
+
+} 
+
+
+.textarea-wrapper textarea {
+    width: 330px;
+    height: 50px;
+    resize: none;
+    overflow: hidden ;
+    border: 2px solid #D9D9D9;
+    border-radius: 5px;
+    margin: 0px 5px;
+}
+
+  .textarea-wrapper{
+    margin : 10px 0px;
+  }
+
+
+  .big_Con{
+    border-radius: 20px;
+    border: 1px solid #D9D9D9;
+    padding : 10px;
+  }
+
+
+  .commentHeader{
+    margin : 10px;
+}
+
+
+.commentInner .memberName{
+	font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	font-weight: 600;
+
+	margin-bottom: 4px;
+	color: var(--titleColor);
+	
+}
+
+
+.commentItem {
+	
+	
+    font-family: 'NanumSquareNeo';
+   
+   margin-top: 10px;
+   border-radius: 20px;
+   padding: 10px;
+   background-color: #F0EFF9;
+   display: flex;
+   margin-bottom: 8px;
+   color: var(--contentColor);
 }

@@ -131,9 +131,8 @@ public class VolunteerDAO {
 	}
 	
 	
-		
-	public int insertReply(Reply reply) {
-		
+	// 댓글 등록
+	public int insertReply(Reply reply) {		
 		return sqlSession.insert("volunteerMapper.insertReply", reply);
 	}
 
@@ -142,8 +141,8 @@ public class VolunteerDAO {
 		return sqlSession.selectOne("volunteerMapper.getReply", replyContent);
 	}
 
+	// 댓글 조회
 	public List<Reply> selectReplyList(int volunteerNo) {
-		// 
 		return sqlSession.selectList("volunteerMapper.selectReplyList", volunteerNo);
 	}
 
@@ -154,5 +153,17 @@ public class VolunteerDAO {
 	public VolunteerDetail getVolunteerDetail2(int volunteerNo2) {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("volunteerMapper.getVolunteerDetail2", volunteerNo2);
+	}
+
+	public void updateVolunteerCount(int volunteerNo, int memberNo) {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("volunteerNo", volunteerNo);
+		params.put("memberNo", memberNo);
+		sqlSession.update("volunteerMapper.updateVolunteerCount", params);
+		
+	}
+
+	public int getCount() {
+		return sqlSession.selectOne("volunteerMapper.getVolCount");
 	}
 }

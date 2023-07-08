@@ -16,7 +16,7 @@ body {
     margin: 0;
     background-color: white;
     color: #000;
-
+z-index: 200;
     display: flex;
     flex-direction: column;
 }
@@ -35,6 +35,7 @@ body {
     
     width: 360px;
     height: 805px;
+    z-index: 99;
     
     /* margin-top: 5px; */
 

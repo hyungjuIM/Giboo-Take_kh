@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>맵 리스트 봉사자 리뷰</title>
+    <title>hunny</title>
     <script src="https://kit.fontawesome.com/a06d7ad725.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/map/mapVoRe.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/map/mapHome.css">
@@ -31,14 +31,6 @@
 
         <div class="mhwrap">
             <div class="mhwrapBox">
-            	<div class="mapMainHome">
-            	  <a class="mapMainHome_a" href="${pageContext.request.contextPath}/map/mapList">
-            	  	<img src="${pageContext.request.contextPath}/resources/images/dog.jpeg">
-            	  
-            	  </a>
-                </div>
-            
-            
                 <div class="mhBox">
                     
                     <jsp:include page="/WEB-INF/views/map/mapHeader.jsp" />

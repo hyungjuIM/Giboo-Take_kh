@@ -52,6 +52,17 @@
 .logo{
     display: flex;
     justify-content: center;
+    width: 100%;
+}
+
+.logo a .logoImg{
+
+	width: 100%;
+	
+}
+
+.logoImg img{
+	width: 130px;
 }
 
 
@@ -116,12 +127,18 @@
 /* 로그인 버튼 */
 .myPage > a{
     margin-right: 0.7rem;
+    
 }
 .loginBtn{
+	
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     color: #767676;
     font-family: 'NanumSquare', sans-serif;
+    
+	color: var(--mainColor);
+    margin-left: 30px;
+  
 }
 
 .loginBtn:hover{

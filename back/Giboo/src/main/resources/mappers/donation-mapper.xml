@@ -78,6 +78,16 @@
         <result property="donationNo" column="DONATION_NO" />
         <result property="volunteerNo" column="VOLUNTEER_NO" />
     </resultMap>
+    
+    
+    <resultMap type="reply" id="reply_rm">	
+		<id property="replyNo" column="REPLY_NO"/>		
+		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="memberNick" column="MEMBER_NICK"/>
+		<result property="replyContent" column="REPLY_CONTENT"/>
+		<result property="memberNo" column="MEMBER_NO"/>
+		<result property="donationNo" column="DONATION_NO"/>
+	</resultMap>
 
     <select id="getParentCategoryList" resultMap="parentCategory_rm">
         SELECT PARENT_CATEGORY_NO, PARENT_CATEGORY_NAME, PARENT_CATEGORY_THUMBNAIL
@@ -95,7 +105,7 @@
     </select>
 
     <select id="getDonationList" resultMap="donation_rm">
-        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, PC.PARENT_CATEGORY_NAME, DONATION_ATTACHMENT
+        SELECT DONATION_NO, DONATION_TITLE, START_RECRUIT_DATE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, PC.PARENT_CATEGORY_NAME, DONATION_ATTACHMENT
         FROM DONATION D, PARENT_CATEGORY PC
         <if test="category != null">
             WHERE D.PARENT_CATEGORY_NO = ${category}
@@ -106,7 +116,7 @@
     </select>
 
     <select id="getDonationListAll" resultMap="donation_rm">
-        SELECT DONATION_NO, DONATION_TITLE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, DONATION_ATTACHMENT
+        SELECT DONATION_NO, DONATION_TITLE, START_RECRUIT_DATE, END_RECRUIT_DATE, TARGET_AMOUNT, DONATION_AMOUNT, DONATION_ATTACHMENT
         FROM DONATION
         WHERE DELETE_STATUS = 'N'
         ORDER BY DONATION_NO DESC
@@ -114,7 +124,7 @@
 
     <select id="getDonationDetail" resultMap="donationDetail_rm">
         SELECT DONATION_NO, DONATION_TITLE, DONATION_CONTENT, START_RECRUIT_DATE, END_RECRUIT_DATE, START_PROGRESS_DATE, END_PROGRESS_DATE, TARGET_AMOUNT,
-               DONATION_AMOUNT, DONATION_ADDR, A.AGENCY_NAME, PARENT_CATEGORY_NO, DONATION_ATTACHMENT
+               DONATION_AMOUNT, DONATION_ADDR, A.AGENCY_NAME, PARENT_CATEGORY_NO, DONATION_ATTACHMENT, D.MEMBER_NO
         FROM DONATION D, AGENCY A
         WHERE DONATION_NO = ${donationNo}
         AND D.AGENCY_NO = A.AGENCY_NO
@@ -283,7 +293,7 @@ SELECT
     D.PARENT_CATEGORY_NO,
     D.AGENCY_NO,
     C.PARENT_CATEGORY_NAME,
-    COUNT(F.MEMBER_NO) AS FAVORITE_COUNT
+    COUNT(F.FAVORITE_NO) AS FAVORITE_COUNT
 FROM
     DONATION D
 JOIN
@@ -330,4 +340,41 @@ ORDER BY
 	GROUP BY D.DONATION_NO, D.DONATION_TITLE, D.DONATION_CONTENT, D.END_RECRUIT_DATE, D.TARGET_AMOUNT, D.DONATION_AMOUNT, A.AGENCY_NAME, D.DONATION_ATTACHMENT, D.PARENT_CATEGORY_NO
     
     </select>
+    
+    <insert id="insertImage" parameterType="donationDetail">
+    	INSERT INTO DONATION (DONATION_ATTACHMENT)
+   		VALUES (#{donationAttachment})
+    </insert>
+    
+     <select id= "getReply" resultMap="reply_rm">
+    SELECT REPLY_CONTENT
+    FROM REPLY
+    WHERE REPLY_CONTENT = #{replyContent}
+    </select>
+    
+    
+     
+    <insert id="insertReply">
+    INSERT INTO REPLY (REPLY_NO, REPLY_CONTENT, MEMBER_NO, DONATION_NO) 
+    VALUES (SEQ_REPLY_NO.NEXTVAL, #{replyContent}, ${memberNo}, ${donationNo})
+    </insert>
+    
+    
+    <select id="selectReplyList" resultMap="reply_rm">
+	   SELECT 
+	   R.REPLY_NO ,
+	   M.PROFILE_IMG ,
+	   M.MEMBER_NICK,
+	   R.REPLY_CONTENT,
+	   R.MEMBER_NO,
+	   R.DONATION_NO
+	   FROM REPLY R
+	   JOIN MEMBER M ON M.MEMBER_NO = R.MEMBER_NO 
+	   WHERE DONATION_NO = #{donationNo}
+	   ORDER BY R.REPLY_NO DESC 
+	</select>
+    
+    
+    
+    
 </mapper>

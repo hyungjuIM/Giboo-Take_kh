@@ -36,14 +36,14 @@ import kh.fin.giboo.mypage.model.vo.MyActiveDonationList;
   @ResponseBody
   @GetMapping("/volunteer/addFavorite") 
   public String addFavoriteVolunteer(
-		  	 int memberNo,
-	         int volunteerNo,
-	         String volunteerTitle
+		  @RequestParam int memberNo,
+		    @RequestParam int volunteerNo,
+		    @RequestParam("volunteerTitle") String volunteerTitle
 	         )
    { 
 	    
 
-	  logger.info("memberNo" , memberNo);
+	  logger.info("memberNo......." , memberNo);
 	  logger.info("volunteerNo" , volunteerNo);
 	  logger.info("volunteerTitle" , volunteerTitle);
 	 

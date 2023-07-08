@@ -1,101 +1,231 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
-@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+@import url('https://webfontworld.github.io/naver/NanumSquare.css');
+@import url('https://webfontworld.github.io/NanumSquareNeo/NanumSquareNeo.css');
 
 
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    font-family: 'Noto Sans KR', sans-serif;
-    font-family: 'Open Sans', sans-serif;}
-    .status {
-        display: inline-block;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-weight: bold;
-    }
-    
-
-    
-.ewrap_tab{
-    background-color: #00CA61;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-.elist_tab{
+body {
+	margin: 0;
+	background-color: white;
+	color: #000;
+	line-height: 1.6em;
+	display: flex;
+	flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+
+}
+
+
+:root{
+  --mainColor: #00CA61;
+  --titleColor: #252525;
+  --redColor: #FF5D5E;
+  --contentColor: #767676;
+  --etcColor: #d9d9d9;
+  --mainSubColor:#cfebdc;
+}
+
+/*이벤트 상단 메뉴*/
+
+.mainCategoryArea {
+    background-color: var(--mainColor);
+    height: 80px;
     display: flex;
-    /* background-color: aliceblue; */
-    height: 32px;
-    width: 265px;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;	
+
+	/* border: 1px solid red; */
+}
+    
+
+.elink_tab{
+	width: 80px;
+	
+	font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mainSubColor);
+
+    padding: 4px 12px;
+    margin-inline: 8px;
+    border-radius: 20px;
+    
+    /* border: 1px solid blue; */
+     display: flex;
+    justify-content: center;
+    align-items: center;	
+    
+    
+	
+}
+
+.mainCategoryArea a{
+	font-weight: 700;
+}
+
+.mainCategoryChecked{
+	   font-family: 'NanumSquareNeo';
+    height: 40px;
+    line-height: 30px;
+    font-size: 16px;
+    background-color: #fff;
+    color: var(--mainColor);
+   
+}
+    
+/* .ewrap_tab{
+
+     background-color: var(--mainColor);
+
+    height: 80px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+    
+
+.elist_tab{
+	border: 1px solid red;
+	width: 300px;
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .etxt_tab{
-    color: #D6D3F4;
-    font-weight: 600;
+	
+ 	font-family: 'NanumSquareNeo';
     font-size: 16px;
-    line-height: 30px;
-    /* identical to box height, or 188% */
-    
-    display: flex;
-    align-items: center;   
-    text-align: center;
-    letter-spacing: -0.05em;
+    font-weight: 600;
+    color: var(--mainSubColor);
+
+    padding: 4px 12px;
+    margin-inline: 8px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+	
 }
 
 .eon:nth-child(2){
-    background-color: #F0F0F0;
-    border-radius: 100px;
-    width: 95px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 32px;
+	    font-family: 'NanumSquareNeo';
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--mainSubColor);
+
+    padding: 4px 12px;
+    margin-inline: 8px;
+    border-radius: 20px;
+     
+    height: 40px;
+    line-height: 30px;
+    font-size: 16px;
+    background-color: #fff;
+    color: var(--mainColor);
+ 
 }
 
 .eon:nth-child(2) > a > span{
+	font-family: 'NanumSquareNeo';
     color: #00CA61;
     font-style: normal;
 
 }
+ */
 
-
-/* ------------------------- */
+/* -----------페이지 네이션-------------- */
 .eventList_main{
-    /* background-color: rgb(151, 130, 89); */
+
+  
     height: 100%;
 }
 
 .event-pagination-area{
-    /* background-color: yellowgreen; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
 
+ display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    position: relative;
+
+    margin-bottom: 30px;
+    margin-top: 24px;
 }
 
 .event-pagination{
+
+    
+      position: relative;
     display: flex;
-    /* background-color: wheat; */
-    width: 300px;
+    padding: 4px 2px;
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
+}
+
+.event-pagination li{
+	 list-style: none;
+    line-height: 50px;
+    margin: 0 5px;
+    
+     width: 38px; 
+   height: 38px;
+   line-height: 38px;
+   text-align: center;
+
+   font-family: 'NanumSquareNeo';
+   font-weight: 700;
+   font-size: 16px;
 }
 
 .event-pagination > li > a{
-    color: black;
+     display: block;
+    text-decoration: none;
+    color: var(--etcColor);
+    font-weight: 600;
+    border-radius: 50%;
+}
+
+ul li.num:hover a,
+ul li.num.active a{
+    background-color: var(--mainColor);
+    color: white;
+    font-family: 'NanumSquareNeo';
+    font-weight: 700;
+    font-size: 16px;
+    
+}
+
+ul li.first,
+ul li.prev{
+    margin-right: 30px;
+    font-family: 'NanumSquareNeo';
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/*  */
+.egroup_catalog{
+	
+	
+   /* border: 1px solid red; */
 }
 
 .elist_official{
     /* background-color: yellowgreen; */
     height: auto;
+  /* border: 1px solid blue; */
 }
 
 /* .elist_official > li{
@@ -113,13 +243,19 @@
     margin-bottom: 10px;
 }
 
+
+.elist_officialLi:hover{
+ box-shadow: 0 0px 16px 0px #73737342;
+}
+
 /* 두번째 상자 다른 스타일로 - 시작 */
 .eother{
+/* 	border: 1px solid red; */
     background-color:#ffffff !important;
     width: 284px;
     height: 380px;
     border-radius: 20px;
-    border: 1px solid #D9D9D9;
+   border: 1px solid #D9D9D9;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,6 +263,7 @@
 }
 
 .elink_official_2{
+	
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -141,8 +278,11 @@
 }
 
 .etxt_official_2{
+	
+	font-family: 'NanumSquareNeo';
+	
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 20px;
     line-height: 27px;
     text-align: center;
@@ -153,8 +293,10 @@
 }
 
 .ereg_2{
+	
+	font-family: 'NanumSquareNeo';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 18px;
     line-height: 25px;
     /* identical to box height */
@@ -166,8 +308,10 @@
 }
 
 .edetail > a > span{
+		font-family: 'NanumSquareNeo';
+	
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 14px;
     line-height: 19px;
     /* identical to box height */
@@ -181,8 +325,12 @@
 }
 
 .edetail{
+	font-family: 'NanumSquareNeo';
+	font-size: 16px;
+	
+
     width: 107px;        
-    height: 27px;
+    height: 37px;
 
     border: 1px solid #00CA61;
     border-radius: 100px;
@@ -245,8 +393,8 @@
 
 .earea_thumb_period {
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 53px;
+    height: 53px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -256,7 +404,7 @@
 }
 
 .earea_thumb_period.마감임박 {
-    background-color: #FC71A3;
+    background-color: var(--redColor);
 }
 
 .earea_thumb_period.종료 {
@@ -265,17 +413,19 @@
 
 .earea_thumb_period.진행중 {
     background-color: #00CA61;
+    
+    
 }
 
 
 .earea_thumb_period > span{
     font-style: normal;
-    font-weight: 600;
-    font-size: 12px;
+    font-weight: 500;
+    font-size: 14px;
     line-height: 16px;
     text-align: center;
     letter-spacing: -0.05em;
-    
+    font-family: 'NanumSquareNeo';
     color: #FFFFFF;
 }
 
@@ -304,7 +454,7 @@
 .earea_thumb > img{
     width: 260.57px;
     height: 246.43px;
-    border-radius: 20px;
+    border-radius: 12px;
     margin-top: 16px;
 }
 
@@ -320,18 +470,21 @@
 
 .etxt_officialTi{
     width: 250px;
-    max-height: 45px;
+    max-height: 55px;
     /* background-color: yellow; */
     display: flex;
     overflow: hidden;
     align-items: center;
     justify-content: center;
+    margin-bottom: 4px;
 }
 
 .etxt_officialTi > span{
+	font-family: 'NanumSquareNeo';
+	
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 22px;
     /* identical to box height */
     
@@ -342,10 +495,11 @@
 }
 
 .escrean_out{
+	font-family: 'NanumSquareNeo';
     color: #9D9D9D;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
+/*     font-style: normal; */
+    font-weight: 500;
+    font-size: 14px;
     line-height: 16px;
     text-align: center;
 }
@@ -356,9 +510,9 @@
     align-items: center;
     /* background-color: yellowgreen; */
     width: 238px;
-    height: 43px;
+    height: 38px;
     position: relative;
-    bottom: 15px;
+    bottom: 20px;
     border-top: 1px solid #D9D9D9;
 }
 
@@ -368,7 +522,12 @@
     align-items: center;
 }
 
+.ereg span:nth-child(1){
+	margin-right: 4px;
+	margin-top: 2px;
+}
 .ereg > span{
+	font-family: 'NanumSquareNeo';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -381,6 +540,7 @@
     letter-spacing: -0.05em;
 
     color: #767676;
+    
 }
 
 .elist_official{
