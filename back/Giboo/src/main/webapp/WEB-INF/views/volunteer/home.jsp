@@ -135,7 +135,7 @@
 				</div>
 
 				<div class="container4">
-					<c:set var="url" value="?cp=" />
+					<c:set var="url" value="?category=${param.category}&cp=" />
 					<ul class="pagination">
 						<li class="first"><a href="${url}1${sURL}">&lt;&lt;</a></li>
 						<li class="prev"><a
@@ -176,49 +176,49 @@
 
 	<script>
 
-    const favoriteButton = document.getElementsByClassName("favoriteButton");
-    for (let i of favoriteButton) {
-        i.addEventListener("click", function() {
-            console.log("${loginMember.memberNo}");
-            console.log(i.id);
+    // const favoriteButton = document.getElementsByClassName("favoriteButton");
+    // for (let i of favoriteButton) {
+    //     i.addEventListener("click", function() {
+    //         console.log("${loginMember.memberNo}");
+    //         console.log(i.id);
 
             
 
-             $.ajax ({
-                 url: "addFavorite",
-                 data: {"memberNo" : ${loginMember.memberNo}, 
-                        "volunteerNo" : i.id ,
-                        "volunteerTitle" : i.dataset.title},
+    //          $.ajax ({
+    //              url: "addFavorite",
+    //              data: {"memberNo" : ${loginMember.memberNo}, 
+    //                     "volunteerNo" : i.id ,
+    //                     "volunteerTitle" : i.dataset.title},
                  
-                success: function(result) {
-                    if (result == "success") {
+    //             success: function(result) {
+    //                 if (result == "success") {
                         
-                        i.innerHTML = '❤️';
+    //                     i.innerHTML = '❤️';
                        
-                } else {
-                    i.innerHTML = '🤍'; 
-                }
-                }
-            })
+    //             } else {
+    //                 i.innerHTML = '🤍'; 
+    //             }
+    //             }
+    //         })
 
 
-            $.ajax ({
-                url: "deleteFavorite",
-                data: {"memberNo" : ${loginMember.memberNo}, 
-                       "volunteerNo" : i.id , 
-                       "volunteerTitle" : i.dataset.title},
+    //         $.ajax ({
+    //             url: "deleteFavorite",
+    //             data: {"memberNo" : ${loginMember.memberNo}, 
+    //                    "volunteerNo" : i.id , 
+    //                    "volunteerTitle" : i.dataset.title},
 
-                success: function(result) {
-                    if (result == "success") {
-                        i.innerHTML = '🤍'; 
-                    } else {
-                        i.innerHTML = "❤️";
-                    }
-                }
-            })
+    //             success: function(result) {
+    //                 if (result == "success") {
+    //                     i.innerHTML = '🤍'; 
+    //                 } else {
+    //                     i.innerHTML = "❤️";
+    //                 }
+    //             }
+    //         })
 
-        })
-    }
+    //     })
+    // }
 </script>
 
 	<script

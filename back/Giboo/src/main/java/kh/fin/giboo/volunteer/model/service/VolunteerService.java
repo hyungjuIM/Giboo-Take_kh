@@ -58,4 +58,6 @@ public interface VolunteerService {
 
 	VolunteerDetail getVolunteerDetail2(int volunteerNo2);
 
+	void updateVolunteerCount(int volunteerNo, int memberNo);
+
 }

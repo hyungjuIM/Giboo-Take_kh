@@ -35,4 +35,5 @@ public class VolunteerDetail {
     private String agencyName;
     private long dDay;
     private int percent;
+    private int favCount;
 }

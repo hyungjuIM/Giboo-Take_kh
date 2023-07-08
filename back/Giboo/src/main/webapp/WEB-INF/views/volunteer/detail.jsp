@@ -56,7 +56,7 @@
                                 <span id="volunteerCount">${volunteerDetail.volunteerCount}</span>명 참여중</span>
                             <span>
                                 <img src="${pageContext.request.contextPath}/resources/images/heart-regular.svg">
-                                <span id="recommendedCount">102</span>명 추천</span>
+                                <span id="recommendedCount">${volunteerDetail.favCount}</span>명 추천</span>
                         </div>
                     </div>
 
