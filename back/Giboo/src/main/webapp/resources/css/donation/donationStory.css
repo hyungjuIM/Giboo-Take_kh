@@ -28,7 +28,7 @@ a{
 
 /* section mainContainer */
 .mainContainer{
-    border: 1px solid pink;
+    /* border: 1px solid pink; */
 
     display: flex;
     justify-content: center;
@@ -40,7 +40,7 @@ a{
 }
 
 .mainCategoryArea {
-    background-color: #978AFF;
+    background-color: #00CA61;
     height: 80px;
     display: flex;
     justify-content: center;
@@ -60,7 +60,7 @@ a{
 
 .mainCategoryChecked {
     background-color: #fff;
-    color: #978AFF;
+    color: #00CA61;
     font-weight: bold;
 }
 
