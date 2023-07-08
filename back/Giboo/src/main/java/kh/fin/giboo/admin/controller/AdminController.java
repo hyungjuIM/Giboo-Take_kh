@@ -162,89 +162,89 @@ public class AdminController {
     
     
     
-//    @GetMapping("/eventWrite")
-//    public String eventWrite(
-//    		String mode, @RequestParam(value = "no", required = false, defaultValue = "0") int eventNo,
-//            Model model
-//    		) {
-//        logger.info("이벤트 작성폼");
-//
-//        if (mode.equals("update")) {
-//			EventDetail eventDetail = service.selectEventDetail(eventNo);
-//
-//			eventDetail.setEventContent(eventDetail.getEventContent().replaceAll("&quot;", "&#039;"));
-//
-//			String unescapedContent = StringEscapeUtils.unescapeHtml(eventDetail.getEventContent());
-//			eventDetail.setEventContent(unescapedContent);
-//
-//			model.addAttribute("eventDetail", eventDetail);
-//		}
-//        return "admin/eventWrite";
-//    }
-//    
-//    
-//    @ResponseBody
-//    @PostMapping("/uploadSNoticeImageFile")
-//    public String eventUploadImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
-//        JsonObject jsonObject = new JsonObject();
-//
-//        // String fileRoot = "C:\\Users\\cropr\\Desktop\\test"; // 외부경로로 저장을 희망할때.
-//
-//        // 내부경로로 저장
-//        String webPath = "/resources/images/fileupload/";
-//
-//        String fileRoot = request.getServletContext().getRealPath(webPath);
-//
-//        String originalFileName = multipartFile.getOriginalFilename();
-//        // String extension =
-//        // originalFileName.substring(originalFileName.lastIndexOf("."));
-//        String savedFileName = Util.fileRename(originalFileName);
-//
-//        File targetFile = new File(fileRoot + savedFileName);
-//        try {
-//            InputStream fileStream = multipartFile.getInputStream();
-//            FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
-//            jsonObject.addProperty("url", request.getContextPath() + webPath + savedFileName); // contextroot +
-//            // resources + 저장할 내부
-//            // 폴더명
-//            jsonObject.addProperty("responseCode", "success");
-//
-//        } catch (IOException e) {
-//            FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
-//            jsonObject.addProperty("responseCode", "error");
-//            e.printStackTrace();
-//        }
-//        String result = jsonObject.toString();
-//        System.out.println("================================================= 이미지 는?? : : " + result);
-//        return result;
-//    }
-//
-//    
-//    @PostMapping("/write")
-//    public String write(EventDetail eventDetail, 			   
-//    					@ModelAttribute("loginManager") Manager loginManager,
-//                        RedirectAttributes ra, HttpServletRequest req, String mode
-//                        ,@RequestParam(value="cp", required=false, defaultValue="1") int cp
-//                        ) {
-//        logger.info("이벤트 등록");
-//
-//        eventDetail.setManagerNo(loginManager.getManagerNo());
-//
-//        String path = null;
-//        String message = null;
-//
-//        if (mode.equals("insert")) {
-//            int eventNo = service.insertEvent(eventDetail);
-//            path = "../event/eventDetailMain/" + eventNo;
-//            logger.info("게시글 등록 성공");
-//        } else {
-//            int result = service.updateEvent(eventDetail);
-//            path = "../event/eventDetailMain/" + eventDetail.getEventNo() + "?cp=" + cp;
-//            logger.info("게시글 수정 성공");
-//        }
-//
-//        return "redirect:" + path;
-//    }
+    @GetMapping("/eventWrite")
+    public String eventWrite(
+    		String mode, @RequestParam(value = "no", required = false, defaultValue = "0") int eventNo,
+            Model model
+    		) {
+        logger.info("이벤트 작성폼");
+
+        if (mode.equals("update")) {
+			EventDetail eventDetail = service.selectEventDetail(eventNo);
+
+			eventDetail.setEventContent(eventDetail.getEventContent().replaceAll("&quot;", "&#039;"));
+
+			String unescapedContent = StringEscapeUtils.unescapeHtml(eventDetail.getEventContent());
+			eventDetail.setEventContent(unescapedContent);
+
+			model.addAttribute("eventDetail", eventDetail);
+		}
+        return "admin/eventWrite";
+    }
+    
+    
+    @ResponseBody
+    @PostMapping("/uploadSNoticeImageFile")
+    public String eventUploadImageFile(@RequestParam("file") MultipartFile multipartFile, HttpServletRequest request) {
+        JsonObject jsonObject = new JsonObject();
+
+        // String fileRoot = "C:\\Users\\cropr\\Desktop\\test"; // 외부경로로 저장을 희망할때.
+
+        // 내부경로로 저장
+        String webPath = "/resources/images/fileupload/";
+
+        String fileRoot = request.getServletContext().getRealPath(webPath);
+
+        String originalFileName = multipartFile.getOriginalFilename();
+        // String extension =
+        // originalFileName.substring(originalFileName.lastIndexOf("."));
+        String savedFileName = Util.fileRename(originalFileName);
+
+        File targetFile = new File(fileRoot + savedFileName);
+        try {
+            InputStream fileStream = multipartFile.getInputStream();
+            FileUtils.copyInputStreamToFile(fileStream, targetFile); // 파일 저장
+            jsonObject.addProperty("url", request.getContextPath() + webPath + savedFileName); // contextroot +
+            // resources + 저장할 내부
+            // 폴더명
+            jsonObject.addProperty("responseCode", "success");
+
+        } catch (IOException e) {
+            FileUtils.deleteQuietly(targetFile); // 저장된 파일 삭제
+            jsonObject.addProperty("responseCode", "error");
+            e.printStackTrace();
+        }
+        String result = jsonObject.toString();
+        System.out.println("================================================= 이미지 는?? : : " + result);
+        return result;
+    }
+
+    
+    @PostMapping("/write")
+    public String write(EventDetail eventDetail, 			   
+    					@ModelAttribute("loginManager") Manager loginManager,
+                        RedirectAttributes ra, HttpServletRequest req, String mode
+                        ,@RequestParam(value="cp", required=false, defaultValue="1") int cp
+                        ) {
+        logger.info("이벤트 등록");
+
+        eventDetail.setManagerNo(loginManager.getManagerNo());
+
+        String path = null;
+        String message = null;
+
+        if (mode.equals("insert")) {
+            int eventNo = service.insertEvent(eventDetail);
+            path = "../event/eventDetailMain/" + eventNo;
+            logger.info("게시글 등록 성공");
+        } else {
+            int result = service.updateEvent(eventDetail);
+            path = "../event/eventDetailMain/" + eventDetail.getEventNo() + "?cp=" + cp;
+            logger.info("게시글 수정 성공");
+        }
+
+        return "redirect:" + path;
+    }
 
     
 }

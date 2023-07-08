@@ -41,7 +41,7 @@ a{
     justify-content: center;
     align-items: center;	
 
-	border: 1px solid red;
+	/* border: 1px solid red; */
 }
     
 
@@ -57,7 +57,7 @@ a{
     margin-inline: 8px;
     border-radius: 20px;
     
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
      display: flex;
     justify-content: center;
     align-items: center;	
@@ -219,13 +219,13 @@ ul li.prev{
 .egroup_catalog{
 	
 	
-   border: 1px solid red;
+   /* border: 1px solid red; */
 }
 
 .elist_official{
     /* background-color: yellowgreen; */
     height: auto;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 
 /* .elist_official > li{
