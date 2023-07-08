@@ -239,19 +239,10 @@ public class EventServiceImpl implements EventService{
 		return dao.deleteStamps(memberNo);
 	}
 
-//	@Override
-//	public boolean getEventStatus(int eventNo) {
-//		return dao.getEventStatus(eventNo);
-//	}
-
-
-
-
-
-
-
-
-
+	@Override
+	public boolean getEventStatus(int memberNo, int eventNo) {
+		return dao.getEventStatus(memberNo);
+	}
 
 
 
