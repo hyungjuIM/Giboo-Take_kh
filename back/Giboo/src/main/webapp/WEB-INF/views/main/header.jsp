@@ -46,7 +46,9 @@
 				<div class="headerContent">
 					<div class="logo">
 						<a href="${pageContext.request.contextPath}/main">
-							<div><img src="${pageContext.request.contextPath}/resources/images/hunnyLogo/hunnyLogoflat.png" alt=""></div>
+
+							<div class="logoImg"><img src="${pageContext.request.contextPath}/resources/images/hunnyLogo/hunnyLogoFlat.png"></div>
+
 						</a>
 
 					</div>
