@@ -212,5 +212,11 @@ public class VolunteerServiceImpl implements VolunteerService {
 		return dao.getVolunteerDetail2(volunteerNo2);
 	}
 
+	@Override
+	public void updateVolunteerCount(int volunteerNo, int memberNo) {
+		dao.updateVolunteerCount(volunteerNo,memberNo);
+		
+	}
+
     
 }
