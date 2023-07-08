@@ -200,7 +200,7 @@
           const parts = url.split('/');
           const volunteerNo = parseInt(parts[parts.length - 1]);
       
-          if (!empty loginMember) {
+          if ("${!empty loginMember}") {
             alert("봉사 참여를 하시겠습니까?");
             $.ajax({
               url: "../doVolunteer",
