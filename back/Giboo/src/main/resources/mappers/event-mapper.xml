@@ -436,19 +436,15 @@
 		MEMBER_NO = #{memberNo}
 	</delete>
 
-	<!-- 종료된 이벤트 여부 확인 -->
-	<!-- <select id="getEventStatus" resultType="boolean">
-		 SELECT CASE
-		WHEN COUNT(*) > 0 THEN 1
+	
+	 <select id="getEventStatus" resultType="booleans">
+		SELECT CASE
+		WHEN COUNT(*) &gt; 0 THEN 1
 		ELSE 0
 		END AS IS_ENDED
 		FROM EVENT
 		WHERE EVENT_NO = #{eventNo}
-		AND TRUNC(END_RECRUIT_DATE) <= TRUNC(CURRENT_TIMESTAMP) 
-	</select> -->
-
-
-
-
+		AND TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP) 
+	</select> 
 
 </mapper>

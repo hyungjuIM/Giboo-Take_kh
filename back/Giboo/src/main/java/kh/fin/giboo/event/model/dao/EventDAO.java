@@ -186,6 +186,14 @@ public class EventDAO {
 		return sqlSession.delete("event-mapper.deleteStamps", memberNo);
 	}
 
+	public boolean getEventStatus(int eventNo) {
+		Boolean result = sqlSession.selectOne("event-mapper.getEventStatus", eventNo);
+	    if (result == null) {
+	        return false;
+	    }
+	    return result;
+	}
+
 //	public boolean getEventStatus(int eventNo) {
 //		Boolean result = sqlSession.selectOne("event-mapper.getEventStatus", eventNo);
 //	    if (result == null) {
@@ -193,6 +201,8 @@ public class EventDAO {
 //	    }
 //	    return result;
 //	}
+
+
 
 
 
