@@ -73,15 +73,16 @@
 					기부 <span class="contentCount" id="contentCount">${donationListCount}</span>개
 				</h4>
 
+				<script>
+					console.log("${param.sort}");
+				</script>
+
 					<div id="sortingArea" class="sortingArea">
 						<select class="sortingButton" id="sortingButton">
-						종료임박 순
 							<img src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
-							<option value="expired">종료임박 순</option>
-							<option value="recommended">추천 순</option>
 							<option value="new">최신 순</option>
-							<option value="participantsDesc">참여자 많은 순</option>
-							<option value="participantsAsc">참여자 적은 순</option>
+							<option value="old" <c:if test="${param.sort} == old">selected</c:if>>오래된 순</option>
+							<option value="favorite">즐겨찾기 순</option>
 						</select>
 					</div>
 				</div>
