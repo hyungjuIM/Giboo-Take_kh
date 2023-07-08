@@ -437,14 +437,6 @@
 	</delete>
 
 	
-	 <select id="getEventStatus" resultType="booleans">
-		SELECT CASE
-		WHEN COUNT(*) &gt; 0 THEN 1
-		ELSE 0
-		END AS IS_ENDED
-		FROM EVENT
-		WHERE EVENT_NO = #{eventNo}
-		AND TRUNC(END_RECRUIT_DATE) &lt;= TRUNC(CURRENT_TIMESTAMP) 
-	</select> 
+
 
 </mapper>
