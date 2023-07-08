@@ -436,7 +436,4 @@
 		MEMBER_NO = #{memberNo}
 	</delete>
 
-	
-
-
 </mapper>
