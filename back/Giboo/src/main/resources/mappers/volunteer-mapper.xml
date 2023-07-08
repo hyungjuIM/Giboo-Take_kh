@@ -320,7 +320,7 @@
 	   FROM REPLY R
 	   JOIN MEMBER M ON M.MEMBER_NO = R.MEMBER_NO 
 	   WHERE VOLUNTEER_NO = #{volunteerNo}
-	   ORDER BY R.REPLY_NO DESC
+	    ORDER BY R.REPLY_NO DESC
 	</select>
 
     <select id="selectmVolunteerList" resultMap="volunteer_rm">

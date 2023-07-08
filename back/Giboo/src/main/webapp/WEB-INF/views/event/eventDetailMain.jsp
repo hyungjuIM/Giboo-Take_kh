@@ -172,9 +172,7 @@
 			<div class="E_popup_bottom">
 				<div class="E_popup_cont10">
 					<div class="outCircle">
-						<img
-							src="${pageContext.request.contextPath}${eventDetailTop.attachment}"
-							alt="">
+						<img src="${pageContext.request.contextPath}${eventDetailTop.attachment}" alt="">
 					</div>
 				</div>
 				<div class="E_popup_cont11">
