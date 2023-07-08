@@ -209,6 +209,7 @@
 							<span id="shareCount">508</span> <span>명 공유</span>
 						</div>
 					</div> -->
+					<c:if test=""></c:if>
 					<div class="modify_tag_box">
 						<a class="modify_tag"
 							href="${pageContext.request.contextPath}/donation/write?mode=update&no=${donationDetail.donationNo}">수정</a>

@@ -85,18 +85,17 @@
                             </div>
                         </div>
 
-                        <div class="agencyDescription">존엄한 생명으로서 그들의 본연의 삶을 영위하고,<br>
-                            모든 생명의균형과 조화 속에 공존하는 세상을 지향합니다.</div>
-                        <a class="agencyLink" href="">사이트 방문하기
-                            <img class="agencyLinkImg" src="${pageContext.request.contextPath}/resources/images/chevron-right-solid.svg"></a>
+                        <div class="agencyDescription">존엄한 생명으로서 그들의 본연의 삶을 영위하고,<br>모든 생명의균형과 조화 속에 공존하는 세상을 지향합니다.</div>
+                        <a class="agencyLink" href="">사이트 방문하기<img class="agencyLinkImg" src="${pageContext.request.contextPath}/resources/images/chevron-right-solid.svg"></a>
                     </div>
+
                 <div class="big_Con">
                     <div class="commentHeader">
                         <img class="commentTitleImg" src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                         <span id="name">${volunteerDetail.volunteerTitle}</span>에게 응원의 메시지를 남겨주세요
                     </div>
                     <div class="commentArea">
-                        
+
                         <ul class="commentUl">
                             <c:forEach var="replyList" items="${reply}">
                                 <li class="commentLi">
@@ -120,7 +119,7 @@
                                 </li>
                             </c:forEach>
                         </ul>
-                        
+
                     </div>
                     <div class="textarea-wrapper">
                         <textarea id="replyContent" placeholder="응원의 댓글을 남겨주세요"></textarea>
@@ -128,20 +127,21 @@
                       <button class="commentSubmit" id="cheeringButton">응원하기</button>
                     <!-- <textarea id="replyContent"></textarea>
                         <button class="commentSubmit" id="cheeringButton">응원하기</button> -->
-                        
+
                         <div class="commentInfo">
                             <img src="${pageContext.request.contextPath}/resources/images/comment-regular.svg">
                             <span id="commentCount">${memberCount}</span>
                             <span>명 응원중</span>
                         </div>
-                       
+
                     </div>
-    
+
 
                     <div class="modify_tag_box">
 						<a class="modify_tag"
 							href="${pageContext.request.contextPath}/volunteer/write?mode=update&no=${volunteerDetail.volunteerNo}">수정</a>
 					</div>
+                </div>
                 
             </section>
 

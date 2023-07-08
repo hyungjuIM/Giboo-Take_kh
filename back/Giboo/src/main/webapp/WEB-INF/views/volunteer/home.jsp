@@ -75,14 +75,10 @@
 					</h4>
 
 					<div id="sortingArea" class="sortingArea">
-						<select class="sortingButton" id="sortingButton"> 종료임박 순
-							<img
-							src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
-							<option value="expired">종료임박 순</option>
-							<option value="recommended">추천 순</option>
+						<select class="sortingButton" id="sortingButton"> 최신 순
+							<img src="${pageContext.request.contextPath}/resources/images/chevron-down-solid.svg">
 							<option value="new">최신 순</option>
-							<option value="participantsDesc">참여자 많은 순</option>
-							<option value="participantsAsc">참여자 적은 순</option>
+							<option value="favorite">즐겨찾기 순</option>
 						</select>
 					</div>
 					</div>
@@ -175,7 +171,6 @@
 	</footer>
 
 	<script>
-
     const favoriteButton = document.getElementsByClassName("favoriteButton");
     for (let i of favoriteButton) {
         i.addEventListener("click", function() {

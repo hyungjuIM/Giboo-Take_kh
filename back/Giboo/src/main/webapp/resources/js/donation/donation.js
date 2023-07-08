@@ -3,6 +3,12 @@ const button = document.getElementsByClassName("button");
 //const favoriteButton = document.getElementsByClassName("favoriteButton");
 const all = document.getElementById("all");
 
+const sortingButton = document.getElementById("sortingButton");
+
+sortingButton.addEventListener("change", () => {
+    location.href = "home?sort=" + sortingButton.value;
+})
+
 const searchParams = new URLSearchParams(location.search);
 const category = searchParams.get('category');
 const categoryNo = "category" + category;
