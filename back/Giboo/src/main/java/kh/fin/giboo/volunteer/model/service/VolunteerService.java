@@ -60,4 +60,6 @@ public interface VolunteerService {
 
 	void updateVolunteerCount(int volunteerNo, int memberNo);
 
+	int getCount();
+
 }

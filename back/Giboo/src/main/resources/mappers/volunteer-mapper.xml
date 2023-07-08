@@ -364,5 +364,8 @@ WHERE ROWNUM &lt;= 6
         AND VOLUNTEER_DELETE_STATUS = 'N'
         AND V.AGENCY_NO = A.AGENCY_NO
     </select>
-
+	<select id="getVolCount" resultType="java.lang.Integer">
+		SELECT SUM(VIEW_COUNT)
+		FROM VOLUNTEER
+	</select>
 </mapper>
