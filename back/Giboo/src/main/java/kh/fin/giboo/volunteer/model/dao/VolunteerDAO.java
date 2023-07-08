@@ -162,4 +162,8 @@ public class VolunteerDAO {
 		sqlSession.update("volunteerMapper.updateVolunteerCount", params);
 		
 	}
+
+	public int getCount() {
+		return sqlSession.selectOne("volunteerMapper.getVolCount");
+	}
 }
