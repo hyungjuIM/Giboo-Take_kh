@@ -154,4 +154,16 @@ public class VolunteerDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne("volunteerMapper.getVolunteerDetail2", volunteerNo2);
 	}
+
+	public void updateVolunteerCount(int volunteerNo, int memberNo) {
+		Map<String, Integer> params = new HashMap<>();
+		params.put("volunteerNo", volunteerNo);
+		params.put("memberNo", memberNo);
+		sqlSession.update("volunteerMapper.updateVolunteerCount", params);
+		
+	}
+
+	public int getCount() {
+		return sqlSession.selectOne("volunteerMapper.getVolCount");
+	}
 }

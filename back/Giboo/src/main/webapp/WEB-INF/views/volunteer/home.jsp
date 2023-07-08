@@ -135,7 +135,7 @@
 				</div>
 
 				<div class="container4">
-					<c:set var="url" value="?cp=" />
+					<c:set var="url" value="?category=${param.category}&cp=" />
 					<ul class="pagination">
 						<li class="first"><a href="${url}1${sURL}">&lt;&lt;</a></li>
 						<li class="prev"><a
