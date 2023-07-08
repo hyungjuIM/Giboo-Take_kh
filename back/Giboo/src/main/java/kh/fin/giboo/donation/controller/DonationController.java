@@ -295,13 +295,10 @@ public class DonationController {
 	      }
 	      String don = jsonObject.toString();
 	      String donationAttachment = jsonObject.get("url").getAsString();
-    System.out.println(donationAttachment);
-    detail.setDonationAttachment(donationAttachment);
+	      detail.setDonationAttachment(donationAttachment);
 
-//        detail.setDonationAttachment(detail.getDonationAttachment().replace("C:\\fakepath\\", "/resources/images/fileupload/"));
 
         if (mode.equals("insert")) {
-//            int donationNo = service.insertDonation(detail,webPath,folderPath,uploadImage);
             int donationNo = service.insertDonation(detail);
             path = "../donation/detail/" + donationNo;
             logger.info("게시글 등록 성공");
