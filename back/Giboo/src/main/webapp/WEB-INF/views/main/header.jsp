@@ -46,7 +46,7 @@
 				<div class="headerContent">
 					<div class="logo">
 						<a href="${pageContext.request.contextPath}/main">
-							<div>여기는 로고자리올시다</div>
+							<div><img src="${pageContext.request.contextPath}/resources/images/hunnyLogo/hunnyLogoflat.png" alt=""></div>
 						</a>
 
 					</div>

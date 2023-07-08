@@ -19,7 +19,7 @@
 			<div class="footerContent">
 				<div class="footerContent1">
 					<!-- 로고 -->
-					<div class="footerLogoContainer">로고 자리</div>
+					<div class="footerLogoContainer"><img src="${pageContext.request.contextPath}/resources/images/hunnyLogo/hunnyLogo.png" alt=""></div>
 					<!-- 우리이야기, 개인정보 etc -->
 					<div class="footerMainContainer">
 						<div class="footerMain">
