@@ -97,8 +97,11 @@ public class MainController {
 	//메인 페이지 봉사인원 카운트
 	@ResponseBody
 	@GetMapping("/volCount")
-    public int getCount() {
-        return countService.getCount();
+    public String getCount() {
+		DecimalFormat df = new DecimalFormat("###,###");
+		int result =volService.getCount();
+		String res = df.format(result);
+        return res;
     }
 	@ResponseBody
 	@GetMapping("/volMoney")

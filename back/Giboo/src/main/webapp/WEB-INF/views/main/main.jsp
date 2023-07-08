@@ -482,7 +482,7 @@
                     var xhr = new XMLHttpRequest();
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 200) {
-                            var volCount = JSON.parse(xhr.responseText);
+                            var volCount = xhr.responseText;
                             document.getElementById("volCount").textContent = volCount;
                         }
                     };

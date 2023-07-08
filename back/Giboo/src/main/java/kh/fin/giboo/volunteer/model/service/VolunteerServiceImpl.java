@@ -218,5 +218,9 @@ public class VolunteerServiceImpl implements VolunteerService {
 		
 	}
 
+	@Override
+	public int getCount() {
+		 return dao.getCount();
+	}
     
 }
