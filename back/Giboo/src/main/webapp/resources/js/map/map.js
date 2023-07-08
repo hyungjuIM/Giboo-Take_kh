@@ -93,7 +93,7 @@ geocoder.coord2Address(lon, lat, function(result, status) {
             <div class="popup">
                 <div class="popup-inner">
                     <div class="popup-content">
-                        <h3>현재 위치</h3>
+                        <h3>🙋‍♀️현재 위치</h3>
                         <p>${address}</p>
                     </div>
                 </div>
