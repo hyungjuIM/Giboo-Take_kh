@@ -22,7 +22,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -61,6 +60,7 @@ public class DonationController {
     @GetMapping("/home")
     public String home(@RequestParam(value = "category", required = false, defaultValue = "0") int category,
                        @RequestParam(value = "cp", required = false, defaultValue = "1") int cp,
+                       @RequestParam(value = "sort", required = false) String sort,
                        Model model, HttpSession session) {
         logger.info("기부페이지 메인");
 
@@ -72,11 +72,9 @@ public class DonationController {
             model.addAttribute("memberNo", memberNo);
             model.addAttribute("favoriteList", favoriteList);
         }
-        
-        
-        
-        
+
         model.addAttribute("category", category);
+        model.addAttribute("sort", sort);
 
         Map<String, Object> map = null;
         map = service.selectDonationList(category, cp, model);
@@ -295,13 +293,10 @@ public class DonationController {
 	      }
 	      String don = jsonObject.toString();
 	      String donationAttachment = jsonObject.get("url").getAsString();
-    System.out.println(donationAttachment);
-    detail.setDonationAttachment(donationAttachment);
+	      detail.setDonationAttachment(donationAttachment);
 
-//        detail.setDonationAttachment(detail.getDonationAttachment().replace("C:\\fakepath\\", "/resources/images/fileupload/"));
 
         if (mode.equals("insert")) {
-//            int donationNo = service.insertDonation(detail,webPath,folderPath,uploadImage);
             int donationNo = service.insertDonation(detail);
             path = "../donation/detail/" + donationNo;
             logger.info("게시글 등록 성공");

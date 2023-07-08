@@ -220,6 +220,7 @@
                     <div class="main_sub_title title_style">
                         <p>Donation</p>
                         <h3 class="sub_title">당신의 관심 한번이 많은 사람을 구합니다.</h3>
+                        
                     </div>
                     <div class="do_blur_box1"></div>
                     <div class="do_blur_box2"></div>
@@ -481,7 +482,7 @@
                     var xhr = new XMLHttpRequest();
                     xhr.onreadystatechange = function () {
                         if (xhr.readyState === 4 && xhr.status === 200) {
-                            var volCount = JSON.parse(xhr.responseText);
+                            var volCount = xhr.responseText;
                             document.getElementById("volCount").textContent = volCount;
                         }
                     };

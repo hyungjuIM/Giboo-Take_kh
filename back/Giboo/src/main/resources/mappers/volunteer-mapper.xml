@@ -25,6 +25,7 @@
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
         <result property="favVolunteerNo" column="VOLUNTEER_NO" />
+        <result property="favCount" column="FAVORITE_COUNT" />
     </resultMap>
 
     <resultMap id="volunteerDetail_rm" type="volunteerDetail">
@@ -51,6 +52,7 @@
         <result property="parentCategoryNo" column="PARENT_CATEGORY_NO" />
         <result property="parentCategoryName" column="PARENT_CATEGORY_NAME" />
         <result property="agencyName" column="AGENCY_NAME" />
+        <result property="favCount" column="FAVORITE_COUNT" />
     </resultMap>
 
     <resultMap id="parentCategory_rm" type="parentCategory" >
@@ -141,12 +143,15 @@
     </select>
 
     <select id="getVolunteerDetail" resultMap="volunteerDetail_rm">
-        SELECT VOLUNTEER_NO, VOLUNTEER_TITLE, VOLUNTEER_CONTENT, START_RECRUIT_DATE, END_RECRUIT_DATE, START_PROGRESS_DATE, END_PROGRESS_DATE,
-               TARGET_PEOPLE, VOLUNTEER_COUNT, AGENCY_NAME, PARENT_CATEGORY_NO, VOLUNTEER_ADDR, VOLUNTEER_ATTACHMENT
-        FROM VOLUNTEER V, AGENCY A
-        WHERE VOLUNTEER_NO = ${volunteerNo}
-        AND VOLUNTEER_DELETE_STATUS = 'N'
-        AND V.AGENCY_NO = A.AGENCY_NO
+        SELECT V.VOLUNTEER_NO, V.VOLUNTEER_TITLE, V.VOLUNTEER_CONTENT, V.START_RECRUIT_DATE, V.END_RECRUIT_DATE, V.START_PROGRESS_DATE, V.END_PROGRESS_DATE,
+		V.TARGET_PEOPLE, V.VOLUNTEER_COUNT, A.AGENCY_NAME, V.PARENT_CATEGORY_NO, V.VOLUNTEER_ADDR, V.VOLUNTEER_ATTACHMENT, COUNT(F.FAVORITE_NO) AS FAVORITE_COUNT
+		FROM VOLUNTEER V
+		JOIN AGENCY A ON V.AGENCY_NO = A.AGENCY_NO
+		LEFT JOIN FAVORITES F ON V.VOLUNTEER_NO = F.VOLUNTEER_NO
+		WHERE V.VOLUNTEER_NO = ${volunteerNo}
+		AND V.VOLUNTEER_DELETE_STATUS = 'N'
+		GROUP BY V.VOLUNTEER_NO, V.VOLUNTEER_TITLE, V.VOLUNTEER_CONTENT, V.START_RECRUIT_DATE, V.END_RECRUIT_DATE, V.START_PROGRESS_DATE, V.END_PROGRESS_DATE,
+        V.TARGET_PEOPLE, V.VOLUNTEER_COUNT, A.AGENCY_NAME, V.PARENT_CATEGORY_NO, V.VOLUNTEER_ADDR, V.VOLUNTEER_ATTACHMENT
     </select>
     
     <select id= "getReply" resultMap="reply_rm">
@@ -267,6 +272,13 @@
                 ${memberNo}
                )
     </insert>
+    
+    <update id="updateVolunteerCount">
+    	UPDATE VOLUNTEER SET
+    	VOLUNTEER_COUNT = VOLUNTEER_COUNT+1
+    	WHERE VOLUNTEER_NO = ${volunteerNo}
+    	
+    </update>
 
     <update id="updateStory">
         UPDATE VOLUNTEER_STORY
@@ -294,7 +306,7 @@
 
     <insert id="insertReply">
     INSERT INTO REPLY (REPLY_NO, REPLY_CONTENT, MEMBER_NO, VOLUNTEER_NO) 
-    VALUES (SEQ_REPLY_NO_S.NEXTVAL, #{replyContent}, ${memberNo}, ${volunteerNo})
+    VALUES (SEQ_REPLY_NO.NEXTVAL, #{replyContent}, ${memberNo}, ${volunteerNo})
     </insert>
     
     <select id="selectReplyList" resultMap="reply_rm">
@@ -352,5 +364,8 @@ WHERE ROWNUM &lt;= 6
         AND VOLUNTEER_DELETE_STATUS = 'N'
         AND V.AGENCY_NO = A.AGENCY_NO
     </select>
-
+	<select id="getVolCount" resultType="java.lang.Integer">
+		SELECT SUM(VIEW_COUNT)
+		FROM VOLUNTEER
+	</select>
 </mapper>
