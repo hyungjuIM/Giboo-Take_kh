@@ -386,26 +386,26 @@ public class EventController {
 
 	   
 	   // 종료된 이벤트는 참여못하게
-	   @ResponseBody
-	   @PostMapping(value = "/getEventStatus")
-	    public Map<String, Object> getEventStatus(@RequestParam("memberNo") int memberNo,
-		        @RequestParam("eventNo") int eventNo,
-		        HttpServletRequest request,
-		        @ModelAttribute("loginMember") Member loginMember) {
-
-		   Map<String, Object> response = new HashMap<>();
-
-		   boolean eventStatus = service.getEventStatus(loginMember.getMemberNo(), eventNo);
-	        
-			if(eventStatus) {
-				String message = "종료된 이벤트 입니다";
-				response.put("eventStatus", true);
-				response.put("message", message);    
-			}else {
-				response.put("eventStatus", false);
-			}
-	        return response;
-	    }
+//	   @ResponseBody
+//	   @PostMapping(value = "/getEventStatus")
+//	    public Map<String, Object> getEventStatus(@RequestParam("memberNo") int memberNo,
+//		        @RequestParam("eventNo") int eventNo,
+//		        HttpServletRequest request,
+//		        @ModelAttribute("loginMember") Member loginMember) {
+//
+//		   Map<String, Object> response = new HashMap<>();
+//
+//		   boolean eventStatus = service.getEventStatus(loginMember.getMemberNo(), eventNo);
+//	        
+//			if(eventStatus) {
+//				String message = "종료된 이벤트 입니다";
+//				response.put("eventStatus", true);
+//				response.put("message", message);    
+//			}else {
+//				response.put("eventStatus", false);
+//			}
+//	        return response;
+//	    }
 	
 	
 	

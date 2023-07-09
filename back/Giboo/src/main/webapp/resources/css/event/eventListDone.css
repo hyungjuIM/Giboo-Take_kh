@@ -8,6 +8,10 @@
 	padding: 0;
 }
 
+.event-pagination-area{
+    margin-bottom: 50px;
+}
+
 body {
 	margin: 0;
 	background-color: white;
