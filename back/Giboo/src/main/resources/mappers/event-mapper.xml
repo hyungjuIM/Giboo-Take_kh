@@ -437,8 +437,8 @@
 	</delete>
 
 
-	
-	 <select id="getEventStatus" resultType="boolean">
+	<select id="getEventStatus" resultType="boolean">
+
 		SELECT CASE
 		WHEN COUNT(*) &gt; 0 THEN 1
 		ELSE 0
