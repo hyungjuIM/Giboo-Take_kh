@@ -52,7 +52,7 @@
                             <tbody>
                                 <tr class="menuTitle">
                                     <td>검색</td>
-                                    <td></td>
+                            
                                 </tr>
 
                                 <tr class="menuItem">

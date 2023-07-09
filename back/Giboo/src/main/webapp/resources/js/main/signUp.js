@@ -21,6 +21,7 @@ memberEmail.addEventListener("input", function () {
     //입력이 되지 않은 경우
     if (memberEmail.value.length == 0) {
         emailMessage.innerText = "이메일을 입력해주세요.";
+        
         emailMessage.classList.remove("confirm", "error");
         checkObj.memberEmail = false; //유효 x 기록
         return;

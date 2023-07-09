@@ -55,6 +55,7 @@ a{
     padding-top: 60px;
     box-shadow: 5px 0 10px 0px rgba(0, 0, 0, 0.15);
     z-index: 1;
+    height: 700px;
 }
 
 .profileImageArea {
@@ -80,6 +81,7 @@ a{
 .managerNickname {
     color: #BDBDBD;
     font-size: 18px;
+    margin-bottom: 10px;
 }
 
 .welcomeMessage {
@@ -152,12 +154,17 @@ a{
 }
 
 .menuBox {
-    border: 1px solid #BDBDBD;
+	
     border-radius: 20px;
-    padding: 10px;
+    padding: 8px 12px;
     border-spacing: 8px 0;
     margin-right: 20px;
     box-shadow: 2px 2px 10px #0000002A;
+    
+    margin-bottom: 34px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .menuTitle {
@@ -165,15 +172,20 @@ a{
     height: 30px;
     font-size: 14px;
     font-weight: bold;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   	widht: 100%;
+   	margin-bottom: 8px;
+    
 }
 
-.menuItem {
-    height: 35px;
-}
+
 
 .searchOptionArea {
     text-align: center;
-    border: 1px solid #BDBDBD;
+
     border-radius: 20px;
     padding: 4px 8px;
     box-shadow: 2px 2px 10px #0000002A;
@@ -182,6 +194,7 @@ a{
 #searchOption {
     border: 0;
     outline: none;
+    margin-right: 80x;
 }
 
 #inputSearch {
@@ -193,19 +206,37 @@ a{
     background-color: unset;
     border: 0;
     cursor: pointer;
+    margin-right: 2px;
 }
 
 .resetSearch {
     background-color: unset;
-    border: 1px solid #BDBDBD;
+   border: none;
+   margin-left: 8px;
     border-radius: 20px;
     height: 35px;
     padding: 4px 10px;
     font-size: 14px;
     box-shadow: 2px 2px 10px #0000002A;
     transition-duration: 250ms;
+    
 }
-
+.rateBtn {
+    display: flex;
+    margin-left: 10px;
+    background-color: unset;
+    border-radius: 20px;
+    padding-inline: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 2px 2px 10px #0000002A;
+    transition-duration: 250ms;
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    align-items: center;
+    height: 90px;
+} 
 .crateFaq {
     background-color: unset;
     border: 1px solid #BDBDBD;
@@ -215,6 +246,7 @@ a{
     font-weight: bold;
     box-shadow: 2px 2px 10px #0000002A;
     transition-duration: 250ms;
+    height: 90px;
 }
 
 .listTable {
