@@ -67,7 +67,7 @@
                                     <input type="text" id="signUpId" name="memberId" class="id" maxlength="20"
                                         placeholder="사용자 아이디">
                                 </div>
-                                <span id="idMessage">영어/숫자/한글 2~20글자 사이로 입력해주세요.</span>
+                                <span class="signUpMessage" id="idMessage">영어/숫자/한글 2~20글자 사이로 입력해주세요.</span>
                             </div>
 
                             <!-- 이메일 -->
@@ -92,7 +92,7 @@
                                     <button type="button" id="McBtn">인증하기</button>
                                 </div>
 
-                                <span class="signUpMessage" id="emailCfMessage">인증번호를 입력해주세요.</span>
+                                <span class="signUpMessage signUpMessage" id="emailCfMessage">인증번호를 입력해주세요.</span>
                             </div>
 
 
@@ -106,7 +106,7 @@
                                         placeholder="비밀번호">
 
                                 </div>
-                                <span class="signUpw1Message" id="signUpw1Message">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로
+                                <span class="signUpw1Message signUpMessage" id="signUpw1Message">영어, 숫자, 특수문자(!,@,#,-,_) 6~30글자 사이로
                                     입력해주세요.</span>
                             </div>
 
@@ -116,7 +116,7 @@
                                     <span><i class="fa-solid fa-lock"></i></span>
                                     <input type="password" id="signUpw2" class="int" placeholder="비밀번호 확인">
                                 </div>
-                                <span class="signUpw2Message" id="signUpw2Message">비밀번호가 일치하지 않습니다.</span>
+                                <span class="signUpw2Message signUpMessage" id="signUpw2Message">비밀번호가 일치하지 않습니다.</span>
                             </div>
 
                             <!-- 닉네임 -->
@@ -126,7 +126,7 @@
                                     <input type="text" id="signUpNickname" name="memberNick" class="nick" maxlength="10"
                                         placeholder="닉네임 확인">
                                 </div>
-                                <span class="signUpNicknameMessage" id="signUpNicknameMessage">영어/숫자/한글 2~10글자 사이로
+                                <span class="signUpNicknameMessage signUpMessage" id="signUpNicknameMessage">영어/숫자/한글 2~10글자 사이로
                                     입력해주세요.</span>
                             </div>
 
@@ -138,7 +138,7 @@
                                         placeholder="전화번호(-없이 숫자만 입력)">
                                 </div>
 
-                                <span id="signUpTelMessage">전화번호를 입력해주세요.(- 제외)</span>
+                                <span id="signUpTelMessage signUpMessage">전화번호를 입력해주세요.(- 제외)</span>
                             </div>
 
 
